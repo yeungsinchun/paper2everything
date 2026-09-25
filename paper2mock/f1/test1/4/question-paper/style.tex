@@ -1,0 +1,262 @@
+% ============================================================
+% style.tex - Shared preamble, macros and layout definitions
+% Adapted from DSE-latex/Maths for HKTA THMSS F.1 First Test
+% ============================================================
+
+\usepackage[a4paper,top=25mm,bottom=22mm,left=25mm,right=22mm,headsep=5mm,footskip=0mm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}  % Required for helvet/mathptmx shapes to resolve under LuaLaTeX
+\usepackage{helvet}
+\usepackage{mathptmx}  % Times New Roman for text and math
+\usepackage{pgfcore}
+\usepackage{atbegshi}  % Better page shipout control than everypage
+\usepackage{etoolbox}    % \ifstrempty for subparts empty-stem check
+
+% Default font is Times New Roman (overridden for the cover page, which uses Helvetica)
+
+% ---- Colours ----
+\definecolor{stripeblack}{gray}{0.0}
+\definecolor{rulegray}{gray}{0.6}
+
+% ---- Centralised customisation settings ----
+% All paper-specific text and metadata live in config.tex.
+\input{config}
+
+% ------------------------------------------------------------
+% Top-left slanted (parallelogram) label + thin left vertical rule
+% The strip is WHITE with a thin black border; text is black.
+% ------------------------------------------------------------
+\newcommand{\DrawCornerStrip}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % Slanted black line
+    \draw[black,line width=1.1mm]
+      ([xshift=57mm,yshift=-4mm]current page.north west) --
+      ([xshift=4mm,yshift=-57mm]current page.north west);
+
+    % Black text on the slanted strip
+    \node[black,font=\bfseries\small,anchor=west]
+      at ([xshift=8mm,yshift=-25mm]current page.north west)
+      {\begin{tabular}{@{}l@{}}\PaperCode\\\PaperSubjLine \vspace{2mm} \\  \textmd{\PaperType}\end{tabular}};
+  \end{tikzpicture}%
+}
+
+% ------------------------------------------------------------
+% Answer space: n ruled lines. Lines span the full text width
+% (the geometry package provides the 5mm right padding inside
+% the border).
+% ------------------------------------------------------------
+\newlength{\AnswerLineWidth}
+\AtBeginDocument{\setlength{\AnswerLineWidth}{\linewidth}}
+\newcommand{\answerlines}[1]{%
+  \par\vspace{2mm}
+  \foreach \i in {1,...,#1}{%
+    \vspace{7mm}\noindent\rule{\AnswerLineWidth}{0.2pt}\par
+  }%
+}
+
+% ------------------------------------------------------------
+% \question{N}{M}: sets the current question number and mark value,
+% then writes the inline header "N. " and stores M in the deferred
+% marks slot. The stem (if any) follows inline.
+% ------------------------------------------------------------
+\newlength{\QuestionTextIndent}
+
+\newcommand{\question}[2]{%
+  \par\vspace{5mm}%
+  \noindent
+  \settowidth{\QuestionTextIndent}{\textbf{#1.}\hspace{0.8em}}%
+  \hangindent=\QuestionTextIndent\hangafter=1\relax
+  \hbox to \QuestionTextIndent{\textbf{#1.}\hspace{0.5em}}%
+  \ignorespaces
+  \gdef\CurrentQuestionNumber{#1}%
+  \gdef\CurrentQuestionMarks{(#2 marks)}%
+}
+
+% Stash for the current question's number (used by \subparts) and
+% marks (used by \finishquestion / end of \subparts).
+\makeatletter
+\gdef\CurrentQuestionNumber{}%
+\gdef\CurrentQuestionMarks{}%
+\makeatother
+
+% ------------------------------------------------------------
+% \subparts: enumerate-style block with labels (a), (b), ...
+%
+% Usage (call \question{N}{M} first to set the number and marks):
+%
+%   \begin{subparts}                % first \item takes the stem position
+%     \item ...
+%     \item ...
+%   \end{subparts}
+%
+%   \begin{subparts}{stem}           % explicit stem, then \items follow
+%     \item ...
+%   \end{subparts}
+%
+% Layout produced:
+%   N. <first item>          (no stem)
+%      (a) <item 1>
+%      (b) <item 2>
+%                       (M marks)
+%
+%   N. <stem text>           (explicit stem)
+%      (a) <item 1>
+%      ...
+%                       (M marks)
+%
+% The leading "N. " is printed by \question; \subparts only emits the
+% item list and the trailing marks badge.
+% ------------------------------------------------------------
+\newif\ifSubpartMarksPending
+\global\SubpartMarksPendingfalse
+\newcounter{enumSub}
+\newcounter{enumSubii}
+\let\QuestionPaperOriginalItem\item
+
+\makeatletter
+\newcommand{\subparts@beginlist}{%
+  \setcounter{enumSub}{0}%
+  \def\item{%
+    \ifnum\value{enumSub}>0\end{minipage}\par\fi
+    \refstepcounter{enumSub}%
+    \ifnum\value{enumSub}>1\par\vspace{4pt}\fi
+    \par\noindent\hspace*{\QuestionTextIndent}%
+    \makebox[1.5em][l]{(\alph{enumSub})}%
+    \begin{minipage}[t]{\dimexpr\linewidth-\QuestionTextIndent-1.5em\relax}%
+  }%
+}
+
+\newcommand{\subparts@endlist}{%
+  \ifnum\value{enumSub}>0\end{minipage}\par\fi
+}
+
+\newenvironment{subparts}{%
+  \global\SubpartMarksPendingtrue
+  \par\vspace{3pt}%
+  \@ifnextchar\bgroup
+    {\subparts@withstem}
+    {\subparts@nosterm}%
+}{%
+  \subparts@endlist
+  \subparts@finish
+}
+
+\newcommand{\subparts@nosterm}{%
+  \subparts@beginlist
+}
+
+\newcommand{\subparts@withstem}[1]{%
+  \par\noindent#1\par\vspace{2pt}%
+  \subparts@beginlist
+}
+
+\newcommand{\subparts@finish}{%
+  \ifSubpartMarksPending
+    \global\SubpartMarksPendingfalse
+    \par\hfill\textnormal{\CurrentQuestionMarks}\par
+  \fi
+  \par\vspace{2pt}%
+  \gdef\CurrentQuestionMarks{}%
+  \ignorespacesafterend
+}
+\makeatother
+
+\newenvironment{subpartsii}[1][1]{%
+  \setcounter{enumSubii}{0}%
+  \def\item{%
+    \ifnum\value{enumSubii}>0\end{minipage}\par\fi
+    \refstepcounter{enumSubii}%
+    \ifnum\value{enumSubii}>1\par\vspace{4pt}\fi
+    \par\noindent\hspace*{1.5em}%
+    \makebox[1.5em][l]{(\roman{enumSubii})}%
+    \begin{minipage}[t]{\dimexpr\linewidth-1.5em-1.5em\relax}%
+  }%
+  \ignorespaces
+}{%
+  \ifnum\value{enumSubii}>0\end{minipage}\par\fi
+}
+
+% ------------------------------------------------------------
+% \finishquestion: explicitly drop the deferred marks badge at the
+% current position (e.g. mid-question for layout reasons). Also
+% clears the auto-drop flag so the badge is not printed again at
+% the end of the enclosing subparts block.
+% ------------------------------------------------------------
+\newcommand{\finishquestion}{%
+  \par\ifx\CurrentQuestionMarks\@empty\else
+    \global\SubpartMarksPendingfalse
+    \hfill\textnormal{\CurrentQuestionMarks}\par
+    \gdef\CurrentQuestionMarks{}%
+  \fi
+}
+
+% ------------------------------------------------------------
+% Per-item marks: pushed to the right margin at the end of an item
+% ------------------------------------------------------------
+\newcommand{\qmarks}[1]{\nobreak\hfill\textnormal{(#1 marks)}}
+
+% ------------------------------------------------------------
+% Section header
+% ------------------------------------------------------------
+\newcommand{\sectionheader}[1]{%
+  \vspace*{0mm}
+  \noindent\textbf{Section #1}\par
+  \vspace{1mm}
+}
+
+% ------------------------------------------------------------
+% Page footer with page number and margin frame
+% ------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\hspace*{3.5mm}\fontsize{12pt}{12pt}\selectfont\thepage}
+\fancyfoot[L]{\hspace*{3.5em}\fontsize{8pt}{9pt}\selectfont \PaperFooterCode}
+\fancyheadoffset[L]{22mm}
+\fancyfootoffset[L]{22mm}
+
+% Count physical sheets independently of \value{page}, because the
+% titlepage environment resets the page counter to 1 (so the cover and the
+% first content page both report page=1). Sheet 1 = cover, sheet 2+ = content.
+\newcounter{physsheet}
+\setcounter{physsheet}{0}
+\AtBeginShipout{%
+  \stepcounter{physsheet}%
+  \ifnum\value{physsheet}>1\relax
+    \AtBeginShipoutUpperLeft{%
+      \begin{tikzpicture}[remember picture,overlay]
+        % Draw the rectangular frame - on ALL content pages (sheet > 1)
+        \draw[black,line width=0.4pt]
+          ([xshift=17mm,yshift=-22mm]current page.north west) rectangle
+          ([xshift=-17mm,yshift=30mm]current page.south east);
+        % "Answers written in the margins will not be marked." notice
+        % running just inside the left, right and bottom borders.
+        \node[black,font=\fontsize{10pt}{10pt}\selectfont,rotate=90,anchor=center]
+          at ([xshift=13mm]current page.west)
+          {\MarginNotice};
+        \node[black,font=\fontsize{10pt}{10pt}\selectfont,rotate=90,anchor=center]
+          at ([xshift=-13mm]current page.east)
+          {\MarginNotice};
+        \node[black,font=\fontsize{10pt}{10pt}\selectfont,anchor=center]
+          at ([xshift=-50mm,yshift=25mm]current page.south)
+          {\MarginNotice};
+      \end{tikzpicture}%
+    }%
+  \fi
+}
+
+% Cover page style (different margins: left=0mm, right=12mm)
+\fancypagestyle{cover}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[C]{\sffamily\hspace*{6mm}\fontsize{12pt}{12pt}\selectfont\thepage}
+  \fancyfoot[L]{\sffamily\hspace*{5.5em}\fontsize{8pt}{9pt}\selectfont \PaperFooterCode}
+  \fancyheadoffset[L]{0mm}
+  \fancyfootoffset[L]{0mm}
+}

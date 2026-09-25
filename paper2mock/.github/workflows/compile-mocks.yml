@@ -1,0 +1,78 @@
+# Compile-check for every tracked mock (Sets 1-10).
+# Builds each question paper and marking scheme with latexmk.
+# PDFs are never committed: PRs get per-document artifacts, and merges to
+# main attach question-papers.zip + marking-schemes.zip to a commit-specific release.
+name: compile-mocks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - {dir: f1/test1/1/question-paper, name: mock1-question-paper}
+          - {dir: f1/test1/1/marking-scheme, name: mock1-marking-scheme}
+          - {dir: f1/test1/2/question-paper, name: mock2-question-paper}
+          - {dir: f1/test1/2/marking-scheme, name: mock2-marking-scheme}
+          - {dir: f1/test1/3/question-paper, name: mock3-question-paper}
+          - {dir: f1/test1/3/marking-scheme, name: mock3-marking-scheme}
+          - {dir: f1/test1/4/question-paper, name: mock4-question-paper}
+          - {dir: f1/test1/4/marking-scheme, name: mock4-marking-scheme}
+          - {dir: f1/test1/5/question-paper, name: mock5-question-paper}
+          - {dir: f1/test1/5/marking-scheme, name: mock5-marking-scheme}
+          - {dir: f1/test1/6/question-paper, name: mock6-question-paper}
+          - {dir: f1/test1/6/marking-scheme, name: mock6-marking-scheme}
+          - {dir: f1/test1/7/question-paper, name: mock7-question-paper}
+          - {dir: f1/test1/7/marking-scheme, name: mock7-marking-scheme}
+          - {dir: f1/test1/8/question-paper, name: mock8-question-paper}
+          - {dir: f1/test1/8/marking-scheme, name: mock8-marking-scheme}
+          - {dir: f1/test1/9/question-paper, name: mock9-question-paper}
+          - {dir: f1/test1/9/marking-scheme, name: mock9-marking-scheme}
+          - {dir: f1/test1/10/question-paper, name: mock10-question-paper}
+          - {dir: f1/test1/10/marking-scheme, name: mock10-marking-scheme}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: ${{ matrix.dir }}
+          root_file: main.tex
+          args: -interaction=nonstopmode -halt-on-error
+          latexmk_use_lualatex: true
+      - run: cp "${{ matrix.dir }}/main.pdf" "${{ matrix.name }}.pdf"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: ${{ matrix.name }}.pdf
+
+  release:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: mock*-question-paper
+          merge-multiple: true
+          path: qp/
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: mock*-marking-scheme
+          merge-multiple: true
+          path: ms/
+      - run: |
+          cd qp && zip ../question-papers.zip mock*-question-paper.pdf && cd ..
+          cd ms && zip ../marking-schemes.zip mock*-marking-scheme.pdf && cd ..
+      - uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd
+        with:
+          tag: build-${{ github.sha }}
+          allowUpdates: true
+          replacesArtifacts: true
+          artifacts: question-papers.zip,marking-schemes.zip
+          body: Built PDFs for all mocks (question papers + marking schemes).

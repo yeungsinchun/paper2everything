@@ -1,0 +1,57 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+~$*
+*.swp
+
+# paper2notes local source (gitignored, keep on disk)
+paper2notes/active-physics/
+paper2notes/ch1.pdf
+paper2notes/ch2.pdf
+paper2notes/ch3.pdf
+paper2notes/ch4.pdf
+paper2notes/ch5.pdf
+paper2notes/dse-classified/
+paper2notes/notes/_local/
+paper2notes/notes/**/_local/
+paper2notes/notes/_source/**/_scratch/
+paper2notes/bk2-*.png
+paper2notes/bk4-*.png
+
+# paper2db generated
+paper2db/.venv/
+paper2db/__pycache__/
+paper2db/*.pyc
+paper2db/qb/
+paper2db/qb-pdf/
+paper2db/output/*
+!paper2db/output/lq/
+paper2db/output/lq/*
+!paper2db/output/lq/*/
+paper2db/output/lq/*/*
+!paper2db/output/lq/*/starts.json
+paper2db/reconstructed/*
+!paper2db/reconstructed/lq/
+paper2db/reconstructed/lq/*
+!paper2db/reconstructed/lq/*/
+paper2db/reconstructed/lq/*/*
+!paper2db/reconstructed/lq/*/starts.json
+paper2db/classified/*
+!paper2db/classified/mc/
+paper2db/classified/mc/*
+!paper2db/classified/mc/llm_classifications.json
+!paper2db/classified/lq/
+paper2db/classified/lq/*
+!paper2db/classified/lq/llm_classifications.json
+!paper2db/classified/lq/candidate_performance.json
+paper2db/.lavish/
+
+# paper2mock
+paper2mock/.venv/
+
+# monorepo
+.venv/
+__pycache__/
+*.pyc
+.no-mistakes/
+*.tmp

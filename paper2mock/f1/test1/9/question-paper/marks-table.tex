@@ -1,0 +1,24 @@
+% ============================================================
+% marks-table.tex - Question numbers and marks for the cover page
+% Set the question range and total in config.tex.
+% ============================================================
+{\fontsize{10pt}{12pt}\selectfont
+\renewcommand{\arraystretch}{\MarksTableRowHeight}
+\newcount\MarksTableQuestion
+\def\PrintMarksTableRows{%
+  \the\MarksTableQuestion & \\ \hline
+  \ifnum\MarksTableQuestion<\MarksTableLastQuestion\relax
+    \global\advance\MarksTableQuestion by 1
+    \expandafter\PrintMarksTableRows
+  \fi
+}
+\MarksTableQuestion=\MarksTableFirstQuestion\relax
+\begin{tabular}{|>{\centering\arraybackslash}m{2cm}||>{\centering\arraybackslash}m{2cm}|}
+\hline
+\textbf{Question No.} & \textbf{Marks} \\
+\hline
+\PrintMarksTableRows
+\hline
+\textbf{Total} & \textbf{\MarksTableTotal} \\
+\hline
+\end{tabular}}

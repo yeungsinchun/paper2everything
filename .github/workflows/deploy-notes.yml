@@ -1,0 +1,10 @@
+name: deploy-notes
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Deploy paper2notes/notes to Cloud Run via paper2notes/deploy/cloudrun/deploy.sh"

@@ -1,0 +1,42 @@
+% !TEX program = pdflatex
+% ============================================================
+% main.tex - Marking scheme top-level driver file.
+% Compile with: pdflatex -interaction=nonstopmode main.tex
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\input{style}
+
+\begin{document}
+
+  \begin{titlepage}
+  \thispagestyle{cover}
+  % Use Helvetica for the marking scheme's cover-ish title page only
+  \sffamily
+  \begin{center}
+    \vspace*{15mm}
+    {\fontsize{10pt}{12pt}\selectfont \CoverAuthority\par}
+    \vspace{1.5mm}
+    {\fontsize{10pt}{12pt}\selectfont \CoverExamName\par}
+    \vspace{1cm}
+    {\fontsize{18pt}{20pt}\selectfont\bfseries \CoverTitle\par}
+    \vspace{5mm}
+    {\fontsize{13pt}{15pt}\selectfont\bfseries \CoverSubtitle\par}
+    \vspace{10mm}
+    {\fontsize{11pt}{13pt}\selectfont Total marks: \PaperTotalMarks \quad | \quad
+     Time allowed: \PaperTime\par}
+    \vspace{20mm}
+    {\fontsize{10pt}{12pt}\selectfont
+      \itshape\CoverLanguageNote\par}
+    \vspace*{\fill}
+    {\fontsize{9.5pt}{11.5pt}\selectfont
+      \CoverCopyright\par}
+    \vspace{1cm}
+  \end{center}
+  \end{titlepage}
+
+  \setcounter{page}{2}
+  \input{content}
+
+\end{document}

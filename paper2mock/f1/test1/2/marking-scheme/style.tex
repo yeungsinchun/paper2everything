@@ -1,0 +1,133 @@
+% ============================================================
+% style.tex - Shared preamble, macros and layout for the
+% MARKING SCHEME.
+% Mirrors the question paper's fonts and base layout so the
+% scheme reads as a companion document, not a different one.
+% ============================================================
+
+% Same geometry as the question paper (content pages):
+% top=25mm, bottom=22mm, left=25mm, right=22mm.
+\usepackage[a4paper,top=25mm,bottom=22mm,left=25mm,right=22mm,
+            headsep=5mm,footskip=12pt]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}  % Required for helvet/mathptmx shapes to resolve under LuaLaTeX
+\usepackage{helvet}
+\usepackage{mathptmx}  % Times New Roman for text and math
+\usepackage{atbegshi}
+
+% ---- Centralised customisation settings ----
+\input{config}
+
+% ------------------------------------------------------------
+% Marking scheme subpart.
+%
+% Each subpart is rendered as its OWN table with just a middle
+% vertical strip (no outer border, no horizontal lines anywhere).
+% Marks in the right column are LEFT-aligned.
+%
+% Usage:
+%   \begin{mspart}{(a)}
+%     \msstep{1 + 1}{1M}    % adds a row inside the table
+%     \msstep{= 2}{1A}
+%   \end{mspart}
+%
+% Visual layout (middle vrule only):
+%   (a)
+%   9/4 - ...        | 1M
+%   -19/12...        | 1A
+%
+% Line spacing strategy:
+%   \arraystretch is kept modest so single-line math doesn't
+%   balloon up. The extra breathing room between rows is
+%   produced by \tabularnewline[14pt] inside \msstep, which
+%   adds a fixed 14pt below the row regardless of its content
+%   height. This keeps every step visually balanced.
+% ------------------------------------------------------------
+\renewcommand{\arraystretch}{1.4}
+
+\newenvironment{mspart}[1]{%
+  \par\vspace{10pt}\noindent
+  \begingroup
+  \setlength{\tabcolsep}{4pt}%
+  \begin{tabular}{p{0.72\linewidth}|p{0.24\linewidth}}
+  \multicolumn{2}{l}{\textbf{#1}}\tabularnewline[6pt]
+}{%
+  \end{tabular}%
+  \endgroup
+  \par\vspace{26pt}%
+}
+
+% Add a single solution row to the current mspart.
+% #1 = math (will be wrapped in $...$)
+% #2 = mark, e.g. "1M" or "1A"
+%
+% \tabularnewline[14pt] leaves a fixed 14pt space below the row,
+% regardless of how tall the math content is. This is what
+% gives every step a generous, consistent vertical gap.
+\newcommand{\msstep}[2]{%
+  $#1$ & \textbf{#2}\tabularnewline[14pt]%
+}
+
+% Copy the question expression once before working (no marks).
+\newcommand{\msexpr}[1]{%
+  $#1$ & \tabularnewline[14pt]%
+}
+
+% ------------------------------------------------------------
+% Standalone, full-width step row (used outside mspart when
+% there's no need for borders, e.g. for short text-only steps).
+% ------------------------------------------------------------
+\newcommand{\msrow}[2]{%
+  \par\noindent
+  \begin{tabular}{p{0.72\linewidth}|p{0.24\linewidth}}
+  $#1$ & \textbf{#2}\\
+  \end{tabular}\par\vspace{2pt}%
+}
+
+% ------------------------------------------------------------
+% Marks badge helper (e.g. "(8 marks)")
+% ------------------------------------------------------------
+\newcommand{\qms}[1]{\textnormal{(#1 marks)}}
+
+% ------------------------------------------------------------
+% Page header bar — "MARKING SCHEME" left, paper title right.
+% Same font size as the question paper footer.
+% ------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\fontsize{11pt}{11pt}\selectfont\bfseries MARKING SCHEME}
+\fancyhead[R]{\fontsize{11pt}{11pt}\selectfont\bfseries\PaperFooterCode}
+\fancyfoot[C]{\fontsize{11pt}{11pt}\selectfont\thepage}
+\fancyheadoffset[L]{0mm}
+\fancyfootoffset[L]{0mm}
+
+\fancypagestyle{cover}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{\sffamily\fontsize{11pt}{11pt}\selectfont\bfseries MARKING SCHEME}
+  \fancyhead[R]{\sffamily\fontsize{11pt}{11pt}\selectfont\bfseries\PaperFooterCode}
+  \fancyfoot[C]{\sffamily\fontsize{11pt}{11pt}\selectfont\thepage}
+}
+
+% ------------------------------------------------------------
+% Section header: same look as the question paper
+% ------------------------------------------------------------
+\newcommand{\sectionheader}[1]{%
+  \vspace*{0mm}
+  \noindent\textbf{Section #1}\par
+  \vspace{3mm}
+}
+
+% Question header in the marking scheme: question number only.
+\newcommand{\msquestion}[2]{%
+  \vspace{8mm}%
+  \noindent\textbf{#1.}\par
+  \vspace{4pt}%
+}
