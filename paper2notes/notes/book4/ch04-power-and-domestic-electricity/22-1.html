@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Section 22.1 Heating and electrical power</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Book 4 · Ch.4<small>Heating and electrical power</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="22-1.html" aria-current="page">22.1</a>
+      <a href="22-2.html">22.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Section 22.1</p>
+    <h1>Heating and electrical power</h1>
+    <p class="lede">Power is energy per second; heating is \(I^2 R\) whichever form you write it.</p>
+
+    <section class="lo-block" aria-labelledby="lo-heading">
+      <h2 id="lo-heading">Learning objectives</h2>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>examine heating effect</p></li>
+        <li><p>apply P=VI, compute cost via kW h</p></li>
+      </ul>
+    </section>
+
+    <section class="idea" id="power">
+      <header>
+        <h2><span class="sec-num">A</span>P = VI and its forms</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" data-scene="power-heating" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="P = VI and its forms"></canvas>
+          <span class="hud-label" data-hud="a">P = VI and i</span>
+        </div>
+        <figcaption><b>Fig. 22.1</b> Fig. 17.2 Heating: same resistor, higher I → more glow. Power limits set allowed V.</figcaption>
+      </figure>
+      <div class="def">
+        <span class="tag">Key idea</span>
+        <p>\(P = V I = I^2 R = V^2/R\) (for pure resistor). Rating is at rated voltage; operating at lower V gives lower P (P ∝ V^2 at fixed R). Energy \(E = P t\); 1 kW h = 1 kW×1 h = 3.6 MJ, tariff × units.</p>
+      </div>
+      <table class="notes">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Cost</th><td>2 kW heater 3 h → 6 kW h → tariff say $1.2/kW h → $7.2.</td></tr>
+          <tr><th>Safety</th><td>Resistor has max power; exceeding burns.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="A">
+        <h3>Concept check</h3>
+        <p>A 12 Ω resistor rated 3 W. Max safe voltage is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">6 V</button>
+          <button type="button" data-choice="B">3 V</button>
+          <button type="button" data-choice="C">12 V</button>
+          <button type="button" data-choice="D">36 V</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>P=V^2/R → V=√(PR)=√36=6 V.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="kwh">
+      <header>
+        <h2><span class="sec-num">B</span>kW h and appliance rating</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" data-scene="kwh-meter" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="kW h and appliance rating"></canvas>
+          <span class="hud-label" data-hud="a">kW h and app</span>
+        </div>
+        <figcaption><b>Fig. 22.1</b> Fig. 17.6 kWh meter counts energy; rating plate gives V and P at that V.</figcaption>
+      </figure>
+      <div class="def">
+        <span class="tag">Key idea</span>
+        <p>Power rating (e.g., 220 V 1 kW) is at rated voltage. Operating current at rating: \(I = P/V\). If both P and V given, \(R = V^2/P\). Carbon footprint/CO2 from kW h via grid factor.</p>
+      </div>
+      <table class="notes">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Example</th><td>500 W at 220 V → I≈2.27 A, R≈96.8 Ω. At 110 V: P≈125 W (quarter).</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="A">
+        <h3>Concept check</h3>
+        <p>Stand-by 5 W for 30 days (24h) uses how many kW h?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">3.6</button>
+          <button type="button" data-choice="B">0.12</button>
+          <button type="button" data-choice="C">3.6 kW</button>
+          <button type="button" data-choice="D">5×30</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>0.005 kW×720 h=3.6 kW h.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the learning objectives — MC</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-33">
+          <h3>2012/33 MC</h3>
+          <p>Classified to section 22 — see paper2db pipeline section 22.</p>
+          <figure class="dse-paper">
+            <figcaption>2012/33 MC — section 22</figcaption>
+            <img src="../_local/dse/mc/22/2012_q33.png" alt="HKDSE 2012/33 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2016-28">
+          <h3>2016/28 MC</h3>
+          <p>Classified to section 22 — see paper2db pipeline section 22.</p>
+          <figure class="dse-paper">
+            <figcaption>2016/28 MC — section 22</figcaption>
+            <img src="../_local/dse/mc/22/2016_q28.png" alt="HKDSE 2016/28 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-22-sample">
+          <h3>Syllabus 22 LQ sample</h3>
+          <figure class="dse-paper">
+            <figcaption>Section 22 LQ</figcaption>
+            <img src="../_local/dse/lq/22/sample.png" alt="HKDSE LQ section 22">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="22-2.html">Next: Domestic wiring and safety →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/diagrams3d.js"></script>
+  <script src="js/notes.js"></script>
+</body>
+</html>

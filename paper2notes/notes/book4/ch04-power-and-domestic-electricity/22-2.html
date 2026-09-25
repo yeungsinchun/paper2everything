@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Section 22.2 Domestic wiring and safety</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Book 4 · Ch.4<small>Domestic wiring and safety</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="22-1.html">22.1</a>
+      <a href="22-2.html" aria-current="page">22.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Section 22.2</p>
+    <h1>Domestic wiring and safety</h1>
+    <p class="lede">Why sockets are parallel and how fuses/cables stay safe.</p>
+
+    <section class="lo-block" aria-labelledby="lo-heading">
+      <h2 id="lo-heading">Learning objectives</h2>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>household wiring parallel, earth, fuse choice, cables</p></li>
+      </ul>
+    </section>
+
+    <section class="idea" id="wiring">
+      <header>
+        <h2><span class="sec-num">A</span>Household circuit</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" data-scene="house-wiring" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Household circuit"></canvas>
+          <span class="hud-label" data-hud="a">Household ci</span>
+        </div>
+        <figcaption><b>Fig. 22.2</b> Fig. 17.8 Ring: live and neutral form loop from consumer unit; earth to case.</figcaption>
+      </figure>
+      <div class="def">
+        <span class="tag">Key idea</span>
+        <p>Sockets in parallel: each gets full mains V, can be switched independently; wiring live (brown) carries 220 V, neutral (blue) near 0, earth (green/yellow) safety to case. Parallel: one appliance failure doesn't kill others; series would share V incorrectly.</p>
+      </div>
+      <table class="notes">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Parallel vs series</th><td>Parallel: V same, I adds, independent. Series would dim/overvolt.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>Why domestic sockets are NOT in series?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Parallel uses less wire</button>
+          <button type="button" data-choice="B">Series would give each socket less than mains V and all off if one fails</button>
+          <button type="button" data-choice="C">Parallel is cheaper</button>
+          <button type="button" data-choice="D">Series is safer</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Series divides V and fails together. Parallel gives each full V and independent control.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="fuse">
+      <header>
+        <h2><span class="sec-num">B</span>Fuse and cable choice</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" data-scene="fuse-choice" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Fuse and cable choice"></canvas>
+          <span class="hud-label" data-hud="a">Fuse and cab</span>
+        </div>
+        <figcaption><b>Fig. 22.2</b> Fig. 17.10 Fuse rating just above operating I but below cable max.</figcaption>
+      </figure>
+      <div class="def">
+        <span class="tag">Key idea</span>
+        <p>Operating current \(I = P/V_{rated}\). Fuse chosen: rating > operating I (so normal not blown) but < cable safe max, and as low as practical. Fuses/MCB on live, not neutral, so fault breaks high potential; double-insulated appliances may omit earth. Cable cross-section sets max continuous I.</p>
+      </div>
+      <table class="notes">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Example</th><td>1 kW at 220 V → ~4.5 A → choose 5 A fuse, not 13 A; cable 6 A rating okay.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>A 2 kW heater at 220 V should use</p>
+        <div class="choices">
+          <button type="button" data-choice="A">3 A fuse on neutral</button>
+          <button type="button" data-choice="B">13 A fuse on live, cable rated ≥10 A</button>
+          <button type="button" data-choice="C">Any fuse on earth</button>
+          <button type="button" data-choice="D">3 A fuse on live</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>I≈9.1 A → 13 A fuse on live reasonable; neutral/earth fuses don't break live fault. 3 A would blow immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the learning objectives — MC</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-33">
+          <h3>2012/33 MC</h3>
+          <p>Classified to section 22 — see paper2db pipeline section 22.</p>
+          <figure class="dse-paper">
+            <figcaption>2012/33 MC — section 22</figcaption>
+            <img src="../_local/dse/mc/22/2012_q33.png" alt="HKDSE 2012/33 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2016-28">
+          <h3>2016/28 MC</h3>
+          <p>Classified to section 22 — see paper2db pipeline section 22.</p>
+          <figure class="dse-paper">
+            <figcaption>2016/28 MC — section 22</figcaption>
+            <img src="../_local/dse/mc/22/2016_q28.png" alt="HKDSE 2016/28 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-22-sample">
+          <h3>Syllabus 22 LQ sample</h3>
+          <figure class="dse-paper">
+            <figcaption>Section 22 LQ</figcaption>
+            <img src="../_local/dse/lq/22/sample.png" alt="HKDSE LQ section 22">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/diagrams3d.js"></script>
+  <script src="js/notes.js"></script>
+</body>
+</html>
