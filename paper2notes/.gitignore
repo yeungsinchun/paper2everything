@@ -1,0 +1,29 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+~$*
+*.swp
+
+# Local source materials (keep on disk; do not publish)
+active-physics/
+QB_501/
+QB_502/
+QB_503/
+dse-classified/
+ch1.pdf
+ch2.pdf
+ch3.pdf
+ch4.pdf
+ch5.pdf
+notes/_local/
+notes/**/_local/
+
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.no-mistakes/
+
+# Generated scratch
+*.tmp
+notes/_source/**/_scratch/
