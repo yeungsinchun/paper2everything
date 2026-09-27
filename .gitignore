@@ -44,7 +44,15 @@ paper2db/classified/mc/*
 paper2db/classified/lq/*
 !paper2db/classified/lq/llm_classifications.json
 !paper2db/classified/lq/candidate_performance.json
-paper2db/.lavish/
+paper2db/.lavish/*
+!paper2db/.lavish/pr-evidence
+!paper2db/.lavish/pr-evidence/**
+
+# paper2notes audit harness (QB crops — never commit)
+paper2notes/.audit/
+paper2notes/.audit-cache/
+.audit/
+.audit-cache/
 
 # paper2mock
 paper2mock/.venv/
