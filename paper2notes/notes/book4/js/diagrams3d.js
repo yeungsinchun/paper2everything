@@ -60,7 +60,7 @@
       if(topic==='bar-magnet'){magnet(0,0);for(var a=-1;a<=1;a++){arc(0,0,2.2,1.1+a*.35,0,Math.PI,green);arc(0,0,2.2,1.1+a*.35,Math.PI,2*Math.PI,green);}arrow(0,1.5,1,0,green);}
       if(topic==='wire-coil-solenoid'){coil(0,0,9,gold);arrow(-2,0,4,0,blue);for(var k=-2;k<=2;k++)arc(-2.3,0,.45+k*.12,1.25+k*.13,-Math.PI/2,Math.PI/2,green);}
       if(topic==='wire-force'){intoPage();line([[-2.3,0],[2.3,0]],gold);arrow(-2,0,1.2,0,red);arrow(0,0,0,1.1,green);}
-      if(topic==='coil-torque'||topic==='dc-motor'){var motorCoil=new T.Group(),forceArrows=new T.Group();scene.add(motorCoil);motorCoil.add(forceArrows);line([[-1.4,-1],[-1.4,1],[1.4,1],[1.4,-1],[-1.4,-1]],gold,motorCoil);if(topic==='coil-torque'){sphere(-1.4,0,.1,red,motorCoil);line([[1.3,-.1],[1.5,.1]],red,motorCoil);line([[1.3,.1],[1.5,-.1]],red,motorCoil);}for(var b=-2;b<=2;b++)arrow(-3,b*.55,6,0,blue);arrow(-1.4,0,0,1,red,forceArrows);arrow(1.4,0,0,-1,red,forceArrows);if(topic==='dc-motor'){arc(0,-1.45,.42,.27,0,Math.PI,gold,motorCoil);arc(0,-1.45,.42,.27,Math.PI,2*Math.PI,blue,motorCoil);animate=function(t){var turn=t*1.2;motorCoil.rotation.y=turn;forceArrows.scale.y=Math.cos(turn);};}}
+      if(topic==='coil-torque'||topic==='dc-motor'){var motorCoil=new T.Group(),forceArrows=new T.Group();scene.add(motorCoil);motorCoil.add(forceArrows);line([[-1.4,-1],[-1.4,1],[1.4,1],[1.4,-1],[-1.4,-1]],gold,motorCoil);if(topic==='coil-torque'){sphere(-1.4,0,.1,red,motorCoil);line([[1.3,-.1],[1.5,.1]],red,motorCoil);line([[1.3,.1],[1.5,-.1]],red,motorCoil);}for(var b=-2;b<=2;b++)arrow(-3,b*.55,6,0,blue);arrow(-1.4,0,0,1,red,forceArrows);arrow(1.4,0,0,-1,red,forceArrows);if(topic==='dc-motor'){arc(0,-1.45,.42,.27,0,Math.PI,gold,motorCoil);arc(0,-1.45,.42,.27,Math.PI,2*Math.PI,blue,motorCoil);animate=function(t){var turn=t*1.2;motorCoil.rotation.y=turn;forceArrows.scale.y=Math.cos(turn)>=0?1:-1;};}}
       if(topic==='flux-geometry'){line([[-1.5,-1.2],[1.5,-1.2],[1.5,1.2],[-1.5,1.2],[-1.5,-1.2]],gold);for(var f=-2;f<=2;f++)arrow(f*.55,-2,0,4,blue);}
       if(topic==='lenz-law'){magnet(-1.8,0);coil(1,0,3,gold);arrow(-.6,0,1,0,red);arrow(1.4,1,-.8,0,green);}
       if(topic==='generator'){var generatorCoil=new T.Group();scene.add(generatorCoil);coil(0,0,3,gold,generatorCoil);magnet(-2.5,0);magnet(2.5,0);arc(0,-1.6,.6,.3,0,Math.PI*2,green,generatorCoil);animate=function(t){generatorCoil.rotation.y=t*1.2;};}
@@ -74,7 +74,7 @@
         var voltage=-3+6*w/100;
         ohmic.push([voltage,.52*voltage]);
         filament.push([voltage,1.5*Math.tanh(voltage/1.8)]);
-        diode.push([voltage,voltage<.7?-.12:Math.min(1.85,.13*(Math.exp(1.5*(voltage-.7))-1)-.12)]);
+        diode.push([voltage,voltage<.7?0:Math.min(1.85,.13*(Math.exp(1.5*(voltage-.7))-1))]);
       }
       line(ohmic,blue);line(filament,gold);line(diode,red);
     }else if(topic==='ac-wave'||topic==='rms-heating'){
