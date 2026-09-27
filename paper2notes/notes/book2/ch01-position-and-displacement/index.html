@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book 2 Ch.1 · Position and displacement</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Book 2 · Ch.1<small>Position and displacement</small></a>
+    <nav>
+      <a href="../index.html">Map</a>
+      <a href="../ch01-position-and-displacement/index.html" aria-current="page">Ch.1</a>
+      <a href="../ch01-position-and-displacement/index.html">Ch.1</a>
+      <a href="../ch02-velocity-and-acceleration/index.html">Ch.2</a>
+      <a href="../ch03-forces-and-newton-i/index.html">Ch.3</a>
+      <a href="../ch04-newton-ii-and-iii/index.html">Ch.4</a>
+      <a href="../ch05-moment-and-equilibrium/index.html">Ch.5</a>
+      <a href="../ch06-work-energy-power/index.html">Ch.6</a>
+      <a href="../ch07-momentum/index.html">Ch.7</a>
+      <a href="../ch08-projectile-motion/index.html">Ch.8</a>
+      <a href="../ch09-circular-motion/index.html">Ch.9</a>
+      <a href="../ch10-gravitation/index.html">Ch.10</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Book 2 · Ch.1</p>
+    <h1>Position and displacement</h1>
+    <p class="lede">Distance, displacement and vectors. Position tells where, displacement tells the change and the direction — the rest of mechanics depends on not mixing them.</p>
+
+    <section class="lo-block" aria-labelledby="lo-heading">
+      <h2 id="lo-heading">Learning objectives</h2>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>describe the change of position of objects in terms of distance and displacement</p></li>
+        <li><p>present information on displacement-time graphs for moving objects</p></li>
+        <li><p>distinguish between scalar and vector quantities</p></li>
+        <li><p>use scalars and vectors to represent physical quantities</p></li>
+      </ul>
+    </section>
+
+
+    <section class="idea" id="distance-vs-displacement">
+      <header><h2><span class="sec-num">A</span>Distance vs displacement</h2></header>
+      <figure class="fig">
+        <div class="visual stage" id="trench-vis" data-scene="trench">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Mouse trench A to B to C, distance 1000 m but displacement diagonal"></canvas>
+          <span class="hud-label" data-hud="dist">distance = 1000 m</span>
+          <span class="hud-label" data-hud="disp">displacement</span>
+          <span class="hud-label" data-hud="A">A</span><span class="hud-label" data-hud="B">B</span><span class="hud-label" data-hud="C">C</span>
+        </div>
+        <figcaption><b>Fig. 2.1</b> The mouse goes 500 m east then 500 m north. Distance travelled \( = 1000\ \text{m} \) (scalar). Displacement \( = \vec{AC} \) from start to finish — magnitude \( 707\ \text{m} \) NE, direction matters.</figcaption>
+      </figure>
+      <div class="def"><span class="tag">Definition</span><p><b>Distance</b> is the length of the path (scalar, no direction). <b>Displacement</b> \( \Delta\vec s = \vec s_{\text{final}} - \vec s_{\text{initial}} \) is the vector from start to finish. Same distance can give different displacements.</p></div>
+      <table class="notes">
+        <thead><tr><th></th><th>Distance</th><th>Displacement</th></tr></thead>
+        <tbody>
+          <tr><th>What it is</th><td>Path length</td><td>Change in position (vector)</td></tr>
+          <tr><th>Sign</th><td>\( \ge 0 \) always</td><td>Sign is direction (e.g. + east)</td></tr>
+          <tr><th>Relation</th><td colspan="2">\( |\vec s| \le \text{distance} \); equal only for straight without reversal</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>The mouse’s average speed is \( 1.6\ \text{m s}^{-1} \). Which statement is correct about the trip A→B→C (500 m + 500 m)?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Displacement is 1000 m north-east</button>
+          <button type="button" data-choice="B">Displacement magnitude is about \( 707\ \text{m} \), less than distance</button>
+          <button type="button" data-choice="C">Average velocity magnitude equals average speed</button>
+          <button type="button" data-choice="D">Displacement is a scalar</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Distance 1000 m, time \( 1000/1.6 = 625\ \text{s} \). Displacement is the diagonal \( \sqrt{500^2+500^2}=707\ \text{m} \). Velocity \( 707/625 =1.13\ \text{m s}^{-1} \) along AC, smaller than speed. Displacement is a vector.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="scalars-vectors">
+      <header><h2><span class="sec-num">B</span>Scalars, vectors and adding them</h2></header>
+      <figure class="fig">
+        <div class="pane-pair">
+          <div class="visual stage" id="vector-add-vis" data-scene="vector-add">
+            <canvas class="scene-canvas" width="480" height="360" aria-label="Tip-to-tail vector addition"></canvas>
+            <span class="hud-label" data-hud="res">resultant</span>
+          </div>
+          <div class="visual stage" id="peter-vis" data-scene="peter">
+            <canvas class="scene-canvas" width="480" height="360" aria-label="Peter O to P red then green back, same time different velocity"></canvas>
+            <span class="hud-label" data-hud="red">red path</span><span class="hud-label" data-hud="green">green return</span>
+          </div>
+        </div>
+        <figcaption><b>Fig. 2.2</b> Left: add vectors tip-to-tail (or parallelogram) — the resultant joins start to finish. Right: Peter takes same time each way on a circular O–P route; same distance but opposite displacement → different average velocity.</figcaption>
+      </figure>
+      <table class="notes">
+        <thead><tr><th>Scalar (magnitude only)</th><th>Vector (magnitude + direction)</th></tr></thead>
+        <tbody>
+          <tr><td>distance, speed, mass, energy, time</td><td>displacement, velocity, acceleration, force</td></tr>
+          <tr><td colspan="2">A vector is drawn as an arrow: length = magnitude, direction = direction. Add by putting tail to tip.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="tf">
+        <h3>Concept check</h3>
+        <div class="tf-item" data-answer="false">
+          <p>Peter’s average speed equals the magnitude of his average velocity for the O→P→O loop.</p>
+          <button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button>
+          <p class="feedback"></p><div class="explain" hidden><p>False — loop displacement zero, so average velocity zero, but speed is distance/time &gt;0. Scalar vs vector.</p></div>
+        </div>
+        <div class="tf-item" data-answer="true">
+          <p>Shirley and Simon’s resultant is found by tip-to-tail.</p>
+          <button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button>
+          <p class="feedback"></p><div class="explain" hidden><p>True — vectors add head-to-tail; the order does not matter.</p></div>
+        </div>
+      </div>
+    </section>
+
+
+    
+    <section class="idea" id="graphs">
+      <header><h2><span class="sec-num">C</span>Reading \( s\!-\!t \) and describing motion</h2></header>
+      <figure class="fig">
+        <div class="visual stage" id="st-graph-vis" data-scene="st-vt">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="s-t graph with slope changing"></canvas>
+          <span class="hud-label" data-hud="slope">slope = velocity</span>
+        </div>
+        <figcaption><b>Fig. 2.2</b> A curved \( s\!-\!t \) means velocity changes. Straight → uniform velocity; horizontal → at rest. The area idea belongs to \( v\!-\!t \) (see Ch.2).</figcaption>
+      </figure>
+      <table class="notes">
+        <thead><tr><th>What you see on \( s\!-\!t \)</th><th>Therefore</th></tr></thead>
+        <tbody>
+          <tr><td>Straight line through origin</td><td>Uniform velocity \( v = \text{slope} \)</td></tr>
+          <tr><td>Horizontal line</td><td>At rest (no displacement change)</td></tr>
+          <tr><td>Curved line</td><td>Changing velocity → acceleration (handled in Ch.2)</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>On an \( s\!-\!t \) graph, a steeper line means…</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Smaller speed</button>
+          <button type="button" data-choice="B">Larger speed (steeper slope)</button>
+          <button type="button" data-choice="C">Larger acceleration always</button>
+          <button type="button" data-choice="D">Nothing about motion</button>
+        </div>
+        <p class="feedback"></p><div class="explain" hidden><p>B — slope is velocity; area is not used on \( s\!-\!t \).</p></div>
+      </div>
+    </section>
+
+    
+    <section class="idea" id="vector-example">
+      <header><h2><span class="sec-num">D</span>Worked: Shirley and Simon</h2></header>
+      <figure class="fig">
+        <div class="visual stage" id="shirley-vis" data-scene="shirley">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Shirley and Simon resultant"></canvas>
+          <span class="hud-label" data-hud="Shirley">Shirley</span><span class="hud-label" data-hud="Simon">Simon</span>
+        </div>
+        <figcaption><b>Fig. 2.3</b> Shirley walks \( 3\ \text{m} \) east then \( 4\ \text{m} \) north — resultant \( 5\ \text{m} \) NE (3-4-5). Tip-to-tail is the same as parallelogram; the order does not matter.</figcaption>
+      </figure>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>Shirley \( 3 \) east + \( 4 \) north. Resultant magnitude?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">7 m</button>
+          <button type="button" data-choice="B">5 m</button>
+          <button type="button" data-choice="C">1 m</button>
+          <button type="button" data-choice="D">0</button>
+        </div>
+        <p class="feedback"></p><div class="explain" hidden><p>B — \( \sqrt{3^2+4^2}=5 \).</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="quiz">
+      <header><h2><span class="sec-num">Q</span>Section quiz — DSE classified</h2></header>
+      <p>One question at a time. Use <em>Prev / Next</em> to move. Past papers are separate from the in-flow checks above.</p>
+      <div class="quiz" data-quiz>
+        <p class="quiz-note">Classified past papers for this section are in <code>paper2db</code> → <code>notes/_local/dse</code>. When you have built them, they appear as one-item quizzes here (like Book 5). For local preview without built crops, export the PDFs below.</p>
+        <p><a class="quiz-export" href="../_local/dse/mc/05/combined.pdf" download>Export PDF for this section</a></p>
+        <div class="quiz-item" hidden>
+          <p><em>Example classified item (structure only):</em> See <code>dse-classified/lq/02_Force_and_Motion/05_Motion/</code> for per-question PNGs.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/diagrams3d.js"></script>
+</body>
+</html>
