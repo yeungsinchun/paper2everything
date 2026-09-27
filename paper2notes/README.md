@@ -34,4 +34,4 @@ See `deploy/cloudrun/README.md` for Cloud Run hosting and `../docs/ARCHITECTURE.
 
 ## CI
 
-Pull requests and pushes to `main` run the root `.github/workflows/ci-notes.yml` check, which executes `node paper2notes/scripts/ci-check.mjs`. It skips when `notes/` does not exist, and otherwise checks Book 5's three chapter indexes, Book 2's ten chapters, Book 4's eight chapters, and in-repo relative links (`href`/`src`). It does not run local Chrome/Puppeteer interactive tests.
+Pull requests and pushes to `main` run the root `.github/workflows/ci-notes.yml` check. For its scope and local check command, see `../docs/ARCHITECTURE.md` §5.

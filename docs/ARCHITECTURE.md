@@ -31,7 +31,7 @@ image now carries crops.
 | `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book2/`, `/book4/`, `/book5/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` (82 files) staged to `_local/dse/` by `Dockerfile` |
 | `paper2notes/scripts/sync-dse.sh` | Bash (+ inline Python for placeholders) | run by hand from the repo root | `paper2notes/notes/_local/dse/` and `paper2notes/notes/book{2,4,5}/_local/dse/` (local dev) |
-| `paper2notes/scripts/ci-check.mjs` | Node | `ci-notes` workflow | pass/fail (structure, relative links, one CSS rule) |
+| `paper2notes/scripts/ci-check.mjs` | Node | `ci-notes` workflow | pass/fail (structure and relative links) |
 | `paper2notes/deploy/cloudrun/` | Docker, nginx, gcloud | `deploy.sh` (build, push, roll out), `provision.sh` (one-time GCP setup) | Cloud Run service `paper2notes` in `asia-east2` |
 | `paper2mock/f1/test1/<1..10>/{question-paper,marking-scheme}/` | LuaLaTeX via latexmk | `compile-mocks` workflow | 20 PDFs, released as two zips per push to `main` |
 
@@ -212,7 +212,7 @@ no path filter.
 
 | Workflow | Trigger | Does |
 |---|---|---|
-| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolve (links through `_local/` are skipped), Book 5 map-card CSS rule |
+| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure and relative `href`/`src` resolution (links through `_local/` are skipped) |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
 | `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
@@ -321,10 +321,10 @@ and `hello_test.png` are tracked, while `paper2db/.lavish/` is ignored. The
 ~283 MB of source PDFs are in plain git, not LFS.
 
 **A11. Vendored code is copied per chapter.** `three.min.js` has 21 identical
-copies (13 MB), `checks.js` 11, `notes.js` 10, KaTeX 3, and `diagrams3d.js`
-exists per chapter with divergent contents. The landing page and
-`book2/index.html` load `book5/css/notes.css`, coupling other books to Book 5's
-stylesheet.
+copies (13 MB), `checks.js` 11, `notes.js` 10, and KaTeX 3. Figure renderers
+are shared within Books 2 and 4, while Book 5 retains one per chapter. The
+landing page and `book2/index.html` load `book5/css/notes.css`, coupling other
+books to Book 5's stylesheet.
 
 **A12. Dead or duplicated config left from the merge.** Nested
 `.github/workflows/` in paper2notes and paper2mock never run, yet `ci-notes.yml`
