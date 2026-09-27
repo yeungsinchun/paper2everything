@@ -1,4 +1,15 @@
 name: deploy-notes
+
+# Publishes paper2notes/notes to Cloud Run after every merge to main.
+# This is the cutover from yeungsinchun/paper2notes: the monorepo
+# (yeungsinchun/paper2everything) now deploys to the SAME existing
+# Cloud Run service/region (asia-east2, paper2notes) so the public URL
+# https://paper2notes-152505675251.asia-east2.run.app/ keeps working.
+# Authentication is Workload Identity Federation: GitHub's OIDC token is
+# exchanged for a short-lived token of the deployer service account, so
+# the repository holds no cloud keys. The two secrets are identifiers
+# written by paper2notes/deploy/cloudrun/provision.sh, not credentials.
+
 on:
   push:
     branches: [main]
@@ -7,9 +18,47 @@ on:
       - "paper2notes/deploy/cloudrun/**"
       - ".dockerignore"
       - ".github/workflows/deploy-notes.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-cloudrun
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   deploy:
+    name: Deploy to Cloud Run
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.site.outputs.url }}
+    env:
+      GCP_PROJECT_ID: paper2notes-site
+      GCP_REGION: asia-east2
+      GCP_RUN_SERVICE: paper2notes
+      GCP_AR_REPOSITORY: paper2notes
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "Deploy paper2notes/notes to Cloud Run via paper2notes/deploy/cloudrun/deploy.sh"
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_DEPLOYER_SERVICE_ACCOUNT }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build, push and roll out
+        run: paper2notes/deploy/cloudrun/deploy.sh
+
+      - name: Record site address
+        id: site
+        run: |
+          url="$(gcloud run services describe "$GCP_RUN_SERVICE" --project "$GCP_PROJECT_ID" --region "$GCP_REGION" \
+            --format='value(status.url)')"
+          echo "url=$url/" >> "$GITHUB_OUTPUT"
