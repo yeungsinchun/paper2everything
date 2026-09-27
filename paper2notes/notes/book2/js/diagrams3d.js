@@ -21,10 +21,14 @@
     function curve(f,n,color) { var pts=[];for(var i=0;i<=n;i++)pts.push(f(i/n));return line(pts,color); }
     function axis() { arrow(-3.5,-2.1,7,0,pale);arrow(-3.5,-2.1,0,4.2,pale); }
     var moving=null, travel=null;
-    if(name==='peter'||name==='shirley'){
-      var a=name==='shirley'?[-2.5,-1.7]:[-2.4,-1.4], b=[a[0]+2.4,a[1]],c=[b[0],b[1]+2.4];
+    if(name==='peter'){
+      curve(function(u){var a=Math.PI*(1-u);return [2*Math.cos(a),1.4*Math.sin(a)];},50,accent);
+      curve(function(u){var a=-Math.PI*u;return [2*Math.cos(a),1.4*Math.sin(a)];},50,green);
+      arrow(-.45,1.4,.9,0,accent);arrow(.45,-1.4,-.9,0,green);
+      ball(-2,0,.14,ink);ball(2,0,.14,ink);
+    } else if(name==='shirley'){
+      var a=[-2.5,-1.7], b=[a[0]+2.4,a[1]];
       arrow(a[0],a[1],2.4,0,ink);arrow(b[0],b[1],0,2.4,green);arrow(a[0],a[1],2.4,2.4,accent);
-      if(name==='peter'){curve(function(u){return [1.7*Math.cos(Math.PI*u),1.7*Math.sin(Math.PI*u)];},40,pale);}
     } else if(name==='g'||name==='ticker'){
       line([[-2.8,2.2],[2.8,2.2]],ink);
       for(var d=0;d<7;d++)ball(name==='ticker'?-2.5+d*d*.14:0,1.8-d*.55,.11,accent);
