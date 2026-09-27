@@ -2,6 +2,11 @@ name: deploy-notes
 on:
   push:
     branches: [main]
+    paths:
+      - "paper2notes/notes/**"
+      - "paper2notes/deploy/cloudrun/**"
+      - ".dockerignore"
+      - ".github/workflows/deploy-notes.yml"
 jobs:
   deploy:
     runs-on: ubuntu-latest

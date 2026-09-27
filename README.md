@@ -29,8 +29,31 @@ node paper2notes/scripts/ci-check.mjs
 ```
 
 ## Books
-- **Book 2 Force and Motion** (syllabus II, ch2.pdf, 10 chapters via QB_201-210, ~100 figures) — `paper2notes/notes/book2/`
-- **Book 4 Electricity and Magnetism** (8 chapters) — `paper2notes/notes/book4/` (stub for now)
-- **Book 5 Radioactivity and Nuclear Energy** (syllabus V, ch5.pdf, Ch.25-27, 2 chapters done) — `paper2notes/notes/book5/`
+- **Book 2 Force and Motion** (syllabus II, ch2.pdf, 10 chapters via QB_201-210) — `paper2notes/notes/book2/`
+- **Book 4 Electricity and Magnetism** (syllabus IV, ch4.pdf, 8 chapters) — `paper2notes/notes/book4/`
+- **Book 5 Radioactivity and Nuclear Energy** (syllabus V, ch5.pdf, 3 chapters: 25 Radiation & Radioactivity, 26 Rate of Decay, 27 Nuclear Energy) — `paper2notes/notes/book5/`
 
-See `paper2notes/notes/_source/book2-ch01..10/` for OCR/outline/problems intake per ch501/502 contract, and `paper2db/qb-pdf/` for QB renders.
+See `paper2notes/notes/_source/book{2,4,5}-ch*/` for OCR/outline/problems intake per ch501/502 contract, and `paper2db/qb-pdf/` for QB renders.
+
+## Site
+- Landing page at `/` lists every book with icons (no redirect); each book's index at `/book2/`, `/book4/`, `/book5/`.
+- `paper2notes/deploy/cloudrun/nginx.conf` serves `paper2notes/notes/` (see `paper2notes/deploy/cloudrun/README.md`).
+
+## DSE banks — canonical in paper2db, consumed by paper2notes
+
+```bash
+# Rebuild classified banks from paper/ PDFs (gitignored outputs)
+./paper2db/pipeline --force --yes
+# → paper2db/tests/sections/{mc,lq}/<book>/<section>/ (PNGs, PDFs) and
+#   paper2db/tests/reconstructed/ (whole papers)
+# Legacy branch layout also supports paper2db/classified/ and paper2db/output/
+
+# Sync for local preview (paper2db → paper2notes, gitignored)
+./paper2notes/scripts/sync-dse.sh
+# → paper2notes/notes/_local/dse/{mc,lq}/<section>/ and
+#   paper2notes/notes/book*/_local/dse/ (so ../_local/dse/... from chapter pages resolves)
+# HTML references are ../_local/dse/mc/25/2022_q31.png etc; ci-check ignores _local links.
+```
+
+Generated crops stay gitignored; run the two steps above after a fresh checkout.
+Book 5 DSE decks (e.g. 25.1) are populated after sync — see `.lavish/` screenshots.

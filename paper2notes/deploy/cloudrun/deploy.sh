@@ -15,17 +15,38 @@ REGION="${GCP_REGION:-asia-east2}"
 SERVICE="${GCP_RUN_SERVICE:-paper2notes}"
 REPOSITORY="${GCP_AR_REPOSITORY:-paper2notes}"
 
-repo_root="$(cd "$(dirname "$0")/../.." && pwd)"
-[ -d "$repo_root/notes/book5" ] || { echo "deploy: notes/book5 missing" >&2; exit 1; }
+# repo_root is paper2notes/ in standalone, or paper2everything/ in the monorepo.
+# Detect monorepo: if paper2notes/notes exists at the git top-level, use that.
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+# paper2notes/deploy/cloudrun -> paper2notes
+maybe_p2n="$(cd "$script_dir/../.." && pwd)"
+# git top-level (monorepo root if present)
+if git -C "$maybe_p2n" rev-parse --show-toplevel >/dev/null 2>&1; then
+  git_root="$(git -C "$maybe_p2n" rev-parse --show-toplevel)"
+  if [ -d "$git_root/paper2notes/notes/book5" ]; then
+    repo_root="$git_root"
+    notes_src="paper2notes/notes"
+    dockerfile="paper2notes/deploy/cloudrun/Dockerfile"
+  else
+    repo_root="$maybe_p2n"
+    notes_src="notes"
+    dockerfile="deploy/cloudrun/Dockerfile"
+  fi
+else
+  repo_root="$maybe_p2n"
+  notes_src="notes"
+  dockerfile="deploy/cloudrun/Dockerfile"
+fi
+if [ ! -d "$repo_root/$notes_src/book5" ]; then echo "deploy: $notes_src/book5 missing under $repo_root" >&2; exit 1; fi
 
 sha="$(git -C "$repo_root" rev-parse --short HEAD 2>/dev/null || echo local)"
 registry="$REGION-docker.pkg.dev"
 image="$registry/$PROJECT_ID/$REPOSITORY/site"
 tag="$image:$(date -u +%Y%m%dT%H%M%SZ)-$sha"
 
-echo "deploy: building $tag"
+echo "deploy: building $tag from $repo_root (dockerfile $dockerfile, notes $notes_src)"
 # Cloud Run runs amd64; build for it explicitly so laptops on arm64 work too.
-docker build --platform linux/amd64 -f "$repo_root/deploy/cloudrun/Dockerfile" -t "$tag" "$repo_root"
+docker build --platform linux/amd64 -f "$repo_root/$dockerfile" -t "$tag" "$repo_root"
 
 gcloud auth configure-docker "$registry" --quiet
 docker push "$tag"
@@ -36,13 +57,14 @@ gcloud run deploy "$SERVICE" --project "$PROJECT_ID" --region "$REGION" \
 
 url="$(gcloud run services describe "$SERVICE" --project "$PROJECT_ID" --region "$REGION" \
   --format='value(status.url)')"
-echo "deploy: verifying $url/book5/"
-for _ in 1 2 3 4 5; do
-  if curl -fsS -o /dev/null "$url/book5/"; then
-    echo "deploy: ok $url/book5/"
-    exit 0
-  fi
-  sleep 3
+for path in "/" "/book2/" "/book4/" "/book5/"; do
+  echo "deploy: verifying $url$path"
+  ok=0
+  for _ in 1 2 3 4 5; do
+    if curl -fsS -o /dev/null "$url$path"; then ok=1; break; fi
+    sleep 3
+  done
+  if [ "$ok" -eq 0 ]; then echo "deploy: site did not answer at $url$path" >&2; exit 1; fi
+  echo "deploy: ok $url$path"
 done
-echo "deploy: site did not answer at $url/book5/" >&2
-exit 1
+exit 0

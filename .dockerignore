@@ -1,0 +1,18 @@
+# Monorepo Docker context: only the student-facing notes and nginx config go into the image.
+*
+!paper2notes/notes/
+!paper2notes/deploy/cloudrun/nginx.conf
+
+# Intake/OCR provenance and gitignored local material are never published.
+paper2notes/notes/_source/
+paper2notes/notes/**/_local/
+paper2notes/notes/_local/
+**/_local/
+**/*.test.mjs
+**/.DS_Store
+paper2notes/active-physics/
+paper2notes/dse-classified/
+paper2db/
+paper2mock/
+.git/
+.github/
