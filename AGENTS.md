@@ -5,4 +5,3 @@
 - DSE wiring: `paper2notes` is read-only consumer of `paper2db`. Run `./paper2db/pipeline --force --yes` then `./paper2notes/scripts/sync-dse.sh` to populate gitignored `paper2notes/notes/_local/dse/{mc,lq}/<section>/` and per-book `notes/book*/_local/dse/` (so `../_local/dse/...` from `notes/bookX/chYY/NN-N.html` resolves). HTML DSE decks (e.g. Book 5 25.1) require this sync; CI ignores `_local` via `isKnownLocalOnly`.
 
 Keep `notes/_local/` and `notes/**/_local/`, `paper2db/{qb,qb-pdf,output,classified,tests/sections,tests/reconstructed,.lavish,intermediate}` out of git. CI is `node paper2notes/scripts/ci-check.mjs` (covers book2/4/5). Deploy is `paper2notes/deploy/cloudrun` (monorepo: build from repo root with `paper2notes/notes/` as nginx root).
-- Architecture and data dependencies: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (prose + Mermaid) and `.lavish/architecture-board/` (visual board with findings A1–A14).
