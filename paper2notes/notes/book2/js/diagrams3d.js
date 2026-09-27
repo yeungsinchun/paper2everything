@@ -33,7 +33,7 @@
       curve(function(u){return [-1.2+1.65*Math.cos(2*Math.PI*u),.55+1.1*Math.sin(2*Math.PI*u)];},80,ink);
       ball(-1.2,.55,.17,green);moving=ball(.45,.55,.22,accent);
       travel=function(u){moving.position.set(-1.2+1.65*Math.cos(u*2*Math.PI),.55+1.1*Math.sin(u*2*Math.PI),0);};
-      line([[.45,.55],[2.4,.55],[2.4,-1.7]],gray);ball(2.4,-1.7,.28,gold);arrow(2.4,-1.7,0,-.6,accent);
+      line([[.45,.55],[2.4,.55],[2.4,-1.7]],pale);ball(2.4,-1.7,.28,gold);arrow(2.4,-1.7,0,-.6,accent);
     } else if(name==='safety'){
       axis();curve(function(u){return [-3+6*u,-1.8+3.4*Math.exp(-Math.pow((u-.3)/.11,2))];},70,accent);
       curve(function(u){return [-3+6*u,-1.8+1.8*Math.exp(-Math.pow((u-.55)/.25,2))];},70,green);
@@ -47,7 +47,7 @@
     } else if(name==='board'){
       line([[-1.7,-1.7],[1.7,-1.7],[1.7,1.7],[-1.7,1.7],[-1.7,-1.7]],ink);ball(-1.7,-1.7,.16,gold);arrow(1.7,1.7,0,-1.4,accent);arrow(1.7,-1.7,0,1.4,green);
     } else if(name==='power'){
-      box(-1.5,-.5,1,.6,green);arrow(-1,-.5,2.6,0,ink);arrow(1.3,-.5,0,1.5,accent);line([[-3,-1.4],[3,-1.4]],gray);
+      box(-1.5,-.5,1,.6,green);arrow(-1,-.5,2.6,0,ink);arrow(-1,0,1.6,0,accent);line([[-3,-1.4],[3,-1.4]],pale);
     } else if(name==='energy'){
       curve(function(u){return [-3+6*u,-1.7+3*u*u];},50,ink);ball(-2.5,-1.5,.23,accent);ball(2.5,1.2,.23,green);arrow(1.8,.7,0,1.2,gold);
     } else if(name==='throw'){
@@ -57,42 +57,72 @@
     } else if(name==='exp'){
       axis();line([[-3,-1.8],[2.8,1.5]],ink);for(var j=1;j<=4;j++)ball(-3+j*1.15,-1.8+j*.66,.11,accent);
     } else if(name==='collision'){
-      line([[-3,-1.9],[3,-1.9]],gray);ball(-1.5,-1.5,.32,accent);ball(1.2,-1.5,.32,green);arrow(-2.7,-1.5,1,0,ink);arrow(2.5,-1.5,-1,0,ink);
-    } else if (['projectile','bomber','range','baseball'].includes(name)) {
+      line([[-3,-1.9],[3,-1.9]],pale);ball(-1.5,-1.5,.32,accent);ball(1.2,-1.5,.32,green);arrow(-2.7,-1.5,1,0,ink);arrow(2.5,-1.5,-1,0,ink);
+    } else if(name==='force-add'){
+      box(0,-.6,1.1,.7,green);line([[-3,-1.2],[3,-1.2]],pale);
+      arrow(-.6,-.4,-1.8,0,accent);arrow(-.6,-.8,-1.2,0,accent);
+      arrow(.6,-.4,1,0,ink);arrow(.6,-.8,2,0,ink);
+    } else if(name==='inertia'){
+      box(-1,-1,1,.7,green);line([[-3,-1.45],[3,-1.45]],pale);
+      arrow(-.4,-.7,2.3,0,ink);arrow(-1.5,-1,0,-.8,accent);
+    } else if(name==='friction'){
+      box(0,-1,1.3,.8,green);line([[-3,-1.45],[3,-1.45]],pale);
+      arrow(.7,-.9,1.7,0,ink);arrow(-.7,-1,-1.7,0,accent);
+      arrow(0,-.5,0,-1.1,gold);
+    } else if(name==='action'){
+      box(-1.3,-1,1.4,.8,green);box(-1.3,-1.7,2.3,.22,pale);
+      arrow(-1.3,-.6,0,-.9,accent);arrow(-1.3,-1.6,0,.9,ink);
+    } else if(name==='hose'){
+      box(-2,-.9,1.4,.45,green);line([[-1.3,-.9],[1.7,-.9]],ink);
+      for(var h=0;h<5;h++)ball(1.7+h*.25,-.9,.08,ink);
+      arrow(-1.2,-.2,-1.4,0,accent);arrow(.8,-.2,1.4,0,ink);
+    } else if(name==='work'){
+      line([[-3,-1.8],[3,-1.8]],pale);box(-1,-1.25,1,.7,green);
+      arrow(-.5,-1.25,2.3,1.15,ink);arrow(-.5,-1.25,0,-1.1,accent);
+    } else if(name==='range'){
+      arrow(-3,-1.85,6,0,pale);arrow(-3,-1.85,0,3.8,pale);
+      curve(function(u){return [-3+6*u,-1.85+3.25*Math.sin(Math.PI*u)];},80,accent);
+      line([[0,-1.85],[0,1.4]],pale);ball(0,1.4,.18,gold);
+    } else if(name==='baseball'){
+      ball(-2.6,-1.5,.3,accent);
+      arrow(-2.6,-1.5,3,0,ink);arrow(.4,-1.5,0,2.4,green);arrow(-2.6,-1.5,3,2.4,accent);
+      line([[-2.6,-1.5],[.4,-1.5],[.4,.9]],pale);
+    } else if (name==='projectile'||name==='bomber') {
       axis();
-      var launch=name==='bomber'?1.65:0, angle=name==='baseball'?.7:name==='range'?.9:.6;
+      var launch=name==='bomber'?1.65:0, angle=.6;
       var vx=name==='bomber'?5.8:5.4*Math.cos(angle),vy=name==='bomber'?0:5.4*Math.sin(angle);
       function pos(t){return [-3+vx*t,-1.85+launch+vy*t-3.1*t*t];}
       var end=name==='bomber'?.73:Math.min(1.18,vy/3.1);
       curve(function(u){return pos(u*end);},80,accent);
       moving=ball(-3,-1.85+launch,.16,accent);travel=function(u){var p=pos(u*end);moving.position.set(p[0],p[1],0);};
-      arrow(-3,-1.85+launch,1.25,0,ink); if(name!=='bomber')arrow(-3,-1.85+launch,0,.9,green);
+      arrow(-3,-1.85+launch,1.25,0,ink);if(name==='projectile')arrow(-3,-1.85,0,.9,green);
       if(name==='bomber'){box(-3,1.95,.9,.16,ink);box(1.4,-1.4,.12,.95,pale);box(2.1,-1.9,.45,.12,green);}
-      if(name==='range'){curve(function(u){return [-3+6*u,-1.85+2.7*Math.sin(Math.PI*u)];},60,green);}
-      if(name==='baseball')ball(-3,-1.85,.27,accent);
-    } else if(['circular','orbit','kepler','gravity','gvalue','debris'].includes(name)) {
+    } else if(name==='gravity'){
+      ball(-1.8,0,.55,green);ball(1.8,0,.36,accent);
+      arrow(-1.1,0,1,0,ink);arrow(1.1,0,-1,0,ink);
+      line([[-1.8,-.7],[-1.8,-1.2],[1.8,-1.2],[1.8,-.7]],pale);
+    } else if(['circular','orbit','kepler','gvalue','debris'].includes(name)) {
       var radius=name==='kepler'?2.25:1.8;
       curve(function(u){return [radius*Math.cos(u*2*Math.PI),radius*Math.sin(u*2*Math.PI)];},90,ink);
-      ball(0,0,name==='gravity'||name==='g'?.65:.4,green);
+      ball(0,0,name==='orbit'||name==='debris'?.65:.4,green);
       moving=ball(radius,0,.18,accent);travel=function(u){moving.position.set(radius*Math.cos(u*2*Math.PI),radius*Math.sin(u*2*Math.PI),0);};
       arrow(radius,0,-1.05,0,accent);
       if(name==='kepler')curve(function(u){return [2.7*Math.cos(u*2*Math.PI),1.4*Math.sin(u*2*Math.PI)];},90,pale);
       if(name==='gvalue')ball(0,0,1.05,pale);
-    } else if(['trench','vector-add','force-add','resolve','action','connected','hose','incline','friction','inertia'].includes(name)) {
-      if(name==='trench'||name==='vector-add'||name==='force-add'||name==='resolve') {
-        var ox=-2.7,oy=-1.3;arrow(ox,oy,2.4,0,ink);arrow(ox+2.4,oy,1.4,1.8,green);arrow(ox,oy,3.8,1.8,accent);
-        if(name==='resolve'){arrow(ox,oy,0,1.8,green);line([[ox,oy+1.8],[ox+3.8,oy+1.8]],pale);}
-      } else if(name==='incline'||name==='friction') {
+      if(name==='debris')for(var k=0;k<12;k++)ball(2.4*Math.cos(k*.52),2.4*Math.sin(k*.52),.05,pale);
+    } else if(['trench','vector-add','resolve','connected','incline'].includes(name)) {
+      if(name==='trench'||name==='vector-add'||name==='resolve') {
+        var ox=-2.7,oy=-1.3;arrow(ox,oy,2.4,0,ink);arrow(ox+2.4,oy,0,2.4,green);arrow(ox,oy,2.4,2.4,accent);
+        if(name==='resolve'){line([[ox,oy+2.4],[ox+2.4,oy+2.4]],pale);}
+      } else if(name==='incline') {
         line([[-3,-2],[3,-2],[-1,1.5],[-3,-2]],ink);box(-.1,.2,.7,.45,green);arrow(-.1,.2,0,-1.25,accent);arrow(-.1,.2,-.7,.55,ink);
-      } else if(name==='action'||name==='hose'){box(-1.5,-1,.8,.6,green);arrow(-1,-.8,2,0,ink);arrow(-1,-.8,-1.5,0,accent);}
-      else if(name==='connected'){box(-1.8,-1,1,.7,ink);box(1,-1,1.4,.7,green);line([[-1.3,-1],[.3,-1]],pale);arrow(1,-.5,1.1,0,accent);}
-      else {box(-1.3,-1.4,2.4,.3,pale);ball(0,.5,.45,green);arrow(0,.5,0,-1.3,accent);}
-    } else if(['lever','seesaw','work'].includes(name)) {
+      } else {box(-1.8,-1,1,.7,ink);box(1,-1,1.4,.7,green);line([[-1.3,-1],[.3,-1]],pale);arrow(1,-.5,1.1,0,accent);}
+    } else if(['lever','seesaw'].includes(name)) {
       line([[-2.8,-.3],[2.8,.5]],ink);line([[-.5,-1.7],[.5,-1.7],[0,-.3]],pale);
       arrow(-2,-.2,0,-1.1,accent);arrow(2,.35,0,-.8,green);
     } else if(['uam','freefall'].includes(name)) {
       axis();
-      if(name==='freefall'){curve(function(u){return [-2.6+5.2*u,1.7-3.5*u*u];},40,accent);moving=ball(-2.6,1.7,.18);travel=function(u){moving.position.set(-2.6+5.2*u,1.7-3.5*u*u,0);};}
+      if(name==='freefall'){line([[-2.6,2],[2.6,2]],pale);curve(function(u){return [0,1.7-3.5*u*u];},40,accent);moving=ball(0,1.7,.18);travel=function(u){moving.position.set(0,1.7-3.5*u*u,0);};}
       else {curve(function(u){return [-3+6*u,-1.8+3.2*u*u];},50,ink);for(var j=0;j<6;j++)ball(-3+j,-1.8+3.2*(j/6)**2,.08,accent);}
     }
     function frame(t){if(travel)travel((t*.0002)%1);renderer.render(scene,camera);if(travel)requestAnimationFrame(frame);}
