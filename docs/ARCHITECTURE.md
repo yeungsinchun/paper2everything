@@ -173,8 +173,8 @@ second copy in `paper2db/scripts/classify_mc_sections.py`.
 Pages then load crops by relative path: section pages at
 `notes/bookX/chYY/NN-N.html` use `../_local/dse/{mc,lq}/<NN>/<file>`, and book
 indexes use `_local/dse/...`. Both resolve to `notes/bookX/_local/dse/`. No page
-references `notes/_local/dse/` directly. 82 distinct crop paths are referenced
-(Book 2: 8, Book 4: 20, Book 5: 54).
+references `notes/_local/dse/` directly. 82 distinct `_local` references (66 PNG crops + 16 `combined.pdf` exports) are referenced
+(Book 2: 8 = 0 PNG + 8 PDFs, Book 4: 20 = 15 PNG + 5 PDFs, Book 5: 54 = 51 PNG + 3 PDFs).
 
 ### 3. QB banks: DOCX → PDF → notes intake
 
@@ -199,7 +199,7 @@ no path filter.
 |---|---|---|
 | `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolve (links through `_local/` are skipped), Book 5 map-card CSS rule |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
-| `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `echo` only; no build, no deploy |
+| `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
 Not run in CI: the paper2db pipeline or its `unittest` suite, the Book 5
 Puppeteer interactive tests (`notes.interactives.test.mjs`, hardcoded macOS
@@ -239,14 +239,7 @@ images and the Book 5 "Export Ch.N PDF" links 404 for students. Whether HKDSE cr
 be published at all is an open question for the owner; it may be why they are
 gitignored.
 
-**A2. The monorepo does not deploy the site.** `deploy-notes.yml` only echoes.
-`paper2everything` has no Actions secrets. `paper2notes/deploy/cloudrun/README.md`
-says only `yeungsinchun/paper2notes` workflows can impersonate the deployer, and
-`provision.sh` skips a WIF provider that already exists, so changing its
-`GITHUB_REPO` default to `paper2everything` would not re-scope that provider
-(inferred from the scripts; the GCP provider itself was not inspected). Verified: the live site still serves
-the pre-monorepo build (`/` → 302 `/book5/`, `/book2/` → 404). What is live is
-decided by a different repository from the one being edited.
+**A2. The monorepo now deploys the site (resolved at cutover 47b7788).** Since `47b7788` `deploy-notes.yml` authenticates via Workload Identity Federation (`google-github-actions/auth` with `GCP_WORKLOAD_IDENTITY_PROVIDER` and `GCP_DEPLOYER_SERVICE_ACCOUNT`) and runs `paper2notes/deploy/cloudrun/deploy.sh` to the same Cloud Run service `asia-east2/paper2notes` (`paper2notes-site`), keeping the public URL `https://paper2notes-152505675251.asia-east2.run.app/`. The previous probe evidence (empty `gh secret list`, live `302`/`404` pre-monorepo build) is outdated. `provision.sh` still documents the WIF provider scope.
 
 **A3. The notes ↔ db interface is an undeclared filesystem layout.**
 `sync-dse.sh` walks paper2db's internal output tree
@@ -254,8 +247,8 @@ decided by a different repository from the one being edited.
 `$ROOT/../paper2db`, and derives section numbers by regex on folder names. Book
 folders (`05_Radioactivity_and_Nuclear_Energy`) match the same `^NN_` pattern as
 sections (`05_Motion`), so a file sitting at book level would be filed under
-the wrong section. Notes HTML hardcodes 82 crop filenames in two naming schemes
-(`YYYY_qN.png` for MC, `YYYY-qN.png` for LQ). There is no manifest or export
+the wrong section. Notes HTML hardcodes 82 `_local` references — 66 PNG crops in two naming schemes
+(`YYYY_qN.png` for MC, `YYYY-qN.png` for LQ) plus 16 `combined.pdf` exports. There is no manifest or export
 stage that paper2db owns.
 
 **A4. Nothing checks that contract.** `ci-check.mjs` skips every link that
@@ -284,7 +277,7 @@ holds Book 5's crops and so on.
 
 **A7. The syllabus-section taxonomy has no single owner.** `SECTIONS` is defined
 twice in paper2db (`classify_mc_llm.py`, `classify_mc_sections.py`). The notes
-repeat section numbers in 82 paths, `sync-dse.sh` hardcodes placeholder sections
+repeat section numbers in 82 `_local` references (66 PNG + 16 PDFs), `sync-dse.sh` hardcodes placeholder sections
 20–27, and the landing page hardcodes "paper2db §25–27".
 
 **A8. QB banks sit in paper2db but belong to nobody.** The "canonical"
@@ -355,9 +348,7 @@ not show provenance. `paper2notes/README.md` and
    exists in the manifest (A3–A6).
 3. Move the `SECTIONS` taxonomy to one module (or JSON) that both paper2db
    and the notes check read (A7).
-4. Re-scope the WIF provider (or create a new one) for `paper2everything`,
-   replace the `deploy-notes.yml` stub with the real deploy, then retire the
-   standalone paper2notes deploy (A2).
+4. Monorepo deploy now live at cutover `47b7788` via WIF to `asia-east2/paper2notes`; retire the standalone `paper2notes` deploy when ready (A2 resolved).
 5. Delete the nested workflows and `.dockerignore`, add path filters to
    `compile-mocks`, and add a paper2db `unittest` workflow (A12, A13).
 6. Decide QB ownership: either version the DOCX (LFS) with the converter as a

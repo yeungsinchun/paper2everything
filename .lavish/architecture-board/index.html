@@ -213,8 +213,8 @@
     <div class="stat"><b>3</b><span>subprojects: db · notes · mock</span></div>
     <div class="stat"><b>1</b><span>cross-project data edge (notes → db)</span></div>
     <div class="stat ok"><b>0</b><span>dependency cycles</span></div>
-    <div class="stat bad"><b>4</b><span>high-severity findings</span></div>
-    <div class="stat"><b>82</b><span>crop paths hardcoded in notes HTML</span></div>
+    <div class="stat bad"><b>3</b><span>high-severity findings</span></div>
+    <div class="stat"><b>82</b><span>distinct _local references (66 PNG + 16 PDFs) in notes HTML</span></div>
     <div class="stat bad"><b>404</b><span>live response for a DSE crop</span></div>
   </div>
 </section>
@@ -287,10 +287,10 @@
         <text class="s" x="562" y="362">gitignored</text></g>
 
       <!-- Cloud Run nodes -->
-      <g id="node-service"><title>Cloud Run service paper2notes, asia-east2 — currently serving the pre-monorepo standalone build</title>
+      <g id="node-service"><title>Cloud Run service paper2notes, asia-east2 — monorepo now deploys here via WIF (cutover 47b7788) to the same service</title>
         <rect class="box" x="760" y="58" width="200" height="54" rx="7"/>
         <text class="t" x="774" y="81">Cloud Run service</text>
-        <text class="s" x="774" y="100">live = old paper2notes build</text></g>
+        <text class="s" x="774" y="100">asia-east2/paper2notes via WIF</text></g>
       <g id="node-image"><title>nginx image built by deploy.sh; the root .dockerignore excludes _source/, _local/, *.test.mjs</title>
         <rect class="box" x="760" y="150" width="200" height="62" rx="7"/>
         <text class="t" x="774" y="174">nginx image</text>
@@ -326,9 +326,9 @@
       <g id="edge-source-html"><title>Authoring: intake becomes student HTML (manual)</title>
         <path class="edge man" d="M470 112 V148" marker-end="url(#ahm)"/>
         <text class="lbl" x="478" y="135">authoring</text></g>
-      <g id="edge-html-image"><title>deploy.sh builds the image from notes/ — the monorepo workflow that should run it is an echo stub</title>
-        <path class="edge bad man" d="M680 181 H758" marker-end="url(#ahb)"/>
-        <text class="lbl bad" x="688" y="172">stub deploy</text></g>
+      <g id="edge-html-image"><title>deploy.sh builds the image from notes/ — monorepo workflow now authenticates via WIF and runs paper2notes/deploy/cloudrun/deploy.sh to asia-east2/paper2notes</title>
+        <path class="edge" d="M680 181 H758" marker-end="url(#ah)"/>
+        <text class="lbl" x="688" y="172">WIF deploy</text></g>
       <g id="edge-local-image"><title>_local crops are excluded from the image by .dockerignore, so production 404s</title>
         <path class="edge bad man" d="M680 362 H720 V204 H752"/>
         <line class="x" x1="746" y1="196" x2="758" y2="212"/><line class="x" x1="758" y1="196" x2="746" y2="212"/>
@@ -338,7 +338,7 @@
 
       <!-- finding dots -->
       <g id="dot-a1"><title>Finding A1: production never receives DSE crops</title><circle class="dot" cx="730" cy="290" r="10"/><text class="dotn" x="730" y="294" text-anchor="middle">1</text></g>
-      <g id="dot-a2"><title>Finding A2: the monorepo does not deploy</title><circle class="dot" cx="720" cy="150" r="10"/><text class="dotn" x="720" y="154" text-anchor="middle">2</text></g>
+      <g id="dot-a2"><title>Finding A2: monorepo now deploys via WIF (resolved at cutover 47b7788)</title><circle class="dot" cx="720" cy="150" r="10"/><text class="dotn" x="720" y="154" text-anchor="middle">2</text></g>
       <g id="dot-a3"><title>Finding A3: undeclared filesystem contract</title><circle class="dot" cx="359" cy="368" r="10"/><text class="dotn" x="359" y="372" text-anchor="middle">3</text></g>
       <g id="dot-a6"><title>Finding A6: four copies of every crop</title><circle class="dot" cx="672" cy="326" r="10"/><text class="dotn" x="672" y="330" text-anchor="middle">6</text></g>
       <g id="dot-a8"><title>Finding A8: QB banks sit in paper2db but belong to nobody</title><circle class="dot" cx="312" cy="66" r="10"/><text class="dotn" x="312" y="70" text-anchor="middle">8</text></g>
@@ -483,8 +483,8 @@
 
       <text class="lbl bad" x="300" y="258">cp -n … || cp → always overwrites</text>
       <text class="lbl bad" x="300" y="274">root json: cp -n … || true → never refreshes</text>
-      <text class="lbl" x="20" y="340">82 distinct crop paths in notes HTML</text>
-      <text class="lbl" x="20" y="356">(Book 2: 8 · Book 4: 20 · Book 5: 54);</text>
+      <text class="lbl" x="20" y="340">82 distinct _local references (66 PNG + 16 PDFs) in notes HTML</text>
+      <text class="lbl" x="20" y="356">(Book 2: 8 = 0 PNG + 8 PDFs · Book 4: 20 = 15 PNG + 5 PDFs · Book 5: 54 = 51 PNG + 3 PDFs);</text>
       <text class="lbl" x="20" y="372">ci-check skips every one of them.</text>
     </svg>
     </div>
@@ -520,7 +520,7 @@
       <tbody>
         <tr id="ci-notes"><td><code>.github/workflows/ci-notes.yml</code></td><td>notes / scripts paths</td><td><code>ci-check.mjs</code>: structure, links (skips <code>_local</code>), one CSS rule</td><td><span class="chip live">runs</span></td></tr>
         <tr id="ci-mocks"><td><code>.github/workflows/compile-mocks.yml</code></td><td>every PR and push</td><td>20 LaTeX builds + release zips on <code>main</code></td><td><span class="chip live">runs</span> <span class="chip hand">no path filter</span></td></tr>
-        <tr id="ci-deploy"><td><code>.github/workflows/deploy-notes.yml</code></td><td>push to <code>main</code></td><td><code>echo</code> only</td><td><span class="chip dead">stub</span></td></tr>
+        <tr id="ci-deploy"><td><code>.github/workflows/deploy-notes.yml</code></td><td>push to <code>main</code></td><td><code>google-github-actions/auth</code> via WIF + <code>paper2notes/deploy/cloudrun/deploy.sh</code> → <code>asia-east2/paper2notes</code></td><td><span class="chip live">live</span></td></tr>
         <tr id="ci-nested"><td><code>paper2notes/.github/workflows/*</code>, <code>paper2mock/.github/workflows/*</code></td><td>never</td><td>Pre-merge copies GitHub ignores</td><td><span class="chip dead">dead</span></td></tr>
         <tr id="ci-missing"><td>paper2db <code>unittest</code>, Puppeteer interactive tests, <code>sync-dse.sh</code></td><td>never</td><td>No workflow runs them</td><td><span class="chip dead">uncovered</span></td></tr>
       </tbody>
@@ -533,9 +533,9 @@
   <p class="sub">Severity reflects impact on the monorepo's purpose, a working notes site backed by paper2db banks. <span class="verified">Verified</span> means checked against code or a read-only live probe on 2026-09-27. <span class="question">Open question</span> marks a decision for the owner. Nothing here is fixed; that is out of scope for this change.</p>
   <div class="filters" role="group" aria-label="Filter findings by severity">
     <button type="button" data-f="all" aria-pressed="true">All 14</button>
-    <button type="button" data-f="high" aria-pressed="false">High 4</button>
+    <button type="button" data-f="high" aria-pressed="false">High 3</button>
     <button type="button" data-f="med" aria-pressed="false">Medium 5</button>
-    <button type="button" data-f="low" aria-pressed="false">Low 5</button>
+    <button type="button" data-f="low" aria-pressed="false">Low 6</button>
   </div>
 
   <div class="findings">
@@ -550,14 +550,14 @@
       </dl>
     </article>
 
-    <article class="finding high" id="finding-a2" data-sev="high">
-      <header><span class="fid">A2</span><h3>The monorepo does not deploy the site</h3><span class="sev high">high</span></header>
-      <div class="tags"><span class="tag">deploy</span><span class="tag">duplicated source of truth</span></div>
+    <article class="finding low" id="finding-a2" data-sev="low">
+      <header><span class="fid">A2</span><h3>Monorepo now deploys the site (resolved at cutover 47b7788)</h3><span class="sev low">resolved</span></header>
+      <div class="tags"><span class="tag">deploy</span><span class="tag">resolved</span></div>
       <dl class="kv">
-        <dt>What</dt><dd><code>deploy-notes.yml</code> only echoes. The repo has no Actions secrets. The deploy README says only <code>yeungsinchun/paper2notes</code> may impersonate the deployer, and <code>provision.sh</code> skips an existing WIF provider, so its new <code>GITHUB_REPO</code> default would not re-scope it (inferred from the scripts; GCP not inspected).</dd>
-        <dt>Evidence</dt><dd><span class="verified">Verified</span>: live <code>/</code> → 302 <code>/book5/</code> and <code>/book2/</code> → 404, i.e. the pre-monorepo build; <code>gh secret list</code> is empty.</dd>
-        <dt>Impact</dt><dd>What is live is decided by a different repository from the one being edited.</dd>
-        <dt>Next</dt><dd>Re-scope WIF to <code>paper2everything</code>, replace the stub with the real deploy, retire the standalone deploy.</dd>
+        <dt>What</dt><dd>Since <code>47b7788</code> <code>deploy-notes.yml</code> authenticates via Workload Identity Federation (<code>google-github-actions/auth</code> with <code>GCP_WORKLOAD_IDENTITY_PROVIDER</code> / <code>GCP_DEPLOYER_SERVICE_ACCOUNT</code>) and runs <code>paper2notes/deploy/cloudrun/deploy.sh</code> to the same Cloud Run service <code>asia-east2/paper2notes</code> (<code>paper2notes-site</code>).</dd>
+        <dt>Evidence</dt><dd>Workflow at <code>.github/workflows/deploy-notes.yml</code> (checkout → auth → setup-gcloud → deploy.sh → gcloud run describe).</dd>
+        <dt>Impact</dt><dd>Historical stub and secret-empty / pre-monorepo probe claims are outdated.</dd>
+        <dt>Next</dt><dd>Retire the standalone <code>paper2notes</code> deploy when ready.</dd>
       </dl>
     </article>
 
@@ -565,7 +565,7 @@
       <header><span class="fid">A3</span><h3>The notes ↔ db interface is an undeclared filesystem layout</h3><span class="sev high">high</span></header>
       <div class="tags"><span class="tag">fragile relative paths</span><span class="tag">coupling</span></div>
       <dl class="kv">
-        <dt>What</dt><dd><code>sync-dse.sh</code> walks paper2db's internal tree via <code>$ROOT/../paper2db</code> and derives the section by regex on folder names. Book folders (<code>05_Radioactivity…</code>) match the same <code>^NN_</code> as sections (<code>05_Motion</code>). Notes hardcode 82 filenames in two schemes (<code>YYYY_qN.png</code> MC, <code>YYYY-qN.png</code> LQ).</dd>
+        <dt>What</dt><dd><code>sync-dse.sh</code> walks paper2db's internal tree via <code>$ROOT/../paper2db</code> and derives the section by regex on folder names. Book folders (<code>05_Radioactivity…</code>) match the same <code>^NN_</code> as sections (<code>05_Motion</code>). Notes hardcode 82 `_local` references — 66 PNG crops in two schemes (<code>YYYY_qN.png</code> MC, <code>YYYY-qN.png</code> LQ) plus 16 <code>combined.pdf</code> exports.</dd>
         <dt>Impact</dt><dd>Any rename or re-layout inside paper2db breaks notes with no error; paper2db owns no export or manifest.</dd>
         <dt>Next</dt><dd>A paper2db <code>export</code> stage writing a flat tree plus a manifest; notes reference manifest keys.</dd>
       </dl>
@@ -604,7 +604,7 @@
       <header><span class="fid">A7</span><h3>The syllabus-section taxonomy has no single owner</h3><span class="sev med">medium</span></header>
       <div class="tags"><span class="tag">duplicated source of truth</span></div>
       <dl class="kv">
-        <dt>What</dt><dd><code>SECTIONS</code> is defined twice in paper2db (<code>classify_mc_llm.py</code>, <code>classify_mc_sections.py</code>); notes repeat section numbers in 82 paths; <code>sync-dse.sh</code> hardcodes sections 20–27; the landing page hardcodes “paper2db §25–27”.</dd>
+        <dt>What</dt><dd><code>SECTIONS</code> is defined twice in paper2db (<code>classify_mc_llm.py</code>, <code>classify_mc_sections.py</code>); notes repeat section numbers in 82 `_local` references (66 PNG + 16 PDFs); <code>sync-dse.sh</code> hardcodes sections 20–27; the landing page hardcodes “paper2db §25–27”.</dd>
         <dt>Next</dt><dd>One taxonomy module or JSON read by both sides.</dd>
       </dl>
     </article>
@@ -682,14 +682,14 @@
     <h3>Decisions that belong to the owner</h3>
     <ol>
       <li id="decide-publish">Should HKDSE past-paper crops be served on the public site (A1)? This decides between shipping an export in the image or hiding the decks.</li>
-      <li id="decide-deploy">Should <code>paper2everything</code> take over the Cloud Run deploy and the standalone <code>paper2notes</code> repo stop deploying (A2)?</li>
+      <li id="decide-deploy">Monorepo deploy now live at cutover 47b7788 via WIF to <code>asia-east2/paper2notes</code>; decide when to retire the standalone <code>paper2notes</code> deploy (A2 resolved).</li>
       <li id="decide-qb">Where do QB banks live, and are the DOCX sources versioned (A8)?</li>
     </ol>
   </div>
 </section>
 
 <footer>
-  Mapped from the code on branch <code>fm/p2e-mono-repo-plan-and-build-a1</code> (monorepo PR <a href="https://github.com/yeungsinchun/paper2everything/pull/1">yeungsinchun/paper2everything#1</a>). Prose version: <code>docs/ARCHITECTURE.md</code>.
+  Mapped from <code>main</code> at <code>9cbf923</code> (2026-09-27). Prose version: <code>docs/ARCHITECTURE.md</code>.
 </footer>
 </main>
 <script>
