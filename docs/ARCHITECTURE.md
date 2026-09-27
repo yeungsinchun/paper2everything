@@ -1,4 +1,4 @@
-# paper2everything architecture
+# [paper2everything] Architecture
 
 This document maps the monorepo as the code implements it: its components, the
 build and sync scripts, what is tracked or generated, every data flow, and which
