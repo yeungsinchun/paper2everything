@@ -16,17 +16,18 @@
     resize();global.addEventListener('resize',resize);
     function line(points,color,parent){var g=new T.BufferGeometry().setFromPoints(points.map(function(p){return new T.Vector3(p[0],p[1],0);}));var shape=new T.Line(g,new T.LineBasicMaterial({color:color||blue}));(parent||scene).add(shape);return shape;}
     function arrow(x,y,dx,dy,color){var l=Math.hypot(dx,dy);if(l)scene.add(new T.ArrowHelper(new T.Vector3(dx/l,dy/l,0),new T.Vector3(x,y,0),l,color||blue,.2,.12));}
-    function sphere(x,y,r,color){var m=new T.Mesh(new T.SphereGeometry(r,18,12),new T.MeshBasicMaterial({color:color||red}));m.position.set(x,y,0);scene.add(m);return m;}
+    function sphere(x,y,r,color,parent){var m=new T.Mesh(new T.SphereGeometry(r,18,12),new T.MeshBasicMaterial({color:color||red}));m.position.set(x,y,0);(parent||scene).add(m);return m;}
     function rect(x,y,w,h,color){var m=new T.Mesh(new T.BoxGeometry(w,h,.12),new T.MeshBasicMaterial({color:color||blue}));m.position.set(x,y,0);scene.add(m);return m;}
     function arc(cx,cy,rx,ry,start,end,color,parent){var p=[];for(var i=0;i<=64;i++){var a=start+(end-start)*i/64;p.push([cx+rx*Math.cos(a),cy+ry*Math.sin(a)]);}line(p,color,parent);}
     function coil(x,y,n,color,parent){for(var i=0;i<n;i++)arc(x+(i-(n-1)/2)*.42,y,.27,.8,0,Math.PI*2,color||gold,parent);}
     function magnet(x,y){rect(x-.55,y,1.1,.55,red);rect(x+.55,y,1.1,.55,blue);}
     function axes(){arrow(-3.2,-1.9,6.4,0,gray);arrow(-3.2,-1.9,0,3.8,gray);}
+    function intoPage(){for(var x=-3;x<=3;x++)for(var y=-2;y<=2;y++){var px=x*.8,py=y*.8;line([[px-.09,py-.09],[px+.09,py+.09]],gray);line([[px-.09,py+.09],[px+.09,py-.09]],gray);}}
     var animate=null;
     if(topic==='charge-force'){
-      for(var field=-2;field<=2;field++)arrow(field*.8,-1.8,0,3.6,blue);
+      intoPage();
       arc(0,0,1.5,1.5,-Math.PI/2,Math.PI/2,red);
-      sphere(0,-1.5,.2,red);arrow(0,-1.5,1.1,0,gold);arrow(1.5,0,-.8,0,green);
+      sphere(0,-1.5,.2,red);arrow(0,-1.5,1.1,0,gold);arrow(0,-1.5,0,.8,green);arrow(1.5,0,-.8,0,green);
     }else if(topic==='internal-r'){
       axes();line([[-2.7,1.5],[2.7,-1.1]],red);sphere(-2.7,1.5,.11,gold);sphere(2.7,-1.1,.11,gold);
     }else if(topic==='resistivity'){
@@ -58,8 +59,8 @@
     }else if(['bar-magnet','wire-coil-solenoid','wire-force','coil-torque','dc-motor','flux-geometry','lenz-law','generator','eddy-current','transformer','transmission-grid'].includes(topic)){
       if(topic==='bar-magnet'){magnet(0,0);for(var a=-1;a<=1;a++){arc(0,0,2.2,1.1+a*.35,0,Math.PI,green);arc(0,0,2.2,1.1+a*.35,Math.PI,2*Math.PI,green);}arrow(0,1.5,1,0,green);}
       if(topic==='wire-coil-solenoid'){coil(0,0,9,gold);arrow(-2,0,4,0,blue);for(var k=-2;k<=2;k++)arc(-2.3,0,.45+k*.12,1.25+k*.13,-Math.PI/2,Math.PI/2,green);}
-      if(topic==='wire-force'){line([[-2.5,-1.8],[2.5,1.8]],gold);for(var v=-2;v<=2;v++)arrow(v,-1.7,0,3.4,blue);arrow(0,0,2,0,red);}
-      if(topic==='coil-torque'||topic==='dc-motor'){var motorCoil=new T.Group();scene.add(motorCoil);line([[-1.4,-1],[-1.4,1],[1.4,1],[1.4,-1],[-1.4,-1]],gold,motorCoil);for(var b=-2;b<=2;b++)arrow(-3,b*.55,6,0,blue);arrow(-1.4,0,0,1,red);arrow(1.4,0,0,-1,red);if(topic==='dc-motor'){arc(0,-1.45,.42,.27,0,Math.PI,gold,motorCoil);arc(0,-1.45,.42,.27,Math.PI,2*Math.PI,blue,motorCoil);animate=function(t){motorCoil.rotation.y=t*1.2;};}}
+      if(topic==='wire-force'){intoPage();line([[-2.3,0],[2.3,0]],gold);arrow(-2,0,1.2,0,red);arrow(0,0,0,1.1,green);}
+      if(topic==='coil-torque'||topic==='dc-motor'){var motorCoil=new T.Group();scene.add(motorCoil);line([[-1.4,-1],[-1.4,1],[1.4,1],[1.4,-1],[-1.4,-1]],gold,motorCoil);sphere(-1.4,0,.1,red,motorCoil);line([[1.3,-.1],[1.5,.1]],red,motorCoil);line([[1.3,.1],[1.5,-.1]],red,motorCoil);for(var b=-2;b<=2;b++)arrow(-3,b*.55,6,0,blue);arrow(-1.4,0,0,1,red);arrow(1.4,0,0,-1,red);if(topic==='dc-motor'){arc(0,-1.45,.42,.27,0,Math.PI,gold,motorCoil);arc(0,-1.45,.42,.27,Math.PI,2*Math.PI,blue,motorCoil);animate=function(t){motorCoil.rotation.y=t*1.2;};}}
       if(topic==='flux-geometry'){line([[-1.5,-1.2],[1.5,-1.2],[1.5,1.2],[-1.5,1.2],[-1.5,-1.2]],gold);for(var f=-2;f<=2;f++)arrow(f*.55,-2,0,4,blue);}
       if(topic==='lenz-law'){magnet(-1.8,0);coil(1,0,3,gold);arrow(-.6,0,1,0,red);arrow(1.4,1,-.8,0,green);}
       if(topic==='generator'){var generatorCoil=new T.Group();scene.add(generatorCoil);coil(0,0,3,gold,generatorCoil);magnet(-2.5,0);magnet(2.5,0);arc(0,-1.6,.6,.3,0,Math.PI*2,green,generatorCoil);animate=function(t){generatorCoil.rotation.y=t*1.2;};}

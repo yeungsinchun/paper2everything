@@ -87,16 +87,24 @@
       ball(-2.6,-1.5,.3,accent);
       arrow(-2.6,-1.5,3,0,ink);arrow(.4,-1.5,0,2.4,green);arrow(-2.6,-1.5,3,2.4,accent);
       line([[-2.6,-1.5],[.4,-1.5],[.4,.9]],pale);
-    } else if (name==='projectile'||name==='bomber') {
+    } else if(name==='bomber'){
+      var targetX=2.5, flightTime=Math.sqrt(2*500/9.8);
+      var towerX=targetX-5.5*80/(150*flightTime), towerHeight=3.7*30/500;
+      function bombPosition(u){return [-3+5.5*u,-1.85+3.7*(1-u*u)];}
+      line([[-3.4,-1.85],[3,-1.85]],pale);
+      curve(bombPosition,80,accent);
+      moving=ball(-3,1.85,.16,accent);travel=function(u){var p=bombPosition(u);moving.position.set(p[0],p[1],0);};
+      box(-3,2.02,.9,.16,ink);arrow(-3,1.85,1.2,0,ink);
+      box(towerX,-1.85+towerHeight/2,.12,towerHeight,pale);
+      box(targetX,-1.9,.4,.12,green);
+    } else if (name==='projectile') {
       axis();
-      var launch=name==='bomber'?1.65:0, angle=.6;
-      var vx=name==='bomber'?5.8:5.4*Math.cos(angle),vy=name==='bomber'?0:5.4*Math.sin(angle);
-      function pos(t){return [-3+vx*t,-1.85+launch+vy*t-3.1*t*t];}
-      var end=name==='bomber'?.73:Math.min(1.18,vy/3.1);
+      var angle=.6,vx=5.4*Math.cos(angle),vy=5.4*Math.sin(angle);
+      function pos(t){return [-3+vx*t,-1.85+vy*t-3.1*t*t];}
+      var end=Math.min(1.18,vy/3.1);
       curve(function(u){return pos(u*end);},80,accent);
-      moving=ball(-3,-1.85+launch,.16,accent);travel=function(u){var p=pos(u*end);moving.position.set(p[0],p[1],0);};
-      arrow(-3,-1.85+launch,1.25,0,ink);if(name==='projectile')arrow(-3,-1.85,0,.9,green);
-      if(name==='bomber'){box(-3,1.95,.9,.16,ink);box(1.4,-1.4,.12,.95,pale);box(2.1,-1.9,.45,.12,green);}
+      moving=ball(-3,-1.85,.16,accent);travel=function(u){var p=pos(u*end);moving.position.set(p[0],p[1],0);};
+      arrow(-3,-1.85,1.25,0,ink);arrow(-3,-1.85,0,.9,green);
     } else if(name==='gravity'){
       ball(-1.8,0,.55,green);ball(1.8,0,.36,accent);
       arrow(-1.1,0,1,0,ink);arrow(1.1,0,-1,0,ink);
