@@ -18,4 +18,7 @@ Keep this file for knowledge useful to almost every future agent session in this
 Do not repeat what the codebase already shows; point to the authoritative file or command instead.
 Prefer rewriting or pruning existing entries over appending new ones.
 When updating this file, preserve this bar for all agents and keep entries concise.
-\n## Monorepo\nPart of paper2everything monorepo — see root README.md. Canonical QB is paper2db/qb/.\n
+
+
+## Monorepo
+Part of paper2everything monorepo — see root README.md. Canonical QB is paper2db/qb/.\n

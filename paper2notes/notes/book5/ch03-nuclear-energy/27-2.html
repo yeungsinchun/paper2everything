@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>27.2 Fusion — what lights the Sun</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Book 5 · Ch.3<small>27.2 Fusion — what lights the Sun</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="27-1.html">27.1</a>
+      <a href="27-2.html" aria-current="page">27.2</a>
+      <a href="27-3.html">27.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Section 27.2</p>
+    <h1>Fusion — what lights the Sun</h1>
+    <p class="lede">The opposite of fission: two light nuclei join. The electrical repulsion you know from \( F = kq_{1}q_{2}/r^{2} \) is the whole barrier. Give the nuclei enough kinetic energy — a star does — and they touch and release even more.</p>
+
+    <section class="lo-block" aria-labelledby="lo-heading">
+      <h2 id="lo-heading">Learning objectives</h2>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>realise the release of energy in nuclear fusion</p></li>
+        <li><p>realise nuclear fusion as the source of solar energy</p></li>
+      </ul>
+    </section>
+
+    <section class="idea" id="fusion">
+      <header>
+        <h2><span class="sec-num">A</span>Two light nuclei become one heavier nucleus</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="fusion-vis" data-autoplay data-scene="fusion">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Deuterium and tritium approaching, repelling, then fusing into helium plus neutron with energy"></canvas>
+          <span class="hud-label" data-hud="repulsion">repulsion</span>
+          <span class="hud-label" data-hud="ke">KE needed</span>
+          <span class="hud-label" data-hud="product">\( {}^{4}He + n \)</span>
+        </div>
+        <figcaption><b>Fig. 27.5</b> D–T fusion. \( {}^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \rightarrow {}^{4}_{2}\mathrm{He} + {}^{1}_{0}\mathrm{n} + \) energy (≈ 17.6 MeV per reaction). The 4.0015 u + 1.0087 u after is lighter than 2.0136 u + 3.0155 u before.</figcaption>
+      </figure>
+      <div class="row">
+        <button type="button" data-fusion="slow" aria-pressed="false">slow nuclei — bounce</button>
+        <button type="button" data-fusion="fast" aria-pressed="true">fast nuclei — fuse</button>
+      </div>
+      <div class="def">
+        <span class="tag">Definition</span>
+        <p><b>Nuclear fusion</b> is the joining of two light nuclei to form a heavier nucleus. The total mass after is smaller; the missing mass becomes kinetic energy of the products (27.3).</p>
+      </div>
+      <div class="eq">\[ {}^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \rightarrow {}^{4}_{2}\mathrm{He} + {}^{1}_{0}\mathrm{n} + \text{energy} \quad (17.6\ \mathrm{MeV}) \]</div>
+      <ul class="points">
+        <li>Per reaction fusion releases &lt; fission (17.6 MeV &lt; 200 MeV), but <b>per kilogram</b> of fuel fusion releases ~5× more — because light nuclei are so much lighter (summary bar chart fixes this common flip).</li>
+        <li>Both fission and fusion go toward more tightly bound nuclei (near iron-56). See 27.3 D binding curve.</li>
+      </ul>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>Which is a fusion reaction?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">\( {}^{235}_{92}\mathrm{U} + {}^{1}_{0}\mathrm{n} \rightarrow {}^{141}_{56}\mathrm{Ba} + {}^{92}_{36}\mathrm{Kr} + 3{}^{1}_{0}\mathrm{n} \)</button>
+          <button type="button" data-choice="B">\( {}^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \rightarrow {}^{4}_{2}\mathrm{He} + {}^{1}_{0}\mathrm{n} \)</button>
+          <button type="button" data-choice="C">\( {}^{238}_{92}\mathrm{U} \rightarrow {}^{234}_{90}\mathrm{Th} + {}^{4}_{2}\mathrm{He} \)</button>
+          <button type="button" data-choice="D">\( {}^{14}_{6}\mathrm{C} \rightarrow {}^{14}_{7}\mathrm{N} + {}^{0}_{-1}e \)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>B</b> is light+light→heavier. <b>A</b> is fission, <b>C</b> α decay, <b>D</b> β decay.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="barrier">
+      <header>
+        <h2><span class="sec-num">B</span>Why you need a star — the Coulomb hill</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="barrier-vis" data-scene="barrier">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Potential energy against separation showing Coulomb barrier and required kinetic energy"></canvas>
+          <span class="hud-label" data-hud="coulomb">Coulomb repulsion</span>
+          <span class="hud-label" data-hud="need">need KE</span>
+        </div>
+        <figcaption><b>Fig. 27.6</b> Two \( {}^{2}\mathrm{H} \) both +e repel as \( 1/r^{2} \). Far apart force negligible; close in it is huge. Only nuclei with enough KE get over the hill to where the short-range strong force can bind them.</figcaption>
+      </figure>
+      <div class="row">
+        <span class="row-label">Temperature slider (KE)</span>
+        <input type="range" id="temp-slider" min="0" max="100" value="85" aria-label="Temperature slider">
+        <span class="readout" id="temp-readout">\( 1.5\times10^{7}\ \mathrm{K} \)</span>
+      </div>
+      <ul class="points">
+        <li>You already know like charges repel. That repulsion does work against the approach, converting KE → electrical potential energy. Slow nuclei run out of KE and bounce.</li>
+        <li>At \( \sim 10^{7}\ \mathrm{K} \) typical particle KE \( \sim kT \sim 1\ \mathrm{keV} \); with Maxwell tail many have enough to overcome tens of keV barrier. On Earth we heat deuterium/tritium deliberately; the Sun compresses hydrogen by gravity to ~\( 1.5\times10^{7}\ \mathrm{K} \) in its core and fuses ~\( 6\times10^{11}\ \mathrm{kg} \) H per second.</li>
+        <li>No bombardment with neutrons needed — the trigger is kinetic energy, not a particle captured. (A common confusion with fission.)</li>
+      </ul>
+      <div class="check" data-check="tf">
+        <h3>Concept check</h3>
+        <div class="tf-item" data-answer="true">
+          <p>(a) Fusion requires a very high temperature so that nuclei have enough kinetic energy to overcome electrostatic repulsion.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True — that is Fig.27.6. Unlike fission, no neutron needed; unlike decay, it is not spontaneous at our temperatures.</p></div>
+        </div>
+        <div class="tf-item" data-answer="false">
+          <p>(b) A fusion reaction can be triggered by bombarding light nuclei with slow neutrons, like fission.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False — different trigger. Light nuclei are not neutron-capturing; they need high relative KE.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="sun">
+      <header>
+        <h2><span class="sec-num">C</span>The Sun — sustained fusion by gravity</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="sun-vis" data-scene="sun">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Sun core fusing hydrogen emitting energy as light"></canvas>
+          <span class="hud-label" data-hud="core">core \(10^{7}\) K</span>
+          <span class="hud-label" data-hud="light">EM to Earth</span>
+        </div>
+        <figcaption><b>Fig. 27.7</b> The Sun. Core fusion supplies the EM radiation we feel as warmth and light. Mass loss per second: \( \Delta m = P/c^{2} \approx 3.8\times10^{26}/9\times10^{16} \approx 4.2\times10^{9}\ \mathrm{kg\,s^{-1}} \).</figcaption>
+      </figure>
+      <ul class="points">
+        <li>Main chain: \( 4\,{}^{1}\mathrm{H} \rightarrow {}^{4}\mathrm{He} + 2e^{+} + 2\nu_{e} \) overall; D–T used on Earth is a convenient subset.</li>
+        <li>Huge temperature alone is not enough — also huge pressure/gravity holds fuel together while it burns. That is why a reactor must confine hot plasma magnetically; the Sun does it gravitationally.</li>
+      </ul>
+      <div class="check" data-check="mc" data-answer="C">
+        <h3>Concept check</h3>
+        <p>The Sun’s power is \(3.8\times10^{26}\ \mathrm{W}\). Its mass decrease per second is about</p>
+        <div class="choices">
+          <button type="button" data-choice="A">\(4.2\times10^{9}\ \mathrm{kg}\)</button>
+          <button type="button" data-choice="B">\(1.3\times10^{9}\ \mathrm{kg}\)</button>
+          <button type="button" data-choice="C">\(4.2\times10^{9}\ \mathrm{kg}\) — choice A duplicated (exam trap)</button>
+          <button type="button" data-choice="D">\(1.3\times10^{10}\ \mathrm{kg}\)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( \Delta m = P/c^{2} = 3.8\times10^{26}/(3\times10^{8})^{2} \approx 4.2\times10^{9}\ \mathrm{kg\,s^{-1}} \). Distractors use \( c \) not \( c^{2} \).</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="bomb-reactor">
+      <header>
+        <h2><span class="sec-num">D</span>Bomb vs bottle — why fusion is hard on Earth</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="teller-vis" data-scene="teller">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Hydrogen bomb fission primary surrounding fusion secondary versus tokamak magnetic confinement"></canvas>
+          <span class="hud-label" data-hud="bomb">fission → fusion (uncontrolled)</span>
+          <span class="hud-label" data-hud="tokamak">magnetic bottle</span>
+        </div>
+        <figcaption><b>Left:</b> Hydrogen bomb — small fission bomb provides \(10^{7}\) K to ignite uncontrolled fusion (1000× fission bomb). <b>Right:</b> Tokamak — magnetic fields try to hold 10⁸ K plasma; no ordinary vessel can hold it (Fig.27.10).</figcaption>
+      </figure>
+      <table class="notes">
+        <thead><tr><th></th><th>Hydrogen bomb</th><th>Fusion reactor (aim)</th></tr></thead>
+        <tbody>
+          <tr><th>Trigger</th><td>Fission primary heat</td><td>Heated externally, magnetically confined</td></tr>
+          <tr><th>Control</th><td>Uncontrolled, entire fuel reacts at once</td><td>Controlled, steady \( k\approx1 \) equivalent needed</td></tr>
+          <tr><th>Waste</th><td>Radioactive debris</td><td>Helium non-radioactive; tritium handling remains</td></tr>
+          <tr><th>Status</th><td>Built 1952</td><td>No commercial plant yet (2026)</td></tr>
+        </tbody>
+      </table>
+      <aside class="tip">
+        <span class="tag">STSE note</span>
+        <p>Spent fission fuel still hot, highly radioactive (e.g. iodine-129 \( T_{1/2}=1.57\times10^{7}\ \mathrm{y} \)) — cooled 10–20 yr in pools then steel casks deep underground. No permanent solution fully agreed.</p>
+      </aside>
+      <div class="check" data-check="mc" data-answer="C">
+        <h3>Concept check</h3>
+        <p>Which correctly pairs reaction and place?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Sun — fission; reactor — fusion</button>
+          <button type="button" data-choice="B">Sun — α decay; reactor — fission</button>
+          <button type="button" data-choice="C">Sun — fusion; reactor — fission</button>
+          <button type="button" data-choice="D">Both — fusion</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>C</b>. At present commercial power is fission; solar power is fusion.</p></div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the learning objectives</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-fusion">
+          <h3>Fusion needs temperature</h3>
+          <p>Distinguish neutron-triggered fission from KE-triggered fusion.</p>
+          <figure class="dse-paper">
+            <figcaption>QB 503 · fusion MC</figcaption>
+            <img src="../_local/dse/mc/27/fusion.png" alt="Fusion paper">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-sun">
+          <h3>Solar fusion chain</h3>
+          <figure class="dse-paper">
+            <figcaption>DSE 27 LQ solar</figcaption>
+            <img src="../_local/dse/lq/27/solar.png" alt="Solar fusion long question">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="27-3.html">Next: 27.3 Mass–energy \( \Delta E = \Delta mc^{2} \) →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/diagrams3d.js"></script>
+  <script src="js/notes.js"></script>
+</body>
+</html>

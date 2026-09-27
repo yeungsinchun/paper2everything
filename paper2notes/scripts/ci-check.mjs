@@ -39,7 +39,7 @@ function checkBook5Structure() {
     fail(`Missing or empty book5 index: ${relative(repoRoot, bookIndex)}`);
   }
 
-  for (const prefix of ["ch01-", "ch02-"]) {
+  for (const prefix of ["ch01-", "ch02-", "ch03-"]) {
     const chapterDir = findChapterDir(prefix);
     if (!chapterDir) {
       fail(`Missing chapter directory matching "${prefix}*" under ${relative(repoRoot, book5Dir)}`);
@@ -66,6 +66,26 @@ function checkBook2Structure() {
   }
   for (const entry of chapterDirs) {
     const chapterIndex = join(book2Dir, entry.name, "index.html");
+    if (!isNonEmptyFile(chapterIndex)) {
+      fail(`Missing or empty chapter index: ${relative(repoRoot, chapterIndex)}`);
+    }
+  }
+}
+
+function checkBook4Structure() {
+  const book4Dir = join(notesDir, "book4");
+  if (!existsSync(book4Dir)) return;
+  const bookIndex = join(book4Dir, "index.html");
+  if (!isNonEmptyFile(bookIndex)) {
+    fail(`Missing or empty book4 index: ${relative(repoRoot, bookIndex)}`);
+  }
+  const entries = readdirSync(book4Dir, { withFileTypes: true });
+  const chapterDirs = entries.filter((e) => e.isDirectory() && e.name.startsWith("ch"));
+  if (chapterDirs.length < 8) {
+    fail(`Book4 should have 8 chapters, found ${chapterDirs.length} under ${relative(repoRoot, book4Dir)}`);
+  }
+  for (const entry of chapterDirs) {
+    const chapterIndex = join(book4Dir, entry.name, "index.html");
     if (!isNonEmptyFile(chapterIndex)) {
       fail(`Missing or empty chapter index: ${relative(repoRoot, chapterIndex)}`);
     }
@@ -175,6 +195,7 @@ if (existsSync(book5Dir)) {
 }
 
 checkBook2Structure();
+checkBook4Structure();
 
 checkRelativeLinks();
 
