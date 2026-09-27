@@ -1,0 +1,24 @@
+% !TEX program = pdflatex
+% ============================================================
+% main.tex - Top-level driver file
+% Compile with: pdflatex -interaction=nonstopmode main.tex
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\input{style}
+
+\begin{document}
+
+  % Front cover (includes candidate number)
+  \input{cover}
+
+  % The titlepage environment resets the page counter to 1 on \end, so the
+  % first content page would reuse the cover's number. Force content to start
+  % at page 2.
+  \setcounter{page}{2}
+
+  % Questions and answer lines
+  \input{content}
+
+\end{document}

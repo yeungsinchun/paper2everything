@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>27.3 Mass–energy ΔE = Δmc²</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Book 5 · Ch.3<small>27.3 Mass–energy</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="27-1.html">27.1</a>
+      <a href="27-2.html">27.2</a>
+      <a href="27-3.html" aria-current="page">27.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Section 27.3 <span class="lo-ext">extension</span></p>
+    <h1>Mass–energy \( \Delta E = \Delta mc^{2} \)</h1>
+    <p class="lede">Both fission and fusion weigh less after. The missing grams did not vanish — they became the fragments' kinetic energy. One relation weighs it: \( \Delta E = \Delta m\,c^{2} \).</p>
+
+    <section class="lo-block" aria-labelledby="lo-heading">
+      <h2 id="lo-heading">Learning objectives</h2>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>state mass–energy relationship \( \Delta E = \Delta mc^{2} \) <span class="lo-ext">extension</span></p></li>
+        <li><p>use atomic mass unit as a unit of energy <span class="lo-ext">extension</span></p></li>
+        <li><p>determine the energy release in nuclear reactions <span class="lo-ext">extension</span></p></li>
+        <li><p>apply \( \Delta E = \Delta mc^{2} \) to solve problems <span class="lo-ext">extension</span></p></li>
+      </ul>
+    </section>
+
+    <section class="idea" id="missing">
+      <header>
+        <h2><span class="sec-num">A</span>The missing-mass animation</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="mass-vis" data-autoplay data-scene="mass">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Balance shows total mass before heavier than after, missing mass converts to energy burst"></canvas>
+          <span class="hud-label" data-hud="before">before</span>
+          <span class="hud-label" data-hud="after">after</span>
+          <span class="hud-label" data-hud="dm">\( \Delta m \)</span>
+          <span class="hud-label" data-hud="energy">\(\Delta E = \Delta m c^{2}\)</span>
+          <button type="button" class="stage-replay" data-replay="mass-vis">Replay</button>
+        </div>
+        <figcaption><b>Fig. 27.14</b> Weigh a reaction. Reactants → products: the scale tips left; \( \Delta m = \sum m_{\text{before}} - \sum m_{\text{after}} >0 \) → energy. Toggle the example.</figcaption>
+      </figure>
+      <div class="row">
+        <button type="button" data-mass="fission" aria-pressed="true">U-235 fission</button>
+        <button type="button" data-mass="fusion" aria-pressed="false">D–T fusion</button>
+        <button type="button" data-mass="alpha" aria-pressed="false">Pu-238 α decay</button>
+      </div>
+      <div class="def">
+        <span class="tag">Law</span>
+        <p>Energy and mass are equivalent: a mass defect \( \Delta m \) is convertible to energy</p>
+        <div class="eq">\[ \Delta E = \Delta m\,c^{2}, \quad c=3.00\times10^{8}\ \mathrm{m\,s^{-1}} \]</div>
+        <p>Note \( \Delta m \) is <b>lost</b> mass, not total mass. 1 g lost → \( 9\times10^{13}\ \mathrm{J} \) — enough for a town for a day. Fission/fusion/α decay all obey it.</p>
+      </div>
+      <ul class="points">
+        <li>Before you had rest mass + a little KE; after you have rest mass of products + much more KE (heat, light). Total mass+energy conserved; rest mass alone is not.</li>
+        <li>Assume only Force &amp; Motion: the KE after is from Coulomb repulsion of fragments (fission) or from falling into the strong-force well (fusion). \( \Delta m c^{2} \) is the bookkeeping that predicts how large that KE must be without tracking every force.</li>
+      </ul>
+      <div class="check" data-check="mc" data-answer="C">
+        <h3>Concept check</h3>
+        <p>Where does the released energy mainly come from?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Chemical energy stored in nuclei</button>
+          <button type="button" data-choice="B">Kinetic energy put in by the neutron</button>
+          <button type="button" data-choice="C">Reduction in total rest mass (mass defect)</button>
+          <button type="button" data-choice="D">Heat supplied to the system</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>C</b>. The neutron's KE is eV-scale; the output is MeV-scale. It is the rest-mass difference timed by \(c^{2}\).</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="units">
+      <header>
+        <h2><span class="sec-num">B</span>Two units that fit the atom</h2>
+      </header>
+      <table class="notes">
+        <thead><tr><th>Unit</th><th>Defines</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><th>atomic mass unit \( \mathrm{u} \)</th><td>\( 1/12 \) mass of \( {}^{12}\mathrm{C} \) atom</td><td>\( 1\ \mathrm{u}=1.661\times10^{-27}\ \mathrm{kg} \)</td></tr>
+          <tr><th>electronvolt \( \mathrm{eV} \)</th><td>KE of electron across 1 V</td><td>\( 1\ \mathrm{eV}=1.60\times10^{-19}\ \mathrm{J} \)</td></tr>
+          <tr><th>bridge</th><td colspan="2">\( 1\ \mathrm{u}\,c^{2}=1.492\times10^{-10}\ \mathrm{J}=931\ \mathrm{MeV} \) (≈ 931.5 MeV). So \( \mathrm{u} \) can quote energy: \( m=0.0189\ \mathrm{u}\equiv 17.6\ \mathrm{MeV} \).</td></tr>
+        </tbody>
+      </table>
+      <table class="notes" aria-label="Table 27.1">
+        <thead><tr><th>Particle</th><th>Mass / u</th></tr></thead>
+        <tbody>
+          <tr><td>electron</td><td>0.000549</td></tr>
+          <tr><td>proton \( {}^{1}_{1}\mathrm{H} \)</td><td>1.007276</td></tr>
+          <tr><td>neutron \( {}^{1}_{0}\mathrm{n} \)</td><td>1.008665</td></tr>
+          <tr><td>deuteron \( {}^{2}_{1}\mathrm{H} \)</td><td>2.014102</td></tr>
+          <tr><td>triton \( {}^{3}_{1}\mathrm{H} \)</td><td>3.016049</td></tr>
+          <tr><td>α particle \( {}^{4}_{2}\mathrm{He} \)</td><td>4.001506</td></tr>
+          <tr><td>U-235 nucleus</td><td>235.043930</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>Which can be a unit of energy?</p>
+        <ol class="stem-list">
+          <li>atomic mass unit \( \mathrm{u} \)</li>
+          <li>electronvolt \( \mathrm{eV} \)</li>
+          <li>becquerel \( \mathrm{Bq} \)</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(2) only</button>
+          <button type="button" data-choice="B">(1) and (2) only</button>
+          <button type="button" data-choice="C">(1) and (3) only</button>
+          <button type="button" data-choice="D">(1), (2) and (3)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>B</b>. Via \(E=mc^{2}\), mass unit \( \mathrm{u} \) × \(c^{2}\) is energy (931 MeV). Bq is activity (decays per second).</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="working">
+      <header>
+        <h2><span class="sec-num">C</span>Working with \( \Delta m \) — three ways you will be asked</h2>
+      </header>
+      <div class="def">
+        <span class="tag">Recipe</span>
+        <p>1. Sum masses before, sum after (in \( \mathrm{u} \)). 2. \( \Delta m = \sum_{\text{before}} - \sum_{\text{after}} \). 3. \( \Delta E = \Delta m \times 931\ \mathrm{MeV} \) (or \( \Delta m\text{(kg)}\times c^{2} \)). 4. For many nuclei multiply by \( N = m_{\text{sample}}/m_{\text{one}} = (m/M)N_{A} \).</p>
+      </div>
+
+      <div class="worked">
+        <span class="tag">Worked example · Fusion D–T (Ex 27.3 style)</span>
+        <p>\( {}^{2}\mathrm{H}\;(2.0136) + {}^{3}\mathrm{H}\;(3.0155) \rightarrow {}^{4}\mathrm{He}\;(4.0015) + \mathrm{n}\;(1.0087) \)</p>
+        <ol class="steps">
+          <li>\( \Delta m = (2.0136+3.0155)-(4.0015+1.0087)=0.0189\ \mathrm{u} \)</li>
+          <li>\( \Delta E =0.0189\times931 = 17.6\ \mathrm{MeV}=2.82\times10^{-12}\ \mathrm{J} \) per reaction</li>
+          <li>Mass per reaction \( = (2.0136+3.0155)\times1.661\times10^{-27}=8.35\times10^{-27}\ \mathrm{kg} \)</li>
+          <li>Reactions in 5 g (equal D,T): \( N=0.005/8.35\times10^{-27}=5.99\times10^{23} \) → total ≈ \( 1.7\times10^{12}\ \mathrm{J} \)</li>
+        </ol>
+        <div class="eq">\[ 0.0189\ \mathrm{u} \rightarrow 17.6\ \mathrm{MeV} \rightarrow 2.8\times10^{-12}\ \mathrm{J} \]</div>
+      </div>
+
+      <div class="worked">
+        <span class="tag">Worked example · Fission \( {}^{235}\mathrm{U} \rightarrow {}^{148}\mathrm{La}+{}^{85}\mathrm{Br}+3\mathrm{n} \) (Ex 27.4 style)</span>
+        <p>Given \( {}^{235}\mathrm{U}\;234.9934,\ \mathrm{La}\;147.9009,\ \mathrm{Br}\;84.8964\ \mathrm{u} \); reaction energy \(166.37\ \mathrm{MeV}\).</p>
+        <ol class="steps">
+          <li>Balance \( A: 235+1=148+85+x \Rightarrow x=3 \)</li>
+          <li>\( \Delta m =166.37/931=0.1787\ \mathrm{u} \)</li>
+          <li>Solve \( 234.9934+m_{\mathrm{n}} =147.9009+84.8964+3m_{\mathrm{n}}+0.1787 \Rightarrow m_{\mathrm{n}}=1.0087\ \mathrm{u} \)</li>
+          <li>5 g/s → \( N=0.005/(234.9934\times1.661\times10^{-27})=1.28\times10^{22}\ \mathrm{s^{-1}} \) → power \(166.37\mathrm{MeV}\times1.60\times10^{-13}\times N \approx 3.4\times10^{8}\ \mathrm{W}\)</li>
+        </ol>
+      </div>
+
+      <div class="worked">
+        <span class="tag">Worked example · Coal vs uranium (Ex 27.2 style)</span>
+        <p>U-235 fission converts 0.08% of mass. 1 kg U → \( \Delta m =0.0008\ \mathrm{kg} \) → \( \Delta E=0.0008c^{2}=7.2\times10^{13}\ \mathrm{J} \). Coal 1 kg →\(2.8\times10^{7}\ \mathrm{J}\) → coal needed \(7.2\times10^{13}/2.8\times10^{7}=2.6\times10^{6}\ \mathrm{kg} \).</p>
+      </div>
+
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>Making \( {}^{4}\mathrm{He} \) from \( 2p+2n \): \( m_{p}=1.007276,\ m_{n}=1.008665,\ m_{\mathrm{He}}=4.001506\ \mathrm{u} \). \( \Delta m \) is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">0.003126 u</button>
+          <button type="button" data-choice="B">0.030376 u</button>
+          <button type="button" data-choice="C">1.017435 u</button>
+          <button type="button" data-choice="D">2.014455 u</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\(2m_{p}+2m_{n}=4.031882\ \mathrm{u} -4.001506 =0.030376\ \mathrm{u}\): <b>B</b>. <b>A</b> forgot factor 2.</p></div>
+      </div>
+
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>1000 MeV corresponds to what mass?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">\(1.78\times10^{-27}\ \mathrm{kg}\)</button>
+          <button type="button" data-choice="B">\(1.07\ \mathrm{u}\)</button>
+          <button type="button" data-choice="C">\(1.61\times10^{-10}\ \mathrm{J}\) (energy, not mass)</button>
+          <button type="button" data-choice="D">\(931\ \mathrm{MeV}\) is 1 kg</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\(1000/931≈1.07\ \mathrm{u}\): <b>B</b>. Convert via bridge, not \(E=mc^{2}\) with kg.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="binding">
+      <header>
+        <h2><span class="sec-num">D</span>Binding energy in one curve — why both fission and fusion go to iron</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual svg-fig" id="binding-vis">
+          <svg viewBox="0 0 960 360" role="img" aria-labelledby="binding-title">
+            <title id="binding-title">Average binding energy per nucleon against mass number A, rising to a peak at Fe-56 near 8.8 MeV, then gently falling. Fission goes right-to-peak, fusion goes left-to-peak.</title>
+            <polyline fill="none" stroke="#0f5c54" stroke-width="3" points="40,280 120,250 200,210 320,140 450,95 520,88 620,98 760,125 860,145 920,160"/>
+            <text x="520" y="72" text-anchor="middle" font-size="16" fill="#0f5c54">Fe-56  ~8.8 MeV</text>
+            <text x="280" y="325" font-size="13" fill="#5d6673">fusion ←  light  → peak  ←  heavy  → fission</text>
+            <text x="40" y="355" font-size="13" fill="#5d6673">A →</text>
+          </svg>
+        </div>
+        <figcaption><b>Enrichment.</b> Average binding energy per nucleon vs \( A \). Iron-56 most bound. Breaking a heavy nucleus (fission) or joining two light ones (fusion) both move toward the peak → more bound → less rest mass → energy out. Details in <i>Energy &amp; Use of Energy</i>.</figcaption>
+      </figure>
+      <p>For this course: keep the trend, not the numbers. You can already answer energy problems with \( \Delta m \) alone.</p>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the learning objectives</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-mass">
+          <h3>Δm ↔ energy and units</h3>
+          <p>Use the bridge 1u ↔931 MeV, 1eV=1.60×10⁻¹⁹ J.</p>
+          <figure class="dse-paper">
+            <figcaption>QB 503 · mass–energy</figcaption>
+            <img src="../_local/dse/mc/27/mass.png" alt="Mass-energy paper">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-dmt">
+          <h3>Units that can be energy</h3>
+          <p>u and eV vs Bq.</p>
+          <figure class="dse-paper">
+            <figcaption>QB 503 · units</figcaption>
+            <img src="../_local/dse/mc/27/units.png" alt="Units paper">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-dt">
+          <h3>D–T fusion energy</h3>
+          <figure class="dse-paper">
+            <figcaption>DSE 27 LQ D–T</figcaption>
+            <img src="../_local/dse/lq/27/dt.png" alt="D-T fusion long question">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Summary →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/diagrams3d.js"></script>
+  <script src="js/notes.js"></script>
+</body>
+</html>

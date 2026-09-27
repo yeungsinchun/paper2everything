@@ -1,0 +1,15 @@
+name: deploy-notes
+on:
+  push:
+    branches: [main]
+    paths:
+      - "paper2notes/notes/**"
+      - "paper2notes/deploy/cloudrun/**"
+      - ".dockerignore"
+      - ".github/workflows/deploy-notes.yml"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Deploy paper2notes/notes to Cloud Run via paper2notes/deploy/cloudrun/deploy.sh"

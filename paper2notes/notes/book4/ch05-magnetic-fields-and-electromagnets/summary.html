@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magnetic Fields and Electromagnets · Summary</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Book 4 · Ch.5<small>Summary</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="23-1.html">23.1</a>
+      <a href="summary.html" aria-current="page">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Ch.5 summary</p>
+    <h1>Magnetic Fields and Electromagnets — summary</h1>
+    <p class="lede">One-page revisit: formulae, field / circuit pictures, and the mistakes students most often make.</p>
+
+    <section class="idea">
+      <h2>Formula sheet</h2>
+      <div class="formula-sheet">
+      <p class="eq">\(B = \dfrac{\mu_0 I}{2\pi r}\) — straight wire</p>
+      <p class="eq">\(B = \dfrac{\mu_0 N I}{l}\) — solenoid interior uniform</p>
+      <p class="eq">Field lines N→S outside; compass tangent; broken magnet → two magnets</p>
+      <p class="eq">Electromagnet ↑ with \(N, I,\) soft-iron core</p>
+      </div>
+    </section>
+
+    <section class="idea">
+      <h2>Common mistakes</h2>
+      <div class="trap-grid">
+      <div class="trap">
+        <h3>Field direction</h3>
+        <p>Outside bar magnet N→S; wire circles via right-hand grip, not left-hand.</p>
+      </div>
+      <div class="trap">
+        <h3>Solenoid vs wire</h3>
+        <p>Wire B ∝1/r; solenoid B uniform ∝ N/l, not 1/r.</p>
+      </div>
+      </div>
+    </section>
+
+    <section class="idea">
+      <h2>Visual comparison</h2>
+      <figure class="fig">
+        <div class="visual play stage" data-scene="summary-ch05-magnetic-fields-and-electromagnets" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Summary visual for Magnetic Fields and Electromagnets"></canvas>
+        </div>
+        <figcaption>Summary figure for Magnetic Fields and Electromagnets. Redrawn from textbook Fig. 23.x; see intake images/INDEX.md for source.</figcaption>
+      </figure>
+      <table class="notes">
+        <thead><tr><th>Quantity</th><th>Expression</th><th>When it applies</th></tr></thead>
+        <tbody>
+          <tr><th>Definition</th><td>See formula sheet above</td><td>Always: definitions are not the special case.</td></tr>
+          <tr><th>Special case</th><td>Linear / uniform limit (Ohm, uniform E/B, ideal transformer)</td><td>Only when the conditions (constant T, large plates, long solenoid, ideal core) hold.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="check" data-check="mc" data-answer="B">
+      <h3>Closing check</h3>
+      <p>Which statement best fits this chapter's theme?</p>
+      <div class="choices">
+        <button type="button" data-choice="A">All fields are uniform everywhere.</button>
+        <button type="button" data-choice="B">Quantitative relations have conditions; definitions are general.</button>
+        <button type="button" data-choice="C">Higher voltage always means more power regardless of load.</button>
+        <button type="button" data-choice="D">Lenz's law predicts magnitude, not direction.</button>
+      </div>
+      <p class="feedback"></p>
+      <div class="explain" hidden><p><b>B</b>. Definitions (R=V/I, E=F/q, Φ=BAcosθ) hold generally; laws like Ohm, uniform E=V/d, ideal transformer are conditional. A confuses uniform vs non-uniform; C ignores R load; D swaps Lenz (direction) with Faraday (magnitude).</p></div>
+    </div>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/diagrams3d.js"></script>
+  <script src="js/notes.js"></script>
+</body>
+</html>

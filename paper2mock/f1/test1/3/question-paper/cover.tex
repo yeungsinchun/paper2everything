@@ -1,0 +1,88 @@
+% ============================================================
+% cover.tex - single-page cover
+% Two-column body: left = title, labels, time, total marks, instructions
+%                  right = candidate number boxes + marks table
+% A vertical strip runs the full page height on the left edge.
+% Both columns are vertically centered.
+% ============================================================
+
+\begin{titlepage}
+\thispagestyle{cover}
+\newgeometry{top=12mm,bottom=12mm,left=0mm,right=12mm}
+
+% Use Helvetica for cover page only
+\sffamily
+
+\DrawCornerStrip
+
+% Full-page-height vertical divider line
+\noindent\begin{tikzpicture}[remember picture,overlay]
+  \draw[black,line width=1pt]
+    ([xshift=0.58\linewidth,yshift=-5mm]current page.north west) --
+    ([xshift=0.58\linewidth,yshift=20mm]current page.south west);
+\end{tikzpicture}
+
+% Reserve vertical space then vertically center both columns
+\vspace*{29mm}
+
+\hfill\noindent
+\begin{minipage}[c]{0.52\linewidth}
+  % ---- Title block ----
+  \begin{center}
+    {\fontsize{8pt}{10pt}\selectfont
+      \CoverAuthority\par}
+    \vspace{1.5mm}
+    {\fontsize{8pt}{10pt}\selectfont
+      \CoverExamName\par}
+    \vspace{1cm}
+    {\fontsize{15pt}{17pt}\selectfont\bfseries \CoverTitle\par}
+    \vspace{5mm}
+    {\fontsize{11pt}{13pt}\selectfont\bfseries \CoverSubtitle\par}
+    \vspace{5mm}
+    {\fontsize{10pt}{12pt}\selectfont \CoverLanguageNote\par}
+  \end{center}
+
+  \vspace{5mm}
+
+  % ---- Instructions ----
+  \hspace{4em}\begin{minipage}[t]{0.85\linewidth}
+    {\fontsize{10pt}{12pt}\selectfont\bfseries \CoverInstrHeading\par}
+    \vspace{3mm}
+    {\fontsize{9.5pt}{11.5pt}\selectfont
+    \CoverInstructions}
+
+  \end{minipage}
+\end{minipage}%
+% \hspace{4mm}\vrule width 0.5pthspace{4mm}%
+\begin{minipage}[c]{0.47\linewidth}
+  \begin{center}
+    {\fontsize{10pt}{10pt}\selectfont\renewcommand{\arraystretch}{2.5}
+    \begin{tabular}{|>{\centering\arraybackslash}m{2cm}|*{1}{>{\centering\arraybackslash}m{4cm}|}}
+      \hline
+      Name & \\
+      \hline
+    \end{tabular}}
+  \end{center}
+  \begin{center}
+    {\fontsize{10pt}{10pt}\selectfont\renewcommand{\arraystretch}{2.5}
+    \begin{tabular}{|>{\centering\arraybackslash}m{2cm}|*{1}{>{\centering\arraybackslash}m{4cm}|}}
+      \hline
+      Date & \\
+      \hline
+    \end{tabular}}
+  \end{center}
+  \vspace{6mm}
+  \begin{center}
+    \input{marks-table.tex}
+  \end{center}
+\end{minipage}\hfill
+
+\vspace*{\fill}
+\hspace{4em}\begin{minipage}[t]{0.88\linewidth}
+\noindent{\fontsize{9.5pt}{11.5pt}\selectfont
+\CoverCopyright\par}
+\end{minipage}
+\vspace*{1cm}
+
+\end{titlepage}
+\restoregeometry

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Section 21.1 Current, potential difference and e.m.f.</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Book 4 · Ch.2<small>Current, potential difference and e.m.f.</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="21-1.html" aria-current="page">21.1</a>
+      <a href="21-2.html">21.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Section 21.1</p>
+    <h1>Current, potential difference and e.m.f.</h1>
+    <p class="lede">A circuit is energy per coulomb leaving a source and being handed to components.</p>
+
+    <section class="lo-block" aria-labelledby="lo-heading">
+      <h2 id="lo-heading">Learning objectives</h2>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>define electric current as rate of flow of charge \(I = \Delta Q/\Delta t\)</p></li>
+        <li><p>describe energy transformations and define p.d. and e.m.f. per unit charge</p></li>
+      </ul>
+    </section>
+
+    <section class="idea" id="current">
+      <header>
+        <h2><span class="sec-num">A</span>Current as rate of flow</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" data-scene="current-flow" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Current as rate of flow"></canvas>
+          <span class="hud-label" data-hud="a">Current as r</span>
+        </div>
+        <figcaption><b>Fig. 21.1</b> Fig. 15.2 Conventional current vs electron flow. Conventional from + to − outside the source; electrons opposite.</figcaption>
+      </figure>
+      <div class="def">
+        <span class="tag">Key idea</span>
+        <p>Current \(I = \Delta Q/\Delta t\) (C/s = ampere). One coulomb is \(\sim 6.2\times10^{18}\) electrons. Drift velocity is slow (mm/s), but energy transfer is near light speed because the field propagates. Number of electrons \(n = Q/e\).</p>
+      </div>
+      <table class="notes">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Convention</th><td>Current arrow is motion of + charge. In a metal wire electrons drift opposite to the arrow.</td></tr>
+          <tr><th>Charge</th><td>\(Q = I t\). Example: 2 A for 30 s → 60 C → \(3.7\times10^{20}\) electrons.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="C">
+        <h3>Concept check</h3>
+        <p>A 2 A current passes for 1 minute. How much charge passes a cross-section?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">2 C</button>
+          <button type="button" data-choice="B">60 C</button>
+          <button type="button" data-choice="C">120 C</button>
+          <button type="button" data-choice="D">0.033 C</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Q=It=2×60=120 C. Option B forgets minutes→seconds.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="emf-pd">
+      <header>
+        <h2><span class="sec-num">B</span>e.m.f. vs p.d.</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" data-scene="emf-pd" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="e.m.f. vs p.d."></canvas>
+          <span class="hud-label" data-hud="a">e.m.f. vs p.</span>
+        </div>
+        <figcaption><b>Fig. 21.1</b> Fig. 15.4 Energy per coulomb: e.m.f. imparted in the source; p.d. converted in the load.</figcaption>
+      </figure>
+      <div class="def">
+        <span class="tag">Key idea</span>
+        <p>e.m.f. \(\varepsilon = E/Q\) through the source (chemical/mechanical → electrical). p.d. \(V = E/Q\) outside the source (electrical → heat/light). In an ideal loop, sum of p.d.s around = e.m.f. For a cell with internal r: \(\varepsilon = V + I r\).</p>
+      </div>
+      <table class="notes">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Units</th><td>Both J/C = volt. e.m.f. is not a force, just a name.</td></tr>
+          <tr><th>Meter</th><td>Voltmeter across a component reads its p.d.; ideal draws no current.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>A cell has e.m.f. 1.5 V and internal resistance 0.5 Ω. When delivering 1 A to a load, terminal voltage is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">1.5 V</button>
+          <button type="button" data-choice="B">1.0 V</button>
+          <button type="button" data-choice="C">2.0 V</button>
+          <button type="button" data-choice="D">0.5 V</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>V=ε−Ir=1.5−0.5=1.0 V. The missing 0.5 V drops inside the cell.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the learning objectives — MC</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-26">
+          <h3>2012/26 MC</h3>
+          <p>Classified to section 21 — see paper2db pipeline section 21.</p>
+          <figure class="dse-paper">
+            <figcaption>2012/26 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2012_q26.png" alt="HKDSE 2012/26 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2018-23">
+          <h3>2018/23 MC</h3>
+          <p>Classified to section 21 — see paper2db pipeline section 21.</p>
+          <figure class="dse-paper">
+            <figcaption>2018/23 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2018_q23.png" alt="HKDSE 2018/23 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-21-sample">
+          <h3>Syllabus 21 LQ sample</h3>
+          <figure class="dse-paper">
+            <figcaption>Section 21 LQ</figcaption>
+            <img src="../_local/dse/lq/21/sample.png" alt="HKDSE LQ section 21">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="21-2.html">Next: Resistance, Ohm's law and resistivity →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/diagrams3d.js"></script>
+  <script src="js/notes.js"></script>
+</body>
+</html>

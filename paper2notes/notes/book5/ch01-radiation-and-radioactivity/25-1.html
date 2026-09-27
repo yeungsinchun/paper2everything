@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>25.1 Ionizing radiation</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Book 5 · Ch.1<small>25.1 Ionizing radiation</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="25-1.html" aria-current="page">25.1</a>
+      <a href="25-2.html">25.2</a>
+      <a href="25-3.html">25.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Section 25.1</p>
+    <h1>Ionizing radiation</h1>
+    <p class="lede">What radiation is, what makes some of it ionizing, how an X-ray tube works and what X-rays are used for, and why nuclear radiation is a different kind of thing from an X-ray beam.</p>
+
+    <section class="lo-block" aria-labelledby="lo-heading">
+      <h2 id="lo-heading">Learning objectives</h2>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>realise X-rays as ionizing electromagnetic radiations of short wavelengths with high penetrating power</p></li>
+        <li><p>realise the emission of X-rays when fast electrons hit a heavy metal target</p></li>
+        <li><p>discuss the uses of X-rays</p></li>
+        <li><p>describe the origin and nature of α, β and γ radiations</p></li>
+        <li><p>realise the occurrence of radioactive decay in unstable nuclides</p></li>
+      </ul>
+    </section>
+
+    <section class="idea" id="radiation">
+      <header>
+        <h2><span class="sec-num">A</span>Two types of radiation</h2>
+      </header>
+      <figure class="fig">
+        <div class="pane-pair">
+          <div class="visual play stage" id="beam-em-vis" data-autoplay data-scene="beams-em">
+            <canvas class="scene-canvas" width="480" height="360" aria-label="Traveling electromagnetic wave: oscillating E with a perpendicular oscillating B"></canvas>
+            <span class="hud-label" data-hud="wave">light beam · EM wave</span>
+            <span class="hud-label" data-hud="e">E</span>
+            <span class="hud-label" data-hud="b">B</span>
+          </div>
+          <div class="visual play stage" id="beam-e-vis" data-autoplay data-scene="beams-e">
+            <canvas class="scene-canvas" width="480" height="360" aria-label="Stream of electrons with kinetic energy"></canvas>
+            <span class="hud-label" data-hud="electrons">electron beam · particles</span>
+          </div>
+        </div>
+        <figcaption><b>Fig. 25.2</b> A light beam (left) is an electromagnetic wave: an oscillating electric field E with a perpendicular oscillating magnetic field B travelling together. An electron beam (right) is a stream of particles carrying kinetic energy.</figcaption>
+      </figure>
+      <div class="def">
+        <span class="tag">Definition</span>
+        <p><b>Radiation</b> is energy travelling from one place to another, either as an electromagnetic wave or as a stream of fast particles. It does not need a medium: light and X-rays cross a vacuum, and so do α and β particles.</p>
+      </div>
+      <table class="notes">
+        <thead><tr><th>Electromagnetic radiation</th><th>Particle radiation</th></tr></thead>
+        <tbody>
+          <tr><td>Oscillating E and B fields; no mass, no charge; speed \( c = 3 \times 10^{8}\ \mathrm{m\,s^{-1}} \) in vacuum</td><td>Moving particles with mass and kinetic energy; may carry charge; speed below \( c \)</td></tr>
+          <tr><td>Radio, microwave, infrared, visible, ultraviolet, X-rays, gamma rays</td><td>Electron beams, α particles, β particles, neutrons</td></tr>
+          <tr><td colspan="2">Both transfer energy. Both are radiation.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="C">
+        <h3>Concept check</h3>
+        <p>Which of the following statements about radiation is/are correct?</p>
+        <ol class="stem-list">
+          <li>Radiation always requires a medium to travel in.</li>
+          <li>Radiation transfers mass from one place to another.</li>
+          <li>All electromagnetic waves are a form of radiation.</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(2) only</button>
+          <button type="button" data-choice="C">(3) only</button>
+          <button type="button" data-choice="D">(1) and (3) only</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>(3) is the definition: every EM wave carries energy from one place to another. (1) is false because EM waves and nuclear particles cross a vacuum; sunlight reaches us through empty space. (2) is false as a general statement: an EM wave transfers energy but no mass, and even a particle beam is described as radiation because of the energy it carries, not the mass.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="knockout">
+      <header>
+        <h2><span class="sec-num">B</span>Ionizing means knocking an electron out</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="knock-vis" data-autoplay data-scene="knockout">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Radiation knocks a bound electron out of an atom"></canvas>
+          <span class="hud-label" data-hud="ray">ionizing radiation</span>
+          <span class="hud-label" data-hud="atom">atom</span>
+          <span class="hud-label" data-hud="electron">electron</span>
+          <button type="button" class="stage-replay" data-replay="knock-vis">Replay</button>
+        </div>
+        <figcaption><b>Fig. 25.3</b> Ionization. Radiation with enough energy knocks one of the atom's own bound electrons out of the atom, leaving a positive ion behind.</figcaption>
+      </figure>
+      <div class="def">
+        <span class="tag">Definition</span>
+        <p><b>Ionizing radiation</b> carries enough energy per photon or per particle to remove an electron from an atom or molecule, turning it into an ion. Radiation that cannot do this is <b>non-ionizing</b>.</p>
+      </div>
+      <table class="notes">
+        <thead><tr><th></th><th>Ionizing</th><th>Non-ionizing</th></tr></thead>
+        <tbody>
+          <tr><th>Energy per photon or particle</th><td>Enough to knock an electron out of an atom or molecule</td><td>Not enough; at most the electron is raised to a higher energy level and falls back</td></tr>
+          <tr><th>Examples</th><td>X-rays, gamma rays, most ultraviolet; α and β particles</td><td>Radio, microwaves, infrared, visible light, the lowest-energy part of ultraviolet</td></tr>
+          <tr><th>Hazard</th><td>Ions and broken bonds inside cells damage tissue and DNA; cells may die or become cancerous</td><td>Heating at high intensity only; no ionization</td></tr>
+        </tbody>
+      </table>
+      <div class="check" data-check="mc" data-answer="C">
+        <h3>Concept check</h3>
+        <p>Which of the following statements about ionizing radiation is/are correct?</p>
+        <ol class="stem-list">
+          <li>Its energy is high enough to strike electrons out of atoms or molecules.</li>
+          <li>It is radiation in the form of ions.</li>
+          <li>X-rays are ionizing radiation.</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(2) only</button>
+          <button type="button" data-choice="C">(1) and (3) only</button>
+          <button type="button" data-choice="D">(2) and (3) only</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>(1) is the definition. (3) is true: X-ray photons carry far more energy than the few eV needed to free an electron. (2) is the common slip: "ionizing" describes what the radiation <em>does</em> to matter, not what it is made of. X-rays and gamma rays carry no charge at all and still ionize; a beam of ions would be something else entirely.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="spectrum">
+      <header>
+        <h2><span class="sec-num">C</span>Where the electromagnetic spectrum becomes ionizing</h2>
+      </header>
+      <figure class="fig" id="spectrum-fig">
+        <div class="visual svg-fig" id="spectrum-vis">
+          <svg class="spectrum-svg" viewBox="0 0 960 262" role="img" aria-labelledby="spectrum-title">
+            <title id="spectrum-title">The electromagnetic spectrum from radio to gamma ray, frequency increasing to the right. The ionizing threshold is a dashed line inside the ultraviolet band near its low-frequency end: everything left of it is non-ionizing, everything right of it is ionizing.</title>
+            <defs>
+              <linearGradient id="vis-grad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#c0392b"/>
+                <stop offset="0.2" stop-color="#e67e22"/>
+                <stop offset="0.4" stop-color="#f1c40f"/>
+                <stop offset="0.6" stop-color="#27ae60"/>
+                <stop offset="0.8" stop-color="#2980b9"/>
+                <stop offset="1" stop-color="#8e44ad"/>
+              </linearGradient>
+              <marker id="ax-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#5d6673"/>
+              </marker>
+            </defs>
+            <g class="brackets" fill="none" stroke="#1b2129" stroke-width="1.2">
+              <path data-bracket="nonion" d="M40,50 v-6 H496.5 v6"/>
+              <path data-bracket="ion" d="M508.5,50 v-6 H920 v6"/>
+            </g>
+            <text class="bracket-label" data-hud="nonion" x="271.3" y="32" text-anchor="middle">non-ionizing</text>
+            <text class="bracket-label" data-hud="ion" x="711.3" y="32" text-anchor="middle">ionizing</text>
+            <g class="bands">
+          <rect x="40" y="70" width="140.8" height="80" fill="#cfd9e6"/>
+          <rect x="180.8" y="70" width="123.2" height="80" fill="#c9dcc3"/>
+          <rect x="304" y="70" width="132" height="80" fill="#ecd3b4"/>
+          <rect x="436" y="70" width="52.8" height="80" fill="url(#vis-grad)"/>
+          <rect class="uv" x="488.8" y="70" width="114.4" height="80" fill="#8e79b3"/>
+          <rect x="603.2" y="70" width="149.6" height="80" fill="#4b5a66"/>
+          <rect x="752.8" y="70" width="167.2" height="80" fill="#1c2430"/>
+            </g>
+            <line class="threshold" data-cut x1="502.5" y1="56" x2="502.5" y2="180" stroke="#1b2129" stroke-width="2" stroke-dasharray="5 4"/>
+            <text class="threshold-label" x="502.5" y="198" text-anchor="middle">ionizing threshold</text>
+            <g class="band-names">
+          <text class="band-name" data-band="radio" x="110.4" y="174" text-anchor="middle">radio</text>
+          <text class="band-name" data-band="microwave" x="242.4" y="174" text-anchor="middle">microwave</text>
+          <text class="band-name" data-band="infrared" x="370" y="174" text-anchor="middle">infrared</text>
+          <text class="band-name" data-band="visible" x="462.4" y="174" text-anchor="middle">visible</text>
+          <text class="band-name" data-band="ultraviolet" x="546" y="174" text-anchor="middle">ultraviolet</text>
+          <text class="band-name" data-band="X-rays" x="678" y="174" text-anchor="middle">X-rays</text>
+          <text class="band-name" data-band="gamma-ray" x="836.4" y="174" text-anchor="middle">gamma ray</text>
+            </g>
+            <line class="axis" x1="40" y1="240" x2="920" y2="240" stroke="#5d6673" stroke-width="1.2" marker-start="url(#ax-head)" marker-end="url(#ax-head)"/>
+            <text class="axis-label" x="52" y="232" text-anchor="start">longer wavelength</text>
+            <text class="axis-label" x="908" y="232" text-anchor="end">higher frequency, more energy per photon</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 25.5</b> The electromagnetic spectrum with frequency increasing to the right. The ionizing threshold sits inside the ultraviolet band, close to its low-frequency end: the narrow strip of UV to the left of the dashed line is still non-ionizing; the rest of UV, X-rays and gamma rays are ionizing.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>Energy per photon rises with frequency (and falls with wavelength). Only photons above the ionization threshold can knock an electron out, so the ionizing part of the spectrum is the high-frequency, short-wavelength end.</li>
+        <li>Radio waves, microwaves, infrared and visible light are non-ionizing. The boundary lies inside the ultraviolet band; radiation of higher frequency than ultraviolet, that is X-rays and gamma rays, is ionizing.</li>
+        <li>Scale to remember: visible light \( \lambda \sim 5 \times 10^{-7}\ \mathrm{m} \); X-rays \( \lambda \sim 10^{-11} \) to \( 10^{-8}\ \mathrm{m} \), \( f \sim 10^{18}\ \mathrm{Hz} \); gamma rays are shorter still, \( f \sim 10^{20}\ \mathrm{Hz} \). Short wavelength goes with high photon energy, hence both ionizing and highly penetrating.</li>
+      </ul>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>Which of the following properties are common to X-rays and to nuclear radiation (α, β, γ)?</p>
+        <ol class="stem-list">
+          <li>ionizing</li>
+          <li>emitted spontaneously</li>
+          <li>emitted from the nucleus</li>
+          <li>invisible</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) and (2) only</button>
+          <button type="button" data-choice="B">(1) and (4) only</button>
+          <button type="button" data-choice="C">(1), (3) and (4) only</button>
+          <button type="button" data-choice="D">(1), (2), (3) and (4)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Both are ionizing and both are invisible, so (1) and (4). (2) fails for X-rays: a tube emits only while its supply is on, so the emission is controlled, not spontaneous. (3) fails too: X-rays come from electrons decelerating in a metal target, outside any nucleus. These two differences (origin and spontaneity) are the whole distinction between an X-ray and a gamma ray, which are otherwise the same kind of wave; see Section F.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="xray-tube">
+      <header>
+        <h2><span class="sec-num">D</span>How an X-ray tube makes X-rays</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="tube-vis" data-autoplay data-scene="tube">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="X-ray tube: electron gun, electrons hitting an angled heavy-metal target, X-rays leaving the target face"></canvas>
+          <span class="hud-label" data-hud="gun">electron gun</span>
+          <span class="hud-label" data-hud="electrons">electrons</span>
+          <span class="hud-label" data-hud="target">heavy metal target</span>
+          <span class="hud-label" data-hud="xrays">X-rays</span>
+        </div>
+        <figcaption><b>Fig. 25.6</b> An X-ray tube. Electrons from the gun are accelerated across the evacuated tube and strike the angled heavy-metal target; X-rays leave from the point of impact.</figcaption>
+      </figure>
+      <table class="notes">
+        <thead><tr><th>Part of the tube</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Heated filament (cathode)</td><td>Emits electrons when hot, so a current can flow across the tube.</td></tr>
+          <tr><td>Very high voltage (tens of kV) between cathode and target</td><td>Accelerates the electrons to very high speed. A higher voltage gives electrons more kinetic energy and so more penetrating X-rays.</td></tr>
+          <tr><td>Vacuum inside the glass</td><td>Electrons must not lose energy by colliding with air molecules on the way.</td></tr>
+          <tr><td>Heavy metal target (e.g. tungsten), angled</td><td>Electrons are stopped abruptly; part of their kinetic energy is emitted as X-rays, which leave through the side of the tube.</td></tr>
+          <tr><td>Cooling (oil, rotating target)</td><td>Only about 1% of the electrons' kinetic energy becomes X-rays; the rest heats the target.</td></tr>
+        </tbody>
+      </table>
+      <div class="def">
+        <span class="tag">Properties of X-rays</span>
+        <p>X-rays are electromagnetic waves of very short wavelength (about \( 10^{-10}\ \mathrm{m} \)). They carry no charge and no mass, travel at \( c \), are not deflected by electric or magnetic fields, pass through soft materials but are absorbed by dense ones, ionize atoms, blacken photographic film and cause some materials to fluoresce.</p>
+      </div>
+      <div class="check" data-check="tf">
+        <h3>Concept check</h3>
+        <div class="tf-item" data-answer="false">
+          <p>(a) A beam of X-rays is a stream of fast-moving electrons.</p>
+          <div class="row">
+            <button type="button" data-tf="true">True</button>
+            <button type="button" data-tf="false">False</button>
+          </div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The electrons stop in the target. What leaves the tube is an electromagnetic wave produced by the electrons' kinetic energy; it carries no charge, so an electric field cannot deflect it.</p></div>
+        </div>
+        <div class="tf-item" data-answer="false">
+          <p>(b) X-rays are produced by bombarding a metal target with high-frequency electromagnetic waves.</p>
+          <div class="row">
+            <button type="button" data-tf="true">True</button>
+            <button type="button" data-tf="false">False</button>
+          </div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The projectile is a fast electron, not a wave. The syllabus statement is "the emission of X-rays when fast electrons hit a heavy metal target".</p></div>
+        </div>
+        <div class="tf-item" data-answer="false">
+          <p>(c) In the tube the heavy metal target is connected to the negative terminal of the high-voltage supply.</p>
+          <div class="row">
+            <button type="button" data-tf="true">True</button>
+            <button type="button" data-tf="false">False</button>
+          </div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Electrons are negative, so to be pulled towards the target the target must be the <em>positive</em> terminal (the anode). The hot filament that emits them is the negative terminal (the cathode). X-rays leave from the target, not from the filament.</p></div>
+        </div>
+      </div>
+      <div class="check" data-check="mc" data-answer="D">
+        <h3>Concept check</h3>
+        <p>Four set-ups: ultraviolet light shone on a sponge; ultraviolet light shone on a block of heavy metal; a beam of fast electrons fired at a sponge; a beam of fast electrons fired at a block of heavy metal. In which set-up are X-rays produced?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">ultraviolet light on a sponge</button>
+          <button type="button" data-choice="B">ultraviolet light on a heavy metal block</button>
+          <button type="button" data-choice="C">fast electrons on a sponge</button>
+          <button type="button" data-choice="D">fast electrons on a heavy metal block</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Two conditions are needed: fast <em>electrons</em> as the projectile and a <em>heavy metal</em> target that stops them abruptly. <b>A</b> and <b>B</b> use a wave, not electrons, so they can at most warm or ionize the surface. <b>C</b> has electrons but a light, soft target that slows them gradually and produces essentially no X-rays.</p>
+        </div>
+      </div>
+      <div class="check" data-check="sa">
+        <h3>Write it out</h3>
+        <p>Describe briefly how X-rays are produced in an X-ray tube. <span class="marks">(3 marks)</span></p>
+        <button type="button" data-reveal>Show model answer</button>
+        <div class="model" hidden>
+          <ol>
+            <li>A filament is heated and emits electrons.</li>
+            <li>A very high voltage between the filament and a heavy metal target accelerates the electrons to a high speed across the evacuated tube.</li>
+            <li>When the fast electrons hit the target they decelerate abruptly and part of their kinetic energy is emitted as X-rays (the rest becomes heat in the target).</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="imaging">
+      <header>
+        <h2><span class="sec-num">E</span>Uses of X-rays</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="imaging-vis" data-autoplay data-scene="imaging">
+          <canvas class="scene-canvas tall" width="960" height="480" aria-label="X-rays passing down through a hand onto photographic film"></canvas>
+          <span class="hud-label" data-hud="bone">bone</span>
+          <span class="hud-label" data-hud="flesh">flesh</span>
+          <span class="hud-label" data-hud="film">photographic film</span>
+          <button type="button" class="stage-replay" data-replay="imaging-vis">Replay</button>
+        </div>
+        <figcaption><b>Fig. 25.7</b> Medical radiography. X-rays pass down through one hand onto photographic film. Flesh lets most of them through, so those spots blacken; bone absorbs them, so those spots stay white.</figcaption>
+      </figure>
+      <table class="notes">
+        <thead><tr><th>What the X-rays meet</th><th>What the developed film shows</th></tr></thead>
+        <tbody>
+          <tr><td>Soft tissue (flesh)</td><td>Mostly transmitted, so the film blackens (dark)</td></tr>
+          <tr><td>Bone or teeth</td><td>Mostly absorbed, so the film stays white</td></tr>
+          <tr><td>Metal (surgical pin, filling, steel blade)</td><td>Absorbed even more than bone, so the shadow is <em>whiter than the bone</em></td></tr>
+        </tbody>
+      </table>
+      <table class="notes">
+        <thead><tr><th>Use</th><th>Which X-rays, and why that works</th></tr></thead>
+        <tbody>
+          <tr><td>Medical radiography: fractures, teeth, chest. A CT scan is many such views, rebuilt into a 3D image</td><td><b>Lower-frequency</b> X-rays. They cross flesh but not bone, so the skeleton stands out white on the film</td></tr>
+          <tr><td>Airport security of luggage and passengers</td><td>Many scanners record X-rays <em>reflected</em> from the object, not those that pass through. Metal then appears <b>black</b> - the opposite of a medical film</td></tr>
+          <tr><td>Industrial inspection of rails, welds, castings, pipes and diamonds</td><td><b>Higher-frequency</b> X-rays, which do penetrate metal. A crack lets extra through and shows as a darker line</td></tr>
+        </tbody>
+      </table>
+      <aside class="tip">
+        <span class="tag">Exam tip: reading a film</span>
+        <p>One rule: the film blackens only where X-rays reach it. A hollow (decayed) part of a tooth is darker than healthy tooth; a metal filling is white. Scissors on wrapped film: uncovered film darkest, plastic handles grey, steel blades white.</p>
+      </aside>
+      <aside class="tip">
+        <span class="tag">Exam tip: safe use</span>
+        <p>X-rays are ionizing, so a question may ask for precautions: confirm the patient is not pregnant (use ultrasound instead); take off metal that would block the image; use the lowest exposure that still gives the picture; lead apron on the rest of the body; the radiographer stands behind a lead screen or leaves the room.</p>
+      </aside>
+      <div class="check" data-check="mc" data-answer="C">
+        <h3>Concept check</h3>
+        <p>An X-ray image of a broken bone includes a metal pin. The pin appears white because</p>
+        <div class="choices">
+          <button type="button" data-choice="A">X-rays ionize the metal pin.</button>
+          <button type="button" data-choice="B">X-rays penetrate metals but not flesh.</button>
+          <button type="button" data-choice="C">X-rays penetrate flesh but not metals.</button>
+          <button type="button" data-choice="D">the pin emits X-rays onto the film.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C</b>. The film stays white where X-rays are stopped. Metal stops them even more effectively than bone, so the pin is the whitest mark. <b>B</b> reverses flesh and metal. <b>A</b> is true of X-rays in general but does not decide the colour. <b>D</b> confuses the source with the object being imaged.</p>
+        </div>
+      </div>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>Why can a metal object look black on an airport X-ray image but white on a medical radiograph?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Airport X-rays are non-ionizing.</button>
+          <button type="button" data-choice="B">Airport scanners often record reflected X-rays; a medical film records those that pass through.</button>
+          <button type="button" data-choice="C">Medical X-rays cannot penetrate flesh.</button>
+          <button type="button" data-choice="D">Metal emits its own X-rays only at the airport.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B</b> is the book distinction. Transmission film: metal blocks the beam, so that patch stays white. Reflection scanner: metal sends a strong return, so that patch is shown black. <b>A</b> is false: both uses are ionizing. <b>C</b> is the opposite of why medical imaging works. <b>D</b> invents a source that is not there.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="nuclear-vs-x">
+      <header>
+        <h2><span class="sec-num">F</span>Nuclear radiation is spontaneous; an X-ray beam is switched</h2>
+      </header>
+      <figure class="fig">
+        <div class="visual play stage" id="kinds-vis" data-scene="kinds">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Alpha helium nucleus, beta electron, gamma EM wave, X-ray tube"></canvas>
+          <span class="hud-label" data-hud="alpha">α  He nucleus</span>
+          <span class="hud-label" data-hud="beta">β  fast electron</span>
+          <span class="hud-label" data-hud="gamma">γ  high-f EM</span>
+          <span class="hud-label" data-hud="xray">X-ray: switched</span>
+        </div>
+        <figcaption>The three kinds of nuclear radiation leave the nucleus at random moments in random directions. An X-ray tube emits only while its power supply is on.</figcaption>
+      </figure>
+      <table class="notes">
+        <thead><tr><th></th><th>Nuclear radiation (α, β, γ)</th><th>X-rays</th></tr></thead>
+        <tbody>
+          <tr><th>Source</th><td>The nucleus of an unstable atom (a <b>radioactive</b> substance)</td><td>Fast electrons stopped by a metal target in a tube</td></tr>
+          <tr><th>Control</th><td>Spontaneous and random: cannot be switched off, sped up or slowed down by heating, pressure or chemical change</td><td>Switched on and off with the tube's power supply; intensity and penetrating power set by the current and voltage</td></tr>
+          <tr><th>Nature</th><td>α: helium nucleus (2p + 2n). β: fast electron. γ: very high-frequency EM wave</td><td>EM wave, like γ but produced outside the nucleus and usually of lower frequency</td></tr>
+          <tr><th>In common</th><td colspan="2">All are ionizing and invisible. γ rays and X-rays in particular are both EM waves: both travel at \( c \), cross a vacuum, carry no charge (so no field deflects them), and blacken photographic film. The <b>only</b> difference between a γ ray and an X-ray is its origin.</td></tr>
+        </tbody>
+      </table>
+      <div class="def">
+        <span class="tag">Definition</span>
+        <p>A substance is <b>radioactive</b> if it spontaneously emits α, β or γ radiation from unstable nuclei. The emission is called <b>radioactive decay</b>, and the radiation is called <b>nuclear radiation</b> because it comes from the nucleus. Section 25.2 explains what each radiation is.</p>
+      </div>
+      <aside class="tip">
+        <span class="tag">Exam tip</span>
+        <p>If a question says radiation from a radioactive source passes <em>undeflected</em> through a field, it is γ, never X-rays - a radioactive source does not emit X-rays, because X-rays are not nuclear radiation.</p>
+      </aside>
+      <div class="check" data-check="tf">
+        <h3>Concept check</h3>
+        <div class="tf-item" data-answer="false">
+          <p>(a) All types of nuclear radiation are electromagnetic waves.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Only γ is an EM wave. α particles are helium nuclei and β particles are electrons; both have mass and charge.</p></div>
+        </div>
+        <div class="tf-item" data-answer="false">
+          <p>(b) The emission of radiation from uranium can be switched on and off like an X-ray tube.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Decay is spontaneous. Nothing done to the atom from outside (heat, pressure, chemical reaction, electric field) changes when or whether its nucleus decays.</p></div>
+        </div>
+        <div class="tf-item" data-answer="false">
+          <p>(c) After a nuclear accident, the "radiation" that the wind carries to neighbouring countries is α, β and γ radiation.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The radiation itself is energy (particles or waves) travelling in straight lines from the nucleus for at most a few metres in air (α and β) or until absorbed (γ). What wind can spread is radioactive <em>material</em>, the dust that contains the unstable nuclei, which then emits radiation wherever it lands. Keep "radiation" and "radioactive substance" separate.</p></div>
+        </div>
+      </div>
+      <div class="check" data-check="mc" data-answer="B">
+        <h3>Concept check</h3>
+        <p>Which of the following is/are a difference between γ rays and X-rays?</p>
+        <ol class="stem-list">
+          <li>γ rays are ionizing but X-rays are not.</li>
+          <li>γ rays are emitted from nuclei but X-rays are not.</li>
+          <li>X-rays are electromagnetic waves but γ rays are not.</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(2) only</button>
+          <button type="button" data-choice="C">(1) and (3) only</button>
+          <button type="button" data-choice="D">(2) and (3) only</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Only <b>(2)</b> is a real difference. Both are ionizing EM waves travelling at \( c \); a γ photon and an X-ray photon of the same frequency are indistinguishable. What differs is where they come from: a γ ray leaves an excited nucleus during radioactive decay (spontaneous), an X-ray is produced when fast electrons are stopped in a metal target (switchable).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the learning objectives</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2022-31">
+          <h3>X-ray production and nature</h3>
+          <p>Separate the fast electrons that make X-rays from the X-rays themselves, then use charge to decide whether a field can deflect them.</p>
+          <figure class="dse-paper">
+            <figcaption>2022/31 MC</figcaption>
+            <img src="../_local/dse/mc/25/2022_q31.png" alt="HKDSE 2022/31 MC">
+          </figure>
+        </article>
+        
+<article class="quiz-slide" hidden id="dse-mc-2015-31">
+          <h3>Spontaneous nuclear change</h3>
+          <p>Distinguish radioactive decay from reactions that need an incoming particle or extreme conditions to begin.</p>
+          <figure class="dse-paper">
+            <figcaption>2015/31 MC</figcaption>
+            <img src="../_local/dse/mc/25/2015_q31.png" alt="HKDSE 2015/31 MC">
+          </figure>
+        </article>
+        
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+<article class="quiz-slide is-current" id="dse-lq-2017-10">
+          <h3>2017/10 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2017/10 LQ</figcaption>
+            <img src="../_local/dse/lq/26/2017-q10.png" alt="HKDSE 2017/10 LQ">
+          </figure>
+        </article>
+        
+<article class="quiz-slide" hidden id="dse-lq-2014-10">
+          <h3>2014/10 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2014/10 LQ</figcaption>
+            <img src="../_local/dse/lq/26/2014-q10.png" alt="HKDSE 2014/10 LQ">
+          </figure>
+        </article>
+      
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="25-2.html">Next: 25.2 Origin of nuclear radiation →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/diagrams3d.js"></script>
+  <script src="js/notes.js"></script>
+</body>
+</html>
