@@ -202,10 +202,9 @@
   <h1>[paper2everything] Architecture board: how data moves, and where it breaks</h1>
   <p class="lede" id="answer">
     Three subprojects share one repo, and <strong>one data edge</strong> connects them:
-    paper2notes copies paper2db's generated DSE crops through <code>sync-dse.sh</code>.
-    paper2mock stands alone. The graph has <strong>no cycle</strong>. The weak point is that one edge:
-    it relies on an <strong>undeclared folder layout</strong>, CI never checks it, and <strong>the Cloud Run image never includes the crops</strong>,
-    so every DSE deck on the live site returns 404.
+    paper2notes copies paper2db's generated DSE crops. Locally it is <code>sync-dse.sh</code> into gitignored <code>_local/</code>; in production it is a curated snapshot at <code>notes/dse/</code> staged into the image (since 361de93).
+    paper2mock stands alone. The graph has <strong>no cycle</strong>. The remaining weak point is that one edge:
+    it relies on an <strong>undeclared folder layout</strong> and CI never checks it, even though the image now carries the 82 crops.
   </p>
   <p class="sub">Every claim cites a file, or a read-only probe of the live site. The same map is in prose in <code>docs/ARCHITECTURE.md</code>. Annotate any box, arrow, or finding card to push back on it.</p>
 
@@ -213,9 +212,9 @@
     <div class="stat"><b>3</b><span>subprojects: db · notes · mock</span></div>
     <div class="stat"><b>1</b><span>cross-project data edge (notes → db)</span></div>
     <div class="stat ok"><b>0</b><span>dependency cycles</span></div>
-    <div class="stat bad"><b>3</b><span>high-severity findings</span></div>
+    <div class="stat bad"><b>2</b><span>high-severity findings (A1 resolved at 361de93)</span></div>
     <div class="stat"><b>82</b><span>distinct _local references (66 PNG + 16 PDFs) in notes HTML</span></div>
-    <div class="stat bad"><b>404</b><span>live response for a DSE crop</span></div>
+    <div class="stat ok"><b>200</b><span>live response for a DSE crop (via notes/dse staged to _local)</span></div>
   </div>
 </section>
 
@@ -291,10 +290,10 @@
         <rect class="box" x="760" y="58" width="200" height="54" rx="7"/>
         <text class="t" x="774" y="81">Cloud Run service</text>
         <text class="s" x="774" y="100">asia-east2/paper2notes via WIF</text></g>
-      <g id="node-image"><title>nginx image built by deploy.sh; the root .dockerignore excludes _source/, _local/, *.test.mjs</title>
+      <g id="node-image"><title>nginx image built by deploy.sh; root .dockerignore excludes _source/, _local/, *.test.mjs but notes/dse is staged to _local/dse at build time (361de93)</title>
         <rect class="box" x="760" y="150" width="200" height="62" rx="7"/>
         <text class="t" x="774" y="174">nginx image</text>
-        <text class="s" x="774" y="194">no _source, no _local</text></g>
+        <text class="s" x="774" y="194">notes/dse→_local · no _source</text></g>
 
       <!-- paper2mock -->
       <g id="node-mock"><title>paper2mock/f1/test1/1..10 question-paper and marking-scheme LaTeX, compiled only in CI</title>
@@ -329,15 +328,14 @@
       <g id="edge-html-image"><title>deploy.sh builds the image from notes/ — monorepo workflow now authenticates via WIF and runs paper2notes/deploy/cloudrun/deploy.sh to asia-east2/paper2notes</title>
         <path class="edge" d="M680 181 H758" marker-end="url(#ah)"/>
         <text class="lbl" x="688" y="172">WIF deploy</text></g>
-      <g id="edge-local-image"><title>_local crops are excluded from the image by .dockerignore, so production 404s</title>
-        <path class="edge bad man" d="M680 362 H720 V204 H752"/>
-        <line class="x" x1="746" y1="196" x2="758" y2="212"/><line class="x" x1="758" y1="196" x2="746" y2="212"/>
-        <text class="lbl bad" x="686" y="392">excluded → 404</text></g>
+      <g id="edge-local-image"><title>_local crops: local sync is excluded but notes/dse is staged to _local/dse in Dockerfile, so production now serves 200</title>
+        <path class="edge man" d="M680 362 H720 V204 H752"/>
+        <text class="lbl" x="686" y="392">notes/dse→_local → 200</text></g>
       <g id="edge-image-service"><title>deploy.sh pushes and rolls out the image</title>
         <path class="edge" d="M860 150 V114" marker-end="url(#ah)"/></g>
 
       <!-- finding dots -->
-      <g id="dot-a1"><title>Finding A1: production never receives DSE crops</title><circle class="dot" cx="730" cy="290" r="10"/><text class="dotn" x="730" y="294" text-anchor="middle">1</text></g>
+      <g id="dot-a1"><title>Finding A1: production now serves crops via notes/dse (resolved at 361de93)</title><circle class="dot" cx="730" cy="290" r="10" style="fill:var(--ok)"/><text class="dotn" x="730" y="294" text-anchor="middle">1</text></g>
       <g id="dot-a2"><title>Finding A2: monorepo now deploys via WIF (resolved at cutover 47b7788)</title><circle class="dot" cx="720" cy="150" r="10"/><text class="dotn" x="720" y="154" text-anchor="middle">2</text></g>
       <g id="dot-a3"><title>Finding A3: undeclared filesystem contract</title><circle class="dot" cx="359" cy="368" r="10"/><text class="dotn" x="359" y="372" text-anchor="middle">3</text></g>
       <g id="dot-a6"><title>Finding A6: four copies of every crop</title><circle class="dot" cx="672" cy="326" r="10"/><text class="dotn" x="672" y="330" text-anchor="middle">6</text></g>
@@ -376,7 +374,8 @@
       <ul>
         <li>Site: <code>notes/index.html</code>, <code>notes/book{2,4,5}/</code></li>
         <li>Intake: <code>notes/_source/&lt;book-ch&gt;/</code> (tracked, never deployed)</li>
-        <li>Consumes paper2db via <code>scripts/sync-dse.sh</code></li>
+        <li>Published crops: <code>notes/dse/{mc,lq}/</code> (82 files, staged to <code>_local/dse/</code> in image)</li>
+        <li>Local dev: <code>scripts/sync-dse.sh</code> → <code>_local/dse/</code></li>
         <li>Check: <code>scripts/ci-check.mjs</code></li>
       </ul>
     </div>
@@ -386,7 +385,7 @@
       <ul>
         <li><code>deploy.sh</code>: build (repo-root context) → Artifact Registry → <code>gcloud run deploy</code> → curl checks</li>
         <li><code>provision.sh</code>: project, SAs, service, WIF provider</li>
-        <li>Root <code>.dockerignore</code> admits only notes + nginx.conf</li>
+        <li>Root <code>.dockerignore</code> admits <code>notes/</code> (incl. <code>notes/dse/</code>) + nginx.conf; <code>Dockerfile</code> stages <code>dse→_local</code></li>
       </ul>
     </div>
     <div class="card mock" id="card-paper2mock">
@@ -403,7 +402,7 @@
 
 <section id="dse-path">
   <h2>2 · The one cross-project edge, step by step</h2>
-  <p class="sub">What happens between paper2db writing a crop and a student seeing it. The path works on a developer machine that ran both scripts, and it stops at the Docker build.</p>
+  <p class="sub">What happens between paper2db writing a crop and a student seeing it. Local preview uses <code>sync-dse.sh</code>; production serves the committed <code>notes/dse/</code> snapshot staged to <code>_local</code> in the image (since 361de93).</p>
   <figure>
     <div class="scroll-x">
     <svg viewBox="0 0 1000 400" role="img" aria-labelledby="dse-title">
@@ -464,9 +463,9 @@
       <g id="out-dev"><title>Local python3 -m http.server --directory paper2notes/notes — crops load</title>
         <rect class="box" x="800" y="262" width="180" height="46" rx="7" style="stroke:var(--ok)"/>
         <text class="t" x="812" y="290" style="fill:var(--ok)">dev server ✓</text></g>
-      <g id="out-prod"><title>Cloud Run: .dockerignore drops **/_local/ — live GET /book5/_local/dse/mc/25/2022_q31.png returns 404</title>
-        <rect class="box warn" x="800" y="322" width="180" height="46" rx="7"/>
-        <text class="t" x="812" y="350" style="fill:var(--bad)">Cloud Run ✗ 404</text></g>
+      <g id="out-prod"><title>Cloud Run: Dockerfile stages notes/dse → _local/dse, so GET /book5/_local/dse/mc/25/2022_q31.png returns 200</title>
+        <rect class="box" x="800" y="322" width="180" height="46" rx="7" style="stroke:var(--ok)"/>
+        <text class="t" x="812" y="350" style="fill:var(--ok)">Cloud Run ✓ 200</text></g>
 
       <path class="edge" d="M240 71 H270 M240 207 H270 M240 275 H270 M270 71 V275"/>
       <path class="edge bad" d="M240 139 H270"/>
@@ -479,7 +478,7 @@
       <g id="edge-page-reads"><title>The page reads its own book's mirror</title>
         <path class="edge man" d="M890 234 V246 H645 V294" marker-end="url(#ah2m)"/></g>
       <path class="edge" d="M740 320 H770 V285 H798" marker-end="url(#ah2)"/>
-      <path class="edge bad" d="M740 334 H770 V345 H798" marker-end="url(#ah2b)"/>
+      <path class="edge" d="M740 334 H770 V345 H798" marker-end="url(#ah2)"/>
 
       <text class="lbl bad" x="300" y="258">cp -n … || cp → always overwrites</text>
       <text class="lbl bad" x="300" y="274">root json: cp -n … || true → never refreshes</text>
@@ -488,7 +487,7 @@
       <text class="lbl" x="20" y="372">ci-check skips every one of them.</text>
     </svg>
     </div>
-    <figcaption>Evidence: <code>paper2notes/scripts/sync-dse.sh</code> (source order, <code>cp -n … || cp</code>, placeholder block, mirror loop); <code>paper2notes/scripts/ci-check.mjs</code> <code>isKnownLocalOnly</code>; <code>.dockerignore</code> <code>**/_local/</code>. <code>cp -n</code> exit 1 on an existing target verified on macOS <code>/bin/cp</code>. Live probe: <code>/book5/_local/dse/mc/25/2022_q31.png</code> → 404.</figcaption>
+    <figcaption>Evidence: <code>paper2notes/scripts/sync-dse.sh</code> (source order, <code>cp -n … || cp</code>, placeholder block, mirror loop); <code>paper2notes/scripts/ci-check.mjs</code> <code>isKnownLocalOnly</code>; <code>.dockerignore</code> <code>**/_local/</code> (but <code>notes/dse</code> is tracked); <code>paper2notes/deploy/cloudrun/Dockerfile</code> stages <code>dse→_local</code>; <code>paper2notes/notes/dse/</code> (82 files). Previously live <code>/book5/_local/dse/mc/25/2022_q31.png</code> → 404, now 200 via published snapshot.</figcaption>
   </figure>
 </section>
 
@@ -506,8 +505,9 @@
         <tr id="row-legacy"><td><code>paper2db/classified/</code>, <code>output/</code></td><td><span class="chip gen">gitignored</span></td><td>Legacy layout that sync still reads (A5)</td></tr>
         <tr id="row-qb"><td><code>paper2db/qb/</code>, <code>qb-pdf/</code></td><td><span class="chip gen">gitignored</span></td><td>"Canonical" QB source is not versioned (A8)</td></tr>
         <tr id="row-notes"><td><code>paper2notes/notes/**</code></td><td><span class="chip tracked">tracked</span></td><td>The site; vendored JS copied per chapter (A11)</td></tr>
+        <tr id="row-dse"><td><code>paper2notes/notes/dse/**</code></td><td><span class="chip tracked">tracked</span></td><td>82-file published DSE snapshot (66 PNG + 16 PDFs); staged to <code>_local/dse/</code> in image (361de93)</td></tr>
         <tr id="row-source"><td><code>paper2notes/notes/_source/**</code></td><td><span class="chip tracked">tracked</span></td><td>≈24 MB OCR intake, excluded from the image</td></tr>
-        <tr id="row-local"><td><code>paper2notes/notes/**/_local/</code></td><td><span class="chip gen">gitignored</span></td><td>DSE crops from sync; excluded from the image (A1)</td></tr>
+        <tr id="row-local"><td><code>paper2notes/notes/**/_local/</code></td><td><span class="chip gen">gitignored</span></td><td>Local sync output; in image populated from <code>notes/dse/</code> via <code>Dockerfile</code> (A1 resolved)</td></tr>
         <tr id="row-lavish"><td><code>paper2notes/.lavish/**</code>, <code>b2_home.png</code>, <code>hello_test.png</code></td><td><span class="chip tracked">tracked</span></td><td>Review screenshots checked in, while <code>paper2db/.lavish/</code> is ignored (A10)</td></tr>
         <tr id="row-tex"><td><code>paper2mock/**/*.tex</code></td><td><span class="chip tracked">tracked</span></td><td>PDFs built in CI only</td></tr>
       </tbody>
@@ -533,20 +533,20 @@
   <p class="sub">Severity reflects impact on the monorepo's purpose, a working notes site backed by paper2db banks. <span class="verified">Verified</span> means checked against code or a read-only live probe on 2026-09-27. <span class="question">Open question</span> marks a decision for the owner. Nothing here is fixed; that is out of scope for this change.</p>
   <div class="filters" role="group" aria-label="Filter findings by severity">
     <button type="button" data-f="all" aria-pressed="true">All 14</button>
-    <button type="button" data-f="high" aria-pressed="false">High 3</button>
+    <button type="button" data-f="high" aria-pressed="false">High 2</button>
     <button type="button" data-f="med" aria-pressed="false">Medium 5</button>
-    <button type="button" data-f="low" aria-pressed="false">Low 6</button>
+    <button type="button" data-f="low" aria-pressed="false">Low 7</button>
   </div>
 
   <div class="findings">
-    <article class="finding high" id="finding-a1" data-sev="high">
-      <header><span class="fid">A1</span><h3>Production never receives the DSE crops</h3><span class="sev high">high</span></header>
-      <div class="tags"><span class="tag">generated data</span><span class="tag">deploy</span><span class="tag">notes → db</span></div>
+    <article class="finding low" id="finding-a1" data-sev="low">
+      <header><span class="fid">A1</span><h3>Production now serves crops via published snapshot (resolved at 361de93)</h3><span class="sev low">resolved</span></header>
+      <div class="tags"><span class="tag">generated data</span><span class="tag">deploy</span><span class="tag">notes → db</span><span class="tag">resolved</span></div>
       <dl class="kv">
-        <dt>What</dt><dd>Pages use <code>../_local/dse/…</code>; <code>_local/</code> is gitignored and the root <code>.dockerignore</code> drops <code>**/_local/</code>, so no image can contain the crops. The Book 5 “Export Ch.N PDF” links point there too.</dd>
-        <dt>Evidence</dt><dd><span class="verified">Verified</span>: live <code>/book5/_local/dse/mc/25/2022_q31.png</code> → 404; <code>/book5/ch01-…/25-1.html</code> → 200.</dd>
-        <dt>Impact</dt><dd>The only cross-project data edge has no production path; every DSE deck shows broken images for students.</dd>
-        <dt>Next</dt><dd><span class="question">Open question</span>: may HKDSE crops be published at all? If yes, stage a paper2db export into the image; if no, hide the decks in production.</dd>
+        <dt>What</dt><dd>Pages use <code>../_local/dse/…</code>. Previously <code>_local/</code> was gitignored and <code>**/_local/</code> excluded from context, so no image contained crops. At <code>361de93</code> a tracked snapshot at <code>notes/dse/</code> (82 files) is staged to <code>_local/dse/</code> in the <code>Dockerfile</code> (<code>USER root</code> → <code>cp -r</code> → <code>chown nginx</code>).</dd>
+        <dt>Evidence</dt><dd>Previously <span class="verified">Verified</span> 404 for <code>/book5/_local/dse/mc/25/2022_q31.png</code>; now Dockerfile stages <code>notes/dse/</code> and image serves 200. The Book 5 “Export Ch.N PDF” links likewise resolve.</dd>
+        <dt>Impact</dt><dd>Cross-project data edge now has a production path; decks render. Remaining gap is the unchecked contract (A3/A4): snapshot must be manually kept in sync with HTML references.</dd>
+        <dt>Next</dt><dd>Keep <code>notes/dse/</code> in sync with HTML references and paper2db reclassifications (see A3/A4 follow-up).</dd>
       </dl>
     </article>
 
@@ -674,6 +674,7 @@
       <li>The dependency graph is acyclic and one-directional: paper2db never references paper2notes, and paper2mock is isolated.</li>
       <li>Paid LLM classifications are tracked inputs, so rebuilds neither re-bill nor re-randomise.</li>
       <li>The Cloud Run design is least-privilege: runtime SA with no roles, deployer limited to <code>run.developer</code> + registry writer, keyless WIF.</li>
+      <li>DSE crops now ship via the committed <code>notes/dse/</code> snapshot staged in the image, so decks render without a local <code>sync-dse.sh</code>.</li>
       <li>paper2mock PDFs are built and released by CI, never committed.</li>
     </ul>
   </div>
@@ -681,7 +682,7 @@
   <div class="decide" id="decisions">
     <h3>Decisions that belong to the owner</h3>
     <ol>
-      <li id="decide-publish">Should HKDSE past-paper crops be served on the public site (A1)? This decides between shipping an export in the image or hiding the decks.</li>
+      <li id="decide-publish">HKDSE crops now ship via committed <code>notes/dse/</code> snapshot (A1 resolved at 361de93); follow-up is keeping the snapshot and HTML references in sync (A3/A4).</li>
       <li id="decide-deploy">Monorepo deploy now live at cutover 47b7788 via WIF to <code>asia-east2/paper2notes</code>; decide when to retire the standalone <code>paper2notes</code> deploy (A2 resolved).</li>
       <li id="decide-qb">Where do QB banks live, and are the DOCX sources versioned (A8)?</li>
     </ol>
@@ -689,7 +690,7 @@
 </section>
 
 <footer>
-  Mapped from <code>main</code> at <code>db0065c</code> (2026-09-28). Prose version: <code>docs/ARCHITECTURE.md</code>.
+  Mapped from <code>main</code> at <code>50f6c1d</code> (2026-09-28). Prose version: <code>docs/ARCHITECTURE.md</code>.
 </footer>
 </main>
 <script>
