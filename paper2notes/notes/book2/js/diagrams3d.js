@@ -64,8 +64,8 @@
       line([[-3,-1.9],[3,-1.9]],pale);ball(-1.5,-1.5,.32,accent);ball(1.2,-1.5,.32,green);arrow(-2.7,-1.5,1,0,ink);arrow(2.5,-1.5,-1,0,ink);
     } else if(name==='force-add'){
       box(0,-.6,1.1,.7,green);line([[-3,-1.2],[3,-1.2]],pale);
-      arrow(-.6,-.4,-1.8,0,accent);arrow(-.6,-.8,-1.2,0,accent);
-      arrow(.6,-.4,1,0,ink);arrow(.6,-.8,2,0,ink);
+      arrow(-.6,-.4,-.5,0,accent);arrow(-.6,-.8,-1.5,0,accent);
+      arrow(.6,-.4,2.5,0,ink);arrow(.6,-.8,1,0,ink);
     } else if(name==='inertia'){
       box(-1,-1,1,.7,green);line([[-3,-1.45],[3,-1.45]],pale);
       arrow(-.4,-.7,2.3,0,ink);arrow(-1.5,-1,0,-.8,accent);
