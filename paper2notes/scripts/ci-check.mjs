@@ -190,6 +190,82 @@ if (!existsSync(notesDir)) {
   process.exit(0);
 }
 
+// The Cloud Run service moved from asia-east1 to asia-east2 and the old
+// asia-east1 service was deleted, so any *.run.app URL pointing at the old
+// region serves Google's generic "Error: Page not found" page for every
+// path (including /, /book5/ and /book5/index.html), which looks like a
+// missing route in the container. Guard against reintroducing the stale
+// host: every region-scoped *.run.app URL in the deploy docs/config must
+// use the Deploy workflow's GCP_REGION, and the deploy scripts' region
+// defaults must agree with it.
+//
+// Monorepo adaptation of paper2notes PR 14 (chore: ignore .lavish and guard
+// deploy region): workflow lives at .github/workflows/deploy-notes.yml at
+// the monorepo root; site docs live in README.md (root), paper2notes/README.md,
+// and paper2notes/deploy/cloudrun/* .
+const REGION_SCOPED_RUN_APP_RE = /[A-Za-z0-9-]+\.(asia-[a-z]+\d+)\.run\.app/g;
+
+function checkSiteRegionConsistency() {
+  const monorepoRoot = resolve(repoRoot, "..");
+  const isMonorepo = existsSync(join(monorepoRoot, "paper2notes/notes/book5"));
+  const workflowFile = isMonorepo
+    ? join(monorepoRoot, ".github/workflows/deploy-notes.yml")
+    : join(repoRoot, ".github/workflows/deploy.yml");
+  if (!existsSync(workflowFile)) {
+    fail(`Cannot determine deploy region: ${isMonorepo ? ".github/workflows/deploy-notes.yml" : ".github/workflows/deploy.yml"} is missing`);
+    return;
+  }
+  const workflow = readFileSync(workflowFile, "utf8");
+  const regionMatch = workflow.match(/GCP_REGION:\s*([a-z0-9-]+)/);
+  if (!regionMatch) {
+    fail(`Cannot determine deploy region: GCP_REGION not found in ${isMonorepo ? ".github/workflows/deploy-notes.yml" : ".github/workflows/deploy.yml"}`);
+    return;
+  }
+  const region = regionMatch[1];
+
+  const scriptFiles = ["deploy/cloudrun/deploy.sh", "deploy/cloudrun/provision.sh"];
+  for (const rel of scriptFiles) {
+    const file = join(repoRoot, rel);
+    if (!existsSync(file)) continue;
+    const contents = readFileSync(file, "utf8");
+    const defMatch = contents.match(/\$\{GCP_REGION:-([a-z0-9-]+)\}/);
+    if (defMatch && defMatch[1] !== region) {
+      fail(`${rel} defaults to region "${defMatch[1]}" but the Deploy workflow uses "${region}"`);
+    }
+  }
+
+  const siteUrlFiles = isMonorepo
+    ? [
+        join(monorepoRoot, "README.md"),
+        join(repoRoot, "README.md"),
+        join(repoRoot, "deploy/cloudrun/README.md"),
+        join(repoRoot, "deploy/cloudrun/deploy.sh"),
+        join(repoRoot, "deploy/cloudrun/provision.sh"),
+        workflowFile,
+      ]
+    : [
+        join(repoRoot, "README.md"),
+        join(repoRoot, "deploy/cloudrun/README.md"),
+        join(repoRoot, "deploy/cloudrun/deploy.sh"),
+        join(repoRoot, "deploy/cloudrun/provision.sh"),
+        workflowFile,
+      ];
+  for (const file of siteUrlFiles) {
+    if (!existsSync(file)) continue;
+    const contents = readFileSync(file, "utf8");
+    let match;
+    REGION_SCOPED_RUN_APP_RE.lastIndex = 0;
+    while ((match = REGION_SCOPED_RUN_APP_RE.exec(contents)) !== null) {
+      if (match[1] !== region) {
+        const rel = isMonorepo ? relative(monorepoRoot, file) : relative(repoRoot, file);
+        fail(`${rel} references a *.run.app URL in region "${match[1]}" but the Deploy workflow uses "${region}" (stale region hosts serve a generic not-found page for every path)`);
+      }
+    }
+  }
+}
+
+checkSiteRegionConsistency();
+
 if (existsSync(book5Dir)) {
   checkBook5Structure();
 }

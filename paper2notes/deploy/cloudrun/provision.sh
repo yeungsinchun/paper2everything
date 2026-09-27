@@ -22,9 +22,9 @@
 #                                            SA, nothing else
 #   WIF pool       github / paper2notes      GitHub Actions gets short-lived
 #                                            tokens for the deployer SA; only the
-#                                            yeungsinchun/paper2notes repo may
-#                                            impersonate it, so no long-lived key
-#                                            exists anywhere
+#                                            yeungsinchun/paper2everything repo may
+#                                            impersonate it (cut over from paper2notes),
+#                                            so no long-lived key exists anywhere
 set -euo pipefail
 
 PROJECT_ID="${GCP_PROJECT_ID:-paper2notes-site}"

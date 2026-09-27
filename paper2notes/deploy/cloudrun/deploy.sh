@@ -2,12 +2,14 @@
 # Build the paper2notes image, push it to Artifact Registry, roll it out to the
 # Cloud Run service, and check the site answers.
 #
-# Used by .github/workflows/deploy.yml; runnable locally by anyone whose
-# gcloud identity can push to the registry and deploy the service (or, to
-# exercise the CI identity exactly, with
+# Used by .github/workflows/deploy-notes.yml (monorepo root) and
+# .github/workflows/deploy.yml (standalone paper2notes); runnable locally
+# by anyone whose gcloud identity can push to the registry and deploy the
+# service (or, to exercise the CI identity exactly, with
 # CLOUDSDK_AUTH_IMPERSONATE_SERVICE_ACCOUNT=<deployer email>):
 #
-#   deploy/cloudrun/deploy.sh
+#   paper2notes/deploy/cloudrun/deploy.sh  # from monorepo root
+#   deploy/cloudrun/deploy.sh               # from standalone checkout
 set -euo pipefail
 
 PROJECT_ID="${GCP_PROJECT_ID:-paper2notes-site}"
