@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>paper2everything architecture</title>
+<style>
+  /* Palette follows paper2notes/notes/book5/css/notes.css (paper, ink, teal accent, amber mark). */
+  :root {
+    --paper: #f7f3eb;
+    --panel: #fffdf8;
+    --ink: #1b2129;
+    --muted: #5d6673;
+    --rule: #d9d2c4;
+    --rule-soft: #e9e3d6;
+    --accent: #0f5c54;
+    --accent-soft: #e4efec;
+    --mark: #a8690a;
+    --mark-soft: #fbf1dc;
+    --bad: #a32626;
+    --bad-soft: #fbeaea;
+    --ok: #1f7a45;
+    --ok-soft: #e6f5ea;
+    --db: #1d4f91;
+    --db-soft: #e7eef8;
+    --notes: #0f5c54;
+    --notes-soft: #e4efec;
+    --run: #6b3fa0;
+    --run-soft: #f0eaf8;
+    --mock: #7a5a1f;
+    --mock-soft: #f6efe0;
+    --serif: Palatino, "Palatino Linotype", "Iowan Old Style", "Book Antiqua", Georgia, serif;
+    --sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181d; --panel: #1c2128; --ink: #e8e4dc; --muted: #9aa3ae;
+      --rule: #343b45; --rule-soft: #2a3038;
+      --accent: #5fbfb2; --accent-soft: #1d3431;
+      --mark: #e0a64a; --mark-soft: #3a2e19;
+      --bad: #ef7b7b; --bad-soft: #3b2224;
+      --ok: #6ccf93; --ok-soft: #1c3326;
+      --db: #82abe6; --db-soft: #1c2940;
+      --notes: #5fbfb2; --notes-soft: #1d3431;
+      --run: #b99ae6; --run-soft: #2b2340;
+      --mock: #d7b572; --mock-soft: #342c1c;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181d; --panel: #1c2128; --ink: #e8e4dc; --muted: #9aa3ae;
+    --rule: #343b45; --rule-soft: #2a3038;
+    --accent: #5fbfb2; --accent-soft: #1d3431;
+    --mark: #e0a64a; --mark-soft: #3a2e19;
+    --bad: #ef7b7b; --bad-soft: #3b2224;
+    --ok: #6ccf93; --ok-soft: #1c3326;
+    --db: #82abe6; --db-soft: #1c2940;
+    --notes: #5fbfb2; --notes-soft: #1d3431;
+    --run: #b99ae6; --run-soft: #2b2340;
+    --mock: #d7b572; --mock-soft: #342c1c;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.55 var(--sans);
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 1120px; margin: 0 auto; padding: 2.2rem 16px 4rem; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; }
+  h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin: 0.2rem 0 0.8rem; letter-spacing: -0.01em; }
+  h2 { font-size: 1.55rem; margin: 3rem 0 0.4rem; }
+  h3 { font-size: 1.12rem; margin: 0 0 0.35rem; }
+  p { margin: 0.4rem 0 0.8rem; }
+  code { font-family: var(--mono); font-size: 0.86em; background: var(--rule-soft); padding: 0.05em 0.35em; border-radius: 4px; overflow-wrap: anywhere; }
+  a { color: var(--accent); }
+  .eyebrow { font: 600 0.78rem/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .lede { font-size: 1.12rem; max-width: 62rem; }
+  .lede strong { color: var(--ink); }
+  .sub { color: var(--muted); max-width: 60rem; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.7rem; margin: 1.6rem 0 0.4rem; }
+  .stat { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 0.8rem 0.95rem; min-width: 0; }
+  .stat b { display: block; font: 600 1.9rem/1.1 var(--serif); }
+  .stat span { color: var(--muted); font-size: 0.86rem; }
+  .stat.bad b { color: var(--bad); }
+  .stat.ok b { color: var(--ok); }
+
+  figure { margin: 1rem 0 0.4rem; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 1rem; }
+  figure svg { display: block; width: 100%; height: auto; }
+  figcaption { color: var(--muted); font-size: 0.88rem; margin-top: 0.6rem; }
+  .scroll-x { overflow-x: auto; }
+  .scroll-x svg { min-width: 720px; }
+
+  /* SVG vocabulary */
+  svg text { font-family: var(--sans); fill: var(--ink); }
+  svg .t { font-size: 14px; font-weight: 600; }
+  svg .s { font-size: 11.5px; fill: var(--muted); }
+  svg .g { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  svg .lbl { font-size: 11px; fill: var(--muted); }
+  svg .lbl.bad { fill: var(--bad); font-weight: 600; }
+  svg .grp { fill: none; stroke-width: 1.5; }
+  svg .grp.db { stroke: var(--db); fill: var(--db-soft); }
+  svg .grp.notes { stroke: var(--notes); fill: var(--notes-soft); }
+  svg .grp.run { stroke: var(--run); fill: var(--run-soft); }
+  svg .grp.mock { stroke: var(--mock); fill: var(--mock-soft); }
+  svg .g.db { fill: var(--db); } svg .g.notes { fill: var(--notes); } svg .g.run { fill: var(--run); } svg .g.mock { fill: var(--mock); }
+  svg .box { fill: var(--panel); stroke: var(--ink); stroke-width: 1.2; }
+  svg .box.gen { stroke-dasharray: 5 4; stroke: var(--muted); fill: var(--paper); }
+  svg .box.proc { fill: var(--accent-soft); stroke: var(--accent); }
+  svg .box.warn { stroke: var(--bad); stroke-width: 1.8; }
+  svg .edge { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+  svg .edge.man { stroke-dasharray: 6 5; stroke: var(--muted); }
+  svg .edge.bad { stroke: var(--bad); stroke-width: 2.2; }
+  svg .edge.bad.man { stroke-dasharray: 6 5; }
+  svg .x { stroke: var(--bad); stroke-width: 3; stroke-linecap: round; }
+  svg .dot { fill: var(--bad); }
+  svg .dot text, svg text.dotn { fill: #fff; font-size: 11px; font-weight: 700; }
+  svg [id]:hover > .box, svg [id]:hover > .grp { filter: brightness(0.97); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; margin: 0.8rem 0 0; font-size: 0.85rem; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .sw { display: inline-block; width: 28px; height: 14px; border-radius: 3px; }
+  .sw.tracked { background: var(--panel); border: 1.2px solid var(--ink); }
+  .sw.gen { background: var(--paper); border: 1.2px dashed var(--muted); }
+  .sw.proc { background: var(--accent-soft); border: 1.2px solid var(--accent); }
+  .ln { display: inline-block; width: 30px; border-top: 2px solid var(--ink); }
+  .ln.man { border-top: 2px dashed var(--muted); }
+  .ln.bad { border-top: 2.4px solid var(--bad); }
+
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 0.9rem; margin-top: 1rem; }
+  .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 0.9rem; margin-top: 1rem; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 1rem 1.1rem; min-width: 0; }
+  .card.db { border-top: 4px solid var(--db); }
+  .card.notes { border-top: 4px solid var(--notes); }
+  .card.run { border-top: 4px solid var(--run); }
+  .card.mock { border-top: 4px solid var(--mock); }
+  .card ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+  .card li { margin: 0.2rem 0; }
+  .muted { color: var(--muted); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  .table-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; margin-top: 1rem; }
+  th, td { text-align: left; padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  th { font: 600 0.78rem/1.2 var(--sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: var(--paper); }
+  tr:last-child td { border-bottom: 0; }
+  .chip { display: inline-block; font: 600 0.72rem/1 var(--sans); padding: 0.28em 0.55em; border-radius: 999px; white-space: nowrap; }
+  .chip.tracked { background: var(--accent-soft); color: var(--accent); }
+  .chip.gen { background: var(--rule-soft); color: var(--muted); }
+  .chip.hand { background: var(--mark-soft); color: var(--mark); }
+  .chip.dead { background: var(--bad-soft); color: var(--bad); }
+  .chip.live { background: var(--ok-soft); color: var(--ok); }
+
+  .findings { display: grid; gap: 0.9rem; margin-top: 1rem; }
+  .finding { background: var(--panel); border: 1px solid var(--rule); border-left: 5px solid var(--rule); border-radius: 8px; padding: 1rem 1.15rem; min-width: 0; }
+  .finding.high { border-left-color: var(--bad); }
+  .finding.med { border-left-color: var(--mark); }
+  .finding.low { border-left-color: var(--muted); }
+  .finding header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.7rem; margin-bottom: 0.3rem; }
+  .finding h3 { margin: 0; flex: 1 1 18rem; min-width: 0; }
+  .sev { font: 700 0.72rem/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3em 0.6em; border-radius: 4px; }
+  .sev.high { background: var(--bad-soft); color: var(--bad); }
+  .sev.med { background: var(--mark-soft); color: var(--mark); }
+  .sev.low { background: var(--rule-soft); color: var(--muted); }
+  .fid { font: 700 0.95rem/1 var(--mono); color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .tag { font-size: 0.72rem; color: var(--muted); border: 1px solid var(--rule); border-radius: 999px; padding: 0.1em 0.55em; }
+  dl.kv { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 0.25rem 0.8rem; margin: 0.5rem 0 0; font-size: 0.93rem; }
+  dl.kv dt { color: var(--muted); font-weight: 600; }
+  dl.kv dd { margin: 0; min-width: 0; }
+  .verified { color: var(--ok); font-weight: 600; }
+  .question { color: var(--mark); font-weight: 600; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .filters button { font: 600 0.85rem/1 var(--sans); padding: 0.5em 0.9em; border-radius: 999px; border: 1px solid var(--rule); background: var(--panel); color: var(--ink); cursor: pointer; }
+  .filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .sound { background: var(--ok-soft); border: 1px solid var(--rule); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1rem; }
+  .sound ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+  .decide { background: var(--mark-soft); border: 1px solid var(--rule); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1rem; }
+  .decide ol { margin: 0.3rem 0 0; padding-left: 1.3rem; }
+  .decide li { margin: 0.45rem 0; }
+  footer { margin-top: 3rem; color: var(--muted); font-size: 0.86rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+
+  @media (max-width: 640px) {
+    main { padding-top: 1.4rem; }
+    dl.kv { grid-template-columns: minmax(0, 1fr); }
+    dl.kv dt { margin-top: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<section id="top">
+  <div class="eyebrow">paper2everything · architecture board · mapped from code 2026-09-27</div>
+  <h1>How data moves through paper2everything, and where it breaks</h1>
+  <p class="lede" id="answer">
+    Three subprojects share one repo, and <strong>one data edge</strong> connects them:
+    paper2notes copies paper2db's generated DSE crops through <code>sync-dse.sh</code>.
+    paper2mock stands alone. The graph has <strong>no cycle</strong>. The weak point is that one edge:
+    it relies on an <strong>undeclared folder layout</strong>, CI never checks it, and <strong>the Cloud Run image never includes the crops</strong>,
+    so every DSE deck on the live site returns 404.
+  </p>
+  <p class="sub">Every claim cites a file, or a read-only probe of the live site. The same map is in prose in <code>docs/ARCHITECTURE.md</code>. Annotate any box, arrow, or finding card to push back on it.</p>
+
+  <div class="stats" id="stats">
+    <div class="stat"><b>3</b><span>subprojects: db · notes · mock</span></div>
+    <div class="stat"><b>1</b><span>cross-project data edge (notes → db)</span></div>
+    <div class="stat ok"><b>0</b><span>dependency cycles</span></div>
+    <div class="stat bad"><b>4</b><span>high-severity findings</span></div>
+    <div class="stat"><b>82</b><span>crop paths hardcoded in notes HTML</span></div>
+    <div class="stat bad"><b>404</b><span>live response for a DSE crop</span></div>
+  </div>
+</section>
+
+<section id="overview">
+  <h2>1 · The whole system on one page</h2>
+  <p class="sub">Solid arrows are automated (a script or workflow). Dashed arrows are manual or agent-driven. Dashed boxes are gitignored: they exist only on a machine that generated them. Red marks the fragile or broken path; the numbered dots match the findings below.</p>
+  <figure>
+    <div class="scroll-x">
+    <svg viewBox="0 0 1000 470" role="img" aria-labelledby="ov-title">
+      <title id="ov-title">Architecture overview: paper2db, paper2notes, Cloud Run and paper2mock with their data edges</title>
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/></marker>
+        <marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker>
+        <marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--bad)"/></marker>
+      </defs>
+
+      <!-- groups -->
+      <g id="grp-paper2db"><title>paper2db — HKDSE PDF to classified MC/LQ banks</title>
+        <rect class="grp db" x="20" y="16" width="320" height="384" rx="12"/>
+        <text class="g db" x="36" y="40">paper2db</text></g>
+      <g id="grp-paper2notes"><title>paper2notes — static HTML notes site</title>
+        <rect class="grp notes" x="380" y="16" width="320" height="384" rx="12"/>
+        <text class="g notes" x="396" y="40">paper2notes</text></g>
+      <g id="grp-cloudrun"><title>Cloud Run hosting (GCP project paper2notes-site)</title>
+        <rect class="grp run" x="740" y="16" width="240" height="234" rx="12"/>
+        <text class="g run" x="756" y="40">Cloud Run</text></g>
+      <g id="grp-paper2mock"><title>paper2mock — F.1 LaTeX mocks, no data dependencies</title>
+        <rect class="grp mock" x="740" y="276" width="240" height="124" rx="12"/>
+        <text class="g mock" x="756" y="300">paper2mock</text></g>
+
+      <!-- paper2db nodes -->
+      <g id="node-qb"><title>paper2db/qb/ DOCX (gitignored) converted by scripts/convert-qb-to-pdf.sh into paper2db/qb-pdf/ (gitignored)</title>
+        <rect class="box gen" x="40" y="58" width="280" height="54" rx="7"/>
+        <text class="t" x="54" y="81">qb/ DOCX → qb-pdf/</text>
+        <text class="s" x="54" y="100">gitignored · hand-run converter</text></g>
+      <g id="node-paper"><title>paper2db/paper/{mc,lq,ans,performance}: 77 tracked PDFs plus performance notes, about 283 MB</title>
+        <rect class="box" x="40" y="138" width="135" height="62" rx="7"/>
+        <text class="t" x="52" y="162">paper/ PDFs</text>
+        <text class="s" x="52" y="182">tracked · 283 MB</text></g>
+      <g id="node-inputs"><title>Tracked inputs: metadata/{mc,lq}/llm_classifications.json, scripts/overrides_YYYY.json, answer_key_overrides.json, tests/reconstructed/lq/*/starts.json</title>
+        <rect class="box" x="185" y="138" width="135" height="62" rx="7"/>
+        <text class="t" x="197" y="162">LLM + overrides</text>
+        <text class="s" x="197" y="182">tracked · hand-tuned</text></g>
+      <g id="node-pipeline"><title>./paper2db/pipeline — 11 stages from mc-anchors to lavish</title>
+        <rect class="box proc" x="40" y="232" width="280" height="54" rx="27"/>
+        <text class="t" x="62" y="255">./pipeline</text>
+        <text class="s" x="62" y="274">11 stages · Python · optional LLM</text></g>
+      <g id="node-sections"><title>paper2db/tests/sections/{mc,lq}/NN_Book/NN_Section/ — gitignored, the bank paper2notes consumes</title>
+        <rect class="box gen warn" x="40" y="318" width="280" height="62" rx="7"/>
+        <text class="t" x="54" y="342">tests/sections/{mc,lq}</text>
+        <text class="s" x="54" y="362">gitignored · the product, under tests/</text></g>
+
+      <!-- paper2notes nodes -->
+      <g id="node-source"><title>paper2notes/notes/_source/&lt;book-ch&gt;/ ocr.md, outline.md, problems.md — tracked intake, excluded from the image</title>
+        <rect class="box" x="400" y="58" width="280" height="54" rx="7"/>
+        <text class="t" x="414" y="81">_source/ intake</text>
+        <text class="s" x="414" y="100">tracked · OCR md · not deployed</text></g>
+      <g id="node-html"><title>paper2notes/notes/ — landing, book2, book4, book5 HTML, CSS, vendored JS (tracked)</title>
+        <rect class="box" x="400" y="150" width="280" height="62" rx="7"/>
+        <text class="t" x="414" y="174">notes/ static site</text>
+        <text class="s" x="414" y="194">tracked · Books 2 · 4 · 5</text></g>
+      <g id="node-sync"><title>paper2notes/scripts/sync-dse.sh — copies, flattens by folder-name regex, adds placeholders, mirrors</title>
+        <rect class="box proc warn" x="400" y="318" width="130" height="62" rx="31"/>
+        <text class="t" x="420" y="342">sync-dse.sh</text>
+        <text class="s" x="420" y="362">copy · flatten</text></g>
+      <g id="node-local"><title>notes/_local/dse plus three per-book mirrors — gitignored, four copies</title>
+        <rect class="box gen" x="550" y="318" width="130" height="62" rx="7"/>
+        <text class="t" x="562" y="342">_local/dse ×4</text>
+        <text class="s" x="562" y="362">gitignored</text></g>
+
+      <!-- Cloud Run nodes -->
+      <g id="node-service"><title>Cloud Run service paper2notes, asia-east2 — currently serving the pre-monorepo standalone build</title>
+        <rect class="box" x="760" y="58" width="200" height="54" rx="7"/>
+        <text class="t" x="774" y="81">Cloud Run service</text>
+        <text class="s" x="774" y="100">live = old paper2notes build</text></g>
+      <g id="node-image"><title>nginx image built by deploy.sh; the root .dockerignore excludes _source/, _local/, *.test.mjs</title>
+        <rect class="box" x="760" y="150" width="200" height="62" rx="7"/>
+        <text class="t" x="774" y="174">nginx image</text>
+        <text class="s" x="774" y="194">no _source, no _local</text></g>
+
+      <!-- paper2mock -->
+      <g id="node-mock"><title>paper2mock/f1/test1/1..10 question-paper and marking-scheme LaTeX, compiled only in CI</title>
+        <rect class="box" x="760" y="318" width="200" height="62" rx="7"/>
+        <text class="t" x="774" y="342">LaTeX ×20 → PDFs</text>
+        <text class="s" x="774" y="362">isolated · CI release zips</text></g>
+
+      <!-- edges -->
+      <g id="edge-paper-pipeline"><title>paper/ PDFs feed the pipeline</title>
+        <path class="edge" d="M107 200 V230" marker-end="url(#ah)"/></g>
+      <g id="edge-inputs-pipeline"><title>Tracked LLM decisions and overrides feed the pipeline (classify may rewrite llm_classifications.json)</title>
+        <path class="edge" d="M252 200 V230" marker-end="url(#ah)" marker-start="url(#ah)"/></g>
+      <g id="edge-pipeline-sections"><title>section-pdfs stage writes tests/sections</title>
+        <path class="edge" d="M180 286 V316" marker-end="url(#ah)"/></g>
+      <g id="edge-sections-sync"><title>sync-dse.sh reads paper2db/tests/sections through ../paper2db — undeclared layout contract</title>
+        <path class="edge bad" d="M320 349 H398" marker-end="url(#ahb)"/>
+        <text class="lbl bad" x="326" y="340">../paper2db</text></g>
+      <g id="edge-sync-local"><title>sync writes notes/_local/dse, then mirrors into each book</title>
+        <path class="edge" d="M530 349 H548" marker-end="url(#ah)"/></g>
+      <g id="edge-local-html"><title>Pages load crops by relative path ../_local/dse/{mc,lq}/NN/file</title>
+        <path class="edge man" d="M615 318 V214" marker-end="url(#ahm)"/>
+        <text class="lbl" x="622" y="270">img src</text>
+        <text class="lbl" x="622" y="284">../_local/…</text></g>
+      <g id="edge-qb-source"><title>Agents OCR qb-pdf into _source intake (manual)</title>
+        <path class="edge man" d="M320 85 H398" marker-end="url(#ahm)"/>
+        <text class="lbl" x="330" y="77">agent OCR</text></g>
+      <g id="edge-sections-source"><title>Problem selection in _source/problems.md cites paper2db banks (manual)</title>
+        <path class="edge man" d="M320 326 H362 V100 H398" marker-end="url(#ahm)"/></g>
+      <g id="edge-source-html"><title>Authoring: intake becomes student HTML (manual)</title>
+        <path class="edge man" d="M470 112 V148" marker-end="url(#ahm)"/>
+        <text class="lbl" x="478" y="135">authoring</text></g>
+      <g id="edge-html-image"><title>deploy.sh builds the image from notes/ — the monorepo workflow that should run it is an echo stub</title>
+        <path class="edge bad man" d="M680 181 H758" marker-end="url(#ahb)"/>
+        <text class="lbl bad" x="688" y="172">stub deploy</text></g>
+      <g id="edge-local-image"><title>_local crops are excluded from the image by .dockerignore, so production 404s</title>
+        <path class="edge bad man" d="M680 362 H720 V204 H752"/>
+        <line class="x" x1="746" y1="196" x2="758" y2="212"/><line class="x" x1="758" y1="196" x2="746" y2="212"/>
+        <text class="lbl bad" x="686" y="392">excluded → 404</text></g>
+      <g id="edge-image-service"><title>deploy.sh pushes and rolls out the image</title>
+        <path class="edge" d="M860 150 V114" marker-end="url(#ah)"/></g>
+
+      <!-- finding dots -->
+      <g id="dot-a1"><title>Finding A1: production never receives DSE crops</title><circle class="dot" cx="730" cy="290" r="10"/><text class="dotn" x="730" y="294" text-anchor="middle">1</text></g>
+      <g id="dot-a2"><title>Finding A2: the monorepo does not deploy</title><circle class="dot" cx="720" cy="150" r="10"/><text class="dotn" x="720" y="154" text-anchor="middle">2</text></g>
+      <g id="dot-a3"><title>Finding A3: undeclared filesystem contract</title><circle class="dot" cx="359" cy="368" r="10"/><text class="dotn" x="359" y="372" text-anchor="middle">3</text></g>
+      <g id="dot-a6"><title>Finding A6: four copies of every crop</title><circle class="dot" cx="672" cy="326" r="10"/><text class="dotn" x="672" y="330" text-anchor="middle">6</text></g>
+      <g id="dot-a8"><title>Finding A8: QB banks sit in paper2db but belong to nobody</title><circle class="dot" cx="312" cy="66" r="10"/><text class="dotn" x="312" y="70" text-anchor="middle">8</text></g>
+      <g id="dot-a9"><title>Finding A9: product output lives under tests/</title><circle class="dot" cx="292" cy="318" r="10"/><text class="dotn" x="292" y="322" text-anchor="middle">9</text></g>
+
+      <text class="lbl" x="20" y="430">No arrow enters or leaves paper2mock, and nothing points from paper2db into paper2notes: the dependency graph is acyclic.</text>
+      <text class="lbl" x="20" y="450">Not drawn: CI (section 3) and the legacy/snapshot sources sync also reads (section 2).</text>
+    </svg>
+    </div>
+    <div class="legend">
+      <span><i class="sw tracked"></i>tracked in git</span>
+      <span><i class="sw gen"></i>gitignored / generated</span>
+      <span><i class="sw proc"></i>script or pipeline</span>
+      <span><i class="ln"></i>automated</span>
+      <span><i class="ln man"></i>manual / agent</span>
+      <span><i class="ln bad"></i>fragile or broken</span>
+    </div>
+    <figcaption>Evidence: <code>paper2db/pipeline</code>, <code>paper2notes/scripts/sync-dse.sh</code>, <code>.dockerignore</code>, <code>paper2notes/deploy/cloudrun/Dockerfile</code>, <code>.github/workflows/deploy-notes.yml</code>.</figcaption>
+  </figure>
+
+  <div class="grid4" id="components">
+    <div class="card db" id="card-paper2db">
+      <h3>paper2db</h3>
+      <p class="muted">HKDSE Physics PDFs → classified MC/LQ banks per syllabus section.</p>
+      <ul>
+        <li>Entry: <code>./paper2db/pipeline</code> (<code>--list-stages</code>, <code>--only</code>, <code>--years</code>)</li>
+        <li>Tracked: <code>paper/</code>, <code>metadata/*/llm_classifications.json</code>, overrides, <code>starts.json</code></li>
+        <li>Output: <code>tests/sections/</code>, <code>tests/reconstructed/</code>, <code>intermediate/</code>, <code>.lavish/</code></li>
+        <li>Side tool: <code>scripts/convert-qb-to-pdf.sh</code> (not a stage)</li>
+      </ul>
+    </div>
+    <div class="card notes" id="card-paper2notes">
+      <h3>paper2notes</h3>
+      <p class="muted">Static HTML notes, Books 2 · 4 · 5, no build step.</p>
+      <ul>
+        <li>Site: <code>notes/index.html</code>, <code>notes/book{2,4,5}/</code></li>
+        <li>Intake: <code>notes/_source/&lt;book-ch&gt;/</code> (tracked, never deployed)</li>
+        <li>Consumes paper2db via <code>scripts/sync-dse.sh</code></li>
+        <li>Check: <code>scripts/ci-check.mjs</code></li>
+      </ul>
+    </div>
+    <div class="card run" id="card-cloudrun">
+      <h3>Cloud Run deploy</h3>
+      <p class="muted">nginx container serving <code>paper2notes/notes/</code>.</p>
+      <ul>
+        <li><code>deploy.sh</code>: build (repo-root context) → Artifact Registry → <code>gcloud run deploy</code> → curl checks</li>
+        <li><code>provision.sh</code>: project, SAs, service, WIF provider</li>
+        <li>Root <code>.dockerignore</code> admits only notes + nginx.conf</li>
+      </ul>
+    </div>
+    <div class="card mock" id="card-paper2mock">
+      <h3>paper2mock</h3>
+      <p class="muted">F.1 maths mock papers in LaTeX.</p>
+      <ul>
+        <li>20 documents: <code>f1/test1/&lt;1..10&gt;/{question-paper,marking-scheme}</code></li>
+        <li>Built only by <code>compile-mocks.yml</code>, released as two zips</li>
+        <li>Reads and writes only its own tree</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="dse-path">
+  <h2>2 · The one cross-project edge, step by step</h2>
+  <p class="sub">What happens between paper2db writing a crop and a student seeing it. The path works on a developer machine that ran both scripts, and it stops at the Docker build.</p>
+  <figure>
+    <div class="scroll-x">
+    <svg viewBox="0 0 1000 400" role="img" aria-labelledby="dse-title">
+      <title id="dse-title">DSE crop path from paper2db sources through sync-dse.sh to pages, dev server and Cloud Run</title>
+      <defs>
+        <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/></marker>
+        <marker id="ah2b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--bad)"/></marker>
+        <marker id="ah2m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker>
+      </defs>
+
+      <text class="g db" x="20" y="28">sources, read in order</text>
+      <g id="src-sections"><title>1st: paper2db/tests/sections/{mc,lq} — current pipeline output</title>
+        <rect class="box gen" x="20" y="44" width="220" height="54" rx="7"/>
+        <text class="t" x="32" y="67">① tests/sections/</text>
+        <text class="s" x="32" y="86">current pipeline output</text></g>
+      <g id="src-classified"><title>2nd: paper2db/classified/{mc,lq} — legacy layout; when present it is copied after tests/sections and overwrites same-named crops</title>
+        <rect class="box gen warn" x="20" y="112" width="220" height="54" rx="7"/>
+        <text class="t" x="32" y="135">② classified/ (legacy)</text>
+        <text class="s" x="32" y="154">copied second · overwrites ①</text></g>
+      <g id="src-snapshot"><title>3rd: paper2notes/dse-classified/ — local snapshot, used only if neither ① nor ② exists</title>
+        <rect class="box gen" x="20" y="180" width="220" height="54" rx="7"/>
+        <text class="t" x="32" y="203">③ dse-classified/</text>
+        <text class="s" x="32" y="222">notes-side snapshot · fallback</text></g>
+      <g id="src-placeholder"><title>4th: placeholders — six 1x1 PNGs for Book 5 plus 0-byte combined.pdf for sections 20–27, written with CWD-relative paths</title>
+        <rect class="box gen warn" x="20" y="248" width="220" height="54" rx="7"/>
+        <text class="t" x="32" y="271">④ placeholders</text>
+        <text class="s" x="32" y="290">1×1 PNG · 0-byte PDF · CWD-relative</text></g>
+
+      <g id="step-sync"><title>sync-dse.sh: find *.png, derive NN from the nearest folder named ^[0-9]{1,2}_, copy flat</title>
+        <rect class="box proc warn" x="300" y="120" width="190" height="104" rx="14"/>
+        <text class="t" x="316" y="146">sync-dse.sh</text>
+        <text class="s" x="316" y="168">section = regex ^NN_ on</text>
+        <text class="s" x="316" y="184">folder names (book 05_ vs</text>
+        <text class="s" x="316" y="200">section 05_ collide)</text></g>
+
+      <g id="step-canonical"><title>notes/_local/dse/{mc,lq}/NN — the "canonical" copy, which no page references</title>
+        <rect class="box gen" x="550" y="120" width="190" height="104" rx="7"/>
+        <text class="t" x="566" y="146">notes/_local/dse/</text>
+        <text class="s" x="566" y="168">flat by section NN</text>
+        <text class="s" x="566" y="184">referenced by no page</text>
+        <text class="s" x="566" y="200">rsync -a, no --delete</text></g>
+
+      <g id="step-mirrors"><title>Mirrored in full into notes/book2, book4 and book5 _local/dse — each book gets every section</title>
+        <rect class="box gen" x="800" y="44" width="180" height="54" rx="7"/>
+        <text class="t" x="812" y="67">book2/_local/dse</text>
+        <text class="s" x="812" y="86">all sections</text>
+        <rect class="box gen" x="800" y="112" width="180" height="54" rx="7"/>
+        <text class="t" x="812" y="135">book4/_local/dse</text>
+        <text class="s" x="812" y="154">all sections</text>
+        <rect class="box gen" x="800" y="180" width="180" height="54" rx="7"/>
+        <text class="t" x="812" y="203">book5/_local/dse</text>
+        <text class="s" x="812" y="222">all sections</text></g>
+
+      <g id="step-page"><title>Section page notes/bookX/chYY/NN-N.html: img src="../_local/dse/mc/25/2022_q31.png"</title>
+        <rect class="box" x="550" y="296" width="190" height="62" rx="7"/>
+        <text class="t" x="566" y="320">bookX/chYY/NN-N.html</text>
+        <text class="s" x="566" y="340">../_local/dse/mc/25/…png</text></g>
+      <g id="out-dev"><title>Local python3 -m http.server --directory paper2notes/notes — crops load</title>
+        <rect class="box" x="800" y="262" width="180" height="46" rx="7" style="stroke:var(--ok)"/>
+        <text class="t" x="812" y="290" style="fill:var(--ok)">dev server ✓</text></g>
+      <g id="out-prod"><title>Cloud Run: .dockerignore drops **/_local/ — live GET /book5/_local/dse/mc/25/2022_q31.png returns 404</title>
+        <rect class="box warn" x="800" y="322" width="180" height="46" rx="7"/>
+        <text class="t" x="812" y="350" style="fill:var(--bad)">Cloud Run ✗ 404</text></g>
+
+      <path class="edge" d="M240 71 H270 M240 207 H270 M240 275 H270 M270 71 V275"/>
+      <path class="edge bad" d="M240 139 H270"/>
+      <path class="edge" d="M270 172 H298" marker-end="url(#ah2)"/>
+      <path class="edge" d="M490 172 H548" marker-end="url(#ah2)"/>
+      <path class="edge" d="M740 172 H770 M770 71 V207"/>
+      <path class="edge" d="M770 71 H798" marker-end="url(#ah2)"/>
+      <path class="edge" d="M770 139 H798" marker-end="url(#ah2)"/>
+      <path class="edge" d="M770 207 H798" marker-end="url(#ah2)"/>
+      <g id="edge-page-reads"><title>The page reads its own book's mirror</title>
+        <path class="edge man" d="M890 234 V246 H645 V294" marker-end="url(#ah2m)"/></g>
+      <path class="edge" d="M740 320 H770 V285 H798" marker-end="url(#ah2)"/>
+      <path class="edge bad" d="M740 334 H770 V345 H798" marker-end="url(#ah2b)"/>
+
+      <text class="lbl bad" x="300" y="258">cp -n … || cp → always overwrites</text>
+      <text class="lbl bad" x="300" y="274">root json: cp -n … || true → never refreshes</text>
+      <text class="lbl" x="20" y="340">82 distinct crop paths in notes HTML</text>
+      <text class="lbl" x="20" y="356">(Book 2: 8 · Book 4: 20 · Book 5: 54);</text>
+      <text class="lbl" x="20" y="372">ci-check skips every one of them.</text>
+    </svg>
+    </div>
+    <figcaption>Evidence: <code>paper2notes/scripts/sync-dse.sh</code> (source order, <code>cp -n … || cp</code>, placeholder block, mirror loop); <code>paper2notes/scripts/ci-check.mjs</code> <code>isKnownLocalOnly</code>; <code>.dockerignore</code> <code>**/_local/</code>. <code>cp -n</code> exit 1 on an existing target verified on macOS <code>/bin/cp</code>. Live probe: <code>/book5/_local/dse/mc/25/2022_q31.png</code> → 404.</figcaption>
+  </figure>
+</section>
+
+<section id="data-status">
+  <h2>3 · What is tracked, what is generated, and what CI does</h2>
+  <div class="table-wrap" id="tracked-table">
+    <table>
+      <thead><tr><th>Path</th><th>Status</th><th>Role / note</th></tr></thead>
+      <tbody>
+        <tr id="row-paper"><td><code>paper2db/paper/**</code></td><td><span class="chip tracked">tracked</span></td><td>77 source PDFs + performance notes, plain git (pack ≈ 282 MB)</td></tr>
+        <tr id="row-metadata"><td><code>paper2db/metadata/{mc,lq}/llm_classifications.json</code></td><td><span class="chip tracked">tracked</span></td><td>Paid LLM decisions, deliberately versioned</td></tr>
+        <tr id="row-overrides"><td><code>paper2db/scripts/overrides_*.json</code>, <code>answer_key_overrides.json</code></td><td><span class="chip hand">hand-tuned</span></td><td>MC anchor and answer-key patches</td></tr>
+        <tr id="row-starts"><td><code>paper2db/tests/reconstructed/lq/*/starts.json</code></td><td><span class="chip hand">hand-tuned</span></td><td>Tracked input inside a generated tree (A9)</td></tr>
+        <tr id="row-sections"><td><code>paper2db/tests/sections/</code></td><td><span class="chip gen">gitignored</span></td><td>The bank notes consume (A3, A9)</td></tr>
+        <tr id="row-legacy"><td><code>paper2db/classified/</code>, <code>output/</code></td><td><span class="chip gen">gitignored</span></td><td>Legacy layout that sync still reads (A5)</td></tr>
+        <tr id="row-qb"><td><code>paper2db/qb/</code>, <code>qb-pdf/</code></td><td><span class="chip gen">gitignored</span></td><td>"Canonical" QB source is not versioned (A8)</td></tr>
+        <tr id="row-notes"><td><code>paper2notes/notes/**</code></td><td><span class="chip tracked">tracked</span></td><td>The site; vendored JS copied per chapter (A11)</td></tr>
+        <tr id="row-source"><td><code>paper2notes/notes/_source/**</code></td><td><span class="chip tracked">tracked</span></td><td>≈24 MB OCR intake, excluded from the image</td></tr>
+        <tr id="row-local"><td><code>paper2notes/notes/**/_local/</code></td><td><span class="chip gen">gitignored</span></td><td>DSE crops from sync; excluded from the image (A1)</td></tr>
+        <tr id="row-lavish"><td><code>paper2notes/.lavish/**</code>, <code>b2_home.png</code>, <code>hello_test.png</code></td><td><span class="chip tracked">tracked</span></td><td>Review screenshots checked in, while <code>paper2db/.lavish/</code> is ignored (A10)</td></tr>
+        <tr id="row-tex"><td><code>paper2mock/**/*.tex</code></td><td><span class="chip tracked">tracked</span></td><td>PDFs built in CI only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap" id="ci-table">
+    <table>
+      <thead><tr><th>Workflow</th><th>Runs on</th><th>Does</th><th>State</th></tr></thead>
+      <tbody>
+        <tr id="ci-notes"><td><code>.github/workflows/ci-notes.yml</code></td><td>notes / scripts paths</td><td><code>ci-check.mjs</code>: structure, links (skips <code>_local</code>), one CSS rule</td><td><span class="chip live">runs</span></td></tr>
+        <tr id="ci-mocks"><td><code>.github/workflows/compile-mocks.yml</code></td><td>every PR and push</td><td>20 LaTeX builds + release zips on <code>main</code></td><td><span class="chip live">runs</span> <span class="chip hand">no path filter</span></td></tr>
+        <tr id="ci-deploy"><td><code>.github/workflows/deploy-notes.yml</code></td><td>push to <code>main</code></td><td><code>echo</code> only</td><td><span class="chip dead">stub</span></td></tr>
+        <tr id="ci-nested"><td><code>paper2notes/.github/workflows/*</code>, <code>paper2mock/.github/workflows/*</code></td><td>never</td><td>Pre-merge copies GitHub ignores</td><td><span class="chip dead">dead</span></td></tr>
+        <tr id="ci-missing"><td>paper2db <code>unittest</code>, Puppeteer interactive tests, <code>sync-dse.sh</code></td><td>never</td><td>No workflow runs them</td><td><span class="chip dead">uncovered</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="findings">
+  <h2>4 · Design findings</h2>
+  <p class="sub">Severity reflects impact on the monorepo's purpose, a working notes site backed by paper2db banks. <span class="verified">Verified</span> means checked against code or a read-only live probe on 2026-09-27. <span class="question">Open question</span> marks a decision for the owner. Nothing here is fixed; that is out of scope for this change.</p>
+  <div class="filters" role="group" aria-label="Filter findings by severity">
+    <button type="button" data-f="all" aria-pressed="true">All 14</button>
+    <button type="button" data-f="high" aria-pressed="false">High 4</button>
+    <button type="button" data-f="med" aria-pressed="false">Medium 5</button>
+    <button type="button" data-f="low" aria-pressed="false">Low 5</button>
+  </div>
+
+  <div class="findings">
+    <article class="finding high" id="finding-a1" data-sev="high">
+      <header><span class="fid">A1</span><h3>Production never receives the DSE crops</h3><span class="sev high">high</span></header>
+      <div class="tags"><span class="tag">generated data</span><span class="tag">deploy</span><span class="tag">notes → db</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd>Pages use <code>../_local/dse/…</code>; <code>_local/</code> is gitignored and the root <code>.dockerignore</code> drops <code>**/_local/</code>, so no image can contain the crops. The Book 5 “Export Ch.N PDF” links point there too.</dd>
+        <dt>Evidence</dt><dd><span class="verified">Verified</span>: live <code>/book5/_local/dse/mc/25/2022_q31.png</code> → 404; <code>/book5/ch01-…/25-1.html</code> → 200.</dd>
+        <dt>Impact</dt><dd>The only cross-project data edge has no production path; every DSE deck shows broken images for students.</dd>
+        <dt>Next</dt><dd><span class="question">Open question</span>: may HKDSE crops be published at all? If yes, stage a paper2db export into the image; if no, hide the decks in production.</dd>
+      </dl>
+    </article>
+
+    <article class="finding high" id="finding-a2" data-sev="high">
+      <header><span class="fid">A2</span><h3>The monorepo does not deploy the site</h3><span class="sev high">high</span></header>
+      <div class="tags"><span class="tag">deploy</span><span class="tag">duplicated source of truth</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>deploy-notes.yml</code> only echoes. The repo has no Actions secrets. The deploy README says only <code>yeungsinchun/paper2notes</code> may impersonate the deployer, and <code>provision.sh</code> skips an existing WIF provider, so its new <code>GITHUB_REPO</code> default would not re-scope it (inferred from the scripts; GCP not inspected).</dd>
+        <dt>Evidence</dt><dd><span class="verified">Verified</span>: live <code>/</code> → 302 <code>/book5/</code> and <code>/book2/</code> → 404, i.e. the pre-monorepo build; <code>gh secret list</code> is empty.</dd>
+        <dt>Impact</dt><dd>What is live is decided by a different repository from the one being edited.</dd>
+        <dt>Next</dt><dd>Re-scope WIF to <code>paper2everything</code>, replace the stub with the real deploy, retire the standalone deploy.</dd>
+      </dl>
+    </article>
+
+    <article class="finding high" id="finding-a3" data-sev="high">
+      <header><span class="fid">A3</span><h3>The notes ↔ db interface is an undeclared filesystem layout</h3><span class="sev high">high</span></header>
+      <div class="tags"><span class="tag">fragile relative paths</span><span class="tag">coupling</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>sync-dse.sh</code> walks paper2db's internal tree via <code>$ROOT/../paper2db</code> and derives the section by regex on folder names. Book folders (<code>05_Radioactivity…</code>) match the same <code>^NN_</code> as sections (<code>05_Motion</code>). Notes hardcode 82 filenames in two schemes (<code>YYYY_qN.png</code> MC, <code>YYYY-qN.png</code> LQ).</dd>
+        <dt>Impact</dt><dd>Any rename or re-layout inside paper2db breaks notes with no error; paper2db owns no export or manifest.</dd>
+        <dt>Next</dt><dd>A paper2db <code>export</code> stage writing a flat tree plus a manifest; notes reference manifest keys.</dd>
+      </dl>
+    </article>
+
+    <article class="finding high" id="finding-a4" data-sev="high">
+      <header><span class="fid">A4</span><h3>Nothing checks that contract</h3><span class="sev high">high</span></header>
+      <div class="tags"><span class="tag">CI</span><span class="tag">notes → db</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>ci-check.mjs</code> skips every link through <code>_local/</code> (<code>isKnownLocalOnly</code>) and no workflow runs paper2db. The crop choice lives in HTML, not in paper2db classification (e.g. <code>25-1.html</code> shows LQ crops from section 26).</dd>
+        <dt>Impact</dt><dd>A reclassification that moves a question silently empties a deck.</dd>
+        <dt>Next</dt><dd>CI check that every notes reference exists in the paper2db manifest.</dd>
+      </dl>
+    </article>
+
+    <article class="finding med" id="finding-a5" data-sev="med">
+      <header><span class="fid">A5</span><h3>Competing sources of truth feed one sync</h3><span class="sev med">medium</span></header>
+      <div class="tags"><span class="tag">duplicated source of truth</span><span class="tag">stale data</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd>Sync reads <code>tests/sections/</code>, then legacy <code>classified/</code>, which overwrites fresh crops because <code>cp -n … || cp</code> falls through to <code>cp</code>. Root JSON/CSV use <code>cp -n … || true</code>, so they never refresh. <code>rsync -a</code> without <code>--delete</code> never prunes. Placeholders look like real data and are written with CWD-relative paths.</dd>
+        <dt>Evidence</dt><dd><span class="verified">Verified</span>: macOS <code>/bin/cp -n</code> exits 1 and leaves the target untouched.</dd>
+        <dt>Next</dt><dd>One input (the export from A3), a clean target, and placeholders that are visibly placeholders.</dd>
+      </dl>
+    </article>
+
+    <article class="finding med" id="finding-a6" data-sev="med">
+      <header><span class="fid">A6</span><h3>Four copies of every crop</h3><span class="sev med">medium</span></header>
+      <div class="tags"><span class="tag">duplication</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>notes/_local/dse/</code>, which no page references, plus a full mirror in each of <code>book2</code>, <code>book4</code>, <code>book5</code>. Book 2 holds Book 5's crops.</dd>
+        <dt>Next</dt><dd>Serve one tree from a root-relative or per-book path and drop the mirrors.</dd>
+      </dl>
+    </article>
+
+    <article class="finding med" id="finding-a7" data-sev="med">
+      <header><span class="fid">A7</span><h3>The syllabus-section taxonomy has no single owner</h3><span class="sev med">medium</span></header>
+      <div class="tags"><span class="tag">duplicated source of truth</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>SECTIONS</code> is defined twice in paper2db (<code>classify_mc_llm.py</code>, <code>classify_mc_sections.py</code>); notes repeat section numbers in 82 paths; <code>sync-dse.sh</code> hardcodes sections 20–27; the landing page hardcodes “paper2db §25–27”.</dd>
+        <dt>Next</dt><dd>One taxonomy module or JSON read by both sides.</dd>
+      </dl>
+    </article>
+
+    <article class="finding med" id="finding-a8" data-sev="med">
+      <header><span class="fid">A8</span><h3>QB banks sit in paper2db but belong to nobody</h3><span class="sev med">medium</span></header>
+      <div class="tags"><span class="tag">ownership</span><span class="tag">unversioned source</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd>The “canonical” <code>paper2db/qb/</code> and <code>qb-pdf/</code> are gitignored; the converter is not a pipeline stage and promises an OCR step it does not run; the only consumer is notes intake. <code>_source/*/problems.md</code> cite <code>paper2db/classified/mc/…</code> 48 times, a layout the pipeline no longer writes.</dd>
+        <dt>Next</dt><dd><span class="question">Open question</span>: version QB (LFS) as a paper2db stage, or move QB handling to notes intake?</dd>
+      </dl>
+    </article>
+
+    <article class="finding med" id="finding-a9" data-sev="med">
+      <header><span class="fid">A9</span><h3>Product output lives under <code>tests/</code>; tracked inputs live in generated trees</h3><span class="sev med">medium</span></header>
+      <div class="tags"><span class="tag">generated vs tracked</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>tests/sections/</code> is the bank notes consume; hand-tuned <code>tests/reconstructed/lq/*/starts.json</code> is tracked inside an otherwise generated tree, kept by chains of <code>!</code> negations in two <code>.gitignore</code> files.</dd>
+        <dt>Next</dt><dd>Separate <code>inputs/</code> from <code>build/</code> (or <code>dist/</code>) in paper2db.</dd>
+      </dl>
+    </article>
+
+    <article class="finding low" id="finding-a10" data-sev="low">
+      <header><span class="fid">A10</span><h3>Inconsistent policy on checked-in generated artifacts</h3><span class="sev low">low</span></header>
+      <div class="tags"><span class="tag">generated data checked in</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>paper2notes/.lavish/</code> (≈3.8 MB screenshots), <code>b2_home.png</code>, <code>hello_test.png</code> are tracked while <code>paper2db/.lavish/</code> is ignored. ≈283 MB of PDFs are in plain git, not LFS.</dd>
+      </dl>
+    </article>
+
+    <article class="finding low" id="finding-a11" data-sev="low">
+      <header><span class="fid">A11</span><h3>Vendored code copied per chapter</h3><span class="sev low">low</span></header>
+      <div class="tags"><span class="tag">duplication</span><span class="tag">cross-book coupling</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>three.min.js</code> ×21 (13 MB), <code>checks.js</code> ×11, <code>notes.js</code> ×10, KaTeX ×3; <code>diagrams3d.js</code> per chapter with divergent contents. The landing page and <code>book2/index.html</code> load <code>book5/css/notes.css</code>.</dd>
+      </dl>
+    </article>
+
+    <article class="finding low" id="finding-a12" data-sev="low">
+      <header><span class="fid">A12</span><h3>Dead or duplicated config left from the merge</h3><span class="sev low">low</span></header>
+      <div class="tags"><span class="tag">dead config</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd>Nested workflows never run, yet <code>ci-notes.yml</code> path-filters on them. <code>paper2notes/.dockerignore</code> is unused. <code>paper2db/.no-mistakes.yaml</code> is nested with no root equivalent. Three overlapping <code>.gitignore</code> files. Dockerfile and <code>deploy.sh</code> still describe a standalone build their root-relative <code>COPY</code> paths break.</dd>
+      </dl>
+    </article>
+
+    <article class="finding low" id="finding-a13" data-sev="low">
+      <header><span class="fid">A13</span><h3>CI scope does not match the monorepo</h3><span class="sev low">low</span></header>
+      <div class="tags"><span class="tag">CI</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd><code>compile-mocks</code> runs 20 LaTeX jobs (and a release on <code>main</code>) for every change, including notes-only ones. paper2db's test suite has no workflow.</dd>
+      </dl>
+    </article>
+
+    <article class="finding low" id="finding-a14" data-sev="low">
+      <header><span class="fid">A14</span><h3>Developer docs leak into the student site; docs drift</h3><span class="sev low">low</span></header>
+      <div class="tags"><span class="tag">docs</span></div>
+      <dl class="kv">
+        <dt>What</dt><dd>The public landing page explains the paper2db pipeline and gitignored paths, against <code>paper2notes/AGENTS.md</code>'s no-provenance rule. <code>paper2notes/README.md</code> and <code>deploy/cloudrun/README.md</code> still describe <code>deploy.yml</code>, a <code>/</code> → <code>/book5/</code> redirect, and QB folders in paper2notes.</dd>
+      </dl>
+    </article>
+  </div>
+
+  <div class="sound" id="sound">
+    <h3>What is sound</h3>
+    <ul>
+      <li>The dependency graph is acyclic and one-directional: paper2db never references paper2notes, and paper2mock is isolated.</li>
+      <li>Paid LLM classifications are tracked inputs, so rebuilds neither re-bill nor re-randomise.</li>
+      <li>The Cloud Run design is least-privilege: runtime SA with no roles, deployer limited to <code>run.developer</code> + registry writer, keyless WIF.</li>
+      <li>paper2mock PDFs are built and released by CI, never committed.</li>
+    </ul>
+  </div>
+
+  <div class="decide" id="decisions">
+    <h3>Decisions that belong to the owner</h3>
+    <ol>
+      <li id="decide-publish">Should HKDSE past-paper crops be served on the public site (A1)? This decides between shipping an export in the image or hiding the decks.</li>
+      <li id="decide-deploy">Should <code>paper2everything</code> take over the Cloud Run deploy and the standalone <code>paper2notes</code> repo stop deploying (A2)?</li>
+      <li id="decide-qb">Where do QB banks live, and are the DOCX sources versioned (A8)?</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  Mapped from the code on branch <code>fm/p2e-mono-repo-plan-and-build-a1</code> (monorepo PR <a href="https://github.com/yeungsinchun/paper2everything/pull/1">yeungsinchun/paper2everything#1</a>). Prose version: <code>docs/ARCHITECTURE.md</code>.
+</footer>
+</main>
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.filters button');
+    var cards = document.querySelectorAll('.finding');
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.getAttribute('data-f');
+        buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-sev') === f); });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
