@@ -321,9 +321,7 @@ paper2db has a test suite no workflow runs.
 **A14. Developer docs leak into the student site, and docs drift.** The public
 landing page `paper2notes/notes/index.html` explains the paper2db pipeline and
 gitignored paths, against `paper2notes/AGENTS.md`'s rule that student pages do
-not show provenance. `paper2notes/README.md` and
-`paper2notes/deploy/cloudrun/README.md` still describe `deploy.yml`, a `/` →
-`/book5/` redirect, and QB folders inside paper2notes.
+not show provenance. `paper2notes/README.md` now points to `../docs/ARCHITECTURE.md` §5/6 and `deploy-notes.yml` at the repo root (previously `deploy.yml`/`ci.yml`); the QB tables there still list `QB_50x/` inside paper2notes while the canonical QB is `paper2db/qb/`.
 
 ### What is sound
 
