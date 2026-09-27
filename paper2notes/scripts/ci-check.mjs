@@ -2,10 +2,9 @@
 // Minimal CI check for paper2notes.
 //
 // When `notes/` does not exist yet (bare `main`), this is a no-op skip.
-// When `notes/book5/` exists, it asserts that the book5 index and both
-// chapter indexes exist and are non-empty, and it fails on broken
-// in-repo relative links (href/src) that it can resolve on disk without
-// a browser.
+// Checks Book 5's three chapter indexes, Book 2's ten chapters, and Book 4's
+// eight chapters when present, plus in-repo relative links (href/src) that
+// can be resolved on disk without a browser.
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";

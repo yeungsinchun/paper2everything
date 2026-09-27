@@ -34,4 +34,4 @@ See `deploy/cloudrun/README.md` for Cloud Run hosting and `../docs/ARCHITECTURE.
 
 ## CI
 
-Pull requests and pushes to `main` run a GitHub Actions check (`.github/workflows/ci-notes.yml` at the repo root, see `../docs/ARCHITECTURE.md` §5) that executes `node scripts/ci-check.mjs`. It skips with a message when `notes/` doesn't exist yet, and otherwise verifies each book's index and chapter indexes exist and are non-empty, in-repo relative links (`href`/`src`) resolve on disk, and map-card description selectors do not style nested spans. It does not run the local Chrome/Puppeteer interactive tests, since those hardcode macOS Chrome paths.
+Pull requests and pushes to `main` run the root `.github/workflows/ci-notes.yml` check, which executes `node paper2notes/scripts/ci-check.mjs`. It skips when `notes/` does not exist, and otherwise checks Book 5's three chapter indexes, Book 2's ten chapters, Book 4's eight chapters, and in-repo relative links (`href`/`src`). It does not run local Chrome/Puppeteer interactive tests.

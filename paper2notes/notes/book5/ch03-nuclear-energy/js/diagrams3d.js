@@ -31,6 +31,13 @@
     return mesh;
   }
 
+  function box(w, h, d, hex) {
+    return new THREE.Mesh(
+      new THREE.BoxGeometry(w, h, d),
+      new THREE.MeshStandardMaterial({ color: hex, roughness: 0.55, metalness: 0.08 })
+    );
+  }
+
   function ring(radius, hex) {
     var mesh = new THREE.Mesh(
       new THREE.TorusGeometry(radius, 0.035, 10, 64),
