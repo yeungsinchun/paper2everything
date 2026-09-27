@@ -19,8 +19,8 @@ HTML notes live under `notes/`. Follow textbook order; prefer visual animation o
 
 ## Hosting
 
-Merges to `main` deploy `notes/` to Cloud Run via `.github/workflows/deploy.yml`. Live site: https://paper2notes-152505675251.asia-east2.run.app/. Project, service, access model, and cost are in `deploy/cloudrun/README.md`.
+See `deploy/cloudrun/README.md` for Cloud Run hosting and `../docs/ARCHITECTURE.md` (repo root) for the monorepo deploy path — the monorepo workflow is `.github/workflows/deploy-notes.yml` at the repo root (see `docs/ARCHITECTURE.md` §6). Live site: https://paper2notes-152505675251.asia-east2.run.app/.
 
 ## CI
 
-Pull requests and pushes to `main` run a GitHub Actions check (`.github/workflows/ci.yml`) that executes `node scripts/ci-check.mjs`. It skips with a message when `notes/` doesn't exist yet, and otherwise verifies each book's index and chapter indexes exist and are non-empty, in-repo relative links (`href`/`src`) resolve on disk, and map-card description selectors do not style nested spans. It does not run the local Chrome/Puppeteer interactive tests, since those hardcode macOS Chrome paths.
+Pull requests and pushes to `main` run a GitHub Actions check (`.github/workflows/ci-notes.yml` at the repo root, see `../docs/ARCHITECTURE.md` §5) that executes `node scripts/ci-check.mjs`. It skips with a message when `notes/` doesn't exist yet, and otherwise verifies each book's index and chapter indexes exist and are non-empty, in-repo relative links (`href`/`src`) resolve on disk, and map-card description selectors do not style nested spans. It does not run the local Chrome/Puppeteer interactive tests, since those hardcode macOS Chrome paths.

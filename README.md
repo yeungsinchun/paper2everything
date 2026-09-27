@@ -39,6 +39,10 @@ See `paper2notes/notes/_source/book{2,4,5}-ch*/` for OCR/outline/problems intake
 - Landing page at `/` lists every book with icons (no redirect); each book's index at `/book2/`, `/book4/`, `/book5/`.
 - `paper2notes/deploy/cloudrun/nginx.conf` serves `paper2notes/notes/` (see `paper2notes/deploy/cloudrun/README.md`).
 
+## Architecture
+
+Monorepo data dependencies and design findings are mapped in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Mermaid diagram) and the visual board at `.lavish/architecture-board/index.html` (`lavish-axi .lavish/architecture-board/index.html`).
+
 ## DSE banks — canonical in paper2db, consumed by paper2notes
 
 ```bash
