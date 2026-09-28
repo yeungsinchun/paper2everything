@@ -12,7 +12,7 @@
     var renderer = new T.WebGLRenderer({canvas:canvas,antialias:true});
     renderer.setPixelRatio(Math.min(global.devicePixelRatio||1,2));
     scene.add(new T.AmbientLight(0xffffff,1));
-    function resize() { var w=canvas.clientWidth||640,h=canvas.clientHeight||360; renderer.setSize(w,h,false); var a=w/h; camera.left=-3*a; camera.right=3*a; camera.updateProjectionMatrix(); }
+    function resize() { var w=canvas.clientWidth||640,h=canvas.clientHeight||360; renderer.setSize(w,h,false); var a=w/h; camera.left=-3*a; camera.right=3*a; camera.updateProjectionMatrix(); renderer.render(scene,camera); }
     resize(); global.addEventListener('resize',resize);
     function line(points,color,width) { var g=new T.BufferGeometry().setFromPoints(points.map(function(p){return new T.Vector3(p[0],p[1],0);})); var o=new T.Line(g,new T.LineBasicMaterial({color:color||ink,linewidth:width||2})); scene.add(o); return o; }
     function arrow(x,y,dx,dy,color) { var len=Math.hypot(dx,dy); if(!len)return; scene.add(new T.ArrowHelper(new T.Vector3(dx/len,dy/len,0),new T.Vector3(x,y,0),len,color||ink,.22,.13)); }
