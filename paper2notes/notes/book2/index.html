@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Active Physics Book 2 · Force and Motion</title>
   <link rel="stylesheet" href="css/notes.css">
-  <link rel="stylesheet" href="../book5/css/notes.css">
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
 </head>
 <body>
   <header class="topbar">
@@ -19,9 +19,9 @@
     </nav>
   </header>
   <main>
-    <p class="kicker">Book 2 · HKDSE Physics compulsory part · 50 hours</p>
+    <p class="kicker">Book 2 · Force and Motion</p>
     <h1>Force and Motion</h1>
-    <p class="lede">From how to describe motion to why it happens — displacement, velocity, acceleration, forces, energy, momentum, projectile, circular motion and gravity. Assume only that an object moves and a force can change its motion. Each chapter has visuals first, concise text, and topic-matched past-paper practice in the section.</p>
+    <p class="lede">Displacement to gravitation — visuals, concise notes, DSE practice.</p>
 
     <div class="chapter-cards">
       <a href="ch01-position-and-displacement/index.html">
@@ -79,17 +79,9 @@
       <a class="quiz-export" href="_local/dse/mc/05/combined.pdf" download="combined.pdf">Export Ch.1–2 PDF</a>
       <a class="quiz-export" href="_local/dse/mc/08/combined.pdf" download="combined.pdf">Export Ch.6 PDF</a>
     </p>
-    <section class="lo-block" aria-labelledby="lo-heading" style="margin-top:2rem">
-      <h2 id="lo-heading">How this book maps the syllabus</h2>
-      <p class="lo-stem">ch2.pdf pp.24–28 (“Students should be able to”):</p>
-      <ul class="lo-list">
-        <li><p>describe position with distance and displacement, \( s\!-\!t \) graphs, distinguish scalars/vectors</p></li>
-        <li><p>define \( v \) and \( a \), use \( v\!-\!t \) and \( a\!-\!t \), derive and apply UAM equations, free-fall with \( g \)</p></li>
-        <li><p>state Newton’s laws, add/resolve forces, draw free-body diagrams, distinguish mass and weight, moment and equilibrium</p></li>
-        <li><p>work, PE, KE, conservation, power; momentum, impulse, conservation; projectile independence; circular \( a=v^2/r \); gravitation \( GMm/r^2 \)</p></li>
-      </ul>
-      <p style="font-size:0.9em;color:var(--muted)">Underlined extension in ch2.pdf: circular motion and gravitation (Ch.9–10). Intake lives in <code>notes/_source/book2-ch01…10/</code> (ocr.md / outline.md / problems.md / images/INDEX.md) following the ch501/502 contract.</p>
-    </section>
   </main>
+  <script src="vendor/katex/katex.min.js"></script>
+  <script src="vendor/katex/auto-render.min.js"></script>
+  <script src="js/math.js"></script>
 </body>
 </html>
