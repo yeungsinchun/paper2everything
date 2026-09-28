@@ -1387,8 +1387,8 @@ chromeTest("every Ch.1 section page shows syllabus LOs and keeps DSE papers in t
 chromeTest("each Ch.1 subsection quizzes its DSE papers one at a time", async () => {
   const expected = {
     "25-1.html": ["dse-mc-2022-31", "dse-mc-2015-31", "dse-lq-2017-10", "dse-lq-2014-10"],
-    "25-2.html": ["dse-mc-2012-36", "dse-mc-2013-34", "dse-mc-2014-31", "dse-lq-2026-12", "dse-mc-2021-31", "dse-mc-2025-32", "dse-mc-2021-33", "dse-lq-2016-9", "dse-lq-2018-10", "dse-lq-2021-9", "dse-lq-2023-9", "dse-lq-2017-10", "dse-lq-2014-10"],
-    "25-3.html": ["dse-mc-2016-32", "dse-mc-2017-32", "dse-mc-pp-34", "dse-mc-2014-32", "dse-mc-2019-31", "dse-mc-sap-36", "dse-mc-2017-31", "dse-lq-2014-10"]
+    "25-2.html": ["dse-mc-2012-36", "dse-mc-2013-34", "dse-mc-2014-31", "dse-lq-2026-12", "dse-mc-2021-31", "dse-mc-2025-32", "dse-mc-2021-33", "dse-lq-2016-9", "dse-lq-2018-10", "dse-lq-2021-9", "dse-lq-2023-9", "dse-lq-2017-10", "dse-lq-2014-10", "dse-lq-2024-13"],
+    "25-3.html": ["dse-mc-2016-32", "dse-mc-2017-32", "dse-mc-pp-34", "dse-mc-2014-32", "dse-mc-2019-31", "dse-mc-sap-36", "dse-mc-2017-31", "dse-mc-pp-35", "dse-lq-2014-10"]
   };
 
   for (const [page, expectedIds] of Object.entries(expected)) {
@@ -1401,6 +1401,25 @@ chromeTest("each Ch.1 subsection quizzes its DSE papers one at a time", async ()
       var firstImg = visibleMc[0] && visibleMc[0].querySelector("img");
       var nav = mc && mc.querySelector(".quiz-nav");
       var slidesBox = mc && mc.querySelector(".quiz-slides");
+      function deckInfo(deck) {
+        if (!deck) return null;
+        var sec = deck.querySelector('a[data-quiz-export][data-quiz-scope="section"]');
+        var chap = deck.querySelector('a[data-quiz-export][data-quiz-scope="chapter"]');
+        var group = deck.querySelector(".quiz-export-group");
+        return {
+          sectionHref: sec && sec.getAttribute("href"),
+          chapterHref: chap && chap.getAttribute("href"),
+          sectionTarget: sec && sec.getAttribute("target"),
+          chapterTarget: chap && chap.getAttribute("target"),
+          sectionScope: sec && sec.getAttribute("data-quiz-scope"),
+          chapterScope: chap && chap.getAttribute("data-quiz-scope"),
+          sectionText: sec && sec.textContent.trim(),
+          chapterText: chap && chap.textContent.trim(),
+          count: deck.querySelectorAll('a[data-quiz-export]').length,
+          groupRole: group && group.getAttribute("role"),
+          groupLabel: group && group.getAttribute("aria-label")
+        };
+      }
       return {
         heading: mc && mc.querySelector("h2") && mc.querySelector("h2").textContent,
         slides: slides.map(function (s) { return s.id; }),
@@ -1411,9 +1430,9 @@ chromeTest("each Ch.1 subsection quizzes its DSE papers one at a time", async ()
         navAfterSlides: !!(nav && slidesBox && (nav.compareDocumentPosition(slidesBox) & Node.DOCUMENT_POSITION_PRECEDING)),
         letters: mc ? mc.querySelectorAll("[data-quiz-choice]").length : 0,
         hasLq: !!(lq && lq.querySelector(".quiz-slide")),
-        exportButton: !!(mc && mc.querySelector("button[data-quiz-export]")),
-        exportDoc: window.NotesQuiz ? window.NotesQuiz.sectionPapersHtml() : "",
-        scans: Array.from(document.querySelectorAll(".quiz-slide img")).map(function (img) { return img.getAttribute("src").split("/").pop(); }),
+        mc: deckInfo(mc),
+        lq: deckInfo(lq),
+        pdfButtons: document.querySelectorAll("button[data-quiz-export]").length,
         lo: document.querySelector(".quiz-lo") && document.querySelector(".quiz-lo").textContent.trim()
       };
     })()`);
@@ -1422,12 +1441,28 @@ chromeTest("each Ch.1 subsection quizzes its DSE papers one at a time", async ()
     assert.equal(practice.hasNext, true, page + " needs Next");
     assert.equal(practice.navAfterSlides, true, page + " Prev/Next must sit under the question");
     assert.ok(practice.letters >= 4, page + " needs A B C D options");
-    assert.equal(practice.exportButton, true, page + " needs its own Export PDF button");
-    assert.ok(practice.scans.length >= 2, page + " should have scans to export");
-    practice.scans.forEach(function (name) {
-      assert.ok(practice.exportDoc.includes(name), page + " export must carry " + name);
-    });
-    assert.doesNotMatch(practice.exportDoc, /combined\.pdf/, page + " export is built from this section's papers, not the chapter PDF");
+    var section = page.replace(".html", "").replace("-", ".");
+    assert.equal(practice.mc.sectionHref, "../_local/dse/mc/25/" + section + ".pdf", page + " MC deck section link points at its own PDF");
+    assert.equal(practice.mc.chapterHref, "../_local/dse/mc/25/combined.pdf", page + " MC deck chapter link points at the chapter MC bank");
+    assert.equal(practice.mc.sectionScope, "section");
+    assert.equal(practice.mc.chapterScope, "chapter");
+    assert.equal(practice.mc.sectionText, "This section");
+    assert.equal(practice.mc.chapterText, "Whole chapter");
+    assert.equal(practice.mc.sectionTarget, "_blank");
+    assert.equal(practice.mc.chapterTarget, "_blank");
+    assert.equal(practice.mc.count, 2, page + " MC deck exposes exactly two scope links");
+    assert.equal(practice.mc.groupRole, "group");
+    assert.equal(practice.mc.groupLabel, "Export MC PDF");
+    if (practice.hasLq) {
+      assert.equal(practice.lq.sectionHref, "../_local/dse/lq/25/" + section + ".pdf", page + " LQ deck section link points at its own PDF");
+      assert.equal(practice.lq.chapterHref, "../_local/dse/lq/25/combined.pdf", page + " LQ deck chapter link points at the chapter LQ bank");
+      assert.equal(practice.lq.sectionTarget, "_blank");
+      assert.equal(practice.lq.chapterTarget, "_blank");
+      assert.equal(practice.lq.count, 2, page + " LQ deck exposes exactly two scope links");
+      assert.equal(practice.lq.groupRole, "group");
+      assert.equal(practice.lq.groupLabel, "Export LQ PDF");
+    }
+    assert.equal(practice.pdfButtons, 0, page + " quiz export is a plain PDF link, not a generated print document");
     assert.match(practice.lo || "", /^LO \d+/, page + " needs an LO number and description at the top of the quiz");
     assert.equal(practice.hasLq, true, page + " needs a separate LQ section");
     assert.equal(practice.visible, 1, page + " must show one MC quiz item");
@@ -1490,13 +1525,15 @@ chromeTest("each Ch.1 subsection quizzes its DSE papers one at a time", async ()
       results: results,
       dots: mc.querySelectorAll(".quiz-dot").length,
       status: mc.querySelector(".quiz-status") && mc.querySelector(".quiz-status").textContent,
-      exportLabel: mc.querySelector("[data-quiz-export]") && mc.querySelector("[data-quiz-export]").textContent
+      exports: Array.from(mc.querySelectorAll("a[data-quiz-export]")).map(function (a) { return a.textContent.trim(); }),
+      scopes: Array.from(mc.querySelectorAll("a[data-quiz-export]")).map(function (a) { return a.getAttribute("data-quiz-scope"); })
     };
   })()`);
-  assert.equal(marking.hasPp35, false, "PP/35 was dropped because its answer could not be verified");
+  assert.equal(marking.hasPp35, true, "PP/35 is in the 25.3 MC deck");
   assert.ok(marking.dots >= 2, "quiz-dots remain as a second progress channel");
   assert.match(marking.status || "", /\d+ of \d+/);
-  assert.equal(marking.exportLabel, "Export PDF");
+  assert.deepEqual(marking.exports, ["This section", "Whole chapter"]);
+  assert.deepEqual(marking.scopes, ["section", "chapter"]);
   marking.results.forEach(function (item) {
     assert.equal(item.marked, true, item.id + " must mark after an A-D pick");
     assert.match(item.pct, /correct|not quite/i, item.id + " needs a verdict");
@@ -1534,72 +1571,50 @@ chromeTest("each Ch.1 subsection quizzes its DSE papers one at a time", async ()
   assert.equal(target.paper, true);
 });
 
-chromeTest("Export PDF prints once after scans settle", async () => {
-  await cdp.goto(pageUrl("25-1.html"));
-  const result = await cdp.evaluate(`(function () {
-    function fakeImg(complete, raceOnSubscribe) {
-      var listeners = {};
-      return {
-        complete: complete,
-        addEventListener: function (type, fn) {
-          (listeners[type] = listeners[type] || []).push(fn);
-          if (raceOnSubscribe) this.complete = true;
-        },
-        fire: function (type) {
-          this.complete = true;
-          (listeners[type] || []).slice().forEach(function (fn) { fn(); });
-        }
-      };
-    }
-    function withOpen(images, fn) {
+chromeTest("each section page exports its own notes as a PDF from the top right", async () => {
+  for (const page of ["25-1.html", "25-2.html", "25-3.html"]) {
+    await cdp.goto(pageUrl(page));
+    const screen = await cdp.evaluate(`(function () {
+      var btn = document.querySelector("[data-notes-export]");
+      var main = document.querySelector("main");
+      var h1 = document.querySelector("main h1");
+      var b = btn && btn.getBoundingClientRect();
+      var m = main.getBoundingClientRect();
+      var h = h1.getBoundingClientRect();
       var prints = 0;
-      var orig = window.open;
-      window.open = function () {
-        return {
-          document: {
-            open: function () {},
-            write: function () {},
-            close: function () {},
-            images: images
-          },
-          focus: function () {},
-          print: function () { prints += 1; }
-        };
+      var orig = window.print;
+      window.print = function () { prints += 1; };
+      try { btn && btn.click(); } finally { window.print = orig; }
+      return {
+        label: btn && btn.textContent.trim(),
+        count: document.querySelectorAll("[data-notes-export]").length,
+        topRight: !!b && b.right > m.right - 40 && b.top <= h.top,
+        prints: prints,
+        homeLinks: document.querySelectorAll("a[href$='combined.pdf'][download]").length
       };
-      try {
-        document.querySelector("[data-quiz-export]").click();
-        return fn(images, function () { return prints; });
-      } finally {
-        window.open = orig;
-      }
-    }
-    var racePrints = withOpen([fakeImg(true, false), fakeImg(false, true)], function (imgs, n) {
-      return n();
-    });
-    var mixed = fakeImg(false, false);
-    var mixedPrints = withOpen([fakeImg(false, true), mixed], function (imgs, n) {
-      var during = n();
-      imgs[1].fire("load");
-      var once = n();
-      imgs[1].fire("load");
-      return { during: during, once: once, twice: n() };
-    });
-    var loading = fakeImg(false, false);
-    var loadPrints = withOpen([loading], function (imgs, n) {
-      var before = n();
-      imgs[0].fire("load");
-      var once = n();
-      imgs[0].fire("load");
-      return { before: before, once: once, twice: n() };
-    });
-    return { racePrints: racePrints, mixedPrints: mixedPrints, loadPrints: loadPrints };
-  })()`);
-  assert.equal(result.racePrints, 1, "a scan that completes after subscribe must still print");
-  assert.equal(result.mixedPrints.during, 0, "must not print while later scans are still being subscribed");
-  assert.equal(result.mixedPrints.once, 1);
-  assert.equal(result.mixedPrints.twice, 1, "a mixed cache must print once after every scan settles");
-  assert.equal(result.loadPrints.before, 0);
-  assert.equal(result.loadPrints.once, 1);
-  assert.equal(result.loadPrints.twice, 1, "a late load after print must not print again");
+    })()`);
+    assert.equal(screen.count, 1, page + " has exactly one notes export");
+    assert.equal(screen.label, "Export notes as PDF", page);
+    assert.equal(screen.topRight, true, page + " notes export sits at the top right, above the title");
+    assert.equal(screen.prints, 1, page + " export prints the page itself once");
+
+    await cdp.send("Emulation.setEmulatedMedia", { media: "print" });
+    const printed = await cdp.evaluate(`(function () {
+      function shown(sel) { var el = document.querySelector(sel); return !!el && getComputedStyle(el).display !== "none"; }
+      return { topbar: shown(".topbar"), tools: shown(".page-tools"), quiz: shown(".section-dse"), next: shown(".next"), h1: shown("main h1"), lo: shown(".lo-block") };
+    })()`);
+    await cdp.send("Emulation.setEmulatedMedia", { media: "" });
+    assert.equal(printed.topbar, false, page + " print must not carry the header bar");
+    assert.equal(printed.tools, false, page + " print must not carry the export button");
+    assert.equal(printed.quiz, false, page + " print must not carry the quiz decks");
+    assert.equal(printed.next, false, page + " print must not carry the next link");
+    assert.equal(printed.h1, true, page + " print keeps the notes");
+    assert.equal(printed.lo, true, page + " print keeps the learning objectives");
+  }
+
+  await cdp.goto(pageUrl("../index.html"));
+  const home = await cdp.evaluate(`JSON.stringify({ exports: document.querySelectorAll("a.quiz-export, [data-export-pages], [data-notes-export]").length, scripts: document.scripts.length })`);
+  const parsed = JSON.parse(home);
+  assert.equal(parsed.exports, 0, "the Book 5 home page has no export of its own; each section page exports itself");
 });
 });
