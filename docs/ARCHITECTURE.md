@@ -321,7 +321,7 @@ and `hello_test.png` are tracked, while `paper2db/.lavish/` is ignored. The
 ~283 MB of source PDFs are in plain git, not LFS.
 
 **A11. Vendored code is copied per chapter.** `three.min.js` has 21 identical
-copies (13 MB), `checks.js` 11, `notes.js` 10, and KaTeX 3. Figure renderers
+copies (13 MB), `checks.js` 11, `notes.js` 11, and KaTeX 3. Figure renderers
 are shared within Books 2 and 4, while Book 5 retains one per chapter. The
 landing page and `book2/index.html` load `book5/css/notes.css`, coupling other
 books to Book 5's stylesheet.
