@@ -52,12 +52,15 @@ Monorepo data dependencies and design findings are mapped in [docs/ARCHITECTURE.
 #   paper2db/tests/reconstructed/ (whole papers)
 # Legacy branch layout also supports paper2db/classified/ and paper2db/output/
 
-# Sync for local preview (paper2db → paper2notes, gitignored)
+# Published snapshot shipped to Cloud Run (tracked, 82 files)
+# paper2notes/notes/dse/{mc,lq}/<NN>/ → staged to _local/dse/ in Dockerfile (since 361de93)
+
+# Sync for local http.server preview (paper2db → paper2notes, gitignored)
 ./paper2notes/scripts/sync-dse.sh
 # → paper2notes/notes/_local/dse/{mc,lq}/<section>/ and
 #   paper2notes/notes/book*/_local/dse/ (so ../_local/dse/... from chapter pages resolves)
 # HTML references are ../_local/dse/mc/25/2022_q31.png etc; ci-check ignores _local links.
 ```
 
-Generated crops stay gitignored; run the two steps above after a fresh checkout.
-Book 5 DSE decks (e.g. 25.1) are populated after sync — see `.lavish/` screenshots.
+Published crops in `paper2notes/notes/dse/` ship in the Docker image (so production decks render without running the pipeline). `paper2db` outputs stay gitignored; use the pipeline + sync for a fresh local build from source PDFs, or rely on the committed snapshot for docker/preview.
+Book 5 DSE decks (e.g. 25.1) render in production via the snapshot and locally after sync — see `.lavish/` screenshots.
