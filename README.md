@@ -21,7 +21,7 @@ python3 -m http.server --directory paper2notes/notes 8000
 # QB banks: DOCX -> PDF (LibreOffice headless)
 ./paper2db/scripts/convert-qb-to-pdf.sh
 
-# Sync DSE crops for local preview
+# Sync built paper2db/classified crops into each book's local preview directory
 ./paper2notes/scripts/sync-dse.sh
 
 # CI
@@ -29,7 +29,7 @@ node paper2notes/scripts/ci-check.mjs
 ```
 
 ## Books
-- **Book 2 Force and Motion** (syllabus II, ch2.pdf, 10 chapters via QB_201-210) — `paper2notes/notes/book2/`
+- **Book 2 Force and Motion** (syllabus II, ch2.pdf, 10 chapters via QB_201-210, ~100 figures) — `paper2notes/notes/book2/`
 - **Book 4 Electricity and Magnetism** (syllabus IV, ch4.pdf, 8 chapters) — `paper2notes/notes/book4/`
 - **Book 5 Radioactivity and Nuclear Energy** (syllabus V, ch5.pdf, 3 chapters: 25 Radiation & Radioactivity, 26 Rate of Decay, 27 Nuclear Energy) — `paper2notes/notes/book5/`
 
