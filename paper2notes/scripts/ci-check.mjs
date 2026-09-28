@@ -4,7 +4,9 @@
 // When `notes/` does not exist yet (bare `main`), this is a no-op skip.
 // Checks Book 5's three chapter indexes, Book 2's ten chapters, and Book 4's
 // eight chapters when present, plus in-repo relative links (href/src) that
-// can be resolved on disk without a browser.
+// can be resolved on disk without a browser, plus lavish notes-refactor boards
+// (before/after side-by-side and readable prose — enforced only on boards
+// carrying the notes-refactor marker; see paper2notes/.agents/skills/lavish-notes-review/SKILL.md).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
