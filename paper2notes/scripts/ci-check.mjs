@@ -226,7 +226,101 @@ function checkSiteRegionConsistency() {
   }
 }
 
+function checkLavishBoards() {
+  // Enforces paper2notes/.agents/skills/lavish-notes-review/SKILL.md:
+  // - every lavish board about refactoring notes HTML must render before/after
+  //   side-by-side (left = before/main, right = after/branch) using iframes
+  //   at both desktop (1280) and phone (390) widths
+  // - no text may live in a narrow text box that renders unreadable —
+  //   lavish container must use min-width >= 600px for prose, flex/grid wraps
+  //   to full-width on small viewports, and long prose uses readable
+  //   measures (>= 45ch).
+  const lavishRoots = [];
+  const monorepoRoot = resolve(repoRoot, "..");
+  const isMonorepo = existsSync(join(monorepoRoot, "paper2notes/notes/book5"));
+  if (isMonorepo) {
+    lavishRoots.push(join(monorepoRoot, ".lavish"));
+    lavishRoots.push(join(monorepoRoot, "paper2notes/.lavish"));
+  } else {
+    lavishRoots.push(join(repoRoot, ".lavish"));
+    lavishRoots.push(join(repoRoot, "paper2notes/.lavish"));
+  }
+  const seen = new Set();
+  const boards = [];
+  for (const root of lavishRoots) {
+    if (!existsSync(root)) continue;
+    const stack = [root];
+    while (stack.length) {
+      const cur = stack.pop();
+      for (const entry of readdirSync(cur, { withFileTypes: true })) {
+        const full = join(cur, entry.name);
+        if (entry.isDirectory()) stack.push(full);
+        else if (entry.isFile() && entry.name.endsWith(".html")) {
+          if (seen.has(full)) continue;
+          seen.add(full);
+          boards.push(full);
+        }
+      }
+    }
+  }
+  for (const file of boards) {
+    // Snapshots used as before sources for iframes (e.g. .lavish/**/before/paper2notes/...) are notes HTML, not boards.
+    if (file.includes("/before/")) continue;
+    const rel = isMonorepo ? relative(monorepoRoot, file) : relative(repoRoot, file);
+    let contents;
+    try { contents = readFileSync(file, "utf8"); } catch { continue; }
+    const hasMarker = /lavish-board-kind["'\s>]*notes-refactor/.test(contents) || /notes-refactor-board/.test(contents);
+    const hasIframeNotes = /<iframe[^>]*src=["'][^"']*notes\//i.test(contents);
+    const looksLikeNotesRefactor = hasMarker || (/p2e-book5-ch27-migrate/i.test(file) || /p2e-.*migrate/i.test(contents)) || (hasIframeNotes && /book5\//i.test(contents));
+    // Boards that are clearly notes-refactor but forgot the marker: fail on missing marker so the skill is discoverable.
+    if (hasIframeNotes && /book5\/ch03/i.test(contents) && !hasMarker) {
+      fail(`Lavish board ${rel}: missing marker <meta name="lavish-board-kind" content="notes-refactor"> or class "notes-refactor-board" required for notes-refactor boards (see paper2notes/.agents/skills/lavish-notes-review/SKILL.md)`);
+      continue;
+    }
+    if (!looksLikeNotesRefactor) continue;
+    // (a) side-by-side
+    const hasGrid = /before-after-grid|compare-grid|side-by-side/.test(contents);
+    const iframeCount = (contents.match(/<iframe/gi) || []).length;
+    const hasBefore = /Before/i.test(contents);
+    const hasAfter = /After/i.test(contents);
+    const hasDesktop = /1280/.test(contents);
+    const hasPhone = /390/.test(contents);
+    if (!hasGrid) {
+      fail(`Lavish board ${rel}: missing side-by-side grid — expected class "before-after-grid" (or "compare-grid"/"side-by-side") for left=before / right=after layout`);
+    }
+    if (iframeCount < 2) {
+      fail(`Lavish board ${rel}: expected >= 2 iframes with before/after src into notes/ — found ${iframeCount}`);
+    } else if (!hasIframeNotes) {
+      fail(`Lavish board ${rel}: iframes must src into paper2notes/notes/ (before = main, after = branch)`);
+    }
+    if (!hasBefore || !hasAfter) {
+      fail(`Lavish board ${rel}: must label panes "Before — origin/main" and "After — this branch" (left/right)`);
+    }
+    if (!hasDesktop || !hasPhone) {
+      fail(`Lavish board ${rel}: must render both desktop (1280) and phone (390) widths — missing ${!hasDesktop ? '1280' : ''}${!hasDesktop && !hasPhone ? ' and ' : ''}${!hasPhone ? '390' : ''} iframe/width`);
+    }
+    // (b) no narrow unreadable text boxes
+    const hasReadableMeasure = /min-width\s*:\s*(600px|45ch)/i.test(contents) || /max-width\s*:\s*(65ch|48rem)/i.test(contents);
+    const hasMinmax = /minmax\s*\(\s*0\s*,\s*1fr\s*\)/.test(contents);
+    const hasWrapMedia = /@media\s*\([^)]*max-width\s*:\s*900px[^)]*\)[\s\S]*?grid-template-columns\s*:\s*1fr/.test(contents);
+    const hasNarrowBox = /(\.frame|\.pane|\.card|\.prose|\.content|\.lavish-frame)[^\}]*max-width\s*:\s*(32|34|36|38)0px/i.test(contents) || /(\.frame|\.pane)[^\}]*width\s*:\s*3[0-9]{2}px/i.test(contents) || /grid-template-columns\s*:\s*repeat\s*\(\s*3/.test(contents) && !hasWrapMedia;
+    if (hasNarrowBox) {
+      fail(`Lavish board ${rel}: narrow text box detected — CSS uses max-width < 400px or 3-column grid without phone fallback. Prose containers must be >= 600px / 45ch and grids must use minmax(0,1fr) and collapse to 1fr on small viewports (see skill section 2)`);
+    }
+    if (!hasReadableMeasure) {
+      fail(`Lavish board ${rel}: missing readable measure — add min-width: 600px (or 45ch) for prose and max-width: 65ch (or 48rem) for long paragraphs so text is not cramped`);
+    }
+    if (!hasMinmax) {
+      fail(`Lavish board ${rel}: missing grid safeguard — use grid-template-columns: minmax(0,1fr) minmax(0,1fr) and min-width:0 on children so flex/grid does not overflow`);
+    }
+    if (!hasWrapMedia) {
+      fail(`Lavish board ${rel}: missing responsive wrap — add @media (max-width: 900px) { .before-after-grid { grid-template-columns: 1fr; } } so panes are full-width on phones`);
+    }
+  }
+}
+
 checkSiteRegionConsistency();
+checkLavishBoards();
 
 if (existsSync(book5Dir)) {
   checkBook5Structure();
