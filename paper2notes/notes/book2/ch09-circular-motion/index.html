@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book 2 Ch.9 · Uniform circular motion</title>
   <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
@@ -12,7 +13,6 @@
     <a class="brand" href="../index.html">Book 2 · Ch.9<small>Uniform circular motion</small></a>
     <nav>
       <a href="../index.html">Map</a>
-      <a href="../ch09-circular-motion/index.html" aria-current="page">Ch.9</a>
       <a href="../ch01-position-and-displacement/index.html">Ch.1</a>
       <a href="../ch02-velocity-and-acceleration/index.html">Ch.2</a>
       <a href="../ch03-forces-and-newton-i/index.html">Ch.3</a>
@@ -21,7 +21,7 @@
       <a href="../ch06-work-energy-power/index.html">Ch.6</a>
       <a href="../ch07-momentum/index.html">Ch.7</a>
       <a href="../ch08-projectile-motion/index.html">Ch.8</a>
-      <a href="../ch09-circular-motion/index.html">Ch.9</a>
+      <a href="../ch09-circular-motion/index.html" aria-current="page">Ch.9</a>
       <a href="../ch10-gravitation/index.html">Ch.10</a>
     </nav>
   </header>
@@ -46,6 +46,7 @@
         <div class="visual stage" id="circular-vis" data-scene="circular">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Uniform circular motion, velocity tangent, acceleration to centre"></canvas>
           <span class="hud-label" data-hud="w">\( \omega \)</span><span class="hud-label" data-hud="a">\( a=v^2/r \) → centre</span>
+          <span class="circular-dot" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.19</b> Uniform speed still accelerates: direction changes. \( \omega = \Delta\theta/\Delta t \) (rad s\(^{-1}\)), \( v = \omega r \), \( a = v^2/r = \omega^2 r \) toward centre. The net force points the same way.</figcaption>
       </figure>
@@ -72,6 +73,7 @@
         <div class="visual stage" id="bung-vis" data-scene="bung">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Rubber bung 50 g whirled, string through hole with paper clip, tension supplies centripetal"></canvas>
           <span class="hud-label" data-hud="T">\( T = m\omega^2 r \)</span><span class="hud-label" data-hud="clip">paper clip equilibrates weight</span>
+          <span class="bung-dot" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.20</b> Bung (50 g) at 2 rev s\(^{-1}\), paper clip holds position — tension \( T \) supplies \( m\omega^2 r \) horizontally while balancing weight of clip vertically. Two balls X/Y through a hole: \( m_X \omega^2 r = m_Y g \) for that radius.</figcaption>
       </figure>
@@ -86,6 +88,7 @@
         <div class="visual stage" id="gvalue-vis" data-scene="gvalue">
           <canvas class="scene-canvas" width="960" height="320" aria-label="G-value vs speed, washing machine 137g"></canvas>
           <span class="hud-label" data-hud="G">G = \( a/g \)</span><span class="hud-label" data-hud="137">137 g at 700 rpm</span>
+          <span class="gvalue-dot" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.21</b> G-value is the centripetal \( a \) in \( g \)’s. Racing car \( G≈1.5 \), drum \( ≈137 \) — that is why water is flung out through holes (in the drum frame it feels pushed out; in lab frame it tries to go straight and is forced in).</figcaption>
       </figure>
@@ -103,6 +106,7 @@
         <div class="visual stage" id="hole-vis" data-scene="hole">
           <canvas class="scene-canvas" width="960" height="320" aria-label="X 1kg circles, Y 16N hangs, balance at radius r"></canvas>
           <span class="hud-label" data-hud="X">X 1 kg · \( m\omega^2 r \)</span><span class="hud-label" data-hud="Y">Y 16 N</span>
+          <span class="hole-dot" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.22</b> Horizontal X circles, vertical Y hangs steady when tension \( T = m_X\omega^2 r = W_Y \). Change \( \omega \) or \( r \): one will slide.</figcaption>
       </figure>
