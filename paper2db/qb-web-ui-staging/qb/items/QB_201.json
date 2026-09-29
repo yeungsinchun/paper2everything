@@ -1,0 +1,4761 @@
+{
+  "bank": "QB_201",
+  "generated_at": "2026-09-29T18:58:59Z",
+  "tool_versions": {
+    "pymupdf": "1.28.2",
+    "tesseract": "tesseract 5.5.3",
+    "soffice": "LibreOffice 26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77"
+  },
+  "count": 59,
+  "items": [
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12013101",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 1,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tIn a trench, a mouse runs from point A to point C via point B. Its average speed is 1.6 m s–1.\n[fig:1]A\nB\nC\n500 m\n500 m\nN\n[fig:2]A\nB\nC\n500 m\n500 m\nN\n\n\t(a)\tFind the time taken for the mouse to finish the trip.\t(2 marks)\n\t(b)\tWhat is the average velocity of the mouse?\t(5 marks)\n\t(c)\tA cat is put into the trench to catch the mouse. The cat starts 4 min later than the mouse and its average velocity is twice as that of the mouse in running from point A to point C. Can the cat catch up with the mouse before the mouse reaches point C?\t(3 marks)",
+        "ocr": "PHY12013101>\n<lvl=avg><part=core><type=lq><mark=10><bk=2><ch=01><content>\n* Ina trench, a mouse runs from point A to point C via point B. Its average speed is 1.6 ms\".\n\nA 500 m B\n> rE N\ny 500m\nXc\n(a) Find the time taken for the mouse to finish the trip. (2 marks)\n(b) What is the average velocity of the mouse? (5 marks)\n\n(c) A cat is put into the trench to catch the mouse. The cat starts 4 min later than the mouse\nand its average velocity is twice as that of the mouse in running from point A to point C.\n\nCan the cat catch up with the mouse before the mouse reaches point C? (3 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the time taken for the mouse to finish the trip.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "What is the average velocity of the mouse?",
+          "marks": 5
+        },
+        {
+          "label": "c",
+          "text": "A cat is put into the trench to catch the mouse. The cat starts 4 min later than the mouse and its average velocity is twice as that of the mouse in running from point A to point C. Can the cat catch up with the mouse before the mouse reaches point C?",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tBy average speed =[eq:1],\n1M\n\ttime taken =[eq:2]= 625 s\n1A\n(b)\n\n\t[fig:3]A\nB\nC\n500 m\n500 m\nD\nN\n[fig:4]A\nB\nC\n500 m\n500 m\nD\nN\n\n\n\tAC =[eq:3]=[eq:4]= 707.1 m\n1M\n\tMagnitude of average velocity =[eq:5]\n1M\n\t\t=[eq:6]\n\n\t\t= 1.13 m s–1\n1A\n\ttan ∠DAC =[eq:7]=[eq:8]\n\n\t\t∠DAC = 45°\n1A\n\t∴ The average velocity of the mouse is 1.13 m s–1 S45°E.\n1A\n(c)\tTime taken by the cat to run from A to C =[eq:9]= 313 s\n1M\n\tFrom the mouse leaving A to the cat reaching C, time taken\n\n\t= 313 + 4 × 60 = 553 s < 625 s\n1M\n\t∴ The cat can catch up with the mouse.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "By average speed =[eq:1],",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "time taken =[eq:2]= 625 s",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "AC =[eq:3]=[eq:4]= 707.1 m",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "Magnitude of average velocity =[eq:5]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 1.13 m s–1",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "∠DAC = 45°",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "∴ The average velocity of the mouse is 1.13 m s–1 S45°E.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Time taken by the cat to run from A to C =[eq:9]= 313 s",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 313 + 4 × 60 = 553 s < 625 s",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "∴ The cat can catch up with the mouse.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12013101.png"
+        ],
+        "answer": [
+          "crops/PHY12013101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_LQ_e.docx",
+          "sha256": "6ef2bc25597c6ed68403f323094cd45ce677d66335b217b511cce041dc8d9aaf",
+          "pdf": "qb-pdf/QB_201/2_ch01_LQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4530029296875,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011101",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 1,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\n[fig:1]O\nP\nO\nP\ncircular path\n[fig:2]O\nP\nO\nP\ncircular path\n\n\tPeter travels from O to P along the red path and then from P back to O along the green path as shown. He takes the same time to travel along the two paths. Which of the following statements about his motion is correct?\n\t(1)\tHis average speed is greater when travelling along the green path.\n\t(2)\tHis average velocity has a greater magnitude when travelling along the green path.\n\t(3)\tHis total displacement is zero after travelling along the two paths.",
+        "ocr": "PHY12011101>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n*\n\ncircular path\n\n_——\n\nX\\_| IN\n( \\\n\n\\\nNW\n\nO O\n\nv\nx\nUv\nUv\n\nA\n\nPeter travels from O to P along the red path and then from P back to O along the green path as\nshown. He takes the same time to travel along the two paths. Which of the following statements\nabout his motion is correct?\n\n(1) His average speed is greater when travelling along the green path.\n\n(2) His average velocity has a greater magnitude when travelling along the green path.\n(3) His total displacement is zero after travelling along the two paths.\n\n(2) only\n\n(3) only\n\n(1) and (3) only\n\n(1), (2) and (3)\n\nGUOWP",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "The time taken is the same in the two journeys.\nTotal distance travelled along red path = 8 units\nTotal distance travelled along green path = [eq:1] = [eq:2] = 9.42 units\nAs average speed = [eq:3], the average speed for the green path is greater.\n∴ (1) is correct.\nThe displacements for the two paths have the same magnitude.\nAs average velocity = [eq:4], the average velocities for the two paths have the same magnitude.\n∴ (2) is incorrect.\nHe is back to the starting point O after travelling along the two paths, so the displacement is zero.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011101.png"
+        ],
+        "answer": [
+          "crops/PHY12011101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            71.9997787475586,
+            155.06100463867188,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011102",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 2,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn the figures below, the velocities of a drone at two instants, t1 and t2, are given.\n(1)\n[fig:3]3 m s–1\n1 m s–1\nt1\nt2\n[fig:4]3 m s–1\n1 m s–1\nt1\nt2\n\n(2)\n[fig:5]3 m s–1\n3 m s–1\nt1\nt2\n[fig:6]3 m s–1\n3 m s–1\nt1\nt2\n\n(3)\n[fig:7]3 m s–1\n3 m s–1\nt1\nt2\n[fig:8]3 m s–1\n3 m s–1\nt1\nt2\n\n\tIn which cases does the drone have acceleration between the two instants?",
+        "ocr": "PHY12011102>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n\n* Inthe figures below, the velocities of a drone at two instants, t, and t:, are given.\n\n(1) G&) 3mst Cf) ims?\n—> —>\nW Y ja\ne) ey &\nth ts\n(2) @ fe 3ms? @X fe)\nane eres\ney & te) 3ms?\n\nth ts\n\n(3) @X fe 3ms? @X fe)\nG¥ 6 3ms 6 6\n\nth ts\n\nIn which cases does the drone have acceleration between the two instants?\nA (1) and (2) only\n\nB= (4) and (3) only\n\nC (2) and (3) only\n\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "An object has acceleration whenever it speeds up, slows down or changes direction.\nIn (1), the drone slows down, so it has acceleration.\nIn (2) and (3), the drone changes direction, so it has acceleration.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011102.png"
+        ],
+        "answer": [
+          "crops/PHY12011102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            710.0497436523438,
+            155.09298706054688,
+            722.2267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011103",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 3,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn a journey, Mary travels at a constant speed v from City X to City Y and 2v from City Y to City Z. The distance between X and Y is twice of that between Y and Z. What is Mary’s average speed of the journey?",
+        "ocr": "PHY12011103>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* Ina journey, Mary travels at a constant speed v from City X to City Y and 2v from City Y to\nCity Z. The distance between X and Y is twice of that between Y and Z. What is Mary’s average\nspeed of the journey?\n\nA 0.83v\nB v\nC 1.2v\nDD 1.5v",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.83v"
+        },
+        {
+          "label": "B",
+          "text": "v"
+        },
+        {
+          "label": "C",
+          "text": "1.2v"
+        },
+        {
+          "label": "D",
+          "text": "1.5v"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Let 𝘥 be the distance between 𝘠 and 𝘡.\nTime taken for the journey = [eq:5] + [eq:6] = [eq:7]\nMary’s average speed = [eq:8] = 1.2v",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011103.png"
+        ],
+        "answer": [
+          "crops/PHY12011103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            478.0497741699219,
+            155.06100463867188,
+            490.2267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011104",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 4,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\n[fig:9]100 m\nO\nF\nM\n[fig:10]100 m\nO\nF\nM\n\n\tM is the midpoint of a straight path OF, which is100 m long. Tom and David start running at O towards F at the same time. Tom runs steadily at 2 m s–1 along OM and 6 m s–1 along MF; while David keeps running at a constant velocity. They reach F at the same time. What is the position of David when Tom is at M?",
+        "ocr": "PHY12011104>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n*\nP 100 m e\n« a\nO M F\nM is the midpoint of a straight path OF, which is100 m long. Tom and David start running at O\ntowards F at the same time. Tom runs steadily at 2 ms“ along OM and 6 ms\" along MF; while\nDavid keeps running at a constant velocity. They reach F at the same time. What is the position\nof David when Tom is at M?\nA 75m in front of Tom\nB 25m in front of Tom\nC 25m behind Tom\nD 75m behind Tom",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "75 m in front of Tom"
+        },
+        {
+          "label": "B",
+          "text": "25 m in front of Tom"
+        },
+        {
+          "label": "C",
+          "text": "25 m behind Tom"
+        },
+        {
+          "label": "D",
+          "text": "75 m behind Tom"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Total time of travel = [eq:9] + [eq:10] = 33.3 s\nDavid’s speed = [eq:11] = 3.00 m s-1\nTime taken for Tom to arrive 𝘔 from 𝘖 = [eq:12] = 25 s\nDistance travelled by David when Tom arrives 𝘔 = 3 × 25 = 75 m\n∴ David is 25 m in front of Tom when Tom is at M.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011104.png"
+        ],
+        "answer": [
+          "crops/PHY12011104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            108.8497543334961,
+            155.09298706054688,
+            121.0267562866211
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011105",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 5,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA woman walks towards east with a constant speed v for time t. Then she runs towards west with a constant speed 3v for time t. What is her average velocity in the whole journey?",
+        "ocr": "PHY12011105>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* A woman walks towards east with a constant speed v for time t. Then she runs towards west\nwith a constant speed 3v for time t. What is her average velocity in the whole journey?\nA v (towards east)\nB_ v (towards west)\nC  2v (towards east)\nD_ 2v (towards west)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "v (towards east)"
+        },
+        {
+          "label": "B",
+          "text": "v (towards west)"
+        },
+        {
+          "label": "C",
+          "text": "2v (towards east)"
+        },
+        {
+          "label": "D",
+          "text": "2v (towards west)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The woman first travels a distance of vt towards east. Then she travels a distance of 3vt towards west. Her total displacement is 2vt towards west.\nMagnitude of average velocity = [eq:13] = v\nHer average velocity is v (towards west).",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011105.png"
+        ],
+        "answer": [
+          "crops/PHY12011105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            517.0997314453125,
+            155.09298706054688,
+            529.2767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011106",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 6,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tTwo chess masters are playing chess against each other. The total time limit for each player to think about his moves is 30 minutes. Each player has a timer which counts down from 30 minutes to zero. The remaining time for each player is shown in the figure below.\n[fig:11]\n\tHow long have they been playing?",
+        "ocr": "PHY12011106>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* Two chess masters are playing chess against each other. The total time limit for each player to\nthink about his moves is 30 minutes. Each player has a timer which counts down from 30\nminutes to zero. The remaining time for each player is shown in the figure below.\n\nHow long have they been playing?\n\nA 236s\n\nB 1564s\nC 1607s\nD 3364s",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "236 s"
+        },
+        {
+          "label": "B",
+          "text": "1564 s"
+        },
+        {
+          "label": "C",
+          "text": "1607 s"
+        },
+        {
+          "label": "D",
+          "text": "3364 s"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Time that they have been playing = 60 × (30 + 30) - (60 × 3 + 13) - 43 = 3364 s",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011106.png"
+        ],
+        "answer": [
+          "crops/PHY12011106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            121.4997787475586,
+            155.09298706054688,
+            133.67678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011107",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 7,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "P, Q and R are locations along a straight road.\n[fig:12]20 m\n90 m\nP\nQ\nR\n[fig:13]20 m\n90 m\nP\nQ\nR\n\n\tTom walks from P to R in 40 s, and then walks from R to Q in 20 s. Find the magnitude of his average velocity of the whole journey.",
+        "ocr": "PHY12011107>\n<Ivl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\nP, Qand R are locations along a straight road.\n\nP Q\ne 6\n\n20m 90m\n\n+@n\n\nTom walks from P to R in 40 s, and then walks from R to Q in 20 s. Find the magnitude of his\naverage velocity of the whole journey.\n\nA 0.333ms?\nB ims’\nC 3.33ms?\n\nD 3.63ms'",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.333 m s-1"
+        },
+        {
+          "label": "B",
+          "text": "1 m s-1"
+        },
+        {
+          "label": "C",
+          "text": "3.33 m s-1"
+        },
+        {
+          "label": "D",
+          "text": "3.63 m s-1"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Magnitude of his average velocity = [eq:14] = [eq:15] = 0.333 m s-1",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011107.png"
+        ],
+        "answer": [
+          "crops/PHY12011107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            508.4997863769531,
+            155.09298706054688,
+            520.6767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011108",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 8,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about the average acceleration of an object is/are correct?\n\t(1)\tIt is a vector.\n\t(2)\tIt is the change in speed per unit time.\n\t(3)\tIts direction can be different from the moving direction of the object.",
+        "ocr": "PHY12011108>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* = Which of the following statements about the average acceleration of an object is/are correct?\n(1) It is a vector.\n(2) It is the change in speed per unit time.\n(3) Its direction can be different from the moving direction of the object.\n\nA (1) only\n\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Acceleration is a vector.\n∴ (1) is correct.\nAcceleration is the change in velocity per unit time.\n∴ (2) is incorrect.\nThe direction of acceleration of an object is the same as the direction of the change in velocity of the object.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011108.png"
+        ],
+        "answer": [
+          "crops/PHY12011108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            149.94979858398438,
+            155.09298706054688,
+            162.12680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011109",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 9,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA ball is thrown vertically upwards from a level 1 m above the ground at time t = 0. After reaching the highest position X, it falls vertically downwards and reaches the ground at t = 2 s. X is 4.4 m above the ground. What is the magnitude of the average velocity of the ball from t = 0 to t = 2 s?",
+        "ocr": "PHY12011109>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* A ball is thrown vertically upwards from a level 1 m above the ground at time t = 0. After\nreaching the highest position X, it falls vertically downwards and reaches the ground at t = 2 s.\nX is 4.4 m above the ground. What is the magnitude of the average velocity of the ball from t =\nOtot=2s?\nA Zero\nB 05ms'\nC 2.2ms'\nD 3.9ms'",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Zero"
+        },
+        {
+          "label": "B",
+          "text": "0.5 m s-1"
+        },
+        {
+          "label": "C",
+          "text": "2.2 m s-1"
+        },
+        {
+          "label": "D",
+          "text": "3.9 m s-1"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Magnitude of the average velocity of the ball\n= [eq:16] = [eq:17] = 0.5 m s-1",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011109.png"
+        ],
+        "answer": [
+          "crops/PHY12011109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            472.3497619628906,
+            155.09298706054688,
+            484.5267639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011110",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 10,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA car travels from city M to city N and passes through a point P during the journey. Which of the following statements must be correct?\n\t(1)\tThe direction of its average velocity is the same as the direction of its total displacement.\n\t(2)\tIf the car takes another route and arrives at city N at the same time, its average velocity does not change.\n\t(3)\tWhen the car passes through P, the direction of its instantaneous velocity is equal to the direction of the displacement from M to P.",
+        "ocr": "PHY12011110>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* Acar travels from city M to city N and passes through a point P during the journey. Which of\nthe following statements must be correct?\n(1) The direction of its average velocity is the same as the direction of its total displacement.\n\n(2) Ifthe car takes another route and arrives at city N at the same time, its average velocity\ndoes not change.\n\n(3) When the car passes through P, the direction of its instantaneous velocity is equal to the\ndirection of the displacement from M to P.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)\n\ntotal displacement\ntotal time of travel\n\nAverage velocity =\n\n“. (1) is correct.\nIf the car takes another route and arrives at city N at the same time, the total\ndisplacement and the total time of travel does not change.\n“. (2) is correct.\nThe direction of the car’s instantaneous velocity does not depend on its displacement in\nthe past (displacement from M to P).\n“. (3) is incorrect.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Average velocity = [eq:18]\n∴ (1) is correct.\nIf the car takes another route and arrives at city N at the same time, the total displacement and the total time of travel does not change.\n∴ (2) is correct.\nThe direction of the car’s instantaneous velocity does not depend on its displacement in the past (displacement from M to P).\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011110.png"
+        ],
+        "answer": [
+          "crops/PHY12011110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            71.9997787475586,
+            154.66500854492188,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011111",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 11,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA car travels from a city to another in a certain period of time. Which of the following statements must be correct?\n\t(1)\tThe magnitude of its instantaneous velocity is equal to its instantaneous speed at any instant during the journey.\n\t(2)\tThe magnitude of its average velocity is equal to its average speed for the whole journey.\n\t(3)\tThe direction of its instantaneous velocity at any instant during the journey is the same as the direction of its average velocity for the whole journey.",
+        "ocr": "PHY12011111>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* Acar travels from a city to another in a certain period of time. Which of the following\nstatements must be correct?\n(1) The magnitude of its instantaneous velocity is equal to its instantaneous speed at any\ninstant during the journey.\n(2) The magnitude of its average velocity is equal to its average speed for the whole journey.\n(3) The direction of its instantaneous velocity at any instant during the journey is the same as\nthe direction of its average velocity for the whole journey.\nA (1) only\nB= (2) only\nC (1) and (2) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "(1) is correct.\nThe magnitude of the average velocity depends on the positions of the starting point and end point, while the average speed depends on the distance of the path taken.\n∴ (2) is incorrect.\nThe car does not necessarily travel in the same direction during the whole journey. The direction of its instantaneous velocity may vary and may not be the same as the direction of its average velocity for the whole journey.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011111.png"
+        ],
+        "answer": [
+          "crops/PHY12011111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            464.2497863769531,
+            154.21400451660156,
+            476.4267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011112",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 12,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The following figure shows a girl throwing a stone vertically upwards. The stone leaves her hand when it is 1 m above the ground. Then it rises to 15 m above the ground and falls onto the roof of a house. The roof of the house is 10 m high. What are the total distance travelled by the stone and its displacement for the whole journey? The horizontal motion of the stone is negligible.\n[fig:14]\n\nTotal distance\nDisplacement",
+        "ocr": "PHY12011112>\n\n<Ivl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\nThe following figure shows a girl throwing a stone vertically upwards. The stone leaves her\nhand when it is 1 m above the ground. Then it rises to 15 m above the ground and falls onto the\nroof of a house. The roof of the house is 10 m high. What are the total distance travelled by the\nstone and its displacement for the whole journey? The horizontal motion of the stone is\n\nnegligible.\ny nn\n[\n| |\n| |\n| |\nY _-\n15m \\\n|\n| 10m\n|\nv i m\nTotal distance Displacement\nA 19m 9 m (upwards)\nB 20m 9 m (upwards)\nC 19m 10 m (upwards)\nD 20m 10 m (upwards)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "19 m\n9 m (upwards)"
+        },
+        {
+          "label": "B",
+          "text": "20 m\n9 m (upwards)"
+        },
+        {
+          "label": "C",
+          "text": "19 m\n10 m (upwards)"
+        },
+        {
+          "label": "D",
+          "text": "20 m\n10 m (upwards)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Total distance travelled = (15 – 1) + (15 – 10) = 19 m\nDisplacement = 9 m (upwards)",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011112.png"
+        ],
+        "answer": [
+          "crops/PHY12011112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            172.09976196289062,
+            154.6929931640625,
+            184.27676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011113",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 13,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Using a stop-watch, Tom measured the time for a car to pass 2 streetlights. The reading was 1.2 s. If the overall timing error due to Tom’s reaction time is 0.4 s, what is the percentage error of his measurement?\n[fig:15]",
+        "ocr": "PHY12011113>\n<Ivl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\nUsing a stop-watch, Tom measured the time for a car to pass 2 streetlights. The reading was 1.2\n\ns. If the overall timing error due to Tom’s reaction time is 0.4 s, what is the percentage error of\nhis measurement?\n\n\n8.33%\n16.7%\n33.3%\n66.7%\n\nGUOWP",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "8.33%"
+        },
+        {
+          "label": "B",
+          "text": "16.7%"
+        },
+        {
+          "label": "C",
+          "text": "33.3%"
+        },
+        {
+          "label": "D",
+          "text": "66.7%"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Percentage error of his measurement\n[eq:19]",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011113.png"
+        ],
+        "answer": [
+          "crops/PHY12011113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            7,
+            8
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            635.5497436523438,
+            154.66500854492188,
+            647.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011114",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 14,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The following figure shows the route of a car travelling from town A to town B.\n[fig:16]town A\ntown B\n[fig:17]town A\ntown B\n\n\tWhat is the total displacement of the car in the whole journey?",
+        "ocr": "PHY12011114>\n<Ivl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\nThe following figure shows the route of a car travelling from town A to town B.\n\n| ar\na tartan A\nTE ee\n\nWhat is the total displacement of the car in the whole journey?\nA 5km (east)\n\nB10 km (east)\n\nC 28.9 km (east)\n\nD_ 32.4 km (east)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "5 km (east)"
+        },
+        {
+          "label": "B",
+          "text": "10 km (east)"
+        },
+        {
+          "label": "C",
+          "text": "28.9 km (east)"
+        },
+        {
+          "label": "D",
+          "text": "32.4 km (east)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Total displacement of the car = 2 × 5 = 10 km (east)",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011114.png"
+        ],
+        "answer": [
+          "crops/PHY12011114.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            358.69976806640625,
+            154.66500854492188,
+            370.87677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011115",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 15,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following quantities are scalar?\n\t(1)\tTemperature\n\t(2)\tSpeed\n\t(3)\tVolume",
+        "ocr": "PHY12011115>\n<Ivl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\nWhich of the following quantities are scalar?\n\n(1) Temperature\n\n(2) Speed\n\n(3) Volume\n\nA (1) and (2) only\n\nB= (4) and (3) only\n\nC (2) and (3) only\n\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Temperature, speed and volume are described by magnitudes only.\n∴ (1), (2) and (3) are correct.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011115.png"
+        ],
+        "answer": [
+          "crops/PHY12011115.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            84.64974212646484,
+            154.66500854492188,
+            96.82674407958984
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011116",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 16,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "A ball is thrown vertically upwards and then returns to its starting position as shown.\n[fig:18]5 m\n[fig:19]5 m\n\n\tWhat is the total displacement of the ball in the whole journey?",
+        "ocr": "PHY12011116>\n<Ivl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\nA ball is thrown vertically upwards and then returns to its starting position as shown.\n\n‘\na\n\n5m\n\nWhat is the total displacement of the ball in the whole journey?\nA 0\n\nB 5 mupwards\n\nC 5m upwards then 5 m downwards\n\nD_ 10m downwards",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0"
+        },
+        {
+          "label": "B",
+          "text": "5 m upwards"
+        },
+        {
+          "label": "C",
+          "text": "5 m upwards then 5 m downwards"
+        },
+        {
+          "label": "D",
+          "text": "10 m downwards"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "The final position of the ball is the same as the starting position. Therefore, the total displacement is zero.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011116.png"
+        ],
+        "answer": [
+          "crops/PHY12011116.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            342.4997863769531,
+            154.66500854492188,
+            354.6767883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011117",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 17,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following physical quantities is not a vector?",
+        "ocr": "PHY12011117>\n<lvl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\nWhich of the following physical quantities is not a vector?\nAcceleration\n\nVelocity\nDisplacement\nTime\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Acceleration"
+        },
+        {
+          "label": "B",
+          "text": "Velocity"
+        },
+        {
+          "label": "C",
+          "text": "Displacement"
+        },
+        {
+          "label": "D",
+          "text": "Time"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Time is described by magnitude only, hence it is a scalar quantity.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011117.png"
+        ],
+        "answer": [
+          "crops/PHY12011117.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            97.29976654052734,
+            154.6929931640625,
+            109.47676849365234
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011118",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 18,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "John walks on a circular track of radius 100 m. What is his displacement if he walks a complete cycle?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0"
+        },
+        {
+          "label": "B",
+          "text": "100 m"
+        },
+        {
+          "label": "C",
+          "text": "100π m"
+        },
+        {
+          "label": "D",
+          "text": "200π m"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "John’s final position is the same as his starting position. Therefore, his displacement is zero.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011118.png"
+        ],
+        "answer": [
+          "crops/PHY12011118.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            295.0997619628906,
+            154.6929931640625,
+            307.2767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011119",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 19,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following is equal to 30 μs?",
+        "ocr": "PHY12011119>\n<lvl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\nWhich of the following is equal to 30 ps?\n\nA 0.03 s\nB~ 0.003 s\nC 0.000 3s\nD_ 0.000 03s",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.03 s"
+        },
+        {
+          "label": "B",
+          "text": "0.003 s"
+        },
+        {
+          "label": "C",
+          "text": "0.000 3 s"
+        },
+        {
+          "label": "D",
+          "text": "0.000 03 s"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "30 μs = 30 × 10-6 = 0.000 03 s",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011119.png"
+        ],
+        "answer": [
+          "crops/PHY12011119.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            519.3497314453125,
+            154.6929931640625,
+            531.5267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011120",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 20,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following is equal to 300 000 nm?",
+        "ocr": "PHY12011120>\n\n\n<lvl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\nWhich of the following is equal to 300 000 nm?\n\nA 3x10*m\nB 3x10°m\nC 3x10°m\nD 03m",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "3 × 10–4 m"
+        },
+        {
+          "label": "B",
+          "text": "3 × 10–3 m"
+        },
+        {
+          "label": "C",
+          "text": "3 × 10–2 m"
+        },
+        {
+          "label": "D",
+          "text": "0.3 m"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "300 000 nm = (3 × 105) × 10-9 = 3 × 10-4 m",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011120.png"
+        ],
+        "answer": [
+          "crops/PHY12011120.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            10,
+            11
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            717.1497192382812,
+            155.06100463867188,
+            729.3267211914062
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011121",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 21,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Aries Merritt set a new world record in the 110-m hurdles with a time of 12.80 s. Find his average speed in the race.",
+        "ocr": "PHY12011121>\n<lvl=easy><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\nAries Merritt set a new world record in the 110-m hurdles with a time of 12.80 s. Find his\naverage speed in the race.\n\nA 7.76ms1\nB 859ms!\nC 116ms\"\nD 17.1ms?",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "7.76 m s–1"
+        },
+        {
+          "label": "B",
+          "text": "8.59 m s–1"
+        },
+        {
+          "label": "C",
+          "text": "11.6 m s–1"
+        },
+        {
+          "label": "D",
+          "text": "17.1 m s–1"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Average speed = [eq:20] = [eq:21] = 8.59 m s-1",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011121.png"
+        ],
+        "answer": [
+          "crops/PHY12011121.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            255.14974975585938,
+            155.06100463867188,
+            267.3267517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011122",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 22,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tTim walks at 0.6 m s-1 towards the south for 10 s. Then he walks towards the east at 0.8 m s-1 for 30 s. Find his average speed and the magnitude of his average velocity.\n\nAverage speed / m s-1\nMagnitude of average velocity / m s-1",
+        "ocr": "PHY12011122>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* Tim walks at 0.6 ms towards the south for 10 s. Then he walks towards the east at 0.8 ms\nfor 30 s. Find his average speed and the magnitude of his average velocity.\n\nAverage speed /ms”* Magnitude of average\nvelocity /ms*\nA 0.70 0.62\nB 0.75 0.62\nC 0.70 1\nD 0.75 1",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.70\n0.62"
+        },
+        {
+          "label": "B",
+          "text": "0.75\n0.62"
+        },
+        {
+          "label": "C",
+          "text": "0.70\n1"
+        },
+        {
+          "label": "D",
+          "text": "0.75\n1"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Distance travelled = 0.6 × 10 + 0.8 × 30 = 6 + 24 = 30 m\nAverage speed = [eq:22] = 0.75 m s-1\nMagnitude of displacement = [eq:23] = [eq:24] m\nMagnitude of average velocity = [eq:25] = 0.62 m s-1",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011122.png"
+        ],
+        "answer": [
+          "crops/PHY12011122.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            482.5497741699219,
+            155.09298706054688,
+            494.7267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011123",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 23,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe speed limit of a road, which is 2 km long, is 50 km h-1. A car travels with a varying speed and its average speed in travelling pass the road is 50 km h-1. Which of the following statements about the car must be correct?\n\t(1)\tIt has violated the speed limit in the journey.\n\t(2)\tIt takes 2.5 minutes to travel pass the road.\n\t(3)\tIts acceleration is not always zero during the journey.",
+        "ocr": "PHY12011123>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* The speed limit of a road, which is 2 km long, is 50 kmh\". A car travels with a varying speed\n\nand its average speed in travelling pass the road is 50 km h''. Which of the following statements\nabout the car must be correct?\n\n(1) It has violated the speed limit in the journey.\n(2) It takes 2.5 minutes to travel pass the road.\n(3) Its acceleration is not always zero during the journey.\n\nA (2) only\n\nB= (4) and (2) only\nC (1) and (3) only\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Since the average speed of the car is 50 km h–1 and the speed of the car is not uniform, the speed of the car must have exceeded 50 km h–1 at some moments in the journey.\n∴ (1) is correct.\nTime taken to travel pass the road = [eq:26] = [eq:27] = 0.04 h = 0.04 × 60 = 2.4 min\n∴ (2) is incorrect.\nWhen the speed of the car changes, its acceleration is not zero.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011123.png"
+        ],
+        "answer": [
+          "crops/PHY12011123.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            12
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            138.34976196289062,
+            155.09298706054688,
+            150.52676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011124",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 24,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tTerry takes 20 s to walk 40 m eastwards. He then takes 10 s to run 80 m northwards. Find his average velocity.",
+        "ocr": "PHY12011124>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* Terry takes 20 s to walk 40 m eastwards. He then takes 10 s to run 80 m northwards. Find his\naverage velocity.\nA 2.98 ms\" (N26.6°E)\nB= 2.98 ms\" (N63.4°E)\nC 5ms'(N26.6°E)\nD 5ms'(N63.4°E)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "2.98 m s-1 (N26.6°E)"
+        },
+        {
+          "label": "B",
+          "text": "2.98 m s-1 (N63.4°E)"
+        },
+        {
+          "label": "C",
+          "text": "5 m s-1 (N26.6°E)"
+        },
+        {
+          "label": "D",
+          "text": "5 m s-1 (N63.4°E)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Magnitude of average velocity = [eq:28] = 2.98 m s-1\nDirection:\n[fig:20]N\n40 m\n80 m\nθ\nθ\n[fig:21]N\n40 m\n80 m\nθ\nθ\n\n[eq:29]\nThe average velocity is 2.98 m s–1 (N26.6°E).",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011124.png"
+        ],
+        "answer": [
+          "crops/PHY12011124.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            12
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            504.1498107910156,
+            155.09298706054688,
+            516.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011125",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 25,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAs shown below, Samuel starts from A at 1:00 pm and walks 500 m west to B. He arrives at B at 1:10 pm. He leaves B at 1:15 pm and walks 100 m east to C. He arrives at C at 1:17 pm.\n[fig:22]A\nC\nB\n100 m\n500 m\nwest\n1:00 pm\n1:10 pm\n1:15 pm\n1:17 pm\n[fig:23]A\nC\nB\n100 m\n500 m\nwest\n1:00 pm\n1:10 pm\n1:15 pm\n1:17 pm\n\n\tWhich of the following statements is/are correct?\n\t(1)\tFrom 1:15 pm to 1:17 pm, his average velocity is 0.833 m s-1 towards east.\n\t(2)\tFrom 1:00 pm to 1:17 pm, the direction of his displacement is opposite to that of his average velocity.\n\t(3)\tFrom 1:00 pm to 1:17 pm, his average speed is 0.833 m s-1.",
+        "ocr": "PHY12011125>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* As shown below, Samuel starts from A at 1:00 pm and walks 500 m west to B. He arrives at B\nat 1:10 pm. He leaves B at 1:15 pm and walks 100 m east to C. He arrives at C at 1:17 pm.\n\n—>\n\nA |\n\nVv\n\nWhich of the following statements is/are correct?\n\n(1) From 1:15 pm to 1:17 pm, his average velocity is 0.833 m s' towards east.\n\n(2) From 1:00 pm to 1:17 pm, the direction of his displacement is opposite to that of his\naverage velocity.\n\n(3) From 1:00 pm to 1:17 pm, his average speed is 0.833 ms\".\n\nA (1) only\n\nB= (2) only\n\nC (4) and (3) only\n\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Average velocity from 1:15 pm to 1:17 pm = [eq:30] = 0.833 m s-1 (east)\n∴ (1) is correct.\nThe displacement and the average velocity over a certain time interval are always in the same direction.\n∴ (2) is incorrect.\nAverage speed from 1:00 pm to 1:17 pm = [eq:31] = 0.588 m s-1\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011125.png"
+        ],
+        "answer": [
+          "crops/PHY12011125.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            13
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            257.8997497558594,
+            155.09298706054688,
+            270.0767517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011126",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 26,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA bus is moving at a constant speed. Which of the following statements must be correct?\n\t(1)\tIts velocity is constant.\n\t(2)\tIts accelerating remains zero.\n\t(3)\tIts instantaneous speed is equal to its average speed.",
+        "ocr": "PHY12011126>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* A bus is moving at a constant speed. Which of the following statements must be correct?\n(1) Its velocity is constant.\n(2) Its accelerating remains zero.\n(3) Its instantaneous speed is equal to its average speed.\n\n(3) only\n\n(1) and (2) only\n\n(1) and (3) only\n\nNone of the above\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(3) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "None of the above"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "We do not know whether the bus always travels in the same direction.\n∴ (1) and (2) are incorrect.\nSince the bus moves at a constant speed, its instantaneous speed is equal to its average speed.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011126.png"
+        ],
+        "answer": [
+          "crops/PHY12011126.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            14
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            121.4997787475586,
+            155.09298706054688,
+            133.67678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011127",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 27,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAn object moves along a semicircular path as shown. It takes 20 s to moves from P to Q. Find its average speed and the magnitude of its average velocity.\n[fig:24]P\nQ\n20 m\n[fig:25]P\nQ\n20 m\n\n\nAverage speed / m s-1\nMagnitude of average velocity / m s-1",
+        "ocr": "PHY12011127>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* An object moves along a semicircular path as shown. It takes 20 s to moves from P to Q. Find\nits average speed and the magnitude of its average velocity.\n\nP\n\n20m\n\nQ\nAverage speed /ms”* Magnitude of average\nvelocity /ms*\nA 1.0 1.0\nB 1.6 1.0\n\nC 1.0 1.6",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.0\n1.0"
+        },
+        {
+          "label": "B",
+          "text": "1.6\n1.0"
+        },
+        {
+          "label": "C",
+          "text": "1.0\n1.6"
+        },
+        {
+          "label": "D",
+          "text": "1.6\n1.6"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Distance travelled = [eq:32] = 31.4 m\nAverage speed = [eq:33] = 1.6 m s-1\nMagnitude of displacement = 20 m\nMagnitude of average velocity = [eq:34] = 1.0 m s-1",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011127.png"
+        ],
+        "answer": [
+          "crops/PHY12011127.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            14,
+            15
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            418.5997619628906,
+            155.09298706054688,
+            430.7767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011128",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 28,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements is/are correct?\n\t(1)\tThe distance travelled by an object can be greater than the magnitude of its displacement.\n\t(2)\tThe average speed of an object can be greater than the magnitude of its average velocity.\n\t(3)\tThe instantaneous speed of an object can be greater than the magnitude of its instantaneous velocity.",
+        "ocr": "PHY12011128>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* = Which of the following statements is/are correct?\n(1) The distance travelled by an object can be greater than the magnitude of its displacement.\n(2) The average speed of an object can be greater than the magnitude of its average velocity.\n(3) The instantaneous speed of an object can be greater than the magnitude of its instantaneous\n\nvelocity.\n\n(3) only\n\n(1) and (2) only\n\n(1) and (3) only\n\n(1), (2) and (3)\n\nGDOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(3) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The distance travelled by an object is greater than the magnitude of its displacement if the object does not travel along a straight line.\n∴ (1) is correct.\nAverage speed [eq:35]\nMagnitude of average velocity [eq:36]\nAs (1) is correct, (2) is correct.\nThe instantaneous speed of an object is the same as the magnitude of its instantaneous velocity.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011128.png"
+        ],
+        "answer": [
+          "crops/PHY12011128.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            15
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            262.6497497558594,
+            155.09298706054688,
+            274.8267517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011129",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 29,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe figure below shows a clock hung on a wall. The time is 6:00 pm. The length of the minute hand is L. What are the distance travelled and the magnitude of the displacement of the tip of the minute hand 30 minutes later?\n[fig:26]12\n3\n6\n9\nL\n[fig:27]12\n3\n6\n9\nL\n\n\nDistance travelled\nDisplacement",
+        "ocr": "PHY12011129>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* The figure below shows a clock hung on a wall. The time is 6:00 pm. The length of the minute\nhand is L. What are the distance travelled and the magnitude of the displacement of the tip of\nthe minute hand 30 minutes later?\n\n\nDistance travelled Displacement\n\nA 2L TUL\nB TUL TUL\nC 2L 2L\nD TUL 2L",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "2L\nπL"
+        },
+        {
+          "label": "B",
+          "text": "πL\nπL"
+        },
+        {
+          "label": "C",
+          "text": "2L\n2L"
+        },
+        {
+          "label": "D",
+          "text": "πL\n2L"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "The tip of the minute hand moves along an arc of radius L. The minute hand points towards ‘6’ after 30 minutes.\nDistance travelled = 2πL × [eq:37] = πL\nMagnitude of displacement = 2L",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011129.png"
+        ],
+        "answer": [
+          "crops/PHY12011129.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            15,
+            16
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            664.249755859375,
+            155.09298706054688,
+            676.4267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011130",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 30,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA man walks 4 km north and then 3 km east. What is the magnitude of his total displacement?",
+        "ocr": "PHY12011130>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* Aman walks 4 km north and then 3 km east. What is the magnitude of his total displacement?\n\nA 1km\nB 4km\nC 5km\nD 7km",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1 km"
+        },
+        {
+          "label": "B",
+          "text": "4 km"
+        },
+        {
+          "label": "C",
+          "text": "5 km"
+        },
+        {
+          "label": "D",
+          "text": "7 km"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Magnitude of his total displacement\n[eq:38]",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011130.png"
+        ],
+        "answer": [
+          "crops/PHY12011130.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            16
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            399.6497802734375,
+            155.09298706054688,
+            411.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011131",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 31,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following figure shows the route of a car travelling from town A to town B.\n[fig:28]town A\ntown B\n[fig:29]town A\ntown B\n\n\tWhat is the total distance travelled by the car in the whole journey?",
+        "ocr": "PHY12011131>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* The following figure shows the route of a car travelling from town A to town B.\n\n\nPoor x\nge Ce oer\n\n| aN\n\na tartan i\neos tie cosas toveewer\ncement ae\n\nWhat is the total distance travelled by the car in the whole journey?\n\nA 10km\nB 26km\nC 28.9 km\nD 32.4km",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "10 km"
+        },
+        {
+          "label": "B",
+          "text": "26 km"
+        },
+        {
+          "label": "C",
+          "text": "28.9 km"
+        },
+        {
+          "label": "D",
+          "text": "32.4 km"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Total distance travelled by the car\n[eq:39]",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011131.png"
+        ],
+        "answer": [
+          "crops/PHY12011131.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            16,
+            17
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            634.749755859375,
+            155.09298706054688,
+            646.9267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011132",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 32,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA trolley moves along a straight line and its motion is recorded in the following table.\nTime / s\nDirection\nDistance travelled / m\n0-1\nforwards\n1.0\n1-2\nbackwards\n2.5\n2-3\nforwards\n3.0\n3-4\nforwards\n1.5\n\tWhat is the total distance travelled by the trolley?",
+        "ocr": "PHY12011132>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* A trolley moves along a straight line and its motion is recorded in the following table.\n\nTime /s Direction Distance travelled /m\n0-1 forwards 1.0\n1-2 backwards 2.5\n2-3 forwards 3.0\n3-4 forwards 1.5\nWhat is the total distance travelled by the trolley?\nA im\nB 3m\nC 5m\nD 8m",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1 m"
+        },
+        {
+          "label": "B",
+          "text": "3 m"
+        },
+        {
+          "label": "C",
+          "text": "5 m"
+        },
+        {
+          "label": "D",
+          "text": "8 m"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Total distance travelled by the trolley = 1.0 + 2.5 + 3.0 + 1.5 = 8 m",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011132.png"
+        ],
+        "answer": [
+          "crops/PHY12011132.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            17
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            452.7997741699219,
+            155.09298706054688,
+            464.9767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011133",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 33,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn a 1500-m run, a student starts from S and ends at T as shown in the following figure. What is the magnitude of his total displacement in the run?\n[fig:30]×\nS\nT\n[fig:31]×\nS\nT",
+        "ocr": "PHY12011133>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* = JIna1500-m run, a student starts from S and ends at T as shown in the following figure. What is\nthe magnitude of his total displacement in the run?\n\n|\n\n| | 100m\n| |\n\n| TI\n\ni 100 m ——>|\n\n31.8 m\n63.7 m\n100 m\n\n1500 m\n\nGUOWP",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "31.8 m"
+        },
+        {
+          "label": "B",
+          "text": "63.7 m"
+        },
+        {
+          "label": "C",
+          "text": "100 m"
+        },
+        {
+          "label": "D",
+          "text": "1500 m"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Magnitude of his total displacement\n[eq:40]",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011133.png"
+        ],
+        "answer": [
+          "crops/PHY12011133.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            18
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            84.64974212646484,
+            155.09298706054688,
+            96.82674407958984
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011134",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 34,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements is incorrect about scalars and vectors?",
+        "ocr": "PHY12011134>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* = Which of the following statements is incorrect about scalars and vectors?\nScalar quantities have magnitude only and no direction.\n\nVector quantities must be specified by magnitude and direction.\n\nTwo vectors in different directions can be added to form a new vector.\nTwo vectors are identical if they have the same direction.\n\nGDOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Scalar quantities have magnitude only and no direction."
+        },
+        {
+          "label": "B",
+          "text": "Vector quantities must be specified by magnitude and direction."
+        },
+        {
+          "label": "C",
+          "text": "Two vectors in different directions can be added to form a new vector."
+        },
+        {
+          "label": "D",
+          "text": "Two vectors are identical if they have the same direction."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Two vectors are identical if they have the same magnitude and direction.",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011134.png"
+        ],
+        "answer": [
+          "crops/PHY12011134.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            18
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            448.6497802734375,
+            155.09298706054688,
+            460.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011135",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 35,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following is a multiple-exposure photograph showing a ball falling from a height. If the camera takes images at a rate of 75 times per second, what is the time interval between the first and the fourth image?\n[fig:32][fig:33]",
+        "ocr": "PHY12011135>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* The following is a multiple-exposure photograph showing a ball falling from a height. If the\n\ncamera takes images at a rate of 75 times per second, what is the time interval between the first\nand the fourth image?\n\n\nA 0.02 s\n\nB 0.027 s\n\nC 0.04s\n\nD_ 0.053 s",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.02 s"
+        },
+        {
+          "label": "B",
+          "text": "0.027 s"
+        },
+        {
+          "label": "C",
+          "text": "0.04 s"
+        },
+        {
+          "label": "D",
+          "text": "0.053 s"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "The fourth image is the third image taken after the first image.\nTime interval between the first and the fourth image\n[eq:41]",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011135.png"
+        ],
+        "answer": [
+          "crops/PHY12011135.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            18,
+            19
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            647.749755859375,
+            155.09298706054688,
+            659.9267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011136",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 36,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tStephen takes the following path and walks for 3 minutes from A to B.\n[fig:34]\n\tWhat are the average speed and the magnitude of the average velocity of Stephen?\n\nAverage speed / m s-1\nMagnitude of average velocity / m s-1",
+        "ocr": "PHY12011136>\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n* — Stephen takes the following path and walks for 3 minutes from A to B.\n\nWhat are the average speed and the magnitude of the average velocity of Stephen?\n\nAverage speed /m s* Magnitude of average\nvelocity /ms*\nA 0.441 0.351\nB 0.441 0.441\nC 0.667 0.351\nD 0.667 0.441",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.441\n0.351"
+        },
+        {
+          "label": "B",
+          "text": "0.441\n0.441"
+        },
+        {
+          "label": "C",
+          "text": "0.667\n0.351"
+        },
+        {
+          "label": "D",
+          "text": "0.667\n0.441"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Distance travelled = 40 + 50 + 20 + 10 = 120 m\nAverage speed = [eq:42] = 0.667 m s-1\nMagnitude of displacement = [eq:43] = 63.2 m\nMagnitude of average velocity = [eq:44] = 0.351 m s-1",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011136.png"
+        ],
+        "answer": [
+          "crops/PHY12011136.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            19,
+            20
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            434.5997619628906,
+            155.09298706054688,
+            446.7767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12011137",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 37,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tTsing Ma Bridge is 2160 m long. If a car moves at a constant speed of 80 km h–1, how long does it take to travel through the whole bridge?",
+        "ocr": "PHY12011137>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=2><ch=01><content>\n\n* Tsing Ma Bridge is 2160 m long. If a car moves at a constant speed of 80 km h\", how long\ndoes it take to travel through the whole bridge?\nA 7.58\nB 27s\nC 344s\nD 97.2s",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "7.5 s"
+        },
+        {
+          "label": "B",
+          "text": "27 s"
+        },
+        {
+          "label": "C",
+          "text": "34.4 s"
+        },
+        {
+          "label": "D",
+          "text": "97.2 s"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Time taken\n[eq:45]",
+        "marking": [],
+        "source": "QB_201/2_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12011137.png"
+        ],
+        "answer": [
+          "crops/PHY12011137.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_MC_e.docx",
+          "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+          "pdf": "qb-pdf/QB_201/2_ch01_MC_e.pdf",
+          "pages": [
+            20
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            218.79977416992188,
+            155.09298706054688,
+            230.97677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12014101",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 1,
+      "type": "rq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\nThe quickest path\n\tIf you travel from one place to another, you may choose to travel along the straight line joining these two places, since this is the shortest path between the two points. However, as we shall see, this is not always the quickest path.\n\tIn Figure a, a man at B is calling for help. The lifeguard at A proceeds to the man immediately. Suppose the lifeguard can run at 5 m s–1 and swim at 1 m s–1. If he travels along the straight line towards B, he will need 84.9 s to reach the man.\n[fig:1]× A (lifeguard)\nB (the man)\n50 m\n50 m\n50 m\n50 m\nrun\nswim\nsand\nsea\n[fig:2]× A (lifeguard)\nB (the man)\n50 m\n50 m\n50 m\n50 m\nrun\nswim\nsand\nsea\n\n[fig:3]× A (lifeguard)\nB (the man)\nsand\nsea\n50 m\n50 m\n75 m\n25 m\nrun\nswim\n[fig:4]× A (lifeguard)\nB (the man)\nsand\nsea\n50 m\n50 m\n75 m\n25 m\nrun\nswim\n\nFig a\nFig b\n\tHowever, since he runs faster than he swims, he should choose a path in which he spends slightly more time on the sand, although this would make the total distance travelled longer. For example, if he follows the path in Figure b, he will only need 73.9 s to reach the man.\n\n\t(a)\tFind the total distances travelled by the lifeguard in the two cases.\t(2 marks)\n\t(b)\tShow clearly that the lifeguard needs 84.9 s and 73.9 s to reach the man in the two cases.\t(3 marks)\n\t(c)\tUnder what circumstances would the straight line joining two points be the quickest path?\t(1 mark)",
+        "ocr": "PHY12014101>\n<lvl=avg><part=core><type=rq><mark=6><bk=2><ch=01><content>\n*\n\nThe quickest path\n\nIf you travel from one place to another, you may choose to travel along the straight line joining\nthese two places, since this is the shortest path between the two points. However, as we shall\nsee, this is not always the quickest path.\n\nIn Figure a, a man at B is calling for help. The lifeguard at A proceeds to the man immediately.\nSuppose the lifeguard can run at 5 ms“ and swim at 1 ms“. If he travels along the straight line\ntowards B, he will need 84.9 s to reach the man.\n\nsand sand\n\nx A (lifeguard) x A (lifeguard)\n50m! run 50m at\n\n' 50m eee,\n\nFiga Fig b\nHowever, since he runs faster than he swims, he should choose a path in which he spends\nslightly more time on the sand, although this would make the total distance travelled longer.\nFor example, if he follows the path in Figure b, he will only need 73.9 s to reach the man.\n\n(a) Find the total distances travelled by the lifeguard in the two cases. (2 marks)\n(b) Show clearly that the lifeguard needs 84.9 s and 73.9 s to reach the man in the two cases. (3\nmarks)\n(c) Under what circumstances would the straight line joining two points be the quickest path?\n(1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the total distances travelled by the lifeguard in the two cases.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Show clearly that the lifeguard needs 84.9 s and 73.9 s to reach the man in the two cases.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "Under what circumstances would the straight line joining two points be the quickest path?",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tFor Figure a, total distance =[eq:1]= 141 m\n1A\n\tFor Figure b, total distance =[eq:2]= 146 m\n1A\n(b)\tApply speed =[eq:3].\n1M\n\tFor Figure a, time needed =[eq:4]+[eq:5]= 84.9 s\n1A\n\tFor Figure b, time needed =[eq:6]+[eq:7]= 73.9 s\n1A\n(c)\tThe speed is uniform.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "For Figure a, total distance =[eq:1]= 141 m",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "For Figure b, total distance =[eq:2]= 146 m",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Apply speed =[eq:3].",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "For Figure a, time needed =[eq:4]+[eq:5]= 84.9 s",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "For Figure b, time needed =[eq:6]+[eq:7]= 73.9 s",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The speed is uniform.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_RQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12014101.png"
+        ],
+        "answer": [
+          "crops/PHY12014101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_RQ_e.docx",
+          "sha256": "95df838eaf210aa632b631520b6010d2563626defc30afa766a24a037989fbe4",
+          "pdf": "qb-pdf/QB_201/2_ch01_RQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4530029296875,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12014102",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 2,
+      "type": "rq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\nTiming devices\n\tIn the past, the ever-changing but repeating position of the sun (sunrise and sunset) in the sky acted as a simple and convenient clock. One complete cycle of the movement of the sun defines the day, which is a basic unit of time.\n\tHowever, the time of sunrise and sunset is not as regular as once assumed. As a result, the search for a more accurate timing device has never stopped. Right now, the atomic clock is the most accurate timing device in the world. Such a clock may make use of the cesium atom. When kept in a constant state, this atom can produce radiation which always precisely and stably completes 9 192 631 770 cycles of vibration per second. Cesium clocks are accurate to two nanoseconds (2 × 10-9 s) a day or one second every 1 400 000 years.\n\n\t(a)\tWhy did people in the past use the position of the sun as a timing device?\t(2 marks)\n\t(b)\tFind the percentage error of the cesium clock.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Why did people in the past use the position of the sun as a timing device?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find the percentage error of the cesium clock.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tIt is convenient to observe.\n1A\n\tThe movement of the sun is believed to be regular.\n1A\n\t(Or other reasonable answers)\n\n(b)\tPercentage error =[eq:8]× 100%\n1M\n\t\t= 2.31 × 10-12 %\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "It is convenient to observe.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The movement of the sun is believed to be regular.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Percentage error =[eq:8]× 100%",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 2.31 × 10-12 %",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_RQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12014102.png"
+        ],
+        "answer": [
+          "crops/PHY12014102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_RQ_e.docx",
+          "sha256": "95df838eaf210aa632b631520b6010d2563626defc30afa766a24a037989fbe4",
+          "pdf": "qb-pdf/QB_201/2_ch01_RQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            108.8497543334961,
+            156.4530029296875,
+            121.0267562866211
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012101",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 1,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 7,
+      "stem": {
+        "text": "→\tA car is travelling at a constant speed of 15 m s–1 along the path as shown in the following figure.\n[eq:1]\n\tConsider the motion of the car when it travels from A to B, which is part of the roundabout of radius 50 m.\n\t(a)\tFind the time taken by the car to travel from A to B.\t(2 marks)\n\t(b)\tFind the magnitude of the average velocity of the car.\t(3 marks)\n\t(c)\t‘The average acceleration of the car is zero because the speed of the car is constant.’ Comment on this statement.\t(2 marks)",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the time taken by the car to travel from A to B.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find the magnitude of the average velocity of the car.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "‘The average acceleration of the car is zero because the speed of the car is constant.’ Comment on this statement.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tTime taken\n\n\t=[eq:2]\n1M\n\t=[eq:3]\n\n\t= 5.24 s\n1A\n(b)\tConsider the following figure.\n\n\t[eq:4]\n\n\tMagnitude of displacement s from A to B\n\n\t=[eq:5]\n1M\n\t= 70.7 m\n\n\tMagnitude of average velocity\n\n\t=[eq:6]\n1M\n\t=[eq:7]\n\n\t= 13.5 m s–1\n1A\n(c)\tThe statement is incorrect.\n1A\n\tThe direction of the velocity has changed in the process and so the average acceleration is not zero.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "=[eq:2]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 5.24 s",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "=[eq:5]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "=[eq:6]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 13.5 m s–1",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The statement is incorrect.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The direction of the velocity has changed in the process and so the average acceleration is not zero.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012101.png"
+        ],
+        "answer": [
+          "crops/PHY12012101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4530029296875,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012102",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 2,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "Anson walks at a uniform velocity in a football field. He starts from P at t = 0 and arrives at Q at t = 60 s.\n[eq:8]\n\t(a)\tFind the magnitude and direction of his total displacement.\t(3 marks)\n\t(b)\tFind the magnitude and direction of his instantaneous velocity at t = 20 s.\t(3 marks)",
+        "ocr": "PHY12012102>\n<lvl=easy><part=core><type=sq><mark=6><bk=2><ch=01><content>\n\n1A\n1A\n\n1A\n\nAnson walks at a uniform velocity in a football field. He starts from P at t = 0 and arrives at Q\n\nat t= 60s.\n\n100 m\n\nP\n(a) Find the magnitude and direction of his total displacement. (3 marks)\n(b) Find the magnitude and direction of his instantaneous velocity at t = 20s. (3 marks)",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the magnitude and direction of his total displacement.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Find the magnitude and direction of his instantaneous velocity at t = 20 s.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tMagnitude of total displacement\n\n\t=[eq:9]\n\n\t= 81.2 m\n1A\n\t[eq:10]\n\n\ttan θ =[eq:11]\n\n\t\tθ = 38.0°\n1A\n\t∴ The total displacement is 81.2 m towards N38.0°E.\n1A\n(b)\tSince Anson walks at a uniform velocity, his instantaneous velocity at any moment is equal to his average velocity throughout the journey.\n\n\tMagnitude of instantaneous velocity\n\n\t= magnitude of average velocity\n\n\t=[eq:12]\n1M\n\t=[eq:13]\n\n\t= 1.35 m s–1\n1A\n\tThe direction of the instantaneous velocity is the same as that of the total displacement, which is N38.0°E.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "= 81.2 m",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "θ = 38.0°",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "∴ The total displacement is 81.2 m towards N38.0°E.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "=[eq:12]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 1.35 m s–1",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The direction of the instantaneous velocity is the same as that of the total displacement, which is N38.0°E.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012102.png"
+        ],
+        "answer": [
+          "crops/PHY12012102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            168.59976196289062,
+            156.4530029296875,
+            180.77676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012103",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 3,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "The figure below shows the instant when athletes in the 100-m sprint are crossing the finishig line. The result of the winner is 10.05 s.\n[fig:1]\n\t(a)\tIf the time is measured by a hand-held stop-watch which has a maximum error of 0.005 s and the overall reaction time of the timekeeper is 0.3 s, what is the maximum possible percentage error of the result?\t(2 marks)\n\t(b)\tThe time is actually measured by automatic timing devices. Suggest an advantage and a disadvantage of automatic timing devices compared with hand-held stop-watches.\n\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "If the time is measured by a hand-held stop-watch which has a maximum error of 0.005 s and the overall reaction time of the timekeeper is 0.3 s, what is the maximum possible percentage error of the result?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The time is actually measured by automatic timing devices. Suggest an advantage and a disadvantage of automatic timing devices compared with hand-held stop-watches.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tMaximum possible error = 0.3 + 0.005 = 0.305 s\n1M\n\tMaximum possible percentage error =[eq:14]× 100% = 3.03%\n1A\n(b)\tAdvantage: more accurate\n1A\n\tDisadvantage: more expensive\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Maximum possible error = 0.3 + 0.005 = 0.305 s",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "Maximum possible percentage error =[eq:14]× 100% = 3.03%",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Advantage: more accurate",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Disadvantage: more expensive",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012103.png"
+        ],
+        "answer": [
+          "crops/PHY12012103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            250.24978637695312,
+            156.4530029296875,
+            262.4267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012104",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 4,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "Assume that the Earth travels round the Sun in a circle and neglect the movement of the Sun. The distance between the Earth and the Sun is R.\n\t(a)\tFind the magnitude of the displacement of the Earth after it has travelled for 3 months.\n\t(2 marks)\n\t(b)\tFind the distance travelled by the Earth in 3 months.\t(1 mark)\n\t(c)\tFind the magnitude of the displacement of the Earth after it has travelled for 10 years.\n\t(1 mark)",
+        "ocr": "PHY12012104>\n\n<lvl=easy><part=core><type=sq><mark=4><bk=2><ch=01><content>\nAssume that the Earth travels round the Sun in a circle and neglect the movement of the Sun.\nThe distance between the Earth and the Sun is R.\n\n(a) Find the magnitude of the displacement of the Earth after it has travelled for 3 months.\n(2 marks)\n\n\n(b) Find the distance travelled by the Earth in 3 months. (1 mark)\n(c) Find the magnitude of the displacement of the Earth after it has travelled for 10 years.\n\n(1 mark)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the magnitude of the displacement of the Earth after it has travelled for 3 months.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find the distance travelled by the Earth in 3 months.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Find the magnitude of the displacement of the Earth after it has travelled for 10 years.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe Earth travels a quarter of a circle in 3 months.\n1M\n\t[fig:2][fig:3]\n\n\tDisplacement =[eq:15]=[eq:16]R\n1A\n(b)\tDistance travelled =[eq:17]× 2πR =[eq:18]πR\n1A\n(c)\t0\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The Earth travels a quarter of a circle in 3 months.",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "Displacement =[eq:15]=[eq:16]R",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Distance travelled =[eq:17]× 2πR =[eq:18]πR",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "0",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012104.png"
+        ],
+        "answer": [
+          "crops/PHY12012104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            657.0997314453125,
+            156.4530029296875,
+            669.2767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012105",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 5,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tA ball suspended by a string takes 2 s to swing from X to Y as shown. It is momentarily at rest when it reaches Y. The string is 10 cm long and the size of the ball is negligible.\n[fig:4]X\nY\n30°\n30°\n10 cm\n[fig:5]X\nY\n30°\n30°\n10 cm\n\n\t(a)\tFind the displacement of the ball in moving from X to Y.\t(2 marks)\n\t(b)\tFind the average velocity of the ball.\t(2 marks)\n\t(c)\tFind the instantaneous velocity of the ball at Y.\t(1 mark)",
+        "ocr": "PHY12012105>\n\n<lvl=avg><part=core><type=sq><mark=5><bk=2><ch=01><content>\n\n* A ball suspended by a string takes 2 s to swing from X to Y as shown. It is momentarily at rest\nwhen it reaches Y. The string is 10 cm long and the size of the ball is negligible.\n\n(a) Find the displacement of the ball in moving from X to Y. (2 marks)\n(b) Find the average velocity of the ball. (2 marks)\n(c) Find the instantaneous velocity of the ball at Y. (1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the displacement of the ball in moving from X to Y.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find the average velocity of the ball.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Find the instantaneous velocity of the ball at Y.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tMagnitude of displacement = 2 × 10 sin 30° = 10 cm\n1A\n\tSince X and Y are at the same level,\n\n\tthe displacement of the ball is 10 cm towards the right.\n1A\n(b)\tAverage velocity =[eq:19]\n1M\n\t\t=[eq:20]\n\n\t\t= 5 cm s-1 (towards right)\n1A\n(c)\t0\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Magnitude of displacement = 2 × 10 sin 30° = 10 cm",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "the displacement of the ball is 10 cm towards the right.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Average velocity =[eq:19]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 5 cm s-1 (towards right)",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "0",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012105.png"
+        ],
+        "answer": [
+          "crops/PHY12012105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            359.3997802734375,
+            156.4530029296875,
+            371.5767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012106",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 6,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tThe three hands of a clock move smoothly and continuously. The second hand is twice as long as the hour hand. The speed of the tip of the second is v. Find the speed of the tip of the hour hand in terms of v.\t(4 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nLet r be the length of the second hand.\n\nDistance travel by the tip of the second hand in one hour\n\n= 60 × 2π × r = 120πr\n1M\n∴ v =[eq:21]=[eq:22]\n1M\nDistance travelled by the tip of the hour hand in one hour =[eq:23]× 2π ×[eq:24]=[eq:25]\n1M\nSpeed of the tip of the hour hand =[eq:26]=[eq:27]=[eq:28]\n1A",
+        "marking": [
+          {
+            "part": "",
+            "point": "= 60 × 2π × r = 120πr",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "∴ v =[eq:21]=[eq:22]",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "Distance travelled by the tip of the hour hand in one hour =[eq:23]× 2π ×[eq:24]=[eq:25]",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "Speed of the tip of the hour hand =[eq:26]=[eq:27]=[eq:28]",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012106.png"
+        ],
+        "answer": [
+          "crops/PHY12012106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            126.64974212646484,
+            156.4530029296875,
+            138.82675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012107",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 7,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tKitty swims across a 50-m swimming pool from A to D while her coach takes her time beside the pool. The coach starts timing at A. Then he walks along the edge of the pool through B and C to D. The coach and Kitty reach D at the same time and the coach stops timing at this instant. The time recorded is 1 min 15 s.\n[fig:6]\n\t(a)\tFind Kitty’s average speed in moving from A to D.\t(2 marks)\n\t(b)\tFind the coach’s average speed in moving from A to D.\t(1 mark)\n\t(c)\tTom says that the coach and Kitty have the same average velocity in moving from A to D. Comment on his statement.\t(2 marks)",
+        "ocr": "PHY12012107>\n\n<lvl=avg><part=core><type=sq><mark=5><bk=2><ch=01><content>\n\n* Kitty swims across a 50-m swimming pool from A to D while her coach takes her time beside\nthe pool. The coach starts timing at A. Then he walks along the edge of the pool through B and\n\nC to D. The coach and Kitty reach D at the same time and the coach stops timing at this instant.\nThe time recorded is 1 min 15s.\n\n< 50 m =\n\nA D\n5 m| [s m\nB C\ncoach\n(a) Find Kitty’s average speed in moving from A to D. (2 marks)\n(b) Find the coach’s average speed in moving from A to D. (1 mark)\n\n(c) Tom says that the coach and Kitty have the same average velocity in moving from A to D.\nComment on his statement. (2 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find Kitty’s average speed in moving from A to D.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find the coach’s average speed in moving from A to D.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Tom says that the coach and Kitty have the same average velocity in moving from A to D. Comment on his statement.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tKitty’s average speed =[eq:29]\n1M\n\t\t=[eq:30]\n\n\t\t= 0.667 m s-1\n1A\n(b)\tThe coach’s average speed =[eq:31]= 0.8 m s-1\n1A\n(c)\tTom is correct.\n1A\n\tThe coach and Kitty have the same displacement within the same period of time.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Kitty’s average speed =[eq:29]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 0.667 m s-1",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The coach’s average speed =[eq:31]= 0.8 m s-1",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Tom is correct.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The coach and Kitty have the same displacement within the same period of time.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012107.png"
+        ],
+        "answer": [
+          "crops/PHY12012107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            5,
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            436.7997741699219,
+            156.4530029296875,
+            448.9767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012108",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 8,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 7,
+      "stem": {
+        "text": "→\tA man jogs towards the north for 4 km in 30 minutes, then towards the east for 3 km in 30 minutes and finally towards the south for 5 km in 55 minutes.\n\t(a)\tWhat is the average speed of the man? \t(2 marks)\n\t(b)\tWhat is the average velocity of the man? \t(5 marks)",
+        "ocr": "PHY12012108>\n<lvl=avg><part=core><type=sq><mark=7><bk=2><ch=01><content>\n* Aman jogs towards the north for 4 km in 30 minutes, then towards the east for 3 km in 30\nminutes and finally towards the south for 5 km in 55 minutes.\n(a) What is the average speed of the man? (2 marks)\n(b) What is the average velocity of the man? (5 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the average speed of the man?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "What is the average velocity of the man?",
+          "marks": 5
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAverage speed =[eq:32]\n1M\n\t\t=[eq:33]\n\n\t\t= 1.74 m s-1\n1A\n(b)\n\n\t[fig:7]4 km\n3 km\n5 km\nθ\nN\n[fig:8]4 km\n3 km\n5 km\nθ\nN\n\n\n\tDisplacement =[eq:34]= 3162 m\n1M\n\tMagnitude of average velocity =[eq:35]\n1M\n\t\t=[eq:36]\n\n\t\t= 0.458 m s-1\n1A\n\ttan θ =[eq:37]\n1M\n\t\tθ = 71.6°\n\n\tThe average velocity is 0.458 m s-1 S71.6°E.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Average speed =[eq:32]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 1.74 m s-1",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Displacement =[eq:34]= 3162 m",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "Magnitude of average velocity =[eq:35]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 0.458 m s-1",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "tan θ =[eq:37]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "The average velocity is 0.458 m s-1 S71.6°E.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012108.png"
+        ],
+        "answer": [
+          "crops/PHY12012108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            283.1497497558594,
+            156.4530029296875,
+            295.3267517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012109",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 9,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tA ticker-tape timer is a vibrator that puts black dots on a ticker tape at the rate of 50 dots per second. When an object pulls the tape through the timer, one can study the motion of the object by analyzing the dots on the tape.\n[fig:9]ticker tape\n[fig:10]ticker tape\n\n\tA trolley pulls the tape and the tape produced is shown below. Dot X is put on the tape before dot Y.\n[fig:11]X\nY\n10 cm\n[fig:12]X\nY\n10 cm\n\n\t(a)\tWhat is the time interval between X and Y?\t(2 marks)\n\t(b)\tThe distance between X and Y is 10 cm. Find the average speed of the trolley.\t(2 marks)\n\t(c)\tIs the trolley speeding up, slowing down or moving at a constant speed during the journey?\t(1 mark)",
+        "ocr": "PHY12012109>\n<lvl=avg><part=core><type=sq><mark=5><bk=2><ch=01><content>\n* A ticker-tape timer is a vibrator that puts black dots on a ticker tape at the rate of 50 dots per\n\nsecond. When an object pulls the tape through the timer, one can study the motion of the object\nby analyzing the dots on the tape.\n\nticker tape\n\nA trolley pulls the tape and the tape produced is shown below. Dot X is put on the tape before\n\ndot Y.\n‘ 10 cm\nXx Y\n(a) What is the time interval between X and Y? (2 marks)\n\n(b) The distance between X and Y is 10 cm. Find the average speed of the trolley. (2 marks)\n(c) Is the trolley speeding up, slowing down or moving at a constant speed during the journey?\n\n(1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the time interval between X and Y?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The distance between X and Y is 10 cm. Find the average speed of the trolley.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Is the trolley speeding up, slowing down or moving at a constant speed during the journey?",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tTime interval between two adjacent dots =[eq:38]= 0.02 s\n1M\n\tTime interval between X and Y = 5 × 0.02 = 0.1 s\n1A\n(b)\tAverage speed =[eq:39]\n1M\n\t\t=[eq:40]\n\n\t\t= 1 m s-1\n1A\n(c)\tSpeeding up\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Time interval between two adjacent dots =[eq:38]= 0.02 s",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "Time interval between X and Y = 5 × 0.02 = 0.1 s",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Average speed =[eq:39]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 1 m s-1",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Speeding up",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012109.png"
+        ],
+        "answer": [
+          "crops/PHY12012109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            174.79977416992188,
+            156.4530029296875,
+            186.97677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012110",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 10,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tPolly goes to Tsuen Wan from Central by the MTR. The trip takes 30 minutes and 17 seconds. The distance travelled is 16 km.\n\t(a)\tFind the train’s average speed.\t(2 marks)\n\t(b)\tIs the train’s average speed equal to the magnitude of its average velocity? Explain briefly.\t(2 marks)",
+        "ocr": "PHY12012110>\n\n<lvl=avg><part=core><type=sq><mark=4><bk=2><ch=01><content>\n\n* Polly goes to Tsuen Wan from Central by the MTR. The trip takes 30 minutes and 17 seconds.\nThe distance travelled is 16 km.\n\n(a) Find the train’s average speed. (2 marks)\n(b) Is the train’s average speed equal to the magnitude of its average velocity? Explain briefly.\n(2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the train’s average speed.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Is the train’s average speed equal to the magnitude of its average velocity? Explain briefly.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAverage speed =[eq:41]\n1M\n\t\t=[eq:42]\n\n\t\t= 8.81 m s-1\n1A\n(b)\tNo,\n1A\n\tthis is because the train does not travel along a straight line.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Average speed =[eq:41]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 8.81 m s-1",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "No,",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "this is because the train does not travel along a straight line.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012110.png"
+        ],
+        "answer": [
+          "crops/PHY12012110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.0570068359375,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012111",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 11,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tPeter has the following stop-watch.\n[fig:13]\n\t(a)\tWhat is the shortest time interval that Peter’s stop-watch can measure?\t(1 mark)\n\t(b)\tPeter uses his stop-watch to time a falling object and the time recorded is 1.23 s.\n\t\t(i)\tHis overall reaction time is 0.3 s. Find the percentage error in this reading.\t(1 mark)\n\t\t(ii)\tUsually experimental results are recorded up to a certain decimal place, depending on the errors in the measurement. What should Peter quote as the result? Explain your answer.\t(2 marks)",
+        "ocr": "PHY12012111>\n<lvl=avg><part=core><type=sq><mark=4><bk=2><ch=01><content>\n* Peter has the following stop-watch.\n\n(a) What is the shortest time interval that Peter’s stop-watch can measure? (1 mark)\n(b) Peter uses his stop-watch to time a falling object and the time recorded is 1.23 s.\n(i) His overall reaction time is 0.3 s. Find the percentage error in this reading. (1 mark)\n\n(ii) Usually experimental results are recorded up to a certain decimal place, depending on\nthe errors in the measurement. What should Peter quote as the result? Explain your\n\nanswer. (2 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the shortest time interval that Peter’s stop-watch can measure?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Peter uses his stop-watch to time a falling object and the time recorded is 1.23 s.\n\t\t(i)\tHis overall reaction time is 0.3 s. Find the percentage error in this reading.",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "Usually experimental results are recorded up to a certain decimal place, depending on the errors in the measurement. What should Peter quote as the result? Explain your answer.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t0.01 s\n1A\n(b)\t(i)\tPercentage error =[eq:43]× 100% = 24.4%\n1A\n\t(ii)\tThe measurement is accurate up to 1 decimal place only as the error due to reaction time is 0.3 s.\n1A\n\t\tTherefore, he should quote the result as 1.2 s.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "0.01 s",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Percentage error =[eq:43]× 100% = 24.4%",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "The measurement is accurate up to 1 decimal place only as the error due to reaction time is 0.3 s.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Therefore, he should quote the result as 1.2 s.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012111.png"
+        ],
+        "answer": [
+          "crops/PHY12012111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            369.44976806640625,
+            155.6610107421875,
+            381.62677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012112",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 12,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tFour people have dinner in a restaurant. The following figure shows how they sit around a table. The radius of the turntable is 0.5 m.\n[fig:14]B\nA\nD\nC\n0.5 m\ntoothpicks\nturntable\nbeef\n[fig:15]B\nA\nD\nC\n0.5 m\ntoothpicks\nturntable\nbeef\n\n\t(a)\tA asks C for toothpicks. C puts them at the edge of the turntable and right in front of him. He turns the turntable until the toothpicks are right in front of A. What is the distance travelled by the toothpicks?\t(1 mark)\n\t(b)\tC wants to eat the beef which is now right in front of D. C turns the turntable until the beef is right in front of him. Assume that the dish is at the edge of the turntable.\n\t\t(i)\tShould he turn the turntable clockwise or anticlockwise so that it would take a shorter time? Explain briefly.\t(2 marks)\n\t\t(ii)\tCalculate the magnitude of the displacement of the beef. \t(1 mark)",
+        "ocr": "PHY12012112>\n\n<lvl=avg><part=core><type=sq><mark=4><bk=2><ch=01><content>\n\n* Four people have dinner in a restaurant. The following figure shows how they sit around a\ntable. The radius of the turntable is 0.5 m.\n\ntoothpicks\n\n(a) Aasks C for toothpicks. C puts them at the edge of the turntable and right in front of him.\nHe turns the turntable until the toothpicks are right in front of A. What is the distance\ntravelled by the toothpicks? (1 mark)\n\n(b) C wants to eat the beef which is now right in front of D. C turns the turntable until the beef\nis right in front of him. Assume that the dish is at the edge of the turntable.\n\n(i) Should he turn the turntable clockwise or anticlockwise so that it would take a shorter\n\ntime? Explain briefly. (2 marks)\n(ii) Calculate the magnitude of the displacement of the beef. (1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "A asks C for toothpicks. C puts them at the edge of the turntable and right in front of him. He turns the turntable until the toothpicks are right in front of A. What is the distance travelled by the toothpicks?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "C wants to eat the beef which is now right in front of D. C turns the turntable until the beef is right in front of him. Assume that the dish is at the edge of the turntable.\n\t\t(i)\tShould he turn the turntable clockwise or anticlockwise so that it would take a shorter time? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "Calculate the magnitude of the displacement of the beef.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tDistance travelled by toothpicks = πr = π × 0.5 = 1.57 m\n1A\n(b)\t(i)\tHe should turn the turntable anticlockwise\n1A\n\t\tbecause the distance travelled by the beef is shorter.\n1A\n\t(ii)\tMagnitude of displacement =[eq:44]= 0.707 m\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Distance travelled by toothpicks = πr = π × 0.5 = 1.57 m",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "He should turn the turntable anticlockwise",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "because the distance travelled by the beef is shorter.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Magnitude of displacement =[eq:44]= 0.707 m",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012112.png"
+        ],
+        "answer": [
+          "crops/PHY12012112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            153.94979858398438,
+            156.0570068359375,
+            166.12680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012113",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 13,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tTommy walks towards the north from point A to point B where he turns 90° left and walks to point C. His route is shown on the map below with a scale of 1 : 2000. The lengths of AB and BC on the map are 5 cm and 10 cm respectively.\n[fig:16]C\nA\nB\n5 cm\n10 cm\nNorth\n[fig:17]C\nA\nB\n5 cm\n10 cm\nNorth\n\n\t(a)\tFind the total distance he travelled.\t(2 marks)\n\t(b)\tFind his total displacement.\t(4 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the total distance he travelled.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find his total displacement.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tTotal distance travelled = (5 + 10) × 2000\n1M\n\t\t= 30 000 cm\n\n\t\t= 300 m\n1A\n(b)\tMagnitude of displacement = 2000[eq:45]\n1M\n\t\t= 22 400 cm\n\n\t\t= 224 m\n1A\n\ttan θ =[eq:46]\n1M\n\t\tθ = 63.4°\n\n\tTommy's total displacement is 224 m N63.4°W.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Total distance travelled = (5 + 10) × 2000",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 300 m",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Magnitude of displacement = 2000[eq:45]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 224 m",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "tan θ =[eq:46]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "Tommy's total displacement is 224 m N63.4°W.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012113.png"
+        ],
+        "answer": [
+          "crops/PHY12012113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            9,
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            682.6497802734375,
+            156.0570068359375,
+            694.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012114",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 14,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tJane walks from X to Y and then to Z along the path as shown below.\n[fig:18]\n\t(a)\tCalculate the magnitude of displacement of Jane when she travels from\n\t\t(i)\tX to Y (displacement d1),\t(1 mark)\n\t\t(ii)\tY to Z (displacement d2), and\t(1 mark)\n\t\t(iii)\tX to Z (displacement d3).\t(1 mark)\n\t(b)\tIs [eq:47]? Is it always correct no matter where Y is? Explain your answer briefly.\t(3 marks)",
+        "ocr": "PHY12012114>\n<lvl=avg><part=core><type=sq><mark=6><bk=2><ch=01><content>\n* Jane walks from X to Y and then to Z along the path as shown below.\n\n\nY 10m\n=\n[10 m\n\n(a) Calculate the magnitude of displacement of Jane when she travels from\n\n(i) X to Y (displacement d,), (1 mark)\n(ii) Yto Z (displacement d>), and (1 mark)\n(iii) X to Z (displacement ds). (1 mark)\nd,=,d +d ,\n(b) Is 1 2°? Is it always correct no matter where Y is? Explain your answer\nbriefly. (3 marks)",
+        "equations": 1,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Calculate the magnitude of displacement of Jane when she travels from\n\t\t(i)\tX to Y (displacement d1),",
+          "marks": 1
+        },
+        {
+          "label": "a(ii)",
+          "text": "Y to Z (displacement d2), and",
+          "marks": 1
+        },
+        {
+          "label": "a(iii)",
+          "text": "X to Z (displacement d3).",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Is [eq:47]? Is it always correct no matter where Y is? Explain your answer briefly.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\t[eq:48]\n1A\n\t(ii)\t[eq:49]\n1A\n\t(iii)\t[eq:50]\n1A\n(b)\t[eq:51]\n1A\n\tThe equation is not always correct.\n1A\n\tIt is correct only if XY and YZ are perpendicular to each other.\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "[eq:48]",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "[eq:49]",
+            "code": "1A"
+          },
+          {
+            "part": "a(iii)",
+            "point": "[eq:50]",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "[eq:51]",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The equation is not always correct.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "It is correct only if XY and YZ are perpendicular to each other.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012114.png"
+        ],
+        "answer": [
+          "crops/PHY12012114.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            10,
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            646.999755859375,
+            156.0570068359375,
+            659.1767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012115",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 15,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tA student uses a stop-watch to measure the time taken for a pendulum to swing 2 cycles. The reading is 3.12 s. Assume that the error due to the student’s reaction time is 0.4 s and the time taken for the pendulum to swing a cycle is constant.\n\t(a)\tEstimate the time taken for the pendulum to swing a cycle.\t(1 mark)\n\t(b)\tFind the percentage error due to the student’s reaction time.\t(1 mark)\n\t(c)\tThen the student measures the time taken for 20 cycles and the reading is 27.6 s. What is the new percentage error?\t(1 mark)\n\t(d)\tWhich result is more accurate, timing 2 cycles or 20 cycles?\t(1 mark)",
+        "ocr": "PHY12012115>\n\n<lvl=avg><part=core><type=sq><mark=4><bk=2><ch=01><content>\n\n* A student uses a stop-watch to measure the time taken for a pendulum to swing 2 cycles. The\nreading is 3.12 s. Assume that the error due to the student’s reaction time is 0.4 s and the time\ntaken for the pendulum to swing a cycle is constant.\n\n(a) Estimate the time taken for the pendulum to swing a cycle. (1 mark)\n(b) Find the percentage error due to the student’s reaction time. (1 mark)\n(c) Then the student measures the time taken for 20 cycles and the reading is 27.6 s. What is\nthe new percentage error? (1 mark)\n(d) Which result is more accurate, timing 2 cycles or 20 cycles? (1 mark)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Estimate the time taken for the pendulum to swing a cycle.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Find the percentage error due to the student’s reaction time.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Then the student measures the time taken for 20 cycles and the reading is 27.6 s. What is the new percentage error?",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "Which result is more accurate, timing 2 cycles or 20 cycles?",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tTime taken =[eq:52]= 1.56 s\n1A\n(b)\tPercentage error =[eq:53]× 100% = 12.8%\n1A\n(c)\tPercentage error =[eq:54]× 100% = 1.45%\n1A\n(d)\tTiming 20 cycles is more accurate.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Time taken =[eq:52]= 1.56 s",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Percentage error =[eq:53]× 100% = 12.8%",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Percentage error =[eq:54]× 100% = 1.45%",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Timing 20 cycles is more accurate.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012115.png"
+        ],
+        "answer": [
+          "crops/PHY12012115.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            523.69970703125,
+            156.0570068359375,
+            535.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012116",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 16,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tA jumbo jet flies at 260 m s–1 towards the north for 10 s. It then flies at 254 m s–1 towards the west for 8 s.\n\t(a)\tFind the total distance it has travelled.\t(2 marks)\n\t(b)\tFind its average speed in the whole journey.\t(1 mark)\n\t(c)\tFind the magnitude of its average velocity in the whole journey.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the total distance it has travelled.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find its average speed in the whole journey.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Find the magnitude of its average velocity in the whole journey.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tBy average speed =[eq:55],\n1M\n\ttotal distance travelled = 260 × 10 + 254 × 8 = 4630 m\n1A\n(b)\tAverage speed in the whole journey =[eq:56]= 257 m s–1\n1A\n(c)\tMagnitude of total displacement =[eq:57]= 3300 m\n1M\n\tMagnitude of average velocity =[eq:58]\n1M\n\t\t=[eq:59]\n\n\t\t= 183 m s-1\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "By average speed =[eq:55],",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "total distance travelled = 260 × 10 + 254 × 8 = 4630 m",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Average speed in the whole journey =[eq:56]= 257 m s–1",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Magnitude of total displacement =[eq:57]= 3300 m",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "Magnitude of average velocity =[eq:58]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 183 m s-1",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012116.png"
+        ],
+        "answer": [
+          "crops/PHY12012116.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            12
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            230.04977416992188,
+            156.0570068359375,
+            242.22677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012117",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 17,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→→\tWinnie walks clockwise with a constant speed v and Grace walks anticlockwise with a constant speed 2v along a circular path of radius r as shown. At time t = 0, Winnie and Grace are at the same position.\n[fig:19]2v\nv\nr\nWinnie\nGrace\n[fig:20]2v\nv\nr\nWinnie\nGrace\n\n\t(a)\tWhen will they meet for the first time after starting? Express your answer in terms of v and r.\t(2 marks)\n\t(b)\tAt a certain instant T, the average velocity of Winnie from t = 0 to t = T is 0. What is the average velocity of Grace in the same period of time? \t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "When will they meet for the first time after starting? Express your answer in terms of v and r.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "At a certain instant T, the average velocity of Winnie from t = 0 to t = T is 0. What is the average velocity of Grace in the same period of time?",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe total distance travelled by Winnie and Grace is equal to the circumference of the path, i.e.\n\n\t2vt + vt = 2πr\n1M\n\t\tt =[eq:60]\n1A\n\tThe will meet at t =[eq:61].\n\n(b)\tWinnie is at the starting position at time T.\n1A\n\tSince Grace walks twice as fast as Winnie, she is also at the starting position at time T.\n1A\n\t∴ The average velocity of Grace in that period of time is also 0.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "2vt + vt = 2πr",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "t =[eq:60]",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Winnie is at the starting position at time T.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Since Grace walks twice as fast as Winnie, she is also at the starting position at time T.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "∴ The average velocity of Grace in that period of time is also 0.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012117.png"
+        ],
+        "answer": [
+          "crops/PHY12012117.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            12,
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            605.1497802734375,
+            156.0570068359375,
+            617.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012118",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 18,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→→\tAs shown in the figure below, Berry and Derek leave point X at time t = 0. Berry walks at a constant speed of 3v towards point Y and Derek walks at a constant speed of 4v towards point Z. They arrive at their destinations at the same time. Then Berry walks towards Z at a constant speed of 3v and at the same time Derek walks towards Y at a constant speed of 4v. They meet each other at t = 100 s. When does Berry arrive at Y?\t(4 marks)\n[fig:21]X\nY\nZ\n[fig:22]X\nY\nZ",
+        "ocr": "PHY12012118>\n\n<lvl=dif><part=core><type=sq><mark=4><bk=2><ch=01><content>\n\n* * As shown in the figure below, Berry and Derek leave point X at time t = 0. Berry walks at a\nconstant speed of 3v towards point Y and Derek walks at a constant speed of 4v towards point\nZ. They arrive at their destinations at the same time. Then Berry walks towards Z at a constant\nspeed of 3v and at the same time Derek walks towards Y at a constant speed of 4v. They meet\neach other at t= 100 s. When does Berry arrive at Y? (4 marks)\n\n\\\n----------------—(@",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nLet Berry arrives at Y at time T.\n\nBy average speed =[eq:62],\n1M\nXY = 3vT\n\nXZ = 4vT\n\nYZ =[eq:63]=[eq:64]= 5vT\n1M\nTotal time taken for the whole trip = T +[eq:65]\n1M\n\t100\t= T +[eq:66]\n\n\tT\t= 58.3 s\n1A\nBerry arrives at Y at t = 58.3 s.",
+        "marking": [
+          {
+            "part": "",
+            "point": "By average speed =[eq:62],",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "YZ =[eq:63]=[eq:64]= 5vT",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "Total time taken for the whole trip = T +[eq:65]",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "T\t= 58.3 s",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012118.png"
+        ],
+        "answer": [
+          "crops/PHY12012118.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            13,
+            14
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            501.44976806640625,
+            156.0570068359375,
+            513.6267700195312
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY12012119",
+      "bank": "QB_201",
+      "book": "2",
+      "chapter": "01",
+      "seq": 19,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→→\tIn the following figure, an ant walks from X to Y along the shortest path on a cylindrical block. The radius of the cylindrical block is 0.5 m.\n[fig:23]\n\t(a)\tCalculate the distance travelled by the ant as it walks from X to Y.\n\t\t(Hint: The shortest path between X and Y is a straight line when the curved surface of the cylinder is made flat.)\t(3 marks)\n\t(b)\tCalculate the magnitude of the displacement of the ant as it walks from X to Y.\n\t\t(Hint: The displacement is a line under the curved surface.)\t(3 marks)",
+        "ocr": "PHY12012119>\n\n<lvl=dif><part=core><type=sq><mark=6><bk=2><ch=01><content>\n\n* * In the following figure, an ant walks from X to Y along the shortest path on a cylindrical block.\nThe radius of the cylindrical block is 0.5 m.\n\n(a) Calculate the distance travelled by the ant as it walks from X to Y.\n(Hint: The shortest path between X and Y is a straight line when the curved surface of the\n\ncylinder is made flat.) (3 marks)\n(b) Calculate the magnitude of the displacement of the ant as it walks from X to Y.\n(Hint: The displacement is a line under the curved surface.) (3 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Calculate the distance travelled by the ant as it walks from X to Y.\n\t\t(Hint: The shortest path between X and Y is a straight line when the curved surface of the cylinder is made flat.)",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Calculate the magnitude of the displacement of the ant as it walks from X to Y.\n\t\t(Hint: The displacement is a line under the curved surface.)",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tLet d be the distance travelled by the ant.\n\n\tThe arc length between X and Z =[eq:67]=[eq:68] m\n1M\n\tSince the shortest path between X and Y is a straight line when the curved surface of the cylinder is made flat, we have\n\n\td 2 =[eq:69]+ 12\n1M\n\t\td = 1.27 m\n1A\n\tThe distance travelled is 1.27 m.\n\n(b)\tLet s be the magnitude of the displacement.\n\n\tXZ 2 = 0.52 + 0.52 = 0.5 m\n1M\n\t\ts2\t= XZ2 + YZ2\n1M\n\t\t\t= 0.5 + 12\n\n\t\ts\t= 1.22 m\n1A\n\tThe magnitude of the displacement is 1.22 m.",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The arc length between X and Z =[eq:67]=[eq:68] m",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "d 2 =[eq:69]+ 12",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "d = 1.27 m",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "XZ 2 = 0.52 + 0.52 = 0.5 m",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "s2\t= XZ2 + YZ2",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "s\t= 1.22 m",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_201/2_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY12012119.png"
+        ],
+        "answer": [
+          "crops/PHY12012119.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_201/2_ch01_SQ_e.docx",
+          "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+          "pdf": "qb-pdf/QB_201/2_ch01_SQ_e.pdf",
+          "pages": [
+            14
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            353.94976806640625,
+            156.0570068359375,
+            366.12677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

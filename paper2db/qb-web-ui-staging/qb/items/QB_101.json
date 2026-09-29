@@ -1,0 +1,3157 @@
+{
+  "bank": "QB_101",
+  "generated_at": "2026-09-29T18:57:23Z",
+  "tool_versions": {
+    "pymupdf": "1.28.2",
+    "tesseract": "tesseract 5.5.3",
+    "soffice": "LibreOffice 26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77"
+  },
+  "count": 38,
+  "items": [
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11013101",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 1,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThe figure below shows the variation of temperature and relative humidity with time in Peng Chau in one day.\n[fig:1][fig:2]\n(Source: Hong Kong Observatory)\n\t(a)\tWhich axis, A or B, in the figure is the temperature axis? What is the unit used?\t(2 marks)\n\t(b)\t(i)\tWhen was the temperature the highest on this day? What was the temperature?\n\t(2 marks)\n\t\t(ii)\tWhen was the temperature the lowest on this day? What was the temperature?\n\t(2 marks)\n\t(c)\tWhat was the largest temperature difference in the whole day?\t(1 mark)\n\t(d)\tDescribe the temperature change from 9 am to 10 am on this day.\t(3 marks)",
+        "ocr": "PHY11013101>\n\n<lvl=avg><part=core><type=lq><mark=10><bk=1><ch=01><content>\n\n* The figure below shows the variation of temperature and relative humidity with time in Peng\nChau in one day.\n\naxis A axis B\n\n100 32\n95 humidity 431\n90 30\n85 29\n80 temperature 28\n75E 27\n7O0- 4 26\n65 | | | oe | | | a on | | | ee oe | | | |\n\n25\n00 01 02 03 04 05 06 O07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 23:50\nHong Kong time (hour)\n\n(Source: Hong Kong Observatory)\n(a) Which axis, A or B, in the figure is the temperature axis? What is the unit used? (2 marks)\n(b) (i) When was the temperature the highest on this day? What was the temperature?\n\n(2 marks)\n(ii) When was the temperature the lowest on this day? What was the temperature?\n(2 marks)\n(c) What was the largest temperature difference in the whole day? (1 mark)\n(d) Describe the temperature change from 9 am to 10 am on this day. (3 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Which axis, A or B, in the figure is the temperature axis? What is the unit used?",
+          "marks": 2
+        },
+        {
+          "label": "b(i)",
+          "text": "When was the temperature the highest on this day? What was the temperature?",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "When was the temperature the lowest on this day? What was the temperature?",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "What was the largest temperature difference in the whole day?",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "Describe the temperature change from 9 am to 10 am on this day.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAxis B is the temperature axis.\n1A\n\tThe unit is degree Celsius (°C).\n1A\n(b)\t(i)\tThe temperature was the highest at 1 pm.\n1A\n\t\tIt was about 31 °C.\n1A\n\t(ii)\tThe temperature was the lowest between 2 am to 3 am.\n1A\n\t\tIt was about 27 °C.\n1A\n(c)\t4 °C\n1A\n(d)\tThe temperature first dropped from 30 °C\n1A\n\tto 29 °C.\n1A\n\tThen it rose back to 30 °C.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Axis B is the temperature axis.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The unit is degree Celsius (°C).",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "The temperature was the highest at 1 pm.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "It was about 31 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "The temperature was the lowest between 2 am to 3 am.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "It was about 27 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "4 °C",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The temperature first dropped from 30 °C",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "to 29 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Then it rose back to 30 °C.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11013101.png"
+        ],
+        "answer": [
+          "crops/PHY11013101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_LQ_e.docx",
+          "sha256": "ad8d3d5a6de793d61bcf50f0cac9a82c7ff166e588ee5157e925f08bd23896f7",
+          "pdf": "qb-pdf/QB_101/1_ch01_LQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.05699157714844,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11013102",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 2,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tA thermometer makes use of a temperature-dependent property of a material to measure temperature. It is more sensitive if the property varies more for the same change in temperature.\n\t(a)\tThe figure below shows the variation of the resistance of two materials X and Y with temperature.\n[fig:3]resistance / Ω\ntemperature / °C\n1000\n600\n400\n150\n0\n10\t60\nX\nY\n[fig:4]resistance / Ω\ntemperature / °C\n1000\n600\n400\n150\n0\n10\t60\nX\nY\n\n\t\t(i)\tWhich material will you choose to make a thermometer? Explain briefly.\t(2 marks)\n\t\t(ii)\tFind the resistance of Y at 50 °C.\t(2 marks)\n\t(b)\tSuggest two methods that can increase the sensitivity of a liquid-in-glass thermometer. Explain briefly.\t(4 marks)",
+        "ocr": "PHY11013102>\n<lvl=avg><part=core><type=lq><mark=8><bk=1><ch=01><content>\n* A thermometer makes use of a temperature-dependent property of a material to measure\ntemperature. It is more sensitive if the property varies more for the same change in temperature.\n(a) The figure below shows the variation of the resistance of two materials X and Y with\ntemperature.\n\n\nresistance / O\n\nA\n1000 }--- N\n600 L ---!\n400 '\n150 |-------------- Ni\n0 » temperature / °C\n10 60 ia\n\n(i) Which material will you choose to make a thermometer? Explain briefly. (2 marks)\n\n(ii) Find the resistance of Y at 50 °C. (2 marks)\n(b) Suggest two methods that can increase the sensitivity of a liquid-in-glass thermometer.\nExplain briefly. (4 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "The figure below shows the variation of the resistance of two materials X and Y with temperature.\n[fig:3]resistance / Ω\ntemperature / °C\n1000\n600\n400\n150\n0\n10\t60\nX\nY\n[fig:4]resistance / Ω\ntemperature / °C\n1000\n600\n400\n150\n0\n10\t60\nX\nY\n\n\t\t(i)\tWhich material will you choose to make a thermometer? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "a(ii)",
+          "text": "Find the resistance of Y at 50 °C.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Suggest two methods that can increase the sensitivity of a liquid-in-glass thermometer. Explain briefly.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tA thermometer will be more sensitive\n\t\twhen it makes use of Y instead of X.\n1A\n1A\n\t(ii)\t[eq:1]=[eq:2]\n1M\n\tR = 320 Ω\n\t\tThe resistance of Y is 320 Ω at 50 °C.\n1A\n\n(b)\tMethod 1:\n\tUse a larger bulb so that the thermometer contains more liquid.\n\tThe change in the volume is larger when more liquid is used.\n\tMethod 2:\n\tUse a narrower glass tube.\n\tFor the same change in the volume of the liquid, the narrower the tube, the larger the change in the length of the liquid in the tube.\n\t(Or other reasonable answers)\n\n1A\n1A\n\n1A\n\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "A thermometer will be more sensitive\n\t\twhen it makes use of Y instead of X.",
+            "code": "1A 1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "[eq:1]=[eq:2]",
+            "code": "1M"
+          },
+          {
+            "part": "a(ii)",
+            "point": "R = 320 Ω\n\t\tThe resistance of Y is 320 Ω at 50 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Method 1:\n\tUse a larger bulb so that the thermometer contains more liquid.\n\tThe change in the volume is larger when more liquid is used.\n\tMethod 2:\n\tUse a narrower glass tube.\n\tFor the same change in the volume of the liquid, the narrower the tube, the larger the change in the length of the liquid i",
+            "code": "1A 1A 1A 1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11013102.png"
+        ],
+        "answer": [
+          "crops/PHY11013102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_LQ_e.docx",
+          "sha256": "ad8d3d5a6de793d61bcf50f0cac9a82c7ff166e588ee5157e925f08bd23896f7",
+          "pdf": "qb-pdf/QB_101/1_ch01_LQ_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            604.8497314453125,
+            156.05699157714844,
+            617.0267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11013103",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 3,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tThe postions of Hong Kong, Sydney, Beijing and Jakarta are shown in Figure a. Figure b shows the variation of the monthly average temperature in a year in Hong Kong. When the northern hemisphere is in summer, the southern hemisphere is in winter.The temperature near the equator does not change much and the four seasons are indistinct.\n[fig:5]\n[fig:6]\nFigure a\nFigure b\n\tFigures c, d and e show the variation of the monthly average temperature in a year in cities A, B and C.\n[fig:7]\n[fig:8]\n[fig:9]\nFigure c  City A.\nFigure d  City B.\nFigure e  City C.\n\t(a)\tWhich of cities A, B and C corresponds to Sydney, Beijing and Jakarta respectively? Explain your answer briefly.\t(6 marks)\n\t(b)\t(i)\tWhich cities, Hong Kong, Sydney, Beijing or Jakarta, has the largest annual temperature difference?\t(1 mark)\n\t\t(ii)\tEstimate the annual temperature difference in this city. \t(1 mark)",
+        "ocr": "PHY11013103>\n\n<lvl=avg><part=core><type=lq><mark=8><bk=1><ch=01><content>\n\n* The postions of Hong Kong, Sydney, Beijing and Jakarta are shown in Figure a. Figure b shows\nthe variation of the monthly average temperature in a year in Hong Kong. When the northern\nhemisphere is in summer, the southern hemisphere is in winter. The temperature near the\nequator does not change much and the four seasons are indistinct.\n\n\ntemperature / °C\n35\n\n30\n25\n20\n\n15\nnorthern 10\n\nhemisphere\n\nequator ~10\n\nsouthern\n-30\nhemisphere\n\nuer\nged\nJew\nidy\nKew\nunr\nIne\nJ@)\n\nBny\ndag\nAON\n90q\n\nFigure a Figure b\n\nFigures c, d and e show the variation of the monthly average temperature in a year in cities A, B\nand C,\n\ntemperature / °C temperature / °C temperature / °C\n35 35 35\n30 30 30\n25 25 > > | 25\n20 20 20\n15 15 7\n10 10 10\n5 5 5\n0 0 0\n5 -5 5\n-10 10 —10\n15 -15 -15\n-20 -20 -20\n25 -25 25\n-30 -30 -30 =\nSEEZESEZLLEY FSESRSEZLLTY = SPERSSERLLEL\nFigure c City A. Figure d City B. Figure e City C.\n(a) Which of cities A, B and C corresponds to Sydney, Beijing and Jakarta respectively?\nExplain your answer briefly. (6 marks)\n(b) (i) Which cities, Hong Kong, Sydney, Beijing or Jakarta, has the largest annual\ntemperature difference? (1 mark)\n(ii) Estimate the annual temperature difference in this city. (1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Which of cities A, B and C corresponds to Sydney, Beijing and Jakarta respectively? Explain your answer briefly.",
+          "marks": 6
+        },
+        {
+          "label": "b(i)",
+          "text": "Which cities, Hong Kong, Sydney, Beijing or Jakarta, has the largest annual temperature difference?",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "Estimate the annual temperature difference in this city.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tFrom June to August, City A is in winter while Hong Kong is in summer.\n1A\n\tTherefore, City A is in the southern hemisphere and is Sydney.\n1A\n\tThe change in temperature in City B is very small throughout a year.\n1A\n\tTherefore, City B is near the equator and is Jakarta.\n1A\n\tThe hottest days are in July and August in City C, the same as Hong Kong.\n1A\n\tTherefore, City C is Beijing.\n1A\n(b)\t(i)\tBeijing\n1A\n\t(ii)\t30 °C\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "From June to August, City A is in winter while Hong Kong is in summer.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Therefore, City A is in the southern hemisphere and is Sydney.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The change in temperature in City B is very small throughout a year.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Therefore, City B is near the equator and is Jakarta.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The hottest days are in July and August in City C, the same as Hong Kong.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Therefore, City C is Beijing.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Beijing",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "30 °C",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11013103.png"
+        ],
+        "answer": [
+          "crops/PHY11013103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_LQ_e.docx",
+          "sha256": "ad8d3d5a6de793d61bcf50f0cac9a82c7ff166e588ee5157e925f08bd23896f7",
+          "pdf": "qb-pdf/QB_101/1_ch01_LQ_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            538.69970703125,
+            156.05699157714844,
+            550.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011101",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 1,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following temperatures is different from the others?",
+        "ocr": "PHY11011101>\n<lvl=easy><part=core><type=mc><mark=2><bk=1><ch=01><content>\nWhich of the following temperatures is different from the others?\n\nA O0°C\n\nB_ Upper fixed point of the Celsius temperature scale\nC Ice point\n\nD_ Temperature of melting ice",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0 °C"
+        },
+        {
+          "label": "B",
+          "text": "Upper fixed point of the Celsius temperature scale"
+        },
+        {
+          "label": "C",
+          "text": "Ice point"
+        },
+        {
+          "label": "D",
+          "text": "Temperature of melting ice"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The upper fixed point of the Celsius temperature scale is 100 °C, while the ice point and the temperature of melting ice are both 0 °C.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011101.png"
+        ],
+        "answer": [
+          "crops/PHY11011101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            71.9997787475586,
+            154.6649932861328,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011102",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 2,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following types of thermometer makes use of the temperature dependence property that matter expands with temperature?",
+        "ocr": "PHY11011102>\n\n<Ivl=easy><part=core><type=mc><mark=2><bk=1><ch=01><content>\nWhich of the following types of thermometer makes use of the temperature dependence\nproperty that matter expands with temperature?\n\nInfra-red thermometer\n\nResistance thermometer\n\nLiquid-in-glass thermometer\n\nThermistor thermometer\n\nGDOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Infra-red thermometer"
+        },
+        {
+          "label": "B",
+          "text": "Resistance thermometer"
+        },
+        {
+          "label": "C",
+          "text": "Liquid-in-glass thermometer"
+        },
+        {
+          "label": "D",
+          "text": "Thermistor thermometer"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "The liquid in a liquid-in-glass thermometer expands with temperature.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011102.png"
+        ],
+        "answer": [
+          "crops/PHY11011102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            281.3497619628906,
+            154.6649932861328,
+            293.5267639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011103",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 3,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about thermometer is incorrect?",
+        "ocr": "PHY11011103>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n\n* = Which of the following statements about thermometer is incorrect?\n\nAll thermometers are using the Celsius temperature scale.\n\nThermometer is an instrument for measuring the degree of hotness of an object.\n\nAll types of thermometers make use of the temperature-dependent properties of materials.\n\nThe temperature of steam point measured by different types of thermometers should be the\nsame.\n\nGDOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "All thermometers are using the Celsius temperature scale."
+        },
+        {
+          "label": "B",
+          "text": "Thermometer is an instrument for measuring the degree of hotness of an object."
+        },
+        {
+          "label": "C",
+          "text": "All types of thermometers make use of the temperature-dependent properties of materials."
+        },
+        {
+          "label": "D",
+          "text": "The temperature of steam point measured by different types of thermometers should be the same."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Fahrenheit and Kelvin temperature scales are two other commonly used temperature scales in thermometers.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011103.png"
+        ],
+        "answer": [
+          "crops/PHY11011103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            491.8497619628906,
+            154.6929931640625,
+            504.0267639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011104",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 4,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tArrange the temperatures of following objects in ascending order: (i) tap water, (ii) ice in freezer, (iii) melting ice, (iv) dry ice (solid carbon dioxide).",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(i), (iii), (ii), (iv)"
+        },
+        {
+          "label": "B",
+          "text": "(ii), (iv), (iii), (i)"
+        },
+        {
+          "label": "C",
+          "text": "(iv), (iii), (ii), (i)"
+        },
+        {
+          "label": "D",
+          "text": "(iv), (ii), (iii), (i)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "The temperature of tap water is at room temperature which is above 0 °C.\nThe freezer temperature is below 0 °C. Therefore, the temperature of ice in freezer is also below 0 °C.\nThe temperature of melting ice is 0 °C.\nThe temperature of dry ice is below −78.5 °C.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011104.png"
+        ],
+        "answer": [
+          "crops/PHY11011104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            716.2997436523438,
+            154.6649932861328,
+            728.4767456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011105",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 5,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tX and Y are liquid-in-glass thermometers filled with the same kind of liquid. Both of them are calibrated at normal atmospheric pressure for the ice point and the steam point. X has a larger bulb than Y and the cross-sectional areas of the liquid columns in X and Y are the same.\n[fig:1]thermometer X\nthermometer Y\n[fig:2]thermometer X\nthermometer Y\n\n\tAt the ice point, the liquid columns in X and Y are of the same length. Is the liquid column in X shorter or longer than that in Y at the room temperature and at the steam point?\n\t\nAt room temperature\nAt steam point",
+        "ocr": "PHY11011105>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n\n* = Xand Yare liquid-in-glass thermometers filled with the same kind of liquid. Both of them are\ncalibrated at normal atmospheric pressure for the ice point and the steam point. X has a larger\nbulb than Y and the cross-sectional areas of the liquid columns in X and Y are the same.\n\na\na\n\nthermometer X thermometer Y\n\nAt the ice point, the liquid columns in X and Y are of the same length. Is the liquid column in X\nshorter or longer than that in Y at the room temperature and at the steam point?\n\nAt room temperature At steam point\nA same length same length\nB shorter same length\nC longer same length\nD longer longer",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "same length\nsame length"
+        },
+        {
+          "label": "B",
+          "text": "shorter\nsame length"
+        },
+        {
+          "label": "C",
+          "text": "longer\nsame length"
+        },
+        {
+          "label": "D",
+          "text": "longer\nlonger"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "The liquid in a liquid-in-glass thermometer expands when its temperature increases. Since the original volume of the liquid in X is larger than that in Y, the increase in volume of the liquid in X is larger than that in Y for the same increase in temperature. Therefore, the liquid column in X will be longer at both room temperature and steam point.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011105.png"
+        ],
+        "answer": [
+          "crops/PHY11011105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            319.7497863769531,
+            154.6649932861328,
+            331.9267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011106",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 6,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tA thermometer makes use of the resistance R of a platinum wire wrapped around a ceramic core to measure temperature T. The thermometer is calibrated for the two fixed points. R is assumed to change linearly with T and the solid line in the figure is used to give the reading of the thermometer. The dotted line shows the actual variation of R with T.\n[fig:3]R / Ω\nT / °C\n120\n100\nlower fixed point\nupper fixed point\n[fig:4]R / Ω\nT / °C\n120\n100\nlower fixed point\nupper fixed point\n\n\tIf the thermometer gives a reading of 120 °C in a measurement, which of the following statement is correct?",
+        "ocr": "PHY11011106>\n<lvl=dif><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* * A thermometer makes use of the resistance R of a platinum wire wrapped around a ceramic\n\ncore to measure temperature T. The thermometer is calibrated for the two fixed points. R is\nassumed to change linearly with T and the solid line in the figure is used to give the reading of\nthe thermometer. The dotted line shows the actual variation of R with T.\n\nR/IQ\nA\n100 a \\\n--\" upper fixed\naa point\nlower fixed\npoint\n~7T/°C\n120\n\nIf the thermometer gives a reading of 120 °C in a measurement, which of the following\nstatement is correct?\n\nA The actual temperature is lower than 120 °C.\n\nB_ The actual temperature is higher than 120 °C.\n\nC The resistance of the platinum wire is smaller than 100 Q.\n\nD_ The resistance of the platinum wire is larger than 100 Q.",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "The actual temperature is lower than 120 °C."
+        },
+        {
+          "label": "B",
+          "text": "The actual temperature is higher than 120 °C."
+        },
+        {
+          "label": "C",
+          "text": "The resistance of the platinum wire is smaller than 100 Ω."
+        },
+        {
+          "label": "D",
+          "text": "The resistance of the platinum wire is larger than 100 Ω."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "According to the solid line, a reading of 120 °C corresponds to a resistance of 100 Ω. According to the dotted line, a resistance of 100 Ω corresponds to an actual temperature higher than 120 °C.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011106.png"
+        ],
+        "answer": [
+          "crops/PHY11011106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            162.59976196289062,
+            154.6649932861328,
+            174.77676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011107",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 7,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "City X is in summer from December to February. The difference in the monthly average temperature in a year is less than 15 °C. Which of the following graphs best shows the monthly average temperatures in City X?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "[fig:5]"
+        },
+        {
+          "label": "B",
+          "text": "[fig:6]"
+        },
+        {
+          "label": "C",
+          "text": "[fig:7]"
+        },
+        {
+          "label": "D",
+          "text": "[fig:8]"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "In option B, the monthly average temperature in city X is the highest from Dec to Feb and the difference in the monthly average temperature over the 12-month period is less than 15 °C.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011107.png"
+        ],
+        "answer": [
+          "crops/PHY11011107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            644.8587646484375,
+            164.13002014160156,
+            658.1427612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011108",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 8,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following physical properties can be used to design a thermometer?\n\t(1)\tVolume\n\t(2)\tMass\n\t(3)\tResistance",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The volume and the resistance of a substance may change when its temperature changes.\n∴ (1) and (3) are correct.\nThe mass of any substance does not change when its temperature changes.\n∴ (2) is incorrect.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011108.png"
+        ],
+        "answer": [
+          "crops/PHY11011108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            595.249755859375,
+            154.6649932861328,
+            607.4267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011109",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 9,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following thermometers measures temperature by detecting the intensity of radiation?",
+        "ocr": "PHY11011109>\n<lvl=easy><part=core><type=mc><mark=2><bk=1><ch=01><content>\n\nWhich of the following thermometers measures temperature by detecting the intensity of\nradiation?\n\nA Liquid-in-glass thermometer\nB_ Resistance thermometer\nC Thermistor thermometer\n\nD_ Infra-red thermometer",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Liquid-in-glass thermometer"
+        },
+        {
+          "label": "B",
+          "text": "Resistance thermometer"
+        },
+        {
+          "label": "C",
+          "text": "Thermistor thermometer"
+        },
+        {
+          "label": "D",
+          "text": "Infra-red thermometer"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "The intensity of infra-red radiation given out by an object increases when its temperature increases. An infra-red thermometer measures the temperature of an object by measuring the intensity of infra-red radiation given out by the object.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011109.png"
+        ],
+        "answer": [
+          "crops/PHY11011109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            215.24978637695312,
+            154.6929931640625,
+            227.42678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011110",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 10,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe graph below shows the variation of a property P of two materials X and Y with temperature T.\n[fig:9]P\nT\nY\nX\n0\n[fig:10]P\nT\nY\nX\n0\n\n\tWhich of the following statements is correct?",
+        "ocr": "PHY11011110>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n\n* The graph below shows the variation of a property P of two materials X and Y with temperature\nT.\n\nWhich of the following statements is correct?\n\nA Only X is suitable for making thermometers.\n\nB_ Only Y is suitable for making thermometers.\n\nC_ Both X and Y are suitable for making thermometers.\nD_ Neither X nor Y is suitable for making thermometers.\n\n\nWhen a property P of a material varies with its temperature T and each value of P\ncorresponds to a single temperature 7, thermometers can make use of the P-T\nrelationship of this material to measure temperature. Both property P of materials X and\nY meets the above criteria.",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Only X is suitable for making thermometers."
+        },
+        {
+          "label": "B",
+          "text": "Only Y is suitable for making thermometers."
+        },
+        {
+          "label": "C",
+          "text": "Both X and Y are suitable for making thermometers."
+        },
+        {
+          "label": "D",
+          "text": "Neither X nor Y is suitable for making thermometers."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "When a property P of a material varies with its temperature T and each value of P corresponds to a single temperature T, thermometers can make use of the P-T relationship of this material to measure temperature. Both property P of materials X and Y meets the above criteria.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011110.png"
+        ],
+        "answer": [
+          "crops/PHY11011110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            439.4997863769531,
+            154.2429962158203,
+            451.6767883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011111",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 11,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA thermometer makes use of the resistance R of a material to measure temperature. The figure below shows how R varies with temperature T.\n[fig:11]R / Ω\nT / °C\n0\n20\t80\n50\n170\n[fig:12]R / Ω\nT / °C\n0\n20\t80\n50\n170\n\n\tWhat is the temperature when R is 100 Ω?",
+        "ocr": "PHY11011111>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* A thermometer makes use of the resistance R of a material to measure temperature. The figure\nbelow shows how R varies with temperature T.\nR1IQ\n\np> T/°C\n\nWhat is the temperature when R is 100 Q?\n\nA 25°C\nB 45°C\nC 55°C\nD 105°C",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "25 °C"
+        },
+        {
+          "label": "B",
+          "text": "45 °C"
+        },
+        {
+          "label": "C",
+          "text": "55 °C"
+        },
+        {
+          "label": "D",
+          "text": "105 °C"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Let T °C be the temperature of the material.\n[eq:1]\nThe temperature is 55 °C when R is 100 Ω.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011111.png"
+        ],
+        "answer": [
+          "crops/PHY11011111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            162.59976196289062,
+            153.84298706054688,
+            174.77676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011112",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 12,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following methods can improve the sensitivity of a liquid-in-glass thermometer?\n[fig:13]\n\t(1)\tReduce the diameter of the glass tube.\n\t(2)\tIncrease the length of the glass tube.\n\t(3)\tUse a liquid which expands less for the same temperature increase.",
+        "ocr": "PHY11011112>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* = Which of the following methods can improve the sensitivity of a liquid-in-glass thermometer?\n\n\nnarrow glass tube\n\nscale\n\nliquid —_]]\n\n}}-—bulb\n\n(1) Reduce the diameter of the glass tube.\n\n(2) Increase the length of the glass tube.\n\n(3) Use a liquid which expands less for the same temperature increase.\nA (1) only\n\nB= (2) only\n\nC (1) and (3) only\n\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "By reducing the diameter of the glass tube, the change in length of alcohol column is larger with the same change in temperature. This improves the sensitivity of the thermometer.\n∴ (1) is correct.\nThe length of the glass tube does not affect the sensitivity of the thermometer.\nIf the liquid expands less for the same temperature increase, the sensitivity of the thermometer will be lower.\n∴ (2) and (3) are incorrect.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011112.png"
+        ],
+        "answer": [
+          "crops/PHY11011112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            6,
+            7
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            623.69970703125,
+            154.2429962158203,
+            635.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011113",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 13,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about the Celsius temperature scale is/are correct?\n\t(1)\tThe lower fixed point is the lowest temperature existing in nature.\n\t(2)\tThe upper fixed point is the temperature of steam.\n\t(3)\tThe unit of this scale is °C.",
+        "ocr": "PHY11011113>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* = Which of the following statements about the Celsius temperature scale is/are correct?\n(1) The lower fixed point is the lowest temperature existing in nature.\n(2) The upper fixed point is the temperature of steam.\n(3) The unit of this scale is °C.\nA (1) only\nB_ (8) only\nC (1) and (2) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The lower fixed point of Celsius temperature scale is 0 °C. The temperature in winter in many places can get below 0 °C.\n∴ (1) is incorrect.\nThe upper fixed point is the temperature that pure water boils at normal atmospheric pressure, which is 100 °C. The temperature of steam can be higher than 100 °C.\n∴ (2) is incorrect.\nThe unit of Celsius temperature scale is degree Celsius (°C).\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011113.png"
+        ],
+        "answer": [
+          "crops/PHY11011113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            509.7497863769531,
+            154.2139892578125,
+            521.9267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011114",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 14,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tMary calibrates a liquid-in-glass thermometer by putting it in water at room temperature of 25 °C and pure boiling water in turn. The length of the liquid column increases by 16 cm in the process. Then she puts the thermometer in a glass of water of unknown temperature T. The liquid column is 8 cm above the level corresponds to 25 °C. Find T.",
+        "ocr": "PHY11011114>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n\n* ~~ Mary calibrates a liquid-in-glass thermometer by putting it in water at room temperature of 25\n°C and pure boiling water in turn. The length of the liquid column increases by 16 cm in the\nprocess. Then she puts the thermometer in a glass of water of unknown temperature T. The\nliquid column is 8 cm above the level corresponds to 25 °C. Find T.\n\nA 25.2°C\nB 37.5°C\nC 50.0°C\nD 62.5°C",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "25.2 °C"
+        },
+        {
+          "label": "B",
+          "text": "37.5 °C"
+        },
+        {
+          "label": "C",
+          "text": "50.0 °C"
+        },
+        {
+          "label": "D",
+          "text": "62.5 °C"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "[eq:2]",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011114.png"
+        ],
+        "answer": [
+          "crops/PHY11011114.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            162.59976196289062,
+            154.2139892578125,
+            174.77676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011115",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 15,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIf the mercury in a liquid-in-glass thermometer is replaced by alcohol, which of the following statements is/are correct?\n\t(1)\tThe thermometer can measure a higher temperature.\n\t(2)\tThe thermometer becomes less sensitive to temperature change.\n\t(3)\tThe thermometer will be safer to use.",
+        "ocr": "PHY11011115>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* = If the mercury in a liquid-in-glass thermometer is replaced by alcohol, which of the following\nstatements is/are correct?\n(1) The thermometer can measure a higher temperature.\n(2) The thermometer becomes less sensitive to temperature change.\n(3) The thermometer will be safer to use.\n\nA\nB\nC\nD",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Mercury-in-glass thermometers can measure higher temperatures than alcohol-in-glass thermometers do.\n∴ (1) is incorrect.\nMercury is a good conductor of heat, while alcohol is a poor conductor of heat.\n∴ (2) is correct.\nReplacing poisonous mercury with non-poisonous alcohol makes the thermometer safer to use.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011115.png"
+        ],
+        "answer": [
+          "crops/PHY11011115.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            485.19976806640625,
+            154.2139892578125,
+            497.37677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011116",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 16,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about 0 °C are correct?\n\t(1)\tIt is the lower fixed point of the Celsius temperature scale.\n\t(2)\tIt represents the degree of coldness of pure melting ice at normal atmospheric pressure.\n\t(3)\tIt is the lowest possible temperature of matter.",
+        "ocr": "PHY11011116>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* = Which of the following statements about 0 °C are correct?\n(1) It is the lower fixed point of the Celsius temperature scale.\n(2) It represents the degree of coldness of pure melting ice at normal atmospheric pressure.\n(3) It is the lowest possible temperature of matter.\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "The lower fixed point of the Celsius temperature scale is the temperature of pure melting ice at normal atmospheric pressure and taken as 0 °C.\n∴ (1) and (2) are correct.\nThe temperature in winter in many places can get below 0 °C.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011116.png"
+        ],
+        "answer": [
+          "crops/PHY11011116.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            162.59976196289062,
+            154.2139892578125,
+            174.77676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011117",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 17,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following graph shows the temperature change at the Peak in one day.\n[fig:14][fig:15]\n(Source: Hong Kong Observatory)\n\tWhich of the following statements is/are correct?\n\t(1)\tThe hottest time is at 14:00.\n\t(2)\tThe temperature difference in the whole day is less than 5 °C.\n\t(3)\tAfter 08:00, the temperature keeps increasing until noon.",
+        "ocr": "PHY11011117>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* The following graph shows the temperature change at the Peak in one day.\n(°C) (°C)\n\n30\n\n29 -\n\n28 F\n\n27\n\n26 -\n\n25E\n\n24-\n\n23 + 23\n\n22 - +22\n[CS GO EN NS GO I>\n\n\"00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 29 23:50\nHong Kong time (hour)\n(Source: Hong Kong Observatory)\nWhich of the following statements is/are correct?\n(1) The hottest time is at 14:00.\n(2) The temperature difference in the whole day is less than 5 °C.\n(3) After 08:00, the temperature keeps increasing until noon.\nA (1) only\nB= (2) only\n\n\nC (1) and (2) only\nD_ (4) and (3) only",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(1) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The hottest time is at around 13:30.\n∴ (1) is incorrect.\nThe highest and lowest temperatures in the day are approximately 29.1 °C and 24.6 °C, hence the temperature difference in the whole day is less than 5 °C.\n∴ (2) is correct.\nAfter 08:00, the temperature has dropped 3 times until noon.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011117.png"
+        ],
+        "answer": [
+          "crops/PHY11011117.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            9,
+            10
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            447.0497741699219,
+            154.2139892578125,
+            459.2267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011118",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 18,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about temperature are correct?\n\t(1)\tTemperature is the measure of the ‘hotness’ of an object.\n\t(2)\tSome processes take place at fixed temperatures.\n\t(3)\tDegree is a unit of temperature.",
+        "ocr": "PHY11011118>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* = Which of the following statements about temperature are correct?\n(1) Temperature is the measure of the ‘hotness’ of an object.\n(2) Some processes take place at fixed temperatures.\n(3) Degree is a unit of temperature.\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "(1) is correct.\nProcesses such as melting and boiling of substances take place at fixed temperatures at a fixed atmospheric pressure.\n∴ (2) is correct.\nDegree Celsius (or Kelvin / degree Fahrenheit) is a unit of temperature.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011118.png"
+        ],
+        "answer": [
+          "crops/PHY11011118.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            256.3497619628906,
+            154.2139892578125,
+            268.5267639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011119",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 19,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following graphs show how the volumes of four liquids change with temperature. The scales used in the graphs are the same. Which liquid is the most suitable to be used in a liquid-in-glass thermometer?",
+        "ocr": "PHY11011119>\n<lvl=avg><part=core><type=mc><mark=2><bk=1><ch=01><content>\n* The following graphs show how the volumes of four liquids change with temperature. The\n\nscales used in the graphs are the same. Which liquid is the most suitable to be used in a liquid-\nin-glass thermometer?\n\nA volume B volume\nA A\n\n—\n\n> temperature > temperature\n\n\n\nC volume D volume\nA A\n\n» temperature » temperature\nr r",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "[fig:16]temperature\nvolume\n[fig:17]temperature\nvolume"
+        },
+        {
+          "label": "B",
+          "text": "[fig:18]temperature\nvolume\n[fig:19]temperature\nvolume"
+        },
+        {
+          "label": "C",
+          "text": "[fig:20]temperature\nvolume\n[fig:21]temperature\nvolume"
+        },
+        {
+          "label": "D",
+          "text": "[fig:22]temperature\nvolume\n[fig:23]temperature\nvolume"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "When a property P of a material varies with its temperature and each value of P corresponds to a single temperature T, thermometers can make use of the P-T relationship of this material to measure temperature. Only option B meets the criteria. A single value of volume happens to correspond to more than one temperature for options A, C and D.\n∴ Only liquid B can be used in a liquid-in-glass thermometer.",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011119.png"
+        ],
+        "answer": [
+          "crops/PHY11011119.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            10,
+            11
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            550.2997436523438,
+            154.2139892578125,
+            562.4767456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11011120",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 20,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tThe separation between the -10 °C and 110 °C marks on a mercury-in-glass thermometer is \n20 cm. When the thermometer is put in a liquid of temperature T, the mercury thread is 10 cm above the 0 °C mark. The temperature T is",
+        "ocr": "PHY11011120>\n\n<lvl=dif><part=core><type=mc><mark=2><bk=1><ch=01><content>\n\n* * The separation between the -10 °C and 110 °C marks on a mercury-in-glass thermometer is\n20 cm. When the thermometer is put in a liquid of temperature T, the mercury thread is 10 cm\nabove the 0 °C mark. The temperature T is\n\nA 50°C.\nB 55°C.\nC 58°C.\nD_ 60°C.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "50 °C."
+        },
+        {
+          "label": "B",
+          "text": "55 °C."
+        },
+        {
+          "label": "C",
+          "text": "58 °C."
+        },
+        {
+          "label": "D",
+          "text": "60 °C."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "[eq:3]",
+        "marking": [],
+        "source": "QB_101/1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11011120.png"
+        ],
+        "answer": [
+          "crops/PHY11011120.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_MC_e.docx",
+          "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            50.54999923706055,
+            351.8997802734375,
+            154.6649932861328,
+            364.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11014101",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 1,
+      "type": "rq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\nInfra-red thermometer\nObjects at different temperatures emit different amounts of radiations. For example, a hot object emits more infra-red radiation than a cold object. Hence, the temperature of an object can be found out by measuring the amount of infra-red radiation it emits.\nNo contact between an object and an infra-red thermometer is required in measuring temperature. Therefore, infra-red thermometers are also called non-contact thermometers. \nSince non-contact thermometers do not touch the objects when they measure temperature, they do not change the temperature of the objects. Also, they can respond rapidly to the temperature change of the objects. \n(Reference: http://www.temperatures.com/rts.html)\n[fig:1]\n\t(a)\tHow does an infra-red thermometer measure temperature?\t(1 mark)\n\t(b)\tIn the article, what are the advantages of using non-contact thermometers?\t(2 marks)\n\t(c)\tGive an example of contact thermometers. What limits the temperature range measured by that thermometer?\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "How does an infra-red thermometer measure temperature?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "In the article, what are the advantages of using non-contact thermometers?",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Give an example of contact thermometers. What limits the temperature range measured by that thermometer?",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tIt measures temperature by measuring the amount of infra-red radiation emitted by an object.\n\n1A\n(b)\tThey do not change the temperature of the object.\n1A\n\tThey respond rapidly to temperature changes.\n1A\n(c)\tLiquid-in-glass thermometer\n1A\n\tThe temperature range is limited by the melting point or boiling point of the substance used by the thermometer.\n\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "It measures temperature by measuring the amount of infra-red radiation emitted by an object.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "They do not change the temperature of the object.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "They respond rapidly to temperature changes.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Liquid-in-glass thermometer",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The temperature range is limited by the melting point or boiling point of the substance used by the thermometer.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_RQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11014101.png"
+        ],
+        "answer": [
+          "crops/PHY11014101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_RQ_e.docx",
+          "sha256": "cc61e7962bf380711e04686f5b56996e3575904e05e4d28ce6c3ac5c02b4aebc",
+          "pdf": "qb-pdf/QB_101/1_ch01_RQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.05699157714844,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012101",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 1,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "A liquid-in-glass thermometer is calibrated for the ice point and the steam point.\n\t(a)\tWhat are the ice point and the steam point?\t(2 marks)\n\t(b)\tThe length of the liquid column is 5.7 cm at the ice point and 18.4 cm at the steam point. Find the length of the liquid column at 25 °C. Give the answer correct to one decimal place.\t(2 marks)",
+        "ocr": "PHY11012101>\n<lvl=easy><part=core><type=sq><mark=4><bk=1><ch=01><content>\nA liquid-in-glass thermometer is calibrated for the ice point and the steam point.\n(a) What are the ice point and the steam point? (2 marks)\n(b) The length of the liquid column is 5.7 cm at the ice point and 18.4 cm at the steam point.\nFind the length of the liquid column at 25 °C. Give the answer correct to one decimal\n\nplace. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What are the ice point and the steam point?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The length of the liquid column is 5.7 cm at the ice point and 18.4 cm at the steam point. Find the length of the liquid column at 25 °C. Give the answer correct to one decimal place.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe ice point is the temperature of pure melting ice (at normal atmospheric pressure).\n1A\n\tThe steam point is the temperature of steam over pure boiling water (at normal atmospheric pressure).\n1A\n(b)\tLet L be the length of the liquid column at 25 °C.\n\n\tBy proportion,\n\n\t\t[eq:1]\t=[eq:2]\n1M\n\t\tL\t= 8.9 cm\n1A\n\tThe length of the liquid column is 8.9 cm.",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The ice point is the temperature of pure melting ice (at normal atmospheric pressure).",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The steam point is the temperature of steam over pure boiling water (at normal atmospheric pressure).",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "[eq:1]\t=[eq:2]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "L\t= 8.9 cm",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012101.png"
+        ],
+        "answer": [
+          "crops/PHY11012101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.05699157714844,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012102",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 2,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\n[fig:1][fig:2]\n(Courtesy of Sam Bald │ Flickr.com)\n\tA Galileo thermometer is a sealed glass cylinder containing a clear liquid and several glass vessels of different masses. The density of the clear liquid changes with temperature. When a glass vessel is denser than the clear liquid, it sinks; when it is less dense than the clear liquid, it floats. By seeing which glass vessels are floating, the temperature of the environment can be determined. The graph below shows how the density of the clear liquid varies with temperature.\n[fig:3]density / g cm-3\n0\ntemperature / °C\n15\n20\n25\n10\n5\n0.5\n0.6\n0.7\n0.8\n0.9\n30\n1.0\n[fig:4]density / g cm-3\n0\ntemperature / °C\n15\n20\n25\n10\n5\n0.5\n0.6\n0.7\n0.8\n0.9\n30\n1.0\n\n\tThe density of a substance is given by\ndensity = [eq:3]\n\tVessels X, Y and Z in the Galileo thermometer have masses of 15 g, 20 g and 25 g respectively. Their sizes are the same.\n\t(a)\tWhich vessel has the largest density?\t(1 mark)\n\t(b)\tThe temperature of the environment increases gradually during a certain period of time.\n\t\t(i)\tWhich vessel would be the last one to sink?\t(1 mark)\n\t\t(ii)\tThe size of each vessel is about 27 cm3. At what temperature does vessel Y starts sinking?\t(2 marks)\n\t(c)\tThe coloured liquid in the glass vessel expands when the temperature increases. Explain why this does not affect the measurement.\t(1 mark)",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Which vessel has the largest density?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "The temperature of the environment increases gradually during a certain period of time.\n\t\t(i)\tWhich vessel would be the last one to sink?",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "The size of each vessel is about 27 cm3. At what temperature does vessel Y starts sinking?",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "The coloured liquid in the glass vessel expands when the temperature increases. Explain why this does not affect the measurement.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tVessel Z\n1A\n(b)\t(i)\tVessel X\n1A\n\t(ii)\tDensity of vessel Y =[eq:4]= 0.741 g / cm3\n1A\n\t\tAccording to the graph, vessel Y starts sinking at 16 °C.\n1A\n(c)\tThe mass and the volume of the glass vessel remain unchanged.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Vessel Z",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Vessel X",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Density of vessel Y =[eq:4]= 0.741 g / cm3",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "According to the graph, vessel Y starts sinking at 16 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The mass and the volume of the glass vessel remain unchanged.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012102.png"
+        ],
+        "answer": [
+          "crops/PHY11012102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            386.2997741699219,
+            156.05699157714844,
+            398.4767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012103",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 3,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "(a)\tSam uses a thermometer to measure his body temperature and the reading shows 37. What is the unit?\t(1 mark)\n\t(b)\tName one type of thermometer that can be used to measure the body temperature.\t(1 mark)\n\t(c)\tPaul suggests that we can sterilize the thermometer in (b) with boiling water. Do you agree? Explain briefly.\t(2 marks)",
+        "ocr": "PHY11012103>\n<lvl=easy><part=core><type=sq><mark=4><bk=1><ch=01><content>\n(a) Sam uses a thermometer to measure his body temperature and the reading shows 37. What\nis the unit? (1 mark)\n(b) Name one type of thermometer that can be used to measure the body temperature. (1 mark)\n(c) Paul suggests that we can sterilize the thermometer in (b) with boiling water. Do you\n\nagree? Explain briefly. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Sam uses a thermometer to measure his body temperature and the reading shows 37. What is the unit?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Name one type of thermometer that can be used to measure the body temperature.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Paul suggests that we can sterilize the thermometer in (b) with boiling water. Do you agree? Explain briefly.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t°C / degrees Celsius\n1A\n(b)\tInfra-red thermometer\n\t(Or other reasonable answers)\n1A\n\n(c)\tNo,\n1A\n\tthis is because boiling water may be too hot and damage the thermometer.\n\t(Or other reasonable answers)\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "°C / degrees Celsius",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Infra-red thermometer\n\t(Or other reasonable answers)",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "No,",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "this is because boiling water may be too hot and damage the thermometer.\n\t(Or other reasonable answers)",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012103.png"
+        ],
+        "answer": [
+          "crops/PHY11012103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            100.44979095458984,
+            156.05699157714844,
+            112.62679290771484
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012104",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 4,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "Two types of clinical thermometers, X and Y, are shown below. Both types of thermometers are used to measure the body temperature by putting them beneath one’s tongue.\n[fig:5]X\n[fig:6]X\n\n[fig:7]Y\n[fig:8]Y\n\n\t(a)\tWhich types of thermometers are X and Y respectively?\t(2 marks)\n\t(b)\tWhich temperature-dependent property does each of the thermometers make use of?\n\t(2 marks)",
+        "ocr": "PHY11012104>\n\n<lvl=easy><part=core><type=sq><mark=4><bk=1><ch=01><content>\nTwo types of clinical thermometers, X and Y, are shown below. Both types of thermometers are\nused to measure the body temperature by putting them beneath one’s tongue.\n\n<\n(a) Which types of thermometers are X and Y respectively? (2 marks)\n(b) Which temperature-dependent property does each of the thermometers make use of?\n(2 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Which types of thermometers are X and Y respectively?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Which temperature-dependent property does each of the thermometers make use of?",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThermometer X: liquid-in-glass / mercury-in-glass thermometer\n1A\n\tThermometer Y: thermistor thermometer\n1A\n(b)\tThermometer X: volume of liquid\n1A\n\tThermometer Y: resistance of thermistor\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Thermometer X: liquid-in-glass / mercury-in-glass thermometer",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Thermometer Y: thermistor thermometer",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Thermometer X: volume of liquid",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Thermometer Y: resistance of thermistor",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012104.png"
+        ],
+        "answer": [
+          "crops/PHY11012104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            363.7497863769531,
+            156.05699157714844,
+            375.9267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012105",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 5,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "A student boils an egg with an electric heater. The temperature of the water is recorded every minute and the following results are obtained:\nTime t / min\n0\n1\n2\n3\n4\n5\n6\n7\n8\nTemperature T / °C\n27\n32\n44\n57\n69\n81\n92\n98\n100\n\t(a)\tPlot a graph of T against t on graph paper. Join the points with a smooth curve.\t(3 marks)\n\t(b)\tFind the rise in temperature of the water in the first 3 minutes.\t(1 mark)\n\t(c)\tWhich type of thermometer can be used to measure the temperature of the water?\t(1 mark)",
+        "ocr": "PHY11012105>\n\n<lvl=easy><part=core><type=sq><mark=5><bk=1><ch=01><content>\nA student boils an egg with an electric heater. The temperature of the water is recorded every\nminute and the following results are obtained:\n\n\nTime t / min\n\n0\n\n1 2 3 4\n\n5\n\n6\n\n7\n\n8\n\nTemperature T / °C\n\n27\n\n32 | 44 | 57 | 69\n\n81\n\n92\n\n98\n\n100\n\n(a) Plot a graph of T against t on graph paper. Join the points with a smooth curve.\n\n(b) Find the rise in temperature of the water in the first 3 minutes.\n\n(3 marks)\n(1 mark)\n\n(c) Which type of thermometer can be used to measure the temperature of the water? (1 mark)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Plot a graph of T against t on graph paper. Join the points with a smooth curve.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Find the rise in temperature of the water in the first 3 minutes.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Which type of thermometer can be used to measure the temperature of the water?",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t\n[fig:9]t / min\n1\t2\t3\t4\t5\t6\t7\n[fig:10]t / min\n1\t2\t3\t4\t5\t6\t7\n\n\n\t(Correct labelled axes)\n1A\n\t(Correct data points)\n1A\n\t(Correct curve)\n1A\n(b)\tTemperature rise = 57 – 27 = 30 °C\n1A\n(c)\tMercury-in-glass thermometer\n\t(Or other reasonable answers)\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "(Correct labelled axes)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Correct data points)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Correct curve)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Temperature rise = 57 – 27 = 30 °C",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Mercury-in-glass thermometer\n\t(Or other reasonable answers)",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012105.png"
+        ],
+        "answer": [
+          "crops/PHY11012105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            683.8497314453125,
+            156.05699157714844,
+            696.0267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012106",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 6,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tGary finds that the resistance of material X varies with temperature. When X is at 10 °C, its resistance is 5 Ω. When it is at 50 °C, its resistance is 6 Ω. \n\t(a)\tHe predicts that if the resistance-temperature graph of X is a straight line, the resistance of X should be 7.25 Ω when it is at 100 °C. Show how he can obtain the prediction mathematically.\t(1 mark)\n\t(b)\tAfter measuring the resistance of X at different temperatures, he obtains the following graph.\n[fig:11]10\t50\ntemperature / °C\nresistance / Ω\n6\n5\n0\n[fig:12]10\t50\ntemperature / °C\nresistance / Ω\n6\n5\n0\n\n\t\tCan a thermometer make use of the resistance of X to measure temperature? Explain briefly.\t(2 marks)\n\t(c)\tBesides the resistance thermometer, write down another type of thermometer and the temperature-dependent property that it makes use of.\t(2 marks)",
+        "ocr": "PHY11012106>\n<lvl=avg><part=core><type=sq><mark=5><bk=1><ch=01><content>\nGary finds that the resistance of material X varies with temperature. When X is at 10 °C, its\nresistance is 5 2. When it is at 50 °C, its resistance is 6 Q.\n(a) He predicts that if the resistance-temperature graph of X is a straight line, the resistance of\n\nX should be 7.25 Q when it is at 100 °C. Show how he can obtain the prediction\n\nmathematically.\n\n(b) After measuring the resistance of X at different temperatures, he obtains the following\n\n*\n\ngraph.\n\n1A\n1A\n1A\n1A\n1A\n\n(1 mark)\n\n\nresistance / O\nA\n\np temperature / °C\n\nCan a thermometer make use of the resistance of X to measure temperature? Explain\n\nbriefly. (2 marks)\n(c) Besides the resistance thermometer, write down another type of thermometer and the\ntemperature-dependent property that it makes use of. (2 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "He predicts that if the resistance-temperature graph of X is a straight line, the resistance of X should be 7.25 Ω when it is at 100 °C. Show how he can obtain the prediction mathematically.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "After measuring the resistance of X at different temperatures, he obtains the following graph.\n[fig:11]10\t50\ntemperature / °C\nresistance / Ω\n6\n5\n0\n[fig:12]10\t50\ntemperature / °C\nresistance / Ω\n6\n5\n0\n\n\t\tCan a thermometer make use of the resistance of X to measure temperature? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Besides the resistance thermometer, write down another type of thermometer and the temperature-dependent property that it makes use of.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t[eq:5]\t=[eq:6]\n1A\n\tR\t= 7.25 Ω\n\n(b)\tYes,\n\tafter the thermometer is calibrated, it can be used to measure temperature.\n1A\n\n1A\n(c)\tLiquid-in-glass thermometer\n\tVolume of liquid\n\t(Or other reasonable answers)\n1A\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "[eq:5]\t=[eq:6]",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Yes,\n\tafter the thermometer is calibrated, it can be used to measure temperature.",
+            "code": "1A 1A"
+          },
+          {
+            "part": "c",
+            "point": "Liquid-in-glass thermometer\n\tVolume of liquid\n\t(Or other reasonable answers)",
+            "code": "1A 1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012106.png"
+        ],
+        "answer": [
+          "crops/PHY11012106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            583.1497802734375,
+            156.05699157714844,
+            595.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012107",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 7,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tSuppose you make a thermometer which measures temperature by detecting the resistance of its metal probe. The resistance of the probe varies linearly with temperature. Describe how you can calibrate the thermometer on the Celsius temperature scale.\t(5 marks)",
+        "ocr": "PHY11012107>\n\n<lvl=avg><part=core><type=sq><mark=5><bk=1><ch=01><content>\n\n* Suppose you make a thermometer which measures temperature by detecting the resistance of its\nmetal probe. The resistance of the probe varies linearly with temperature. Describe how you\n\ncan calibrate the thermometer on the Celsius temperature scale. (5 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nPut the probe into pure melting ice.\nThe resistance R0 of the probe corresponds to 0 °C.\nPut the probe into pure boiling water.\nThe resistance R100 of the probe corresponds to 100 °C.\nWhen the resistance of the probe is R, the Celsius temperature T is\n1A\n1A\n1A\n1A\nT =[eq:7]× 100\n1A\n(Accept finding T from T-R graph or dividing the range from R0 to R100 into 100 equal divisions)",
+        "marking": [
+          {
+            "part": "",
+            "point": "Put the probe into pure melting ice.\nThe resistance R0 of the probe corresponds to 0 °C.\nPut the probe into pure boiling water.\nThe resistance R100 of the probe corresponds to 100 °C.\nWhen the resistance of the probe is R, the Celsius temperature T is",
+            "code": "1A 1A 1A 1A"
+          },
+          {
+            "part": "",
+            "point": "T =[eq:7]× 100",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012107.png"
+        ],
+        "answer": [
+          "crops/PHY11012107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            469.2997741699219,
+            156.05699157714844,
+            481.4767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012108",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 8,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tThe Celsius temperature scale is one of the temperature scales calibrated using water.\n\t(a)\tWhat is the value of the lower fixed point of the Celsius scale? What physical change does water undergo at this temperature?\t(2 marks)\n\t(b)\tWhat is the value of the upper fixed point of the Celsius scale? What physical change does water undergo at this temperature?\t(2 marks)\n\t(c)\tGive one advantage of choosing these two fixed points.\t(1 mark)\n\t(d)\tThe figure below shows how the volume V of water varies with temperature T. \n[fig:13]V\nT / °C\n4\n0\n[fig:14]V\nT / °C\n4\n0\n\n\t\tExplain why water is not suitable to be used as the liquid in a liquid-in-glass thermometer.\t(1 mark)",
+        "ocr": "PHY11012108>\n<lvl=avg><part=core><type=sq><mark=6><bk=1><ch=01><content>\n* The Celsius temperature scale is one of the temperature scales calibrated using water.\n\n(a) What is the value of the lower fixed point of the Celsius scale? What physical change does\n\nwater undergo at this temperature? (2 marks)\n(b) What is the value of the upper fixed point of the Celsius scale? What physical change does\nwater undergo at this temperature? (2 marks)\n(c) Give one advantage of choosing these two fixed points. (1 mark)\n\n(d) The figure below shows how the volume V of water varies with temperature T.\n\nV\n\n0 > T/°C\n\nExplain why water is not suitable to be used as the liquid in a liquid-in-glass thermometer.\n\n(1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the value of the lower fixed point of the Celsius scale? What physical change does water undergo at this temperature?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "What is the value of the upper fixed point of the Celsius scale? What physical change does water undergo at this temperature?",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Give one advantage of choosing these two fixed points.",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "The figure below shows how the volume V of water varies with temperature T. \n[fig:13]V\nT / °C\n4\n0\n[fig:14]V\nT / °C\n4\n0\n\n\t\tExplain why water is not suitable to be used as the liquid in a liquid-in-glass thermometer.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe lower fixed point is 0 °C.\n1A\n\tWater becomes ice (or freezes) at 0 °C. / Ice becomes water (or melts) at 0 °C.\n1A\n(b)\tThe upper fixed point is 100 °C.\n1A\n\tWater becomes steam (or boils) at 100 °C.\n1A\n(c)\tThese two fixed points can be reproduced easily.\n1A\n(d)\tAt temperature around 4 °C, two temperatures correspond to the same volume.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The lower fixed point is 0 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Water becomes ice (or freezes) at 0 °C. / Ice becomes water (or melts) at 0 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The upper fixed point is 100 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Water becomes steam (or boils) at 100 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "These two fixed points can be reproduced easily.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "At temperature around 4 °C, two temperatures correspond to the same volume.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012108.png"
+        ],
+        "answer": [
+          "crops/PHY11012108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            100.44979095458984,
+            156.05699157714844,
+            112.62679290771484
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012109",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 9,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tA glass of hot tea is put on a table. The temperature of the tea is recorded every 2 minutes and the following results are obtained:\nTime t / min\n0\n2\n4\n6\n8\n10\n12\n14\n16\nTemperature T / °C\n78\n57\n45\n36\n30\n26\n23\n21\n20\n\t(a)\tPlot a graph of T against t on graph paper. Join the points with a smooth curve.\t(3 marks)\n\t(b)\tFind the temperature change of the tea in the first 3 minutes.\t(1 mark)\n\t(c)\tEstimate the room temperature.\t(1 mark)",
+        "ocr": "PHY11012109>\n\n<lvl=avg><part=core><type=sq><mark=5><bk=1><ch=01><content>\n\n* A glass of hot tea is put on a table. The temperature of the tea is recorded every 2 minutes and\n\nthe following results are obtained:\n\nTime t / min 0 2 4 6 8 10 ; 12 | 14 | 16\nTemperature T/°C | 78 | 57 | 45 | 36 | 30 | 26 | 23 |; 21 | 20\n(a) Plot a graph of T against t on graph paper. Join the points with a smooth curve. (3 marks)\n(b) Find the temperature change of the tea in the first 3 minutes. (1 mark)\n(c) Estimate the room temperature. (1 mark)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Plot a graph of T against t on graph paper. Join the points with a smooth curve.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Find the temperature change of the tea in the first 3 minutes.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Estimate the room temperature.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t\n[fig:15]t / min\n2\t4\t6\t8\t10\t12\t14\t16\n[fig:16]t / min\n2\t4\t6\t8\t10\t12\t14\t16\n\n\n\t(Correct labelled axes)\n1A\n\t(Correct data points)\n1A\n\t(Correct curve)\n1A\n(b)\tTemperature drop = 78 – 50 = 28 °C \n\t(Accept 27–29 °C)\n1A\n\n(c)\t20 °C\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "(Correct labelled axes)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Correct data points)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Correct curve)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Temperature drop = 78 – 50 = 28 °C \n\t(Accept 27–29 °C)",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "20 °C",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012109.png"
+        ],
+        "answer": [
+          "crops/PHY11012109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            537.8997802734375,
+            156.05699157714844,
+            550.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012110",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 10,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tAmericans usually use Fahrenheit (°F) temperature scale, rather than Celsius (°C) scale. The conversion between Celsius temperature (TC) and Fahrenheit temperature (TF) is shown below.\n\t\tTF = 1.8TC + 32\n\tIn some cities like Alaska, the temperature can be as low as -60 °F.\n\t(a)\tWhat is the temperature in degree Celsius corresponding to -60 °F?\t(1 mark)\n\t(b)\tWhy cannot a mercury-in-glass thermometer measure such a low temperature? Suggest a thermometer that can be used in this situation.\t(2 marks)\n\t(c)\tWrite down another disadvantage of mercury-in-glass thermometer.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the temperature in degree Celsius corresponding to -60 °F?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Why cannot a mercury-in-glass thermometer measure such a low temperature? Suggest a thermometer that can be used in this situation.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Write down another disadvantage of mercury-in-glass thermometer.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tBy TF = 1.8TC + 32,\n\n\tTC =[eq:8]= -51.1 °C\n1A\n\t-60 °F is equivalent to -51.1 °C.\n\n(b)\tThis is because the temperature is below the freezing point of mercury (about -39 °C),\n\n1A\n\tAn alcohol-in-glass thermometer can be used.\n\t(Or other reasonable answers)\n(c)\tMercury is toxic.\n1A\n\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "TC =[eq:8]= -51.1 °C",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "This is because the temperature is below the freezing point of mercury (about -39 °C),",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "An alcohol-in-glass thermometer can be used.\n\t(Or other reasonable answers)\n(c)\tMercury is toxic.",
+            "code": "1A 1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012110.png"
+        ],
+        "answer": [
+          "crops/PHY11012110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            444.19976806640625,
+            155.66099548339844,
+            456.37677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012111",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 11,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tA student calibrates an unmarked liquid-in-glass thermometer on the Celsius scale. She first put the thermometer in pure melting ice (Fig a) and then in pure boiling water (Fig b). The liquid level in each case is marked.\n[fig:17]\n[fig:18]\n\tFigure a\n\tFigure b\n\tThe lengths of the liquid column of the thermometer in pure melting ice and pure boiling water are given in Figure c.\n[fig:19]liquid level in pure melting ice\nliquid level in pure boiling water\n3 cm\n15 cm\n[fig:20]liquid level in pure melting ice\nliquid level in pure boiling water\n3 cm\n15 cm\n\nFigure c\n\t(a)\tDraw the calibration graph of the thermometer on graph paper.\t(3 marks)\n\t(b)\tThe student puts the thermometer into a cup of hot tea. The length of the liquid column is 10 cm. What is the temperature of the hot tea as read from the graph in (a)?\t(1 mark)\n\t(c)\tSuggest a liquid that can be used in this type of thermometer.\t(1 mark)",
+        "ocr": "PHY11012111>\n\n<lvl=avg><part=core><type=sq><mark=5><bk=1><ch=01><content>\n\n* A student calibrates an unmarked liquid-in-glass thermometer on the Celsius scale. She first put\nthe thermometer in pure melting ice (Fig a) and then in pure boiling water (Fig b). The liquid\nlevel in each case is marked.\n\nFigure a Figure b\n\nThe lengths of the liquid column of the thermometer in pure melting ice and pure boiling water\nare given in Figure c.\n\nliquid level in liquid level in pure\npure melting ice boiling water\n—— : Z L n ii z ii a if Z if r i ri T =)\n'<——— 3cm_— >!\nit 15cm >\nFigure c\n(a) Draw the calibration graph of the thermometer on graph paper. (3 marks)\n(b) The student puts the thermometer into a cup of hot tea. The length of the liquid column is\n10 cm. What is the temperature of the hot tea as read from the graph in (a)? (1 mark)\n(c) Suggest a liquid that can be used in this type of thermometer. (1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Draw the calibration graph of the thermometer on graph paper.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "The student puts the thermometer into a cup of hot tea. The length of the liquid column is 10 cm. What is the temperature of the hot tea as read from the graph in (a)?",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Suggest a liquid that can be used in this type of thermometer.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t\n[fig:21]temperature / °C\n\nlength / cm\n\n2\n10\n16\n0\n\n4\n\n6\n\n8\n12\n14\n10\t20\t30\t40\t50\t60\t70\t80\t90\t100\n[fig:22]temperature / °C\n\nlength / cm\n\n2\n10\n16\n0\n\n4\n\n6\n\n8\n12\n14\n10\t20\t30\t40\t50\t60\t70\t80\t90\t100\n\n\n\t(Correct labelled axes)\n1A\n\t(Correct data points)\n1A\n\t(Correct graph)\n1A\n(b)\t58 °C\n(c)\tAlcohol / mercury\n1A\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "(Correct labelled axes)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Correct data points)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Correct graph)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "58 °C\n(c)\tAlcohol / mercury",
+            "code": "1A 1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012111.png"
+        ],
+        "answer": [
+          "crops/PHY11012111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            151.69979858398438,
+            155.26499938964844,
+            163.87680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012112",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 12,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tThe following figure shows a calibration graph of a mercury-in-glass thermometer.\n\t[fig:23]length of mercury column / cm\ntemperature / °C\n8\n16\n0\n[fig:24]length of mercury column / cm\ntemperature / °C\n8\n16\n0\n\n\t(a)\tIf the length of the mercury column is 4 cm at 25 °C, what are the lengths of the mercury column at the upper and the lower fixed points?\t(2 marks)\n\t(b)\tGive one advantage and one disadvantage of a mercury-in-glass thermometer over an alcohol-in-glass thermometer.\t(2 marks)\n\t(c)\tIf a resistance thermometer is to be calibrated, what does the y-axis represent in the calibration graph?\t\t(1 mark)",
+        "ocr": "PHY11012112>\n\n<lvl=avg><part=core><type=sq><mark=5><bk=1><ch=01><content>\n\n* The following figure shows a calibration graph of a mercury-in-glass thermometer.\nlength of mercury\n\ncolumn /cm\nA\n\n16\n\n0 p temperature / °C\n\n(a) Ifthe length of the mercury column is 4 cm at 25 °C, what are the lengths of the mercury\ncolumn at the upper and the lower fixed points? (2 marks)\n\n\n(b) Give one advantage and one disadvantage of a mercury-in-glass thermometer over an\n\nalcohol-in-glass thermometer. (2 marks)\n(c) If aresistance thermometer is to be calibrated, what does the y-axis represent in the\ncalibration graph? (1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "If the length of the mercury column is 4 cm at 25 °C, what are the lengths of the mercury column at the upper and the lower fixed points?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Give one advantage and one disadvantage of a mercury-in-glass thermometer over an alcohol-in-glass thermometer.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "If a resistance thermometer is to be calibrated, what does the y-axis represent in the calibration graph?",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\n[fig:25]length of mercury column / cm\ntemperature / °C\n8\n16\n0\n4\n25\n100\n10\n2\n[fig:26]length of mercury column / cm\ntemperature / °C\n8\n16\n0\n4\n25\n100\n10\n2\n\n\n\tThe length of the mercury column is 10 cm at 100 °C (upper fixed point).\n\tThe length of the mercury column is 2 cm at 0 °C (lower fixed point).\n1A\n1A\n(b)\tAdvantage (any one of the following):\n\tCan measure higher temperature.\n\tResponse more quickly to temperature changes.\n\tDisadvantage (any one of the following):\n\tMercury is poisonous.\n\tThe lowest temperature that it can measure is not as low as an alcohol-in-glass thermometer.\n1A\n\n\n1A\n(c)\tThe y-axis represents the resistance.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The length of the mercury column is 10 cm at 100 °C (upper fixed point).\n\tThe length of the mercury column is 2 cm at 0 °C (lower fixed point).",
+            "code": "1A 1A"
+          },
+          {
+            "part": "b",
+            "point": "Advantage (any one of the following):\n\tCan measure higher temperature.\n\tResponse more quickly to temperature changes.\n\tDisadvantage (any one of the following):\n\tMercury is poisonous.\n\tThe lowest temperature that it can measure is not as low as an alcohol-in-glass thermometer.",
+            "code": "1A 1A"
+          },
+          {
+            "part": "c",
+            "point": "The y-axis represents the resistance.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012112.png"
+        ],
+        "answer": [
+          "crops/PHY11012112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            9,
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            446.2997741699219,
+            155.66099548339844,
+            458.4767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012113",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 13,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tCollin has an alcohol-in-glass thermometer whose marking has faded. He puts the thermometer in melting ice and the length of the alcohol column is 3.2 cm. He then puts it in boiling water and the length of the alcohol column is 15.7 cm.\n\t(a)\tHe puts the thermometer in a glass of hot water and the length of the alcohol column is 10.6 cm. Find the temperature of the hot water.\t(2 marks)\n\t(b)\tHe puts the thermometer in a refrigerator at -4 °C. Find the length of the alcohol column. \t(2 marks)",
+        "ocr": "PHY11012113>\n\n<lvl=avg><part=core><type=sq><mark=4><bk=1><ch=01><content>\n\n* Collin has an alcohol-in-glass thermometer whose marking has faded. He puts the thermometer\nin melting ice and the length of the alcohol column is 3.2 cm. He then puts it in boiling water\nand the length of the alcohol column is 15.7 cm.\n\n(a) He puts the thermometer in a glass of hot water and the length of the alcohol column is\n\n10.6 cm. Find the temperature of the hot water. (2 marks)\n(b) He puts the thermometer in a refrigerator at -4 °C. Find the length of the alcohol column.\n(2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "He puts the thermometer in a glass of hot water and the length of the alcohol column is 10.6 cm. Find the temperature of the hot water.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "He puts the thermometer in a refrigerator at -4 °C. Find the length of the alcohol column.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solution\nMarks\n(a)\tBy proportion,\n\n\ttemperature of hot water\t = [eq:9]× 100\n1M\n\t\t= 59.2 °C\n1A\n(b)\tLet L be the length of the alcohol column at -4 °C.\n\tBy proportion,\n\t[eq:10]=[eq:11]\n\n\n1M\n\t\tL = 2.7 cm\n\tThe length of the alcohol column is 2.7 cm.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "temperature of hot water\t = [eq:9]× 100",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 59.2 °C",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Let L be the length of the alcohol column at -4 °C.\n\tBy proportion,\n\t[eq:10]=[eq:11]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "L = 2.7 cm\n\tThe length of the alcohol column is 2.7 cm.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012113.png"
+        ],
+        "answer": [
+          "crops/PHY11012113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            547.44970703125,
+            155.66099548339844,
+            559.626708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY11012114",
+      "bank": "QB_101",
+      "book": "1",
+      "chapter": "01",
+      "seq": 14,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→→\t(a)\tTwo different types of thermometer may give slightly different readings at the same temperature even though they agree at the two fixed points. \n\t\t(i)\tName the upper and lower fixed points in the Celsius temperature scale.\t(2 marks)\n\t\t(ii)\tWhy do different types of thermometers give different readings at the same temperature?\t(1 mark)\n\t(b)\tThe PT100 platinum resistance thermometer (Fig a) is a common type of resistance thermometers. Figure b shows the variation of [fig:27][eq:12] against T, where R and R0 are respectively the resistance of the platinum at temperatures T and 0 °C. \n[fig:28]\n[fig:29]1.385\n1\n0\n100\n\n[eq:13]\nT / °C\n[fig:30]1.385\n1\n0\n100\n\n[eq:14]\nT / °C\n\nFig a\t(Courtesy of Harke │ Wikimedia Commons)\nFig b\n\t\tThe slope α of the graph is known as the temperature coefficient of the resistance of platinum. \n\t\t(i)\tIt is known that R0 = 100 Ω. Find, from the graph, the value of α and hence obtain an equation relating R and T.\t(2 marks)\n\t\t(ii)\tWhat is the temperature when the resistance of the platinum is 120 Ω?\t(1 mark)",
+        "ocr": "PHY11012114>\n<lvl=dif><part=core><type=sq><mark=6><bk=1><ch=01><content>\n** (a) Two different types of thermometer may give slightly different readings at the same\ntemperature even though they agree at the two fixed points.\n(i) Name the upper and lower fixed points in the Celsius temperature scale. (2 marks)\n(ii) Why do different types of thermometers give different readings at the same\ntemperature? (1 mark)\n(b) The PT100 platinum resistance thermometer (Fig a) is a common type of resistance\nR\n\nthermometers. Figure b shows the variation of Ry against T, where R and Ro are\nrespectively the resistance of the platinum at temperatures T and 0 °C.\n\n» T/°C\n\n0 100\n\nFiga (Courtesy of Harke | Fig b\nWikimedia Commons)\nThe slope a of the graph is known as the temperature coefficient of the resistance of\n\nplatinum.\n\n(i) It is known that Rp = 100 Q. Find, from the graph, the value of a and hence obtain an\nequation relating R and T. (2 marks)\n\n(ii) What is the temperature when the resistance of the platinum is 120 Q? (1 mark)",
+        "equations": 3,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Two different types of thermometer may give slightly different readings at the same temperature even though they agree at the two fixed points. \n\t\t(i)\tName the upper and lower fixed points in the Celsius temperature scale.",
+          "marks": 2
+        },
+        {
+          "label": "a(ii)",
+          "text": "Why do different types of thermometers give different readings at the same temperature?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "The PT100 platinum resistance thermometer (Fig a) is a common type of resistance thermometers. Figure b shows the variation of [fig:27][eq:12] against T, where R and R0 are respectively the resistance of the platinum at temperatures T and 0 °C. \n[fig:28]\n[fig:29]1.385\n1\n0\n100\n\n[eq:13]\nT / °C\n[fig:30]1.385\n1\n0\n100\n\n[eq:14]\nT / °C\n\nFig a\t(Courtesy of Harke │ Wikimedia Commons)\nFig b\n\t\tThe slope α of the graph is known as the temperature coefficient of the resistance of platinum. \n\t\t(i)\tIt is known",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "What is the temperature when the resistance of the platinum is 120 Ω?",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tThe upper fixed point is the steam point (100 °C)\n\t\tand the lower fixed point is the ice point (0 °C).\n\t(ii)\tThis is because different temperature-dependent properties may not change proportionally with the same change in temperature.\n1A\n1A\n\n1A\n(b)\t(i)\tα =[eq:15]= 3.85 × 10-3 °C-1\n1A\n\t\t\t[eq:16]\t= 3.85 × 10-3\n\n\t\t\tR\t= (3.85 × 10-3)TR0 + R0\n\t\t\t\t= (3.85 × 10-3)T(100) + 100 \n\t\t\t\t= 0.385T + 100\n\n\n1A\n\t(ii)\tSubstitute R = 120 Ω into the equation in (i).\n\n\t\t120 = 0.385T + 100\n\n\tT = 51.9 °C\n1A\n\t\tThe temperature is 51.9 °C.",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "The upper fixed point is the steam point (100 °C)\n\t\tand the lower fixed point is the ice point (0 °C).\n\t(ii)\tThis is because different temperature-dependent properties may not change proportionally with the same change in temperature.",
+            "code": "1A 1A 1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "α =[eq:15]= 3.85 × 10-3 °C-1",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "R\t= (3.85 × 10-3)TR0 + R0\n\t\t\t\t= (3.85 × 10-3)T(100) + 100 \n\t\t\t\t= 0.385T + 100",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "T = 51.9 °C",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_101/1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY11012114.png"
+        ],
+        "answer": [
+          "crops/PHY11012114.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_101/1_ch01_SQ_e.docx",
+          "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+          "pdf": "qb-pdf/QB_101/1_ch01_SQ_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            249.19979858398438,
+            155.66099548339844,
+            261.3768005371094
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    }
+  ]
+}

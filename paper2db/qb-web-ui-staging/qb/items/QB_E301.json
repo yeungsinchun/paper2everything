@@ -1,0 +1,4089 @@
+{
+  "bank": "QB_E301",
+  "generated_at": "2026-09-29T19:12:56Z",
+  "tool_versions": {
+    "pymupdf": "1.28.2",
+    "tesseract": "tesseract 5.5.3",
+    "soffice": "LibreOffice 26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77"
+  },
+  "count": 45,
+  "items": [
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013101",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 1,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThe figure shows the design of an air conditioner. The refrigerant flows through the pipe in the direction as shown.\n[fig:1]\n\t(a)\tState the function of the refrigerant.\t(2 marks)\n\t(b)\tAir conditioner is an example of a heat pump. Explain what a heat pump is.\t(1 mark)\n\t(c)\tExplain why the condensing coil has the following features.\n\t\t(i)\tS-shaped\n\t\t(ii)\tOuter surface painted in black\n\t\t\t\t(3 marks)\n\t(d)\tAn air conditioner has a cooling capacity of 3 kW and an input power of 1.2 kW.\n\t\t(i)\tFind the coefficient of performance of the air conditioner.\n\t\t(ii)\tFind the cost of electricity for turning the air conditioner on for 8 hours. Electricity cost $1.1 per kW h.\n\t\t\t\t(4 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "State the function of the refrigerant.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Air conditioner is an example of a heat pump. Explain what a heat pump is.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Explain why the condensing coil has the following features.\n\t\t(i)\tS-shaped\n\t\t(ii)\tOuter surface painted in black",
+          "marks": 3
+        },
+        {
+          "label": "d",
+          "text": "An air conditioner has a cooling capacity of 3 kW and an input power of 1.2 kW.\n\t\t(i)\tFind the coefficient of performance of the air conditioner.\n\t\t(ii)\tFind the cost of electricity for turning the air conditioner on for 8 hours. Electricity cost $1.1 per kW h.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe refrigerant absorbs heat from the room\n1A\n\tand releases heat to outside.\n1A\n(b)\tA heat pump is a device that transfers heat against its natural direction of flow.\n1A\n(c)\t(i)\tThis increases the contact area with the surrounding air\n1A\n\t\tto facilitate heat transfer.\n1A\n\t(ii)\tBlack surfaces are good radiators of heat.\n1A\n(d)\t(i)\tCOP =[eq:1]\t=[eq:2]\n1M\n\t\t\t= 2.5\n1A\n\t(ii)\tCost of electricity = $1.1 × Pt\t= $1.1 × (1.2 × 8)\n1M\n\t\t\t= $10.6\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The refrigerant absorbs heat from the room",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "and releases heat to outside.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "A heat pump is a device that transfers heat against its natural direction of flow.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "This increases the contact area with the surrounding air",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "to facilitate heat transfer.",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Black surfaces are good radiators of heat.",
+            "code": "1A"
+          },
+          {
+            "part": "d(i)",
+            "point": "COP =[eq:1]\t=[eq:2]",
+            "code": "1M"
+          },
+          {
+            "part": "d(i)",
+            "point": "= 2.5",
+            "code": "1A"
+          },
+          {
+            "part": "d(ii)",
+            "point": "Cost of electricity = $1.1 × Pt\t= $1.1 × (1.2 × 8)",
+            "code": "1M"
+          },
+          {
+            "part": "d(ii)",
+            "point": "= $10.6",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013101.png"
+        ],
+        "answer": [
+          "crops/PHY18013101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4929962158203,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013102",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 2,
+      "type": "lq",
+      "level": "easy",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "A simplified diagram of the air conditioning system in a building is shown below. A fluid flows inside the sealed tubes in the direction indicated by the arrows. The air conditioning system has a cooling capacity of 1250 kW.\n[fig:2]\n\t(a)\t(i)\tName the fluid flowing in the tubes.\t(1 mark)\n\t\t(ii)\tWrite down the names and the functions of Q and S.\t(4 marks)\n\t(b)\tWhat is the maximum amount of heat, in J, that the system can remove from the building in 10 minutes?\t(2 marks)\n\t(c)\tThe COP of the air conditioning system is 2.5. Find the power input of the system.\n\t(2 marks)\n\t(d)\tThe heat extracted from the building can be used to preheat water. To achieve this function, which component (P, Q, R or S) should be replaced by the preheating device?\n\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Name the fluid flowing in the tubes.",
+          "marks": 1
+        },
+        {
+          "label": "a(ii)",
+          "text": "Write down the names and the functions of Q and S.",
+          "marks": 4
+        },
+        {
+          "label": "b",
+          "text": "What is the maximum amount of heat, in J, that the system can remove from the building in 10 minutes?",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "The COP of the air conditioning system is 2.5. Find the power input of the system.",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "The heat extracted from the building can be used to preheat water. To achieve this function, which component (P, Q, R or S) should be replaced by the preheating device?",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tRefrigerant\n1A\n\t(ii)\tQ is the evaporator coil.\n1A\n\t\tIt allows the refrigerant in it to absorb heat from the building.\n1A\n\t\tS is the condensing coil.\n1A\n\t\tIt allows the refrigerant in it to release heat to the outside.\n1A\n(b)\tMaximum amount of heat removed\t= cooling capacity × time \n\n\t\t= (1250 × 103) × (10 × 60)\n1M\n\t\t= 7.5 × 108 J\n1A\n(c)\tBy COP =[eq:3],\n\n\tpower input =[eq:4]\t=[eq:5]\n1M\n\t\t= 500 kW\n1A\n(d)\tS\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "Refrigerant",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "Q is the evaporator coil.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "It allows the refrigerant in it to absorb heat from the building.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "S is the condensing coil.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "It allows the refrigerant in it to release heat to the outside.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "= (1250 × 103) × (10 × 60)",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 7.5 × 108 J",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "power input =[eq:4]\t=[eq:5]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 500 kW",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "S",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013102.png"
+        ],
+        "answer": [
+          "crops/PHY18013102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            707.3497314453125,
+            156.4929962158203,
+            719.5267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013103",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 3,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThis question is about microwave ovens.\n\t(a)\tState the energy conversion in heating food by a microwave oven. You need not consider the energy loss in the heating process.\t(2 marks)\n\t(b)\tA microwave oven produces microwaves of frequency 2.45 GHz. The speed of light in air is 3.00 × 108 m s-1.\n\t\t(i)\tFind the wavelength of the microwaves in air.\t(2 marks)\n\t\t(ii)\tThe oven has a metal grid on the door. Visible light can pass through the grid so we can see the food inside. However, microwaves cannot pass through the grid. Explain this phenomenon briefly.\t(2 marks)\n\t(c)\tPeter uses a microwave oven to heat up 400 g of sausage. He turns on the oven for \n2 minutes at full power and the temperature of the sausage increases from 10 °C to 80 °C. The rated power of the oven is 1100 W. The specific heat capacity of the sausage is \n2600 J kg-1 °C-1.\n\t\t(i)\tWhat is the energy needed to heat up the sausage?\t(2 marks)\n\t\t(ii)\tEstimate the end-use energy efficiency of the oven.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "State the energy conversion in heating food by a microwave oven. You need not consider the energy loss in the heating process.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "A microwave oven produces microwaves of frequency 2.45 GHz. The speed of light in air is 3.00 × 108 m s-1.\n\t\t(i)\tFind the wavelength of the microwaves in air.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "The oven has a metal grid on the door. Visible light can pass through the grid so we can see the food inside. However, microwaves cannot pass through the grid. Explain this phenomenon briefly.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Peter uses a microwave oven to heat up 400 g of sausage. He turns on the oven for \n2 minutes at full power and the temperature of the sausage increases from 10 °C to 80 °C. The rated power of the oven is 1100 W. The specific heat capacity of the sausage is \n2600 J kg-1 °C-1.\n\t\t(i)\tWhat is the energy needed to heat up the sausage?",
+          "marks": 2
+        },
+        {
+          "label": "c(ii)",
+          "text": "Estimate the end-use energy efficiency of the oven.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tElectrical energy is converted into energy in microwaves.\n1A\n\tEnergy in microwaves is then converted into internal energy of food.\n1A\n(b)\t(i)\tBy v = fλ,\n\n\t\tλ =[eq:6]\t=[eq:7]\n1M\n\t\t\t= 0.122 m\n1A\n\t(ii)\tThe size of each hole on the grid is much smaller than the wavelength of the microwave\n1A\n\t\tbut much larger than the wavelength of visible light.\n1A\n(c)\t(i)\tEnergy needed = mcΔT\t= 0.4 × 2600 × (80 - 10)\n1M\n\t\t\t= 72 800 J\n1A\n\t(ii)\tEnergy input = Pt\t= 1100 × (2 × 60)\n1M\n\t\t\t= 132 000 J\n\n\t\tEnd-use energy efficiency =[eq:8]× 100% = 55.2%\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Electrical energy is converted into energy in microwaves.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Energy in microwaves is then converted into internal energy of food.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "λ =[eq:6]\t=[eq:7]",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "= 0.122 m",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "The size of each hole on the grid is much smaller than the wavelength of the microwave",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "but much larger than the wavelength of visible light.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "Energy needed = mcΔT\t= 0.4 × 2600 × (80 - 10)",
+            "code": "1M"
+          },
+          {
+            "part": "c(i)",
+            "point": "= 72 800 J",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Energy input = Pt\t= 1100 × (2 × 60)",
+            "code": "1M"
+          },
+          {
+            "part": "c(ii)",
+            "point": "End-use energy efficiency =[eq:8]× 100% = 55.2%",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013103.png"
+        ],
+        "answer": [
+          "crops/PHY18013103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            708.999755859375,
+            156.4929962158203,
+            721.1767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013104",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 4,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tIn a restaurant, hot pots are served over induction cookers of rated power 1800 W.\n\t(a)\tState an advantage of induction cookers over gas stoves.\t(1 mark)\n\t(b)\tExplain why pots with metallic bases have to be used.\t(1 mark)\n\t(c)\tIt takes at least 6 minutes for an induction cooker to heat 2 kg of fish soup at 30 °C to boil at 100 °C. Take the specific heat capacity of the fish soup to be 4000 J kg-1 °C-1.\n\t\t(i)\tEstimate the end-use energy efficiency of the induction cooker.\t(3 marks)\n\t\t(ii)\tHow much does it cost to boil the fish soup? The cost for electricity is $1.1 per kW h.\t(2 marks)\n\t(d)\tThe temperature in the restaurant is maintained by using 5 air conditioners, each of rated power 2.4 kW. The coefficient of performance of each air conditioner is 3. Supposing the total power dissipated by the inductor cookers should not exceed the rate at which heat is removed by the air conditioners, estimate the maximum number of hot pots that can be served at the same time.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "State an advantage of induction cookers over gas stoves.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Explain why pots with metallic bases have to be used.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "It takes at least 6 minutes for an induction cooker to heat 2 kg of fish soup at 30 °C to boil at 100 °C. Take the specific heat capacity of the fish soup to be 4000 J kg-1 °C-1.\n\t\t(i)\tEstimate the end-use energy efficiency of the induction cooker.",
+          "marks": 3
+        },
+        {
+          "label": "c(ii)",
+          "text": "How much does it cost to boil the fish soup? The cost for electricity is $1.1 per kW h.",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "The temperature in the restaurant is maintained by using 5 air conditioners, each of rated power 2.4 kW. The coefficient of performance of each air conditioner is 3. Supposing the total power dissipated by the inductor cookers should not exceed the rate at which heat is removed by the air conditioners, estimate the maximum number of hot pots that can be served at the same time.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe end-use energy efficiency is higher.\n1A\n\t(Or other reasonable answers)\n\n(b)\tPots with metallic bases allow eddy current to be induced in the bases.\n1A\n(c)\t(i)\tUseful energy output = mcΔT\t= 2 × 4000 × (100 - 30)\n1M\n\t\t\t= 560 000 J\n\n\t\tEnergy input = Pt\t= 1800 × (6 × 60)\n1M\n\t\t\t= 648 000 J\n\n\t\tEnd-use energy efficiency =[eq:9]× 100% = 86.4%\n1A\n\t(ii)\tCost of electricity = $1.1 × Pt\t= $1.1 ×[eq:10]×[eq:11]\n1M\n\t\t\t= $0.198\n1A\n(d)\tBy COP =[eq:12],\n\n\tcooling capacity of each air conditioner\t= COP × electrical power input\n\n\t\t= 3 × 2.4\n1M\n\t\t= 7.2 kW\n\n\tLet n be the number of hot pots served at the same time.\n\n\t\tTotal cooling capacity\t≥ total power of induction cookers\n\n\t\t5 × 7.2\t≥ 1.8 × n\n1M\n\t\t20\t≥ n\n\n\tAt most 20 hot pots can be served at the same time.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The end-use energy efficiency is higher.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Pots with metallic bases allow eddy current to be induced in the bases.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "Useful energy output = mcΔT\t= 2 × 4000 × (100 - 30)",
+            "code": "1M"
+          },
+          {
+            "part": "c(i)",
+            "point": "Energy input = Pt\t= 1800 × (6 × 60)",
+            "code": "1M"
+          },
+          {
+            "part": "c(i)",
+            "point": "End-use energy efficiency =[eq:9]× 100% = 86.4%",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Cost of electricity = $1.1 × Pt\t= $1.1 ×[eq:10]×[eq:11]",
+            "code": "1M"
+          },
+          {
+            "part": "c(ii)",
+            "point": "= $0.198",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "= 3 × 2.4",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "5 × 7.2\t≥ 1.8 × n",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "At most 20 hot pots can be served at the same time.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013104.png"
+        ],
+        "answer": [
+          "crops/PHY18013104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            607.5997314453125,
+            156.4929962158203,
+            619.7767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013105",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 5,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 11,
+      "stem": {
+        "text": "→\t(a)\tState the energy conversion in heating food by an electric hotplate. You need not consider the energy loss in the heating process.\t(2 marks)\n\t(b)\t(i)\tThe end-use energy efficiency of an induction cooker is usually higher than that of an electric hotplate. Explain briefly.\t(2 marks)\n\t\t(ii)\tThe rated power and end-use energy efficiency of electric hotplate X are 2000 W and 70% respectively. The cost of electricity in using induction cooker Y is 85% of that using X in cooking the same food. Estimate the end-use energy efficiency of Y.\n\t(3 marks)\n\t(c)\tHalogen ovens (光波爐) are quite popular recently. There are a halogen lamp and a fan in the cooking chamber. The halogen lamp is very hot and emits infra-red radiation. The food is heated evenly with the help of the fan.\n\t\t(i)\tDescribe how heat is transferred from the halogen lamp to the food.\t(3 marks)\n\t\t(ii)\tState an advantage of a halogen oven over an electric hotplate.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "State the energy conversion in heating food by an electric hotplate. You need not consider the energy loss in the heating process.",
+          "marks": 2
+        },
+        {
+          "label": "b(i)",
+          "text": "The end-use energy efficiency of an induction cooker is usually higher than that of an electric hotplate. Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "The rated power and end-use energy efficiency of electric hotplate X are 2000 W and 70% respectively. The cost of electricity in using induction cooker Y is 85% of that using X in cooking the same food. Estimate the end-use energy efficiency of Y.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "Halogen ovens (光波爐) are quite popular recently. There are a halogen lamp and a fan in the cooking chamber. The halogen lamp is very hot and emits infra-red radiation. The food is heated evenly with the help of the fan.\n\t\t(i)\tDescribe how heat is transferred from the halogen lamp to the food.",
+          "marks": 3
+        },
+        {
+          "label": "c(ii)",
+          "text": "State an advantage of a halogen oven over an electric hotplate.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tElectrical energy is converted into internal energy of resistance wire.\n1A\n\tInternal energy of resistance wire is then converted into internal energy of cookware and food.\n1A\n(b)\t(i)\tAn induction cooker does not get very hot during cooking.\n1A\n\t\tLess heat is lost directly from the cooker.\n1A\n\t(ii)\tWhen X operated for 1 s,\n\n\t\tuseful energy output\t= 2000 × 1 × 70%\n1M\n\t\t\t= 1400 J\n\n\t\tFor Y to have the same useful energy output,\n\n\t\tenergy input\t= (2000 × 85%) × 1\n1M\n\t\t\t= 1700 J\n\n\t\tEnd-use energy efficiency of Y = [eq:13] × 100% = 82.4%\n1A\n(c)\t(i)\tHeat is transferred from the lamp to the food by radiation.\n1A\n\t\tAlso, the air in contact with the lamp is heated by conduction.\n1A\n\t\tThe fan circulates the heated air and heat is transferred to the food by convection and conduction.\n1A\n\t(ii)\tFood is heated evenly.\n1A\n\t\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Electrical energy is converted into internal energy of resistance wire.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Internal energy of resistance wire is then converted into internal energy of cookware and food.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "An induction cooker does not get very hot during cooking.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Less heat is lost directly from the cooker.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "useful energy output\t= 2000 × 1 × 70%",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "energy input\t= (2000 × 85%) × 1",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "End-use energy efficiency of Y = [eq:13] × 100% = 82.4%",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "Heat is transferred from the lamp to the food by radiation.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "Also, the air in contact with the lamp is heated by conduction.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "The fan circulates the heated air and heat is transferred to the food by convection and conduction.",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Food is heated evenly.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013105.png"
+        ],
+        "answer": [
+          "crops/PHY18013105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            593.249755859375,
+            156.4929962158203,
+            605.4267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013106",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 6,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThis question is about air conditioners.\n\t(a)\tWhat happens to the refrigerant when it passes through the condensing coil?\t(2 marks)\n\t(b)\tWhy is the condensing coil highly coiled?\t(2 marks)\n\t(c)\tShould the specific latent heat of vaporization of the refrigerant be high or low? Explain briefly.\t(2 marks)\n\t(d)\tThe COP and the cooling capacity of an air conditioner are 3 and 2.4 kW respectively.\n\t\t(i)\tWhat is the physical meaning of ‘a COP of 3’?\t(1 mark)\n\t\t(ii)\tWhat is the energy consumed by the air conditioner in 4 minutes?\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What happens to the refrigerant when it passes through the condensing coil?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Why is the condensing coil highly coiled?",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Should the specific latent heat of vaporization of the refrigerant be high or low? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "The COP and the cooling capacity of an air conditioner are 3 and 2.4 kW respectively.\n\t\t(i)\tWhat is the physical meaning of ‘a COP of 3’?",
+          "marks": 1
+        },
+        {
+          "label": "d(ii)",
+          "text": "What is the energy consumed by the air conditioner in 4 minutes?",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tIt cools down\n1A\n\tand condenses to liquid.\n1A\n(b)\tThis increases the contact area with the surrounding air\n1A\n\tto facilitate heat transfer.\n1A\n(c)\tThe specific latent heat of vaporization should be high\n1A\n\tso that more energy can be absorbed from the room when the refrigerant evaporates.\n1A\n(d)\t(i)\tA COP of 3 means that for each kW h of energy input, 3 kW h of heat can be removed.\n1A\n\t(ii)\tBy COP =[eq:14],\n\n\t\telectrical power input =[eq:15]\t=[eq:16]\n1M\n\t\t\t= 0.8 kW\n\n\t\tEnergy consumed = Pt\t= 800 × (4 × 60)\n1M\n\t\t\t= 192 000 J\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "It cools down",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "and condenses to liquid.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "This increases the contact area with the surrounding air",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "to facilitate heat transfer.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The specific latent heat of vaporization should be high",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "so that more energy can be absorbed from the room when the refrigerant evaporates.",
+            "code": "1A"
+          },
+          {
+            "part": "d(i)",
+            "point": "A COP of 3 means that for each kW h of energy input, 3 kW h of heat can be removed.",
+            "code": "1A"
+          },
+          {
+            "part": "d(ii)",
+            "point": "electrical power input =[eq:15]\t=[eq:16]",
+            "code": "1M"
+          },
+          {
+            "part": "d(ii)",
+            "point": "Energy consumed = Pt\t= 800 × (4 × 60)",
+            "code": "1M"
+          },
+          {
+            "part": "d(ii)",
+            "point": "= 192 000 J",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013106.png"
+        ],
+        "answer": [
+          "crops/PHY18013106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            508.9497375488281,
+            156.4929962158203,
+            521.126708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013107",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 7,
+      "type": "lq",
+      "level": "dif",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→→\tThe figure below shows an induction cooker.\n[fig:3]\n\t(a)\tExplain the working principle of an induction cooker.\t(4 marks)\n\t(b)\t(i)\tDesign an experiment to estimate the end-use energy efficiency of the induction cooker. Describe the procedures clearly and state the equations involved.\t(5 marks)\n\t\t(ii)\tState a precaution in the experiment to reduce the error.\t(1 mark)",
+        "ocr": "PHY18013107>\n<lvl=dif><part=core><type=lq><mark=10><bk=E3><ch=01><content>\nThe figure below shows an induction cooker.\n(a) Explain the working principle of an induction cooker. (4 marks)\n(b) (i) Design an experiment to estimate the end-use energy efficiency of the induction\ncooker. Describe the procedures clearly and state the equations involved. (5 marks)\n(ii) State a precaution in the experiment to reduce the error. (1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Explain the working principle of an induction cooker.",
+          "marks": 4
+        },
+        {
+          "label": "b(i)",
+          "text": "Design an experiment to estimate the end-use energy efficiency of the induction cooker. Describe the procedures clearly and state the equations involved.",
+          "marks": 5
+        },
+        {
+          "label": "b(ii)",
+          "text": "State a precaution in the experiment to reduce the error.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAn induction cooker uses an a.c.\n1A\n\tto set up a changing magnetic field,\n1A\n\twhich induces eddy currents in the metallic cooking pot.\n1A\n\tHeat is then generated due to the heating effect of the eddy currents.\n1A\n(b)\t(i)\tTurn the cooker to full power to heat water of mass m and initial temperature T1.\n1A\n\t\tTurn off the cooker after time t before the water boils. Record the final temperature T2 of the water.\n1A\n\t\tThe useful energy output is given by mc(T2 - T1), where c is the specific heat capacity of water.\n1A\n\t\tThe energy input is given by Pt, where P is the rated power of the cooker.\n1A\n\t\tEnd-use energy efficiency =[eq:17]\n1A\n\t(ii)\tCover the cooking pot when the water is heated.\n1A\n\t\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "An induction cooker uses an a.c.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "to set up a changing magnetic field,",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "which induces eddy currents in the metallic cooking pot.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Heat is then generated due to the heating effect of the eddy currents.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Turn the cooker to full power to heat water of mass m and initial temperature T1.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Turn off the cooker after time t before the water boils. Record the final temperature T2 of the water.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "The useful energy output is given by mc(T2 - T1), where c is the specific heat capacity of water.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "The energy input is given by Pt, where P is the rated power of the cooker.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "End-use energy efficiency =[eq:17]",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Cover the cooking pot when the water is heated.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013107.png"
+        ],
+        "answer": [
+          "crops/PHY18013107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            323.8997802734375,
+            156.4929962158203,
+            336.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013108",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 8,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tThe end-use energy efficiency of an induction cooker is 82%.\n\t(a)\tBriefly describe the working principle of an induction cooker.\t(4 marks)\n\t(b)\tThe efficiency of an induction cooker is lower than 100%. Suggest a reason for this.\n\t(1 mark)\n\t(c)\tSuppose the cooker works with an input power of 2000 W. What is the cost of electricity in boiling 2 kg of water at 28 °C? The specific heat capacity of water is 4200 J kg-1 °C-1. Each kW h of electricity costs $1.1.\t(3 marks)",
+        "ocr": "PHY18013108>\n<lvl=avg><part=core><type=lq><mark=8><bk=E3><ch=01><content>\nThe end-use energy efficiency of an induction cooker is 82%.\n\n(a) Briefly describe the working principle of an induction cooker. (4 marks)\n(b) The efficiency of an induction cooker is lower than 100%. Suggest a reason for this.\n(1 mark)\n\n(c) Suppose the cooker works with an input power of 2000 W. What is the cost of electricity in\nboiling 2 kg of water at 28 °C? The specific heat capacity of water is 4200 J kg! °C'. Each\n\nkW h of electricity costs $1.1. (3 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Briefly describe the working principle of an induction cooker.",
+          "marks": 4
+        },
+        {
+          "label": "b",
+          "text": "The efficiency of an induction cooker is lower than 100%. Suggest a reason for this.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Suppose the cooker works with an input power of 2000 W. What is the cost of electricity in boiling 2 kg of water at 28 °C? The specific heat capacity of water is 4200 J kg-1 °C-1. Each kW h of electricity costs $1.1.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAn induction cooker uses an a.c.\n1A\n\tto set up a changing magnetic field,\n1A\n\twhich induces eddy currents in the metallic cooking pot.\n1A\n\tHeat is then generated due to the heating effect of the eddy currents.\n1A\n(b)\tWhen a current passes through the coil, the coil heats up and energy is lost to the surroundings.\n1A\n\t(Or other reasonable answers)\n\n(c)\t\tUseful energy output of cooker\t= energy gained by water\n\n\t\tEin × ηend\t= mcΔT\n\n\t\tEin × 0.82\t= 2 × 4200 × (100 - 28)\n1M\n\t\tEin\t= 737 600 J\n\n\tCost of electricity\t= $1.1 ×[eq:18]\n1M\n\t\t= $0.225\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "An induction cooker uses an a.c.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "to set up a changing magnetic field,",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "which induces eddy currents in the metallic cooking pot.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Heat is then generated due to the heating effect of the eddy currents.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "When a current passes through the coil, the coil heats up and energy is lost to the surroundings.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Ein × 0.82\t= 2 × 4200 × (100 - 28)",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "Cost of electricity\t= $1.1 ×[eq:18]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= $0.225",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013108.png"
+        ],
+        "answer": [
+          "crops/PHY18013108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            178.24978637695312,
+            156.4929962158203,
+            190.42678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013109",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 9,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tA microwave oven cooks food by exposing it to high-power microwaves with a frequency of 2.45 GHz.\n\t(a)\tWhat is the wavelength of the microwaves in air? The speed of light in air is \n3.00 × 108 m s-1.\t(2 marks)\n\t(b)\tWhy can the microwave oven heat up the surface and the interior of food at the same time?\t(1 mark)\n\t(c)\tHigh-power microwaves are harmful to humans and animals. Suggest two features of the oven to prevent microwaves from leaking.\t(2 marks)\n\t(d)\tExplain the function of the turntable in the microwave oven.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the wavelength of the microwaves in air? The speed of light in air is \n3.00 × 108 m s-1.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Why can the microwave oven heat up the surface and the interior of food at the same time?",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "High-power microwaves are harmful to humans and animals. Suggest two features of the oven to prevent microwaves from leaking.",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "Explain the function of the turntable in the microwave oven.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tBy v = fλ,\n\n\tλ =[eq:19]\t=[eq:20]\n1M\n\t\t= 0.122 m\n1A\n(b)\tMicrowaves can penetrate into the food.\n1A\n(c)\tThe walls of the microwave oven are made of metal.\n1A\n\tThere is a metal grid on the door of the microwave oven.\n1A\n\t(Or other reasonable answers)\n\n(d)\tThe microwaves may form stationary waves in the microwave oven.\n1A\n\tThe part of food at the nodes of the stationary waves cannot be heated effectively.\n1A\n\tThe turntable keeps rotating the food during heating so that no part of the food stay at a node throughout the heating process.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "λ =[eq:19]\t=[eq:20]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 0.122 m",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Microwaves can penetrate into the food.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The walls of the microwave oven are made of metal.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "There is a metal grid on the door of the microwave oven.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The microwaves may form stationary waves in the microwave oven.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The part of food at the nodes of the stationary waves cannot be heated effectively.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The turntable keeps rotating the food during heating so that no part of the food stay at a node throughout the heating process.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013109.png"
+        ],
+        "answer": [
+          "crops/PHY18013109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            7,
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            600.44970703125,
+            156.4929962158203,
+            612.626708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013110",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 10,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tThis question is about electric hotplates and microwave ovens.\n\t(a)\t(i)\tDescribe the working principle of an electric hotplate.\t(2 marks)\n\t\t(ii)\tState a design of an electric hotplate that facilitate heat transfer.\t(1 mark)\n\t(b)\tA microwave oven works by exposing food to microwaves. Describe how food can be heated up by microwaves.\t(3 marks)\n\t(c)\tState an advantage and a disadvantage of an electric hotplate when compared with a microwave oven.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Describe the working principle of an electric hotplate.",
+          "marks": 2
+        },
+        {
+          "label": "a(ii)",
+          "text": "State a design of an electric hotplate that facilitate heat transfer.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "A microwave oven works by exposing food to microwaves. Describe how food can be heated up by microwaves.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "State an advantage and a disadvantage of an electric hotplate when compared with a microwave oven.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tAn electric hotplate passes a current through the resistance wire and produces a strong heating effect.\n1A\n\t\tHeat is transferred to the pot by conduction or radiation.\n1A\n\t(ii)\tThe metallic tube containing the resistance wire is shaped into a flattened coil.\n1A\n(b)\tFood contains polar molecules like water molecules.\n1A\n\tThe oscillating electric field of the microwaves makes the polar molecules flip rapidly.\n1A\n\tThese molecules collide with nearby molecules, causing the total KE of the molecules in the food to increase.\n1A\n(c)\tAdvantage: It has a higher end-use energy efficiency.\n1A\n\tDisadvantage: Its top plate gets very hot.\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "An electric hotplate passes a current through the resistance wire and produces a strong heating effect.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "Heat is transferred to the pot by conduction or radiation.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "The metallic tube containing the resistance wire is shaped into a flattened coil.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Food contains polar molecules like water molecules.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The oscillating electric field of the microwaves makes the polar molecules flip rapidly.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "These molecules collide with nearby molecules, causing the total KE of the molecules in the food to increase.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Advantage: It has a higher end-use energy efficiency.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Disadvantage: Its top plate gets very hot.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013110.png"
+        ],
+        "answer": [
+          "crops/PHY18013110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            379.0997619628906,
+            156.04299926757812,
+            391.2767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013111",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 11,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tThe figure below shows a simplified structure of an air conditioner.\n[fig:4]X\nY\n[fig:5]X\nY\n\n\t(a)\tName parts X and Y.\t(2 marks)\n\t(b)\tDraw an arrow on the figure to show the direction of flow of the refrigerant.\t(1 mark)\n\t(c)\tWhat happens to the refrigerant when it passes through the expansion valve?\t(2 marks)\n\t(d)\tWhat is the function of X? Name two features of X to facilitate its function.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Name parts X and Y.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Draw an arrow on the figure to show the direction of flow of the refrigerant.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "What happens to the refrigerant when it passes through the expansion valve?",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "What is the function of X? Name two features of X to facilitate its function.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tX: condensing coil\n1A\n\tY: evaporator coil\n1A\n(b)\n\n\t[fig:6]X\nY\n[fig:7]X\nY\n\n\n\t(Correct direction)\n1A\n(c)\tPart of the refrigerant evaporates,\n1A\n\tmaking the refrigerant cool down.\n1A\n(d)\tIt allows the refrigerant in it to release heat to the outside.\n1A\n\tIt is made of metal\n1A\n\tand has many metal fins attached to it.\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "X: condensing coil",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Y: evaporator coil",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "(Correct direction)",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Part of the refrigerant evaporates,",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "making the refrigerant cool down.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "It allows the refrigerant in it to release heat to the outside.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "It is made of metal",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "and has many metal fins attached to it.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013111.png"
+        ],
+        "answer": [
+          "crops/PHY18013111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            111.9997787475586,
+            155.59298706054688,
+            124.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18013112",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 12,
+      "type": "lq",
+      "level": "dif",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→→\tAn air conditioner of cooling capacity 2.5 kW is used to cool a room of volume 50 m3 on a hot summer day. It works at full power for 5 minutes. The specific heat capacity of air is \n1000 J kg-1 °C-1 and the density of air is 1.2 kg m-3. Assume that there is only air inside the room.\n\t(a)\t(i)\tEstimate the drop in temperature of the air in the room. Assume that the density and specific heat capacity of air remain constant.\t(2 marks)\n\t\t(ii)\tIn practice, will the drop in air temperature be larger or smaller than the answer in (i)? Give one reason to explain your answer.\t(2 marks)\n\t(b)\tThe refrigerant absorbs heat and evaporates when it passes through the evaporator coil. The specific latent heat of vaporization of the refrigerant is 220 kJ kg-1. Find the amount of refrigerant that evaporates in the evaporator coil each second during the above cooling process. Neglect the energy needed to raise the temperature of the refrigerant.\t(2 marks)\n\t(c)\tA traditional air conditioner can be modified into a reverse cycle air conditioner (RCAC) that can warm a room in winter.\n\t\t(i)\tDoes the refrigerant evaporate inside or outside the room when the RCAC is used to warm a room?\t(1 mark)\n\t\t(ii)\tSuggest a way to modify a traditional air conditioner to warm a room in winter.\n\t(1 mark)",
+        "ocr": "PHY18013112>\n\n<lvl=dif><part=core><type=lq><mark=8><bk=E3><ch=01><content>\nAn air conditioner of cooling capacity 2.5 kW is used to cool a room of volume 50 m’ on a hot\nsummer day. It works at full power for 5 minutes. The specific heat capacity of air is\n1000 J kg' °C\" and the density of air is 1.2 kg m’. Assume that there is only air inside the\nroom.\n\n(a) (i) Estimate the drop in temperature of the air in the room. Assume that the density and\n\n(b)\n\n(c)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Estimate the drop in temperature of the air in the room. Assume that the density and specific heat capacity of air remain constant.",
+          "marks": 2
+        },
+        {
+          "label": "a(ii)",
+          "text": "In practice, will the drop in air temperature be larger or smaller than the answer in (i)? Give one reason to explain your answer.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The refrigerant absorbs heat and evaporates when it passes through the evaporator coil. The specific latent heat of vaporization of the refrigerant is 220 kJ kg-1. Find the amount of refrigerant that evaporates in the evaporator coil each second during the above cooling process. Neglect the energy needed to raise the temperature of the refrigerant.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "A traditional air conditioner can be modified into a reverse cycle air conditioner (RCAC) that can warm a room in winter.\n\t\t(i)\tDoes the refrigerant evaporate inside or outside the room when the RCAC is used to warm a room?",
+          "marks": 1
+        },
+        {
+          "label": "c(ii)",
+          "text": "Suggest a way to modify a traditional air conditioner to warm a room in winter.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\t\tAmount of heat removed\t= cooling capacity × time\n\n\t\t\tmcΔT\t= cooling capacity × time\n\n\t\t\t(50 × 1.2) × 1000 × ΔT\t= 2500 × (5 × 60)\n1M\n\t\t\tΔT\t= 12.5 °C\n\n\t\tThe drop in temperature of the air in the room is 12.5 °C.\n1A\n\t(ii)\tSmaller.\n1A\n\t\tThis is because there is heat transferred from the outside into the room.\n1A\n(b)\tIn each second,\n\n\t\tenergy gained by refrigerant\t= amount of heat removed\n\n\t\tmlv\t= cooling capacity × time\n\n\t\tm × 220 000\t= 2500 × 1\n1M\n\t\tm\t= 0.0114 kg\n1A\n\t0.0114 kg of refrigerant evaporates each second.\n\n(c)\t(i)\tOutside\n1A\n\t(ii)\tReverse the flow of refrigerant.\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "(50 × 1.2) × 1000 × ΔT\t= 2500 × (5 × 60)",
+            "code": "1M"
+          },
+          {
+            "part": "a(i)",
+            "point": "The drop in temperature of the air in the room is 12.5 °C.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "Smaller.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "This is because there is heat transferred from the outside into the room.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "m × 220 000\t= 2500 × 1",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "m\t= 0.0114 kg",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "Outside",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Reverse the flow of refrigerant.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18013112.png"
+        ],
+        "answer": [
+          "crops/PHY18013112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_LQ_e.docx",
+          "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_LQ_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.04299926757812,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011101",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 1,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following statements about using an electric hotplate and an induction cooker for cooking is/are correct?\n\t(1)\tBoth cooking methods convert electrical energy into internal energy.\n\t(2)\tBoth devices can be used to cook dry food.\n\t(3)\tBoth devices can work with glass utensils.",
+        "ocr": "PHY18011101>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E3><ch=01><content>\nWhich of the following statements about using an electric hotplate and an induction cooker for\ncooking is/are correct?\n\n(1) Both cooking methods convert electrical energy into internal energy.\n(2) Both devices can be used to cook dry food.\n(3) Both devices can work with glass utensils.\n\nA (1) only\nB_ (8) only\nC (1) and (2) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Only pots with metal bases work with an induction cooker.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011101.png"
+        ],
+        "answer": [
+          "crops/PHY18011101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.75,
+            71.9997787475586,
+            156.19198608398438,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011102",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 2,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about the refrigerant in an air conditioner is/are correct?\n\t(1)\tThe refrigerant evaporates in the evaporator coil, absorbing the latent heat of vaporization from the air in the room.\n\t(2)\tThe refrigerant condenses in the condensing coil, releasing the latent heat of fusion to the air outside.\n\t(3)\tUnder normal use, the refrigerant will be consumed and has to be refilled from time to time.",
+        "ocr": "PHY18011102>\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* = Which of the following statements about the refrigerant in an air conditioner is/are correct?\n(1) The refrigerant evaporates in the evaporator coil, absorbing the latent heat of vaporization\nfrom the air in the room.\n(2) The refrigerant condenses in the condensing coil, releasing the latent heat of fusion to the\nair outside.\n\n(3) Under normal use, the refrigerant will be consumed and has to be refilled from time to\n\ntime.\nA (1) only\nB_ (8) only\nC (1) and (2) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "When the refrigerant condenses in the condensing coil, it releases latent heat of vaporization to the air outside.\n∴ (2) is incorrect.\nUnder normal use, the refrigerant flows in a loop but is not consumed.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011102.png"
+        ],
+        "answer": [
+          "crops/PHY18011102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.75,
+            339.6497802734375,
+            156.1929931640625,
+            351.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011103",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 3,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA student uses an electric hotplate to heat up 3 kg of water. The electric hotplate is set to \n2000 W and its end-use energy efficiency is 35%. How long does it take to heat the water from 25 °C to 96 °C? The specific heat capacity of water is 4200 J kg-1 °C-1.",
+        "ocr": "PHY18011103>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* A student uses an electric hotplate to heat up 3 kg of water. The electric hotplate is set to\n2000 W and its end-use energy efficiency is 35%. How long does it take to heat the water from\n25 °C to 96 °C? The specific heat capacity of water is 4200 J kg! °C.\n\n\nA 158s\nB 447s\nC 1278s\nD 1360s",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "158 s"
+        },
+        {
+          "label": "B",
+          "text": "447 s"
+        },
+        {
+          "label": "C",
+          "text": "1278 s"
+        },
+        {
+          "label": "D",
+          "text": "1360 s"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Useful energy output\t= energy gained by water\n\tEin × ηend\t= mcΔT\n\t(2000 × t) × 0.35\t= 3 × 4200 × (96 - 25)\n\tt\t= 1278 s",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011103.png"
+        ],
+        "answer": [
+          "crops/PHY18011103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.75,
+            674.1497802734375,
+            156.1929931640625,
+            686.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011104",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 4,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following statements about using an induction cooker and a microwave oven for cooking is/are correct?\n\t(1)\tBoth devices make use of the energy of electromagnetic waves to cook food.\n\t(2)\tBoth cooking methods convert electrical energy into internal energy.\n\t(3)\tBoth devices can heat the interior of the food directly.",
+        "ocr": "PHY18011104>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E3><ch=01><content>\nWhich of the following statements about using an induction cooker and a microwave oven for\ncooking is/are correct?\n\n(1) Both devices make use of the energy of electromagnetic waves to cook food.\n(2) Both cooking methods convert electrical energy into internal energy.\n(3) Both devices can heat the interior of the food directly.\n\nA (2) only\nB_ (8) only\nC (1) and (2) only\nD_ (4) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(1) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "An induction cooker does not make use of the energy of electromagnetic waves to cook food. It makes use of electromagnetic induction.\n∴ (1) is incorrect.\nWhen an induction cooker is used to cook food, the eddy currents in the metal base of the cooking pot produces a strong heating effect. Heat is transferred from the metal base to the exterior of the food by conduction, and then from the exterior to the interior of the food.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011104.png"
+        ],
+        "answer": [
+          "crops/PHY18011104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.75,
+            262.6497497558594,
+            156.1929931640625,
+            274.8267517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011105",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 5,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe specifications of three electric hotplates are listed below.\nElectrical hotplate\nRated power\nEnd-use energy efficiency\nX\n1000 W\n75%\nY\n1500 W\n70%\nZ\n2000 W\n65%\n\tIf these hotplates operate at their rated powers and are used to boil away the same amount of water completely, which one will consume the most electrical energy?",
+        "ocr": "PHY18011105>\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* The specifications of three electric hotplates are listed below.\n\nElectrical hotplate Rated power End-use energy efficiency\nxX 1000 W 75%\nY 1500 W 70%\nZ 2000 W 65%\n\nIf these hotplates operate at their rated powers and are used to boil away the same amount of\nwater completely, which one will consume the most electrical energy?\n\n\n\nA X\nB Y\nC Z\nD_ These hotplates will consume the same amount of electrical energy.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "X"
+        },
+        {
+          "label": "B",
+          "text": "Y"
+        },
+        {
+          "label": "C",
+          "text": "Z"
+        },
+        {
+          "label": "D",
+          "text": "These hotplates will consume the same amount of electrical energy."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "The one with the lowest end-use energy efficiency will comsume the most electrical energy.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011105.png"
+        ],
+        "answer": [
+          "crops/PHY18011105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.75,
+            593.5497436523438,
+            156.1929931640625,
+            605.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011106",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 6,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tFor every 100 J of energy input to a fossil power plant, 40 J of electrical energy is produced. The electrical energy is then transmitted to the user through a transmission system. When 100 J of energy is input to the system, 90 J of energy is output to the user. A user connects an electric hotplate to the mains. For every 100 J of energy input to the hotplate, 70 J of energy is used in cooking. Find the end-use energy efficiency of the electric hotplate.",
+        "ocr": "PHY18011106>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* For every 100 J of energy input to a fossil power plant, 40 J of electrical energy is produced.\nThe electrical energy is then transmitted to the user through a transmission system. When 100 J\nof energy is input to the system, 90 J of energy is output to the user. A user connects an electric\nhotplate to the mains. For every 100 J of energy input to the hotplate, 70 J of energy is used in\ncooking. Find the end-use energy efficiency of the electric hotplate.\n\n25.2%\n28%\n63%\n70%\n\nGDOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "25.2%"
+        },
+        {
+          "label": "B",
+          "text": "28%"
+        },
+        {
+          "label": "C",
+          "text": "63%"
+        },
+        {
+          "label": "D",
+          "text": "70%"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "ηend = [eq:1] × 100% = [eq:2] × 100% = 70%",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011106.png"
+        ],
+        "answer": [
+          "crops/PHY18011106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.75,
+            237.34976196289062,
+            156.1929931640625,
+            249.52676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011107",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 7,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The cooling capacity of an air conditioner is",
+        "ocr": "PHY18011107>\n<lvl=easy><part=core><type=mc><mark=2><bk=E3><ch=01><content>\nThe cooling capacity of an air conditioner is\n\nA the maximum amount of energy that the air conditioner consumes.\nB_ the maximum amount of heat that the air conditioner can remove.\nC the maximum rate at which energy is consumed by the air conditioner.\nD_ the maximum rate at which heat is removed by the air conditioner.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "the maximum amount of energy that the air conditioner consumes."
+        },
+        {
+          "label": "B",
+          "text": "the maximum amount of heat that the air conditioner can remove."
+        },
+        {
+          "label": "C",
+          "text": "the maximum rate at which energy is consumed by the air conditioner."
+        },
+        {
+          "label": "D",
+          "text": "the maximum rate at which heat is removed by the air conditioner."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011107.png"
+        ],
+        "answer": [
+          "crops/PHY18011107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.75,
+            507.0497741699219,
+            156.1929931640625,
+            519.2267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011108",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 8,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following forms of energy is/are the useful energy output of an electric fan?\n[fig:1]\n\t(1)\tInternal energy of the motor\n\t(2)\tKinetic energy of the blades\n\t(3)\tKinetic energy of air",
+        "ocr": "PHY18011108>\n<lvl=easy><part=core><type=mc><mark=2><bk=E3><ch=01><content>\nWhich of the following forms of energy is/are the useful energy output of an electric fan?\n\n\n(1) Internal energy of the motor\n(2) Kinetic energy of the blades\n(3) Kinetic energy of air\n\nA (3) only\n\nB= (4) and (2) only\n\nC (2) and (3) only\n\nD_ (4), (2) and (8)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(3) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011108.png"
+        ],
+        "answer": [
+          "crops/PHY18011108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            688.19970703125,
+            156.1929931640625,
+            700.376708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011109",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 9,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following kettles has the highest useful output power?\n\nInput power\nEnd-use energy efficiency",
+        "ocr": "PHY18011109>\n<Ivl=easy><part=core><type=mc><mark=2><bk=E3><ch=01><content>\nWhich of the following kettles has the highest useful output power?\n\nInput power End-use energy efficiency\n\nA 1360 W 86%\nB 1500 W 78%\nC 1750 W 82%\nD 1800 W 80%",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1360 W\n86%"
+        },
+        {
+          "label": "B",
+          "text": "1500 W\n78%"
+        },
+        {
+          "label": "C",
+          "text": "1750 W\n82%"
+        },
+        {
+          "label": "D",
+          "text": "1800 W\n80%"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "By ηend = [eq:3] × 100%,\nEout = Ein × ηend\nOption A: Eout = 1360 × 0.86 = 1170 W\nOption B: Eout = 1500 × 0.78 = 1170 W\nOption C: Eout = 1750 × 0.82 = 1435 W\nOption D: Eout = 1800 × 0.80 = 1440 W",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011109.png"
+        ],
+        "answer": [
+          "crops/PHY18011109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            382.2997741699219,
+            156.1929931640625,
+            394.4767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011110",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 10,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn 100 J of energy released from burning coal in a power plant, 45 J of electrical energy is produced. Then 42 J of the electrical energy is consumed by an induction cooker and 8 J of the energy is lost as heat to the surroundings. Find the end-use energy efficiency of the induction cooker.",
+        "ocr": "PHY18011110>\n\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* Jn 100 J of energy released from burming coal in a power plant, 45 J of electrical energy is\nproduced. Then 42 J of the electrical energy is consumed by an induction cooker and 8 J of the\n\n\nenergy is lost as heat to the surroundings. Find the end-use energy efficiency of the induction\ncooker.\n\nA 8%\n\nB 19%\nC 42%\nD 81%",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "8%"
+        },
+        {
+          "label": "B",
+          "text": "19%"
+        },
+        {
+          "label": "C",
+          "text": "42%"
+        },
+        {
+          "label": "D",
+          "text": "81%"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "ηend = [eq:4] × 100% = [eq:5] × 100% = 81%",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011110.png"
+        ],
+        "answer": [
+          "crops/PHY18011110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.75,
+            674.5497436523438,
+            155.79299926757812,
+            686.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011111",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 11,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAn electric kettle takes 9 minutes to boil 3 kg of water at 25 °C. Its end-use energy efficiency is 75%. Estimate its input power. Given: specific heat capacity of water = 4200 J kg-1 °C-1",
+        "ocr": "PHY18011111>\n\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* ~~ An electric kettle takes 9 minutes to boil 3 kg of water at 25 °C. Its end-use energy efficiency is\n75%. Estimate its input power. Given: specific heat capacity of water = 4200 J kg' °C\"\n\nA 13kW\nB 18kW\nC 2.3kW\nD 79 kW",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.3 kW"
+        },
+        {
+          "label": "B",
+          "text": "1.8 kW"
+        },
+        {
+          "label": "C",
+          "text": "2.3 kW"
+        },
+        {
+          "label": "D",
+          "text": "79 kW"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Useful energy output\t= energy gained by water\n\tEin × ηend\t= mcΔT\n\tPint × ηend\t= mcΔT\n\tPin × (9 × 60) × 0.75\t= 3 × 4200 × (100 - 25)\n\tPin\t= 2300 W (2.3 kW)",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011111.png"
+        ],
+        "answer": [
+          "crops/PHY18011111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.75,
+            273.6997985839844,
+            155.34298706054688,
+            285.8768005371094
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011112",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 12,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tTo boil the same mass of water at the same initial temperature, an electric hotplate takes \n5 minutes and an induction cooker takes 4 minutes. The efficiency of the hotplate is 75% and the efficiency of the induction cooker is 90%. The power input of the induction cooker is \n3200 W. What is the power input of the hotplate?",
+        "ocr": "PHY18011112>\n\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* To boil the same mass of water at the same initial temperature, an electric hotplate takes\n5 minutes and an induction cooker takes 4 minutes. The efficiency of the hotplate is 75% and\nthe efficiency of the induction cooker is 90%. The power input of the induction cooker is\n3200 W. What is the power input of the hotplate?\n\nA 3070 W\nB 3330 W\nC 3840 W\nD 4800 W",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "3070 W"
+        },
+        {
+          "label": "B",
+          "text": "3330 W"
+        },
+        {
+          "label": "C",
+          "text": "3840 W"
+        },
+        {
+          "label": "D",
+          "text": "4800 W"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Eout = Poutt = (Pin × η)t\nLet P be the power input of electric hotplate.\n\tUseful energy output of electric hotplate\t= useful energy output of induction cooker\n\tP × 0.75 × (5 × 60)\t= 3200 × 0.9 × (4 × 60)\n\tP\t= 3070 W\nThe power input of electric hotplate is 3070 W.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011112.png"
+        ],
+        "answer": [
+          "crops/PHY18011112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.75,
+            533.19970703125,
+            155.79299926757812,
+            545.376708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011113",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 13,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about an induction cooker is/are correct?\n\t(1)\tAn induction cooker usually has a higher end-use energy efficiency than a microwave oven.\n\t(2)\tThe top plate of an induction cooker is a good insulator of heat.\n\t(3)\tAll kinds of metallic cookware work well on an induction cooker.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Only pots with metal bases work with an induction cooker.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011113.png"
+        ],
+        "answer": [
+          "crops/PHY18011113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.75,
+            172.09976196289062,
+            155.79299926757812,
+            184.27676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011114",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 14,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about an air conditioner is/are correct?\n\t(1)\tWhen the refrigerant passes through the expansion valve, its internal energy remains approximately unchanged.\n\t(2)\tIts coefficient of performance is the drop in temperature in the room per unit energy used.\n\t(3)\tIt does work to increase the energy of the refrigerant.",
+        "ocr": "PHY18011114>\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* = Which of the following statements about an air conditioner is/are correct?\n(1) When the refrigerant passes through the expansion valve, its internal energy remains\napproximately unchanged.\n(2) Its coefficient of performance is the drop in temperature in the room per unit energy used.\n(3) It does work to increase the energy of the refrigerant.\n\nA (3) only\nB= (4) and (2) only\nC (1) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(3) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "COP = [eq:6] = [eq:7] = [eq:8]\n∴ (2) is incorrect.\nThe compressor of an air conditioner does work on the refrigerant.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011114.png"
+        ],
+        "answer": [
+          "crops/PHY18011114.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.75,
+            441.0497741699219,
+            155.79299926757812,
+            453.2267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011115",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 15,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tTwo air conditioners consume the same amount of energy in removing the same amount of heat from a room. Which of the following statements must be correct?\n\t(1)\tThe two air conditioners have the same input power.\n\t(2)\tThe two air conditioners have the same COP.\n\t(3)\tThe two air conditioners work for the same period of time to remove the same amount of energy.",
+        "ocr": "PHY18011115>\n\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* Two air conditioners consume the same amount of energy in removing the same amount of heat\nfrom a room. Which of the following statements must be correct?\n(1) The two air conditioners have the same input power.\n(2) The two air conditioners have the same COP.\n\n(3) The two air conditioners work for the same period of time to remove the same amount of\n\nenergy.\nA (2) only\nB= (4) and (2) only\nC (1) and (3) only\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "The time taken for the two air conditioners to remove the same amount of heat may not be the same. Therefore, the cooling capacities and also the input power of the two air conditioners may not be the same.\n∴ (1) and (3) are not necessarily correct.\nCOP = [eq:9] = [eq:10] = [eq:11]\n∴ (2) is correct.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011115.png"
+        ],
+        "answer": [
+          "crops/PHY18011115.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.75,
+            108.8497543334961,
+            155.79299926757812,
+            121.0267562866211
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011116",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 16,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about a microwave oven is/are correct?\n\t(1)\tEddy currents flow in the food when it absorbs the microwaves.\n\t(2)\tIts major energy loss takes place in the magnetron tube.\n\t(3)\tThere is a significant energy loss due to the leakage of microwaves from the microwave oven.",
+        "ocr": "PHY18011116>\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* = Which of the following statements about a microwave oven is/are correct?\n(1) Eddy currents flow in the food when it absorbs the microwaves.\n(2) Its major energy loss takes place in the magnetron tube.\n(3) There is a significant energy loss due to the leakage of microwaves from the microwave\n\noven.\n\nA (1) only\n\nB= (2) only\n\nC (1) and (3) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The magnetron tube can convert only about 70% of the energy input into microwaves. The end-use energy efficiency of a microwave oven is about 60%.\n∴ (2) is correct.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011116.png"
+        ],
+        "answer": [
+          "crops/PHY18011116.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.75,
+            486.44976806640625,
+            155.79299926757812,
+            498.62677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011117",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 17,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about an induction cooker and an electric hotplate is/are correct?\n\t(1)\tBoth have a flat coil of conducting wire.\n\t(2)\tBoth can work with a.c.\n\t(3)\tBoth work well with ferromagnetic cookware.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011117.png"
+        ],
+        "answer": [
+          "crops/PHY18011117.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.75,
+            97.29976654052734,
+            155.79299926757812,
+            109.47676849365234
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011118",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 18,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAn air conditioner is used to keep a room cool. Which of the following statements about the condensing coil of the air conditioner is/are correct?\n\t(1)\tIt is located outside the room.\n\t(2)\tIt cools down the surrounding air.\n\t(3)\tThe refrigerant condenses when passing through it.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "When the refrigerant passes through the condensing coil, it is hot and in gaseous state. It releases latent heat of vaporization to the air outside the room and condenses to liquid.\n∴ (1) and (3) are correct. (2) is incorrect.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011118.png"
+        ],
+        "answer": [
+          "crops/PHY18011118.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.75,
+            340.94976806640625,
+            155.79299926757812,
+            353.12677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011119",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 19,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following types of cookers make(s) use of the heating effect of current for cooking?\n\t(1)\tElectric hotplate\n\t(2)\tInduction cooker\n\t(3)\tMicrowave oven",
+        "ocr": "PHY18011119>\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* = Which of the following types of cookers make(s) use of the heating effect of current for\ncooking?\n(1) Electric hotplate\n(2) Induction cooker\n(3) Microwave oven\nA (1) only\n\n\nB= (4) and (2) only\nC (2) and (3) only\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "An electric hotplate makes use of the heating effect of current in the coil of resistance wire.\n∴ (1) is correct.\nAn induction cooker makes use of the heating effect of the eddy currents in the metallic cooking pot.\n∴ (2) is correct.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011119.png"
+        ],
+        "answer": [
+          "crops/PHY18011119.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            8,
+            9
+          ],
+          "bbox_pt": [
+            51.75,
+            622.5497436523438,
+            155.79299926757812,
+            634.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011120",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 20,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tTwo electrical appliances X and Y have end-use energy efficiencies of 68% and 72% respectively. If both appliances have useful energy output of 200 kJ, the energy input of X will be",
+        "ocr": "PHY18011120>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* Two electrical appliances X and Y have end-use energy efficiencies of 68% and 72%\nrespectively. If both appliances have useful energy output of 200 kJ, the energy input of X will\n\nbe\n\nA smaller than that of Y by 8 kJ.\nB _ greater than that of Y by 8 kJ.\nC smaller than that of Y by 16 kJ.\nD - greater than that of Y by 16 kJ.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "smaller than that of Y by 8 kJ."
+        },
+        {
+          "label": "B",
+          "text": "greater than that of Y by 8 kJ."
+        },
+        {
+          "label": "C",
+          "text": "smaller than that of Y by 16 kJ."
+        },
+        {
+          "label": "D",
+          "text": "greater than that of Y by 16 kJ."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "By ηend = [eq:12] × 100%,\nEin = [eq:13]\nEnergy input of X = [eq:14] = 294 kJ\nEnergy input of Y = [eq:15] = 278 kJ\nThe energy input of X will be greater than that of Y by 16 kJ.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011120.png"
+        ],
+        "answer": [
+          "crops/PHY18011120.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.75,
+            272.1497497558594,
+            156.1929931640625,
+            284.3267517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011121",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 21,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tThe coefficient of performance and cooling capacity of an air conditioner are 2.5 and 1.2 kW respectively. The cost of electricity is $1.1 per kW h. Find the cost of electricity in removing \n1 GJ (= 1 × 109 J) of heat from a room by this air conditioner.",
+        "ocr": "PHY18011121>\n<lvl=dif><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* * The coefficient of performance and cooling capacity of an air conditioner are 2.5 and 1.2 kW\n\nrespectively. The cost of electricity is $1.1 per kW h. Find the cost of electricity in removing\n1 GJ (= 1 x 10° J) of heat from a room by this air conditioner.\n\nA $102\nB $122\nC $306\n\n\nD $764",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "$102"
+        },
+        {
+          "label": "B",
+          "text": "$122"
+        },
+        {
+          "label": "C",
+          "text": "$306"
+        },
+        {
+          "label": "D",
+          "text": "$764"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "COP = [eq:16] = [eq:17] = [eq:18]\nElectrical energy input = [eq:19] = [eq:20] = 4 × 108 J\nCost of electricity = $1.1 × [eq:21] = $122",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011121.png"
+        ],
+        "answer": [
+          "crops/PHY18011121.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            9,
+            10
+          ],
+          "bbox_pt": [
+            51.75,
+            615.8497314453125,
+            156.1929931640625,
+            628.0267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011122",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 22,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tThe rated power and COP of an air conditioner are 1.2 kW and 2.8 respectively. Estimate the maximum amount of heat released to the outside by the air conditioner in 2 hours.",
+        "ocr": "PHY18011122>\n\n<lvl=dif><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* * The rated power and COP of an air conditioner are 1.2 kW and 2.8 respectively. Estimate the\nmaximum amount of heat released to the outside by the air conditioner in 2 hours.\n\nA 34kWh\nB 6.7kWh\nC 91kWh\nD 11.2kWh",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "3.4 kW h"
+        },
+        {
+          "label": "B",
+          "text": "6.7 kW h"
+        },
+        {
+          "label": "C",
+          "text": "9.1 kW h"
+        },
+        {
+          "label": "D",
+          "text": "11.2 kW h"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "By COP = [eq:22],\ncooling capacity = COP × electrical power input = 2.8 × 1.2 = 3.36 kW\nRate of heat released to outside\t= cooling capacity + electrical power input\n\t= 3.36 + 1.2\n\t= 4.56 kW\nMaximum amount of heat released to outside = 4.56 × 2 = 9.1 kW h",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011122.png"
+        ],
+        "answer": [
+          "crops/PHY18011122.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.75,
+            283.5497741699219,
+            156.1929931640625,
+            295.7267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011123",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 23,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe energy labels of two air conditioners are shown below.\n\n[fig:2]900\n3.05\n[fig:3]900\n3.05\n\n\t\tAir conditioner X.\n\n[fig:4]1100\n3.05\n[fig:5]1100\n3.05\n\n\t\tAir conditioner Y.\n\n\tHow much could be saved if X is used instead of Y for 1600 hours? The cost of electricity is $1.1 per kW h.",
+        "ocr": "PHY18011123>\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* The energy labels of two air conditioners are shown below.\n\nAnnual Energy Consumption kwh)(Cooling)\nSEE (tH 10g a4) 900\n\nBased on 1200 hrs/yr operation\nLUSTER 200/)\\855t\n\nCooling Capacity (kW) 8748( FEL ) 3.05\n\nRefrigerant 3274 #4 R410A\n\n\n\nAir conditioner X.\n\nAnnual Energy Consumption kwh)(Cooling)\nSPREE (FH 3 04) 1100\n\nBased on 1200 hrs/yr operation\nLUSTER 200/)\\855t\n\nCooling Capacity (kW) 8748( FEL ) 3.05\nRefrigerant 3274 #4 R410A\n\nAir conditioner Y.\n\nHow much could be saved if X is used instead of Y for 1600 hours? The cost of electricity is\n$1.1 per kW h.\n\n$23.2\n$220\n$293\n$1480\n\nGUOWP",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "$23.2"
+        },
+        {
+          "label": "B",
+          "text": "$220"
+        },
+        {
+          "label": "C",
+          "text": "$293"
+        },
+        {
+          "label": "D",
+          "text": "$1480"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Energy consumption by air conditioner X = 900 × [eq:23] = 1200 kW h\nEnergy consumption by air conditioner Y = 1100 × [eq:24] = 1466.7 kW h\nCost of electricity saved = $1.1 × (1466.7 - 1200) = $293",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011123.png"
+        ],
+        "answer": [
+          "crops/PHY18011123.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            10,
+            11
+          ],
+          "bbox_pt": [
+            51.75,
+            571.499755859375,
+            156.1929931640625,
+            583.6767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011124",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 24,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tPart of the energy label on a washing machine is as shown.\n\n[fig:6]364\n5\n72\n[fig:7]364\n5\n72\n\n\n\tEstimate the energy consumed per wash.",
+        "ocr": "PHY18011124>\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* Part of the energy label on a washing machine is as shown.\n\na ae ae a es es eas ese\nAnnual Energy Consumption (kwh) (Washing) 3 6 4\nSRS S (FHM)\n\nBased on 260 washes/yr operation\nDEER 260R5t 8\nWashing Capacity (kg) #t7¢: (AA) bs)\nWater Consumption (litre) FE7KS (AF) 72\nQe ae Gea Ge a- 4 4-4-4 a=\n\nEstimate the energy consumed per wash.\nA 14]\nB 364J\n\n\nC 5.04 x 10°J\n\nD = 1.31 x 10°J",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.4 J"
+        },
+        {
+          "label": "B",
+          "text": "364 J"
+        },
+        {
+          "label": "C",
+          "text": "5.04 × 106 J"
+        },
+        {
+          "label": "D",
+          "text": "1.31 × 106 J"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Energy consumed per wash = [eq:25] = 1.4 kW h = 1.4 × (1000 × 3600) = 5.04 × 106 J",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011124.png"
+        ],
+        "answer": [
+          "crops/PHY18011124.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            11,
+            12
+          ],
+          "bbox_pt": [
+            51.75,
+            476.94976806640625,
+            156.1929931640625,
+            489.12677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011125",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 25,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following energy label is affixed on an air conditioner. Estimate the average input power of the air conditioner.\n\n[fig:8]1000\n2.95\n[fig:9]1000\n2.95",
+        "ocr": "PHY18011125>\n\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n\n* The following energy label is affixed on an air conditioner. Estimate the average input power of\nthe air conditioner.\n\nAnnual Energy Consumption kwh)(Cooling)\nSFE (FH 804) 1000\n\nBased on 1200 hrs/yr operation\nLUSTER 200/)\\855t\n\nCooling Capacity (kW) #4 8(+F2 ) 2.95\nRefrigerant 3274 #4 R410A\nA 282 W\nB 833W\nC 1000 W\nD 2460 W",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "282 W"
+        },
+        {
+          "label": "B",
+          "text": "833 W"
+        },
+        {
+          "label": "C",
+          "text": "1000 W"
+        },
+        {
+          "label": "D",
+          "text": "2460 W"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Average input power = [eq:26] = = 0.833 kW = 833 W",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011125.png"
+        ],
+        "answer": [
+          "crops/PHY18011125.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            12
+          ],
+          "bbox_pt": [
+            51.75,
+            208.89974975585938,
+            156.1929931640625,
+            221.07675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18011126",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 26,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tBy which of the following methods can we save energy?\n\t(1)\tChoose an air conditioner with a suitable cooling capacity according to the size of the room.\n\t(2)\tChoose an air conditioner with grade 1 energy label.\n\t(3)\tClose doors and windows when using an air conditioner.",
+        "ocr": "PHY18011126>\n<Ivl=avg><part=core><type=mc><mark=2><bk=E3><ch=01><content>\n* ~~ By which of the following methods can we save energy?\n\n(1) Choose an air conditioner with a suitable cooling capacity according to the size of the\nroom.\n\n(2) Choose an air conditioner with grade 1 energy label.\n\n(3) Close doors and windows when using an air conditioner.\nA (1) and (2) only\n\nB= (4) and (3) only\n\nC (2) and (3) only\n\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Grade 1 is the most efficient and 5 the least efficient.\n∴ (2) is correct.",
+        "marking": [],
+        "source": "QB_E301/E3_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18011126.png"
+        ],
+        "answer": [
+          "crops/PHY18011126.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_MC_e.docx",
+          "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_MC_e.pdf",
+          "pages": [
+            12,
+            13
+          ],
+          "bbox_pt": [
+            51.75,
+            563.8997802734375,
+            156.1929931640625,
+            576.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18012101",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 1,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "An electric hotplate and an induction cooker, both of power rating 1200 W, are used to warm 0.5 kg of soup from 10 °C to 80 °C. The time taken by the electric hotplate is 163 s and the time taken by the induction cooker is 144 s. The specific heat capacity of the soup is \n4100 J kg-1 °C-1.\n\t(a)\tEstimate the end-use energy efficiencies of the electric hotplate and the induction cooker.\t(3 marks)\n\t(b)\tExplain the difference between the end-use energy efficiencies of the two cookers.\n\t(2 marks)",
+        "ocr": "PHY18012101>\n\n<lvl=easy><part=core><type=sq><mark=5><bk=E3><ch=01><content>\nAn electric hotplate and an induction cooker, both of power rating 1200 W, are used to warm\n0.5 kg of soup from 10 °C to 80 °C. The time taken by the electric hotplate is 163 s and the\ntime taken by the induction cooker is 144 s. The specific heat capacity of the soup is\n\n4100 Jkg! °C\".\n(a) Estimate the end-use energy efficiencies of the electric hotplate and the induction cooker.\n(3 marks)\n(b) Explain the difference between the end-use energy efficiencies of the two cookers.\n(2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Estimate the end-use energy efficiencies of the electric hotplate and the induction cooker.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Explain the difference between the end-use energy efficiencies of the two cookers.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tFor the electric hotplate,\n\n\t\tuseful energy output\t= energy gained by soup\n\n\t\tEin × ηend\t= mcΔT\n\n\t\t(1200 × 163) × ηend\t= 0.5 × 4100 × (80 -10)\n1M\n\t\tηend\t= 0.734 = 73.4%\n1A\n\tFor the induction cooker,\n\n\t\tuseful energy output\t= energy gained by soup\n\n\t\tEin × ηend\t= mcΔT\n\n\t\t(1200 × 144) × ηend\t= 0.5 × 4100 × (80 -10)\n\n\t\tηend\t= 0.830 = 83.0%\n1A\n(b)\tAn induction cooker does not get very hot during cooking.\n1A\n\tLess heat is lost directly from the cooker.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "(1200 × 163) × ηend\t= 0.5 × 4100 × (80 -10)",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "ηend\t= 0.734 = 73.4%",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "ηend\t= 0.830 = 83.0%",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "An induction cooker does not get very hot during cooking.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Less heat is lost directly from the cooker.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18012101.png"
+        ],
+        "answer": [
+          "crops/PHY18012101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_SQ_e.docx",
+          "sha256": "17eb36ad291e42dd223af43f20e1c7c0b3dd05973d66226ad51000d5c6df0a9c",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.75,
+            71.9997787475586,
+            157.09298706054688,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18012102",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 2,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "The energy input and useful energy output of a microwave oven are 1800 W and 950 W respectively.\n[fig:1]\n\t(a)\tFind the end-use energy efficiency of the microwave oven.\t(2 marks)\n\t(b)\tState a reason that the end-use energy efficiency of the microwave oven is lower than 100%.\t(1 mark)\n\t(c)\tState two advantages of a microwave oven over an induction cooker.\t(2 marks)",
+        "ocr": "PHY18012102>\n<lvl=easy><part=core><type=sq><mark=5><bk=E3><ch=01><content>\nThe energy input and useful energy output of a microwave oven are 1800 W and 950 W\n\nrespectively.\n\n(a) Find the end-use energy efficiency of the microwave oven. (2 marks)\n\n(b) State a reason that the end-use energy efficiency of the microwave oven is lower than\n100%. (1 mark)\n\n(c) State two advantages of a microwave oven over an induction cooker. (2 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the end-use energy efficiency of the microwave oven.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "State a reason that the end-use energy efficiency of the microwave oven is lower than 100%.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "State two advantages of a microwave oven over an induction cooker.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tEnd-use energy efficiency =[eq:1]\t=[eq:2]× 100%\n1M\n\t\t= 52.8%\n1A\n(b)\tEnergy is lost in generating microwaves.\n1A\n\t(Or other reasonable answers)\n\n(c)\tNon-metallic containers can be used.\n1A\n\tIt is more convenience in reheating food.\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "End-use energy efficiency =[eq:1]\t=[eq:2]× 100%",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 52.8%",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Energy is lost in generating microwaves.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Non-metallic containers can be used.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "It is more convenience in reheating food.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18012102.png"
+        ],
+        "answer": [
+          "crops/PHY18012102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_SQ_e.docx",
+          "sha256": "17eb36ad291e42dd223af43f20e1c7c0b3dd05973d66226ad51000d5c6df0a9c",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.75,
+            471.9997863769531,
+            157.09298706054688,
+            484.1767883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18012103",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 3,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 7,
+      "stem": {
+        "text": "→\tAn air conditioner of rated power 1.5 kW can at most remove 540 kJ of energy from a room in 3 minutes.\n\t(a)\tFind the cooling capacity of the air conditioner.\t(2 marks)\n\t(b)\tFind the total energy that the air conditioner consumes in the above process.\t(2 marks)\n\t(c)\tEstimate the maximum energy that the air conditioner releases to the outside in the above process.\t(1 mark)\n\t(d)\tFind the coefficient of performance of the air conditioner.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the cooling capacity of the air conditioner.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find the total energy that the air conditioner consumes in the above process.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Estimate the maximum energy that the air conditioner releases to the outside in the above process.",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "Find the coefficient of performance of the air conditioner.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tCooling capacity =[eq:3]\t=[eq:4]\n1M\n\t\t= 3 kW\n1A\n(b)\tTotal energy consumed = Pt\t= 1.5 × (3 × 60)\n1M\n\t\t= 270 kJ\n1A\n(c)\tMaximum energy released = 270 + 540 = 810 kJ\n1A\n(d)\tCOP =[eq:5]\t=[eq:6]\n1M\n\t\t= 2\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Cooling capacity =[eq:3]\t=[eq:4]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 3 kW",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Total energy consumed = Pt\t= 1.5 × (3 × 60)",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 270 kJ",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Maximum energy released = 270 + 540 = 810 kJ",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "COP =[eq:5]\t=[eq:6]",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "= 2",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18012103.png"
+        ],
+        "answer": [
+          "crops/PHY18012103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_SQ_e.docx",
+          "sha256": "17eb36ad291e42dd223af43f20e1c7c0b3dd05973d66226ad51000d5c6df0a9c",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_SQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.75,
+            237.34976196289062,
+            157.09298706054688,
+            249.52676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18012104",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 4,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tThe major components of an air conditioner include the compressor, the expansion valve, the condensing coil and the evaporator coil.\n\t(a)\tSketch a diagram to show how the four components are connected. Indicate the direction of flow of the refrigerant with an arrow.\t(2 marks)\n\t(b)\tDescribe how the temperature and the physical state of the refrigerant change when it passes through each of the components.\t(4 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Sketch a diagram to show how the four components are connected. Indicate the direction of flow of the refrigerant with an arrow.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Describe how the temperature and the physical state of the refrigerant change when it passes through each of the components.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\n\n\t[fig:2]\n\n\t(Correct connection)\n1A\n\t(Correct direction of flow of refrigerant)\n1A\n(b)\tWhen the refrigerant passes through the expansion value, part of it changes from liquid to gas\n0.5A\n\tand the temperature of the refrigerant decreases.\n0.5A\n\tWhen the refrigerant passes through the evaporator coil, it changes from a liquid-gas mixture to a gas\n0.5A\n\tand the temperature of the refrigerant increases.\n0.5A\n\tWhen the refrigerant passes through the compressor, it remains a gas\n0.5A\n\tand the temperature of the refrigerant increases.\n0.5A\n\tWhen the refrigerant passes through the condensing coil, it changes from a gas to a liquid\n0.5A\n\tand the temperature of the refrigerant decreases.\n0.5A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "(Correct connection)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Correct direction of flow of refrigerant)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "When the refrigerant passes through the expansion value, part of it changes from liquid to gas 0.",
+            "code": "5A"
+          },
+          {
+            "part": "b",
+            "point": "and the temperature of the refrigerant decreases. 0.",
+            "code": "5A"
+          },
+          {
+            "part": "b",
+            "point": "When the refrigerant passes through the evaporator coil, it changes from a liquid-gas mixture to a gas 0.",
+            "code": "5A"
+          },
+          {
+            "part": "b",
+            "point": "and the temperature of the refrigerant increases. 0.",
+            "code": "5A"
+          },
+          {
+            "part": "b",
+            "point": "When the refrigerant passes through the compressor, it remains a gas 0.",
+            "code": "5A"
+          },
+          {
+            "part": "b",
+            "point": "and the temperature of the refrigerant increases. 0.",
+            "code": "5A"
+          },
+          {
+            "part": "b",
+            "point": "When the refrigerant passes through the condensing coil, it changes from a gas to a liquid 0.",
+            "code": "5A"
+          },
+          {
+            "part": "b",
+            "point": "and the temperature of the refrigerant decreases. 0.",
+            "code": "5A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18012104.png"
+        ],
+        "answer": [
+          "crops/PHY18012104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_SQ_e.docx",
+          "sha256": "17eb36ad291e42dd223af43f20e1c7c0b3dd05973d66226ad51000d5c6df0a9c",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_SQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.75,
+            595.69970703125,
+            157.09298706054688,
+            607.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18012105",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 5,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tAn air conditioner transfers heat against the natural direction of heat flow.\n\t(a)\tWhat is the natural direction of heat flow?\t(1 mark)\n\t(b)\tIs the amount of heat released to the outside of a room equal to the heat removed from the room by the air conditioner? Explain your answer.\t(3 marks)\n\t(c)\tWindows and doors should be closed when using an air conditioner. Explain briefly.\n\t(1 mark)",
+        "ocr": "PHY18012105>\n<lvl=avg><part=core><type=sq><mark=5><bk=E3><ch=01><content>\n* An air conditioner transfers heat against the natural direction of heat flow.\n\n(a) What is the natural direction of heat flow?\n\n(b)\n\nroom by the air conditioner? Explain your answer.\n\n1A\n1A\n\n0.5A\n0.5A\n\n0.5A\n0.5A\n0.5A\n0.5A\n\n0.5A\n0.5A\n\n(1 mark)\n\nIs the amount of heat released to the outside of a room equal to the heat removed from the\n\n(3 marks)\n\n(c) Windows and doors should be closed when using an air conditioner. Explain briefly.\n(1 mark)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the natural direction of heat flow?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Is the amount of heat released to the outside of a room equal to the heat removed from the room by the air conditioner? Explain your answer.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "Windows and doors should be closed when using an air conditioner. Explain briefly.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tFrom a high-temperature body to a low-temperature body\n1A\n(b)\tNo.\n1A\n\tThe air conditioner has done work.\n1A\n\tThe amount of heat released is equal to the sum of heat removed from the room and the work done by the air conditioner.\n1A\n(c)\tThis helps trap cold air in the room / reduces energy gain by convection.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "From a high-temperature body to a low-temperature body",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "No.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The air conditioner has done work.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The amount of heat released is equal to the sum of heat removed from the room and the work done by the air conditioner.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "This helps trap cold air in the room / reduces energy gain by convection.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18012105.png"
+        ],
+        "answer": [
+          "crops/PHY18012105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_SQ_e.docx",
+          "sha256": "17eb36ad291e42dd223af43f20e1c7c0b3dd05973d66226ad51000d5c6df0a9c",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.75,
+            457.7497863769531,
+            157.09298706054688,
+            469.9267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18012106",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 6,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "The following energy labels are affixed on two refrigerators X and Y.\n[fig:3]\n\t(a)\tIf the electricity costs $1.1 per kW h, how many years will it take for the savings on electricity to compensate the difference in price between the two refrigerators?\t(3 marks)\n\t(b)\tSuggest two energy-saving habits in using refrigerators.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "If the electricity costs $1.1 per kW h, how many years will it take for the savings on electricity to compensate the difference in price between the two refrigerators?",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Suggest two energy-saving habits in using refrigerators.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tEnergy saved per year = 700 - 550 = 150 kW h\n1M\n\tElectricity cost saved per year = $1.1 × 150 = $165\n1M\n\tTime needed =[eq:7]= 4.85 years\n1A\n(b)\tDo not set the temperature too low.\n1A\n\tDo not open the refrigerator doors too frequently.\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Energy saved per year = 700 - 550 = 150 kW h",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "Electricity cost saved per year = $1.1 × 150 = $165",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "Time needed =[eq:7]= 4.85 years",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Do not set the temperature too low.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Do not open the refrigerator doors too frequently.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18012106.png"
+        ],
+        "answer": [
+          "crops/PHY18012106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_SQ_e.docx",
+          "sha256": "17eb36ad291e42dd223af43f20e1c7c0b3dd05973d66226ad51000d5c6df0a9c",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_SQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            71.9997787475586,
+            157.09298706054688,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18012107",
+      "bank": "QB_E301",
+      "book": "E3",
+      "chapter": "01",
+      "seq": 7,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tThe energy label of an air conditioner is shown below.\n[fig:4]930\n2.38\n[fig:5]930\n2.38\n\n\t(a)\tFind the coefficient of performance of the air conditioner.\t(3 marks)\n\t(b)\tThe air conditioner is used to remove 1.3 MJ of energy from a room.\n\t\t(i)\tEstimate the time needed for the above process.\t(1 mark)\n\t\t(ii)\tEstimate the cost of electricity of the above process. The cost of electricity is $1.1 per kW h.\t(2 marks)",
+        "ocr": "PHY18012107>\n<lvl=avg><part=core><type=sq><mark=6><bk=E3><ch=01><content>\n* The energy label of an air conditioner is shown below.\n\nAnnual Energy Consumption kwh)(Cooling)\nSEE (+ 0105004) 930\n\nBased on 1200 hrs/yr operation\nSUSE 200/\\R55t 3\n\nCooling Capacity (kW) #4 8(+F2 ) 2.30\nRefrigerant $274 %i R410A\n(a) Find the coefficient of performance of the air conditioner. (3 marks)\n(b) The air conditioner is used to remove 1.3 MJ of energy from a room.\n(i) Estimate the time needed for the above process. (1 mark)\n(ii) Estimate the cost of electricity of the above process. The cost of electricity is $1.1 per\nkW h. (2 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the coefficient of performance of the air conditioner.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "The air conditioner is used to remove 1.3 MJ of energy from a room.\n\t\t(i)\tEstimate the time needed for the above process.",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "Estimate the cost of electricity of the above process. The cost of electricity is $1.1 per kW h.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tElectrical power input =[eq:8]= 0.775 kW\n1A\n\tCOP =[eq:9]\t=[eq:10]\n1M\n\t\t= 3.07\n1A\n(b)\t(i)\tTime needed =[eq:11]= 546 s\n1A\n\t(ii)\tEnergy consumed = Pt\t= 0.775 ×[eq:12]\n1M\n\t\t\t= 0.1175 kW h\n\n\t\tCost of electricity = $1.1 × 0.1175 = $0.129\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Electrical power input =[eq:8]= 0.775 kW",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "COP =[eq:9]\t=[eq:10]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 3.07",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Time needed =[eq:11]= 546 s",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Energy consumed = Pt\t= 0.775 ×[eq:12]",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Cost of electricity = $1.1 × 0.1175 = $0.129",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E301/E3_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18012107.png"
+        ],
+        "answer": [
+          "crops/PHY18012107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E301/E3_ch01_SQ_e.docx",
+          "sha256": "17eb36ad291e42dd223af43f20e1c7c0b3dd05973d66226ad51000d5c6df0a9c",
+          "pdf": "qb-pdf/QB_E301/E3_ch01_SQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            478.19976806640625,
+            157.09298706054688,
+            490.37677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,4272 @@
+{
+  "bank": "QB_E101",
+  "generated_at": "2026-09-29T19:11:06Z",
+  "tool_versions": {
+    "pymupdf": "1.28.2",
+    "tesseract": "tesseract 5.5.3",
+    "soffice": "LibreOffice 26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77"
+  },
+  "count": 55,
+  "items": [
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16013101",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 1,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\t(a)\tName two planets which were observed to undergo retrograde motion at the time of Copernicus.\t(2 marks)\n\t(b)\tDescribe how the retrograde motion of planets is explained by\n\t\t(i)\tthe Ptolemaic model; and\t(1 mark)\n\t\t(ii)\tthe Copernican model.\t(3 marks)\n\t(c)\tState one common assumption in both the Ptolemaic model and the Copernican model.\n\t(1 mark)\n\t(d)\tSuggest one function of epicycles in the Ptolemaic and Copernican models.\t(2 marks)\n\t(e)\tSuggest one reason why the Copernican model was not widely accepted when it was proposed.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Name two planets which were observed to undergo retrograde motion at the time of Copernicus.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Describe how the retrograde motion of planets is explained by\n\t\t(i)\tthe Ptolemaic model; and",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "the Copernican model.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "State one common assumption in both the Ptolemaic model and the Copernican model.",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "Suggest one function of epicycles in the Ptolemaic and Copernican models.",
+          "marks": 2
+        },
+        {
+          "label": "e",
+          "text": "Suggest one reason why the Copernican model was not widely accepted when it was proposed.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAny two of the following:\n2 × 1A\n\tVenus, Mercury, Mars, Jupiter, Saturn\n\n(b)\t(i)\tIn the Ptolemaic model, the retrograde motion is the result of the combined effect of epicycle and deferent.\n1A\n\t(ii)\tIn the Copernican model, the Earth and other planets revolve around the Sun in different orbits at different speeds.\n1A\n\t\tWhen the Earth overtakes or is overtaken by a planet,\n1A\n\t\tthe planet appears to move backwards in the sky as observed from the Earth.\n1A\n(c)\tAll celestial bodies move in circular orbits.\n1A\n\t(Or other reasonable answers)\n\n(d)\tPtolemaic model: to explain retrograde motion of planets.\n1A\n\tCopernican model: to increase the accuracy of the predictions.\n1A\n(e)\tIt was not more accurate than the Ptolemaic model in predicting planetary positions.\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Any two of the following: 2 ×",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "In the Ptolemaic model, the retrograde motion is the result of the combined effect of epicycle and deferent.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "In the Copernican model, the Earth and other planets revolve around the Sun in different orbits at different speeds.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "When the Earth overtakes or is overtaken by a planet,",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "the planet appears to move backwards in the sky as observed from the Earth.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "All celestial bodies move in circular orbits.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Ptolemaic model: to explain retrograde motion of planets.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Copernican model: to increase the accuracy of the predictions.",
+            "code": "1A"
+          },
+          {
+            "part": "e",
+            "point": "It was not more accurate than the Ptolemaic model in predicting planetary positions.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16013101.png"
+        ],
+        "answer": [
+          "crops/PHY16013101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_LQ_e.docx",
+          "sha256": "e12922a950d7a28a8c00e14180c3446c45ee0c2d1a6179817c5f7931a29037ce",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_LQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            83.54976654052734,
+            156.4929962158203,
+            95.72676849365234
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16013102",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 2,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tPtolemy explained the observed paths of five planets (Venus, Mercury, Mars, Saturn and Jupiter), the Sun and the Moon with a geocentric model.\n\t(a)\tWith the aid of a diagram,\n\t\t(i)\texplain what a deferent and an epicycle is, and\n\t\t(ii)\texplain how Ptolemy’s model accounted for the observation that Mercury never moves very far from the Sun.\t(6 marks)\n\t(b)\tGalileo studied the sky with his own telescope and made some observations that challenged most astronomers’ belief at his time. State two of these observations and their conflicts with the earlier beliefs about the universe.\t(4 marks)",
+        "ocr": "PHY16013102>\n\n<lvl=avg><part=core><type=lq><mark=10><bk=E1><ch=01><content>\n\n* Ptolemy explained the observed paths of five planets (Venus, Mercury, Mars, Saturn and\nJupiter), the Sun and the Moon with a geocentric model.\n\n(a)\n\n(b)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "With the aid of a diagram,\n\t\t(i)\texplain what a deferent and an epicycle is, and\n\t\t(ii)\texplain how Ptolemy’s model accounted for the observation that Mercury never moves very far from the Sun.",
+          "marks": 6
+        },
+        {
+          "label": "b",
+          "text": "Galileo studied the sky with his own telescope and made some observations that challenged most astronomers’ belief at his time. State two of these observations and their conflicts with the earlier beliefs about the universe.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\n[fig:1]\n\n\t(i)\tEpicycle is a small circle around which a planet moves.\n1A\n\t\tDeferent is a larger circle centred at the Earth, and on which the centre of the epicycle moves.\n1A\n\t\t(Correctly draw and label an epicycle)\n1A\n\t\t(Correctly draw and label a deferent)\n1A\n\t(ii)\tIn the Ptolemaic model, the centre of the epicycle of Mercury always lies on a straight line joing the Earth and the Sun.\n1A\n\t\t(The Sun, the centre of Mercury’s epicycle and the Earth aligned)\n1A\n(b)\tAny two of the following:\n2 × 2A\n\tGalileo found mountains, valleys and craters on the Moon. This disagreed with the belief that the Moon is a perfectly smooth sphere.\n\n\tGalileo found dark patches (sunspots) on the surface Sun. This disagreed with the belief that the Sun is a perfectly smooth sphere.\n\n\tGalileo found four moons orbiting around Jupiter. This disagreed with the belief that the Earth is the only centre of motion in the universe.\n\n\tGalileo found that Venus shows a complete cycle of phase. This disagreed with the Ptolemaic model which predicted that Venus does not go through the complete phase cycle.",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "Epicycle is a small circle around which a planet moves.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "Deferent is a larger circle centred at the Earth, and on which the centre of the epicycle moves.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "(Correctly draw and label an epicycle)",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "(Correctly draw and label a deferent)",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "In the Ptolemaic model, the centre of the epicycle of Mercury always lies on a straight line joing the Earth and the Sun.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "(The Sun, the centre of Mercury’s epicycle and the Earth aligned)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Any two of the following: 2 ×",
+            "code": "2A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16013102.png"
+        ],
+        "answer": [
+          "crops/PHY16013102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_LQ_e.docx",
+          "sha256": "e12922a950d7a28a8c00e14180c3446c45ee0c2d1a6179817c5f7931a29037ce",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_LQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            552.0997314453125,
+            156.4929962158203,
+            564.2767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16013103",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 3,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tCopernicus proposed a model to explain the observed paths of five planets (Venus, Mercury, Mars, Saturn and Jupiter), the Sun and the Moon.\n\t(a)\t(i)\tDraw the paths of the Earth and Mercury relative to the position of the Sun in a labelled diagram.\t(3 marks)\n\t\t(ii)\tHow did the Copernican model explain the observation that Mercury never moves very far from the Sun?\t(1 mark)\n\t(b)\tWith the aid of a diagram, explain how the Copernican model accounted for the retrograde motion of Mars.\t(4 marks)",
+        "ocr": "PHY16013103>\n<lvl=avg><part=core><type=lq><mark=8><bk=E1><ch=01><content>\n* Copernicus proposed a model to explain the observed paths of five planets (Venus, Mercury,\nMars, Saturn and Jupiter), the Sun and the Moon.\n(a) (i) Draw the paths of the Earth and Mercury relative to the position of the Sun in a\nlabelled diagram. (3 marks)\n(ii) How did the Copernican model explain the observation that Mercury never moves\nvery far from the Sun? (1 mark)\n(b) With the aid of a diagram, explain how the Copernican model accounted for the retrograde\nmotion of Mars. (4 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Draw the paths of the Earth and Mercury relative to the position of the Sun in a labelled diagram.",
+          "marks": 3
+        },
+        {
+          "label": "a(ii)",
+          "text": "How did the Copernican model explain the observation that Mercury never moves very far from the Sun?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "With the aid of a diagram, explain how the Copernican model accounted for the retrograde motion of Mars.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\n[fig:2]\n\n\t\t(Orbits for Mercury and the Earth around the Sun)\n1A\n\t\t(Circular orbits)\n1A\n\t\t(Correct relative positions of orbits)\n1A\n\t(ii)\tAccording to Copernican model, Mercury never moves very far from the Sun because the orbit of Mercury is inside the Earth’s orbit.\n1A\n(b)\n[fig:3]\n\n\tBoth the Earth and Mars revolve around the Sun, with Mars’ orbit outside the Earth’s orbit.\n1A\n\tThe Earth is moving faster than Mars and sometimes overtakes Mars.\n1A\n\tWhen this happens, Mars appears to move backwards in the sky as observed from the Earth, resulting in its retrograde motion.\n1A\n\t(Correct diagram)\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "(Orbits for Mercury and the Earth around the Sun)",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "(Circular orbits)",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "(Correct relative positions of orbits)",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "According to Copernican model, Mercury never moves very far from the Sun because the orbit of Mercury is inside the Earth’s orbit.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Both the Earth and Mars revolve around the Sun, with Mars’ orbit outside the Earth’s orbit.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The Earth is moving faster than Mars and sometimes overtakes Mars.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "When this happens, Mars appears to move backwards in the sky as observed from the Earth, resulting in its retrograde motion.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "(Correct diagram)",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16013103.png"
+        ],
+        "answer": [
+          "crops/PHY16013103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_LQ_e.docx",
+          "sha256": "e12922a950d7a28a8c00e14180c3446c45ee0c2d1a6179817c5f7931a29037ce",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_LQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            498.2497863769531,
+            156.4929962158203,
+            510.4267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16013104",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 4,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\t(a)\tHow did ancient civilizations distinguish a planet from a star?\t(1 mark)\n\t(b)\tCompare the Copernican model with the Ptolemaic model of the universe.\n\t\t(i)\tState two similarities of the two models.\t(2 marks)\n\t\t(ii)\tState two differences between the two models.\t(2 marks)\n\t(c)\tThe Copernican model and the Ptolemaic model explained the motion of celestial bodies equally well before Galileo made new observations with his telescope.\n\t\t(i)\tWhich model did Galileo’s new observations support?\t(1 mark)\n\t\t(ii)\tDescribe and explain one of Galileo’s observations that disproved one of the above models.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "How did ancient civilizations distinguish a planet from a star?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Compare the Copernican model with the Ptolemaic model of the universe.\n\t\t(i)\tState two similarities of the two models.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "State two differences between the two models.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "The Copernican model and the Ptolemaic model explained the motion of celestial bodies equally well before Galileo made new observations with his telescope.\n\t\t(i)\tWhich model did Galileo’s new observations support?",
+          "marks": 1
+        },
+        {
+          "label": "c(ii)",
+          "text": "Describe and explain one of Galileo’s observations that disproved one of the above models.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe positions of the planets relative to the stars in the sky change significantly if observed over months.\n1A\n(b)\t(i)\tAny two of the following:\n2 × 1A\n\t\tAll celestial bodies move in circular orbits.\n\n\t\tEpicycles are used.\n\n\t\tThe Moon orbits the Earth.\n\n\t\t(Or other reasonable answers)\n\n\t(ii)\tIn Ptolemaic model, the Earth is at the centre of the universe, while in Copernican model, the Sun is at the centre of the universe.\n1A\n\t\tIn Ptolemaic model, the Earth is stationary, while in Copernican model, the Earth move around the Sun.\n1A\n\t\t(Or other reasonable answers)\n\n(c)\t(i)\tGalileo’s observations supported Copernican model.\n1A\n\t(ii)\tGalileo found that Venus shows a complete cycle of phase.\n1A\n\t\tIt can only be explained by assuming that Venus orbits the Sun,\n1A\n\t\tthus disproving the Ptolemaic model.",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The positions of the planets relative to the stars in the sky change significantly if observed over months.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Any two of the following: 2 ×",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "In Ptolemaic model, the Earth is at the centre of the universe, while in Copernican model, the Sun is at the centre of the universe.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "In Ptolemaic model, the Earth is stationary, while in Copernican model, the Earth move around the Sun.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "Galileo’s observations supported Copernican model.",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Galileo found that Venus shows a complete cycle of phase.",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "It can only be explained by assuming that Venus orbits the Sun,",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16013104.png"
+        ],
+        "answer": [
+          "crops/PHY16013104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_LQ_e.docx",
+          "sha256": "e12922a950d7a28a8c00e14180c3446c45ee0c2d1a6179817c5f7931a29037ce",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_LQ_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            614.6497802734375,
+            156.4929962158203,
+            626.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011101",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 1,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following observations can be explained by the Ptolemy’s geocentric model?\n\t(1)\tMercury is a morning star and an evening star.\n\t(2)\tVenus has a complete cycle of phases.\n\t(3)\tMars shows retrograde motion.",
+        "ocr": "PHY16011101>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWhich of the following observations can be explained by the Ptolemy’s geocentric model?\n(1) Mercury is a morming star and an evening star.\n(2) Venus has a complete cycle of phases.\n(3) Mars shows retrograde motion.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "In the Ptolemy’s geocentric model, the centre of the epicycle of Mercury always lies on a straight line joining the Earth and the Sun. This explains why Mercury never move far away from the Sun and can only be seen just before sunrise or just after sunset.\n∴ (1) is correct.\nIn the Ptolemy’s geocentric model, Venus does not go through the complete phase cycle.\n∴ (2) is incorrect.\nIn the Ptolemy’s geocentric model, the retrograde motion of Mars can be explained by the combined effect of epicycle and deferent.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011101.png"
+        ],
+        "answer": [
+          "crops/PHY16011101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            155.59298706054688,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011102",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 2,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Venus can be seen shortly before sunrise and shortly after sunset only. Which model(s) of planetary motion can explain this observation?",
+        "ocr": "PHY16011102>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nVenus can be seen shortly before sunrise and shortly after sunset only. Which model(s) of\nplanetary motion can explain this observation?\n\nThe Ptolemy’s geocentric model only\nThe Copernicus’ heliocentric model only\nBoth of them\n\nNeither of them\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "The Ptolemy’s geocentric model only"
+        },
+        {
+          "label": "B",
+          "text": "The Copernicus’ heliocentric model only"
+        },
+        {
+          "label": "C",
+          "text": "Both of them"
+        },
+        {
+          "label": "D",
+          "text": "Neither of them"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Both models can explain this observation.\nIn the Ptolemy’s geocentric model, this can be explained as the centre of the epicycle of Venus always lies on a straight line joining the Earth and the Sun.\nIn the Copernicus’ heliocentric model, this can be explained as the orbit of Venus is inside the Earth’s orbit.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011102.png"
+        ],
+        "answer": [
+          "crops/PHY16011102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            415.5497741699219,
+            155.59298706054688,
+            427.7267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011103",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 3,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAccording to the Ptolemy’s geocentric model, the centre of the epicycle of Venus is always on the straight line joining the Earth and the Sun. Ptolemy introduced this constraint to explain the fact that\n\t(1)\tVenus shows a retrograde motion.\n\t(2)\tVenus has a complete cycle of phases.\n\t(3)\tVenus can never be seen at midnight.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "In the Ptolemy’s geocentric model, the retrograde motion of Venus can be explained by the combined effect of epicycle and deferent.\n∴ (1) is correct.\nIn the Ptolemy’s geocentric model, Venus does not go through the complete phase cycle.\n∴ (2) is incorrect.\nIn the Ptolemy’s geocentric model, the centre of the epicycle of Venus always lies on a straight line joining the Earth and the Sun. This explains why Venus never move far away from the Sun and therefore can never be seen at midnight.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011103.png"
+        ],
+        "answer": [
+          "crops/PHY16011103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            676.8997802734375,
+            155.59298706054688,
+            689.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011104",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 4,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following are Galileo’s astronomical discoveries which cannot be explained by the Ptolemy’s geocentric model?\n\t(1)\tMercury shows a retrograde motion.\n\t(2)\tVenus has a complete cycle of phases.\n\t(3)\tJupiter has four moons.",
+        "ocr": "PHY16011104>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWhich of the following are Galileo’s astronomical discoveries which cannot be explained by\nthe Ptolemy’s geocentric model?\n\n(1) Mercury shows a retrograde motion.\n(2) Venus has a complete cycle of phases.\n(3) Jupiter has four moons.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "In the Ptolemy’s geocentric model, Venus does not go through the complete phase cycle.\n∴ (2) is correct.\nThe fact that Jupiter has moons proved that the Earth was not the only centre of motion in the universe.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011104.png"
+        ],
+        "answer": [
+          "crops/PHY16011104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            419.8997802734375,
+            155.59298706054688,
+            432.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011105",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 5,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tThe nearest known star to the Sun is Proxima Centauri. It is 4.24 light years from the Sun. Which of the following statements are correct?\n\t(1)\tIt takes 4.24 years for sunlight to travel from the Sun to Proxima Centauri.\n\t(2)\tProxima Centauri is in the same galaxy we are in.\n\t(3)\tThe ratio of distance between Proxima Centauri and the Sun to that between the Earth and the Sun is about 105.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "One light year is the distance travelled by light in a vacuum in one year.\n∴ (1) is correct.\nA typical galaxy contains 107 to 1012 stars. Our home galaxy, the Milky Way Galaxy, contains both Proxima Centauri and the Sun.\n∴ (2) is correct.\nDistance between the Earth and the Sun = 1 AU = 1.50 × 1011 m\nRequired ratio [eq:1]\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011105.png"
+        ],
+        "answer": [
+          "crops/PHY16011105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            720.1497192382812,
+            155.59298706054688,
+            732.3267211914062
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011106",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 6,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following illustration shows a night sky.\n[fig:1]Andromeda Galaxy\n[fig:2]Andromeda Galaxy\n\n\tWhich of the following celestial bodies can be found in the Andromeda Galaxy?\n\t(1)\tNebula\n\t(2)\tStar\n\t(3)\tStar cluster",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011106.png"
+        ],
+        "answer": [
+          "crops/PHY16011106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            437.19976806640625,
+            155.59298706054688,
+            449.37677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011107",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 7,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following is the longest in distance?",
+        "ocr": "PHY16011107>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWhich of the following is the longest in distance?\n\nA 1l1pce\nB lly\nC 1AU\n\nD_ The distance between the Earth and the Sun.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1 pc"
+        },
+        {
+          "label": "B",
+          "text": "1 ly"
+        },
+        {
+          "label": "C",
+          "text": "1 AU"
+        },
+        {
+          "label": "D",
+          "text": "The distance between the Earth and the Sun."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "1 pc = 3.26 ly = 206 265 AU = 206 265 × distance between the Earth and the Sun",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011107.png"
+        ],
+        "answer": [
+          "crops/PHY16011107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            255.19979858398438,
+            155.59298706054688,
+            267.3768005371094
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011108",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 8,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Arrange the following in ascending order of length.\n\t(1)\tSemi-major axis of Ceres (a dwarf planet of the Sun): 2.77 AU\n\t(2)\tDistance between the star Proxima Centauri and the Sun: 4.2 ly\n\t(3)\tAverage distance between Jupiter and the Sun: 7.79 × 108 km",
+        "ocr": "PHY16011108>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nArrange the following in ascending order of length.\n(1) Semi-major axis of Ceres (a dwarf planet of the Sun): 2.77 AU\n(2) Distance between the star Proxima Centauri and the Sun: 4.2 ly\n(3) Average distance between Jupiter and the Sun: 7.79 x 10° km\n\n(1), (2), (3)\n\n(1), (3), 2)\n\n(3), (2), ()\n\n(3), (1), 2)\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1), (2), (3)"
+        },
+        {
+          "label": "B",
+          "text": "(1), (3), (2)"
+        },
+        {
+          "label": "C",
+          "text": "(3), (2), (1)"
+        },
+        {
+          "label": "D",
+          "text": "(3), (1), (2)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "2.77 AU = 2.77 × (1.50 × 1011) = 4.16 × 1011 m\n4.2 ly = 4.2 × (9.46 × 1015) = 3.97 × 1016 m\n7.79 × 108 km = (7.79 × 108) × 103 = 7.79 × 1011 m",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011108.png"
+        ],
+        "answer": [
+          "crops/PHY16011108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            450.1497802734375,
+            155.59298706054688,
+            462.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011109",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 9,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following orbit a star?\n\t(1)\tMars\n\t(2)\tJupitar\n\t(3)\tMilky Way Galaxy",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Mars and Jupitar are planets.\n∴ (1) and (2) are correct.\nThe Milky Way Galaxy is a galaxy. \n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011109.png"
+        ],
+        "answer": [
+          "crops/PHY16011109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            719.7997436523438,
+            155.59298706054688,
+            731.9767456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011110",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 10,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Arrange the following celestial bodies in ascending order of size.\n\t(1)\tEarth\n\t(2)\tMilky Way Galaxy\n\t(3)\tSolar system\n\t(4)\tA typical star cluster",
+        "ocr": "PHY16011110>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nArrange the following celestial bodies in ascending order of size.\n(1) Earth\n(2) Milky Way Galaxy\n(3) Solar system\n(4) Atypical star cluster\n(1), (2), (3), (4)\n(1), (3), (4), 2)\n(1), (3), (2), (4)\n(3), (1), (2), (4)\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1), (2), (3), (4)"
+        },
+        {
+          "label": "B",
+          "text": "(1), (3), (4), (2)"
+        },
+        {
+          "label": "C",
+          "text": "(1), (3), (2), (4)"
+        },
+        {
+          "label": "D",
+          "text": "(3), (1), (2), (4)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The Earth is inside the solar system.\nThe solar system contains one star (the Sun) and a star cluster contains a group of stars.\nA galaxy includes star clusters and some other celestial bodies.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011110.png"
+        ],
+        "answer": [
+          "crops/PHY16011110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            341.6497802734375,
+            155.1429901123047,
+            353.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011111",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 11,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "What is the definition of 1 AU?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "The distance travelled by the Earth in one day"
+        },
+        {
+          "label": "B",
+          "text": "The distance travelled by the Earth in one year"
+        },
+        {
+          "label": "C",
+          "text": "The average distance between the Earth and the Moon"
+        },
+        {
+          "label": "D",
+          "text": "The average distance between the Sun and the Earth"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011111.png"
+        ],
+        "answer": [
+          "crops/PHY16011111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            5,
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            627.0997314453125,
+            154.7429962158203,
+            639.2767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011112",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 12,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following distance is closest to the average distance between Mars and the Sun?",
+        "ocr": "PHY16011112>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWhich of the following distance is closest to the average distance between Mars and the Sun?\n\nA 40pc\nB 40ly\nC 40AU\nD 10°m",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "40 pc"
+        },
+        {
+          "label": "B",
+          "text": "40 ly"
+        },
+        {
+          "label": "C",
+          "text": "40 AU"
+        },
+        {
+          "label": "D",
+          "text": "1040 m"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Mars is the planet in the solar system with its distance from the Sun slightly larger than the distance of the Earth from the Sun, which is 1 AU.\n1 pc = 3.09 × 1016 m = 3.26 ly = 206 265 AU\nTherefore, 40 AU is larger than the average distance between Mars and the Sun and the other three options (40 pc, 40 ly and 1040 m) are all much larger than 40 AU.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011112.png"
+        ],
+        "answer": [
+          "crops/PHY16011112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            144.59976196289062,
+            155.1429901123047,
+            156.77676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011113",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 13,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The diameter of the Sun is about 109 m. Which of the following has a length of about 1013 m?\n\tA\tThe Earth\n\tB\tThe solar system\n\tC\tA typical star cluster\n\tD\tA typical galaxy",
+        "ocr": "PHY16011113>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nThe diameter of the Sun is about 10° m. Which of the following has a length of about 10'° m?\nThe Earth\nThe solar system\nA typical star cluster\nA typical galaxy\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The Earth is smaller than the Sun.\n∴ A is incorrect.\nBoth a star cluster and a galaxy are too much bigger than 1013 m.\n∴ C and D are incorrect.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011113.png"
+        ],
+        "answer": [
+          "crops/PHY16011113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            390.1497802734375,
+            155.1429901123047,
+            402.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011114",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 14,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following is the correct arrangement of the structures in ascending order of size?",
+        "ocr": "PHY16011114>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWhich of the following is the correct arrangement of the structures in ascending order of size?\nThe Sun, the solar system, a typical galaxy, a typical nebula\nThe Sun, a typical galaxy, the solar system, a typical nebula\nThe Sun, a typical nebula, the solar system, a typical galaxy\nThe Sun, the solar system, a typical nebula, a typical galaxy\n\nGDOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "The Sun, the solar system, a typical galaxy, a typical nebula"
+        },
+        {
+          "label": "B",
+          "text": "The Sun, a typical galaxy, the solar system, a typical nebula"
+        },
+        {
+          "label": "C",
+          "text": "The Sun, a typical nebula, the solar system, a typical galaxy"
+        },
+        {
+          "label": "D",
+          "text": "The Sun, the solar system, a typical nebula, a typical galaxy"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011114.png"
+        ],
+        "answer": [
+          "crops/PHY16011114.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            6,
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            625.0497436523438,
+            155.1429901123047,
+            637.2267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011115",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 15,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "How many stars are there in the solar system?",
+        "ocr": "PHY16011115>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nHow many stars are there in the solar system?\n\nA 0\nB 1\nC 8\nD_ More than 1000",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0"
+        },
+        {
+          "label": "B",
+          "text": "1"
+        },
+        {
+          "label": "C",
+          "text": "8"
+        },
+        {
+          "label": "D",
+          "text": "More than 1000"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The only star in the solar system is the Sun.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011115.png"
+        ],
+        "answer": [
+          "crops/PHY16011115.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            151.99978637695312,
+            155.1429901123047,
+            164.17678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011116",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 16,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tStars in a star cluster are bounded together by\n\t(1)\tgravitational force.\n\t(2)\telectrostatic force.\n\t(3)\tnuclear force.",
+        "ocr": "PHY16011116>\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n* Stars in a star cluster are bounded together by\n\n(1) gravitational force.\n\n(2) electrostatic force.\n\n(3) nuclear force.\n\nA (1) only\n\nB_ (8) only\n\nC (1) and (2) only\n\nD_ (4), (2) and (8)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011116.png"
+        ],
+        "answer": [
+          "crops/PHY16011116.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            348.94976806640625,
+            155.1429901123047,
+            361.12677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011117",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 17,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following shows a photo of the Milky Way taken from the Earth.\n[fig:3]\n(Photo credit: ESO | B. Tafreshi [twanight.org])\n\tThe Milky Way appears as a band in the sky. Which of the following about the Milky Way Galaxy is correct?",
+        "ocr": "PHY16011117>\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n* The following shows a photo of the Milky Way taken from the Earth.\n\n\n\n(Photo credit: ESO | B. Tafreshi [twanight.org])\n\nThe Milky Way appears as a band in the sky. Which of the following about the Milky Way\nGalaxy is correct?\n\nA It is band-shaped.\nB It is ring-shaped and we are located in the space within the ring.\nC It is disc-shaped and we are located inside the disc.\nD It is flat and we are on the same plane with it but outside it.",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "It is band-shaped."
+        },
+        {
+          "label": "B",
+          "text": "It is ring-shaped and we are located in the space within the ring."
+        },
+        {
+          "label": "C",
+          "text": "It is disc-shaped and we are located inside the disc."
+        },
+        {
+          "label": "D",
+          "text": "It is flat and we are on the same plane with it but outside it."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011117.png"
+        ],
+        "answer": [
+          "crops/PHY16011117.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            7,
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            581.94970703125,
+            155.1429901123047,
+            594.126708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011118",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 18,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe diameter of the Sun is about 1.39 × 109 m. If a model of the solar system is built in scale with the diameter of the model Sun being 1 m, which of the following best gives the distance between the Sun and the Earth in the model?\n\tGiven:\t1 AU = 1.50 × 1011 m\n\t\t1 pc = 3.09 × 1016 m\n\t\t1 ly = 9.46 × 1015 m",
+        "ocr": "PHY16011118>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\n* The diameter of the Sun is about 1.39 x 10° m. If a model of the solar system is built in scale\nwith the diameter of the model Sun being 1 m, which of the following best gives the distance\nbetween the Sun and the Earth in the model?\n\nGiven: 1 AU= 1.50 x 10''m\n1 pc = 3.09 x 10° m\n1 ly =9.46 x 105m\n\n10m\n\n100 m\n\n1000 m\n\n10 000 m\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "10 m"
+        },
+        {
+          "label": "B",
+          "text": "100 m"
+        },
+        {
+          "label": "C",
+          "text": "1000 m"
+        },
+        {
+          "label": "D",
+          "text": "10 000 m"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Distance between the Sun and the Earth in the model\n[eq:2]",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011118.png"
+        ],
+        "answer": [
+          "crops/PHY16011118.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            260.5997619628906,
+            155.1429901123047,
+            272.7767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011119",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 19,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tProxima Centauri is a star at a distance of 2.67 × 105 AU from the Earth. What is the time needed for light to travel from Proxima Centauri to the Earth?\n\tGiven:\t1 AU = 1.50 × 1011 m\n\t\t1 pc = 3.09 × 1016 m\n\t\t1 ly = 9.46 × 1015 m",
+        "ocr": "PHY16011119>\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n* Proxima Centauri is a star at a distance of 2.67 x 10° AU from the Earth. What is the time\nneeded for light to travel from Proxima Centauri to the Earth?\nGiven: 1 AU = 1.50 x 10''m\n1 pe = 3.09 x 10'°m\n1 ly = 9.46 x 10° m\nA 2.82 years\nB 4.23 years\n\n\nC 10° years\nD_ 10’ years",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "2.82 years"
+        },
+        {
+          "label": "B",
+          "text": "4.23 years"
+        },
+        {
+          "label": "C",
+          "text": "109 years"
+        },
+        {
+          "label": "D",
+          "text": "1019 years"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Time needed\n[eq:3]",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011119.png"
+        ],
+        "answer": [
+          "crops/PHY16011119.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            8,
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            608.8497314453125,
+            155.1429901123047,
+            621.0267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011120",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 20,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tRichard is building a scale model of the Earth and the Sun. He is going to use a basketball of diameter 25 cm to represent the Sun. What should be used to represent the Earth and how far should it be placed from the basketball? The diameter of the Sun is about 1.39 × 109 m.\n\tGiven:\t1 AU = 1.50 × 1011 m\n\t\t1 pc = 3.09 × 1016 m\n\t\t1 ly = 9.46 × 1015 m\n\nObject representing the Earth\nDistance from the basketball\n\tA\nA red bean (diameter ~ 3 mm)\n2.5 m\n\tB\nA ping-pong ball (diameter ~ 4 cm)\n25 m\n\tC\nA red bean (diameter ~ 3 mm)\n25 m\n\tD\nA ping-pong ball (diameter ~ 4 cm)\n2.5 m",
+        "ocr": "PHY16011120>\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n* — Richard is building a scale model of the Earth and the Sun. He is going to use a basketball of\n\ndiameter 25 cm to represent the Sun. What should be used to represent the Earth and how far\nshould it be placed from the basketball? The diameter of the Sun is about 1.39 x 10° m.\n\nGiven: 1 AU = 1.50 x 10''m\n1 pe = 3.09 x 10'°m\n1 ly =9.46 x 10m\n\nObject representing the Earth Distance from the basketball\nA A red bean (diameter ~ 3 mm) 2.5m\nB A ping-pong ball (diameter ~ 4 cm) 25m\nC A red bean (diameter ~ 3 mm) 25m\nD___ A ping-pong ball (diameter ~ 4 cm) 2.5m",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Diameter of the Earth = 2 × 6370 × 103 = 1.274 × 107 m\nDiameter of the Earth in the model = 25 × [eq:4] = 0.229 cm = 2.29 mm\nDistance between the Earth and the Sun = 1 AU = 1.50 × 1011 m\nDistance between the Earth and the Sun in the model = 25 × [eq:5] = 2700 cm = 27 m",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011120.png"
+        ],
+        "answer": [
+          "crops/PHY16011120.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            243.49978637695312,
+            155.59298706054688,
+            255.67678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011121",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 21,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The following figure shows the path of a planet relative to background stars as seen from the Earth over months.\n[eq:6]\n\tWhich of the following correctly indicates the prograde motion and retrograde motion of the planet?\n\nPrograde Motion\nRetrograde Motion",
+        "ocr": "PHY16011121>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nThe following figure shows the path of a planet relative to background stars as seen from the\nEarth over months.\n\n\nWhich of the following correctly indicates the prograde motion and retrograde motion of the\n\nplanet?\nPrograde Motion Retrograde Motion\nA from P to R from R to T\nB from R to T from P to R\nC from P to Q/ from S to T from Q to S\nD from Q to S from P to Q/ from S to T",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "from P to R\nfrom R to T"
+        },
+        {
+          "label": "B",
+          "text": "from R to T\nfrom P to R"
+        },
+        {
+          "label": "C",
+          "text": "from P to Q / from S to T\nfrom Q to S"
+        },
+        {
+          "label": "D",
+          "text": "from Q to S\nfrom P to Q / from S to T"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Eastward motion of a planet against background stars is called prograde motion while westward motion is called retrograde motion.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011121.png"
+        ],
+        "answer": [
+          "crops/PHY16011121.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            9,
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            621.5497436523438,
+            155.59298706054688,
+            633.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011122",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 22,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following is not an astronomical discovery made by Galileo?",
+        "ocr": "PHY16011122>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWhich of the following is not an astronomical discovery made by Galileo?\n\nA There are mountains and craters on the surface of the Moon.\nB The Earth is round but not flat.\nC Venus shows a complete cycle of phases.\nD_ There are dark patches (sunspots) on the Sun.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "There are mountains and craters on the surface of the Moon."
+        },
+        {
+          "label": "B",
+          "text": "The Earth is round but not flat."
+        },
+        {
+          "label": "C",
+          "text": "Venus shows a complete cycle of phases."
+        },
+        {
+          "label": "D",
+          "text": "There are dark patches (sunspots) on the Sun."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011122.png"
+        ],
+        "answer": [
+          "crops/PHY16011122.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            285.8997497558594,
+            155.59298706054688,
+            298.0767517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011123",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 23,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "When observed from the Earth over months, Mercury",
+        "ocr": "PHY16011123>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\nWhen observed from the Earth over months, Mercury\nalways moves along the same direction relative to background stars.\nalways appears at the same location relative to background stars.\nalways appears at the same location relative to the Sun.\ncan only be seen just after sunset or just before sunrise.\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "always moves along the same direction relative to background stars."
+        },
+        {
+          "label": "B",
+          "text": "always appears at the same location relative to background stars."
+        },
+        {
+          "label": "C",
+          "text": "always appears at the same location relative to the Sun."
+        },
+        {
+          "label": "D",
+          "text": "can only be seen just after sunset or just before sunrise."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "When observed from the Earth over months, Mercury mainly moves eastwards but sometimes moves westwards relative to background stars.\n∴ A and B are incorrect.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011123.png"
+        ],
+        "answer": [
+          "crops/PHY16011123.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            461.69976806640625,
+            155.59298706054688,
+            473.87677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011124",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 24,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "In the Ptolemaic geocentric model,",
+        "ocr": "PHY16011124>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nIn the Ptolemaic geocentric model,\n\nA planets are stationary.\n\n\nB planets move around the Sun.\nC planets move in small circles called epicycles.\nD planets move in elliptical orbits.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "planets are stationary."
+        },
+        {
+          "label": "B",
+          "text": "planets move around the Sun."
+        },
+        {
+          "label": "C",
+          "text": "planets move in small circles called epicycles."
+        },
+        {
+          "label": "D",
+          "text": "planets move in elliptical orbits."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011124.png"
+        ],
+        "answer": [
+          "crops/PHY16011124.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            10,
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            675.44970703125,
+            155.59298706054688,
+            687.626708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011125",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 25,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "According to the Ptolemaic model,",
+        "ocr": "PHY16011125>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nAccording to the Ptolemaic model,\n\nA the Sun is at the centre of the universe.\nB the Sun is moving around the Earth in an orbit between those of Mars and Jupiter.\nC_ the Sun is moving around the Earth in an orbit between those of Mars and Venus.\nD the Sun is moving around the Earth in an orbit between those of the Moon and Venus.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "the Sun is at the centre of the universe."
+        },
+        {
+          "label": "B",
+          "text": "the Sun is moving around the Earth in an orbit between those of Mars and Jupiter."
+        },
+        {
+          "label": "C",
+          "text": "the Sun is moving around the Earth in an orbit between those of Mars and Venus."
+        },
+        {
+          "label": "D",
+          "text": "the Sun is moving around the Earth in an orbit between those of the Moon and Venus."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011125.png"
+        ],
+        "answer": [
+          "crops/PHY16011125.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            199.39974975585938,
+            155.59298706054688,
+            211.57675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011126",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 26,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "According to the Copernican model,\n\t(1)\tthe Sun is at the centre of the solar system.\n\t(2)\tthe orbit of the Sun is between those of Mars and Venus.\n\t(3)\tthe Sun and other stars in the Milky Way Galaxy orbit a common centre.",
+        "ocr": "PHY16011126>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\nAccording to the Copernican model,\n\n(1) the Sun is at the centre of the solar system.\n\n(2) the orbit of the Sun is between those of Mars and Venus.\n\n(3) the Sun and other stars in the Milky Way Galaxy orbit a common centre.\n\nA (1) only\nB= (2) only\nC (1) and (3) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "According to the Copernican model, the Sun is stationary at the centre of the universe.\n∴ (2) and (3) are incorrect.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011126.png"
+        ],
+        "answer": [
+          "crops/PHY16011126.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            383.69976806640625,
+            155.59298706054688,
+            395.87677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011127",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 27,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "In the heliocentric model, all planets revolve around",
+        "ocr": "PHY16011127>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nIn the heliocentric model, all planets revolve around\nA the Earth.\nB_ the Moon.\nC the Sun.\n\n\nD the universe.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "the Earth."
+        },
+        {
+          "label": "B",
+          "text": "the Moon."
+        },
+        {
+          "label": "C",
+          "text": "the Sun."
+        },
+        {
+          "label": "D",
+          "text": "the universe."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011127.png"
+        ],
+        "answer": [
+          "crops/PHY16011127.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            11,
+            12
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            640.69970703125,
+            155.59298706054688,
+            652.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011128",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 28,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following statements about the Copernican model is correct?",
+        "ocr": "PHY16011128>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWhich of the following statements about the Copernican model is correct?\n\nA Epicycles are not used in the model.\nB_ All celestial bodies orbit the Earth in the model.\nC_ The retrograde motion of planets can be explained by the model.\nD_ The cause of the Earth orbiting the Sun can be explained with the model.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Epicycles are not used in the model."
+        },
+        {
+          "label": "B",
+          "text": "All celestial bodies orbit the Earth in the model."
+        },
+        {
+          "label": "C",
+          "text": "The retrograde motion of planets can be explained by the model."
+        },
+        {
+          "label": "D",
+          "text": "The cause of the Earth orbiting the Sun can be explained with the model."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011128.png"
+        ],
+        "answer": [
+          "crops/PHY16011128.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            12
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            167.79977416992188,
+            155.59298706054688,
+            179.97677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011129",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 29,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following comparisons between the Copernican heliocentric model and the Ptolemaic geocentric model is correct?\n\nCopernican model\nPtolemaic model",
+        "ocr": "PHY16011129>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWhich of the following comparisons between the Copernican heliocentric model and the\nPtolemaic geocentric model is correct?\n\nCopernican model Ptolemaic model\nA The Sun is at the centre of the The Earth is at the centre of the\nuniverse. universe.\nB_ All celestial bodies move in ellipses. All celestial bodies move in circles.\nC Epicycles are not employed. Epicycles are employed.\nD Retrograde motion of planets cannot _— Retrograde motion of planets can\nbe explained. be explained.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "The Sun is at the centre of the universe.\nThe Earth is at the centre of the universe."
+        },
+        {
+          "label": "B",
+          "text": "All celestial bodies move in ellipses.\nAll celestial bodies move in circles."
+        },
+        {
+          "label": "C",
+          "text": "Epicycles are not employed.\nEpicycles are employed."
+        },
+        {
+          "label": "D",
+          "text": "Retrograde motion of planets cannot be explained.\nRetrograde motion of planets can be explained."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "In both models, all celestial bodies move in circles and epicycles are employed. Also, both models can explain the retrograde motion of planets.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011129.png"
+        ],
+        "answer": [
+          "crops/PHY16011129.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            12
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            352.0997619628906,
+            155.59298706054688,
+            364.2767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011130",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 30,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Who was the first person to observe the moons of Jupiter?",
+        "ocr": "PHY16011130>\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nWho was the first person to observe the moons of Jupiter?\n\nA Ptolemy\n\nB Copernicus\nC Galileo\n\nD_ Newton",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Ptolemy"
+        },
+        {
+          "label": "B",
+          "text": "Copernicus"
+        },
+        {
+          "label": "C",
+          "text": "Galileo"
+        },
+        {
+          "label": "D",
+          "text": "Newton"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011130.png"
+        ],
+        "answer": [
+          "crops/PHY16011130.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            12,
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            618.8997802734375,
+            155.59298706054688,
+            631.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011131",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 31,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Galileo discovered four moons of Jupiter. This discovery implies that",
+        "ocr": "PHY16011131>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E1><ch=01><content>\nGalileo discovered four moons of Jupiter. This discovery implies that\n\nJupiter is not a perfectly smooth sphere.\n\nJupiter may rotate.\n\nnot all celestial bodies revolve around the Earth.\n\nthe Earth may rotate.\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Jupiter is not a perfectly smooth sphere."
+        },
+        {
+          "label": "B",
+          "text": "Jupiter may rotate."
+        },
+        {
+          "label": "C",
+          "text": "not all celestial bodies revolve around the Earth."
+        },
+        {
+          "label": "D",
+          "text": "the Earth may rotate."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Galileo discovered that these moons orbited around Jupiter.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011131.png"
+        ],
+        "answer": [
+          "crops/PHY16011131.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            136.19979858398438,
+            155.59298706054688,
+            148.37680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011132",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 32,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAccording to the Ptolemaic geocentric model, Mercury and Venus can only be seen in the morning or in the evening because",
+        "ocr": "PHY16011132>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\n* According to the Ptolemaic geocentric model, Mercury and Venus can only be seen in the\nmorning or in the evening because\n\nthe Earth is at the centre of the universe.\n\nthey orbit in epicycles.\n\ntheir centres of epicycles lie on the straight line joining the Sun and the Earth.\nthey undergo prograde and retrograde motions.\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "the Earth is at the centre of the universe."
+        },
+        {
+          "label": "B",
+          "text": "they orbit in epicycles."
+        },
+        {
+          "label": "C",
+          "text": "their centres of epicycles lie on the straight line joining the Sun and the Earth."
+        },
+        {
+          "label": "D",
+          "text": "they undergo prograde and retrograde motions."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011132.png"
+        ],
+        "answer": [
+          "crops/PHY16011132.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            333.1497802734375,
+            155.59298706054688,
+            345.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011133",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 33,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAccording to the Copernican heliocentric model, Mercury and Venus can only be seen in the morning or in the evening because",
+        "ocr": "PHY16011133>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\n* According to the Copernican heliocentric model, Mercury and Venus can only be seen in the\nmorning or in the evening because\n\nthey orbit the Sun.\n\ntheir orbits are inside that of the Earth.\n\nthe Earth rotates on its own axis.\n\nthey undergo prograde and retrograde motions.\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "they orbit the Sun."
+        },
+        {
+          "label": "B",
+          "text": "their orbits are inside that of the Earth."
+        },
+        {
+          "label": "C",
+          "text": "the Earth rotates on its own axis."
+        },
+        {
+          "label": "D",
+          "text": "they undergo prograde and retrograde motions."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Since the orbits of Mercury and Venus are inside the Earth’s orbit, Mercury and Venus always appear close to the Sun. During the day, it is too bright to see Mercury or Venus with naked eyes. Therefore, they can only be seen in the morning or in the evening.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011133.png"
+        ],
+        "answer": [
+          "crops/PHY16011133.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            532.5497436523438,
+            155.59298706054688,
+            544.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011134",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 34,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe diagram below shows how the Copernican model explains the retrograde motion of Mars.\n[eq:7]\n\tWhich of the following statements are correct?\n\t(1)\tThe angular speed of Mars is smaller than that of the Earth.\n\t(2)\tAs observed from the Earth, Mars undergoes retrograde motion from B to C.\n\t(3)\tThe Ptolemaic model cannot explain the retrograde motion of Mars.",
+        "ocr": "PHY16011134>\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n* The diagram below shows how the Copernican model explains the retrograde motion of Mars.\n\nDBCA\n\nWhich of the following statements are correct?\n\n(1) The angular speed of Mars is smaller than that of the Earth.\n\n(2) As observed from the Earth, Mars undergoes retrograde motion from B to C.\n(3) The Ptolemaic model cannot explain the retrograde motion of Mars.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "[eq:8]\nIn the diagram above, the angular distance α moved by the Earth is greater than the angular distance β moved by Mars in the same time interval, hence the angular speed of the Earth is greater than that of Mars.\n∴ (1) is correct.\nMars appears to move backwards from B to C in the sky.\n∴ (2) is correct.\nThe Ptolemaic model can explain the retrograde motion of Mars by the combined effect of epicycle and deferent.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011134.png"
+        ],
+        "answer": [
+          "crops/PHY16011134.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            14
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            100.44979095458984,
+            155.59298706054688,
+            112.62679290771484
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011135",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 35,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements is/are correct?\n\t(1)\tIn the Ptolemaic model, the Earth is at the centre of the universe.\n\t(2)\tEpicycles are circular in the Ptolemaic model and elliptical in the Copernican model.\n\t(3)\tThe Moon orbits the Earth in both the Ptolemaic model and the Copernican model.",
+        "ocr": "PHY16011135>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\n* = Which of the following statements is/are correct?\n(1) In the Ptolemaic model, the Earth is at the centre of the universe.\n(2) Epicycles are circular in the Ptolemaic model and elliptical in the Copernican model.\n(3) The Moon orbits the Earth in both the Ptolemaic model and the Copernican model.\n\nA (1) only\n\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Epicycles are circular in both models.\n∴ (2) is incorrect.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011135.png"
+        ],
+        "answer": [
+          "crops/PHY16011135.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            15
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            100.44979095458984,
+            155.59298706054688,
+            112.62679290771484
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011136",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 36,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements is/are correct?\n\t(1)\tIn the Ptolemaic model, the Moon orbits the Earth.\n\t(2)\tIn the Copernican model, the Earth rotates on its own axis.\n\t(3)\tIn the Ptolemaic model, the orbit of Mercury is inside that of the Sun, while in the Copernican model, the orbit of Mercury is inside that of the Earth.",
+        "ocr": "PHY16011136>\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n* = Which of the following statements is/are correct?\n\n(1) In the Ptolemaic model, the Moon orbits the Earth.\n\n(2) In the Copernican model, the Earth rotates on its own axis.\n\n(3) In the Ptolemaic model, the orbit of Mercury is inside that of the Sun, while in the\nCopernican model, the orbit of Mercury is inside that of the Earth.\n\nA (1) only\nB= (4) and (2) only\nC (2) and (3) only\nD (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011136.png"
+        ],
+        "answer": [
+          "crops/PHY16011136.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            15
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            358.7497863769531,
+            155.59298706054688,
+            370.9267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011137",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 37,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tGalileo discovered that Venus shows a complete cycle of phases. This discovery disagreed with the predictions of the Ptolemaic model. What was the prediction of the Ptolemaic model about the phases of Venus?",
+        "ocr": "PHY16011137>\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n* Galileo discovered that Venus shows a complete cycle of phases. This discovery disagreed with\n\nthe predictions of the Ptolemaic model. What was the prediction of the Ptolemaic model about\nthe phases of Venus?\n\nA Venus does not show phases.\n\nB_ Venus shows phases but does not go through the complete phase cycle.\nC Venus cannot be observed from the Earth.\n\nD_ Venus shows the same phases as the Moon.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Venus does not show phases."
+        },
+        {
+          "label": "B",
+          "text": "Venus shows phases but does not go through the complete phase cycle."
+        },
+        {
+          "label": "C",
+          "text": "Venus cannot be observed from the Earth."
+        },
+        {
+          "label": "D",
+          "text": "Venus shows the same phases as the Moon."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011137.png"
+        ],
+        "answer": [
+          "crops/PHY16011137.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            15,
+            16
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            605.5497436523438,
+            155.59298706054688,
+            617.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011138",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 38,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements is incorrect according to the Ptolemaic model?",
+        "ocr": "PHY16011138>\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\n* = Which of the following statements is incorrect according to the Ptolemaic model?\nThe Sun orbits the Earth.\n\nEach planet moves in an epicycle.\n\nThe retrograde motion of planets can be predicted quite accurately.\n\nMercury and Venus can be arbitrarily far apart.\n\nGDOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "The Sun orbits the Earth."
+        },
+        {
+          "label": "B",
+          "text": "Each planet moves in an epicycle."
+        },
+        {
+          "label": "C",
+          "text": "The retrograde motion of planets can be predicted quite accurately."
+        },
+        {
+          "label": "D",
+          "text": "Mercury and Venus can be arbitrarily far apart."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "In the Ptolemaic model, the centres of epicycles of Mercury and Venus always lie on a straight line joining the Earth and the Sun. Therefore, Mercury and Venus can never be too far away from each other.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011138.png"
+        ],
+        "answer": [
+          "crops/PHY16011138.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            16
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            143.49978637695312,
+            155.59298706054688,
+            155.67678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011139",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 39,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following astronomical discoveries made by Galileo directly contradicts the predictions of the Ptolemaic model?",
+        "ocr": "PHY16011139>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\n* = Which of the following astronomical discoveries made by Galileo directly contradicts the\npredictions of the Ptolemaic model?\n\nThere are mountains, valleys and craters on the Moon.\n\nThere are sunspots on the surface of the Sun.\n\nThere are four moons orbiting Jupiter.\n\nVenus shows a complete cycle of phases.\n\nGDA P",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "There are mountains, valleys and craters on the Moon."
+        },
+        {
+          "label": "B",
+          "text": "There are sunspots on the surface of the Sun."
+        },
+        {
+          "label": "C",
+          "text": "There are four moons orbiting Jupiter."
+        },
+        {
+          "label": "D",
+          "text": "Venus shows a complete cycle of phases."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "In the Ptolemaic model, Venus does not go through the complete phase cycle.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011139.png"
+        ],
+        "answer": [
+          "crops/PHY16011139.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            16
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            367.0497741699219,
+            155.59298706054688,
+            379.2267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16011140",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 40,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tHow are planets and stars different as observed from the Earth?\n\t(1)\tStars seem fixed relative to each other but planets are not.\n\t(2)\tStars are seen all across the night sky while planets are confined to only a few orbits.\n\t(3)\tStars can be seen with naked eye but planets cannot.",
+        "ocr": "PHY16011140>\n\n<lvl=dif><part=core><type=mc><mark=2><bk=E1><ch=01><content>\n\n* * How are planets and stars different as observed from the Earth?\n(1) Stars seem fixed relative to each other but planets are not.\n(2) Stars are seen all across the night sky while planets are confined to only a few orbits.\n(3) Stars can be seen with naked eye but planets cannot.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "(1) and (2) are correct.\nSome stars and some planets can be seen with naked eye.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E101/E1_ch01_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16011140.png"
+        ],
+        "answer": [
+          "crops/PHY16011140.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_MC_e.docx",
+          "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_MC_e.pdf",
+          "pages": [
+            16,
+            17
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            579.0997314453125,
+            155.59298706054688,
+            591.2767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012101",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 1,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "(a)\tState the definitions of astronomical unit and light year.\t(2 marks)\n\t(b)\tThe size of the solar system is about 1013 m. Express the size of the solar system in\n\t\t(i)\tastronomical unit,\t(1 mark)\n\t\t(ii)\tlight year.\t(1 mark)\n\t\tGiven:\t1 AU = 1.50 × 1011 m\n\t\t\t1 ly = 9.46 × 1015 m",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "State the definitions of astronomical unit and light year.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The size of the solar system is about 1013 m. Express the size of the solar system in\n\t\t(i)\tastronomical unit,",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "light year.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tOne astronomical unit is the average distance between the Earth and the Sun.\n1A\n\tOne light year is the distance travelled by light in a vacuum in one year.\n1A\n(b)\t(i)\tSize of the solar system =[eq:1]= 66.7 AU\n1A\n\t(ii)\tSize of the solar system =[eq:2]= 1.06 × 10-3 ly\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "One astronomical unit is the average distance between the Earth and the Sun.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "One light year is the distance travelled by light in a vacuum in one year.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Size of the solar system =[eq:1]= 66.7 AU",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Size of the solar system =[eq:2]= 1.06 × 10-3 ly",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012101.png"
+        ],
+        "answer": [
+          "crops/PHY16012101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4929962158203,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012102",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 2,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 7,
+      "stem": {
+        "text": "On the following scale, A, B, C, D and E represent lengths of different orders of magnitude.\n[eq:3]\n\t(a)\tMatch the labels A to E with the following:\n\t\t(i)\tSize of the observable universe\n\t\t(ii)\tTypical size of a nebula\n\t\t(iii)\tTypical height of a tall building\n\t\t(iv)\tDistance between the Earth and the Sun\n\t\t(v)\tTypical distance between galaxies\t(5 marks)\n\t(b)\tMark the following on the scale above to indicate the following lengths relative to those in (a):\n\t\t(i)\tF: typical size of a galaxy\n\t\t(ii)\tG: typical size of a supercluster of galaxies\t(2 marks)",
+        "ocr": "PHY16012102>\n<lvl=easy><part=core><type=sq><mark=7><bk=E1><ch=01><content>\nOn the following scale, A, B, C, D and E represent lengths of different orders of magnitude.\n\nA B or D E\n| > length /m\n0 10° 10\" 10°° 10° 10°°\n(a) Match the labels A to E with the following:\n(i) Size of the observable universe\n(ii) Typical size of a nebula\n(iii) Typical height of a tall building\n(iv) Distance between the Earth and the Sun\n(v) Typical distance between galaxies (5 marks)\n(b) Mark the following on the scale above to indicate the following lengths relative to those in\n(a):\n(i) F: typical size of a galaxy\n(ii) G: typical size of a supercluster of galaxies (2 marks)",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Match the labels A to E with the following:\n\t\t(i)\tSize of the observable universe\n\t\t(ii)\tTypical size of a nebula\n\t\t(iii)\tTypical height of a tall building\n\t\t(iv)\tDistance between the Earth and the Sun\n\t\t(v)\tTypical distance between galaxies",
+          "marks": 5
+        },
+        {
+          "label": "b",
+          "text": "Mark the following on the scale above to indicate the following lengths relative to those in (a):\n\t\t(i)\tF: typical size of a galaxy\n\t\t(ii)\tG: typical size of a supercluster of galaxies",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tE\n1A\n\t(ii)\tC\n1A\n\t(iii)\tA\n1A\n\t(iv)\tB\n1A\n\t(v)\tD\n1A\n(b)\t(i)\t(Between C and D)\n1A\n\t(ii)\t(Between D and E)\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "E",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "C",
+            "code": "1A"
+          },
+          {
+            "part": "a(iii)",
+            "point": "A",
+            "code": "1A"
+          },
+          {
+            "part": "a(iv)",
+            "point": "B",
+            "code": "1A"
+          },
+          {
+            "part": "a(v)",
+            "point": "D",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "(Between C and D)",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "(Between D and E)",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012102.png"
+        ],
+        "answer": [
+          "crops/PHY16012102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            361.8997802734375,
+            156.4929962158203,
+            374.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012103",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 3,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "Three stars A, B and C are 1.34 pc, 4.24 ly and 376 000 AU from the Earth respectively. Which of them is the nearest from the Earth, and which of them is the farthest?\t(5 marks)\n\tGiven:\t1 AU = 1.50 × 1011 m\n\t\t1 pc = 3.09 × 1016 m\n\t\t1 ly = 9.46 × 1015 m",
+        "ocr": "PHY16012103>\n\n<lvl=easy><part=core><type=sq><mark=5><bk=E1><ch=01><content>\nThree stars A, B and C are 1.34 pc, 4.24 ly and 376 000 AU from the Earth respectively. Which\nof them is the nearest from the Earth, and which of them is the farthest? (5 marks)\n\nGiven: 1 AU= 1.50 x 10''m\n1 pc = 3.09 x 10° m\n1 ly = 9.46 x 10m",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nDistance of A from the Earth = 1.34 × (3.09 × 1016) = 4.14 × 1016 m\n1A\nDistance of B from the Earth = 4.24 × (9.46 × 1015) = 4.01 × 1016 m\n1A\nDistance of C from the Earth = 376 000 × (1.50 × 1011) = 5.64 × 1016 m\n1A\nTherefore, among the three stars, B is the nearest\n1A\nand C is the farthest from the Earth.\n1A",
+        "marking": [
+          {
+            "part": "",
+            "point": "Distance of A from the Earth = 1.34 × (3.09 × 1016) = 4.14 × 1016 m",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "Distance of B from the Earth = 4.24 × (9.46 × 1015) = 4.01 × 1016 m",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "Distance of C from the Earth = 376 000 × (1.50 × 1011) = 5.64 × 1016 m",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "Therefore, among the three stars, B is the nearest",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "and C is the farthest from the Earth.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012103.png"
+        ],
+        "answer": [
+          "crops/PHY16012103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            111.9997787475586,
+            156.4929962158203,
+            124.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012104",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 4,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\t(a)\tWhich type of celestial object is the Sun classified as? State how it generates energy.\n\t(2 marks)\n\t(b)\tFind the time for light to travel from the Sun to the Earth.\n\t\tGiven:\tSpeed of light = 3.00 × 108 m s–1\n\t\t\t1 AU = 1.50 × 1011 m\n\t\t\t(2 marks)",
+        "ocr": "PHY16012104>\n<lvl=avg><part=core><type=sq><mark=4><bk=E1><ch=01><content>\n* = (a) Which type of celestial object is the Sun classified as? State how it generates energy.\n\n(2 marks)\n(b) Find the time for light to travel from the Sun to the Earth.\nGiven: Speed of light = 3.00 x 10®°ms™\n1 AU = 1.50 x 10\" m\n(2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Which type of celestial object is the Sun classified as? State how it generates energy.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Find the time for light to travel from the Sun to the Earth.\n\t\tGiven:\tSpeed of light = 3.00 × 108 m s–1\n\t\t\t1 AU = 1.50 × 1011 m",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe Sun is classified as a star.\n1A\n\tIt generates energy from nuclear fusion.\n1A\n(b)\tTime of travel =[eq:4]\t=[eq:5]\n1M\n\t\t= 500 s\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The Sun is classified as a star.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "It generates energy from nuclear fusion.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Time of travel =[eq:4]\t=[eq:5]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 500 s",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012104.png"
+        ],
+        "answer": [
+          "crops/PHY16012104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            354.2497863769531,
+            156.4929962158203,
+            366.4267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012105",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 5,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "Copernicus proposed a heliocentric model that explained the observed motion of five planets (Venus, Mercury, Mars, Saturn and Jupiter), the Sun and the Moon. According to this model, sketch the orbits of the Earth, the Moon, Mars and Venus relative to the Sun in a labelled diagram.\t(4 marks)",
+        "ocr": "PHY16012105>\n\n<lvl=easy><part=core><type=sq><mark=4><bk=E1><ch=01><content>\nCopernicus proposed a heliocentric model that explained the observed motion of five planets\n(Venus, Mercury, Mars, Saturn and Jupiter), the Sun and the Moon. According to this model,\nsketch the orbits of the Earth, the Moon, Mars and Venus relative to the Sun in a labelled\ndiagram. (4 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n[fig:1]\n\n(Orbits for Venus, Mars and the Earth around the Sun)\n1A\n(Orbit for the Moon around the Earth)\n1A\n(Circular orbits)\n1A\n(Correct relative positions of orbits)\n1A",
+        "marking": [
+          {
+            "part": "",
+            "point": "(Orbits for Venus, Mars and the Earth around the Sun)",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "(Orbit for the Moon around the Earth)",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "(Circular orbits)",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "(Correct relative positions of orbits)",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012105.png"
+        ],
+        "answer": [
+          "crops/PHY16012105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            635.3497314453125,
+            156.4929962158203,
+            647.5267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012106",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 6,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "Galileo studied the sky with his own telescope and made some observations that challenged most astronomers’ belief at his time. State two of these observations and their conflicts with the earlier beliefs about the universe.\t(4 marks)",
+        "ocr": "PHY16012106>\n\n<lvl=easy><part=core><type=sq><mark=4><bk=E1><ch=01><content>\nGalileo studied the sky with his own telescope and made some observations that challenged\nmost astronomers’ belief at his time. State two of these observations and their conflicts with the\n\nearlier beliefs about the universe. (4 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nAny two of the following:\n2 × 2A\nGalileo found mountains, valleys and craters on the Moon. This disagreed with the belief that the Moon is a perfectly smooth sphere.\n\nGalileo found dark patches (sunspots) on the surface Sun. This disagreed with the belief that the Sun is a perfectly smooth sphere.\n\nGalileo found four moons orbiting around Jupiter. This disagreed with the belief that the Earth is the only centre of motion in the universe.\n\nGalileo found that Venus shows a complete cycle of phase. This disagreed with the Ptolemaic model which predicted that Venus does not go through the complete phase cycle.",
+        "marking": [
+          {
+            "part": "",
+            "point": "Any two of the following: 2 ×",
+            "code": "2A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012106.png"
+        ],
+        "answer": [
+          "crops/PHY16012106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            332.7497863769531,
+            156.4929962158203,
+            344.9267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012107",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 7,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 7,
+      "stem": {
+        "text": "→\tPtolemy explained the observed paths of five planets (Venus, Mercury, Mars, Saturn and Jupiter), the Sun and the Moon with a geocentric model.\n\t(a)\tDraw the paths of the Sun, the Moon, Mars and Venus relative to the position of the Earth in a labelled diagram.\t(5 marks)\n\t(b)\tIn the diagram in (a), label a deferent and an epicycle.\t(2 marks)",
+        "ocr": "PHY16012107>\n\n<lvl=avg><part=core><type=sq><mark=7><bk=E1><ch=01><content>\n\n* Ptolemy explained the observed paths of five planets (Venus, Mercury, Mars, Saturn and\nJupiter), the Sun and the Moon with a geocentric model.\n\n(a) Draw the paths of the Sun, the Moon, Mars and Venus relative to the position of the Earth\nin a labelled diagram. (5 marks)\n\n(b) In the diagram in (a), label a deferent and an epicycle. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Draw the paths of the Sun, the Moon, Mars and Venus relative to the position of the Earth in a labelled diagram.",
+          "marks": 5
+        },
+        {
+          "label": "b",
+          "text": "In the diagram in (a), label a deferent and an epicycle.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a) & (b)\n\n\t[eq:6]\n\n\t(The Earth at the centre)\n1A\n\t(Circular orbits for the Moon and the Sun)\n1A\n\t(Deferents and epicycles for Mars and Venus)\n1A\n\t(Centre of epicycle of Venus lies between the Sun and the Earth)\n1A\n\t(Correct relative positions of orbits)\n1A\n\t(Label a deferent)\n1A\n\t(Label an epicycle)\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "(The Earth at the centre)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Circular orbits for the Moon and the Sun)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Deferents and epicycles for Mars and Venus)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Centre of epicycle of Venus lies between the Sun and the Earth)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Correct relative positions of orbits)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Label a deferent)",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "(Label an epicycle)",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012107.png"
+        ],
+        "answer": [
+          "crops/PHY16012107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            602.6497802734375,
+            156.4929962158203,
+            614.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012108",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 8,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→→\tHow could the Copernican heliocentric model explain the following phenomena?\n\t(a)\tDay and night on the Earth\t(2 marks)\n\t(b)\tVenus always appeared near the Sun\t(1 mark)\n\t(c)\tRetrograde motion of Mars\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Day and night on the Earth",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Venus always appeared near the Sun",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Retrograde motion of Mars",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tA place on the Earth is in daytime when it is on the side facing the Sun.\n1A\n\tThe Earth rotates on its own axis. After the Earth rotates half a cycle, this place turns to the side not facing the Sun and enters night time.\n1A\n(b)\tBoth the Earth and Venus revolve around the Sun, with Venus’ orbit inside the Earth’s orbit.\n1A\n(c)\tBoth the Earth and Mars revolve around the Sun, with Mars’ orbit outside the Earth’s orbit.\n1A\n\tThe Earth is moving faster than Mars and sometimes overtakes Mars.\n1A\n\tWhen this happens, Mars appears to move backwards in the sky as observed from the Earth, resulting in its retrograde motion.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "A place on the Earth is in daytime when it is on the side facing the Sun.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The Earth rotates on its own axis. After the Earth rotates half a cycle, this place turns to the side not facing the Sun and enters night time.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Both the Earth and Venus revolve around the Sun, with Venus’ orbit inside the Earth’s orbit.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Both the Earth and Mars revolve around the Sun, with Mars’ orbit outside the Earth’s orbit.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The Earth is moving faster than Mars and sometimes overtakes Mars.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "When this happens, Mars appears to move backwards in the sky as observed from the Earth, resulting in its retrograde motion.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012108.png"
+        ],
+        "answer": [
+          "crops/PHY16012108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            390.94976806640625,
+            156.4929962158203,
+            403.12677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012109",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 9,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\t(a)\tExplain the retrograde motion of Venus according to the Copernican model.\t(3 marks)\n\t(b)\tWhat does the Ptolemaic model predict about the phases of Venus? State how the actual observed phases of Venus disagree with this prediction.\t(2 marks)",
+        "ocr": "PHY16012109>\n<lvl=avg><part=core><type=sq><mark=5><bk=E1><ch=01><content>\n* (a) Explain the retrograde motion of Venus according to the Copernican model. (3 marks)\n\n\n(b) What does the Ptolemaic model predict about the phases of Venus? State how the actual\n\nobserved phases of Venus disagree with this prediction. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Explain the retrograde motion of Venus according to the Copernican model.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "What does the Ptolemaic model predict about the phases of Venus? State how the actual observed phases of Venus disagree with this prediction.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tBoth the Earth and Venus revolve around the Sun, with Venus’ orbit inside the Earth’s orbit.\n1A\n\tThe Earth is moving slower than Venus and is sometimes overtaken by it.\n1A\n\tWhen this happens, Venus appears to move backwards in the sky as observed from the Earth, resulting in its retrograde motion.\n1A\n(b)\tThe Ptolemaic model predicts that Venus will not go through the complete phase cycle.\n1A\n\tHowever, Venus is actually observed to exhibit a complete cycle of phases.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Both the Earth and Venus revolve around the Sun, with Venus’ orbit inside the Earth’s orbit.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The Earth is moving slower than Venus and is sometimes overtaken by it.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "When this happens, Venus appears to move backwards in the sky as observed from the Earth, resulting in its retrograde motion.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The Ptolemaic model predicts that Venus will not go through the complete phase cycle.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "However, Venus is actually observed to exhibit a complete cycle of phases.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012109.png"
+        ],
+        "answer": [
+          "crops/PHY16012109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            683.94970703125,
+            156.4929962158203,
+            696.126708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012110",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 10,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "For each of the scales below, choose one object in the following list that is best measured by this scale.\t(4 marks)\n\tHong Kong Clock Tower (尖沙咀鐘樓), Kowloon, the Earth, the Moon’s orbit, the Earth’s orbit, the star cluster containing the Sun, the Milky Way Galaxy, the Local Group\n\t(a)\t10 m\n\t(b)\t108 m\n\t(c)\t1 AU\n\t(d)\t105 ly",
+        "ocr": "PHY16012110>\n\n<lvl=easy><part=core><type=sq><mark=4><bk=E1><ch=01><content>\nFor each of the scales below, choose one object in the following list that is best measured by\nthis scale. (4 marks)\nHong Kong Clock Tower ( ), Kowloon, the Earth, the Moon’s orbit, the Earth’s orbit, the\nstar cluster containing the Sun, the Milky Way Galaxy, the Local Group\n\n(a) 10m\n\n(b) 10°m\n\n(c) 1AU\n\n(d) 10° ly",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tHong Kong Clock Tower\n1A\n(b)\tThe Moon’s orbit\n1A\n(c)\tThe Earth’s orbit\n1A\n(d)\tMilky Way Galaxy\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Hong Kong Clock Tower",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The Moon’s orbit",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The Earth’s orbit",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Milky Way Galaxy",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012110.png"
+        ],
+        "answer": [
+          "crops/PHY16012110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            291.0497741699219,
+            156.04299926757812,
+            303.2267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY16012111",
+      "bank": "QB_E101",
+      "book": "E1",
+      "chapter": "01",
+      "seq": 11,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "Consider the Sun-Earth-Moon system.\n\t(a)\tWhat types of celestial objects are the Sun, the Earth and the Moon classified as?\t(3 marks)\n\t(b)\tName one type of objects in the Milky Way Galaxy other than the above three.\t(1 mark)",
+        "ocr": "PHY16012111>\n<lvl=easy><part=core><type=sq><mark=4><bk=E1><ch=01><content>\nConsider the Sun-Earth-Moon system.\n(a) What types of celestial objects are the Sun, the Earth and the Moon classified as? (3 marks)\n\n(b) Name one type of objects in the Milky Way Galaxy other than the above three. (1 mark)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What types of celestial objects are the Sun, the Earth and the Moon classified as?",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Name one type of objects in the Milky Way Galaxy other than the above three.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe Sun is a star,\n1A\n\tthe Earth is a planet\n1A\n\tand the Moon is a satellite.\n1A\n(b)\tNebulae\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The Sun is a star,",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "the Earth is a planet",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "and the Moon is a satellite.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Nebulae",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E101/E1_ch01_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY16012111.png"
+        ],
+        "answer": [
+          "crops/PHY16012111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E101/E1_ch01_SQ_e.docx",
+          "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+          "pdf": "qb-pdf/QB_E101/E1_ch01_SQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            579.8997802734375,
+            155.6429901123047,
+            592.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

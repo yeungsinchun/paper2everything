@@ -1,0 +1,272 @@
+{
+  "generated_at": "2026-09-29T19:14:08Z",
+  "total_items": 3847,
+  "total_banks": 46,
+  "bank_list": [
+    "QB_101",
+    "QB_102",
+    "QB_103",
+    "QB_104",
+    "QB_105",
+    "QB_201",
+    "QB_202",
+    "QB_203",
+    "QB_204",
+    "QB_205",
+    "QB_206",
+    "QB_207",
+    "QB_208",
+    "QB_209",
+    "QB_210",
+    "QB_3A01",
+    "QB_3A02",
+    "QB_3A03",
+    "QB_3B04",
+    "QB_3B05",
+    "QB_3B06",
+    "QB_3B07",
+    "QB_401",
+    "QB_402",
+    "QB_403",
+    "QB_404",
+    "QB_405",
+    "QB_406",
+    "QB_407",
+    "QB_408",
+    "QB_501",
+    "QB_502",
+    "QB_503",
+    "QB_E101",
+    "QB_E102",
+    "QB_E103",
+    "QB_E201",
+    "QB_E202",
+    "QB_E203",
+    "QB_E301",
+    "QB_E302",
+    "QB_E303",
+    "QB_E304",
+    "QB_E401",
+    "QB_E402",
+    "QB_E403"
+  ],
+  "crops": {
+    "total_files": 7692,
+    "total_mb": 253.94,
+    "avg_per_bank_mb": 5.52,
+    "per_bank": {
+      "QB_101": {
+        "files": 76,
+        "mb": 2.68
+      },
+      "QB_102": {
+        "files": 146,
+        "mb": 5.24
+      },
+      "QB_103": {
+        "files": 194,
+        "mb": 6.42
+      },
+      "QB_104": {
+        "files": 212,
+        "mb": 8.77
+      },
+      "QB_105": {
+        "files": 192,
+        "mb": 6.58
+      },
+      "QB_201": {
+        "files": 118,
+        "mb": 3.16
+      },
+      "QB_202": {
+        "files": 218,
+        "mb": 6.6
+      },
+      "QB_203": {
+        "files": 162,
+        "mb": 5.07
+      },
+      "QB_204": {
+        "files": 226,
+        "mb": 8.0
+      },
+      "QB_205": {
+        "files": 122,
+        "mb": 4.55
+      },
+      "QB_206": {
+        "files": 192,
+        "mb": 6.0
+      },
+      "QB_207": {
+        "files": 250,
+        "mb": 9.03
+      },
+      "QB_208": {
+        "files": 168,
+        "mb": 5.65
+      },
+      "QB_209": {
+        "files": 154,
+        "mb": 5.18
+      },
+      "QB_210": {
+        "files": 136,
+        "mb": 4.04
+      },
+      "QB_3A01": {
+        "files": 166,
+        "mb": 7.18
+      },
+      "QB_3A02": {
+        "files": 248,
+        "mb": 8.74
+      },
+      "QB_3A03": {
+        "files": 196,
+        "mb": 7.99
+      },
+      "QB_3B04": {
+        "files": 178,
+        "mb": 6.04
+      },
+      "QB_3B05": {
+        "files": 218,
+        "mb": 7.12
+      },
+      "QB_3B06": {
+        "files": 200,
+        "mb": 6.7
+      },
+      "QB_3B07": {
+        "files": 204,
+        "mb": 6.94
+      },
+      "QB_401": {
+        "files": 262,
+        "mb": 8.97
+      },
+      "QB_402": {
+        "files": 210,
+        "mb": 6.5
+      },
+      "QB_403": {
+        "files": 122,
+        "mb": 4.24
+      },
+      "QB_404": {
+        "files": 214,
+        "mb": 6.84
+      },
+      "QB_405": {
+        "files": 134,
+        "mb": 4.17
+      },
+      "QB_406": {
+        "files": 178,
+        "mb": 6.33
+      },
+      "QB_407": {
+        "files": 242,
+        "mb": 8.46
+      },
+      "QB_408": {
+        "files": 162,
+        "mb": 4.7
+      },
+      "QB_501": {
+        "files": 138,
+        "mb": 4.47
+      },
+      "QB_502": {
+        "files": 218,
+        "mb": 6.24
+      },
+      "QB_503": {
+        "files": 134,
+        "mb": 3.31
+      },
+      "QB_E101": {
+        "files": 110,
+        "mb": 2.4
+      },
+      "QB_E102": {
+        "files": 154,
+        "mb": 4.72
+      },
+      "QB_E103": {
+        "files": 150,
+        "mb": 4.6
+      },
+      "QB_E201": {
+        "files": 146,
+        "mb": 5.29
+      },
+      "QB_E202": {
+        "files": 214,
+        "mb": 6.31
+      },
+      "QB_E203": {
+        "files": 138,
+        "mb": 3.94
+      },
+      "QB_E301": {
+        "files": 90,
+        "mb": 2.54
+      },
+      "QB_E302": {
+        "files": 70,
+        "mb": 2.01
+      },
+      "QB_E303": {
+        "files": 134,
+        "mb": 4.15
+      },
+      "QB_E304": {
+        "files": 120,
+        "mb": 4.44
+      },
+      "QB_E401": {
+        "files": 134,
+        "mb": 3.84
+      },
+      "QB_E402": {
+        "files": 122,
+        "mb": 4.36
+      },
+      "QB_E403": {
+        "files": 120,
+        "mb": 3.43
+      }
+    }
+  },
+  "items_mb": 13.14,
+  "tool_versions": {
+    "pymupdf": "1.28.2",
+    "tesseract": "tesseract 5.5.3",
+    "soffice": "LibreOffice 26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77"
+  },
+  "p2db_qb_root": "P2DB_QB_ROOT=/Users/sinchunyeung/github/paper2everything/new_qb (fallback to paper2db/qb)",
+  "data_problem_flags": {
+    "description": "Per-item warnings field flags data problems: variant_conflict, equation_heavy, crop_multi_page, anchor not found, key_missing, etc. has_crop false, status != present.",
+    "example_warnings": [
+      "variant_conflict",
+      "equation_heavy",
+      "crop_multi_page",
+      "anchor not found",
+      "from_pdf_key",
+      "key_missing"
+    ]
+  },
+  "warnings_summary": {
+    "crop_multi_page": 1483,
+    "equation_heavy": 53,
+    "key_missing": 1,
+    "answer_missing": 1,
+    "anchor not found": 1
+  },
+  "missing_crops": [
+    "PHY15013104"
+  ]
+}
