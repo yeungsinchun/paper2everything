@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book 2 Ch.7 · Momentum and collisions</title>
   <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
@@ -12,14 +13,13 @@
     <a class="brand" href="../index.html">Book 2 · Ch.7<small>Momentum and collisions</small></a>
     <nav>
       <a href="../index.html">Map</a>
-      <a href="../ch07-momentum/index.html" aria-current="page">Ch.7</a>
       <a href="../ch01-position-and-displacement/index.html">Ch.1</a>
       <a href="../ch02-velocity-and-acceleration/index.html">Ch.2</a>
       <a href="../ch03-forces-and-newton-i/index.html">Ch.3</a>
       <a href="../ch04-newton-ii-and-iii/index.html">Ch.4</a>
       <a href="../ch05-moment-and-equilibrium/index.html">Ch.5</a>
       <a href="../ch06-work-energy-power/index.html">Ch.6</a>
-      <a href="../ch07-momentum/index.html">Ch.7</a>
+      <a href="../ch07-momentum/index.html" aria-current="page">Ch.7</a>
       <a href="../ch08-projectile-motion/index.html">Ch.8</a>
       <a href="../ch09-circular-motion/index.html">Ch.9</a>
       <a href="../ch10-gravitation/index.html">Ch.10</a>
@@ -47,6 +47,7 @@
         <div class="visual stage" id="hose-vis" data-scene="hose">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Hose water 20 cm/s 100 cm2 hitting wall, momentum change gives force"></canvas>
           <span class="hud-label" data-hud="p">\( p=mv \)</span><span class="hud-label" data-hud="F">\( F=\Delta p/\Delta t \)</span>
+          <span class="hose-drop" aria-hidden="true"></span><span class="hose-drop-2" aria-hidden="true"></span><span class="hose-drop-3" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.15</b> Hose ejects water \( v=0.20\ \text{m s}^{-1} \) through \( 100\ \text{cm}^2=0.01\ \text{m}^2 \). Mass rate \( = \rho A v =1000·0.01·0.20=2\ \text{kg s}^{-1} \). On wall, normal speed →0 → \( F= \dot m v =2×0.20=0.4\ \text{N} \) — the rate of momentum change.</figcaption>
       </figure>
@@ -70,6 +71,7 @@
         <div class="visual stage" id="collision-vis" data-scene="collision">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Trolleys A 5.5 kg 2 m/s and B 7 kg 1.5 m/s head-on stick together"></canvas>
           <span class="hud-label" data-hud="before">before</span><span class="hud-label" data-hud="after">after: stick</span>
+          <span class="trolley-a" aria-hidden="true"></span><span class="trolley-b" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.16</b> Total \( p \) before = after (isolated). A (5.5 kg, 2 m/s right) + B (7 kg, 1.5 m/s left): \( 11 -10.5 =0.5 = (12.5)v' \) → \( v'≈0.04 \) m/s right (stick). Elastic would also conserve KE; inelastic not.</figcaption>
       </figure>
@@ -115,6 +117,7 @@
         <div class="visual stage" id="throw-vis" data-scene="throw">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Ball thrown up, returns with less momentum due to air"></canvas>
           <span class="hud-label" data-hud="up">up: drag down</span><span class="hud-label" data-hud="down">down: drag up</span>
+          <span class="throw-ball" aria-hidden="true"></span><span class="throw-ball-drag" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.18</b> Up, weight+drag both down → large loss. Down, drag up reduces net. On return to same height, momentum magnitude is smaller and direction reversed; total momentum of ball+air is conserved.</figcaption>
       </figure>
