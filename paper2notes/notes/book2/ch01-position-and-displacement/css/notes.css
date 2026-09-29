@@ -1,1 +1,157 @@
-/* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+/* Chapter 1 interaction and scanability overrides. Shared rules live in ../../css/notes.css. */
+
+.quick-digest {
+  margin: 0 0 1.2rem;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--accent);
+  background: #fff;
+}
+
+.quick-digest h2 {
+  margin: 0 0 0.55rem;
+  color: var(--accent-deep);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quick-digest > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+}
+
+.quick-digest p {
+  margin: 0;
+  padding-right: 0.7rem;
+  border-right: 1px solid var(--rule-soft);
+}
+
+.quick-digest p:last-child { border-right: 0; }
+.quick-digest p > b,
+.quick-digest p > span { display: block; }
+.quick-digest p > b { font-size: 0.92rem; }
+.quick-digest p > span { color: var(--muted); font-size: 0.78rem; }
+
+details.lo-block { padding-top: 0.7rem; }
+
+.lo-block summary {
+  color: var(--accent-deep);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lo-block summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.lo-block[open] summary { margin-bottom: 0.2rem; }
+
+#trench-vis {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.stage { isolation: isolate; }
+
+.stage .hud-label {
+  z-index: 4;
+  padding: 0.12rem 0.3rem;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.88);
+  line-height: 1.2;
+}
+
+.stage .hud-label.metric {
+  top: 0.7rem;
+  left: 0.8rem;
+  transform: none;
+  border: 1px solid var(--rule-soft);
+  box-shadow: 0 1px 3px rgba(27, 33, 41, 0.08);
+  font-size: 0.78rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage .hud-label[data-hud="disp"] {
+  top: 2.55rem;
+  color: #a53426;
+}
+
+.stage .hud-label[data-hud="A"],
+.stage .hud-label[data-hud="B"],
+.stage .hud-label[data-hud="C"] { font-weight: 700; }
+
+.scene-controls {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  left: 0.65rem;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: auto minmax(5rem, 1fr) auto;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid rgba(217, 210, 196, 0.95);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 8px rgba(27, 33, 41, 0.09);
+}
+
+.scene-controls button {
+  min-width: 4.4rem;
+  padding: 0.22rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.scene-controls input { width: 100%; min-width: 0; }
+.scene-controls output {
+  min-width: 3rem;
+  color: var(--muted);
+  font: 600 0.72rem/1 var(--mono);
+  text-align: right;
+}
+
+.scene-tooltip {
+  position: absolute;
+  z-index: 7;
+  max-width: 14rem;
+  padding: 0.28rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(10, 65, 60, 0.94);
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  pointer-events: none;
+  transform: translate(0.7rem, calc(-100% - 0.7rem));
+}
+
+.stage canvas.scene-canvas {
+  height: 310px;
+  cursor: crosshair;
+}
+
+.pane-pair .stage canvas.scene-canvas { height: 285px; }
+
+@media (max-width: 720px) {
+  .quick-digest > div { grid-template-columns: 1fr; gap: 0.4rem; }
+  .quick-digest p { padding: 0 0 0.4rem; border-right: 0; border-bottom: 1px solid var(--rule-soft); }
+  .quick-digest p:last-child { padding-bottom: 0; border-bottom: 0; }
+  .stage canvas.scene-canvas,
+  .pane-pair .stage canvas.scene-canvas { height: 270px; }
+  .scene-controls { grid-template-columns: auto minmax(3rem, 1fr); }
+  .scene-controls output { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-controls button::after { content: " (manual)"; }
+}

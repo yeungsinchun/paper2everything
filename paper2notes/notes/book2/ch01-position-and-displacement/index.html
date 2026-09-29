@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book 2 Ch.1 · Position and displacement</title>
   <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
@@ -13,7 +14,6 @@
     <nav>
       <a href="../index.html">Map</a>
       <a href="../ch01-position-and-displacement/index.html" aria-current="page">Ch.1</a>
-      <a href="../ch01-position-and-displacement/index.html">Ch.1</a>
       <a href="../ch02-velocity-and-acceleration/index.html">Ch.2</a>
       <a href="../ch03-forces-and-newton-i/index.html">Ch.3</a>
       <a href="../ch04-newton-ii-and-iii/index.html">Ch.4</a>
@@ -27,10 +27,19 @@
   </header>
   <main>
     <h1>Position and displacement</h1>
-    <p class="lede">Distance, displacement and vectors.</p>
+    <p class="lede">Track the path, compare it with the straight-line change in position, then read motion from a graph.</p>
 
-    <section class="lo-block" aria-labelledby="lo-heading">
-      <h2 id="lo-heading">Learning objectives</h2>
+    <aside class="quick-digest" aria-label="Chapter essentials">
+      <h2>In 20 seconds</h2>
+      <div>
+        <p><b>Distance</b><span>whole path · scalar</span></p>
+        <p><b>Displacement</b><span>start → finish · vector</span></p>
+        <p><b>On an \(s\!-\!t\) graph</b><span>slope = velocity</span></p>
+      </div>
+    </aside>
+
+    <details class="lo-block">
+      <summary>Learning objectives</summary>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
         <li><p>describe the change of position of objects in terms of distance and displacement</p></li>
@@ -38,16 +47,16 @@
         <li><p>distinguish between scalar and vector quantities</p></li>
         <li><p>use scalars and vectors to represent physical quantities</p></li>
       </ul>
-    </section>
+    </details>
 
 
     <section class="idea" id="distance-vs-displacement">
       <header><h2><span class="sec-num">A</span>Distance vs displacement</h2></header>
       <figure class="fig">
-        <div class="visual stage" id="trench-vis" data-scene="trench">
+        <div class="visual stage focus-stage" id="trench-vis" data-scene="trench">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Mouse trench A to B to C, distance 1000 m but displacement diagonal"></canvas>
-          <span class="hud-label" data-hud="dist">distance = 1000 m</span>
-          <span class="hud-label" data-hud="disp">displacement</span>
+          <span class="hud-label metric" data-hud="dist">Distance travelled: 0 m</span>
+          <span class="hud-label metric" data-hud="disp">Displacement: 0 m</span>
           <span class="hud-label" data-hud="A">A</span><span class="hud-label" data-hud="B">B</span><span class="hud-label" data-hud="C">C</span>
         </div>
         <figcaption><b>Fig. 2.1</b> The mouse goes 500 m east then 500 m north. Distance travelled \( = 1000\ \text{m} \) (scalar). Displacement \( = \vec{AC} \) from start to finish — magnitude \( 707\ \text{m} \) NE, direction matters.</figcaption>
@@ -121,7 +130,7 @@
           <canvas class="scene-canvas" width="960" height="420" aria-label="s-t graph with slope changing"></canvas>
           <span class="hud-label" data-hud="slope">slope = velocity</span>
         </div>
-        <figcaption><b>Fig. 2.2</b> A curved \( s\!-\!t \) means velocity changes. Straight → uniform velocity; horizontal → at rest. The area idea belongs to \( v\!-\!t \) (see Ch.2).</figcaption>
+        <figcaption><b>Fig. 2.3</b> A curved \( s\!-\!t \) means velocity changes. Straight → uniform velocity; horizontal → at rest. The area idea belongs to \( v\!-\!t \) (see Ch.2).</figcaption>
       </figure>
       <table class="notes">
         <thead><tr><th>What you see on \( s\!-\!t \)</th><th>Therefore</th></tr></thead>
@@ -152,7 +161,7 @@
           <canvas class="scene-canvas" width="960" height="420" aria-label="Shirley and Simon resultant"></canvas>
           <span class="hud-label" data-hud="Shirley">Shirley</span><span class="hud-label" data-hud="Simon">Simon</span>
         </div>
-        <figcaption><b>Fig. 2.3</b> Shirley walks \( 3\ \text{m} \) east then \( 4\ \text{m} \) north — resultant \( 5\ \text{m} \) NE (3-4-5). Tip-to-tail is the same as parallelogram; the order does not matter.</figcaption>
+        <figcaption><b>Fig. 2.4</b> Shirley walks \( 3\ \text{m} \) east then \( 4\ \text{m} \) north — resultant \( 5\ \text{m} \) NE (3-4-5). Tip-to-tail is the same as parallelogram; the order does not matter.</figcaption>
       </figure>
       <div class="check" data-check="mc" data-answer="B">
         <h3>Concept check</h3>
@@ -188,6 +197,6 @@
   <script src="../js/math.js"></script>
   <script src="../js/checks.js"></script>
   <script src="js/lib/three.min.js"></script>
-  <script src="../js/diagrams3d.js"></script>
+  <script src="js/diagrams3d.js"></script>
 </body>
 </html>
