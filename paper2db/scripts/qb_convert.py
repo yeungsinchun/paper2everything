@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """qb-pdf: convert every QB DOCX to PDF via LibreOffice.
 
-Inputs:  qb/**/*.docx  (canonical: /Users/sinchunyeung/github/paper2notes/qb  or  qb/ in-tree)
+Inputs:  qb/**/*.docx  (canonical: paper2db/qb or $P2DB_QB_ROOT or paper2notes/qb — see find_qb_root)
          plus 6 PDF-only sources that have no DOCX twin.
 Outputs: qb-pdf/<bank>/<stem>.pdf
          qb-pdf/convert-log.json  (sha256, page count, timing, converter)
@@ -12,8 +12,8 @@ PUA U+F0xx characters in runs whose Latin font is Symbol) are rewritten to their
 Unicode equivalents in a temporary copy of the DOCX, because LibreOffice
 otherwise renders them as PUA bullets instead of alpha/beta/gamma.
 
-The --qb-root flag lets the caller point at the canonical QB tree outside the worktree.
-By default it probes qb/ in-tree, then the paper2notes canonical path.
+The --qb-root flag or $P2DB_QB_ROOT env var lets the caller point at the canonical QB tree outside the worktree.
+By default it probes $P2DB_QB_ROOT, then qb/ in-tree, then the paper2notes canonical path.
 """
 from __future__ import annotations
 
@@ -175,7 +175,7 @@ def main() -> None:
     qb_root = find_qb_root(args.qb_root)
     if qb_root is None:
         raise SystemExit(
-            "No qb/ found. Pass --qb-root /path/to/qb  (tried: "
+            "No qb/ found. Pass --qb-root /path/to/qb or set $P2DB_QB_ROOT  (tried: $P2DB_QB_ROOT, "
             + ", ".join(str(c) for c in CANDIDATE_QB_ROOTS) + ")"
         )
     out_root = Path(args.out)

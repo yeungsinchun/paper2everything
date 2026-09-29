@@ -2,7 +2,7 @@
 """qb-items: parse QB DOCX XML into item JSON + per-item PNG crops.
 
 Inputs:
-  qb/**/*.docx  (or --qb-root)
+  qb/**/*.docx  (or $P2DB_QB_ROOT or --qb-root; see find_qb_root)
   qb-pdf/<bank>/<stem>.pdf  (from qb_convert)
   qb-pdf/<bank>/<stem>.pdf.txt  (from qb_ocr, optional -- used for ocr field)
 
@@ -782,7 +782,7 @@ def main() -> None:
 
     qb_root = find_qb_root(args.qb_root)
     if qb_root is None:
-        raise SystemExit("No qb/ found. Pass --qb-root /path/to/qb  (tried: " + ", ".join(str(c) for c in CANDIDATE_QB_ROOTS) + ")")
+        raise SystemExit("No qb/ found. Pass --qb-root /path/to/qb or set $P2DB_QB_ROOT  (tried: $P2DB_QB_ROOT, " + ", ".join(str(c) for c in CANDIDATE_QB_ROOTS) + ")")
     pdf_root = Path(args.pdf_root)
     if not pdf_root.is_absolute():
         pdf_root = ROOT / pdf_root
