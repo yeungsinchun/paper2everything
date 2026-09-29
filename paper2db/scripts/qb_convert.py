@@ -46,7 +46,7 @@ PDF_ONLY_STEMS = {
     "QB_208/2_ch08_MC_e",
     "QB_208/2_ch08_MC_e_blank",
 }
-EXPECTED_REAL_DOCX = 199
+EXPECTED_REAL_DOCX = 169
 
 def docx_symbol_glyphs(docx: Path) -> list[str]:
     with zipfile.ZipFile(str(docx)) as z:
