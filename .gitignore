@@ -4,6 +4,10 @@ Thumbs.db
 ~$*
 *.swp
 
+# lavish boards and node_modules are never committed (repo-wide)
+.lavish/
+node_modules/
+
 # paper2notes local source (gitignored, keep on disk)
 paper2notes/active-physics/
 paper2notes/ch1.pdf
@@ -45,10 +49,6 @@ paper2db/classified/mc/*
 paper2db/classified/lq/*
 !paper2db/classified/lq/llm_classifications.json
 !paper2db/classified/lq/candidate_performance.json
-paper2db/.lavish/*
-!paper2db/.lavish/pr-evidence
-!paper2db/.lavish/pr-evidence/**
-
 # paper2notes audit harness (QB crops — never commit)
 paper2notes/.audit/
 paper2notes/.audit-cache/
