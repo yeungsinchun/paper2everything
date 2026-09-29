@@ -212,7 +212,7 @@ no path filter.
 
 | Workflow | Trigger | Does |
 |---|---|---|
-| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure and relative `href`/`src` resolution (links through `_local/` are skipped) |
+| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolution (links through `_local/` skipped), and lavish notes-refactor boards (before/after side-by-side at 1280 + 390 and readable-measure contract — see `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` and `docs/lavish-notes-boards.md`) |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
 | `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
