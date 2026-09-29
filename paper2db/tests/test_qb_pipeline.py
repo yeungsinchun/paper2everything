@@ -165,17 +165,21 @@ class TestQbQualityAudit(unittest.TestCase):
         self.assertFalse(items_chk["total_ok"])
 
     def test_qb202_without_pdf_recovery_fails(self) -> None:
-        items = [dict(e, status="missing") if e["status"] == "from-pdf" else e for e in self.plan_index()]
+        items = self.plan_index()
+        for e in items:
+            if e["bank"] == "QB_202" and e["status"] == "present":
+                e["status"] = "from-pdf"
+                break
         _, keys_chk, _ = self.run_checks(items)
         self.assertFalse(keys_chk["ok"])
         qb202 = next(c for c in keys_chk["checks"] if c["bank"] == "QB_202")
-        self.assertEqual(qb202["actual"]["from-pdf"], 0)
+        self.assertEqual(qb202["actual"]["from-pdf"], 1)
         self.assertFalse(qb202["ok"])
 
     def test_extra_present_key_fails(self) -> None:
         items = self.plan_index()
-        missing = next(e for e in items if e["status"] == "missing")
-        missing["status"] = "present"
+        present = next(e for e in items if e["status"] == "present")
+        present["status"] = "missing"
         _, keys_chk, _ = self.run_checks(items)
         self.assertFalse(keys_chk["ok"])
 

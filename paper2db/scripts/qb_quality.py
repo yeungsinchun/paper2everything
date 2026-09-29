@@ -5,8 +5,7 @@ Gate (plan P1, all exact):
   - 169 PDFs: every real DOCX has qb-pdf/<bank>/<stem>.pdf
   - 3,847 unique items total, 1,881 in scope (Books 2,4,5), per-bank counts per plan §3.2
   - 100% crops (every item has qb-pdf/crops/<id>.png)
-  - key-status table matches plan §3.2: per bank, `present` equals the withKey column,
-    QB_202's 64 MC are `from-pdf`, QB_503's 38 MC are `missing`
+  - key-status table matches plan §3.2: per bank, `present` equals the withKey column (F00: all keys present)
   - converter render check: LibreOffice vs the 59 Quartz PDFs with DOCX twins
     (page count ±1), and every Symbol-font glyph of each DOCX appears in its
     PDF text layer with no Symbol PUA code points left
@@ -54,8 +53,7 @@ EXPECTED_BANKS = {
     "QB_501": (70, 70), "QB_502": (109, 109), "QB_503": (67, 67),
 }
 IN_SCOPE_BANKS = set(EXPECTED_BANKS)
-# QB_202's 64 MC keys live only in the Quartz PDF text layer
-EXPECTED_FROM_PDF = {"QB_202": 64}
+EXPECTED_FROM_PDF = {}
 MAX_PAGE_DELTA = 1
 
 
