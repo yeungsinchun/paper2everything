@@ -15,12 +15,12 @@
     function resize() { var w=canvas.clientWidth||640,h=canvas.clientHeight||360; renderer.setSize(w,h,false); var a=w/h; camera.left=-3*a; camera.right=3*a; camera.updateProjectionMatrix(); renderer.render(scene,camera); }
     resize(); global.addEventListener('resize',resize);
     function line(points,color,width) { var g=new T.BufferGeometry().setFromPoints(points.map(function(p){return new T.Vector3(p[0],p[1],0);})); var o=new T.Line(g,new T.LineBasicMaterial({color:color||ink,linewidth:width||2})); scene.add(o); return o; }
-    function arrow(x,y,dx,dy,color) { var len=Math.hypot(dx,dy); if(!len)return; scene.add(new T.ArrowHelper(new T.Vector3(dx/len,dy/len,0),new T.Vector3(x,y,0),len,color||ink,.22,.13)); }
+    function arrow(x,y,dx,dy,color) { var len=Math.hypot(dx,dy); if(!len)return null; var h=new T.ArrowHelper(new T.Vector3(dx/len,dy/len,0),new T.Vector3(x,y,0),len,color||ink,.22,.13); scene.add(h); return h; }
     function ball(x,y,r,color) { var m=new T.Mesh(new T.SphereGeometry(r||.17,18,12),new T.MeshBasicMaterial({color:color||accent})); m.position.set(x,y,0);scene.add(m);return m; }
     function box(x,y,w,h,color) { var m=new T.Mesh(new T.BoxGeometry(w,h,.15),new T.MeshBasicMaterial({color:color||ink}));m.position.set(x,y,0);scene.add(m);return m; }
     function curve(f,n,color) { var pts=[];for(var i=0;i<=n;i++)pts.push(f(i/n));return line(pts,color); }
     function axis() { arrow(-3.5,-2.1,7,0,pale);arrow(-3.5,-2.1,0,4.2,pale); }
-    var moving=null, travel=null;
+    var moving=null, moving2=null, travel=null;
     if(name==='peter'){
       curve(function(u){var a=Math.PI*(1-u);return [2*Math.cos(a),1.4*Math.sin(a)];},50,accent);
       curve(function(u){var a=-Math.PI*u;return [2*Math.cos(a),1.4*Math.sin(a)];},50,green);
@@ -59,7 +59,17 @@
     } else if(name==='st-vt'){
       axis();curve(function(u){return [-3+6*u,-1.8+3.4*u*u];},60,accent);line([[-3,-1.8],[3,1.6]],ink);
     } else if(name==='exp'){
-      axis();line([[-3,-1.8],[2.8,1.5]],ink);for(var j=1;j<=4;j++)ball(-3+j*1.15,-1.8+j*.66,.11,accent);
+      axis();line([[-3,-1.8],[2.8,1.5]],ink);
+      // four reference dots plus an animated trolley dot travelling along the a–F line (slope = 1/m)
+      var expDots=[];
+      for(var j=1;j<=4;j++) expDots.push(ball(-3+j*1.15,-1.8+j*.66,.11,accent));
+      moving=ball(-3,-1.8,.15,green);
+      travel=function(u){
+        var x=-3+5.8*u, y=-1.8+3.3*u;
+        moving.position.set(x,y,0);
+        var s=0.92+0.10*Math.sin(u*2*Math.PI*2);
+        for(var k=0;k<expDots.length;k++) expDots[k].scale.set(s,s,s);
+      };
     } else if(name==='collision'){
       line([[-3,-1.9],[3,-1.9]],pale);ball(-1.5,-1.5,.32,accent);ball(1.2,-1.5,.32,green);arrow(-2.7,-1.5,1,0,ink);arrow(2.5,-1.5,-1,0,ink);
     } else if(name==='force-add'){
@@ -75,7 +85,20 @@
       arrow(0,-.5,0,-1.1,gold);
     } else if(name==='action'){
       box(-1.3,-1,1.4,.8,green);box(-1.3,-1.7,2.3,.22,pale);
-      arrow(-1.3,-.6,0,-.9,accent);arrow(-1.3,-1.6,0,.9,ink);
+      var actDown=arrow(-1.3,-.6,0,-.9,accent);
+      var reactUp=arrow(-1.3,-1.6,0,.9,ink);
+      // two marker balls that shuttle opposite to visualise equal–opposite
+      moving=ball(-1.3,-0.75,.09,accent);
+      moving2=ball(-1.3,-1.45,.09,ink);
+      travel=function(u){
+        var dy=0.16*Math.sin(u*2*Math.PI*1.6);
+        moving.position.set(-1.0, -0.78+dy, 0);
+        moving2.position.set(-1.6, -1.42-dy, 0);
+        // pulsate arrow cones subtly
+        var sc=0.9+0.14*Math.abs(Math.sin(u*2*Math.PI*2));
+        if(actDown && actDown.cone) actDown.cone.scale.set(sc,sc,sc);
+        if(reactUp && reactUp.cone) reactUp.cone.scale.set(sc,sc,sc);
+      };
     } else if(name==='hose'){
       box(-2,-.9,1.4,.45,green);line([[-1.3,-.9],[1.7,-.9]],ink);
       for(var h=0;h<5;h++)ball(1.7+h*.25,-.9,.08,ink);
@@ -132,13 +155,49 @@
       moving=ball(radius,0,.18,accent);travel=function(u){moving.position.set(radius*Math.cos(u*2*Math.PI),radius*Math.sin(u*2*Math.PI),0);};
       arrow(radius,0,-1.05,0,accent);
       if(name==='debris')for(var k=0;k<12;k++)ball(2.4*Math.cos(k*.52),2.4*Math.sin(k*.52),.05,pale);
-    } else if(['trench','vector-add','resolve','connected','incline'].includes(name)) {
-      if(name==='trench'||name==='vector-add'||name==='resolve') {
-        var ox=-2.7,oy=-1.3;arrow(ox,oy,2.4,0,ink);arrow(ox+2.4,oy,0,2.4,green);arrow(ox,oy,2.4,2.4,accent);
-        if(name==='resolve'){line([[ox,oy+2.4],[ox+2.4,oy+2.4]],pale);}
-      } else if(name==='incline') {
-        line([[-3,-2],[3,-2],[-1,1.5],[-3,-2]],ink);box(-.1,.2,.7,.45,green);arrow(-.1,.2,0,-1.25,accent);arrow(-.1,.2,-.7,.55,ink);
-      } else {box(-1.8,-1,1,.7,ink);box(1,-1,1.4,.7,green);line([[-1.3,-1],[.3,-1]],pale);arrow(1,-.5,1.1,0,accent);}
+    } else if(['trench','vector-add','resolve'].includes(name)) {
+      var ox=-2.7,oy=-1.3;arrow(ox,oy,2.4,0,ink);arrow(ox+2.4,oy,0,2.4,green);arrow(ox,oy,2.4,2.4,accent);
+      if(name==='resolve'){line([[ox,oy+2.4],[ox+2.4,oy+2.4]],pale);}
+    } else if(name==='connected'){
+      // Newton II — two blocks sharing the same a = F/(m1+m2), tension T = mY*a
+      var groundC=line([[-3,-1.45],[3,-1.45]],pale);
+      var bX=box(-1.8,-1,1,.7,ink);
+      var bY=box(1,-1,1.4,.7,green);
+      var link=line([[-1.3,-1],[.3,-1]],pale);
+      var pull=arrow(1.7,-1,1.2,0,accent);
+      var tens=arrow(-0.55,-0.72,0.85,0,green);
+      moving=ball(-0.4,-0.35,.12,accent);
+      travel=function(u){
+        var phase=(u*1.1)%1;
+        var shift=(phase*1.8)-0.9;
+        var wob=0.08*Math.sin(u*2*Math.PI*2);
+        var total=shift+wob;
+        bX.position.x=-1.8+total;
+        bY.position.x=1+total;
+        link.position.x=total;
+        if(pull) pull.position.set(1.7+total,-1,0);
+        if(tens) tens.position.set(-0.55+total,-0.72,0);
+        moving.position.set(-0.4+total, -0.35, 0);
+      };
+    } else if(name==='incline'){
+      line([[-3,-2],[3,-2],[-1,1.5],[-3,-2]],ink);
+      var incBox=box(-1.4,0.9,.7,.45,green);
+      var aWeight=arrow(-1.0,0.6,0,-0.9,accent);
+      var aNorm=arrow(-1.0,0.6,-0.55,0.42,pale);
+      var aSlope=arrow(-1.0,0.6,-0.68,-1.0,ink);
+      moving=incBox;
+      travel=function(u){
+        // slide down the hypotenuse then reset — one-way drift shows a = g sinθ
+        var t=(u*1.2)%1;
+        // keep box on slope: param 0 at upper third, 1 near base
+        var x=-1.2 + (-1.6)*t;
+        var y=1.0 + (-2.6)*t;
+        var off=0.24;
+        incBox.position.set(x, y+off, 0);
+        if(aWeight) aWeight.position.set(x, y+off, 0);
+        if(aNorm) aNorm.position.set(x, y+off, 0);
+        if(aSlope) aSlope.position.set(x, y+off, 0);
+      };
     } else if(['lever','seesaw'].includes(name)) {
       line([[-2.8,-.3],[2.8,.5]],ink);line([[-.5,-1.7],[.5,-1.7],[0,-.3]],pale);
       arrow(-2,-.2,0,-1.1,accent);arrow(2,.35,0,-.8,green);
