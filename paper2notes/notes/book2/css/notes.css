@@ -533,6 +533,7 @@ figure.fig {
 
 /* A single animation box is framed for a 2:1 view; the wider page would leave the
    apparatus floating in empty canvas, so cap its width and centre it. */
+figure.fig > .visual.stage,
 figure.fig > .visual.play.stage {
   max-width: 720px;
   margin: 0 auto;

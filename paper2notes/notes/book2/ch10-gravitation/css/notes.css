@@ -1,1 +1,221 @@
 /* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+
+/* Center the visual stage box: constrain width and auto-center. */
+figure.fig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+figure.fig > .visual.stage,
+figure.fig > .pane-pair {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.visual.stage {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  display: block;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.pane-pair {
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Fix hud-label stacking: explicit absolute placement per label. */
+.stage {
+  position: relative;
+  overflow: hidden;
+}
+.stage .hud-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.92);
+  padding: 0.14rem 0.38rem;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.07);
+  font-size: 12px;
+  line-height: 1.2;
+  text-shadow: 0 0 4px #fff;
+  white-space: nowrap;
+}
+
+/* Fig 2.21 gravity-vis: F=GMm/r² between Earth–Sun, g=GM/r² near height bracket */
+#gravity-vis [data-hud="FG"] { left: 46%; top: 22%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#gravity-vis [data-hud="field"] { left: 74%; top: 74%; font-size: 11px; color: #1b2129; font-weight: 600; }
+
+/* Fig 2.22 orbit-vis: v=√(GM/r) top of circular orbit, debris label top-right */
+#orbit-vis [data-hud="v"] { left: 42%; top: 16%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#orbit-vis [data-hud="debris"] { left: 76%; top: 26%; font-size: 11px; color: #5d6673; }
+
+/* Fig 2.23 kepler-vis: Kepler left plot, field right plot */
+#kepler-vis [data-hud="Kepler"] { left: 22%; top: 24%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#kepler-vis [data-hud="field"] { left: 74%; top: 20%; font-size: 11px; color: #18846e; font-weight: 600; }
+
+/* Fig 2.24 debris-vis: LEO crowded centered top */
+#debris-vis [data-hud="crowd"] { left: 50%; top: 18%; font-size: 11px; color: #c0392b; font-weight: 600; }
+
+/* Animated dots — CSS fallback for three.js travellers so motion reads even if canvas stalls. */
+.gravity-dot,
+.orbit-dot,
+.kepler-dot,
+.kepler-field-dot,
+.debris-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: #c34832;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  pointer-events: none;
+}
+.kepler-field-dot {
+  width: 9px;
+  height: 9px;
+  background: #d4a017;
+  border: 2px solid #fff;
+}
+
+/* Gravity — Fig 2.21: dot shuttles between Earth (-1.8,0 → ~36% left) and companion (1.8,0 → ~64%) at mid-height, illustrating mutual pull */
+.gravity-dot {
+  animation: gravity-shuttle 2.8s ease-in-out infinite;
+}
+@keyframes gravity-shuttle {
+  0%   { left: 36%; top: 50%; opacity: 1; }
+  15%  { left: 42%; top: 50%; opacity: 1; }
+  50%  { left: 64%; top: 50%; opacity: 1; }
+  65%  { left: 58%; top: 50%; opacity: 1; }
+  100% { left: 36%; top: 50%; opacity: 1; }
+}
+
+/* Orbit — Fig 2.22: circular orbit radius ~18% around centre 50% 50% (GPS/debris) */
+.orbit-dot {
+  animation: orbit-circular 3.0s linear infinite;
+}
+@keyframes orbit-circular {
+  0%   { left: 68%; top: 50%; opacity: 1; }
+  12.5% { left: 63%; top: 33%; opacity: 1; }
+  25%  { left: 50%; top: 26%; opacity: 1; }
+  37.5% { left: 37%; top: 33%; opacity: 1; }
+  50%  { left: 32%; top: 50%; opacity: 1; }
+  62.5% { left: 37%; top: 67%; opacity: 1; }
+  75%  { left: 50%; top: 74%; opacity: 1; }
+  87.5% { left: 63%; top: 67%; opacity: 1; }
+  100% { left: 68%; top: 50%; opacity: 1; }
+}
+
+/* Kepler T²∝r³ — Fig 2.23 left plot: traverses accent line from (-3,-1.55) ~18% 68% to (-0.6,1.05) ~42% 32% */
+.kepler-dot {
+  animation: kepler-line 3.2s ease-in-out infinite;
+}
+@keyframes kepler-line {
+  0%   { left: 18%; top: 68%; opacity: 1; }
+  20%  { left: 22%; top: 62%; opacity: 1; }
+  40%  { left: 28%; top: 52%; opacity: 1; }
+  60%  { left: 34%; top: 42%; opacity: 1; }
+  80%  { left: 42%; top: 32%; opacity: 1; }
+  88%  { opacity: 0; }
+  90%  { left: 18%; top: 68%; opacity: 0; }
+  100% { left: 18%; top: 68%; opacity: 1; }
+}
+
+/* Kepler field vs height — Fig 2.23 right plot: follows green curve from (0.5,1.05) ~54% 32% down to (3.0,-1.29) ~74% 70% */
+.kepler-field-dot {
+  animation: kepler-field 3.4s ease-in-out infinite;
+}
+@keyframes kepler-field {
+  0%   { left: 54%; top: 32%; opacity: 1; }
+  22%  { left: 58%; top: 40%; opacity: 1; }
+  45%  { left: 62%; top: 52%; opacity: 1; }
+  70%  { left: 68%; top: 64%; opacity: 1; }
+  85%  { left: 74%; top: 70%; opacity: 1; }
+  90%  { opacity: 0; }
+  92%  { left: 54%; top: 32%; opacity: 0; }
+  100% { left: 54%; top: 32%; opacity: 1; }
+}
+
+/* Debris — Fig 2.24: slightly larger LEO orbit than main orbit, radius ~22%, to show crowded belt */
+.debris-dot {
+  animation: debris-orbit 3.6s linear infinite;
+}
+@keyframes debris-orbit {
+  0%   { left: 72%; top: 52%; opacity: 1; }
+  12.5% { left: 66%; top: 32%; opacity: 1; }
+  25%  { left: 50%; top: 24%; opacity: 1; }
+  37.5% { left: 34%; top: 32%; opacity: 1; }
+  50%  { left: 28%; top: 52%; opacity: 1; }
+  62.5% { left: 34%; top: 72%; opacity: 1; }
+  75%  { left: 50%; top: 80%; opacity: 1; }
+  87.5% { left: 66%; top: 72%; opacity: 1; }
+  100% { left: 72%; top: 52%; opacity: 1; }
+}
+
+/* Label pulses — draw eye to the teaching point. */
+@keyframes gravity-fg-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.06); }
+}
+#gravity-vis [data-hud="FG"] {
+  animation: gravity-fg-pulse 1.9s ease-in-out infinite;
+}
+@keyframes orbit-v-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.84; transform: translate(-50%, -50%) scale(1.06); }
+}
+#orbit-vis [data-hud="v"] {
+  animation: orbit-v-pulse 2.0s ease-in-out infinite;
+}
+@keyframes kepler-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.80; transform: translate(-50%, -50%) scale(1.07); }
+}
+#kepler-vis [data-hud="Kepler"] {
+  animation: kepler-pulse 2.1s ease-in-out infinite;
+}
+@keyframes debris-crowd-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.05); }
+}
+#debris-vis [data-hud="crowd"] {
+  animation: debris-crowd-pulse 2.0s ease-in-out infinite;
+}
+
+/* Gentle entrance for canvases so figures feel alive on load */
+#gravity-vis .scene-canvas,
+#orbit-vis .scene-canvas,
+#kepler-vis .scene-canvas,
+#debris-vis .scene-canvas {
+  animation: stage-in 0.45s ease-out both;
+}
+@keyframes stage-in {
+  from { opacity: 0.88; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #gravity-vis [data-hud="FG"],
+  #orbit-vis [data-hud="v"],
+  #kepler-vis [data-hud="Kepler"],
+  #debris-vis [data-hud="crowd"],
+  .gravity-dot,
+  .orbit-dot,
+  .kepler-dot,
+  .kepler-field-dot,
+  .debris-dot,
+  #gravity-vis .scene-canvas,
+  #orbit-vis .scene-canvas,
+  #kepler-vis .scene-canvas,
+  #debris-vis .scene-canvas {
+    animation: none !important;
+  }
+}
