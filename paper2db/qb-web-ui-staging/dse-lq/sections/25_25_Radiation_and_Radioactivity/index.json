@@ -1,0 +1,75 @@
+{
+  "section": 25,
+  "name": "Radiation and Radioactivity",
+  "book": "05_Radioactivity_and_Nuclear_Energy",
+  "folder": "25_Radiation_and_Radioactivity",
+  "count": 2,
+  "items": [
+    {
+      "id": "2014-q10",
+      "year": "2014",
+      "question": 10,
+      "primary_section": 26,
+      "primary_name": "Rate of Decay and Uses of Radionuclides",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "all_sections": [
+        26,
+        25
+      ],
+      "all_section_names": [
+        "Rate of Decay and Uses of Radionuclides",
+        "Radiation and Radioactivity"
+      ],
+      "crop": "crops/2014-q10.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q10-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Parts (a) and (b)(i) were well answered. It revealed that most candidates had a good understanding of the properties of α-particles and the meaning of activity. In (b)(ii), only the more able ones knew that the power is given by the product of energy per decay and the activity found in (a)(i). Some wrongly used the total number of plutonium atoms in their calculation instead of the activity. In (b), for those who considered the number of half-lives elapsed in order to find the decrease in number of active atoms or activity, many obtained the correct numerical answer.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: half-life, activity; dual with S25 (significant earlier part)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2014/q10.png",
+      "answer_png": "output/lq/2014/ans/q10.png"
+    },
+    {
+      "id": "2019-q6",
+      "year": "2019",
+      "question": 6,
+      "primary_section": 25,
+      "primary_name": "Radiation and Radioactivity",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "25_Radiation_and_Radioactivity",
+      "all_sections": [
+        25
+      ],
+      "all_section_names": [
+        "Radiation and Radioactivity"
+      ],
+      "crop": "crops/2019-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding on image formation by a concave lens. Candidates' performance was fair. Most realised that the lens was a concave one and gave valid explanation in (a). However, some made mistakes in the position and height of the object in (b) and thus failed to locate the correct position of the focus in (c). Part (d) was poorly answered. Not many were able to draw a correct light ray from the object so as to illustrate how the image's tip could be observed.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: beta",
+      "page_from": 9,
+      "page_to": 9,
+      "png": "output/lq/2019/q6.png",
+      "answer_png": "output/lq/2019/ans/q6.png"
+    }
+  ]
+}

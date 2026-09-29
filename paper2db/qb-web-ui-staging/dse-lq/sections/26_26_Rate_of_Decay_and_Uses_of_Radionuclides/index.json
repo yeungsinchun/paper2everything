@@ -1,0 +1,337 @@
+{
+  "section": 26,
+  "name": "Rate of Decay and Uses of Radionuclides",
+  "book": "05_Radioactivity_and_Nuclear_Energy",
+  "folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+  "count": 10,
+  "items": [
+    {
+      "id": "2013-q6",
+      "year": "2013",
+      "question": 6,
+      "primary_section": 26,
+      "primary_name": "Rate of Decay and Uses of Radionuclides",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "all_sections": [
+        26
+      ],
+      "all_section_names": [
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2013-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2013-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding in Mechanics in the context of bungee jumping. The overall performance was only fair. In (a)(i), most candidates knew that the jumper was in free fall at the start. However, only the most able ones described correctly the change in acceleration after the cord began to stretch. Many candidates wrongly thought that the jumper began to decelerate once the cord stretched. In (a)(ii), most demonstrated an understanding that gravitational potential energy changed to kinetic energy during the fall. However, not many mentioned that all the gravitational potential energy changed to elastic potential energy in the cord at the lowest point. In (b), only the more able candidates explained clearly that the elastic cord lengthened the stopping time, hence reducing the net force acting on the jumper. In (c), candidates knew that contact area was larger for a 'full body harness' but few were able to apply the concept of pressure in their explanations.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: activity; primary=max(S21,S26)",
+      "page_from": 8,
+      "page_to": 8,
+      "png": "output/lq/2013/q6.png",
+      "answer_png": "output/lq/2013/ans/q6.png"
+    },
+    {
+      "id": "2013-q9",
+      "year": "2013",
+      "question": 9,
+      "primary_section": 26,
+      "primary_name": "Rate of Decay and Uses of Radionuclides",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "all_sections": [
+        26
+      ],
+      "all_section_names": [
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2013-q9.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "In (a), candidates knew how to find the decay constant and the number of C-14 nuclei by different methods. In (c), some candidates confused N and N₀ or A and A₀, thus wrongly substituted the number of C-14 nuclei into the formula and failing to find the correct age of the wood sample.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: half-life, activity, decay constant",
+      "page_from": 13,
+      "page_to": 13,
+      "png": "output/lq/2013/q9.png",
+      "answer_png": "output/lq/2013/ans/q9.png"
+    },
+    {
+      "id": "2014-q10",
+      "year": "2014",
+      "question": 10,
+      "primary_section": 26,
+      "primary_name": "Rate of Decay and Uses of Radionuclides",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "all_sections": [
+        26,
+        25
+      ],
+      "all_section_names": [
+        "Rate of Decay and Uses of Radionuclides",
+        "Radiation and Radioactivity"
+      ],
+      "crop": "crops/2014-q10.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q10-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Parts (a) and (b)(i) were well answered. It revealed that most candidates had a good understanding of the properties of α-particles and the meaning of activity. In (b)(ii), only the more able ones knew that the power is given by the product of energy per decay and the activity found in (a)(i). Some wrongly used the total number of plutonium atoms in their calculation instead of the activity. In (b), for those who considered the number of half-lives elapsed in order to find the decrease in number of active atoms or activity, many obtained the correct numerical answer.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: half-life, activity; dual with S25 (significant earlier part)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2014/q10.png",
+      "answer_png": "output/lq/2014/ans/q10.png"
+    },
+    {
+      "id": "2016-q9",
+      "year": "2016",
+      "question": 9,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27,
+        26
+      ],
+      "all_section_names": [
+        "Nuclear Energy",
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2016-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' understanding of radioactivity. Part (a) was well answered. Most candidates employed a correct formula in (b)(i) to find the age of the sample but not many were able to work out the correct ratio N/N₀ = 3/5 from the information given. In (b)(ii), the reasons stated by the candidates for the age found being an underestimate were mostly far from concise. In sketching the graph in (b)(iii), few candidates realized that the number of Pb-206 atoms is non-zero at t = 0.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: uranium, nucleus; dual with S26 (significant earlier part)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2016/q9.png",
+      "answer_png": "output/lq/2016/ans/q9.png"
+    },
+    {
+      "id": "2018-q10",
+      "year": "2018",
+      "question": 10,
+      "primary_section": 26,
+      "primary_name": "Rate of Decay and Uses of Radionuclides",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "all_sections": [
+        26
+      ],
+      "all_section_names": [
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2018-q10.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q10-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Part (a) was well answered though some candidates commented that atoms with more neutrons or greater mass numbers were more stable. In (b)(i), the answers of some candidates were far from precise e.g. 'as the ionizing power is random or the type of radiation emitted is random'. Weaker candidates only focused on the EHT device. In (b)(ii), many candidates wrongly held that the Ra-226 source was not pure and thus emitted all three kinds of radiation. It seems that candidates did not fully understand the mechanism of a decay series. In (b)(iii), quite a number of them pointed out that the sparks were related to the strong ionizing power of α radiation, but many just suggested using a cloud chamber to distinguish different types of radiations emitted instead of describing a way to verify the sparks were caused by the α radiation.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: half-life; primary=max(S6,S26)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2018/q10.png",
+      "answer_png": "output/lq/2018/ans/q10.png"
+    },
+    {
+      "id": "2021-q9",
+      "year": "2021",
+      "question": 9,
+      "primary_section": 26,
+      "primary_name": "Rate of Decay and Uses of Radionuclides",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "all_sections": [
+        26
+      ],
+      "all_section_names": [
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2021-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of radioactivity in the context of radioactive potassium contained in bananas. The performance of candidates was good. In (a)(i), most candidates knew that β decay occurred. Candidates' performance was fair in (a)(ii) as some explained the answer in terms of the ionising power or range of β particles instead of penetrating power. Many candidates knew how to tackle part (b). However, quite a number of them made mistakes in unit conversions or mistook N as the number of moles of radionuclides.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: half-life",
+      "page_from": 17,
+      "page_to": 17,
+      "png": "output/lq/2021/q9.png",
+      "answer_png": "output/lq/2021/ans/q9.png"
+    },
+    {
+      "id": "2023-q9",
+      "year": "2023",
+      "question": 9,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27,
+        26
+      ],
+      "all_section_names": [
+        "Nuclear Energy",
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2023-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2023-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of radioactivity. The overall performance was satisfactory. Most candidates answered correctly in (a). A few wrongly stated 'α-decay' as a kind of radiation. In (b), quite a number of the candidates mistook N/N₀ as the proportion of Th-232 decaying in ten years. Less than half of them answered correctly in (c)(i). Some candidates held a misconception that the long half-life of Th implied low activity and therefore caused no harmful effect. In (c)(ii), some candidates failed to employ the result found in (b) to answer this part.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: radium, nucleus; dual with S26 (significant earlier part)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2023/q9.png",
+      "answer_png": "output/lq/2023/ans/q9.png"
+    },
+    {
+      "id": "2024-q13",
+      "year": "2024",
+      "question": 13,
+      "primary_section": 26,
+      "primary_name": "Rate of Decay and Uses of Radionuclides",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "all_sections": [
+        26
+      ],
+      "all_section_names": [
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2024-q13.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "Candidates' performance was satisfactory. Many obtained the correct numerical answers in (a)(i)(ii). In (a)(iii), not many candidates realised that radon, being a gas and an α-emitter, would be harmful to human when inhaled since α particles have limited penetrating power. A few wrongly held that it was the α particles being inhaled instead of radon. Part (b) was well answered except for the omission of arrows for indication by some candidates.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: half-life, activity, decay constant",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2024/q13.png",
+      "answer_png": "output/lq/2024/ans/q13.png"
+    },
+    {
+      "id": "2025-q12",
+      "year": "2025",
+      "question": 12,
+      "primary_section": 26,
+      "primary_name": "Rate of Decay and Uses of Radionuclides",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "all_sections": [
+        26
+      ],
+      "all_section_names": [
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2025-q12.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question required candidates to apply the principles of radioactive decay and their understandings of the motion of ions in a magnetic field. The overall performance was satisfactory. In (a)(i), about two thirds wrote a correct equation, although some mistakenly argued that a neutron is emitted during the decay. Around 80% found the decay constant in (a)(ii). Performance in (a)(iii) was also satisfactory, though some confused the count rate of the ancient wood sample with that of the fresh wood. About two thirds correctly stated the meaning of isotopes in (b)(i), and about half sketched the correct path in (b)(ii). The performance in (b)(iii) was poor. Many did not mention that the magnetic force is perpendicular to the velocity.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: half-life, activity, decay constant",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2025/q12.png",
+      "answer_png": "output/lq/2025/ans/q12.png"
+    },
+    {
+      "id": "2026-q12",
+      "year": "2026",
+      "question": 12,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27,
+        26
+      ],
+      "all_section_names": [
+        "Nuclear Energy",
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2026-q12.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: nuclear equation; dual with S26 (significant earlier part)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2026/q12.png",
+      "answer_png": "output/lq/2026/ans/q12.png"
+    }
+  ]
+}

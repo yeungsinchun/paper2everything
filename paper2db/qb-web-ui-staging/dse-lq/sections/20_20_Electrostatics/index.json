@@ -1,0 +1,137 @@
+{
+  "section": 20,
+  "name": "Electrostatics",
+  "book": "04_Electricity_and_Magnetism",
+  "folder": "20_Electrostatics",
+  "count": 4,
+  "items": [
+    {
+      "id": "2013-q11",
+      "year": "2013",
+      "question": 11,
+      "primary_section": 20,
+      "primary_name": "Electrostatics",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "20_Electrostatics",
+      "all_sections": [
+        20
+      ],
+      "all_section_names": [
+        "Electrostatics"
+      ],
+      "crop": "crops/2013-q11.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "In (a), although many candidates were able to quote the formula for calculating the electrostatic force, common mistakes included halving the electrostatic force, wrongly taking 4πε₀ = 9 × 10⁹ N m² C⁻² or r = 5 cm in substitution, drawing incorrect free-body diagrams, etc. In (b)(i), quite a number of candidates omitted this part. Some sketched the whole electric field pattern while a few wrongly identified the resultant field was pointing upwards to the positive charges. In (b)(ii), many mistook the electric potential as a vector quantity. In (b)(iii), less than half of the candidates answered this item correctly. This suggests that many candidates failed to understand the induction of charges on a conductor, and the effect of nearby charges or an electric field.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: point charge",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2013/q11.png",
+      "answer_png": "output/lq/2013/ans/q11.png"
+    },
+    {
+      "id": "2016-q8",
+      "year": "2016",
+      "question": 8,
+      "primary_section": 20,
+      "primary_name": "Electrostatics",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "20_Electrostatics",
+      "all_sections": [
+        20
+      ],
+      "all_section_names": [
+        "Electrostatics"
+      ],
+      "crop": "crops/2016-q8.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q8-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance in this question was fair. Most were able to comprehend the given passage on lightning and answered part (a) correctly. In (b)(i), some candidates confused the magnetic field due to the lightning current with that due to the induced current flowing in the square coil. For those who had attempted (b)(ii), most were able to point out that the induced current would oppose the changing magnetic field, but some forgot to explain why there is such a decreasing/increasing magnetic field in the first place. Many overlooked the hint 'fore-warning' in (b)(iii) and thus failed to distinguish which quantity could be measured 'before' lightning takes place.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: electric field",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2016/q8.png",
+      "answer_png": "output/lq/2016/ans/q8.png"
+    },
+    {
+      "id": "2020-q9",
+      "year": "2020",
+      "question": 9,
+      "primary_section": 20,
+      "primary_name": "Electrostatics",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "20_Electrostatics",
+      "all_sections": [
+        20
+      ],
+      "all_section_names": [
+        "Electrostatics"
+      ],
+      "crop": "crops/2020-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was poor. Although most candidates were able to show the correct direction of the electric field in (a), many failed to draw evenly spaced, parallel field lines properly. In (b)(i), not many were able to use the correct component of force or moment arm to find the moment acting on the rod. Some mistook the length of the rod or even the separation of the plates as the moment arm. Wrong units for the moment such as J or N were common. Most candidates answered (b)(ii) correctly. Incorrect units for the electric field were found occasionally. Many candidates wrongly employed equations of force or electric field due to a point charge to tackle (b)(iii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: electric field; primary=max(S6,S20)",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2020/q9.png",
+      "answer_png": "output/lq/2020/ans/q9.png"
+    },
+    {
+      "id": "2026-q7",
+      "year": "2026",
+      "question": 7,
+      "primary_section": 20,
+      "primary_name": "Electrostatics",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "20_Electrostatics",
+      "all_sections": [
+        20
+      ],
+      "all_section_names": [
+        "Electrostatics"
+      ],
+      "crop": "crops/2026-q7.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: electrostatic; primary=max(S6,S20)",
+      "page_from": 8,
+      "page_to": 8,
+      "png": "output/lq/2026/q7.png",
+      "answer_png": "output/lq/2026/ans/q7.png"
+    }
+  ]
+}

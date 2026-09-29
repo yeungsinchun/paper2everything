@@ -1,0 +1,301 @@
+{
+  "section": 19,
+  "name": "Lenses",
+  "book": "03B_Ray_Optics",
+  "folder": "19_Lenses",
+  "count": 9,
+  "items": [
+    {
+      "id": "2012-q7",
+      "year": "2012",
+      "question": 7,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19
+      ],
+      "all_section_names": [
+        "Lenses"
+      ],
+      "crop": "crops/2012-q7.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q7-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Parts (a) and (b) were well answered. In (a)(i), many candidates wrongly drew the image and light ray in dotted lines. Some wrongly spelled the word 'diminished'. In (a)(ii), the light ray r was often drawn wrongly after passing through the lens so that it reached the head of the image instead of the tail. In (b)(ii), many candidates failed to explain why the image was dimmer. They failed to point out the difference in brightness of the images in terms of the light energy per unit area. Few understood that a constant amount of light for different sizes of image yields different brightness levels. Some of them wrongly thought that a magnified image was equivalent to a brighter one.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens, focal length, convex lens",
+      "page_from": 9,
+      "page_to": 11,
+      "png": "output/lq/2012/q7.png",
+      "answer_png": "output/lq/2012/ans/q7.png"
+    },
+    {
+      "id": "2013-q8",
+      "year": "2013",
+      "question": 8,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19
+      ],
+      "all_section_names": [
+        "Lenses"
+      ],
+      "crop": "crops/2013-q8.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "Part (a) was well answered. In (b), most candidates were able to find the position of the lens and locate the focus correctly although mistakes in drawing light rays, like incorrect use of dotted/solid lines or wrong direction of rays, were common. Some candidates made mistakes in finding the focal length from the ray diagram. In (c), many seemed to be drawing light rays randomly or did not even attempt this part.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: lens",
+      "page_from": 12,
+      "page_to": 12,
+      "png": "output/lq/2013/q8.png",
+      "answer_png": "output/lq/2013/ans/q8.png"
+    },
+    {
+      "id": "2014-q6",
+      "year": "2014",
+      "question": 6,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19
+      ],
+      "all_section_names": [
+        "Lenses"
+      ],
+      "crop": "crops/2014-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates did well in part (a). In (b), many candidates overlooked the fact that the parallel rays all came from a point and wrongly drew and labelled an arrow sign as the image. A few candidates misread the focal length as 10 cm from the ray diagram. In (c), only the more able ones knew that the light rays coming from the same point should intersect at the corresponding position of the image after passing through the lens. Some candidates did not follow the requirement stated in (d) and employed an experimental method using a ray box, instead of a distant object, to determine the focal length f according to the lens formula 1/f = 1/u + 1/v.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens",
+      "page_from": 9,
+      "page_to": 9,
+      "png": "output/lq/2014/q6.png",
+      "answer_png": "output/lq/2014/ans/q6.png"
+    },
+    {
+      "id": "2015-q6",
+      "year": "2015",
+      "question": 6,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19,
+        18
+      ],
+      "all_section_names": [
+        "Lenses",
+        "Refraction of Light"
+      ],
+      "crop": "crops/2015-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2015-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was based on a passage describing the formation of a mirage. The situation was unfamiliar to candidates and their general performance was unsatisfactory. In (a), few were able to state correctly an essential condition for a mirage to be observed based on the information given. Parts (b)(i)(ii) were well answered. A few candidates did not know how to find the value of θ₁ in (b)(i) using the relation n sin θ = constant. Candidates answered part (c) poorly. Only the most able ones explained correctly why the 'water source' remained a distance L away.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens; dual with S18 (significant earlier part)",
+      "page_from": 8,
+      "page_to": 9,
+      "png": "output/lq/2015/q6.png",
+      "answer_png": "output/lq/2015/ans/q6.png"
+    },
+    {
+      "id": "2016-q5",
+      "year": "2016",
+      "question": 5,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19
+      ],
+      "all_section_names": [
+        "Lenses"
+      ],
+      "crop": "crops/2016-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates performed well in (a)(i). In answering (a)(ii), many candidates merely memorized the image formed by a convex lens without considering the observer's position. Part (b) was in general well answered. Some candidates made mistakes in reading the distance D from the graph. Quite a number of them did not realize that the object and image distances could be interchanged in (b)(iv). Many mistook the magnification of the new image as the height ratio regarding the two situations involved.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens, object distance",
+      "page_from": 8,
+      "page_to": 9,
+      "png": "output/lq/2016/q5.png",
+      "answer_png": "output/lq/2016/ans/q5.png"
+    },
+    {
+      "id": "2018-q6",
+      "year": "2018",
+      "question": 6,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19
+      ],
+      "all_section_names": [
+        "Lenses"
+      ],
+      "crop": "crops/2018-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance in (a) was poor. Not many of them correctly suggested various methods, using one ray (with the lens position and principal axis correctly marked on the piece of paper) or two parallel rays from the ray box to find the focal length of the concave lens. Weaker candidates, however, wrongly tried to obtain an image formed by the concave lens using just a single light ray from the ray box. Part (b) was in general well answered. Most were able to draw a suitable light ray to find the focal length of the lens in (b)(ii). In (b)(iii), however, some candidates failed to indicate the correct path of ray p.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens, focal length, concave lens",
+      "page_from": 8,
+      "page_to": 9,
+      "png": "output/lq/2018/q6.png",
+      "answer_png": "output/lq/2018/ans/q6.png"
+    },
+    {
+      "id": "2021-q6",
+      "year": "2021",
+      "question": 6,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19,
+        18
+      ],
+      "all_section_names": [
+        "Lenses",
+        "Refraction of Light"
+      ],
+      "crop": "crops/2021-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. In (a)(i), some candidates were not aware that the frequency of red light is an invariant, i.e. irrespective of the medium concerned. A few candidates made mistakes in identifying the correct angles of incidence and refraction in (a)(ii). Part (a)(iii) was well answered. Most understood the nature of the magnified image in (b)(i). Just a few failed to obtain the correct separation between O and L in (b)(ii). Not many obtained full marks in (b)(iii). Common mistakes included drawing light rays without arrows and inappropriate use of solid and dotted lines. In (b)(iv), some confused diffraction and refraction in explaining the colour edges of the image formed from a black-and-white slide.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens; dual with S18 (significant earlier part)",
+      "page_from": 11,
+      "page_to": 13,
+      "png": "output/lq/2021/q6.png",
+      "answer_png": "output/lq/2021/ans/q6.png"
+    },
+    {
+      "id": "2022-q5",
+      "year": "2022",
+      "question": 5,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19
+      ],
+      "all_section_names": [
+        "Lenses"
+      ],
+      "crop": "crops/2022-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2022-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of geometrical optics. Candidates' performance was good. In (a)(i), most were able to draw the refracted rays and obtained the image of the distant object. Weaker candidates wrongly thought that ray q came from the foot of the object. In (a)(ii), many candidates knew that a real image is one that can be captured by a screen. Candidates in general knew how to use side ratios of similar triangles to tackle (b). However, quite a number of them were not careful in obtaining the size and position of the image from the ray diagram as well as manipulating the conversion according to the scales.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens, convex lens",
+      "page_from": 8,
+      "page_to": 9,
+      "png": "output/lq/2022/q5.png",
+      "answer_png": "output/lq/2022/ans/q5.png"
+    },
+    {
+      "id": "2025-q6",
+      "year": "2025",
+      "question": 6,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19
+      ],
+      "all_section_names": [
+        "Lenses"
+      ],
+      "crop": "crops/2025-q6.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' knowledge of geometrical optics, focusing on the properties of lenses and practical adjustments. Candidates performed well. Part (a) was well answered, though a few incorrectly described the image as erect. About two thirds answered (b)(i) and (ii) correctly. Over 70% found the focal length using the lens formula, despite errors in the ray diagrams. Part (c) was poorly answered, revealing their limited understandings of the relationship between image and object distances. Slightly under half answered (d) correctly.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: lens, magnification",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2025/q6.png",
+      "answer_png": "output/lq/2025/ans/q6.png"
+    }
+  ]
+}

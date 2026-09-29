@@ -1,0 +1,105 @@
+{
+  "section": 10,
+  "name": "Projectile Motion",
+  "book": "02_Force_and_Motion",
+  "folder": "10_Projectile_Motion",
+  "count": 3,
+  "items": [
+    {
+      "id": "2012-q5",
+      "year": "2012",
+      "question": 5,
+      "primary_section": 10,
+      "primary_name": "Projectile Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "10_Projectile_Motion",
+      "all_sections": [
+        10
+      ],
+      "all_section_names": [
+        "Projectile Motion"
+      ],
+      "crop": "crops/2012-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Parts (a) and (b)(i) were well answered but candidates' performance in (b)(ii) was poor. In (a)(i), some candidates had difficulties in working out a correct equation relating the horizontal component of the tension of the string to the force exerted by the hunter (60 N). Weaker candidates did not know that the tension could be found by the resolution of forces. In (a)(ii), some candidates did not give the correct unit for energy. In (b)(ii), only the more able candidates found the height of the coconut from the ground at the moment the arrow hit it by considering the coconut's vertical motion. The majority of candidates considered the motion of the arrow and worked out only the height of the coconut/arrow above the position where the arrow left the hunter's hand.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: projectile; primary=max(S6,S10)",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2012/q5.png",
+      "answer_png": "output/lq/2012/ans/q5.png"
+    },
+    {
+      "id": "2017-q5",
+      "year": "2017",
+      "question": 5,
+      "primary_section": 10,
+      "primary_name": "Projectile Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "10_Projectile_Motion",
+      "all_sections": [
+        10
+      ],
+      "all_section_names": [
+        "Projectile Motion"
+      ],
+      "crop": "crops/2017-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2017-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding on circular motion. In (a), most candidates managed to indicate the forces acting on the teapot although a few of them labelled the frictional force as 'centripetal force'. In (b), quite a lot of the candidates failed to work out the correct angular velocity from the rate of revolution given. Weaker ones misunderstood part (c) and they wrongly applied the equation for circular motion to tackle the problem.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: projected; primary=max(S6,S10)",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2017/q5.png",
+      "answer_png": "output/lq/2017/ans/q5.png"
+    },
+    {
+      "id": "pp-q3",
+      "year": "pp",
+      "question": 3,
+      "primary_section": 10,
+      "primary_name": "Projectile Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "10_Projectile_Motion",
+      "all_sections": [
+        10
+      ],
+      "all_section_names": [
+        "Projectile Motion"
+      ],
+      "crop": "crops/pp-q3.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: projectile, horizontal range, angle of projection",
+      "page_from": 2,
+      "page_to": 2,
+      "png": "output/lq/pp/q3.png",
+      "answer_png": "output/lq/pp/ans/q3.png"
+    }
+  ]
+}

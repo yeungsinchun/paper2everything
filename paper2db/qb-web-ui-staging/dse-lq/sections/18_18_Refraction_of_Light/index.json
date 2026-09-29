@@ -1,0 +1,269 @@
+{
+  "section": 18,
+  "name": "Refraction of Light",
+  "book": "03B_Ray_Optics",
+  "folder": "18_Refraction_of_Light",
+  "count": 8,
+  "items": [
+    {
+      "id": "2014-q5",
+      "year": "2014",
+      "question": 5,
+      "primary_section": 18,
+      "primary_name": "Refraction of Light",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "18_Refraction_of_Light",
+      "all_sections": [
+        18
+      ],
+      "all_section_names": [
+        "Refraction of Light"
+      ],
+      "crop": "crops/2014-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was in general well answered. In (a), most candidates were able to apply Snell's law to find the refractive index of glass although some mistook 30° and 54° as the angles of incidence and refraction respectively. Quite a number of them did not explicitly calculate the critical angle for comparison in (b). Some even wrongly thought that the angle of incidence was 60°. In (c), some candidates were not aware that the angle of incidence should be equal to the angle of reflection at Q and thus drew the reflected light ray wrongly. Weaker candidates failed to draw the correct emergent ray. Common mistakes included drawing an internally reflected light ray at the boundary BC or a light ray straight through the boundary normally. In (d), some candidates confused refraction and diffraction, visible light spectrum and line spectrum, etc.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: refractive index",
+      "page_from": 8,
+      "page_to": 8,
+      "png": "output/lq/2014/q5.png",
+      "answer_png": "output/lq/2014/ans/q5.png"
+    },
+    {
+      "id": "2015-q6",
+      "year": "2015",
+      "question": 6,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19,
+        18
+      ],
+      "all_section_names": [
+        "Lenses",
+        "Refraction of Light"
+      ],
+      "crop": "crops/2015-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2015-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was based on a passage describing the formation of a mirage. The situation was unfamiliar to candidates and their general performance was unsatisfactory. In (a), few were able to state correctly an essential condition for a mirage to be observed based on the information given. Parts (b)(i)(ii) were well answered. A few candidates did not know how to find the value of θ₁ in (b)(i) using the relation n sin θ = constant. Candidates answered part (c) poorly. Only the most able ones explained correctly why the 'water source' remained a distance L away.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens; dual with S18 (significant earlier part)",
+      "page_from": 8,
+      "page_to": 9,
+      "png": "output/lq/2015/q6.png",
+      "answer_png": "output/lq/2015/ans/q6.png"
+    },
+    {
+      "id": "2017-q7",
+      "year": "2017",
+      "question": 7,
+      "primary_section": 18,
+      "primary_name": "Refraction of Light",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "18_Refraction_of_Light",
+      "all_sections": [
+        18
+      ],
+      "all_section_names": [
+        "Refraction of Light"
+      ],
+      "crop": "crops/2017-q7.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question was well answered. Most were able to obtain the correct answers in parts (a)(i)(ii). Some candidates failed to recognise that in (a)(iii) the light ray would eventually emerge from the plastic block as the incident angle within the block becomes smaller than the critical angle. Weaker ones drew a light ray bending towards the normal when the light ray emerged from the block to the air. Part (b) was in general well answered.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: refractive index, critical angle",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2017/q7.png",
+      "answer_png": "output/lq/2017/ans/q7.png"
+    },
+    {
+      "id": "2020-q7",
+      "year": "2020",
+      "question": 7,
+      "primary_section": 18,
+      "primary_name": "Refraction of Light",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "18_Refraction_of_Light",
+      "all_sections": [
+        18
+      ],
+      "all_section_names": [
+        "Refraction of Light"
+      ],
+      "crop": "crops/2020-q7.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q7-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates did well in (a)(i)(ii). In (a)(iii), most knew that total internal reflection occurred, however, some candidates just gave the general conditions for not having total internal reflection instead of θ ≥ 30° as required. Part (b) was unfamiliar to candidates. In (b)(i), not many realised that the light taking different paths within θ = ±30° would reach the sensor at different arrival times. In (b)(ii), very few candidates were able to explain how the cladding's refractive index n_c would affect the critical angle which subsequently allowed a narrower light beam to undergo total internal reflection. Many did not understand the situation stating that n_c had no effects on the width of the light pulse.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: refractive index, critical angle",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2020/q7.png",
+      "answer_png": "output/lq/2020/ans/q7.png"
+    },
+    {
+      "id": "2021-q6",
+      "year": "2021",
+      "question": 6,
+      "primary_section": 19,
+      "primary_name": "Lenses",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "19_Lenses",
+      "all_sections": [
+        19,
+        18
+      ],
+      "all_section_names": [
+        "Lenses",
+        "Refraction of Light"
+      ],
+      "crop": "crops/2021-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. In (a)(i), some candidates were not aware that the frequency of red light is an invariant, i.e. irrespective of the medium concerned. A few candidates made mistakes in identifying the correct angles of incidence and refraction in (a)(ii). Part (a)(iii) was well answered. Most understood the nature of the magnified image in (b)(i). Just a few failed to obtain the correct separation between O and L in (b)(ii). Not many obtained full marks in (b)(iii). Common mistakes included drawing light rays without arrows and inappropriate use of solid and dotted lines. In (b)(iv), some confused diffraction and refraction in explaining the colour edges of the image formed from a black-and-white slide.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: lens; dual with S18 (significant earlier part)",
+      "page_from": 11,
+      "page_to": 13,
+      "png": "output/lq/2021/q6.png",
+      "answer_png": "output/lq/2021/ans/q6.png"
+    },
+    {
+      "id": "2023-q6",
+      "year": "2023",
+      "question": 6,
+      "primary_section": 18,
+      "primary_name": "Refraction of Light",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "18_Refraction_of_Light",
+      "all_sections": [
+        18
+      ],
+      "all_section_names": [
+        "Refraction of Light"
+      ],
+      "crop": "crops/2023-q6.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of wave motion in the context of a rainbow. Candidates' performance was satisfactory. Most were able to find the angle of refraction in (a)(i). Although candidates were able to obtain the critical angle c in (a)(ii), some did not compare it with the angle of incidence within the water droplet or wrongly compared it with the angle in the air, i.e. 45°. Not many candidates obtained full marks in (b)(i) as quite a number of them failed to draw the normal (through O) correctly and thus failed to sketch the light rays properly. The performance of candidates in (b)(ii) was poor. Candidates did mention points related to energy loss in their answers, however, few were able to give concise explanations including energy absorbed by water droplet via a longer path or leakage of light (energy) due to one more reflection.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: refractive index, total internal reflection, critical angle",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2023/q6.png",
+      "answer_png": "output/lq/2023/ans/q6.png"
+    },
+    {
+      "id": "2024-q8",
+      "year": "2024",
+      "question": 8,
+      "primary_section": 18,
+      "primary_name": "Refraction of Light",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "18_Refraction_of_Light",
+      "all_sections": [
+        18
+      ],
+      "all_section_names": [
+        "Refraction of Light"
+      ],
+      "crop": "crops/2024-q8.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q8-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' understanding of wave motion in the context of apparent depth. The performance was fair. Not many were able to complete the two light rays and label the image correctly in (a). In (b), the less able candidates mistook the angle 1.5° for the light ray in water as that for the refracted ray in air. Candidates did poorly in (c) as this part required the application of trigonometry and ratios.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: refractive index",
+      "page_from": 8,
+      "page_to": 8,
+      "png": "output/lq/2024/q8.png",
+      "answer_png": "output/lq/2024/ans/q8.png"
+    },
+    {
+      "id": "2026-q10",
+      "year": "2026",
+      "question": 10,
+      "primary_section": 18,
+      "primary_name": "Refraction of Light",
+      "primary_book": "03B_Ray_Optics",
+      "primary_folder": "18_Refraction_of_Light",
+      "all_sections": [
+        18
+      ],
+      "all_section_names": [
+        "Refraction of Light"
+      ],
+      "crop": "crops/2026-q10.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: critical angle",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2026/q10.png",
+      "answer_png": "output/lq/2026/ans/q10.png"
+    }
+  ]
+}

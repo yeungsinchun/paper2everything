@@ -1,0 +1,235 @@
+{
+  "section": 8,
+  "name": "Work, Energy and Power",
+  "book": "02_Force_and_Motion",
+  "folder": "08_Work_Energy_and_Power",
+  "count": 7,
+  "items": [
+    {
+      "id": "2013-q5",
+      "year": "2013",
+      "question": 5,
+      "primary_section": 8,
+      "primary_name": "Work, Energy and Power",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "08_Work_Energy_and_Power",
+      "all_sections": [
+        8
+      ],
+      "all_section_names": [
+        "Work, Energy and Power"
+      ],
+      "crop": "crops/2013-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2013-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question required candidates to use the apparatus provided to describe an experiment to study how the stopping distance of a toy skier depends on its height of release. The general performance was poor. Only the more able candidates showed clearly in their answers the procedures taken, the physical quantities to be measured and the expected result based on the work-energy principle. Many candidates stated that the stopping distance would increase with the height of release, but without any graphical or mathematical elaboration. Quite a number of them did not make proper use of the long rough paper strip and the metre rule provided to perform the experiment.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: stopping distance, height of release",
+      "page_from": 7,
+      "page_to": 7,
+      "png": "output/lq/2013/q5.png",
+      "answer_png": "output/lq/2013/ans/q5.png"
+    },
+    {
+      "id": "2018-q3",
+      "year": "2018",
+      "question": 3,
+      "primary_section": 8,
+      "primary_name": "Work, Energy and Power",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "08_Work_Energy_and_Power",
+      "all_sections": [
+        8
+      ],
+      "all_section_names": [
+        "Work, Energy and Power"
+      ],
+      "crop": "crops/2018-q3.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q3-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. In (a), many candidates missed the point that if the friction F_r remained unchanged (at its maximum value) while the maximum load limit was exceeded, the braking distance d would be longer according to the equation (1/2)mv² = F_r × d given. In (b)(i), when explaining why it was not recommended to apply the brakes continuously, only the more able ones pointed out that the thermal energy generated would cause the temperature to reach over a few hundred degrees Celsius as mentioned in the passage. In (b)(ii), some candidates had difficulties estimating how far the vehicle would travel up the ramp by applying either the principle of energy conservation or the equations for uniformly decelerated motion. A few even did not know that the deceleration up the ramp was g sin θ.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: kinetic energy; primary=max(S6,S8)",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2018/q3.png",
+      "answer_png": "output/lq/2018/ans/q3.png"
+    },
+    {
+      "id": "2021-q3",
+      "year": "2021",
+      "question": 3,
+      "primary_section": 8,
+      "primary_name": "Work, Energy and Power",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "08_Work_Energy_and_Power",
+      "all_sections": [
+        8
+      ],
+      "all_section_names": [
+        "Work, Energy and Power"
+      ],
+      "crop": "crops/2021-q3.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q3-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of projectile motion in the context of a volleyball game. The overall performance was good. In (a)(i), most candidates knew that the work done on the ball became its kinetic energy. A few misinterpreted the situation and also considered the ball's gravitational potential energy in the calculation. In (a)(ii), nearly half of the candidates computed the horizontal and vertical components of the velocity separately rather than simply using the method of conservation of mechanical energy. Weaker ones held that B was the highest point of the trajectory in (b)(i). In (c), most knew that the suggested way would result in a shorter time of flight. However, some failed to point out explicitly that this was due to a larger horizontal component of the velocity. Part (d) was well answered, although some candidates wrongly stated that a concrete floor providing larger friction was the reason.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: work done",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2021/q3.png",
+      "answer_png": "output/lq/2021/ans/q3.png"
+    },
+    {
+      "id": "2024-q10",
+      "year": "2024",
+      "question": 10,
+      "primary_section": 8,
+      "primary_name": "Work, Energy and Power",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "08_Work_Energy_and_Power",
+      "all_sections": [
+        8,
+        6
+      ],
+      "all_section_names": [
+        "Work, Energy and Power",
+        "Force"
+      ],
+      "crop": "crops/2024-q10.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q10-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates did well in (a) which asked for how to demonstrate the conservation of energy. A few of them forgot to point out the measurements to be made. Part (b) examined candidates' knowledge and understanding of momentum in the context of Newton's cradle. The overall performance was fair. In (b)(i)(I), some candidates mixed up the conservation of linear momentum and the conservation of mechanical energy and stated 'no work done by the tensions' as the explanation. In explaining why the case was impossible in (b)(i)(II), a few candidates did not calculate the initial and final kinetic energy of the system or failed to find the correct values. Quite a number of the candidates failed to account for the loss in kinetic energy in the repeated collisions in (b)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: conservation of energy; dual with S6 (significant earlier part)",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2024/q10.png",
+      "answer_png": "output/lq/2024/ans/q10.png"
+    },
+    {
+      "id": "2025-q11",
+      "year": "2025",
+      "question": 11,
+      "primary_section": 8,
+      "primary_name": "Work, Energy and Power",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "08_Work_Energy_and_Power",
+      "all_sections": [
+        8
+      ],
+      "all_section_names": [
+        "Work, Energy and Power"
+      ],
+      "crop": "crops/2025-q11.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' understanding of the efficiency of energy conversion and the power loss in long-distance transmission of electricity. Candidates' performance was satisfactory. Part (a) was well answered, with a very high proportion obtaining the correct answer in (a)(i), and about two thirds completing the calculations in (a)(ii) and (iii). A small number made errors with prefixes of the units. Part (b)(i) was well answered. In (b)(ii), just under half determined the power loss correctly. The performance in (b)(iii) was poor. Some omitted the use of a transformer, while others failed to explain the benefit of high-voltage transmission.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: efficiency, power",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2025/q11.png",
+      "answer_png": "output/lq/2025/ans/q11.png"
+    },
+    {
+      "id": "2026-q4",
+      "year": "2026",
+      "question": 4,
+      "primary_section": 8,
+      "primary_name": "Work, Energy and Power",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "08_Work_Energy_and_Power",
+      "all_sections": [
+        8
+      ],
+      "all_section_names": [
+        "Work, Energy and Power"
+      ],
+      "crop": "crops/2026-q4.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: conservation of energy",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2026/q4.png",
+      "answer_png": "output/lq/2026/ans/q4.png"
+    },
+    {
+      "id": "pp-q2",
+      "year": "pp",
+      "question": 2,
+      "primary_section": 8,
+      "primary_name": "Work, Energy and Power",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "08_Work_Energy_and_Power",
+      "all_sections": [
+        8
+      ],
+      "all_section_names": [
+        "Work, Energy and Power"
+      ],
+      "crop": "crops/pp-q2.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: kinetic energy, power",
+      "page_from": 1,
+      "page_to": 1,
+      "png": "output/lq/pp/q2.png",
+      "answer_png": "output/lq/pp/ans/q2.png"
+    }
+  ]
+}
