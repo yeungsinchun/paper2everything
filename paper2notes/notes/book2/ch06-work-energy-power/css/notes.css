@@ -1,1 +1,239 @@
 /* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+
+/* Center the visual stage box: constrain width and auto-center. */
+figure.fig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+figure.fig > .visual.stage,
+figure.fig > .pane-pair {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.visual.stage {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  display: block;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.pane-pair {
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Fix hud-label stacking: explicit absolute placement per label. */
+.stage {
+  position: relative;
+  overflow: hidden;
+}
+.stage .hud-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.92);
+  padding: 0.14rem 0.38rem;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.07);
+  font-size: 12px;
+  line-height: 1.2;
+  text-shadow: 0 0 4px #fff;
+  white-space: nowrap;
+}
+
+/* === per-figure hud placements === */
+
+/* Fig 2.12 work: chair up cable, W = Fs cosθ */
+#work-vis [data-hud="W"] { left: 62%; top: 32%; font-size: 11px; color: #174f78; font-weight: 600; }
+#work-vis [data-hud="200kg"] { left: 30%; top: 60%; font-size: 11px; }
+
+/* Fig 2.13 energy: PE / KE bars swapping */
+#energy-vis [data-hud="PE"] { left: 76%; top: 26%; font-size: 11px; color: #18846e; font-weight: 600; }
+#energy-vis [data-hud="KE"] { left: 24%; top: 74%; font-size: 11px; color: #c34832; font-weight: 600; }
+
+/* Fig 2.14 power: P = W/t */
+#power-vis [data-hud="P"] { left: 52%; top: 34%; font-size: 11px; color: #1b2129; font-weight: 600; }
+
+/* Fig 2.15 pumped storage: store / generate */
+#pumped-vis [data-hud="store"] { left: 29%; top: 26%; font-size: 11px; color: #174f78; }
+#pumped-vis [data-hud="gen"] { left: 71%; top: 74%; font-size: 11px; color: #c34832; }
+
+/* Fig 2.16 roller: PE max at top, KE max at bottom */
+#roller-vis [data-hud="PE"] { left: 24%; top: 28%; font-size: 11px; color: #18846e; }
+#roller-vis [data-hud="KE"] { left: 50%; top: 80%; font-size: 11px; color: #c34832; }
+
+/* === animations === */
+
+/* Work: chair slides up cable (diagonal) */
+@keyframes work-dot-move {
+  0%   { left: 32%; top: 61%; opacity: 1; }
+  45%  { left: 61%; top: 34%; opacity: 1; }
+  50%  { left: 61%; top: 34%; opacity: 0; }
+  51%  { left: 32%; top: 61%; opacity: 0; }
+  60%  { opacity: 0; }
+  65%  { opacity: 1; }
+  100% { left: 32%; top: 61%; opacity: 1; }
+}
+.work-dot {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: #18846e;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%);
+  animation: work-dot-move 3.4s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+@keyframes work-w-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  40% { transform: translate(-50%, -50%) scale(1.07); }
+}
+#work-vis [data-hud="W"] { animation: work-w-pulse 3.4s ease-in-out infinite; }
+
+/* Energy: dot climbs the incline; PE/KE labels swap emphasis */
+@keyframes energy-dot-move {
+  0%   { left: 22%; top: 76%; opacity: 1; }
+  48%  { left: 74%; top: 28%; opacity: 1; }
+  52%  { left: 74%; top: 28%; opacity: 0; }
+  53%  { left: 22%; top: 76%; opacity: 0; }
+  60%  { opacity: 0; }
+  65%  { opacity: 1; }
+  100% { left: 22%; top: 76%; opacity: 1; }
+}
+.energy-dot {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: #c34832;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%);
+  animation: energy-dot-move 3.8s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+@keyframes pe-pulse {
+  0%, 28% { transform: translate(-50%,-50%) scale(1); opacity: 0.95; }
+  14% { transform: translate(-50%,-50%) scale(1.08); opacity: 1; box-shadow: 0 0 10px rgba(24,132,110,0.22); }
+  48%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.82; }
+}
+@keyframes ke-pulse {
+  0%, 48% { transform: translate(-50%,-50%) scale(1); opacity: 0.82; }
+  62% { transform: translate(-50%,-50%) scale(1.08); opacity: 1; }
+  80%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.95; }
+}
+#energy-vis [data-hud="PE"] { animation: pe-pulse 3.8s ease-in-out infinite; }
+#energy-vis [data-hud="KE"] { animation: ke-pulse 3.8s ease-in-out infinite; }
+
+/* Power: steady motion at constant v, P = Fv */
+@keyframes power-dot-move {
+  0%   { left: 30%; top: 56%; opacity: 0; }
+  8%   { opacity: 1; }
+  78%  { left: 68%; top: 56%; opacity: 1; }
+  84%  { opacity: 0; }
+  85%  { left: 30%; top: 56%; opacity: 0; }
+  100% { left: 30%; top: 56%; opacity: 0; }
+}
+.power-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #174f78;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%);
+  animation: power-dot-move 2.6s linear infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+@keyframes power-p-pulse {
+  0%, 100% { transform: translate(-50%,-50%) scale(1); }
+  50% { transform: translate(-50%,-50%) scale(1.06); }
+}
+#power-vis [data-hud="P"] { animation: power-p-pulse 2.6s ease-in-out infinite; }
+
+/* Pumped: water drops vertically through turbine */
+@keyframes pumped-dot-move {
+  0%   { left: 28%; top: 32%; opacity: 0; }
+  6%   { opacity: 1; left: 36%; top: 32%; }
+  22%  { left: 36%; top: 32%; }
+  58%  { left: 36%; top: 68%; opacity: 1; }
+  64%  { opacity: 0; left: 36%; top: 68%; }
+  65%  { left: 28%; top: 32%; opacity: 0; }
+  100% { left: 28%; top: 32%; opacity: 0; }
+}
+.pumped-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: #c39422;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%);
+  animation: pumped-dot-move 4.2s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+@keyframes pumped-store-pulse {
+  0%, 55% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+  18% { opacity: 0.75; transform: translate(-50%,-50%) scale(0.96); }
+  75%, 100% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+}
+@keyframes pumped-gen-pulse {
+  0%, 45% { opacity: 0.78; transform: translate(-50%,-50%) scale(0.96); }
+  58% { opacity: 1; transform: translate(-50%,-50%) scale(1.08); }
+  70%, 100% { opacity: 0.9; transform: translate(-50%,-50%) scale(1); }
+}
+#pumped-vis [data-hud="store"] { animation: pumped-store-pulse 4.2s ease-in-out infinite; }
+#pumped-vis [data-hud="gen"] { animation: pumped-gen-pulse 4.2s ease-in-out infinite; }
+
+/* Roller: THREE.js ball already travels; add PE/KE swap pulse */
+@keyframes roller-pe-pulse {
+  0%, 38% { transform: translate(-50%,-50%) scale(1); opacity: 0.92; }
+  16% { transform: translate(-50%,-50%) scale(1.09); opacity: 1; background: rgba(232,247,243,0.9); }
+  48%, 100% { transform: translate(-50%,-50%) scale(0.97); opacity: 0.82; }
+}
+@keyframes roller-ke-pulse {
+  0%, 46% { transform: translate(-50%,-50%) scale(0.97); opacity: 0.82; }
+  62% { transform: translate(-50%,-50%) scale(1.09); opacity: 1; background: rgba(251,235,234,0.9); }
+  82%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.92; }
+}
+#roller-vis [data-hud="PE"] { animation: roller-pe-pulse 3.6s ease-in-out infinite; }
+#roller-vis [data-hud="KE"] { animation: roller-ke-pulse 3.6s ease-in-out infinite; }
+
+/* Subtle stage entrance */
+#work-vis .scene-canvas,
+#energy-vis .scene-canvas,
+#power-vis .scene-canvas,
+#pumped-vis .scene-canvas,
+#roller-vis .scene-canvas {
+  animation: ch06-stage-in 0.45s ease-out both;
+}
+@keyframes ch06-stage-in {
+  from { opacity: 0.86; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-dot, .energy-dot, .power-dot, .pumped-dot,
+  #work-vis [data-hud="W"],
+  #energy-vis [data-hud="PE"], #energy-vis [data-hud="KE"],
+  #power-vis [data-hud="P"],
+  #pumped-vis [data-hud="store"], #pumped-vis [data-hud="gen"],
+  #roller-vis [data-hud="PE"], #roller-vis [data-hud="KE"],
+  #work-vis .scene-canvas, #energy-vis .scene-canvas, #power-vis .scene-canvas, #pumped-vis .scene-canvas, #roller-vis .scene-canvas {
+    animation: none !important;
+  }
+}
