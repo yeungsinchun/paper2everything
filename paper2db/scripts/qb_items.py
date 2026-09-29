@@ -108,12 +108,16 @@ def find_qb_root(explicit: str | None) -> Path | None:
         p = Path(explicit)
         if not p.is_dir():
             raise SystemExit(f"--qb-root {p} not a directory")
+        if not any(p.rglob("*.docx")):
+            raise SystemExit(f"--qb-root {p} contains no .docx")
         return p
     env_val = os.environ.get(P2DB_QB_ROOT_ENV)
     if env_val:
         p = Path(env_val)
         if not p.is_dir():
             raise SystemExit(f"{P2DB_QB_ROOT_ENV}={p} not a directory")
+        if not any(p.rglob("*.docx")):
+            raise SystemExit(f"{P2DB_QB_ROOT_ENV}={p} contains no .docx")
         return p
     for cand in CANDIDATE_QB_ROOTS:
         if cand.is_dir() and any(cand.rglob("*.docx")):
