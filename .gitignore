@@ -24,6 +24,7 @@ paper2db/__pycache__/
 paper2db/*.pyc
 paper2db/qb/
 paper2db/qb-pdf/
+/new_qb/
 paper2db/output/*
 !paper2db/output/lq/
 paper2db/output/lq/*

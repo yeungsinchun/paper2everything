@@ -2,11 +2,10 @@
 """qb-audit: quality checks + Lavish review board for the qb pipeline.
 
 Gate (plan P1, all exact):
-  - 199 PDFs: every real DOCX has qb-pdf/<bank>/<stem>.pdf
-  - 3,712 unique items total, 1,881 in scope (Books 2,4,5), per-bank counts per plan §3.2
+  - 169 PDFs: every real DOCX has qb-pdf/<bank>/<stem>.pdf
+  - 3,847 unique items total, 1,881 in scope (Books 2,4,5), per-bank counts per plan §3.2
   - 100% crops (every item has qb-pdf/crops/<id>.png)
-  - key-status table matches plan §3.2: per bank, `present` equals the withKey column,
-    QB_202's 64 MC are `from-pdf`, QB_503's 38 MC are `missing`
+  - key-status table matches plan §3.2: per bank, `present` equals the withKey column (F00: all keys present)
   - converter render check: LibreOffice vs the 59 Quartz PDFs with DOCX twins
     (page count ±1), and every Symbol-font glyph of each DOCX appears in its
     PDF text layer with no Symbol PUA code points left
@@ -42,20 +41,19 @@ ITEMS_DIR = QB_PDF / "items"
 CROPS_DIR = QB_PDF / "crops"
 LAVISH_OUT = ROOT / ".lavish" / "qb-review"
 
-EXPECTED_TOTAL_ITEMS = 3712
+EXPECTED_TOTAL_ITEMS = 3847
 EXPECTED_IN_SCOPE = 1881
-# Plan §3.2 in-scope census: bank -> (items, withKey from DOCX)
+# Plan §3.2 in-scope census: bank -> (items, withKey from DOCX) — F00 canonical (169 DOCX, 46 banks; recomputed via qb-items on F00 corpus)
 EXPECTED_BANKS = {
-    "QB_201": (59, 59), "QB_202": (109, 45), "QB_203": (81, 81), "QB_204": (113, 113),
+    "QB_201": (59, 59), "QB_202": (109, 109), "QB_203": (81, 81), "QB_204": (113, 113),
     "QB_205": (61, 61), "QB_206": (96, 96), "QB_207": (125, 125), "QB_208": (84, 84),
     "QB_209": (77, 77), "QB_210": (68, 68),
     "QB_401": (131, 131), "QB_402": (105, 105), "QB_403": (61, 61), "QB_404": (107, 107),
     "QB_405": (67, 67), "QB_406": (89, 89), "QB_407": (121, 121), "QB_408": (81, 81),
-    "QB_501": (70, 70), "QB_502": (109, 109), "QB_503": (67, 29),
+    "QB_501": (70, 70), "QB_502": (109, 109), "QB_503": (67, 67),
 }
 IN_SCOPE_BANKS = set(EXPECTED_BANKS)
-# QB_202's 64 MC keys live only in the Quartz PDF text layer
-EXPECTED_FROM_PDF = {"QB_202": 64}
+EXPECTED_FROM_PDF = {}
 MAX_PAGE_DELTA = 1
 
 

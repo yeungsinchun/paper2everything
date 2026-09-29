@@ -487,7 +487,7 @@ def qb_source_root() -> Path | None:
 
 def qb_stage_skipped(stage: str) -> bool:
     if qb_source_root() is None:
-        print(f"skip {stage}: no QB DOCX source tree found (qb/ or the canonical paper2notes/qb)")
+        print(f"skip {stage}: no QB DOCX source tree found (tried $P2DB_QB_ROOT, qb/, and the canonical paper2notes/qb)")
         return True
     return False
 

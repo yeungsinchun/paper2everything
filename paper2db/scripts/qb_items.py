@@ -2,7 +2,7 @@
 """qb-items: parse QB DOCX XML into item JSON + per-item PNG crops.
 
 Inputs:
-  qb/**/*.docx  (or --qb-root)
+  qb/**/*.docx  (or $P2DB_QB_ROOT or --qb-root; see find_qb_root)
   qb-pdf/<bank>/<stem>.pdf  (from qb_convert)
   qb-pdf/<bank>/<stem>.pdf.txt  (from qb_ocr, optional -- used for ocr field)
 
@@ -33,6 +33,7 @@ import argparse
 import hashlib
 import html
 import json
+import os
 import re
 import subprocess
 import sys
@@ -49,6 +50,9 @@ CANDIDATE_QB_ROOTS = [
     ROOT.parent / "paper2notes" / "qb",
     Path("/Users/sinchunyeung/github/paper2notes/qb"),
 ]
+
+# Env var override for QB root (F00). Checked first in find_qb_root.
+P2DB_QB_ROOT_ENV = "P2DB_QB_ROOT"
 
 # Symbol font mapping (Adobe Symbol encoding, full; every U+F0xx seen in corpus)
 SYMBOL_MAP = {
@@ -104,6 +108,16 @@ def find_qb_root(explicit: str | None) -> Path | None:
         p = Path(explicit)
         if not p.is_dir():
             raise SystemExit(f"--qb-root {p} not a directory")
+        if not any(p.rglob("*.docx")):
+            raise SystemExit(f"--qb-root {p} contains no .docx")
+        return p
+    env_val = os.environ.get(P2DB_QB_ROOT_ENV)
+    if env_val:
+        p = Path(env_val)
+        if not p.is_dir():
+            raise SystemExit(f"{P2DB_QB_ROOT_ENV}={p} not a directory")
+        if not any(p.rglob("*.docx")):
+            raise SystemExit(f"{P2DB_QB_ROOT_ENV}={p} contains no .docx")
         return p
     for cand in CANDIDATE_QB_ROOTS:
         if cand.is_dir() and any(cand.rglob("*.docx")):
@@ -772,7 +786,7 @@ def main() -> None:
 
     qb_root = find_qb_root(args.qb_root)
     if qb_root is None:
-        raise SystemExit("No qb/ found. Pass --qb-root /path/to/qb  (tried: " + ", ".join(str(c) for c in CANDIDATE_QB_ROOTS) + ")")
+        raise SystemExit("No qb/ found. Pass --qb-root /path/to/qb or set $P2DB_QB_ROOT  (tried: $P2DB_QB_ROOT, " + ", ".join(str(c) for c in CANDIDATE_QB_ROOTS) + ")")
     pdf_root = Path(args.pdf_root)
     if not pdf_root.is_absolute():
         pdf_root = ROOT / pdf_root
