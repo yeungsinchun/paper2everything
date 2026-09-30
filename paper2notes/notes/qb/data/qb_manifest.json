@@ -1,0 +1,1073 @@
+{
+  "generated_at": "2026-09-28T18:07:00Z",
+  "source": "new_qb",
+  "source_original": "/Users/sinchunyeung/github/paper2everything/new_qb",
+  "qb_root": "paper2db/qb",
+  "banks": 46,
+  "bank_list": [
+    "QB_101",
+    "QB_102",
+    "QB_103",
+    "QB_104",
+    "QB_105",
+    "QB_201",
+    "QB_202",
+    "QB_203",
+    "QB_204",
+    "QB_205",
+    "QB_206",
+    "QB_207",
+    "QB_208",
+    "QB_209",
+    "QB_210",
+    "QB_3A01",
+    "QB_3A02",
+    "QB_3A03",
+    "QB_3B04",
+    "QB_3B05",
+    "QB_3B06",
+    "QB_3B07",
+    "QB_401",
+    "QB_402",
+    "QB_403",
+    "QB_404",
+    "QB_405",
+    "QB_406",
+    "QB_407",
+    "QB_408",
+    "QB_501",
+    "QB_502",
+    "QB_503",
+    "QB_E101",
+    "QB_E102",
+    "QB_E103",
+    "QB_E201",
+    "QB_E202",
+    "QB_E203",
+    "QB_E301",
+    "QB_E302",
+    "QB_E303",
+    "QB_E304",
+    "QB_E401",
+    "QB_E402",
+    "QB_E403"
+  ],
+  "total_files": 169,
+  "total_docx": 169,
+  "files": [
+    {
+      "path": "QB_101/1_ch01_LQ_e.docx",
+      "bank": "QB_101",
+      "sha256": "ad8d3d5a6de793d61bcf50f0cac9a82c7ff166e588ee5157e925f08bd23896f7",
+      "size": 332367
+    },
+    {
+      "path": "QB_101/1_ch01_MC_e.docx",
+      "bank": "QB_101",
+      "sha256": "5bb3605224a0759406eb0e3710c4ad0a591af5cce8d3a8843792ca34d26e0d4e",
+      "size": 591027
+    },
+    {
+      "path": "QB_101/1_ch01_RQ_e.docx",
+      "bank": "QB_101",
+      "sha256": "cc61e7962bf380711e04686f5b56996e3575904e05e4d28ce6c3ac5c02b4aebc",
+      "size": 50065
+    },
+    {
+      "path": "QB_101/1_ch01_SQ_e.docx",
+      "bank": "QB_101",
+      "sha256": "a645f08c830fba17b46bc9dec0ef33b5e33135433e5e1df1483a77fcdad9da4e",
+      "size": 2370446
+    },
+    {
+      "path": "QB_102/1_ch02_LQ_e.docx",
+      "bank": "QB_102",
+      "sha256": "e44d0dfef087b16b24bf865ac9676d9bd288b77e71b3deeb8486ff424abdf1cb",
+      "size": 1212035
+    },
+    {
+      "path": "QB_102/1_ch02_MC_e.docx",
+      "bank": "QB_102",
+      "sha256": "721a6d478b55652d7c571499d7bd16689159e5335c3b7b5bc09a13bbe3f83c0d",
+      "size": 1108492
+    },
+    {
+      "path": "QB_102/1_ch02_RQ_e.docx",
+      "bank": "QB_102",
+      "sha256": "a8a8d9f061184ebed492eb5a1af115478322fab35776a4346c2bb4984b45bc8b",
+      "size": 79369
+    },
+    {
+      "path": "QB_102/1_ch02_SQ_e.docx",
+      "bank": "QB_102",
+      "sha256": "5513f1db967e5309a55ee33191a3b026acc36fffeffdd391179e39cfa6d1564e",
+      "size": 5536148
+    },
+    {
+      "path": "QB_103/1_ch03_LQ_e.docx",
+      "bank": "QB_103",
+      "sha256": "37e31263510b8568cb043b31801b8e57082fb65d89848737f9f60a4bd7aca828",
+      "size": 1953293
+    },
+    {
+      "path": "QB_103/1_ch03_MC_e.docx",
+      "bank": "QB_103",
+      "sha256": "e00661b40134f8e0955509a15ea7ad6dbb812e0a67e43e260d2dd56aae748089",
+      "size": 810352
+    },
+    {
+      "path": "QB_103/1_ch03_RQ_e.docx",
+      "bank": "QB_103",
+      "sha256": "b0d64d813134d7514dca9240fba58111d42e40ed7ac8ae68f49f0a7ebf865dac",
+      "size": 92099
+    },
+    {
+      "path": "QB_103/1_ch03_SQ_e.docx",
+      "bank": "QB_103",
+      "sha256": "191dfe4e30d3a15ab05c973e760cbc11c48ea763afc50f4fd2035a7d3c8a0e0b",
+      "size": 1074468
+    },
+    {
+      "path": "QB_104/1_ch04_LQ_e.docx",
+      "bank": "QB_104",
+      "sha256": "9cd31c2a269b9d898da55b8e21fb76ac961a6d63d1e0bf0207232ccb876e0c37",
+      "size": 3784496
+    },
+    {
+      "path": "QB_104/1_ch04_MC_e.docx",
+      "bank": "QB_104",
+      "sha256": "a18f382728ac30873a7e62bf57d20c7e7903c3bedd3f7bf120cc336d9054cc39",
+      "size": 1141905
+    },
+    {
+      "path": "QB_104/1_ch04_RQ_e.docx",
+      "bank": "QB_104",
+      "sha256": "b053abd4ace12e52dcf48eb53a68ec389980cd33d11bbbc2e11ce2685524653a",
+      "size": 242320
+    },
+    {
+      "path": "QB_104/1_ch04_SQ_e.docx",
+      "bank": "QB_104",
+      "sha256": "a273870f2c670c6f4fa1b3f1c349fff1dbf73fda35a878ceda320612359adbd3",
+      "size": 3598863
+    },
+    {
+      "path": "QB_105/1_ch05_LQ_e.docx",
+      "bank": "QB_105",
+      "sha256": "456a6a9973c493fae3bdb3794d8c7534bfc2cbc511c12cef18ac9e331e46d994",
+      "size": 2398426
+    },
+    {
+      "path": "QB_105/1_ch05_MC_e.docx",
+      "bank": "QB_105",
+      "sha256": "8774492161b7c8747f8ce05ac1aed3f0152057974a16b7dd4018e30278985e74",
+      "size": 345002
+    },
+    {
+      "path": "QB_105/1_ch05_RQ_e.docx",
+      "bank": "QB_105",
+      "sha256": "d059e1d7a1efd9abf25965013d054957eeb9ce074bd38dfa5d69f4b4cf9bfe93",
+      "size": 322070
+    },
+    {
+      "path": "QB_105/1_ch05_SQ_e.docx",
+      "bank": "QB_105",
+      "sha256": "24aaa92462911876587d16997ca1f25816b408b1cb3f04ea42fd0b8d9907c15a",
+      "size": 1177301
+    },
+    {
+      "path": "QB_201/2_ch01_LQ_e.docx",
+      "bank": "QB_201",
+      "sha256": "6ef2bc25597c6ed68403f323094cd45ce677d66335b217b511cce041dc8d9aaf",
+      "size": 61542
+    },
+    {
+      "path": "QB_201/2_ch01_MC_e.docx",
+      "bank": "QB_201",
+      "sha256": "650b41860c9338b68bfa62e79ad273fb18ef076fc941b37789e50409660d29a3",
+      "size": 969996
+    },
+    {
+      "path": "QB_201/2_ch01_RQ_e.docx",
+      "bank": "QB_201",
+      "sha256": "95df838eaf210aa632b631520b6010d2563626defc30afa766a24a037989fbe4",
+      "size": 95526
+    },
+    {
+      "path": "QB_201/2_ch01_SQ_e.docx",
+      "bank": "QB_201",
+      "sha256": "96c618be3b0d60a606e54e1661ab8e04455e4a94d47e05c0741cc9d1d12c3797",
+      "size": 614166
+    },
+    {
+      "path": "QB_202/2_ch02_LQ_e.docx",
+      "bank": "QB_202",
+      "sha256": "c67d898f4ca05bbe1f6cd9f34cb67058e87ddeea9d50a90c6b837d9b0296bb2f",
+      "size": 2729431
+    },
+    {
+      "path": "QB_202/2_ch02_MC_e.docx",
+      "bank": "QB_202",
+      "sha256": "816583adffd633ca82e2fdaa4563cc1ea7ee3f08b580fc82b6625d26e0412d0b",
+      "size": 1662624
+    },
+    {
+      "path": "QB_202/2_ch02_RQ_e.docx",
+      "bank": "QB_202",
+      "sha256": "3d8586f2076a6138bc5bf6fc919f5f3ea94df9ad808a0b028f247f4ab6aeb3b0",
+      "size": 24186
+    },
+    {
+      "path": "QB_202/2_ch02_SQ_e.docx",
+      "bank": "QB_202",
+      "sha256": "681697ec60fc4313c830daaaac6288446fd99fdd96b1dd75880d3fce572b02c7",
+      "size": 1335396
+    },
+    {
+      "path": "QB_203/2_ch03_LQ_e.docx",
+      "bank": "QB_203",
+      "sha256": "5631dd7dd45e5991e8068970693c6189a58d39723f0a8955e6a921fb3b7267ea",
+      "size": 750449
+    },
+    {
+      "path": "QB_203/2_ch03_MC_e.docx",
+      "bank": "QB_203",
+      "sha256": "48d7ea56a13c42db774d6bcf7f443d03a1c1a9dcc156eb63e4e193906bc2ee21",
+      "size": 1891893
+    },
+    {
+      "path": "QB_203/2_ch03_RQ_e.docx",
+      "bank": "QB_203",
+      "sha256": "abdd6ee24bf94c65d8c423674373cf3dc965acbdeff12b679bc17b96ae8f81f5",
+      "size": 35017
+    },
+    {
+      "path": "QB_203/2_ch03_SQ_e.docx",
+      "bank": "QB_203",
+      "sha256": "04eb814c400f62fc722c5a769b4a7c833a9e699a634b7462f119fa938a04edf1",
+      "size": 1193329
+    },
+    {
+      "path": "QB_204/2_ch04_LQ_e.docx",
+      "bank": "QB_204",
+      "sha256": "61ef021e1183cbd4836b067a9a50143e95e0d301018f0b00fbcab5710857fb77",
+      "size": 2171977
+    },
+    {
+      "path": "QB_204/2_ch04_MC_e.docx",
+      "bank": "QB_204",
+      "sha256": "4639b6bba92223190a588255c2749ee538aa46ee5bb14f03b7c62663ef2f2015",
+      "size": 5366173
+    },
+    {
+      "path": "QB_204/2_ch04_RQ_e.docx",
+      "bank": "QB_204",
+      "sha256": "b1ea2a5d47473f696b59149e7cc1dfe8240883469999b538346d85dd39b34087",
+      "size": 55494
+    },
+    {
+      "path": "QB_204/2_ch04_SQ_e.docx",
+      "bank": "QB_204",
+      "sha256": "4cf00860421bfa832ab3a517b3da25ffa00a5dbd95f07563a6b5035e1d46d007",
+      "size": 1818366
+    },
+    {
+      "path": "QB_205/2_ch05_LQ_e.docx",
+      "bank": "QB_205",
+      "sha256": "0e25bb30db274728146a325e981ceb74f92a2fb2a1534699d97941400371721e",
+      "size": 1105524
+    },
+    {
+      "path": "QB_205/2_ch05_MC_e.docx",
+      "bank": "QB_205",
+      "sha256": "ec5c947674f1167e5593bd0f6d62c61014d1d34ae22bdb8b1250b5b08dc26a3b",
+      "size": 4153817
+    },
+    {
+      "path": "QB_205/2_ch05_RQ_e.docx",
+      "bank": "QB_205",
+      "sha256": "7d21a0fc0a42ba1b36bad7fba83db0005c9c662a77fa0ed8956ad6ee562e192a",
+      "size": 491603
+    },
+    {
+      "path": "QB_205/2_ch05_SQ_e.docx",
+      "bank": "QB_205",
+      "sha256": "fa2ca6f552989bac3289bd8d15b4296bc1aac6feaca74631dc32bd0764c6f1c8",
+      "size": 823036
+    },
+    {
+      "path": "QB_206/2_ch06_LQ_e.docx",
+      "bank": "QB_206",
+      "sha256": "3f8d1cea3743f2201178fea5404c77c71dc88ed490fcab853cd9e772e49b1b28",
+      "size": 1128528
+    },
+    {
+      "path": "QB_206/2_ch06_MC_e.docx",
+      "bank": "QB_206",
+      "sha256": "0fcd140fb1c10304ede5775bbc99ea320e823200bf5935e1a8af965282536917",
+      "size": 864487
+    },
+    {
+      "path": "QB_206/2_ch06_RQ_e.docx",
+      "bank": "QB_206",
+      "sha256": "9e9d79892c014f7559a04d9d1d50951ffcdf5adcbf213a0147aa7a1c05d40175",
+      "size": 159971
+    },
+    {
+      "path": "QB_206/2_ch06_SQ_e.docx",
+      "bank": "QB_206",
+      "sha256": "7761f36af66732dda905748c25d1f6b3e9daaa5e6ae64a5c912718d0e3ee698a",
+      "size": 2572534
+    },
+    {
+      "path": "QB_207/2_ch07_LQ_e.docx",
+      "bank": "QB_207",
+      "sha256": "f4a58c44a99df31e03021493e2710d5e861248069e28ab07cd31e3f7a993872d",
+      "size": 3748265
+    },
+    {
+      "path": "QB_207/2_ch07_MC_e.docx",
+      "bank": "QB_207",
+      "sha256": "5a46165e10a67a5928bb6e95600d6decc7a2e017c9d4da7727fc9cb2729f08c7",
+      "size": 1121238
+    },
+    {
+      "path": "QB_207/2_ch07_RQ_e.docx",
+      "bank": "QB_207",
+      "sha256": "56ca6124035d6d86e803a0a85999cd3d72dcfd1a439944df628747a15f074dd7",
+      "size": 25866
+    },
+    {
+      "path": "QB_207/2_ch07_SQ_e.docx",
+      "bank": "QB_207",
+      "sha256": "d6d311e66b2267d308f986fdb94a4aa61aec77bf504bd5ec1bf4d4bd3056d442",
+      "size": 1326581
+    },
+    {
+      "path": "QB_208/2_ch08_LQ_e.docx",
+      "bank": "QB_208",
+      "sha256": "734923fca5f778a9e46aee31be129cf1302cd1facd0b242872ecf6565c9ff352",
+      "size": 700331
+    },
+    {
+      "path": "QB_208/2_ch08_MC_e.docx",
+      "bank": "QB_208",
+      "sha256": "7aad9b9701ace04fbb7b234c201dc29e1725bf70307078b9ae33959c1b506aeb",
+      "size": 974901
+    },
+    {
+      "path": "QB_208/2_ch08_RQ_e.docx",
+      "bank": "QB_208",
+      "sha256": "2cc31ee11e6f271f4a931a6e9dd9155c0a84c82fdc0b393187a6b6bd377cd99c",
+      "size": 31037
+    },
+    {
+      "path": "QB_208/2_ch08_SQ_e.docx",
+      "bank": "QB_208",
+      "sha256": "58e28a716966bcc58953990f846592858ebf51074741a374c8634f5ba7ab5180",
+      "size": 389234
+    },
+    {
+      "path": "QB_209/2_ch09_LQ_e.docx",
+      "bank": "QB_209",
+      "sha256": "ab74c40a8f82ac4da428d11ac94eb95c2170ffc3d4f3dada2535079fc599a98c",
+      "size": 1002461
+    },
+    {
+      "path": "QB_209/2_ch09_MC_e.docx",
+      "bank": "QB_209",
+      "sha256": "23106cde195ddfd856dfa8ef74c35cce645497e7a7130818cd0cfcdad8f1b2a2",
+      "size": 935749
+    },
+    {
+      "path": "QB_209/2_ch09_RQ_e.docx",
+      "bank": "QB_209",
+      "sha256": "c22aaf1cbd6ab77a2d96e386da601e41dbecc42735044a0a840759725c6c6b19",
+      "size": 206669
+    },
+    {
+      "path": "QB_209/2_ch09_SQ_e.docx",
+      "bank": "QB_209",
+      "sha256": "fe65c9d0a54326f658ac68e22c2f09ec16cd72feed7a1869f37ee44b6b6fe281",
+      "size": 1114331
+    },
+    {
+      "path": "QB_210/2_ch10_LQ_e.docx",
+      "bank": "QB_210",
+      "sha256": "616c26cccfec00cbe70667444e8f6f62d167f4a2f3309b717a2276439f4e400a",
+      "size": 1493695
+    },
+    {
+      "path": "QB_210/2_ch10_MC_e.docx",
+      "bank": "QB_210",
+      "sha256": "5b8b145ec3e24faf3b7abd8fef52e644ab7d947bc5858fe69d3fb3b908c6670b",
+      "size": 348518
+    },
+    {
+      "path": "QB_210/2_ch10_RQ_e.docx",
+      "bank": "QB_210",
+      "sha256": "61b8503115235cc32d8e7adbf0db038ad247b4d017243708816a02ced3c97567",
+      "size": 147313
+    },
+    {
+      "path": "QB_210/2_ch10_SQ_e.docx",
+      "bank": "QB_210",
+      "sha256": "70fa731c3033493d6c37331d4b19e1ecbf8b93b9cef4c628d2fa6fdcaf5d4735",
+      "size": 466945
+    },
+    {
+      "path": "QB_3A01/3A_ch01_LQ_e.docx",
+      "bank": "QB_3A01",
+      "sha256": "b37df5792ac565475f7f1acc235a9905eea67fe423e229477e7063e055798b82",
+      "size": 3361526
+    },
+    {
+      "path": "QB_3A01/3A_ch01_MC_e.docx",
+      "bank": "QB_3A01",
+      "sha256": "aea6f4c27c35cce806775067fd7e204b99b602a3a1dc1f80700ae83dd8867a2e",
+      "size": 2396921
+    },
+    {
+      "path": "QB_3A01/3A_ch01_RQ_e.docx",
+      "bank": "QB_3A01",
+      "sha256": "3d2a9a1fcbccae1ad3d119d180a70859fa883ee0b1ce10041fdbb62890657d6f",
+      "size": 204241
+    },
+    {
+      "path": "QB_3A01/3A_ch01_SQ_e.docx",
+      "bank": "QB_3A01",
+      "sha256": "1829c34c0e1b7f91cdd77249da0f56b038321286935278d8a0884f84a5120fcc",
+      "size": 4175640
+    },
+    {
+      "path": "QB_3A02/3A_ch02_LQ_e.docx",
+      "bank": "QB_3A02",
+      "sha256": "a5758040b40158f5ab15d26a636d6b0430f6a6e034d88a1bdee50476f9376ccd",
+      "size": 2692418
+    },
+    {
+      "path": "QB_3A02/3A_ch02_MC_e.docx",
+      "bank": "QB_3A02",
+      "sha256": "3174e6323cb12905457d5134bf2bd02df2c5edb28c55d0940eb260bd29f20274",
+      "size": 2419922
+    },
+    {
+      "path": "QB_3A02/3A_ch02_RQ_e.docx",
+      "bank": "QB_3A02",
+      "sha256": "c6456459f99bf2e65728453b2315052c0a4339d9a8f1fbd9adcff67f3d378c24",
+      "size": 612461
+    },
+    {
+      "path": "QB_3A02/3A_ch02_SQ_e.docx",
+      "bank": "QB_3A02",
+      "sha256": "d23e655c000c4634333b7bf6afb3e0c2b290c8633060b7c04bd7e6360ca48292",
+      "size": 2639706
+    },
+    {
+      "path": "QB_3A03/3A_ch03_LQ_e.docx",
+      "bank": "QB_3A03",
+      "sha256": "106d5b99cdb308d0b6b7c2fad61f649bfd3cc1e387ef2f01069d4f33e96169ac",
+      "size": 3143580
+    },
+    {
+      "path": "QB_3A03/3A_ch03_MC_e.docx",
+      "bank": "QB_3A03",
+      "sha256": "4103a34e5463d44c7079b4565b7f644c8e1014cbea76c2df7d6b119080a916e8",
+      "size": 2345192
+    },
+    {
+      "path": "QB_3A03/3A_ch03_RQ_e.docx",
+      "bank": "QB_3A03",
+      "sha256": "f6b80f64db0f1100096d170f294b867760d16dc184795a6cfcfeface87a0513b",
+      "size": 75789
+    },
+    {
+      "path": "QB_3A03/3A_ch03_SQ_e.docx",
+      "bank": "QB_3A03",
+      "sha256": "1febb3fdcad7b2def28fd8a57785b572414393be66359b7fb6c456d0291aee94",
+      "size": 2459785
+    },
+    {
+      "path": "QB_3B04/3B_ch04_LQ_e.docx",
+      "bank": "QB_3B04",
+      "sha256": "bf17436766ec1b433e4b521e01dd2888604a64eae2a15583f1e82eec1b8e2328",
+      "size": 4111380
+    },
+    {
+      "path": "QB_3B04/3B_ch04_MC_e.docx",
+      "bank": "QB_3B04",
+      "sha256": "813c796e6545ae7e38b16b3cd776ba6f659c942706787d8cc1603ae373d49aea",
+      "size": 3226042
+    },
+    {
+      "path": "QB_3B04/3B_ch04_RQ_e.docx",
+      "bank": "QB_3B04",
+      "sha256": "9b939b289b298d97df07f6fd0d0a0e251125e4f0c7a2d707b26dbb86670de6aa",
+      "size": 45734
+    },
+    {
+      "path": "QB_3B04/3B_ch04_SQ_e.docx",
+      "bank": "QB_3B04",
+      "sha256": "27ade734f23b4eecf260014c8b3edd434be93b65c683d09b4816222a2135cf09",
+      "size": 914362
+    },
+    {
+      "path": "QB_3B05/3B_ch05_LQ_e.docx",
+      "bank": "QB_3B05",
+      "sha256": "f9816e2f46c0babe4d81827abd3edf601ec78172e5982f62b1dc2d3fbe5e5b29",
+      "size": 1570675
+    },
+    {
+      "path": "QB_3B05/3B_ch05_MC_e.docx",
+      "bank": "QB_3B05",
+      "sha256": "4ea961897a4c168b8817f5239e636f06a7b41c4edc1ba911c29b82bf0a6bcb26",
+      "size": 1445227
+    },
+    {
+      "path": "QB_3B05/3B_ch05_RQ_e.docx",
+      "bank": "QB_3B05",
+      "sha256": "3247af21d2b2ef34b375526878c1097e8e5c3bfe54b86c15068c4571f9791f0f",
+      "size": 319982
+    },
+    {
+      "path": "QB_3B05/3B_ch05_SQ_e.docx",
+      "bank": "QB_3B05",
+      "sha256": "b0838690e96574001b2e992ab94c96ae9436fa00d7da431b9ceb34362b9ec255",
+      "size": 2006664
+    },
+    {
+      "path": "QB_3B06/3B_ch06_LQ_e.docx",
+      "bank": "QB_3B06",
+      "sha256": "8fc12c281e886319298c37d1a86ce21957f41ab40a0f0366e3d1b80afa96f539",
+      "size": 3409102
+    },
+    {
+      "path": "QB_3B06/3B_ch06_MC_e.docx",
+      "bank": "QB_3B06",
+      "sha256": "6bea8dbd637d5011e152372a1a5cff69ffa10addf8a50694a0678c466e2f08d7",
+      "size": 307013
+    },
+    {
+      "path": "QB_3B06/3B_ch06_RQ_e.docx",
+      "bank": "QB_3B06",
+      "sha256": "0cf0b71ca920f4688b97b048b34010614203636f840f4e62d32e47a8bcfa8a8e",
+      "size": 87635
+    },
+    {
+      "path": "QB_3B06/3B_ch06_SQ_e.docx",
+      "bank": "QB_3B06",
+      "sha256": "cc4675c7775557cd4db43d667be5810a6328c09dc1f5e03d6e82a6c203e27ef0",
+      "size": 2889133
+    },
+    {
+      "path": "QB_3B07/3B_ch07_LQ_e.docx",
+      "bank": "QB_3B07",
+      "sha256": "53c09bacc6667817e67134f866ba1f6091ebdfdbdd5ab8ec64c65a2067014f82",
+      "size": 4907063
+    },
+    {
+      "path": "QB_3B07/3B_ch07_MC_e.docx",
+      "bank": "QB_3B07",
+      "sha256": "2c929228696836d6d471f9103495b7b6a7ee525e0d28f1c190d865201334a165",
+      "size": 1155677
+    },
+    {
+      "path": "QB_3B07/3B_ch07_RQ_e.docx",
+      "bank": "QB_3B07",
+      "sha256": "a5fe963ab4cf684bca3efe5b42a74212277c3e09a9e7d44eb3f2e6a038366a12",
+      "size": 20369
+    },
+    {
+      "path": "QB_3B07/3B_ch07_SQ_e.docx",
+      "bank": "QB_3B07",
+      "sha256": "4d027a18c583c454713c2f1555767ef965c29794a41d1b9ea62140d8326e848e",
+      "size": 2617916
+    },
+    {
+      "path": "QB_401/4_ch01_LQ_e.docx",
+      "bank": "QB_401",
+      "sha256": "0c0c4533bdd0047e0179441eca4d96034f251029843f80c7f3dab381cf477789",
+      "size": 1606368
+    },
+    {
+      "path": "QB_401/4_ch01_MC_e.docx",
+      "bank": "QB_401",
+      "sha256": "75f936aae56c9e68187036615e647cbb693cf796dad1db729c38281207f2a8bc",
+      "size": 2933357
+    },
+    {
+      "path": "QB_401/4_ch01_RQ_e.docx",
+      "bank": "QB_401",
+      "sha256": "bd2dff0eba7a23298926c33708a8e2e734c8105c3054b741a20f10f1651a9bdf",
+      "size": 152059
+    },
+    {
+      "path": "QB_401/4_ch01_SQ_e.docx",
+      "bank": "QB_401",
+      "sha256": "a9d2380e9baf29f40014d57147f79668c995cde14d12bda0899ea91d4aa608b0",
+      "size": 2005794
+    },
+    {
+      "path": "QB_402/4_ch02_LQ_e.docx",
+      "bank": "QB_402",
+      "sha256": "a94c381366f6ef8707388a28adfb1ac86326a7428163d1cdd663785c91526879",
+      "size": 2546228
+    },
+    {
+      "path": "QB_402/4_ch02_MC_e.docx",
+      "bank": "QB_402",
+      "sha256": "4b74a0a388e93241fe2ce0d50cca3dcb1a0aa771e1b5c76787cedf4378d4834d",
+      "size": 4271380
+    },
+    {
+      "path": "QB_402/4_ch02_RQ_e.docx",
+      "bank": "QB_402",
+      "sha256": "bd769e9a1d147b385647e6fe700b171001162348957a994d2b01440e021d05f8",
+      "size": 107650
+    },
+    {
+      "path": "QB_402/4_ch02_SQ_e.docx",
+      "bank": "QB_402",
+      "sha256": "9abe1d78cde026864bb2a5cb1a8e76df774fe4a8545e3ac588b3833db8ee818c",
+      "size": 3208829
+    },
+    {
+      "path": "QB_403/4_ch03_LQ_e.docx",
+      "bank": "QB_403",
+      "sha256": "fc328959eb31938568fbd09e5d5f19762a8a239ed1c1438b41f8a0f92b079297",
+      "size": 1590664
+    },
+    {
+      "path": "QB_403/4_ch03_MC_e.docx",
+      "bank": "QB_403",
+      "sha256": "46b2f298d6790edfc8016afb8bb6342b334131658055d4fa77a1456b5f6d1944",
+      "size": 2035005
+    },
+    {
+      "path": "QB_403/4_ch03_SQ_e.docx",
+      "bank": "QB_403",
+      "sha256": "b4489e053e7c61ecb6f7577abffc0f51dbbfcb72c7d6157b1f0a27acb993b2ad",
+      "size": 2771818
+    },
+    {
+      "path": "QB_404/4_ch04_LQ_e.docx",
+      "bank": "QB_404",
+      "sha256": "5f982512558232b110f98e3a15a3038458018aa31868fbbe15f553359c04fffe",
+      "size": 1692898
+    },
+    {
+      "path": "QB_404/4_ch04_MC_e.docx",
+      "bank": "QB_404",
+      "sha256": "e00e24e4a7106ce8cccaafe6b1f9479f8118f5e0cea854afacf723f834048782",
+      "size": 1766597
+    },
+    {
+      "path": "QB_404/4_ch04_RQ_e.docx",
+      "bank": "QB_404",
+      "sha256": "866910c2922df236c6270a064314a9b1d69403d4c0e2b6146ab7e304ed343dac",
+      "size": 317911
+    },
+    {
+      "path": "QB_404/4_ch04_SQ_e.docx",
+      "bank": "QB_404",
+      "sha256": "8aaee72551ea2c9100f0715a8b10fb4fe87f50efe4907377378eaaa42ae01f24",
+      "size": 4957677
+    },
+    {
+      "path": "QB_405/4_ch05_LQ_e.docx",
+      "bank": "QB_405",
+      "sha256": "3f04fd197ad574efac2b5890d9b5990d47755554e545ab10792b8adae4f96771",
+      "size": 215813
+    },
+    {
+      "path": "QB_405/4_ch05_MC_e.docx",
+      "bank": "QB_405",
+      "sha256": "f524b48ffe3180c26ae2c1eb0f5971fae76f51ffbd40f08c012686512033b0eb",
+      "size": 2324718
+    },
+    {
+      "path": "QB_405/4_ch05_SQ_e.docx",
+      "bank": "QB_405",
+      "sha256": "806072ae59b6757e2bf55e9ea541457aaadbe900de31f8e02c2f7897b374ce02",
+      "size": 1969994
+    },
+    {
+      "path": "QB_406/4_ch06_LQ_e.docx",
+      "bank": "QB_406",
+      "sha256": "c62877047b3c3194a192bafa5baed0f7aa7dc61eabd055bc0d19e9fda01ef26d",
+      "size": 2663367
+    },
+    {
+      "path": "QB_406/4_ch06_MC_e.docx",
+      "bank": "QB_406",
+      "sha256": "eb23b9bb4306d1e687316948f2f323fc448dc4ff81f7dacbb212cf8312ce5314",
+      "size": 956511
+    },
+    {
+      "path": "QB_406/4_ch06_RQ_e.docx",
+      "bank": "QB_406",
+      "sha256": "10cb8ffb543f6a20062278c544273b30e401aa000893c69bf223ed8d787404b5",
+      "size": 141358
+    },
+    {
+      "path": "QB_406/4_ch06_SQ_e.docx",
+      "bank": "QB_406",
+      "sha256": "2151ad0fa614ef4be08d704a8009fc115d173f3ec8fa908a50711a84389a8c30",
+      "size": 6638427
+    },
+    {
+      "path": "QB_407/4_ch07_LQ_e.docx",
+      "bank": "QB_407",
+      "sha256": "0c797268d8aba3aacbff59cb3889fbfb6130a5b64cb4993712596d8d36640ce3",
+      "size": 3094121
+    },
+    {
+      "path": "QB_407/4_ch07_MC_e.docx",
+      "bank": "QB_407",
+      "sha256": "474ef72599bf593ff282c1ae274c1fb8562f2bc8b96feadedfba76d1ded3f674",
+      "size": 5992647
+    },
+    {
+      "path": "QB_407/4_ch07_RQ_e.docx",
+      "bank": "QB_407",
+      "sha256": "b3f8e3ee60747f799e23edd7c7e2afdf8990219537cf6cadab7f69a9f7ce49b7",
+      "size": 304268
+    },
+    {
+      "path": "QB_407/4_ch07_SQ_e.docx",
+      "bank": "QB_407",
+      "sha256": "804bc5128957d22bfad14f1e4038cd395f29a28d3b2349e5282e079fbfd67fc9",
+      "size": 7704559
+    },
+    {
+      "path": "QB_408/4_ch08_LQ_e.docx",
+      "bank": "QB_408",
+      "sha256": "6e86245c7503e478f34b168021e6729781dcca251e91d7bccbe2b88504e96388",
+      "size": 655773
+    },
+    {
+      "path": "QB_408/4_ch08_MC_e.docx",
+      "bank": "QB_408",
+      "sha256": "4b11b9612548a38418e5d1989763d004dce9c070c382230f2369273d0ef6dd21",
+      "size": 711527
+    },
+    {
+      "path": "QB_408/4_ch08_RQ_e.docx",
+      "bank": "QB_408",
+      "sha256": "bb3d4e07d6b9e9483e275894df1f250ab9a49f2ff3c1098b98b9da4bf660a5ac",
+      "size": 54097
+    },
+    {
+      "path": "QB_408/4_ch08_SQ_e.docx",
+      "bank": "QB_408",
+      "sha256": "c5f3a6037be7439bdd1e15b05b0b162bd80a2b85eb2a6fb69a921c7f50821127",
+      "size": 663568
+    },
+    {
+      "path": "QB_501/5_ch01_LQ_e.docx",
+      "bank": "QB_501",
+      "sha256": "032e6f64dbb7211179e01f5c9e53357edcb34b5c8c680daea5daa4fac1162c2c",
+      "size": 482193
+    },
+    {
+      "path": "QB_501/5_ch01_MC_e.docx",
+      "bank": "QB_501",
+      "sha256": "bd4e9e9771f0008dd5a9b081ffa389a8d5cc1236d7467fbd589a2630758dd976",
+      "size": 419701
+    },
+    {
+      "path": "QB_501/5_ch01_RQ_e.docx",
+      "bank": "QB_501",
+      "sha256": "cce4efc5f422a66bb48cf1883e3364969d26b31de8b14e194ca980b069ef8381",
+      "size": 101449
+    },
+    {
+      "path": "QB_501/5_ch01_SQ_e.docx",
+      "bank": "QB_501",
+      "sha256": "145d2f677c89f9f3fb9e81a548da4766ae9891abdfcc7327d798e9fff9ad8f34",
+      "size": 319420
+    },
+    {
+      "path": "QB_502/5_ch02_LQ_e.docx",
+      "bank": "QB_502",
+      "sha256": "f81b38d7a79596143dd5d9cbb78684f8e2e0517a408daa3e8af6f6ea7cb0e2b8",
+      "size": 2296288
+    },
+    {
+      "path": "QB_502/5_ch02_MC_e.docx",
+      "bank": "QB_502",
+      "sha256": "294d57c4ada2b5f19d0b0bb94fd6fc1caa89af378033dedc0e091cf5f01b7789",
+      "size": 982533
+    },
+    {
+      "path": "QB_502/5_ch02_RQ_e.docx",
+      "bank": "QB_502",
+      "sha256": "3bd9e4d291883964698892969735d38621bc7c825404c98ca12e0ddbac968592",
+      "size": 36826
+    },
+    {
+      "path": "QB_502/5_ch02_SQ_e.docx",
+      "bank": "QB_502",
+      "sha256": "9710e4d277de9a707c632739c6b7b8e2b3c4a17a2b87a2eae10c6ab8a0e9fddc",
+      "size": 1751871
+    },
+    {
+      "path": "QB_503/5_ch03_LQ_e.docx",
+      "bank": "QB_503",
+      "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+      "size": 206735
+    },
+    {
+      "path": "QB_503/5_ch03_MC_e.docx",
+      "bank": "QB_503",
+      "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+      "size": 351467
+    },
+    {
+      "path": "QB_503/5_ch03_RQ_e.docx",
+      "bank": "QB_503",
+      "sha256": "0116151773585cd6f9d9762083e1b5d7a80dce8d9095b3b4fc53df5d185f6494",
+      "size": 20808
+    },
+    {
+      "path": "QB_503/5_ch03_SQ_e.docx",
+      "bank": "QB_503",
+      "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+      "size": 12539937
+    },
+    {
+      "path": "QB_E101/E1_ch01_LQ_e.docx",
+      "bank": "QB_E101",
+      "sha256": "e12922a950d7a28a8c00e14180c3446c45ee0c2d1a6179817c5f7931a29037ce",
+      "size": 168237
+    },
+    {
+      "path": "QB_E101/E1_ch01_MC_e.docx",
+      "bank": "QB_E101",
+      "sha256": "013988bbcf72a81cc63a362b00d4eca98373d3002a9993f1e5b2658bcbc91c1c",
+      "size": 1319543
+    },
+    {
+      "path": "QB_E101/E1_ch01_SQ_e.docx",
+      "bank": "QB_E101",
+      "sha256": "b699468f2774cbaa750d219bf963500efff1ac37f3f6263f5f26ece26ed9bada",
+      "size": 339118
+    },
+    {
+      "path": "QB_E102/E1_ch02_LQ_e.docx",
+      "bank": "QB_E102",
+      "sha256": "5874ba251fa944fb1d83f0b2a2d1177991c13c7f5741d4eaa96b3eef5f722e59",
+      "size": 1291501
+    },
+    {
+      "path": "QB_E102/E1_ch02_MC_e.docx",
+      "bank": "QB_E102",
+      "sha256": "6aee222af4ead292944e5bb849cb55a58352b5c7cbf7fda053f3476252e3396c",
+      "size": 565187
+    },
+    {
+      "path": "QB_E102/E1_ch02_SQ_e.docx",
+      "bank": "QB_E102",
+      "sha256": "fede4944ad566fdbf6b97b3b6008474c9f5cd28f1cda6e4138c1f6de0083747e",
+      "size": 411263
+    },
+    {
+      "path": "QB_E103/E1_ch03_LQ_e.docx",
+      "bank": "QB_E103",
+      "sha256": "392ff0b178f228d17ca1607fefe2a5eb4bf5d7c95b268b46f50a0e4c73e4ce8e",
+      "size": 1325927
+    },
+    {
+      "path": "QB_E103/E1_ch03_MC_e.docx",
+      "bank": "QB_E103",
+      "sha256": "fd47866a449d0ec51ceb08a87ee7fda4c25c775d4cc0021ecdafc57d00ef385b",
+      "size": 2067439
+    },
+    {
+      "path": "QB_E103/E1_ch03_SQ_e.docx",
+      "bank": "QB_E103",
+      "sha256": "abcc3d900fab501add815ca163c02f90401eed1eb45ae3b78cf6182fae5e15f9",
+      "size": 382552
+    },
+    {
+      "path": "QB_E201/E2_ch01_LQ_e.docx",
+      "bank": "QB_E201",
+      "sha256": "1909f4004433585f54541954f68ff2c7474ce13721413d91bf7968a233038839",
+      "size": 2644625
+    },
+    {
+      "path": "QB_E201/E2_ch01_MC_e.docx",
+      "bank": "QB_E201",
+      "sha256": "4b927b1ad36d3decb778a3cf82e4d6218b3007612ef3af19ae92665a21f02c9f",
+      "size": 1494265
+    },
+    {
+      "path": "QB_E201/E2_ch01_SQ_e.docx",
+      "bank": "QB_E201",
+      "sha256": "6fdd40ca2a2ed4d343998ca98ff6a50e7e8aa811befc53760b9369328e4e6e2b",
+      "size": 1577552
+    },
+    {
+      "path": "QB_E202/E2_ch02_LQ_e.docx",
+      "bank": "QB_E202",
+      "sha256": "838ca93d625809fcc593affc7eb11fb5b51c40fce99ccec301f41d7c147329fc",
+      "size": 1260173
+    },
+    {
+      "path": "QB_E202/E2_ch02_MC_e.docx",
+      "bank": "QB_E202",
+      "sha256": "eae893cea966cda2b0a96091689686d3cec37c9f14dd29b38e7afb0df21319e2",
+      "size": 1760798
+    },
+    {
+      "path": "QB_E202/E2_ch02_SQ_e.docx",
+      "bank": "QB_E202",
+      "sha256": "bc95610e1ecf690ce03b0d40fe5d3ab17ee815cd7188aca90d8b49c7538c8435",
+      "size": 324301
+    },
+    {
+      "path": "QB_E203/E2_ch03_LQ_e.docx",
+      "bank": "QB_E203",
+      "sha256": "f9a2deeff03bcb83ef853560b691de8b762dceb85dc658ce139923c18ee41500",
+      "size": 778834
+    },
+    {
+      "path": "QB_E203/E2_ch03_MC_e.docx",
+      "bank": "QB_E203",
+      "sha256": "cee268a45e0e96128ad2323ca61e791bf8b0737194adb685fee0604ae6691df9",
+      "size": 186452
+    },
+    {
+      "path": "QB_E203/E2_ch03_SQ_e.docx",
+      "bank": "QB_E203",
+      "sha256": "b9e5a631d3d60b0db969008df8cfe8748950aac5e206de409eeaac49f50552fe",
+      "size": 1204829
+    },
+    {
+      "path": "QB_E301/E3_ch01_LQ_e.docx",
+      "bank": "QB_E301",
+      "sha256": "263e942a8fb99693943a3ce4ed017e21e18be416c1cb2f1968eaf7b8a6bd4e94",
+      "size": 770727
+    },
+    {
+      "path": "QB_E301/E3_ch01_MC_e.docx",
+      "bank": "QB_E301",
+      "sha256": "176462538b94a9f95d2c45f3978b34f35c46222b1d8509792a8e25703ac42096",
+      "size": 685474
+    },
+    {
+      "path": "QB_E301/E3_ch01_SQ_e.docx",
+      "bank": "QB_E301",
+      "sha256": "17eb36ad291e42dd223af43f20e1c7c0b3dd05973d66226ad51000d5c6df0a9c",
+      "size": 339035
+    },
+    {
+      "path": "QB_E302/E3_ch02_LQ_e.docx",
+      "bank": "QB_E302",
+      "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+      "size": 615923
+    },
+    {
+      "path": "QB_E302/E3_ch02_MC_e.docx",
+      "bank": "QB_E302",
+      "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+      "size": 143023
+    },
+    {
+      "path": "QB_E302/E3_ch02_SQ_e.docx",
+      "bank": "QB_E302",
+      "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+      "size": 295227
+    },
+    {
+      "path": "QB_E303/E3_ch03_LQ_e.docx",
+      "bank": "QB_E303",
+      "sha256": "782b7ef6af1a768d053d1cd994620a4af080e12bb3732bbf3b78dc2757d93d6b",
+      "size": 842256
+    },
+    {
+      "path": "QB_E303/E3_ch03_MC_e.docx",
+      "bank": "QB_E303",
+      "sha256": "56623d48c8433ef5b571b8371b4405a3581a3b5856d5ea9582e8ae2fd635bf2c",
+      "size": 299145
+    },
+    {
+      "path": "QB_E303/E3_ch03_SQ_e.docx",
+      "bank": "QB_E303",
+      "sha256": "e77a241161bdd42b7ed0e7ecb1d93ba359e40ded9dd405f6cdd6ca5697ea488e",
+      "size": 424711
+    },
+    {
+      "path": "QB_E304/E3_ch04_LQ_e.docx",
+      "bank": "QB_E304",
+      "sha256": "09effa5200c7b8251e2fcc3c1815e611a6cdd5c4cecb0ed2f7204e03de5b4fe6",
+      "size": 5342496
+    },
+    {
+      "path": "QB_E304/E3_ch04_MC_e.docx",
+      "bank": "QB_E304",
+      "sha256": "27cdd175ad06fe223868f298201dab1f4d719f1bee4d6fc4166bf9a820e6cc38",
+      "size": 973054
+    },
+    {
+      "path": "QB_E304/E3_ch04_SQ_e.docx",
+      "bank": "QB_E304",
+      "sha256": "44b07f71b7186050de23d646171757ae06c36a4e1cc7d02e3c22b70dbcb02b3e",
+      "size": 609774
+    },
+    {
+      "path": "QB_E401/E4_ch01_LQ_e.docx",
+      "bank": "QB_E401",
+      "sha256": "146fbfcb8e803d10d1547aac9fde3fa9661270af135e3efcd0fb44e4db5274ac",
+      "size": 1516146
+    },
+    {
+      "path": "QB_E401/E4_ch01_MC_e.docx",
+      "bank": "QB_E401",
+      "sha256": "929111856f220d9092094736227ccb7ccd87e8c17c0f78b4080c6ffbb1ea23a4",
+      "size": 593036
+    },
+    {
+      "path": "QB_E401/E4_ch01_SQ_e.docx",
+      "bank": "QB_E401",
+      "sha256": "98973c7cc9aa9ba63b83cb9d9a2144bb768ef988348b26aa2917c51e6629bf7e",
+      "size": 910682
+    },
+    {
+      "path": "QB_E402/E4_ch02_LQ_e.docx",
+      "bank": "QB_E402",
+      "sha256": "eea860fa2e7f7a7d38fc0179bfcdc84a65c83587652a972e7201253e979eaa0d",
+      "size": 4655348
+    },
+    {
+      "path": "QB_E402/E4_ch02_MC_e.docx",
+      "bank": "QB_E402",
+      "sha256": "f590d6e1decf83beb6ecf06ea540151b79f78d9b64afd63743e5b5a009cae36e",
+      "size": 1709802
+    },
+    {
+      "path": "QB_E402/E4_ch02_SQ_e.docx",
+      "bank": "QB_E402",
+      "sha256": "cabe8af61a2ce87ab7b7589179633903e16f0e1aa713342c05f3cc3e9bcbbf64",
+      "size": 1715143
+    },
+    {
+      "path": "QB_E403/E4_ch03_LQ_e.docx",
+      "bank": "QB_E403",
+      "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+      "size": 696468
+    },
+    {
+      "path": "QB_E403/E4_ch03_MC_e.docx",
+      "bank": "QB_E403",
+      "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+      "size": 351896
+    },
+    {
+      "path": "QB_E403/E4_ch03_SQ_e.docx",
+      "bank": "QB_E403",
+      "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+      "size": 278262
+    }
+  ]
+}
