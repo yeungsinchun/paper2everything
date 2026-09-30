@@ -255,7 +255,7 @@
   <section id="dse" class="store-section">
     <div class="section-divider">
       <h2>DSE Past-Paper Questions</h2>
-      <p>Source: <code>paper2db/metadata/mc|lq/llm_classifications.json</code> (573 MC + 170 LQ, 27 sections) + <code>tests/sections/mc/answer_keys.json</code> for keys &amp; correct-percentage. Images are real crops from <code>paper/mc</code> &amp; <code>paper/lq</code>, not placeholders. Shows marks, topic/subtopic, answer, percentage, reason &amp; warnings.</p>
+      <p>Source: <code>paper2db/metadata/mc|lq/llm_classifications.json</code> (573 MC + 170 LQ, 27 sections) + <code>tests/sections/mc/answer_keys.json</code> for keys &amp; correct-percentage. Images are real crops from <code>paper/mc</code> &amp; <code>paper/lq</code> (staged via <code>paper2db/qb-web-ui-staging/dse-{mc,lq}</code>), not placeholders. This stitch deploys <strong>537 MC crops (2012 now present: 36 added, 2013–2026 already shipped) + 170 LQ crops (all 170, including 164 newly added vs 6 before) + 112 LQ answer crops</strong>. Shows marks, topic/subtopic, answer, percentage, reason &amp; warnings. Missing 36 MC (sap) and 58 LQ answers / 26 performances flagged visibly.</p>
     </div>
 
     <div class="filter-row" role="search" aria-label="DSE filters">
@@ -275,7 +275,7 @@
   <section id="qb" class="store-section">
     <div class="section-divider">
       <h2>QB Question Bank</h2>
-      <p>Source: Question Bank DOCX chapter tags (<code>&lt;bk&gt;&lt;ch&gt;</code>) via <code>paper2db/qb</code> → <code>qb-pdf/items</code>. In-scope: Books 2,4,5 (20 banks, 1,881 items). This deploy ships Book 5 Ch.03 <strong>Nuclear Energy</strong> (QB_503, 67 items) with real stem crops; other chapters show counts and “crop pending” where not yet rendered. No DSE data is mixed in.</p>
+      <p>Source: Question Bank DOCX chapter tags (<code>&lt;bk&gt;&lt;ch&gt;</code>) via <code>paper2db/qb</code> → <code>qb-pdf/items</code> (46 banks, 3,847 items: Books 1-5 + electives). This deploy ships Book 5 all 3 chapters (<strong>QB_501–503: Radiation, Decay, Nuclear Energy — 246 items, 100% stem crops, 99% answer crops</strong>); other 43 banks show counts with “crop pending” (crops remain in <code>paper2db/qb-web-ui-staging/qb/crops</code> 254 MB, surfaced visibly). No DSE data is mixed in. Staging manifest: <code>data/qb_deployed.json</code> + <code>qb_full_index.json</code>.</p>
     </div>
     <div class="filter-row">
       <label for="qb-topic">Topic (chapter)</label>
@@ -322,15 +322,22 @@ function init() {
     fetchJSON("data/dse_mc.json"),
     fetchJSON("data/dse_lq.json"),
     fetchJSON("data/dse_sections.json"),
-    fetchJSON("data/qb_503.json"),
+    fetchJSON("data/qb_book5.json"),
     fetchJSON("data/qb_banks.json"),
-  ]).then(([mc, lq, sec, qb, qbBanks]) => {
+    fetchJSON("data/qb_full_index.json").catch(()=>({total:0,items:[]})),
+    fetchJSON("data/qb_deployed.json").catch(()=>null),
+  ]).then(([mc, lq, sec, qbBook5, qbBanks, qbFull, qbDeployed]) => {
     STORES.dse_mc = mc;
     STORES.dse_lq = lq;
     STORES.dse_sections = sec;
-    STORES.qb_items = qb;
+    // QB: Book5 (246 items) is primary deployed store; full index (3847) for counts & warnings
+    STORES.qb_items = qbBook5;
     STORES.qb_banks = qbBanks;
-    document.getElementById("global-counts").textContent = `DSE ${mc.count+ lq.count} · QB ${qb.count} (503) · ${sec.stats.length} topics`;
+    STORES.qb_full = qbFull;
+    STORES.qb_deployed = qbDeployed;
+    const qbTotal = qbFull && qbFull.total ? qbFull.total : qbBook5.count;
+    const deployedNote = qbDeployed ? ` (Book5 ${qbBook5.count} deployed, ${qbTotal} total)` : ` (${qbBook5.count} Book5)`;
+    document.getElementById("global-counts").textContent = `DSE ${mc.count+ lq.count} · QB ${qbTotal}${deployedNote} · ${sec.stats.length} topics · staged 435 MC + 170 LQ + 3847 QB`;
     setupDSE();
     setupQB();
     setupQuality();
@@ -520,15 +527,19 @@ function updateDSEWarnings(items) {
 }
 
 function setupQB() {
-  const qb = STORES.qb_items; // QB_503
+  const qb = STORES.qb_items; // QB_501-503 Book5 (246) stitched from staging
   const banks = STORES.qb_banks.banks;
+  // annotate deployed banks
+  const deployedBanks = (STORES.qb_deployed && STORES.qb_deployed.deployed.banks) || ["QB_501","QB_502","QB_503"];
   // banks select: show only in-scope for now, but list all that have data
   const sel = document.getElementById("qb-topic");
   // add options for QB_503 etc.
   banks.forEach(b=>{
     const opt=document.createElement("option");
     opt.value=b.bank;
-    opt.textContent=`${b.bank} — ${b.sectionName||b.bank} — ${b.expectedItems} items`;
+    const isDeployed = deployedBanks.includes(b.bank);
+    opt.textContent=`${b.bank} — ${b.sectionName||b.bank} — ${b.expectedItems} items${isDeployed ? " ✓ deployed" : " · pending (staging)"}`;
+    if (!isDeployed) opt.style.color = "#8a8a8a";
     sel.appendChild(opt);
   });
   // topic chips
@@ -537,8 +548,11 @@ function setupQB() {
     const btn=document.createElement("button");
     btn.type="button";
     btn.dataset.bank=b.bank;
-    btn.innerHTML=`${b.bank}<small>${b.expectedItems}</small>`;
-    btn.title=b.sectionName||b.bank;
+    const isDeployed = deployedBanks.includes(b.bank);
+    btn.innerHTML=`${b.bank}<small>${b.expectedItems}</small>${isDeployed ? "" : "<small style='color:#b00'> pending</small>"}`;
+    btn.title=b.sectionName||b.bank + (isDeployed ? " — crops deployed" : " — crops in staging, pending deploy");
+    if (!isDeployed) btn.style.opacity = "0.7";
+    if (!isDeployed) btn.style.borderStyle = "dashed";
     btn.addEventListener("click",()=>{ sel.value=b.bank; applyQBFilter(); [...chipBox.children].forEach(c=>c.setAttribute("aria-pressed","false")); btn.setAttribute("aria-pressed","true"); });
     chipBox.appendChild(btn);
   });
@@ -659,15 +673,22 @@ function updateQBWarnings(items){
   const missing= total - hasCrop;
   const noAns = window._qbAll.filter(it=> it.answer.status!=="present").length;
   const warns=[];
-  if (missing) warns.push(`${missing}/${total} missing crop`);
-  if (noAns) warns.push(`${noAns} without answer in DOCX (check qb_503)`); else warns.push(`All 67 have answer (good)`);
-  // also cover other banks not yet rendered
-  const otherBanks = 1881 - 67;
-  if (otherBanks>0) warns.push(`${otherBanks} items in other 19 banks not yet rendered — counts shown, crops pending (see qb_banks.json). Run qb pipeline for all banks to fill.`);
+  if (missing) warns.push(`${missing}/${total} missing crop (in this Book5 slice)`);
+  if (noAns) warns.push(`${noAns} without answer in DOCX`); else warns.push(`All ${total} Book5 items have answer (good)`);
+  // staging vs deployed
+  const fullTotal = STORES.qb_full && STORES.qb_full.total ? STORES.qb_full.total : 3847;
+  const deployedCount = total; // 246
+  const pendingTotal = fullTotal - deployedCount;
+  const deployedBanks = (STORES.qb_deployed && STORES.qb_deployed.deployed.banks) || [];
+  warns.push(`${pendingTotal} items in other 43 banks not deployed to <code>notes/qb</code> — counts visible via <code>qb_banks.json</code> (46 banks) & <code>qb_full_index.json</code> (${fullTotal} items), crops remain in <code>paper2db/qb-web-ui-staging/qb/crops</code> (7692 PNG, 254 MB) and are flagged pending. Deployed banks: ${deployedBanks.join(", ")} (✓).`);
+  if (STORES.qb_deployed && STORES.qb_deployed.staging) {
+    const s = STORES.qb_deployed.staging;
+    warns.push(`Staging crops: ${s.total_files} files, ${s.total_mb} MB (png) → deployed WebP ~${(s.total_mb*0.4).toFixed(1)} MB est.`);
+  }
   // check for image files that exist
   const filtered = items.length;
   box.hidden=false;
-  box.innerHTML=`<h3>Data quality — QB</h3><ul>${warns.map(w=>`<li>${w}</li>`).join("")}</ul><p>Filtered view: ${filtered} items.</p><p><small>QB source is outside git at <code>P2DB_QB_ROOT</code>; this deploy commits only extracted crops under <code>notes/qb/crops</code> and metadata under <code>notes/qb/data</code>. DOCX and full PDFs remain gitignored.</small></p>`;
+  box.innerHTML=`<h3>Data quality — QB (stitched)</h3><ul>${warns.map(w=>`<li>${w}</li>`).join("")}</ul><p>Filtered view: ${filtered} items (Book5 501-503).</p><p><small>QB source is outside git at <code>P2DB_QB_ROOT</code>; this deploy commits Book5 crops under <code>notes/qb/crops/qb/*.webp</code> (490 files, ~10 MB) and metadata under <code>notes/qb/data</code>. DOCX and full PDFs remain gitignored. Full 3847-item index at <code>qb_full_index.json</code> surfaced with pending flags.</small></p>`;
 }
 
 function updateSelectionUI(){
@@ -685,26 +706,30 @@ function setupQuality(){
   const lqTotal=STORES.dse_lq.count;
   const dseMissCrop = STORES.dse_mc.items.filter(it=>!it.hasCrop).length + STORES.dse_lq.items.filter(it=>!it.hasCrop).length;
   const qb=STORES.qb_items;
-  let html=`<h3>DSE</h3><ul><li>MC ${mcTotal} + LQ ${lqTotal} = ${mcTotal+lqTotal} classified (metadata/mc|lq)</li><li>Answer keys: ${Object.keys( JSON.parse('{}') ).length} — real file has ${Object.keys( fetch ? {}: {}).length}</li></ul>`;
+  const fullTotal = STORES.qb_full && STORES.qb_full.total ? STORES.qb_full.total : 3847;
   // Instead, compute directly
   const mcAnsMissing = STORES.dse_mc.items.filter(it=> !it.answer.correctOption && !it.answer.deleted).length;
   const mcPctMissing = STORES.dse_mc.items.filter(it=> !it.answer.deleted && it.answer.percentage==null).length;
-  html = `<h3>DSE past-paper</h3><ul>
-    <li>MC ${mcTotal} (sections 1–27), LQ ${lqTotal} — tracked in <code>metadata/mc|</code></li>
-    <li>Crops: ${mcTotal+lqTotal - dseMissCrop} have crop, ${dseMissCrop} missing (2012 & sap pending)</li>
-    <li>MC missing answer: ${mcAnsMissing}, missing percentage: ${mcPctMissing} (see warnings)</li>
-    <li>LQ: 6 Nuclear Energy questions, all with crop now (22M → 0.6M WebP)</li>
+  const mcDeployed = mcTotal - STORES.dse_mc.items.filter(it=>!it.hasCrop).length;
+  const lqDeployed = lqTotal - STORES.dse_lq.items.filter(it=>!it.hasCrop).length;
+  let html = `<h3>DSE past-paper (stitched)</h3><ul>
+    <li>MC ${mcTotal} (sections 1–27), LQ ${lqTotal} — tracked in <code>metadata/mc|lq</code> + staged via <code>paper2db/qb-web-ui-staging/dse-{mc,lq}</code></li>
+    <li>Crops: MC ${mcDeployed}/${mcTotal} deployed (2012 36 added, 537 total now vs 501 before; 36 missing sap), LQ ${lqDeployed}/${lqTotal} deployed (all 170 now vs 6 before; 112 answer crops, 144 performances)</li>
+    <li>MC missing answer: ${mcAnsMissing}, missing percentage: ${mcPctMissing} (see warnings, flagged per-card)</li>
+    <li>LQ missing answer crops: 58 (2013/2014/2015/2017/2022/2023/2024/2025/2026/pp) and 26 missing performances (2026+pp) — surfaced as badges</li>
+    <li>Stitched: DSE-MC 435 (2012-2024) + 501 (2013-2026) → 537 unique crops (10.4 MB + 11.3 MB WebP, 2012 now present); DSE-LQ 170 crops (was 6, now all) + 112 answer crops → deployed as WebP (82 q) under <code>notes/qb/crops/dse-lq</code> (one PNG fallback for tall 2012-q7)</li>
     </ul>
-    <h3>QB</h3><ul>
-    <li>QB_503 Nuclear Energy: 67 items, 100% have stem crop, 100% present answer</li>
-    <li>Other 19 in-scope banks: 1,814 items not yet rendered on this deploy (manifest shows 1,881 total). Counts visible, crops pending — run <code>P2DB_QB_ROOT=… ./paper2db/pipeline --only qb-pdf,qb-ocr,qb-items --force</code> to fill.</li>
-    <li>Committed: <code>notes/qb/crops/qb/*.webp</code> (2.8M) + <code>crops/dse-mc/*.webp</code> (11.3M) + <code>crops/dse-lq/*.webp</code> (0.6M)</li>
-    <li>Gitignored: <code>*.docx</code> and full paper PDFs remain out (see .gitignore). DOCX root outside git.</li>
+    <h3>QB (stitched)</h3><ul>
+    <li>Book5 (QB_501 Radiation 70 + QB_502 Decay 109 + QB_503 Nuclear 67 = 246 items) — 100% stem deployed as WebP, 99% answer (1 missing PHY15013104 flagged), 100% present answer</li>
+    <li>Full corpus: 46 banks, ${fullTotal} items (staging 7692 PNG 254 MB); other 43 banks (3601 items) not deployed to <code>notes/qb</code> to keep PR small — counts visible via <code>qb_full_index.json</code> + <code>qb_banks.json</code> (46), crops pending flagged (dashed chips, grey options)</li>
+    <li>Committed: <code>notes/qb/crops/qb/*.webp</code> (490 files, ~10 MB Book5) + <code>crops/dse-mc/*.webp</code> (537 files, ~12 MB) + <code>crops/dse-lq/*.{webp,png}</code> (283 files, ~15 MB) + <code>notes/dse/mc|27 & lq|27</code> PNGs (18 crops)</li>
+    <li>Gitignored: <code>*.docx</code> and full paper PDFs remain out (see .gitignore). DOCX root outside git. Staging retained at <code>paper2db/qb-web-ui-staging/</code> for verification (not committed to keep PR < 30 MB).</li>
     </ul>
     <h3>How to verify</h3><ul>
-    <li>Filter DSE → §27 Nuclear Energy → check image vs reason vs answer: e.g. 2018-31 fission chain, 2022-33 balancing, 2025-33 fusion mass defect. Click image to enlarge (browser native).</li>
-    <li>Filter QB → QB_503 → check PHY15031101 (fission reactions), PHY15033101 (plutonium LQ) — compare stem crop vs extracted text & marking.</li>
-    <li>Select multiple questions across both stores; selection summary updates. Use Copy IDs to export.</li>
+    <li>Filter DSE → §27 Nuclear Energy → check 19 total (9 MC 2012-2024 +10 LQ) — e.g. 2012 36 MC now shows crop, 2012-q7 tall PNG fallback, 2018-31 fission chain, 2022-33 balancing, 2025-33 fusion mass defect, LQ 2012-q11, 2015-q10 etc. Click image to enlarge.</li>
+    <li>Filter QB → QB_501/502/503 → check PHY15013101 (Peng Chau temp), PHY15031101 (fission), PHY15033101 (plutonium LQ) — compare stem crop (<code>crops/qb/*.webp</code>) vs extracted text & marking. Try “fission” search across Book5.</li>
+    <li>Select multiple across DSE & QB (multi-select); selection summary shows DSE vs QB counts; use Copy IDs to export. Topic chips show counts; missing-data badges visible.</li>
+    <li>Check missing flags: filter DSE “2012” shows all 36 have crops now; filter “sap” or unclassified shows warnings. QB pending banks show dashed chips and “pending” warnings.</li>
     </ul>`;
   panel.innerHTML=html;
 }

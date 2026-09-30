@@ -1,0 +1,205 @@
+{
+  "generated_at": "2026-09-29T19:14:08Z",
+  "total_items": 3847,
+  "total_banks": 46,
+  "deployed": {
+    "banks": [
+      "QB_501",
+      "QB_502",
+      "QB_503"
+    ],
+    "items": 246,
+    "note": "Only Book5 (QB_501-503) crops deployed to notes/qb/crops/qb as WebP (to keep PR size manageable). Other 43 banks' crops remain in paper2db/qb-web-ui-staging/qb/crops (7692 PNG, 254MB) and are surfaced as 'crop pending' in UI. See staging manifest."
+  },
+  "staging": {
+    "total_files": 7692,
+    "total_mb": 253.94,
+    "avg_per_bank_mb": 5.52,
+    "per_bank": {
+      "QB_101": {
+        "files": 76,
+        "mb": 2.68
+      },
+      "QB_102": {
+        "files": 146,
+        "mb": 5.24
+      },
+      "QB_103": {
+        "files": 194,
+        "mb": 6.42
+      },
+      "QB_104": {
+        "files": 212,
+        "mb": 8.77
+      },
+      "QB_105": {
+        "files": 192,
+        "mb": 6.58
+      },
+      "QB_201": {
+        "files": 118,
+        "mb": 3.16
+      },
+      "QB_202": {
+        "files": 218,
+        "mb": 6.6
+      },
+      "QB_203": {
+        "files": 162,
+        "mb": 5.07
+      },
+      "QB_204": {
+        "files": 226,
+        "mb": 8.0
+      },
+      "QB_205": {
+        "files": 122,
+        "mb": 4.55
+      },
+      "QB_206": {
+        "files": 192,
+        "mb": 6.0
+      },
+      "QB_207": {
+        "files": 250,
+        "mb": 9.03
+      },
+      "QB_208": {
+        "files": 168,
+        "mb": 5.65
+      },
+      "QB_209": {
+        "files": 154,
+        "mb": 5.18
+      },
+      "QB_210": {
+        "files": 136,
+        "mb": 4.04
+      },
+      "QB_3A01": {
+        "files": 166,
+        "mb": 7.18
+      },
+      "QB_3A02": {
+        "files": 248,
+        "mb": 8.74
+      },
+      "QB_3A03": {
+        "files": 196,
+        "mb": 7.99
+      },
+      "QB_3B04": {
+        "files": 178,
+        "mb": 6.04
+      },
+      "QB_3B05": {
+        "files": 218,
+        "mb": 7.12
+      },
+      "QB_3B06": {
+        "files": 200,
+        "mb": 6.7
+      },
+      "QB_3B07": {
+        "files": 204,
+        "mb": 6.94
+      },
+      "QB_401": {
+        "files": 262,
+        "mb": 8.97
+      },
+      "QB_402": {
+        "files": 210,
+        "mb": 6.5
+      },
+      "QB_403": {
+        "files": 122,
+        "mb": 4.24
+      },
+      "QB_404": {
+        "files": 214,
+        "mb": 6.84
+      },
+      "QB_405": {
+        "files": 134,
+        "mb": 4.17
+      },
+      "QB_406": {
+        "files": 178,
+        "mb": 6.33
+      },
+      "QB_407": {
+        "files": 242,
+        "mb": 8.46
+      },
+      "QB_408": {
+        "files": 162,
+        "mb": 4.7
+      },
+      "QB_501": {
+        "files": 138,
+        "mb": 4.47
+      },
+      "QB_502": {
+        "files": 218,
+        "mb": 6.24
+      },
+      "QB_503": {
+        "files": 134,
+        "mb": 3.31
+      },
+      "QB_E101": {
+        "files": 110,
+        "mb": 2.4
+      },
+      "QB_E102": {
+        "files": 154,
+        "mb": 4.72
+      },
+      "QB_E103": {
+        "files": 150,
+        "mb": 4.6
+      },
+      "QB_E201": {
+        "files": 146,
+        "mb": 5.29
+      },
+      "QB_E202": {
+        "files": 214,
+        "mb": 6.31
+      },
+      "QB_E203": {
+        "files": 138,
+        "mb": 3.94
+      },
+      "QB_E301": {
+        "files": 90,
+        "mb": 2.54
+      },
+      "QB_E302": {
+        "files": 70,
+        "mb": 2.01
+      },
+      "QB_E303": {
+        "files": 134,
+        "mb": 4.15
+      },
+      "QB_E304": {
+        "files": 120,
+        "mb": 4.44
+      },
+      "QB_E401": {
+        "files": 134,
+        "mb": 3.84
+      },
+      "QB_E402": {
+        "files": 122,
+        "mb": 4.36
+      },
+      "QB_E403": {
+        "files": 120,
+        "mb": 3.43
+      }
+    }
+  }
+}

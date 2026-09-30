@@ -1,166 +1,274 @@
 {
   "banks": [
     {
+      "bank": "QB_101",
+      "expectedItems": 38,
+      "withKey": 38,
+      "book": "1",
+      "chapter": "01",
+      "section": null,
+      "sectionName": "Bank QB_101"
+    },
+    {
+      "bank": "QB_102",
+      "expectedItems": 73,
+      "withKey": 73,
+      "book": "1",
+      "chapter": "02",
+      "section": null,
+      "sectionName": "Bank QB_102"
+    },
+    {
+      "bank": "QB_103",
+      "expectedItems": 97,
+      "withKey": 97,
+      "book": "1",
+      "chapter": "03",
+      "section": null,
+      "sectionName": "Bank QB_103"
+    },
+    {
+      "bank": "QB_104",
+      "expectedItems": 106,
+      "withKey": 106,
+      "book": "1",
+      "chapter": "04",
+      "section": null,
+      "sectionName": "Bank QB_104"
+    },
+    {
+      "bank": "QB_105",
+      "expectedItems": 96,
+      "withKey": 96,
+      "book": "1",
+      "chapter": "05",
+      "section": null,
+      "sectionName": "Bank QB_105"
+    },
+    {
       "bank": "QB_201",
       "expectedItems": 59,
       "withKey": 59,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "01",
       "section": null,
-      "sectionName": "QB_201"
+      "sectionName": "Bank QB_201"
     },
     {
       "bank": "QB_202",
       "expectedItems": 109,
       "withKey": 109,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "02",
       "section": null,
-      "sectionName": "QB_202"
+      "sectionName": "Bank QB_202"
     },
     {
       "bank": "QB_203",
       "expectedItems": 81,
       "withKey": 81,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "03",
       "section": null,
-      "sectionName": "QB_203"
+      "sectionName": "Bank QB_203"
     },
     {
       "bank": "QB_204",
       "expectedItems": 113,
       "withKey": 113,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "04",
       "section": null,
-      "sectionName": "QB_204"
+      "sectionName": "Bank QB_204"
     },
     {
       "bank": "QB_205",
       "expectedItems": 61,
       "withKey": 61,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "05",
       "section": null,
-      "sectionName": "QB_205"
+      "sectionName": "Bank QB_205"
     },
     {
       "bank": "QB_206",
       "expectedItems": 96,
       "withKey": 96,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "06",
       "section": null,
-      "sectionName": "QB_206"
+      "sectionName": "Bank QB_206"
     },
     {
       "bank": "QB_207",
       "expectedItems": 125,
       "withKey": 125,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "07",
       "section": null,
-      "sectionName": "QB_207"
+      "sectionName": "Bank QB_207"
     },
     {
       "bank": "QB_208",
       "expectedItems": 84,
       "withKey": 84,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "08",
       "section": null,
-      "sectionName": "QB_208"
+      "sectionName": "Bank QB_208"
     },
     {
       "bank": "QB_209",
       "expectedItems": 77,
       "withKey": 77,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "09",
       "section": null,
-      "sectionName": "QB_209"
+      "sectionName": "Bank QB_209"
     },
     {
       "bank": "QB_210",
       "expectedItems": 68,
       "withKey": 68,
-      "book": null,
-      "chapter": null,
+      "book": "2",
+      "chapter": "10",
       "section": null,
-      "sectionName": "QB_210"
+      "sectionName": "Bank QB_210"
+    },
+    {
+      "bank": "QB_3A01",
+      "expectedItems": 83,
+      "withKey": 83,
+      "book": "3A",
+      "chapter": "01",
+      "section": null,
+      "sectionName": "Bank QB_3A01"
+    },
+    {
+      "bank": "QB_3A02",
+      "expectedItems": 124,
+      "withKey": 124,
+      "book": "3A",
+      "chapter": "02",
+      "section": null,
+      "sectionName": "Bank QB_3A02"
+    },
+    {
+      "bank": "QB_3A03",
+      "expectedItems": 98,
+      "withKey": 98,
+      "book": "3A",
+      "chapter": "03",
+      "section": null,
+      "sectionName": "Bank QB_3A03"
+    },
+    {
+      "bank": "QB_3B04",
+      "expectedItems": 89,
+      "withKey": 89,
+      "book": "3B",
+      "chapter": "04",
+      "section": null,
+      "sectionName": "Bank QB_3B04"
+    },
+    {
+      "bank": "QB_3B05",
+      "expectedItems": 109,
+      "withKey": 109,
+      "book": "3B",
+      "chapter": "05",
+      "section": null,
+      "sectionName": "Bank QB_3B05"
+    },
+    {
+      "bank": "QB_3B06",
+      "expectedItems": 100,
+      "withKey": 100,
+      "book": "3B",
+      "chapter": "06",
+      "section": null,
+      "sectionName": "Bank QB_3B06"
+    },
+    {
+      "bank": "QB_3B07",
+      "expectedItems": 102,
+      "withKey": 102,
+      "book": "3B",
+      "chapter": "07",
+      "section": null,
+      "sectionName": "Bank QB_3B07"
     },
     {
       "bank": "QB_401",
       "expectedItems": 131,
       "withKey": 131,
-      "book": null,
-      "chapter": null,
+      "book": "4",
+      "chapter": "01",
       "section": null,
-      "sectionName": "QB_401"
+      "sectionName": "Bank QB_401"
     },
     {
       "bank": "QB_402",
       "expectedItems": 105,
       "withKey": 105,
-      "book": null,
-      "chapter": null,
+      "book": "4",
+      "chapter": "02",
       "section": null,
-      "sectionName": "QB_402"
+      "sectionName": "Bank QB_402"
     },
     {
       "bank": "QB_403",
       "expectedItems": 61,
       "withKey": 61,
-      "book": null,
-      "chapter": null,
+      "book": "4",
+      "chapter": "03",
       "section": null,
-      "sectionName": "QB_403"
+      "sectionName": "Bank QB_403"
     },
     {
       "bank": "QB_404",
       "expectedItems": 107,
       "withKey": 107,
-      "book": null,
-      "chapter": null,
+      "book": "4",
+      "chapter": "04",
       "section": null,
-      "sectionName": "QB_404"
+      "sectionName": "Bank QB_404"
     },
     {
       "bank": "QB_405",
       "expectedItems": 67,
       "withKey": 67,
-      "book": null,
-      "chapter": null,
+      "book": "4",
+      "chapter": "05",
       "section": null,
-      "sectionName": "QB_405"
+      "sectionName": "Bank QB_405"
     },
     {
       "bank": "QB_406",
       "expectedItems": 89,
       "withKey": 89,
-      "book": null,
-      "chapter": null,
+      "book": "4",
+      "chapter": "06",
       "section": null,
-      "sectionName": "QB_406"
+      "sectionName": "Bank QB_406"
     },
     {
       "bank": "QB_407",
       "expectedItems": 121,
       "withKey": 121,
-      "book": null,
-      "chapter": null,
+      "book": "4",
+      "chapter": "07",
       "section": null,
-      "sectionName": "QB_407"
+      "sectionName": "Bank QB_407"
     },
     {
       "bank": "QB_408",
       "expectedItems": 81,
       "withKey": 81,
-      "book": null,
-      "chapter": null,
+      "book": "4",
+      "chapter": "08",
       "section": null,
-      "sectionName": "QB_408"
+      "sectionName": "Bank QB_408"
     },
     {
       "bank": "QB_501",
@@ -188,6 +296,123 @@
       "chapter": "03",
       "section": 27,
       "sectionName": "Nuclear Energy"
+    },
+    {
+      "bank": "QB_E101",
+      "expectedItems": 55,
+      "withKey": 55,
+      "book": "E1",
+      "chapter": "01",
+      "section": null,
+      "sectionName": "Bank QB_E101"
+    },
+    {
+      "bank": "QB_E102",
+      "expectedItems": 77,
+      "withKey": 77,
+      "book": "E1",
+      "chapter": "02",
+      "section": null,
+      "sectionName": "Bank QB_E102"
+    },
+    {
+      "bank": "QB_E103",
+      "expectedItems": 75,
+      "withKey": 75,
+      "book": "E1",
+      "chapter": "03",
+      "section": null,
+      "sectionName": "Bank QB_E103"
+    },
+    {
+      "bank": "QB_E201",
+      "expectedItems": 73,
+      "withKey": 73,
+      "book": "E2",
+      "chapter": "01",
+      "section": null,
+      "sectionName": "Bank QB_E201"
+    },
+    {
+      "bank": "QB_E202",
+      "expectedItems": 107,
+      "withKey": 107,
+      "book": "E2",
+      "chapter": "02",
+      "section": null,
+      "sectionName": "Bank QB_E202"
+    },
+    {
+      "bank": "QB_E203",
+      "expectedItems": 69,
+      "withKey": 69,
+      "book": "E2",
+      "chapter": "03",
+      "section": null,
+      "sectionName": "Bank QB_E203"
+    },
+    {
+      "bank": "QB_E301",
+      "expectedItems": 45,
+      "withKey": 45,
+      "book": "E3",
+      "chapter": "01",
+      "section": null,
+      "sectionName": "Bank QB_E301"
+    },
+    {
+      "bank": "QB_E302",
+      "expectedItems": 35,
+      "withKey": 35,
+      "book": "E3",
+      "chapter": "02",
+      "section": null,
+      "sectionName": "Bank QB_E302"
+    },
+    {
+      "bank": "QB_E303",
+      "expectedItems": 67,
+      "withKey": 67,
+      "book": "E3",
+      "chapter": "03",
+      "section": null,
+      "sectionName": "Bank QB_E303"
+    },
+    {
+      "bank": "QB_E304",
+      "expectedItems": 60,
+      "withKey": 60,
+      "book": "E3",
+      "chapter": "04",
+      "section": null,
+      "sectionName": "Bank QB_E304"
+    },
+    {
+      "bank": "QB_E401",
+      "expectedItems": 67,
+      "withKey": 67,
+      "book": "E4",
+      "chapter": "01",
+      "section": null,
+      "sectionName": "Bank QB_E401"
+    },
+    {
+      "bank": "QB_E402",
+      "expectedItems": 61,
+      "withKey": 61,
+      "book": "E4",
+      "chapter": "02",
+      "section": null,
+      "sectionName": "Bank QB_E402"
+    },
+    {
+      "bank": "QB_E403",
+      "expectedItems": 60,
+      "withKey": 60,
+      "book": "E4",
+      "chapter": "03",
+      "section": null,
+      "sectionName": "Bank QB_E403"
     }
   ]
 }
