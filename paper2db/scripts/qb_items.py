@@ -142,9 +142,12 @@ def load_banks() -> dict | None:
     """Load banks.json if present; corpus-agnostic source of truth for scope."""
     if BANKS_JSON.is_file():
         try:
-            return json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
         except json.JSONDecodeError as e:
             raise SystemExit(f"{BANKS_JSON} invalid JSON: {e}") from e
+        if not isinstance(data, dict):
+            raise SystemExit(f"{BANKS_JSON} invalid: expected object")
+        return data
     return None
 
 
@@ -155,12 +158,19 @@ def get_in_scope_banks() -> set[str]:
         if not isinstance(detail, list) or not detail:
             raise SystemExit(f"{BANKS_JSON} missing or invalid banks_detail")
         in_scope: set[str] = set()
+        seen: set[str] = set()
+        sum_docx = 0
+        sum_items = 0
+        sum_in_scope_items = 0
         for idx, entry in enumerate(detail):
             if not isinstance(entry, dict):
                 raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] not an object")
             bid = entry.get("id")
             if not isinstance(bid, str) or not bid.startswith("QB_"):
                 raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] invalid id: {bid!r}")
+            if bid in seen:
+                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] duplicate id: {bid!r}")
+            seen.add(bid)
             expected_docx = entry.get("expected_docx")
             if not isinstance(expected_docx, int) or expected_docx <= 0:
                 raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
@@ -170,8 +180,23 @@ def get_in_scope_banks() -> set[str]:
             in_scope_flag = entry.get("in_scope")
             if not isinstance(in_scope_flag, bool):
                 raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
+            sum_docx += expected_docx
+            sum_items += expected_items
             if in_scope_flag:
+                sum_in_scope_items += expected_items
                 in_scope.add(bid)
+        total_docx = banks.get("total_docx")
+        if isinstance(total_docx, int) and total_docx != sum_docx:
+            raise SystemExit(f"{BANKS_JSON} total_docx {total_docx} != sum expected_docx {sum_docx}")
+        banks_count = banks.get("banks")
+        if isinstance(banks_count, int) and banks_count != len(detail):
+            raise SystemExit(f"{BANKS_JSON} banks {banks_count} != len(banks_detail) {len(detail)}")
+        total_items = banks.get("total_items")
+        if isinstance(total_items, int) and total_items != sum_items:
+            raise SystemExit(f"{BANKS_JSON} total_items {total_items} != sum expected_items {sum_items}")
+        in_scope_items = banks.get("in_scope_items")
+        if isinstance(in_scope_items, int) and in_scope_items != sum_in_scope_items:
+            raise SystemExit(f"{BANKS_JSON} in_scope_items {in_scope_items} != sum in_scope expected_items {sum_in_scope_items}")
         return in_scope
     return {f"QB_{i}" for i in list(range(201, 211)) + list(range(401, 409)) + list(range(501, 504))}
 
@@ -184,6 +209,8 @@ def load_source_manifest_info() -> dict | None:
                 m = json.loads(p.read_text(encoding="utf-8"))
             except json.JSONDecodeError as e:
                 raise SystemExit(f"{p} invalid JSON: {e}") from e
+            if not isinstance(m, dict):
+                raise SystemExit(f"{p} invalid: expected object")
             return {
                 "manifest_path": str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p),
                 "manifest_sha256": sha256_file(p),

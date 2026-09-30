@@ -56,6 +56,37 @@ def _expected_real_docx() -> int:
             data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
         except json.JSONDecodeError as e:
             raise SystemExit(f"{BANKS_JSON} invalid JSON: {e}") from e
+        if not isinstance(data, dict):
+            raise SystemExit(f"{BANKS_JSON} invalid: expected object")
+        detail = data.get("banks_detail")
+        if isinstance(detail, list) and detail:
+            seen: set[str] = set()
+            sum_docx = 0
+            for idx, entry in enumerate(detail):
+                if not isinstance(entry, dict):
+                    raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] not an object")
+                bid = entry.get("id")
+                if not isinstance(bid, str) or not bid.startswith("QB_"):
+                    raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] invalid id: {bid!r}")
+                if bid in seen:
+                    raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] duplicate id: {bid!r}")
+                seen.add(bid)
+                expected_docx = entry.get("expected_docx")
+                if not isinstance(expected_docx, int) or expected_docx <= 0:
+                    raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
+                expected_items = entry.get("expected_items")
+                if not isinstance(expected_items, int) or expected_items <= 0:
+                    raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_items: {expected_items!r}")
+                in_scope_flag = entry.get("in_scope")
+                if not isinstance(in_scope_flag, bool):
+                    raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
+                sum_docx += expected_docx
+            v = data.get("total_docx")
+            if isinstance(v, int) and v != sum_docx:
+                raise SystemExit(f"{BANKS_JSON} total_docx {v} != sum expected_docx {sum_docx}")
+            if isinstance(v, int) and v > 0:
+                return v
+            raise SystemExit(f"{BANKS_JSON} missing or invalid total_docx")
         v = data.get("total_docx")
         if isinstance(v, int) and v > 0:
             return v

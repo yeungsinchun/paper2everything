@@ -49,17 +49,26 @@ def _load_banks_for_gate():
             data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
         except json.JSONDecodeError as e:
             raise SystemExit(f"{BANKS_JSON} invalid JSON: {e}") from e
+        if not isinstance(data, dict):
+            raise SystemExit(f"{BANKS_JSON} invalid: expected object")
         detail = data.get("banks_detail")
         if not isinstance(detail, list) or not detail:
             raise SystemExit(f"{BANKS_JSON} missing or invalid banks_detail")
         banks: dict[str, tuple[int, int]] = {}
         in_scope: set[str] = set()
+        seen: set[str] = set()
+        sum_docx = 0
+        sum_items = 0
+        sum_in_scope_items = 0
         for idx, b in enumerate(detail):
             if not isinstance(b, dict):
                 raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] not an object")
             bid = b.get("id")
             if not isinstance(bid, str) or not bid.startswith("QB_"):
                 raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] invalid id: {bid!r}")
+            if bid in seen:
+                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] duplicate id: {bid!r}")
+            seen.add(bid)
             expected_docx = b.get("expected_docx")
             if not isinstance(expected_docx, int) or expected_docx <= 0:
                 raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
@@ -69,6 +78,10 @@ def _load_banks_for_gate():
             in_scope_flag = b.get("in_scope")
             if not isinstance(in_scope_flag, bool):
                 raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
+            sum_docx += expected_docx
+            sum_items += items
+            if in_scope_flag:
+                sum_in_scope_items += items
             banks[bid] = (items, items)
             if in_scope_flag:
                 in_scope.add(bid)
@@ -76,9 +89,19 @@ def _load_banks_for_gate():
         total = data.get("total_items")
         if not isinstance(total, int) or total <= 0:
             raise SystemExit(f"{BANKS_JSON} missing or invalid total_items")
+        if total != sum_items:
+            raise SystemExit(f"{BANKS_JSON} total_items {total} != sum expected_items {sum_items}")
         in_scope_total = data.get("in_scope_items")
         if not isinstance(in_scope_total, int) or in_scope_total <= 0:
             raise SystemExit(f"{BANKS_JSON} missing or invalid in_scope_items")
+        if in_scope_total != sum_in_scope_items:
+            raise SystemExit(f"{BANKS_JSON} in_scope_items {in_scope_total} != sum in_scope expected_items {sum_in_scope_items}")
+        total_docx = data.get("total_docx")
+        if isinstance(total_docx, int) and total_docx != sum_docx:
+            raise SystemExit(f"{BANKS_JSON} total_docx {total_docx} != sum expected_docx {sum_docx}")
+        banks_count = data.get("banks")
+        if isinstance(banks_count, int) and banks_count != len(detail):
+            raise SystemExit(f"{BANKS_JSON} banks {banks_count} != len(banks_detail) {len(detail)}")
         if not in_scope:
             raise SystemExit(f"{BANKS_JSON} no in_scope banks")
         return total, in_scope_total, expected_in_scope, in_scope
