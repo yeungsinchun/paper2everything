@@ -1,1 +1,192 @@
 /* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+
+/* Center the visual stage box: constrain width and auto-center. */
+figure.fig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+figure.fig > .visual.stage,
+figure.fig > .pane-pair {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.visual.stage {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  display: block;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.pane-pair {
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Fix hud-label stacking: explicit absolute placement per label. */
+.stage {
+  position: relative;
+  overflow: hidden;
+}
+.stage .hud-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.92);
+  padding: 0.14rem 0.38rem;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.07);
+  font-size: 12px;
+  line-height: 1.2;
+  text-shadow: 0 0 4px #fff;
+  white-space: nowrap;
+}
+
+/* Fig 2.19 circular-vis: uniform circular motion, ω top, a → centre on left-inward side */
+#circular-vis [data-hud="w"] { left: 50%; top: 16%; font-size: 11px; color: #1b2129; font-weight: 600; }
+#circular-vis [data-hud="a"] { left: 30%; top: 46%; font-size: 11px; color: #c0392b; font-weight: 600; }
+
+/* Fig 2.20 bung-vis: T near circular path top, clip near hanging weight bottom-right */
+#bung-vis [data-hud="T"] { left: 44%; top: 18%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#bung-vis [data-hud="clip"] { left: 86%; top: 78%; font-size: 11px; color: #5d6673; }
+
+/* Fig 2.21 gvalue-vis: G on the parabola left, 137g on the drum right */
+#gvalue-vis [data-hud="G"] { left: 24%; top: 26%; font-size: 11px; color: #1b2129; font-weight: 600; }
+#gvalue-vis [data-hud="137"] { left: 78%; top: 18%; font-size: 11px; color: #18846e; font-weight: 600; }
+
+/* Fig 2.22 hole-vis: X circles top of ellipse, Y hangs bottom-right */
+#hole-vis [data-hud="X"] { left: 44%; top: 18%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#hole-vis [data-hud="Y"] { left: 86%; top: 78%; font-size: 11px; color: #5d6673; font-weight: 600; }
+
+/* Animated orbit dots — CSS fallback for the three.js travellers so motion reads even if canvas stalls. */
+.circular-dot,
+.bung-dot,
+.gvalue-dot,
+.hole-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: #c34832;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Circular orbit — Fig 2.19: centred circle radius ~22% of stage. */
+.circular-dot {
+  animation: circular-orbit 2.8s linear infinite;
+}
+@keyframes circular-orbit {
+  0%   { left: 72%; top: 50%; opacity: 1; }
+  12.5% { left: 66%; top: 32%; opacity: 1; }
+  25%  { left: 50%; top: 24%; opacity: 1; }
+  37.5% { left: 34%; top: 32%; opacity: 1; }
+  50%  { left: 28%; top: 50%; opacity: 1; }
+  62.5% { left: 34%; top: 68%; opacity: 1; }
+  75%  { left: 50%; top: 76%; opacity: 1; }
+  87.5% { left: 66%; top: 68%; opacity: 1; }
+  100% { left: 72%; top: 50%; opacity: 1; }
+}
+
+/* Bung ellipse — Fig 2.20: centre ~44% 42% (string hole), radii ~18% x ~15% */
+.bung-dot {
+  animation: bung-ellipse 2.6s linear infinite;
+}
+@keyframes bung-ellipse {
+  0%   { left: 62%; top: 42%; opacity: 1; }
+  25%  { left: 44%; top: 26%; opacity: 1; }
+  50%  { left: 26%; top: 42%; opacity: 1; }
+  75%  { left: 44%; top: 58%; opacity: 1; }
+  100% { left: 62%; top: 42%; opacity: 1; }
+}
+
+/* Gvalue drum — Fig 2.21: small circle on right, centre ~73% 50% radius ~10% */
+.gvalue-dot {
+  animation: gvalue-orbit 2.4s linear infinite;
+}
+@keyframes gvalue-orbit {
+  0%   { left: 83%; top: 50%; opacity: 1; }
+  25%  { left: 73%; top: 36%; opacity: 1; }
+  50%  { left: 63%; top: 50%; opacity: 1; }
+  75%  { left: 73%; top: 64%; opacity: 1; }
+  100% { left: 83%; top: 50%; opacity: 1; }
+}
+
+/* Hole ellipse — Fig 2.22: same geometry as bung (X orbits, Y hangs) */
+.hole-dot {
+  animation: hole-ellipse 2.6s linear infinite;
+}
+@keyframes hole-ellipse {
+  0%   { left: 62%; top: 44%; opacity: 1; }
+  25%  { left: 44%; top: 28%; opacity: 1; }
+  50%  { left: 26%; top: 44%; opacity: 1; }
+  75%  { left: 44%; top: 60%; opacity: 1; }
+  100% { left: 62%; top: 44%; opacity: 1; }
+}
+
+/* Label pulses — draw eye to the teaching point. */
+@keyframes circular-a-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.78; transform: translate(-50%, -50%) scale(1.07); }
+}
+#circular-vis [data-hud="a"] {
+  animation: circular-a-pulse 1.9s ease-in-out infinite;
+}
+@keyframes bung-t-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.84; transform: translate(-50%, -50%) scale(1.06); }
+}
+#bung-vis [data-hud="T"] {
+  animation: bung-t-pulse 2.0s ease-in-out infinite;
+}
+@keyframes gvalue-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.07); }
+}
+#gvalue-vis [data-hud="137"] {
+  animation: gvalue-pulse 2.1s ease-in-out infinite;
+}
+@keyframes hole-x-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.84; transform: translate(-50%, -50%) scale(1.06); }
+}
+#hole-vis [data-hud="X"] {
+  animation: hole-x-pulse 2.0s ease-in-out infinite;
+}
+
+/* Gentle entrance for canvases so figures feel alive on load */
+#circular-vis .scene-canvas,
+#bung-vis .scene-canvas,
+#gvalue-vis .scene-canvas,
+#hole-vis .scene-canvas {
+  animation: stage-in 0.45s ease-out both;
+}
+@keyframes stage-in {
+  from { opacity: 0.88; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #circular-vis [data-hud="a"],
+  #bung-vis [data-hud="T"],
+  #gvalue-vis [data-hud="137"],
+  #hole-vis [data-hud="X"],
+  .circular-dot,
+  .bung-dot,
+  .gvalue-dot,
+  .hole-dot,
+  #circular-vis .scene-canvas,
+  #bung-vis .scene-canvas,
+  #gvalue-vis .scene-canvas,
+  #hole-vis .scene-canvas {
+    animation: none !important;
+  }
+}
