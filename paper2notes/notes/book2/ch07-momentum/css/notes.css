@@ -1,1 +1,219 @@
 /* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+
+/* Center the visual stage box: constrain width and auto-center. */
+figure.fig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+figure.fig > .visual.stage,
+figure.fig > .pane-pair {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.visual.stage {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  display: block;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.pane-pair {
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Fix hud-label stacking: explicit absolute placement per label. */
+.stage {
+  position: relative;
+  overflow: hidden;
+}
+.stage .hud-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.92);
+  padding: 0.14rem 0.38rem;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.07);
+  font-size: 12px;
+  line-height: 1.2;
+  text-shadow: 0 0 4px #fff;
+  white-space: nowrap;
+}
+
+/* Fig 2.15 · Hose momentum — water jet 0.2 m/s hits wall */
+#hose-vis [data-hud="p"] { left: 30%; top: 34%; color: #1d4f91; font-weight: 600; }
+#hose-vis [data-hud="F"] { left: 71%; top: 34%; color: #c0392b; font-weight: 600; }
+
+/* Fig 2.16 · Collision — trolleys A (5.5 kg) & B (7 kg) head-on stick */
+#collision-vis [data-hud="before"] { left: 29%; top: 22%; font-weight: 700; color: #1d4f91; }
+#collision-vis [data-hud="after"] { left: 73%; top: 22%; font-weight: 700; color: #18846e; }
+
+/* Fig 2.17 · Safety — long Δt → small F (airbag/helmet) */
+#safety-vis [data-hud="long"] { left: 58%; top: 30%; color: #18846e; font-weight: 600; font-size: 11px; }
+
+/* Fig 2.18 · Throw up with air drag — up vs down drag arrows */
+#throw-vis [data-hud="up"] { left: 33%; top: 30%; color: #c0392b; font-size: 11px; font-weight: 600; }
+#throw-vis [data-hud="down"] { left: 68%; top: 52%; color: #1d4f91; font-size: 11px; font-weight: 600; }
+
+/* ── Hose animation: water droplets streaming from hose to wall ── */
+.hose-drop,
+.hose-drop-2,
+.hose-drop-3 {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #2a62a8;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 4;
+  animation: hose-drop-move 1.35s linear infinite;
+}
+.hose-drop-2 { animation-delay: 0.45s; opacity: 0.92; }
+.hose-drop-3 { animation-delay: 0.9s; opacity: 0.92; }
+
+@keyframes hose-drop-move {
+  0%   { left: 19%; top: 59.5%; opacity: 0; }
+  8%   { opacity: 1; }
+  82%  { opacity: 1; }
+  88%  { left: 67%; top: 59.5%; opacity: 1; }
+  92%  { opacity: 0; }
+  100% { left: 67%; top: 59.5%; opacity: 0; }
+}
+
+/* Hose hud subtle pulse to tie p=mv → F=Δp/Δt */
+@keyframes hose-hud-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.04); }
+}
+#hose-vis [data-hud="F"] {
+  animation: hose-hud-pulse 2.2s ease-in-out infinite;
+}
+
+/* ── Collision animation: trolleys approach, stick, drift slowly right ── */
+.trolley-a,
+.trolley-b {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.16);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 5;
+}
+.trolley-a { background: #c34832; animation: trolley-a-move 3.2s ease-in-out infinite; }
+.trolley-b { background: #18846e; animation: trolley-b-move 3.2s ease-in-out infinite; }
+
+@keyframes trolley-a-move {
+  0%   { left: 18%; top: 71%; }
+  28%  { left: 47%; top: 71%; }
+  34%  { left: 48.5%; top: 71%; }
+  70%  { left: 54%; top: 71%; }
+  78%  { left: 54%; top: 71%; opacity: 1; }
+  85%  { opacity: 0; }
+  86%  { left: 18%; top: 71%; opacity: 0; }
+  100% { left: 18%; top: 71%; opacity: 1; }
+}
+@keyframes trolley-b-move {
+  0%   { left: 82%; top: 71%; }
+  28%  { left: 52.5%; top: 71%; }
+  34%  { left: 51%; top: 71%; }
+  70%  { left: 56.5%; top: 71%; }
+  78%  { left: 56.5%; top: 71%; opacity: 1; }
+  85%  { opacity: 0; }
+  86%  { left: 82%; top: 71%; opacity: 0; }
+  100% { left: 82%; top: 71%; opacity: 1; }
+}
+
+/* Collision hud highlight when stuck */
+@keyframes collision-hud-flash {
+  0%, 28% { opacity: 0.45; }
+  34%, 70% { opacity: 1; }
+  78%, 100% { opacity: 0.45; }
+}
+#collision-vis [data-hud="after"] {
+  animation: collision-hud-flash 3.2s ease-in-out infinite;
+}
+
+/* ── Safety animation: broad vs sharp impulse — gentle emphasis ── */
+@keyframes safety-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.86; transform: translate(-50%, -50%) scale(1.06); }
+}
+#safety-vis [data-hud="long"] {
+  animation: safety-pulse 2.6s ease-in-out infinite;
+}
+
+/* ── Throw animation: two balls arcing, clean higher than drag ── */
+.throw-ball,
+.throw-ball-drag {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.14);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 5;
+}
+.throw-ball { background: #c34832; animation: throw-clean 2.8s ease-in-out infinite; }
+.throw-ball-drag { background: #2f7a4a; animation: throw-drag 2.8s ease-in-out infinite; }
+
+@keyframes throw-clean {
+  0%   { left: 12%; top: 71%; opacity: 1; }
+  22%  { left: 27%; top: 42%; }
+  44%  { left: 46%; top: 24%; }
+  68%  { left: 66%; top: 38%; }
+  88%  { left: 84%; top: 70%; opacity: 1; }
+  92%  { opacity: 0; }
+  93%  { left: 12%; top: 71%; opacity: 0; }
+  100% { left: 12%; top: 71%; opacity: 1; }
+}
+@keyframes throw-drag {
+  0%   { left: 12%; top: 71%; opacity: 1; }
+  22%  { left: 27%; top: 46%; }
+  44%  { left: 46%; top: 31%; }
+  68%  { left: 66%; top: 46%; }
+  88%  { left: 84%; top: 73%; opacity: 0.92; }
+  92%  { opacity: 0; }
+  93%  { left: 12%; top: 71%; opacity: 0; }
+  100% { left: 12%; top: 71%; opacity: 1; }
+}
+.throw-ball-drag { animation-delay: 0.08s; }
+
+/* Subtle stage entrance */
+#hose-vis .scene-canvas,
+#collision-vis .scene-canvas,
+#safety-vis .scene-canvas,
+#throw-vis .scene-canvas {
+  animation: ch07-stage-in 0.42s ease-out both;
+}
+@keyframes ch07-stage-in {
+  from { opacity: 0.9; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hose-drop, .hose-drop-2, .hose-drop-3,
+  #hose-vis [data-hud="F"],
+  .trolley-a, .trolley-b,
+  #collision-vis [data-hud="after"],
+  #safety-vis [data-hud="long"],
+  .throw-ball, .throw-ball-drag,
+  #hose-vis .scene-canvas, #collision-vis .scene-canvas,
+  #safety-vis .scene-canvas, #throw-vis .scene-canvas {
+    animation: none !important;
+  }
+}
