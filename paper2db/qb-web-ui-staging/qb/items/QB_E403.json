@@ -1,0 +1,5163 @@
+{
+  "bank": "QB_E403",
+  "generated_at": "2026-09-29T19:14:08Z",
+  "tool_versions": {
+    "pymupdf": "1.28.2",
+    "tesseract": "tesseract 5.5.3",
+    "soffice": "LibreOffice 26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77"
+  },
+  "count": 60,
+  "items": [
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033101",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 1,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tSimon’s arm is accidentally hurt. In order to check for fractures, the doctor requires him to take an X-ray image.\n\t(a)\t(i)\tExplain how an X-ray image is produced.\t(3 marks)\n\t\t(ii)\tExplain why arm bones can show up clearly in an X-ray image.\t(2 marks)\n\t(b)\tCT scan can also be used to check for bone fractures. Suggest one advantage and one disadvantage of using CT scan over X-ray imaging in this case.\t(2 marks)\n\t(c)\tThe figure below shows how the intensity I of an X-ray beam varies along the distance x travelled in bone.\n[fig:1]x / cm\nI\nI0\n0\n0.5\n1\n1.5\n2\n2.5\n[fig:2]x / cm\nI\nI0\n0\n0.5\n1\n1.5\n2\n2.5\n\n\t\tEstimate the linear attenuation coefficient of bone according to this graph.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Explain how an X-ray image is produced.",
+          "marks": 3
+        },
+        {
+          "label": "a(ii)",
+          "text": "Explain why arm bones can show up clearly in an X-ray image.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "CT scan can also be used to check for bone fractures. Suggest one advantage and one disadvantage of using CT scan over X-ray imaging in this case.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "The figure below shows how the intensity I of an X-ray beam varies along the distance x travelled in bone.\n[fig:1]x / cm\nI\nI0\n0\n0.5\n1\n1.5\n2\n2.5\n[fig:2]x / cm\nI\nI0\n0\n0.5\n1\n1.5\n2\n2.5\n\n\t\tEstimate the linear attenuation coefficient of bone according to this graph.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tX-rays emitted from an X-ray tube pass through the patient’s body.\n1A\n\t\tThe intensity of X-rays reaching the detector is recorded and an image is then generated.\n\n1A\n\t\tThe shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.\n\n1A\n\t(ii)\tArm bones are thick and have a high linear attenuation coefficient.\n1A\n\t\tTherefore, X-rays passing through arm bones have a very high attenuation and produce a white region on the image.\n\n1A\n(b)\tAdvantage: Structures that are overlapped in an X-ray image are clearly separated in a CT image.\n\n1A\n\tDisadvantage: A patient who receives a CT scan is exposed to more ionizing radiation.\n\n1A\n\t(Or other reasonable answers)\n\n(c)\tFrom the graph,\n\n\t[eq:1]= 1.4 cm\n1M\n\tμ =[eq:2]\t=[eq:3]\n1M\n\t\t= 0.495 cm-1\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "X-rays emitted from an X-ray tube pass through the patient’s body.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "The intensity of X-rays reaching the detector is recorded and an image is then generated.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "The shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "Arm bones are thick and have a high linear attenuation coefficient.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "Therefore, X-rays passing through arm bones have a very high attenuation and produce a white region on the image.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Advantage: Structures that are overlapped in an X-ray image are clearly separated in a CT image.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Disadvantage: A patient who receives a CT scan is exposed to more ionizing radiation.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "[eq:1]= 1.4 cm",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "μ =[eq:2]\t=[eq:3]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 0.495 cm-1",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033101.png"
+        ],
+        "answer": [
+          "crops/PHY19033101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4929962158203,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033102",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 2,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThe image below is produced by radionuclide imaging.\n[fig:3]kidney\n[fig:4]kidney\n\n\t(a)\tExplain how this image is produced.\t(3 marks)\n\t(b)\tOnly one kidney is shown in the image and the other one is missing. Suggest and explain a possible cause.\t(2 marks)\n\t(c)\tThe tracer used to produce the image is a radioactive substance which emits γ radiation. It has a physical half-life of 6 hours and a biological half-life of 24 hours.\n\t\t(i)\tState the meaning of biological half-life of a substance.\t(1 mark)\n\t\t(ii)\tFind the effective half-life of the tracer.\t(2 marks)\n\t\t(iii)\tGive two reasons to explain why a tracer which emits γ radiation should be used.\n\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Explain how this image is produced.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Only one kidney is shown in the image and the other one is missing. Suggest and explain a possible cause.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "The tracer used to produce the image is a radioactive substance which emits γ radiation. It has a physical half-life of 6 hours and a biological half-life of 24 hours.\n\t\t(i)\tState the meaning of biological half-life of a substance.",
+          "marks": 1
+        },
+        {
+          "label": "c(ii)",
+          "text": "Find the effective half-life of the tracer.",
+          "marks": 2
+        },
+        {
+          "label": "c(iii)",
+          "text": "Give two reasons to explain why a tracer which emits γ radiation should be used.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tRadionuclide tracers are injected into the patient’s body and accumulate in the target organ.\n1A\n\tThe gamma camera detects the nuclear radiation emitted from the tracers. The data is then processed by a computer to produce the image.\n1A\n\tIt is a map of the distribution of the radionuclides in the patient’s body.\n1A\n(b)\tThe kidney missing in the image does not function normally.\n1A\n\tIt takes up no tracer and does not show up in the image.\n1A\n(c)\t(i)\tThe biological half-life of a substance is the time taken for half of the substance to be removed from the body by biological processes.\n\n1A\n\t(ii)\tBy [eq:4]=[eq:5]+[eq:6],\n\n\t\tte =[eq:7]\t=[eq:8]\n1M\n\t\t\t= 4.8 hours\n1A\n\t(iii)\tγ radiation has a high penetrating power so that γ radiation emerging from inside the patient can easily be detected externally.\n\n1A\n\t\tγ radiation has the weakest ionizing power so that it causes the least amount of cellular damage inside the patient’s body.\n\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Radionuclide tracers are injected into the patient’s body and accumulate in the target organ.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The gamma camera detects the nuclear radiation emitted from the tracers. The data is then processed by a computer to produce the image.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "It is a map of the distribution of the radionuclides in the patient’s body.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The kidney missing in the image does not function normally.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "It takes up no tracer and does not show up in the image.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "The biological half-life of a substance is the time taken for half of the substance to be removed from the body by biological processes.",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "te =[eq:7]\t=[eq:8]",
+            "code": "1M"
+          },
+          {
+            "part": "c(ii)",
+            "point": "= 4.8 hours",
+            "code": "1A"
+          },
+          {
+            "part": "c(iii)",
+            "point": "γ radiation has a high penetrating power so that γ radiation emerging from inside the patient can easily be detected externally.",
+            "code": "1A"
+          },
+          {
+            "part": "c(iii)",
+            "point": "γ radiation has the weakest ionizing power so that it causes the least amount of cellular damage inside the patient’s body.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033102.png"
+        ],
+        "answer": [
+          "crops/PHY19033102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            175.69979858398438,
+            156.4929962158203,
+            187.87680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033103",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 3,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 9,
+      "stem": {
+        "text": "→\tA beam of X-ray with initial intensity I0 passes through a forearm as shown in the figure below. It is given that the linear attenuation coefficients of muscle and bone are 0.84 cm–1 and 4.0 cm–1 respectively.\n[eq:9]\n\t(a)\t(i)\tExplain what half-value thickness is.\t(1 mark)\n\t\t(ii)\tFind the half-value thickness of bone.\t(2 marks)\n\t(b)\tThe intensity of the beam becomes I1 after passing through the first layer of muscle and I2 after passing through the bone. Find [eq:10].\t(2 marks)\n\t(c)\tExplain the working principle of X-ray radiographic imaging and how it can be used to identify a bone fracture.\t(4 marks)",
+        "ocr": "PHY19033103>\n\n<lvl=avg><part=core><type=lq><mark=9><bk=E4><ch=03><content>\n\n* A beam of X-ray with initial intensity Ip passes through a forearm as shown in the figure below.\nIt is given that the linear attenuation coefficients of muscle and bone are 0.84 cm\" and 4.0 cm\n\nrespectively.\nmuscle | bone | muscle\nlo h Ip\nX-ray — — —\n3cm 2cm 3cm\n(a) (i) Explain what half-value thickness is. (1 mark)\n(ii) Find the half-value thickness of bone. (2 marks)\n(b) The intensity of the beam becomes J, after passing through the first layer of muscle and I,\nI,\nafter passing through the bone. Find I . (2 marks)\n(c) Explain the working principle of X-ray radiographic imaging and how it can be used to\nidentify a bone fracture. (4 marks)",
+        "equations": 2,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Explain what half-value thickness is.",
+          "marks": 1
+        },
+        {
+          "label": "a(ii)",
+          "text": "Find the half-value thickness of bone.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The intensity of the beam becomes I1 after passing through the first layer of muscle and I2 after passing through the bone. Find [eq:10].",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Explain the working principle of X-ray radiographic imaging and how it can be used to identify a bone fracture.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tThe half-value thickness is the thickness of a material that is needed to reduce the intensity of X-ray to half of its original value.\n1A\n\t(ii)\t[eq:11] =[eq:12]\t=[eq:13]\n1M\n\t\t\t= 0.173 cm\n1A\n(b)\tBy I2 = [eq:14],\n\n\t[eq:15]= [eq:16]\t= [eq:17]\n1M\n\t\t= 2.70 × 10–5\n1A\n(c)\tDuring X-ray radiographic imaging, X-rays emitted from an X-ray tube pass through the patient’s body.\n1A\n\tThe intensity of X-rays reaching the detector is recorded and an image is then generated.\n1A\n\tThe shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.\n1A\n\tX-rays passing through bones have a very high attenuation. Therefore, bones have a high contrast with the surroundings.\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "The half-value thickness is the thickness of a material that is needed to reduce the intensity of X-ray to half of its original value.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "[eq:11] =[eq:12]\t=[eq:13]",
+            "code": "1M"
+          },
+          {
+            "part": "a(ii)",
+            "point": "= 0.173 cm",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "[eq:15]= [eq:16]\t= [eq:17]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 2.70 × 10–5",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "During X-ray radiographic imaging, X-rays emitted from an X-ray tube pass through the patient’s body.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The intensity of X-rays reaching the detector is recorded and an image is then generated.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "X-rays passing through bones have a very high attenuation. Therefore, bones have a high contrast with the surroundings.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033103.png"
+        ],
+        "answer": [
+          "crops/PHY19033103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            233.39974975585938,
+            156.4929962158203,
+            245.57675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033104",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 4,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThe following table shows the linear attenuation coefficient for X-rays of some tissues in human body.\nTissue\nLinear attenuation coefficient / cm–1\nBone\n4.0\nMuscle\n0.84\nFat\n0.57\n\t(a)\t(i)\tFind the percentage decrease in intensity if a beam of X-ray travels in a bone, a muscle and a layer of fat for a distance of 1.0 cm respectively.\t(4 marks)\n\t\t(ii)\tSuggest why X-ray radiographic imaging is suitable for identifying a broken bone.\n\t(2 marks)\n\t(b)\tIf two body structures have similar linear attenuation coefficients, they can be distinguished by using an artificial contrast medium.\n\t\t(i)\tExplain the working principle of an artificial constrast medium.\t(2 marks)\n\t\t(ii)\tState two properties that an artificial constrast medium must fufil.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Find the percentage decrease in intensity if a beam of X-ray travels in a bone, a muscle and a layer of fat for a distance of 1.0 cm respectively.",
+          "marks": 4
+        },
+        {
+          "label": "a(ii)",
+          "text": "Suggest why X-ray radiographic imaging is suitable for identifying a broken bone.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "If two body structures have similar linear attenuation coefficients, they can be distinguished by using an artificial contrast medium.\n\t\t(i)\tExplain the working principle of an artificial constrast medium.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "State two properties that an artificial constrast medium must fufil.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tApply I = I0e–μx.\n\n\t\tPercentage decrease for bone = (1 - [eq:18]) × 100%\t= (1 - e–μx) × 100%\n\n\t\t\t= (1 – e–4.0 × 1.0) × 100%\n1M\n\t\t\t= 98.2%\n1A\n\t\tPercentage decrease for muscle = (1 – e–0.84 × 1.0) × 100% = 56.8%\n1A\n\t\tPercentage decrease for fat = (1 – e–0.57 × 1.0) × 100% = 43.4%\n1A\n\t(ii)\tX-rays passing through bones have a very high attenuation\n1A\n\t\tTherefore, bones have a high contrast with the surroundings.\n1A\n(b)\t(i)\tThe artificial contrast medium fills an organ and increases the attenuation of X-rays in passing through the organ significantly.\n1A\n\t\tTherefore, the organ appears lighter than normal in the image and becomes easier to be distinguished from the surrounding tissues.\n1A\n\t(ii)\tIt should have a high linear attenuation coefficient.\n1A\n\t\tIt should be non-toxic.\n1A\n\t\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "= (1 – e–4.0 × 1.0) × 100%",
+            "code": "1M"
+          },
+          {
+            "part": "a(i)",
+            "point": "= 98.2%",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "Percentage decrease for muscle = (1 – e–0.84 × 1.0) × 100% = 56.8%",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "Percentage decrease for fat = (1 – e–0.57 × 1.0) × 100% = 43.4%",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "X-rays passing through bones have a very high attenuation",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "Therefore, bones have a high contrast with the surroundings.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "The artificial contrast medium fills an organ and increases the attenuation of X-rays in passing through the organ significantly.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Therefore, the organ appears lighter than normal in the image and becomes easier to be distinguished from the surrounding tissues.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "It should have a high linear attenuation coefficient.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "It should be non-toxic.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033104.png"
+        ],
+        "answer": [
+          "crops/PHY19033104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            218.04977416992188,
+            156.4929962158203,
+            230.22677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033105",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 5,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThe following figure shows a patient undergoing a CT scan.\n[fig:5]\n\t(a)\t(i)\tWhich type of electronmagnetic wave is used in a CT scan?\t(1 mark)\n\t\t(ii)\tDescribe how this type of electromagnetic wave is produced in a CT scanner.\n\t(1 mark)\n\t(b)\tState the two main components in the ring-shaped part of the scanner and describe the actions they perform during a scan.\t(4 marks)\n\t(c)\t(i)\tExplain why X-ray radiographic imaging is often performed as a first-line imaging before performing a CT scan.\t(2 marks)\n\t\t(ii)\tExplain why the patient should wear clothings that do not contain metal parts during X-ray radiographic imaging.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Which type of electronmagnetic wave is used in a CT scan?",
+          "marks": 1
+        },
+        {
+          "label": "a(ii)",
+          "text": "Describe how this type of electromagnetic wave is produced in a CT scanner.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "State the two main components in the ring-shaped part of the scanner and describe the actions they perform during a scan.",
+          "marks": 4
+        },
+        {
+          "label": "c(i)",
+          "text": "Explain why X-ray radiographic imaging is often performed as a first-line imaging before performing a CT scan.",
+          "marks": 2
+        },
+        {
+          "label": "c(ii)",
+          "text": "Explain why the patient should wear clothings that do not contain metal parts during X-ray radiographic imaging.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tX-rays\n1A\n\t(ii)\tIt is produced by hitting a heavy metal target with fast electrons.\n1A\n(b)\tIt contains an X-ray tube\n1A\n\tand a row of X-ray detectors.\n1A\n\tThe X-ray tube emits a fan beam of X-rays that passes through the patient’s body to reach the detectors.\n1A\n\tBoth of them rotate around the patient.\n1A\n(c)\t(i)\tCT scan has a higher cost / is less widely available / takes a longer imaging time / causes the patient to be exposed to more ionizing radiation.\n1A\n\t\tIt is preferred to avoid a CT scan in cases that X-ray images can provide enough information for diagnosis.\n1A\n\t(ii)\tMetal parts generally have high attenuation of X-rays and appear white in an X-ray image.\n1A\n\t\tTherefore, body structures that overlap with the metal parts may not be seen in the image.\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "X-rays",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "It is produced by hitting a heavy metal target with fast electrons.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "It contains an X-ray tube",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "and a row of X-ray detectors.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The X-ray tube emits a fan beam of X-rays that passes through the patient’s body to reach the detectors.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Both of them rotate around the patient.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "CT scan has a higher cost / is less widely available / takes a longer imaging time / causes the patient to be exposed to more ionizing radiation.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "It is preferred to avoid a CT scan in cases that X-ray images can provide enough information for diagnosis.",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Metal parts generally have high attenuation of X-rays and appear white in an X-ray image.",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Therefore, body structures that overlap with the metal parts may not be seen in the image.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033105.png"
+        ],
+        "answer": [
+          "crops/PHY19033105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            100.44979095458984,
+            156.4929962158203,
+            112.62679290771484
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033106",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 6,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tSometimes a patient wears a lead apron when taking an X-ray image.\n[fig:6]\n\t(a)\t(i)\tShould a patient wear a lead apron when taking an X-ray image of the teeth? Explain briefly.\t(2 marks)\n\t\t(ii)\tShould a patient wear a lead apron when taking an X-ray image of the chest? Explain briefly.\t(2 marks)\n\t(b)\tThe half-value thickness of lead for the X-rays used in imaging is 0.105 mm.\n\t\t(i)\tFind the linear attenuation coefficient of lead.\t(2 marks)\n\t\t(ii)\tFind the percentage decrease in the intensity of X-ray transmitted through an apron with lead of 0.5 mm thick.\t(2 marks)\n\t(c)\tState two health risks for receiving a high radiation dose.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Should a patient wear a lead apron when taking an X-ray image of the teeth? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "a(ii)",
+          "text": "Should a patient wear a lead apron when taking an X-ray image of the chest? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The half-value thickness of lead for the X-rays used in imaging is 0.105 mm.\n\t\t(i)\tFind the linear attenuation coefficient of lead.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "Find the percentage decrease in the intensity of X-ray transmitted through an apron with lead of 0.5 mm thick.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "State two health risks for receiving a high radiation dose.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tYes.\n1A\n\t\tWearing a lead apron can avoid the other body parts from unnecessary exposure to X-rays.\n1A\n\t(ii)\tNo.\n1A\n\t\tIn this cases, X-rays should be allowed to pass through the body parts being imaged.\n1A\n(b)\t(i)\tμ =[eq:19]\t=[eq:20]\n1M\n\t\t\t= 6.60 mm-1\n1A\n\t(ii)\tBy I = I0e-μx,\n\n\t\tpercentage decrease = (1 - [eq:21]) × 100%\t= (1 - e–μx) × 100%\n\n\t\t\t= (1 - e–6.60 × 0.5) × 100%\n1M\n\t\t\t= 96.3%\n1A\n(c)\tAny two of the following:\n2 × 1A\n\tSkin damage\n\n\tLead to cataract\n\n\tLead to cancer\n\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "Yes.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "Wearing a lead apron can avoid the other body parts from unnecessary exposure to X-rays.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "No.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "In this cases, X-rays should be allowed to pass through the body parts being imaged.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "μ =[eq:19]\t=[eq:20]",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "= 6.60 mm-1",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "= (1 - e–6.60 × 0.5) × 100%",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "= 96.3%",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Any two of the following: 2 ×",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033106.png"
+        ],
+        "answer": [
+          "crops/PHY19033106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            5,
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            689.6497802734375,
+            156.4929962158203,
+            701.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033107",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 7,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThe table below shows the linear attenuation coefficient μ for X-rays of different tissues in human body.\nTissue\nBone\nLiver\nThyroid\nMuscle\nKidney\nSkin\nFat\nμ / cm–1\n4.0\n0.85\n0.84\n0.84\n0.83\n0.81\n0.57\n\t(a)\tSuppose an X-ray beam of initial intensity I0 enters a bone of thickness 3 cm. Find the intensity of the beam after passing through the bone. Express your answer in terms of I0.\n\t(2 marks)\n\t(b)\tIf an X-ray beam of initial intensity I0 enters a layer of muscle of thickness 3 cm, what is the intensity of the beam after passing through the muscle? Hence explain why X-ray radiographic imaging is a good imaging method for detecting bone fractures.\t(4 marks)\n\t(c)\tFrom the data given in the table, suggest one limitation of X-ray radiographic imaging.\n\t(2 marks)\n\t(d)\tSuggest and explain a solution to the limitation in (c).\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Suppose an X-ray beam of initial intensity I0 enters a bone of thickness 3 cm. Find the intensity of the beam after passing through the bone. Express your answer in terms of I0.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "If an X-ray beam of initial intensity I0 enters a layer of muscle of thickness 3 cm, what is the intensity of the beam after passing through the muscle? Hence explain why X-ray radiographic imaging is a good imaging method for detecting bone fractures.",
+          "marks": 4
+        },
+        {
+          "label": "c",
+          "text": "From the data given in the table, suggest one limitation of X-ray radiographic imaging.",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "Suggest and explain a solution to the limitation in (c).",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tI = I0e-μx\t= I0e-4.0 × 3\n1M\n\t\t= (6.14 × 10–6) I0\n1A\n(b)\tI = I0e-μx\t= I0e-0.84 × 3\n\n\t\t= 0.0805 I0\n1A\n\tX-rays passing through bones have much higher attenuation than passing through muscles.\n1A\n\tTherefore, bones appear to be much lighter than muscles in an X-ray image.\n1A\n\tThe high contrast between a bone and its surrounding muscles makes it easy to determine if there is a bone fracture.\n1A\n(c)\tThe linear attenuation coefficients of different soft tissues are about the same\n1A\n\tand so they are very hard to be distinguish in an X-ray image.\n1A\n(d)\tUse an artificial contrast medium.\n1A\n\tIt fills an organ and increases the attenuation of X-rays in passing through the organ significantly.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "I = I0e-μx\t= I0e-4.0 × 3",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= (6.14 × 10–6) I0",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "= 0.0805 I0",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "X-rays passing through bones have much higher attenuation than passing through muscles.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Therefore, bones appear to be much lighter than muscles in an X-ray image.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The high contrast between a bone and its surrounding muscles makes it easy to determine if there is a bone fracture.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The linear attenuation coefficients of different soft tissues are about the same",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "and so they are very hard to be distinguish in an X-ray image.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Use an artificial contrast medium.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "It fills an organ and increases the attenuation of X-rays in passing through the organ significantly.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033107.png"
+        ],
+        "answer": [
+          "crops/PHY19033107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            6,
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            714.4497680664062,
+            156.4929962158203,
+            726.6267700195312
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033108",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 8,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\t(a)\tBriefly describe what X-ray is and how it can be produced.\t(2 marks)\n\t(b)\tBriefly describe and explain the process of X-ray radiographic imaging.\t(3 marks)\n\t(c)\tState a structure in the body with very high attenuation of X-rays. How does it look like in an X-ray image?\t(2 marks)\n\t(d)\t‘The working principle of ultrasound B-scan is very similar to that of X-ray radiographic imaging as both of them make use of the fact that attenuation of waves in different body structures are different.’ Comment on this statement.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Briefly describe what X-ray is and how it can be produced.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Briefly describe and explain the process of X-ray radiographic imaging.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "State a structure in the body with very high attenuation of X-rays. How does it look like in an X-ray image?",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "‘The working principle of ultrasound B-scan is very similar to that of X-ray radiographic imaging as both of them make use of the fact that attenuation of waves in different body structures are different.’ Comment on this statement.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tX-ray is a kind of electromagnetic waves with short wavelengths (about 10 nm to 0.01 m).\n1A\n\tIt can be produced by hitting a heavy metal target with fast electrons.\n1A\n\t(Or other reasonable answers)\n\n(b)\tX-rays emitted from an X-ray tube pass through the patient’s body.\n1A\n\tThe intensity of X-rays reaching the detector is recorded and an image is then generated.\n1A\n\tThe shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.\n1A\n(c)\tBone\n1A\n\tIt appears to be white in an X-ray image.\n1A\n(d)\tThe statement is incorrect.\n1A\n\tUltrasound B-scan does not make use of the attenuation of ultrasound in different body structures.\n1A\n\tIt makes use of the reflection of ultrasound from different interfaces between body structures.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "X-ray is a kind of electromagnetic waves with short wavelengths (about 10 nm to 0.01 m).",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "It can be produced by hitting a heavy metal target with fast electrons.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "X-rays emitted from an X-ray tube pass through the patient’s body.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The intensity of X-rays reaching the detector is recorded and an image is then generated.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Bone",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "It appears to be white in an X-ray image.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The statement is incorrect.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Ultrasound B-scan does not make use of the attenuation of ultrasound in different body structures.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "It makes use of the reflection of ultrasound from different interfaces between body structures.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033108.png"
+        ],
+        "answer": [
+          "crops/PHY19033108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            533.999755859375,
+            156.4929962158203,
+            546.1767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033109",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 9,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 9,
+      "stem": {
+        "text": "→\tThe following shows an X-ray image and a CT coronal reformatted image of a person’s chest.\n\t\t[fig:7]\t[fig:8]\n\t\tX-ray image\tCT coronal reformatted image\n\t(a)\tDescribe and explain how the X-ray image is produced.\t(3 marks)\n\t(b)\tDescribe how the CT coronal reformatted image is produced.\t(5 marks)\n\t(c)\tState an advantage of CT scanning over the X-ray radiographic imaging.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Describe and explain how the X-ray image is produced.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Describe how the CT coronal reformatted image is produced.",
+          "marks": 5
+        },
+        {
+          "label": "c",
+          "text": "State an advantage of CT scanning over the X-ray radiographic imaging.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tX-rays emitted from an X-ray tube pass through the patient’s chest.\n1A\n\tThe intensity of X-rays reaching the detector is recorded and an image is then generated.\n1A\n\tThe shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.\n1A\n(b)\tThe X-ray tube and X-ray detector rotate round a slice of the patient’s body to obtain multiple attenuation profiles.\n1A\n\tThe profiles are used to produce a map of attenuation coefficients of different body tissues by back projection algorithm.\n1A\n\tAs the patient is slowly moved through the CT scanner, attenuation coefficient maps of the tissues at different levels along the body are obtained.\n1A\n\tBy stacking these maps, the attenuation coefficient map of a 3-D block is obtained.\n1A\n\tThe CT coronal reformatted image is produced by digitally cutting through the 3-D attenuation coefficient map and looking at the cross-section from a certain direction.\n1A\n(c)\tStructures that are overlapped in an X-ray image are clearly separated in a CT image.\n1A\n\t(Or other reasonable answer)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "X-rays emitted from an X-ray tube pass through the patient’s chest.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The intensity of X-rays reaching the detector is recorded and an image is then generated.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The X-ray tube and X-ray detector rotate round a slice of the patient’s body to obtain multiple attenuation profiles.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The profiles are used to produce a map of attenuation coefficients of different body tissues by back projection algorithm.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "As the patient is slowly moved through the CT scanner, attenuation coefficient maps of the tissues at different levels along the body are obtained.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "By stacking these maps, the attenuation coefficient map of a 3-D block is obtained.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The CT coronal reformatted image is produced by digitally cutting through the 3-D attenuation coefficient map and looking at the cross-section from a certain direction.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Structures that are overlapped in an X-ray image are clearly separated in a CT image.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033109.png"
+        ],
+        "answer": [
+          "crops/PHY19033109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            307.0997619628906,
+            156.4929962158203,
+            319.2767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033110",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 10,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\t(a)\tDescribe how radionuclide imaging is performed.\t(3 marks)\n\t(b)\tDefine the physical half-life of a radionuclide.\t(1 mark)\n\t(c)\tHow should the physical half-life of the radionuclide used in medical imaging be?\n\t(1 mark)\n\t(d)\tThe physical half-life of technetium-99m is 6 hours and the biological half-life is 1 day. If a dose of the radionuclide is injected into a patient’s body, how long does it take for the activity of the radionuclide inside the body to be reduced by 90%?\t(4 marks)\n\t(e)\tState one criterion for choosing radionuclide used in medical imaging other than the physical half-life.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Describe how radionuclide imaging is performed.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Define the physical half-life of a radionuclide.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "How should the physical half-life of the radionuclide used in medical imaging be?",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "The physical half-life of technetium-99m is 6 hours and the biological half-life is 1 day. If a dose of the radionuclide is injected into a patient’s body, how long does it take for the activity of the radionuclide inside the body to be reduced by 90%?",
+          "marks": 4
+        },
+        {
+          "label": "e",
+          "text": "State one criterion for choosing radionuclide used in medical imaging other than the physical half-life.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tRadionuclide tracers are injected into the patient’s body and accumulate in the target organ.\n1A\n\tThe gamma camera detects the nuclear radiation emitted from the tracers.\n1A\n\tThe data is then processed by a computer to produce a radionuclide image.\n1A\n(b)\tThe physical half-life of a radionuclide is the time taken for half of the nuclei in a sample to decay.\n1A\n(c)\tThe physical half-life should be long enough to maintain a high activity for imaging, but short enough to reduce total radiation exposure.\n1A\n(d)\tBy [eq:22]=[eq:23],\n\n\tte =[eq:24]\t= [eq:25]\n1M\n\t\t= 4.8 hours\n\n\tk =[eq:26]\t= [eq:27]\n1M\n\t\t= 0.1444 h–1\n\n\tBy A = A0e-kt,\n\n\tt =[eq:28]\t= [eq:29]\n1M\n\t\t= 15.9 hours\n1A\n(e)\tAny one of the following:\n1A\n\tIt should emit γ radiation only.\n\n\tThe γ radiation emitted should be of suitable energy.\n\n\tIt should be non-toxic.\n\n\tIt should have no pharmacological effect on the patient.\n\n\tIt can be combined with a wide range of substances to form tracers for imaging different organs.\n\n\tIt should decay to a stable nuclide.\n\n\tIt should be readily available and inexpensive.",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Radionuclide tracers are injected into the patient’s body and accumulate in the target organ.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The gamma camera detects the nuclear radiation emitted from the tracers.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The data is then processed by a computer to produce a radionuclide image.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The physical half-life of a radionuclide is the time taken for half of the nuclei in a sample to decay.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The physical half-life should be long enough to maintain a high activity for imaging, but short enough to reduce total radiation exposure.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "te =[eq:24]\t= [eq:25]",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "k =[eq:26]\t= [eq:27]",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "t =[eq:28]\t= [eq:29]",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "= 15.9 hours",
+            "code": "1A"
+          },
+          {
+            "part": "e",
+            "point": "Any one of the following:",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033110.png"
+        ],
+        "answer": [
+          "crops/PHY19033110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            250.49978637695312,
+            156.04299926757812,
+            262.6767883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033111",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 11,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\t(a)\tIodine-131 is often used to identify bleeding sites in radionuclide imaging. It has a physical half-life of 8 days and a biological half-life of 80 days.\n\t\t(i)\tExplain what physical half-life and biological half-life of a radionuclide are.\n\t(2 marks)\n\t\t(ii)\tFind the effective half-life of iodine-131 in this case.\t(2 marks)\n\t\t(iii)\tA dose of iodine-131 is injected into a patient’s body. Find the time taken for the activity in the body to decrease to 1% of its original value.\t(3 marks)\n\t(b)\tIodine-131 is also used in treatment of thyroid cancer. When it is used for this purpose, it has a biologial half-life of about 11 days. Explain why the same radionuclide can have two different biological half-lives when used for two different purposes.\t(1 mark)",
+        "ocr": "PHY19033111>\n\n<lvl=avg><part=core><type=lq><mark=8><bk=E4><ch=03><content>\n\n* = (a) Iodine-131 is often used to identify bleeding sites in radionuclide imaging. It has a\nphysical half-life of 8 days and a biological half-life of 80 days.\n\n(i) Explain what physical half-life and biological half-life of a radionuclide are.\n\n(2 marks)\n\n(ii) Find the effective half-life of iodine-131 in this case. (2 marks)\n(iii) A dose of iodine-131 is injected into a patient’s body. Find the time taken for the\n\nactivity in the body to decrease to 1% of its original value. (3 marks)\n\n(b) Iodine-131 is also used in treatment of thyroid cancer. When it is used for this purpose, it\nhas a biologial half-life of about 11 days. Explain why the same radionuclide can have two\n\ndifferent biological half-lives when used for two different purposes. (1 mark)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Iodine-131 is often used to identify bleeding sites in radionuclide imaging. It has a physical half-life of 8 days and a biological half-life of 80 days.\n\t\t(i)\tExplain what physical half-life and biological half-life of a radionuclide are.",
+          "marks": 2
+        },
+        {
+          "label": "a(ii)",
+          "text": "Find the effective half-life of iodine-131 in this case.",
+          "marks": 2
+        },
+        {
+          "label": "a(iii)",
+          "text": "A dose of iodine-131 is injected into a patient’s body. Find the time taken for the activity in the body to decrease to 1% of its original value.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Iodine-131 is also used in treatment of thyroid cancer. When it is used for this purpose, it has a biologial half-life of about 11 days. Explain why the same radionuclide can have two different biological half-lives when used for two different purposes.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tThe physical half-life is the time taken for half of the nuclei in a sample to decay.\n1A\n\t\tThe biological half-life is the time taken for half of the nuclei to be removed from the body by biological processes.\n1A\n\t(ii)\tBy [eq:30],\n1M\n\t\tte =[eq:31]\t= [eq:32]\n1M\n\t\t\t= 7.27 days\n1A\n\t(iii)\tk =[eq:33]\t=[eq:34]\n1M\n\t\t\t= 0.0953 day–1\n\n\t\tBy A = A0e–kt,\n\n\t\tt =[eq:35]\t= [eq:36]\n1M\n\t\t\t= 48.3 days\n1A\n(b)\tThe same kind of radionuclide may undergo different biological processess when used for different purposes.\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "The physical half-life is the time taken for half of the nuclei in a sample to decay.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "The biological half-life is the time taken for half of the nuclei to be removed from the body by biological processes.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "By [eq:30],",
+            "code": "1M"
+          },
+          {
+            "part": "a(ii)",
+            "point": "te =[eq:31]\t= [eq:32]",
+            "code": "1M"
+          },
+          {
+            "part": "a(ii)",
+            "point": "= 7.27 days",
+            "code": "1A"
+          },
+          {
+            "part": "a(iii)",
+            "point": "k =[eq:33]\t=[eq:34]",
+            "code": "1M"
+          },
+          {
+            "part": "a(iii)",
+            "point": "t =[eq:35]\t= [eq:36]",
+            "code": "1M"
+          },
+          {
+            "part": "a(iii)",
+            "point": "= 48.3 days",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The same kind of radionuclide may undergo different biological processess when used for different purposes.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033111.png"
+        ],
+        "answer": [
+          "crops/PHY19033111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            304.3997497558594,
+            155.6429901123047,
+            316.5767517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033112",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 12,
+      "type": "lq",
+      "level": "dif",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→→\t(a)\tBriefly explain the working principle of the following imaging methods.\n\t\t(i)\tX-ray radiographic imaging\t(3 marks)\n\t\t(ii)\tUltrasound B-scan\t(3 marks)\n\t(b)\tIf there is a mass inside the left lung of a patient, can it be detected by the following imaging methods? Explain briefly.\n\t\t(i)\tX-ray radiographic imaging\t(2 marks)\n\t\t(ii)\tUltrasound B-scan\t(2 marks)",
+        "ocr": "PHY19033112>\n<lvl=dif><part=core><type=lq><mark=10><bk=E4><ch=03><content>\n* * (a) Briefly explain the working principle of the following imaging methods.\n(i) X-ray radiographic imaging (3 marks)\n(ii) Ultrasound B-scan (3 marks)\n(b) If there is a mass inside the left lung of a patient, can it be detected by the following\nimaging methods? Explain briefly.\n(i) X-ray radiographic imaging (2 marks)\n(ii) Ultrasound B-scan (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Briefly explain the working principle of the following imaging methods.\n\t\t(i)\tX-ray radiographic imaging",
+          "marks": 3
+        },
+        {
+          "label": "a(ii)",
+          "text": "Ultrasound B-scan",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "If there is a mass inside the left lung of a patient, can it be detected by the following imaging methods? Explain briefly.\n\t\t(i)\tX-ray radiographic imaging",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "Ultrasound B-scan",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tX-rays emitted from an X-ray tube pass through the patient’s body.\n1A\n\t\tThe intensity of X-rays reaching the detector is recorded and an image is then generated.\n1A\n\t\tThe shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.\n1A\n\t(ii)\tAn ultrasound transducer emits a fan beam of ultrasound pulse into the body. The transducer detects the echoes from interfaces along the path of each pulse.\n1A\n\t\tThe distance of the interface corresponding to each echo is calculated from the time of detecting the echo. A trace with bright dots is produced for each path and the traces are joined to form a 2D image.\n1A\n\t\tThe position of a dot on the trace indicates the position of interface and the brightness of the dot indicates the intensity of the echo.\n1A\n(b)\t(i)\tYes.\n1A\n\t\tA mass inside the lung would have a much higher attenuation of X-rays than other parts of the lung which are filled with air.\n1A\n\t(ii)\tNo.\n1A\n\t\tAs the lung is filled with air, most ultrasound will be reflected by the surface of the lung. Therefore, echoes produced from any mass inside the lung are very weak.\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "X-rays emitted from an X-ray tube pass through the patient’s body.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "The intensity of X-rays reaching the detector is recorded and an image is then generated.",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "The shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "An ultrasound transducer emits a fan beam of ultrasound pulse into the body. The transducer detects the echoes from interfaces along the path of each pulse.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "The distance of the interface corresponding to each echo is calculated from the time of detecting the echo. A trace with bright dots is produced for each path and the traces are joined to form a 2D image.",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "The position of a dot on the trace indicates the position of interface and the brightness of the dot indicates the intensity of the echo.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Yes.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "A mass inside the lung would have a much higher attenuation of X-rays than other parts of the lung which are filled with air.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "No.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "As the lung is filled with air, most ultrasound will be reflected by the surface of the lung. Therefore, echoes produced from any mass inside the lung are very weak.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033112.png"
+        ],
+        "answer": [
+          "crops/PHY19033112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            194.64974975585938,
+            156.04299926757812,
+            206.82675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19033113",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 13,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\t(a)\tDescribe how radionuclide imaging is performed.\t(3 marks)\n\t(b)\tWhich type of nuclear radiation should a radionuclide for medical imaging emit? Explain briefly.\t(3 marks)\n\t(c)\tState two criterion for choosing radionuclide for medical imaging other than the type of radiation emitted.\t(2 marks)",
+        "ocr": "PHY19033113>\n<lvl=avg><part=core><type=lq><mark=8><bk=E4><ch=03><content>\n* (a) Describe how radionuclide imaging is performed. (3 marks)\n\n\n(b) Which type of nuclear radiation should a radionuclide for medical imaging emit? Explain\n\nbriefly.\n\n(3 marks)\n\n(c) State two criterion for choosing radionuclide for medical imaging other than the type of\n\nradiation emitted. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Describe how radionuclide imaging is performed.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Which type of nuclear radiation should a radionuclide for medical imaging emit? Explain briefly.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "State two criterion for choosing radionuclide for medical imaging other than the type of radiation emitted.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tRadionuclide tracers are injected into the patient’s body and accumulate in the target organ.\n1A\n\tThe gamma camera detects the nuclear radiation emitted from the tracers.\n1A\n\tThe data is then processed by a computer to produce a radionuclide image.\n1A\n(b)\tIt should emit γ radiation.\n1A\n\tγ radiation has a high penetrating power so that γ radiation emerging from inside the patient can easily be detected externally.\n1A\n\tγ radiation has the weakest ionizing power so that it causes the least amount of cellular damage inside the patient’s body.\n1A\n(c)\tAny two of the following:\n1A + 1A\n\tThe γ radiation emitted should be of suitable energy.\n\n\tIt should have a suitable physical half-life and biological half-life.\n\n\tIt should be non-toxic.\n\n\tIt should have no pharmacological effect on the patient.\n\n\tIt can be combined with a wide range of substances to form tracers for imaging different organs.\n\n\tIt should decay to a stable nuclide.\n\n\tIt should be readily available and inexpensive.",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Radionuclide tracers are injected into the patient’s body and accumulate in the target organ.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The gamma camera detects the nuclear radiation emitted from the tracers.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The data is then processed by a computer to produce a radionuclide image.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "It should emit γ radiation.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "γ radiation has a high penetrating power so that γ radiation emerging from inside the patient can easily be detected externally.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "γ radiation has the weakest ionizing power so that it causes the least amount of cellular damage inside the patient’s body.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Any two of the following: 1A +",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19033113.png"
+        ],
+        "answer": [
+          "crops/PHY19033113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_LQ_e.docx",
+          "sha256": "cdc69eb6d6f574e2ecc609badca68b5e7c1d2e954e6a223075c8e5496f942111",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_LQ_e.pdf",
+          "pages": [
+            11,
+            12
+          ],
+          "bbox_pt": [
+            51.75,
+            682.19970703125,
+            156.6429901123047,
+            694.376708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031101",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 1,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tBones show up as white regions in an X-ray image because",
+        "ocr": "PHY19031101>\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nBones show up as white regions in an X-ray image because\nA bones have a high linear attenuation coefficient.\nB bones have a high acoustic impedance.\n\nC the linear attenuation coefficients of bones and the surrounding body tissues have a large\ndifference.\n\nD the acoustic impedances of bones and the surrounding body tissues have a large difference.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "bones have a high linear attenuation coefficient."
+        },
+        {
+          "label": "B",
+          "text": "bones have a high acoustic impedance."
+        },
+        {
+          "label": "C",
+          "text": "the linear attenuation coefficients of bones and the surrounding body tissues have a large difference."
+        },
+        {
+          "label": "D",
+          "text": "the acoustic impedances of bones and the surrounding body tissues have a large difference."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Since bones have a high linear attenuation coefficient, the X-ray beams passing through them have high attenuation and produce white regions in the image.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031101.png"
+        ],
+        "answer": [
+          "crops/PHY19031101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.04299926757812,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031102",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 2,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following does radionuclide imaging make use of to produce image?",
+        "ocr": "PHY19031102>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following does radionuclide imaging make use of to produce image?\n\nA The absorption of nuclear radiation by the target organ\nB_ The emission of nuclear radiation from inside the target organ\nC_ The reflection of nuclear radiation by the target organ\nD_ The attenuation of nuclear radiation inside the target organ",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "The absorption of nuclear radiation by the target organ"
+        },
+        {
+          "label": "B",
+          "text": "The emission of nuclear radiation from inside the target organ"
+        },
+        {
+          "label": "C",
+          "text": "The reflection of nuclear radiation by the target organ"
+        },
+        {
+          "label": "D",
+          "text": "The attenuation of nuclear radiation inside the target organ"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031102.png"
+        ],
+        "answer": [
+          "crops/PHY19031102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            289.1997985839844,
+            156.04299926757812,
+            301.3768005371094
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031103",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 3,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "In which of the following imaging methods is a source of ionizing radiation placed inside the patient’s body?\n\t(1)\tX-ray radiographic imaging\n\t(2)\tCT scan\n\t(3)\tRadionuclide imaging",
+        "ocr": "PHY19031103>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nIn which of the following imaging methods is a source of ionizing radiation placed inside the\npatient’s body?\n(1) X-ray radiographic imaging\n(2) CT scan\n(3) Radionuclide imaging\n\nA None of them\nB_ (8) only\nC (1) and (2) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "None of them"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031103.png"
+        ],
+        "answer": [
+          "crops/PHY19031103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            467.2497863769531,
+            156.04299926757812,
+            479.4267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031104",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 4,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe intensity of an X-ray beam is reduced to [eq:1] of its original value after passing through a material of 12 cm thick. What is the linear attenuation coefficient of the material?",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.058 cm-1"
+        },
+        {
+          "label": "B",
+          "text": "0.116 cm-1"
+        },
+        {
+          "label": "C",
+          "text": "0.173 cm-1"
+        },
+        {
+          "label": "D",
+          "text": "0.231 cm-1"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "By I = I0e-μx,\nμ = [eq:2] = [eq:3] = 0.173 cm-1",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031104.png"
+        ],
+        "answer": [
+          "crops/PHY19031104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            706.499755859375,
+            156.04299926757812,
+            718.6767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031105",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 5,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following statements about X-rays is incorrect?",
+        "ocr": "PHY19031105>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following statements about X-rays is incorrect?\n\nX-rays are a kind of ionizing radiation.\n\nX-rays are a kind of nuclear radiation.\n\nX-rays have higher frequencies than visible light.\n\nX-rays have high penetrating power.\n\nGDA P",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "X-rays are a kind of ionizing radiation."
+        },
+        {
+          "label": "B",
+          "text": "X-rays are a kind of nuclear radiation."
+        },
+        {
+          "label": "C",
+          "text": "X-rays have higher frequencies than visible light."
+        },
+        {
+          "label": "D",
+          "text": "X-rays have high penetrating power."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "X-rays are not emitted by unstable nuclei. They are produced by hitting a heavy metal target with fast electrons.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031105.png"
+        ],
+        "answer": [
+          "crops/PHY19031105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            301.7497863769531,
+            156.04299926757812,
+            313.9267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031106",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 6,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "A beam of X-rays with initial intensity I0 enters a block with thickness x. After passing through the block, the intensity of the beam decreases by half. If the thickness of the block was 2x, what would be the intensity of the emerging beam?",
+        "ocr": "PHY19031106>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nA beam of X-rays with initial intensity J) enters a block with thickness x. After passing through\n\nthe block, the intensity of the beam decreases by half. If the thickness of the block was 2x, what\nwould be the intensity of the emerging beam?\n\nA 0\n1\n=]\n\nB 4°\n1\n=T\n\nc 2°\n1",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0"
+        },
+        {
+          "label": "B",
+          "text": "[eq:4]"
+        },
+        {
+          "label": "C",
+          "text": "[eq:5]"
+        },
+        {
+          "label": "D",
+          "text": "[eq:6]"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Half-value thickness = x\nIntensity of the emerging beam [eq:7]",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031106.png"
+        ],
+        "answer": [
+          "crops/PHY19031106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            503.9497375488281,
+            156.04299926757812,
+            516.126708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031107",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 7,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the follwing comparisons between X-ray radiographic imaging and CT scanning is incorrect?\n\nX-ray radiographic imaging\nCT scanning",
+        "ocr": "PHY19031107>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the follwing comparisons between X-ray radiographic imaging and CT scanning is\n\nincorrect?\nX-ray radiographic imaging CT scanning\nA Takes shorter time Takes longer time\nB Lower cost Higher cost\nC Produces 2-D images only Produces 2-D or 3-D images\nD___Uses electromagnetic waves Uses ultrasound waves",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Takes shorter time\nTakes longer time"
+        },
+        {
+          "label": "B",
+          "text": "Lower cost\nHigher cost"
+        },
+        {
+          "label": "C",
+          "text": "Produces 2-D images only\nProduces 2-D or 3-D images"
+        },
+        {
+          "label": "D",
+          "text": "Uses electromagnetic waves\nUses ultrasound waves"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Both X-ray radiographic imaging and CT scanning make use of X-rays, which are a kind of electromagnetic waves.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031107.png"
+        ],
+        "answer": [
+          "crops/PHY19031107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            153.19979858398438,
+            156.04299926757812,
+            165.37680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031108",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 8,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following is not a characteristic of tracers used in radionuclide imaging?",
+        "ocr": "PHY19031108>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following is not a characteristic of tracers used in radionuclide imaging?\nThey emit gamma radiation only.\nThey have long half-lives and low activities.\nThey are non-toxic.\nThey decay to stable nuclides.\n\nGDA P",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "They emit gamma radiation only."
+        },
+        {
+          "label": "B",
+          "text": "They have long half-lives and low activities."
+        },
+        {
+          "label": "C",
+          "text": "They are non-toxic."
+        },
+        {
+          "label": "D",
+          "text": "They decay to stable nuclides."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Their half-lives should be long enough to maintain a high activity for imaging, but short enough to reduce total radiation exposure.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031108.png"
+        ],
+        "answer": [
+          "crops/PHY19031108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            388.1497802734375,
+            156.04299926757812,
+            400.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031109",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 9,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "A radionuclide has a physical half-life of 8 days and a biological half-life of 138 days. What is its effective half-life?",
+        "ocr": "PHY19031109>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nA radionuclide has a physical half-life of 8 days and a biological half-life of 138 days. What is\nits effective half-life?\n\nA 7.56 days\nB_ 8.00 days\nC 33.2 days\n\nD_ 73.0 days",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "7.56 days"
+        },
+        {
+          "label": "B",
+          "text": "8.00 days"
+        },
+        {
+          "label": "C",
+          "text": "33.2 days"
+        },
+        {
+          "label": "D",
+          "text": "73.0 days"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "By [eq:8],\nte [eq:9]",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031109.png"
+        ],
+        "answer": [
+          "crops/PHY19031109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            591.499755859375,
+            156.04299926757812,
+            603.6767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031110",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 10,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following statements about X-rays are correct?\n\t(1)\tX-rays can be produced by hitting a metal with fast-moving electrons.\n\t(2)\tThe wavelengths of X-rays are shorter than that of visible light.\n\t(3)\tX-rays are ionizing radiation.",
+        "ocr": "PHY19031110>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following statements about X-rays are correct?\n(1) X-rays can be produced by hitting a metal with fast-moving electrons.\n(2) The wavelengths of X-rays are shorter than that of visible light.\n(3) X-rays are ionizing radiation.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)\n\na -",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031110.png"
+        ],
+        "answer": [
+          "crops/PHY19031110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            210.04977416992188,
+            155.59298706054688,
+            222.22677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031111",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 11,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The intensity of an X-ray beam decreases when it passes through a material. The half-value thickness of the material",
+        "ocr": "PHY19031111>\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nThe intensity of an X-ray beam decreases when it passes through a material. The half-value\nthickness of the material\n\nA is directly proportional to its linear attenuation coefficient.\n\nB _ is inversely proportional to its linear attenuation coefficient.\nC_ decreases exponentially with its linear attenuation coefficient.\nD is independent of its linear attenuation coefficient.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "is directly proportional to its linear attenuation coefficient."
+        },
+        {
+          "label": "B",
+          "text": "is inversely proportional to its linear attenuation coefficient."
+        },
+        {
+          "label": "C",
+          "text": "decreases exponentially with its linear attenuation coefficient."
+        },
+        {
+          "label": "D",
+          "text": "is independent of its linear attenuation coefficient."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The half-value thickness [eq:10] and the linear attenuation coefficient μ of a material are related by [eq:11].",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031111.png"
+        ],
+        "answer": [
+          "crops/PHY19031111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            437.4997863769531,
+            155.1929931640625,
+            449.6767883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031112",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 12,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following tissues causes the highest attenuation when X-rays pass through it?",
+        "ocr": "PHY19031112>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following tissues causes the highest attenuation when X-rays pass through it?\n\nA Skin\n\n\nB- Lung\n\nC Bone\nD Muscle",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Skin"
+        },
+        {
+          "label": "B",
+          "text": "Lung"
+        },
+        {
+          "label": "C",
+          "text": "Bone"
+        },
+        {
+          "label": "D",
+          "text": "Muscle"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031112.png"
+        ],
+        "answer": [
+          "crops/PHY19031112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            681.749755859375,
+            155.59298706054688,
+            693.9267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031113",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 13,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following statements about the artificial contrast media used in X-ray radiographic imaging is incorrect?",
+        "ocr": "PHY19031113>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following statements about the artificial contrast media used in X-ray\nradiographic imaging is incorrect?\nThey can increase the attenuation of X-rays in the target structure.\nThey are always introduced into the body through swallowing.\nThey are non-radioactive.\n\nBarium is a common type of artificial contrast medium used.\n\nGUOWP",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "They can increase the attenuation of X-rays in the target structure."
+        },
+        {
+          "label": "B",
+          "text": "They are always introduced into the body through swallowing."
+        },
+        {
+          "label": "C",
+          "text": "They are non-radioactive."
+        },
+        {
+          "label": "D",
+          "text": "Barium is a common type of artificial contrast medium used."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Artificial contrast media can be injected into the body.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031113.png"
+        ],
+        "answer": [
+          "crops/PHY19031113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            195.14974975585938,
+            155.59298706054688,
+            207.32675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031114",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 14,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following substances is a common artificial contrast medium in X-ray radiographic imaging?",
+        "ocr": "PHY19031114>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following substances is a common artificial contrast medium in X-ray\nradiographic imaging?\n\nA Helium\nB’~ Barium\nC Sodium\nD Magnesium",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Helium"
+        },
+        {
+          "label": "B",
+          "text": "Barium"
+        },
+        {
+          "label": "C",
+          "text": "Sodium"
+        },
+        {
+          "label": "D",
+          "text": "Magnesium"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031114.png"
+        ],
+        "answer": [
+          "crops/PHY19031114.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            401.6497802734375,
+            155.59298706054688,
+            413.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031115",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 15,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following comparisons between ultrasound imaging and X-ray radiographic imaging is incorrect?",
+        "ocr": "PHY19031115>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following comparisons between ultrasound imaging and X-ray radiographic\nimaging is incorrect?\nA Ultrasound imaging does not involve ionizing radiation while X-ray radiographic imaging\ndoes.\nB_ Body structures that are overlapped in an X-ray image can possibly be identified separately\nin an ultrasound image.\nC_ Both imaging methods can produce static images only.\nD_ Both imaging methods cannot be used to examine the inside of a bone.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Ultrasound imaging does not involve ionizing radiation while X-ray radiographic imaging does."
+        },
+        {
+          "label": "B",
+          "text": "Body structures that are overlapped in an X-ray image can possibly be identified separately in an ultrasound image."
+        },
+        {
+          "label": "C",
+          "text": "Both imaging methods can produce static images only."
+        },
+        {
+          "label": "D",
+          "text": "Both imaging methods cannot be used to examine the inside of a bone."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "In ultrasound imaging, the doctor may sweep the transducer through the skin to view different cross-sections of the body in real time.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031115.png"
+        ],
+        "answer": [
+          "crops/PHY19031115.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            5,
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            595.499755859375,
+            155.59298706054688,
+            607.6767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031116",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 16,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following medical imaging methods make(s) use of electromagnetic waves?\n\t(1)\tUltrasound A-scan\n\t(2)\tFibre optic endoscopy\n\t(3)\tX-ray radiographic imaging",
+        "ocr": "PHY19031116>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following medical imaging methods make(s) use of electromagnetic waves?\n(1) Ultrasound A-scan\n(2) Fibre optic endoscopy\n(3) X-ray radiographic imaging\n\nA (1) only\nB_ (8) only\nC (1) and (3) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Ultrasound A-scan makes use of ultrasound, which is not a kind of electromagnetic waves.\nFibre optic endoscopy makes use of visible light, which is a kind of electromagnetic waves.\nX-ray radiographic imaging makes use of X-rays, which are a kind of electromagnetic waves.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031116.png"
+        ],
+        "answer": [
+          "crops/PHY19031116.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            173.04977416992188,
+            155.59298706054688,
+            185.22677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031117",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 17,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following are disadvantages of CT scanning when compared to X-ray radiographic imaging?\n\t(1)\tHigher cost\n\t(2)\tLonger imaging time\n\t(3)\tExposure to more ionizing radiation",
+        "ocr": "PHY19031117>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following are disadvantages of CT scanning when compared to X-ray\nradiographic imaging?\n(1) Higher cost\n(2) Longer imaging time\n(3) Exposure to more ionizing radiation\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)\n\n3\" -",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031117.png"
+        ],
+        "answer": [
+          "crops/PHY19031117.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            476.3997802734375,
+            155.59298706054688,
+            488.5767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031118",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 18,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following images is/are produced by measuring the intensity of ionizing radiation transmitted through a patient’s body from an external source?\n\t(1)\tCT image\n\t(2)\tRadionuclide image\n\t(3)\tUltrasound image",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "In radionuclide imaging, the source of radiation is inside the patient’s body.\n∴ (2) is incorrect.\nUltrasound is not an ionizing radiation.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031118.png"
+        ],
+        "answer": [
+          "crops/PHY19031118.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            6,
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            717.6497192382812,
+            155.59298706054688,
+            729.8267211914062
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031119",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 19,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following are the possible effects of overuse of ionizing radiation in medical imaging?\n\t(1)\tDamage to skin\n\t(2)\tDeveloping cataracts\n\t(3)\tDeveloping cancers",
+        "ocr": "PHY19031119>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nWhich of the following are the possible effects of overuse of ionizing radiation in medical\nimaging?\n(1) Damage to skin\n(2) Developing cataracts\n(3) Developing cancers\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (4), (2) and (8)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031119.png"
+        ],
+        "answer": [
+          "crops/PHY19031119.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            338.5497741699219,
+            155.59298706054688,
+            350.7267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031120",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 20,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The following figure shows an image of a foetus.\n[fig:1]\n\tWhich medical imaging method is used to produce this image?",
+        "ocr": "PHY19031120>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nThe following figure shows an image of a foetus.\n\n\n\nWhich medical imaging method is used to produce this image?\n\nA Ultrasound A-scan\nB_ Ultrasound B-scan\nC X-ray radiographic imaging\nD CT scan",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Ultrasound A-scan"
+        },
+        {
+          "label": "B",
+          "text": "Ultrasound B-scan"
+        },
+        {
+          "label": "C",
+          "text": "X-ray radiographic imaging"
+        },
+        {
+          "label": "D",
+          "text": "CT scan"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031120.png"
+        ],
+        "answer": [
+          "crops/PHY19031120.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            7,
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            579.7997436523438,
+            156.04299926757812,
+            591.9767456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031121",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 21,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The following shows an image of the inside of a duodenum (十二指腸).\n[fig:2]\n\tWhich medical imaging method is used to produce this image?",
+        "ocr": "PHY19031121>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nThe following shows an image of the inside of a duodenum ( ).\n\nWhich medical imaging method is used to produce this image?\nA Ultrasound A-scan\n\nB_ Ultrasound B-scan\n\nC X-ray radiographic imaging\n\nD_ Fibre optic endoscopy",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Ultrasound A-scan"
+        },
+        {
+          "label": "B",
+          "text": "Ultrasound B-scan"
+        },
+        {
+          "label": "C",
+          "text": "X-ray radiographic imaging"
+        },
+        {
+          "label": "D",
+          "text": "Fibre optic endoscopy"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031121.png"
+        ],
+        "answer": [
+          "crops/PHY19031121.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            226.74978637695312,
+            156.04299926757812,
+            238.92678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031122",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 22,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "A patient is suspected to have tumor inside the oesophagus (食道).\n[fig:3]\n\tWhich of the following medical imaging methods is most suitable for investigation?",
+        "ocr": "PHY19031122>\n<lvl=easy><part=core><type=mc><mark=2><bk=E4><ch=03><content>\nA patient is suspected to have tumor inside the oesophagus (__).\n\n\n“od 8 oesophagus\n\nWhich of the following medical imaging methods is most suitable for investigation?\nUltrasound A-scan\n\nUltrasound B-scan\n\nX-ray radiographic imaging\n\nFibre optic endoscopy\n\nGDOWP",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Ultrasound A-scan"
+        },
+        {
+          "label": "B",
+          "text": "Ultrasound B-scan"
+        },
+        {
+          "label": "C",
+          "text": "X-ray radiographic imaging"
+        },
+        {
+          "label": "D",
+          "text": "Fibre optic endoscopy"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Fibre optic endoscopy is good for examining the inner surfaces of hollow organs. Suspicious tissue can also be sampled at the same time for further examination.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031122.png"
+        ],
+        "answer": [
+          "crops/PHY19031122.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            8,
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            523.69970703125,
+            156.04299926757812,
+            535.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031123",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 23,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAn X-ray beam of initial intensity I0 enters a block of thickness 6 cm. If the half-value thickness of the block is 8 cm, what is the intensity of the beam after passing through the block?",
+        "ocr": "PHY19031123>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n\n* An X-ray beam of initial intensity Ip enters a block of thickness 6 cm. If the half-value\nthickness of the block is 8 cm, what is the intensity of the beam after passing through the\n\nblock?\n\nA ra\n\nB rat\n\nC 2°],\nD eo],",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "[eq:12]"
+        },
+        {
+          "label": "B",
+          "text": "[eq:13]"
+        },
+        {
+          "label": "C",
+          "text": "[eq:14]"
+        },
+        {
+          "label": "D",
+          "text": "[eq:15]"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "[eq:16]\nI = I0e-μx = [eq:17] = [eq:18] = [eq:19] = [eq:20]",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031123.png"
+        ],
+        "answer": [
+          "crops/PHY19031123.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            499.44976806640625,
+            156.04299926757812,
+            511.62677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031124",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 24,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about artifical contrast media used in X-ray radiographic imaging is/are correct?\n\t(1)\tThey absorb X-rays.\n\t(2)\tBarium and iodine are commonly used as artificial contrast media.\n\t(3)\tThe time taken to remove an artificial contrast medium from the body depends on its physical half-life.",
+        "ocr": "PHY19031124>\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n* = Which of the following statements about artifical contrast media used in X-ray radiographic\nimaging is/are correct?\n(1) They absorb X-rays.\n(2) Barium and iodine are commonly used as artificial contrast media.\n(3) The time taken to remove an artificial contrast medium from the body depends on its\n\nphysical half-life.\nA (1) only\nB= (2) only\nC (1) and (2) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Artificial contrast media are not radioactive and so do not have physical half-life. The time taken to remove an artificial contrast medium from the body depends on its biological half-live.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031124.png"
+        ],
+        "answer": [
+          "crops/PHY19031124.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            160.84976196289062,
+            156.04299926757812,
+            173.02676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031125",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 25,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about tracers used in radionuclide imaging are correct?\n\t(1)\tThe physical half-life of a tracer depends on how it reacts with other substances in the body.\n\t(2)\tThe biological half-life of a tracer depends on how it reacts with other substances in the body.\n\t(3)\tThe activity of a dose of tracer in the body at a certain period of time after the injection can be calculated from its effective half-life.",
+        "ocr": "PHY19031125>\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n* = Which of the following statements about tracers used in radionuclide imaging are correct?\n(1) The physical half-life of a tracer depends on how it reacts with other substances in the\nbody.\n(2) The biological half-life of a tracer depends on how it reacts with other substances in the\nbody.\n(3) The activity of a dose of tracer in the body at a certain period of time after the injection can\nbe calculated from its effective half-life.\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "The physical half-life is the time taken for half of the nuclei in a sample to decay. Radioactive decay is a spontaneous reaction.\n∴ (1) is incorrect.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031125.png"
+        ],
+        "answer": [
+          "crops/PHY19031125.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            467.7997741699219,
+            156.04299926757812,
+            479.9767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031126",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 26,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA dose of radionuclide is injected in to a patient’s body. It has a physical half-life of 8 days and a biological half-life of 138 days. How long does it take for the activity of the dose in the body to decrease to [eq:21] of its original value?",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "23 days"
+        },
+        {
+          "label": "B",
+          "text": "24 days"
+        },
+        {
+          "label": "C",
+          "text": "219 days"
+        },
+        {
+          "label": "D",
+          "text": "438 days"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "By [eq:22],\n[eq:23]\n[eq:24] = [eq:25]\nThe activity is halved by 3 times and therefore 3 half-lives are needed.\nTime needed = 3 × te = 3 × 7.56 = 23 days",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031126.png"
+        ],
+        "answer": [
+          "crops/PHY19031126.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            111.9997787475586,
+            156.04299926757812,
+            124.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031127",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 27,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\t‘A healthy thyroid gland takes up iodine and a thyroid gland which develops cancer does not.’ According to this information, which of the following imaging methods can be used to examine thyroid cancer?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Ultrasound B-scan"
+        },
+        {
+          "label": "B",
+          "text": "Radionuclide imaging"
+        },
+        {
+          "label": "C",
+          "text": "X-ray radiographic imaging"
+        },
+        {
+          "label": "D",
+          "text": "CT scan"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "By using radionuclide of iodine as a tracer for radionuclide imaging, a cold spot of the thyroid in the image indicates a low uptake of tracer in the region and a possible case of cancer.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031127.png"
+        ],
+        "answer": [
+          "crops/PHY19031127.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            477.8497619628906,
+            156.04299926757812,
+            490.0267639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031128",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 28,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAn X-ray beam with an initial intensity of 200 W cm-2 enters a certain medium. Its intensity is reduced to 160 W cm-2 after travelling a distance d. What would be its intensity if it travels a distance d further?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "120 W cm-2"
+        },
+        {
+          "label": "B",
+          "text": "124 W cm-2"
+        },
+        {
+          "label": "C",
+          "text": "128 W cm-2"
+        },
+        {
+          "label": "D",
+          "text": "132 W cm-2"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "After travelling a distance d,\n\tI1\t= I0e-μx\n\t160\t= 200 × e-μd\n\te-μd\t= [eq:26]\nIf the X-ray beam travels a distance d further,\nI2 = I1e-μx = 160 × e-μd = 160 × [eq:27] = 128 W cm-2",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031128.png"
+        ],
+        "answer": [
+          "crops/PHY19031128.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            11,
+            12
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            724.749755859375,
+            156.04299926757812,
+            736.9267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031129",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 29,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA shield is designed to block X-rays against sensitive organs during X-ray radiographic imaging. It is required to reduce the intensity of X-rays by at least 98%. If the shield is made with a material with a linear attenuation coefficient of 2.0 cm–1, what is the minimum thickness of the shield?",
+        "ocr": "PHY19031129>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n\n* A shield is designed to block X-rays against sensitive organs during X-ray radiographic\nimaging. It is required to reduce the intensity of X-rays by at least 98%. If the shield is made\nwith a material with a linear attenuation coefficient of 2.0 cm™, what is the minimum thickness\n\nof the shield?\nA 0.347 cm\nB- 0.511 cm\nC 1.01 cm\nD 1.96 cm",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.347 cm"
+        },
+        {
+          "label": "B",
+          "text": "0.511 cm"
+        },
+        {
+          "label": "C",
+          "text": "1.01 cm"
+        },
+        {
+          "label": "D",
+          "text": "1.96 cm"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "By I = I0e-μx,\nx = [eq:28] = [eq:29] = 1.96 cm",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031129.png"
+        ],
+        "answer": [
+          "crops/PHY19031129.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            12
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            375.7997741699219,
+            156.04299926757812,
+            387.9767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031130",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 30,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAn X-ray beam has an initial intensity of 200 W cm-2. What will be its intensity after travelling 4 cm through a medium with a half-value thickness of 8 cm?",
+        "ocr": "PHY19031130>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n\n* ~~ An X-ray beam has an initial intensity of 200 W cm”. What will be its intensity after travelling\n4 cm through a medium with a half-value thickness of 8 cm?\nA 121Wcm*\n\nB 137Wcm?\n\n\nC 141Wcm?\nD 150Wcm”\n\nIn 2\nw= yx = In? _ 0.0866 cm\n1 8\n2\nI= Ibe’ = 200 x e098 *4 = 141 W cm?",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "121 W cm-2"
+        },
+        {
+          "label": "B",
+          "text": "137 W cm-2"
+        },
+        {
+          "label": "C",
+          "text": "141 W cm-2"
+        },
+        {
+          "label": "D",
+          "text": "150 W cm-2"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "μ = [eq:30] = [eq:31] = 0.0866 cm-1\nI = I0e-μx = 200 × e-0.0866 × 4 = 141 W cm-2",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031130.png"
+        ],
+        "answer": [
+          "crops/PHY19031130.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            12,
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            641.44970703125,
+            156.04299926757812,
+            653.626708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031131",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 31,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about artificial contrast media used in X-ray radiographic imaging is incorrect?",
+        "ocr": "PHY19031131>\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n* = Which of the following statements about artificial contrast media used in X-ray radiographic\nimaging is incorrect?\nA Anartificial contrast medium is used if the attenuation of X-ray in the organ to be\nexamined is not high enough.\nB Iodine is commonly used as a artificial contrast medium for imaging of blood vessels.\nC_ Artificial contrast media are always introduced into the body by injecting into the\nbloodstream.\n\nD_ Artificial contrast media are sometimes used in CT scans.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "An artificial contrast medium is used if the attenuation of X-ray in the organ to be examined is not high enough."
+        },
+        {
+          "label": "B",
+          "text": "Iodine is commonly used as a artificial contrast medium for imaging of blood vessels."
+        },
+        {
+          "label": "C",
+          "text": "Artificial contrast media are always introduced into the body by injecting into the bloodstream."
+        },
+        {
+          "label": "D",
+          "text": "Artificial contrast media are sometimes used in CT scans."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Artificial contrast media can also be introduced into the body through swallowing.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031131.png"
+        ],
+        "answer": [
+          "crops/PHY19031131.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            231.29977416992188,
+            156.04299926757812,
+            243.47677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031132",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 32,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tAn X-ray source is in turn placed at two positions next to a part of the body, as shown in Figure a. A detector is placed on the other side of the body part to record the intensity of X-ray beams after passing through the body part.\n[fig:4]\n\t\tFig a\n[fig:5]\n\t\tFig b\n\tIf the body part is described by a grid of 25 equal squares as shown in Figure b, in which square will a bone most probably be found?",
+        "ocr": "PHY19031132>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n\n* An X-ray source is in turn placed at two positions next to a part of the body, as shown in Figure\na. A detector is placed on the other side of the body part to record the intensity of X-ray beams\nafter passing through the body part.\n\nX-ray tube\n\ndetector\n\n4\n\n3\n\nX-ray\n\n2 tube\n{\n\n3 a detector\n\n\nFig b\nIf the body part is described by a grid of 25 equal squares as shown in Figure b, in which square\nwill a bone most probably be found?\n\nA Square a\nB Square m\nC Square q\nD_ Square y",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Square a"
+        },
+        {
+          "label": "B",
+          "text": "Square m"
+        },
+        {
+          "label": "C",
+          "text": "Square q"
+        },
+        {
+          "label": "D",
+          "text": "Square y"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Bone has a much higher linear attenuation coefficient than other body tissues. The intensities of both X-ray beams passing through square q are the lowest among all squares.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031132.png"
+        ],
+        "answer": [
+          "crops/PHY19031132.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            13,
+            14
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            466.69976806640625,
+            156.04299926757812,
+            478.87677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031133",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 33,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following is/are possible application(s) of CT scanning?\n\t(1)\tLocating the position of a bone fracture\n\t(2)\tDetecting the movement of the stomach in real time\n\t(3)\tFinding out if there is a tumour in the large intestine",
+        "ocr": "PHY19031133>\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n* = Which of the following is/are possible application(s) of CT scanning?\n(1) Locating the position of a bone fracture\n(2) Detecting the movement of the stomach in real time\n(3) Finding out if there is a tumour in the large intestine\n\nA (1) only\nB= (2) only\nC (1) and (3) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031133.png"
+        ],
+        "answer": [
+          "crops/PHY19031133.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            14
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            381.5497741699219,
+            156.04299926757812,
+            393.7267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031134",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 34,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about tracers used in radionuclide imaging is incorrect?",
+        "ocr": "PHY19031134>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n\n* = Which of the following statements about tracers used in radionuclide imaging is incorrect?\nA If the target organ is functioning normally, the tracer will accumulate at the target organ.\n\nB If the target organ is functioning normally, the tracer will always be naturally absorbed by\nthe target organ or structure.\n\nC Radionuclide imaging can provide functional information about the target organ.\nD_ Radionuclide imaging can provide structural information about the target organ.",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "If the target organ is functioning normally, the tracer will accumulate at the target organ."
+        },
+        {
+          "label": "B",
+          "text": "If the target organ is functioning normally, the tracer will always be naturally absorbed by the target organ or structure."
+        },
+        {
+          "label": "C",
+          "text": "Radionuclide imaging can provide functional information about the target organ."
+        },
+        {
+          "label": "D",
+          "text": "Radionuclide imaging can provide structural information about the target organ."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Some tracers are naturally absorbed by the target organs, while some are combined with other substances which are normally taken up by the target organs.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031134.png"
+        ],
+        "answer": [
+          "crops/PHY19031134.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            14,
+            15
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            610.2997436523438,
+            156.04299926757812,
+            622.4767456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031135",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 35,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tα sources are not suitable for radionuclide imaging because\n\t(1)\tα radiation cannot pass through the skin.\n\t(2)\tthe half-lives of α sources are very short.\n\t(3)\tα radiation has strong ionizing power.",
+        "ocr": "PHY19031135>\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n* a -sources are not suitable for radionuclide imaging because\n\n(1) a radiation cannot pass through the skin.\n\n(2) the half-lives of a sources are very short.\n\n(3) a radiation has strong ionizing power.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "As α radiation cannot pass through the skin, it cannot emerge from inside the patient and be detected externally.\n∴ (1) is correct.\nDifferent α sources may have different half-lives, which can be long or short.\n∴ (2) is incorrect.\nAs α radiation has strong ionizing power, it causes large amount of cellular damage inside the patient’s body.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031135.png"
+        ],
+        "answer": [
+          "crops/PHY19031135.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            15
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            161.49978637695312,
+            156.04299926757812,
+            173.67678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031136",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 36,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA radionuclide is injected into a patient’s body. Its physical half-life and biological half-life are both approximately equal to 2 days. How long does it take for the activity of the radionuclide inside the patient’s body to reduce to below one-hundredth of its original value?",
+        "ocr": "PHY19031136>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n\n* A radionuclide is injected into a patient’s body. Its physical half-life and biological half-life are\nboth approximately equal to 2 days. How long does it take for the activity of the radionuclide\ninside the patient’s body to reduce to below one-hundredth of its original value?\n\nA 4days\nB_ 7 days\nC 14 days\nD_ 50 days",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "4 days"
+        },
+        {
+          "label": "B",
+          "text": "7 days"
+        },
+        {
+          "label": "C",
+          "text": "14 days"
+        },
+        {
+          "label": "D",
+          "text": "50 days"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "By [eq:32],\n[eq:33]\nk = [eq:34] = [eq:35] = 0.693 day-1\nBy A = A0e-kt,\nt = [eq:36] = [eq:37] = 7 days",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031136.png"
+        ],
+        "answer": [
+          "crops/PHY19031136.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            15
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            492.5997619628906,
+            156.04299926757812,
+            504.7767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031137",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 37,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tIn an experiment, several X-ray beams of a fixed initial intensity I0 are set to pass through blocks of the same thickness d but different half-value thicknesses. How do the intensities of the emerging beams vary with the half-value thicknesses of the blocks?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "[eq:38]"
+        },
+        {
+          "label": "B",
+          "text": "[eq:39]"
+        },
+        {
+          "label": "C",
+          "text": "[eq:40]"
+        },
+        {
+          "label": "D",
+          "text": "[eq:41]"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "μ = [eq:42] \nI = I0e-μx = [eq:43] = [eq:44]\nAs [eq:45] increases, [eq:46] decreases and [eq:47] increases.\nAs [eq:48] approaches infinity, [eq:49] approaches 0 and [eq:50] approaches I0.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031137.png"
+        ],
+        "answer": [
+          "crops/PHY19031137.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            16
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            238.04977416992188,
+            156.04299926757812,
+            250.22677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19031138",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 38,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tThe physical half-life of a radionuclide is much longer than its biological half-life. Which of the following statements are correct?\n\t(1)\tThe effective half-life of the radionuclide is approximately equal to its biological half-life.\n\t(2)\tIf the radionuclide is injected into a human body, only a small portion of the radionuclide has decayed when the activity of the radionuclide in the body has decreased by half.\n\t(3)\tThe radionuclide is not suitable to use as a tracer for radionuclide imaging.",
+        "ocr": "PHY19031138>\n\n<lvl=dif><part=core><type=mc><mark=2><bk=E4><ch=03><content>\n\n* * The physical half-life of a radionuclide is much longer than its biological half-life. Which of the\nfollowing statements are correct?\n(1) The effective half-life of the radionuclide is approximately equal to its biological half-life.\n\n(2) If the radionuclide is injected into a human body, only a small portion of the radionuclide\nhas decayed when the activity of the radionuclide in the body has decreased by half.\n\n(3) The radionuclide is not suitable to use as a tracer for radionuclide imaging.\nA (1) and (2) only\n\nB= (4) and (3) only\n\nC (2) and (3) only\n\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "[eq:51] = [eq:52] = [eq:53] ≈ [eq:54] = [eq:55]\nte ≈ tb\n∴ (1) is correct.\nAs the physical half-life is much longer than the biological half-life, the removal of radionuclide from the body by biological processes is much faster than the decaying of radionuclide.\nWhen the activity of the radionuclide in the body has decreased by half, the decrease is mainly due to the removal of radionuclide from the body by biological processes.\n∴ (2) is correct.\nA large portion of the nuclei removed from the body by biological processes are still radioactive. This presents problems for disposal.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E403/E4_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19031138.png"
+        ],
+        "answer": [
+          "crops/PHY19031138.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_MC_e.docx",
+          "sha256": "38a97e61935fcb5e88b4c2cb9cadcbf75b69bc17f2b5d3938945c64d64deafb7",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_MC_e.pdf",
+          "pages": [
+            17
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            87.79976654052734,
+            156.04299926757812,
+            99.97676849365234
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032101",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 1,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "The following shows two CT images.\n\t\t[fig:1]\t[fig:2]\n\t\tFig a\tFig b\n\t(a)\tWhat do the shades of grey of different parts of a CT image indicate?\t(1 mark)\n\t(b)\tDescribe how the image shown in Figure a is related to the production of the image shown in Figure b.\t(3 marks)\n\t(c)\tState one advantage and one disadvantage of CT scan when compared to X-ray imaging.\n\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What do the shades of grey of different parts of a CT image indicate?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Describe how the image shown in Figure a is related to the production of the image shown in Figure b.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "State one advantage and one disadvantage of CT scan when compared to X-ray imaging.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThey indicate the attenuation coefficients of different parts of different body tissues.\n1A\n(b)\tThe image in Figure a is one of the cross-sectional images at different levels along the body produced in a CT scan.\n1A\n\tBy stacking the attenuation coefficient maps producing these cross-sectional images, a 3-D attenuation coefficient map is obtained.\n1A\n\tThe image in Figure b is produced by digitally cutting through the 3-D map and looking at the cross-section from a certain direction.\n1A\n(c)\tAdvantage (any one of the following):\n1A\n\tNo overlapping of body structures in the image\n\n\tCapable of generating 3-D images\n\n\tDisadvantage (any one of the following):\n1A\n\tHigher cost\n\n\tLess widely available\n\n\tLonger time taken for imaging\n\n\tMore exposure to ionizing radiation",
+        "marking": [
+          {
+            "part": "a",
+            "point": "They indicate the attenuation coefficients of different parts of different body tissues.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The image in Figure a is one of the cross-sectional images at different levels along the body produced in a CT scan.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "By stacking the attenuation coefficient maps producing these cross-sectional images, a 3-D attenuation coefficient map is obtained.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The image in Figure b is produced by digitally cutting through the 3-D map and looking at the cross-section from a certain direction.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Advantage (any one of the following):",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Disadvantage (any one of the following):",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032101.png"
+        ],
+        "answer": [
+          "crops/PHY19032101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4929962158203,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032102",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 2,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "The half-value thickness of a material for X-ray is 9 mm.\n\t(a)\tState the meaning of half-value thickness.\t(1 mark)\n\t(b)\tA block of thickness 4 cm is made of this material. Can the block reduce the intensity of an X-ray beam transmitted through it to below 5% of its original value?\t(4 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "State the meaning of half-value thickness.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "A block of thickness 4 cm is made of this material. Can the block reduce the intensity of an X-ray beam transmitted through it to below 5% of its original value?",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe half-value thickness is the thickness of a material that is needed to reduce the intensity of X-ray to half of its original value.\n1A\n(b)\tμ =[eq:1]\t=[eq:2]\n1M\n\t\t= 0.7702 cm-1\n\n\tBy I = I0e-μx,\n\n\t[eq:3]= e-μx\t= e-0.7702 × 4\n1M\n\t\t= 0.0459 \n\n\t\t= 4.59%\n1A\n\t∴\tThe block can reduce the intensity of an X-ray beam transmitted through it to below 5% of its original value.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The half-value thickness is the thickness of a material that is needed to reduce the intensity of X-ray to half of its original value.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "μ =[eq:1]\t=[eq:2]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "[eq:3]= e-μx\t= e-0.7702 × 4",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 4.59%",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "∴\tThe block can reduce the intensity of an X-ray beam transmitted through it to below 5% of its original value.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032102.png"
+        ],
+        "answer": [
+          "crops/PHY19032102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            634.5997314453125,
+            156.4929962158203,
+            646.7767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032103",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 3,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "Radionuclide X has a physical half-life of 3 days and a biological half-life of 6 days. A dose of radionuclide X of initial activity 120 MBq is injected into a patient’s body. Find the activity of the dose in the patient’s body after 12 days.\t(4 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nBy [eq:4]=[eq:5],\n\nte =[eq:6]\t=[eq:7]\n1M\n\t= 2 days\n\nNumber of half-lives passed\t=[eq:8]\n1M\n\t= 6\n\nActivity after 12 days\t= 120 ×[eq:9]\n1M\n\t= 1.88 MBq\n1A",
+        "marking": [
+          {
+            "part": "",
+            "point": "te =[eq:6]\t=[eq:7]",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "Number of half-lives passed\t=[eq:8]",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "Activity after 12 days\t= 120 ×[eq:9]",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "= 1.88 MBq",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032103.png"
+        ],
+        "answer": [
+          "crops/PHY19032103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            315.7497863769531,
+            156.4929962158203,
+            327.9267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032104",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 4,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\t(a)\tBriefly explain the working principle of X-ray radiographic imaging.\t(3 marks)\n\t(b)\tState one advantage and one disadvantage of X-ray radiographic imaging.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Briefly explain the working principle of X-ray radiographic imaging.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "State one advantage and one disadvantage of X-ray radiographic imaging.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tX-rays emitted from an X-ray tube pass through the patient’s body.\n1A\n\tThe intensity of X-rays reaching the detector is recorded and an image is then generated.\n1A\n\tThe shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.\n1A\n(b)\tAdvantage (any one of the following):\n1A\n\tIt is a fast method of medical imaging.\n\n\tIt is cheap.\n\n\tIt is widely available.\n\n\tDisadvantage (any one of the following):\n1A\n\tIt is incapable of generating 3-D images.\n\n\tThere are existent risks of ionizing radiation.\n\n\tThere is overlapping of body structures in the image.\n\n\tThe images produced are usually static.\n\n\tThe contrast between soft tissues is limited.\n\n\tThere is no tissue sampling.\n\n\tThere is a potential risk of an allergic reaction to the artificial contrast medium.",
+        "marking": [
+          {
+            "part": "a",
+            "point": "X-rays emitted from an X-ray tube pass through the patient’s body.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The intensity of X-rays reaching the detector is recorded and an image is then generated.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The shade of grey on the image depends on X-ray intensity detected, and is therefore related to the total attenuation at the particular body parts the X-ray beams have passed through.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Advantage (any one of the following):",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Disadvantage (any one of the following):",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032104.png"
+        ],
+        "answer": [
+          "crops/PHY19032104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            652.499755859375,
+            156.4929962158203,
+            664.6767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032105",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 5,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tA doctor performs a check on the large intestine of a patient. The patient is asked to have a drink containing barium. After a few hours, the following X-ray image of the abdomen of the patient is taken.\n[fig:3]\n\tExplain why the patient is given the drink before taking the image.\t(4 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nThe large intestine has a low contrast with its surroundings and is not easy to be distinguished in an X-ray image.\n1A\nBarium has a high linear attenuation coefficient.\n1A\nWhen the large intestine is filled with the drink containing barium, less X-rays can pass through it\n1A\nand it will appear lighter than normal in an X-ray image.\n1A",
+        "marking": [
+          {
+            "part": "",
+            "point": "The large intestine has a low contrast with its surroundings and is not easy to be distinguished in an X-ray image.",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "Barium has a high linear attenuation coefficient.",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "When the large intestine is filled with the drink containing barium, less X-rays can pass through it",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "and it will appear lighter than normal in an X-ray image.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032105.png"
+        ],
+        "answer": [
+          "crops/PHY19032105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            368.19976806640625,
+            156.4929962158203,
+            380.37677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032106",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 6,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tThe figure below shows a computed tomography (CT) image of a patient’s abdomen.\n[fig:4]\n\t(a)\tDescribe how the image is produced.\t(4 marks)\n\t(b)\tSuggest one advantage and one disadvantage of CT imaging over X-ray imaging.\n\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Describe how the image is produced.",
+          "marks": 4
+        },
+        {
+          "label": "b",
+          "text": "Suggest one advantage and one disadvantage of CT imaging over X-ray imaging.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe X-ray tube and X-ray detector rotate round a slice of the abdomen to obtain multiple attenuation profiles. \n1A\n\tThe profiles are used to produce a map of attenuation coefficients of different body tissues by back projection algorithm. \n1A\n\tThe map is then filled with different shades of grey to form a tomograph of the slice of body. \n1A\n\tA region is filled darker if the attenuation coefficient there is smaller.\n1A\n(b)\tAdvantage (any one of the following):\n1A\n\tNo overlapping of body structures in the image\n\n\tCapable of generating 3-D images\n\n\tDisadvantage (any one of the following):\n1A\n\tHigher cost\n\n\tLess widely available\n\n\tLonger time taken for imaging\n\n\tMore exposure to ionizing radiation",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The X-ray tube and X-ray detector rotate round a slice of the abdomen to obtain multiple attenuation profiles.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The profiles are used to produce a map of attenuation coefficients of different body tissues by back projection algorithm.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The map is then filled with different shades of grey to form a tomograph of the slice of body.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "A region is filled darker if the attenuation coefficient there is smaller.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Advantage (any one of the following):",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Disadvantage (any one of the following):",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032106.png"
+        ],
+        "answer": [
+          "crops/PHY19032106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            126.64974212646484,
+            156.4929962158203,
+            138.82675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032107",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 7,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tRobin is injured in a football match and it is suspected that there is a bone fracture in his left leg. Which kind of imaging method would you suggest him to use first for checking his leg, X-ray radiographic imaging or CT scanning? Explain briefly.\t(4 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nX-ray radiographic imaging.\n1A\nBone fracture can be easily identified in both imaging methods,\n1A\nbut the exposure to ionizing radiation in X-ray radiographic imaging is less,\n1A\nand X-ray radiographic imaging has a lower cost / is more widely available.\n1A\n(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "",
+            "point": "X-ray radiographic imaging.",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "Bone fracture can be easily identified in both imaging methods,",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "but the exposure to ionizing radiation in X-ray radiographic imaging is less,",
+            "code": "1A"
+          },
+          {
+            "part": "",
+            "point": "and X-ray radiographic imaging has a lower cost / is more widely available.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032107.png"
+        ],
+        "answer": [
+          "crops/PHY19032107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            640.1497802734375,
+            156.4929962158203,
+            652.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032108",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 8,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→→\tRingo has a severe stomach pain and goes to see a doctor. The doctor first examines his faeces and urine. Afterwards, he decides to conduct further examination through endoscopy and X-ray radiographic imaging.\n\t(a)\tSuggest a reason why the doctor examines his faeces and urine first, instead of directly performing endoscopy and X-ray radiographic imaging.\t(1 mark)\n\t(b)\tState two advantages of endoscopy over X-ray radiographic imaging.\t(2 marks)\n\t(c)\t‘If the endoscope consists of bundles with thinner fibres, the image resolution would be higher.’ Is it correct?\t(1 mark)\n\t(d)\tThe image formed by an endoscope is coloured while the X-ray image is in black and white. Explain why.\t(2 marks)",
+        "ocr": "PHY19032108>\n<lvl=dif><part=core><type=sq><mark=6><bk=E4><ch=03><content>\n* * Ringo has a severe stomach pain and goes to see a doctor. The doctor first examines his faeces\nand urine. Afterwards, he decides to conduct further examination through endoscopy and X-ray\n\nradiographic imaging.\n\n1A\n1A\n1A\n1A\n\n(a) Suggest a reason why the doctor examines his faeces and urine first, instead of directly\n\nperforming endoscopy and X-ray radiographic imaging.\n(b) State two advantages of endoscopy over X-ray radiographic imaging.\n\n(1 mark)\n(2 marks)\n\n(c) ‘If the endoscope consists of bundles with thinner fibres, the image resolution would be\n\nhigher.’ Is it correct?\n\n(1 mark)\n\n(d) The image formed by an endoscope is coloured while the X-ray image is in black and\n\nwhite. Explain why. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Suggest a reason why the doctor examines his faeces and urine first, instead of directly performing endoscopy and X-ray radiographic imaging.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "State two advantages of endoscopy over X-ray radiographic imaging.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "‘If the endoscope consists of bundles with thinner fibres, the image resolution would be higher.’ Is it correct?",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "The image formed by an endoscope is coloured while the X-ray image is in black and white. Explain why.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tEndoscopy and X-ray radiographic imaging both possess health risks and should be avoided if unnecessary.\n1A\n\t(Or other reasonable answers)\n\n(b)\tAny two of the following:\n2 × 1A\n\tDirect observation of the organ’s surface can be made.\n\n\tIt does not involve ionizing radiation.\n\n\tSuspicious tissue can be sampled at the same time.\n\n(c)\tThe statement is correct.\n1A\n(d)\tThe image formed by an endoscope is formed by visible light transmitted from the inside of the organ to the observer and hence is coloured.\n1A\n\tAn X-ray image is produced by filling different shades of grey according to the total attenuation of X-rays at different body parts and hence is in black and white.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Endoscopy and X-ray radiographic imaging both possess health risks and should be avoided if unnecessary.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Any two of the following: 2 ×",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The statement is correct.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The image formed by an endoscope is formed by visible light transmitted from the inside of the organ to the observer and hence is coloured.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "An X-ray image is produced by filling different shades of grey according to the total attenuation of X-rays at different body parts and hence is in black and white.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032108.png"
+        ],
+        "answer": [
+          "crops/PHY19032108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            185.74978637695312,
+            156.4929962158203,
+            197.92678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY19032109",
+      "bank": "QB_E403",
+      "book": "E4",
+      "chapter": "03",
+      "seq": 9,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→→\t(a)\tCompare ultrasound B-scan image with X-ray image in terms of their method of production.\t(4 marks)\n\t(b)\tWhat kinds of body structures are not suitable to be observed using ultrasound B-scan and X-ray imaging?\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Compare ultrasound B-scan image with X-ray image in terms of their method of production.",
+          "marks": 4
+        },
+        {
+          "label": "b",
+          "text": "What kinds of body structures are not suitable to be observed using ultrasound B-scan and X-ray imaging?",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAn ultrasound B-scan image is produced by emitting ultrasound pulses\n1A\n\tand detecting the echoes from different interfaces inside the body.\n1A\n\tAn X-ray image is produced by emitting X-rays\n1A\n\tand detecting the X-rays transmitted through the body.\n1A\n(b)\tUltrasound B-scan is not suitable to observe body structures behind bones or air-filled organs.\n1A\n\tX-ray imaging is not suitable to observe overlapped body structures. \n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "An ultrasound B-scan image is produced by emitting ultrasound pulses",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "and detecting the echoes from different interfaces inside the body.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "An X-ray image is produced by emitting X-rays",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "and detecting the X-rays transmitted through the body.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Ultrasound B-scan is not suitable to observe body structures behind bones or air-filled organs.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "X-ray imaging is not suitable to observe overlapped body structures.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E403/E4_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY19032109.png"
+        ],
+        "answer": [
+          "crops/PHY19032109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E403/E4_ch03_SQ_e.docx",
+          "sha256": "6131c38e7b4aaf11fa6cbde43b30e4ceb1cb4aa3b6183e2dba1e40a701a32674",
+          "pdf": "qb-pdf/QB_E403/E4_ch03_SQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            596.8497314453125,
+            156.4929962158203,
+            609.0267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

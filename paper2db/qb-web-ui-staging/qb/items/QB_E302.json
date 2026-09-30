@@ -1,0 +1,3264 @@
+{
+  "bank": "QB_E302",
+  "generated_at": "2026-09-29T19:13:00Z",
+  "tool_versions": {
+    "pymupdf": "1.28.2",
+    "tesseract": "tesseract 5.5.3",
+    "soffice": "LibreOffice 26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77"
+  },
+  "count": 35,
+  "items": [
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023101",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 1,
+      "type": "lq",
+      "level": "dif",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→→\tAn incandescent lamp of luminous flux 1000 lm is located above the ground as shown.\n[fig:1]5 m\n3 m\nlamp\nP\n[fig:2]5 m\n3 m\nlamp\nP\n\n\t(a)\tFind the illuminance on the floor around point P.\t(3 marks)\n\t(b)\t(i)\tBriefly describe the principle of light emission of an incandescent lamp.\t(2 marks)\n\t\t(ii)\tExplain why an incandescent lamp is low in efficacy.\t(1 mark)\n\t(c)\tThere is some inert gas inside the glass bulb surrounding the filament of the lamp. What is the function of the gas?\t(1 mark)\n\t(d)\tA student suggests that an incandescent lamp with a thicker filament will be brighter. Briefly explain whether he is correct.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the illuminance on the floor around point P.",
+          "marks": 3
+        },
+        {
+          "label": "b(i)",
+          "text": "Briefly describe the principle of light emission of an incandescent lamp.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "Explain why an incandescent lamp is low in efficacy.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "There is some inert gas inside the glass bulb surrounding the filament of the lamp. What is the function of the gas?",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "A student suggests that an incandescent lamp with a thicker filament will be brighter. Briefly explain whether he is correct.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAngle between the incident light and the normal at P =[eq:1]= 31.0°\n0.5M\n\tDistance between the lamp and P =[eq:2]= 5.83 m\n0.5M\n\tE =[eq:3]\t=[eq:4]\n1M\n\t\t= 2.01 lx\n1A\n(b)\t(i)\tThe electrons in the filament are excited when the filament is heated by the current passing through it.\n1A\n\t\tWhen the electrons move to lower energy levels, light is emitted.\n1A\n\t(ii)\tMost of the light emitted by an incandescent lamp is infra-red radiation.\n1A\n(c)\tTo slow down the evaporation of the filament\n1A\n(d)\tThe student is correct.\n1A\n\tA thicker filament has a lower resistance.\n1A\n\tTherefore, if the same voltage is applied, the lamp with a thicker filament will dissipate a higher power and will be brighter.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Angle between the incident light and the normal at P =[eq:1]= 31.0° 0.",
+            "code": "5M"
+          },
+          {
+            "part": "a",
+            "point": "Distance between the lamp and P =[eq:2]= 5.83 m 0.",
+            "code": "5M"
+          },
+          {
+            "part": "a",
+            "point": "E =[eq:3]\t=[eq:4]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 2.01 lx",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "The electrons in the filament are excited when the filament is heated by the current passing through it.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "When the electrons move to lower energy levels, light is emitted.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Most of the light emitted by an incandescent lamp is infra-red radiation.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "To slow down the evaporation of the filament",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The student is correct.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "A thicker filament has a lower resistance.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Therefore, if the same voltage is applied, the lamp with a thicker filament will dissipate a higher power and will be brighter.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023101.png"
+        ],
+        "answer": [
+          "crops/PHY18023101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4929962158203,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023102",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 2,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tLED lamps are now commonly used for lighting.\n\t(a)\tDescribe briefly how an LED emits light. \t(3 marks)\n\t(b)\tThe luminous flux of a 20-W LED lamp is 1600 lm. The lamp is installed in a room and a small piece of paper is 1.5 m directly under the lamp. Assume that the lamp is a point source and it is the only light source in the room.\n\t\t(i)\tFind the maximum illuminance on the paper.\t(2 marks)\n\t\t(ii)\tThe actual illuminance on the paper is larger than the answer in (i). Explain briefly.\n\t(1 mark)\n\t\t(iii)\tFind the efficacy of the lamp.\t(2 marks)\n\t\t(iv)\tSuggest a method of producing white light with an LED lamp.\n[Hint: Some LEDs can emit ultra-violet light.]\t(1 mark)\n\t(c)\tSuggest another energy-saving device that can be used at home.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Describe briefly how an LED emits light.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "The luminous flux of a 20-W LED lamp is 1600 lm. The lamp is installed in a room and a small piece of paper is 1.5 m directly under the lamp. Assume that the lamp is a point source and it is the only light source in the room.\n\t\t(i)\tFind the maximum illuminance on the paper.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "The actual illuminance on the paper is larger than the answer in (i). Explain briefly.",
+          "marks": 1
+        },
+        {
+          "label": "b(iii)",
+          "text": "Find the efficacy of the lamp.",
+          "marks": 2
+        },
+        {
+          "label": "b(iv)",
+          "text": "Suggest a method of producing white light with an LED lamp.\n[Hint: Some LEDs can emit ultra-violet light.]",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Suggest another energy-saving device that can be used at home.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tWhen a forward d.c. voltage is applied to an LED,\n1A\n\telectrons and holes move towards the p-n junction and combine together.\n1A\n\tWhen this happens, electron transition from a higher to a lower energy level occurs and the excess energy is released in the form of an EM wave.\n1A\n(b)\t(i)\tMaximum illuminance =[eq:5]\t=[eq:6]\n1M\n\t\t\t= 56.6 lx\n1A\n\t(ii)\tLight is reflected to the paper by walls and ceiling.\n1A\n\t(iii)\tEfficacy =[eq:7]\t=[eq:8]\n1M\n\t\t\t= 80 lm W-1\n1A\n\t(iv)\tCombine blue, green and red LEDs. / Use a phosphor coating.\n1A\n(c)\tPressure cooker\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "When a forward d.c. voltage is applied to an LED,",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "electrons and holes move towards the p-n junction and combine together.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "When this happens, electron transition from a higher to a lower energy level occurs and the excess energy is released in the form of an EM wave.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Maximum illuminance =[eq:5]\t=[eq:6]",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "= 56.6 lx",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Light is reflected to the paper by walls and ceiling.",
+            "code": "1A"
+          },
+          {
+            "part": "b(iii)",
+            "point": "Efficacy =[eq:7]\t=[eq:8]",
+            "code": "1M"
+          },
+          {
+            "part": "b(iii)",
+            "point": "= 80 lm W-1",
+            "code": "1A"
+          },
+          {
+            "part": "b(iv)",
+            "point": "Combine blue, green and red LEDs. / Use a phosphor coating.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Pressure cooker",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023102.png"
+        ],
+        "answer": [
+          "crops/PHY18023102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            686.3497314453125,
+            156.4929962158203,
+            698.5267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023103",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 3,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tA lamp consisting of 6 CFLs is 2 m above a dining table as shown. Each CFL is rated at ‘18 W, 1000 lm’. X is a point on the table directly under the lamp. Assume that the lamp is a point source and is the only light source in the room.\n[fig:3]lamp\nX\nY\n2 m\n0.6 m\n[fig:4]lamp\nX\nY\n2 m\n0.6 m\n\n\t(a)\tFind the efficacy of the lamp.\t(2 marks)\n\t(b)\tPauline puts a book horizontally on the table at point Y. Neglect the size of the book.\n\t\t(i)\tFind the illuminance on the book.\t(3 marks)\n\t\t(ii)\tWithout adding other light sources, suggest two methods that can increase the illuminance on the book.\t(2 marks)\n\t(c)\tSpent CFLs should be recycled rather than disposed of directly. Explain briefly.\t(1 mark)\n\t(d)\tIf the CFLs are replaced by incandescent lamps with the same luminous flux but efficacy of 20 lm W–1, what is difference in cost of electricity in using the lamps for 1200 hours? Each kW h of electricity costs $1.1.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the efficacy of the lamp.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Pauline puts a book horizontally on the table at point Y. Neglect the size of the book.\n\t\t(i)\tFind the illuminance on the book.",
+          "marks": 3
+        },
+        {
+          "label": "b(ii)",
+          "text": "Without adding other light sources, suggest two methods that can increase the illuminance on the book.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Spent CFLs should be recycled rather than disposed of directly. Explain briefly.",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "If the CFLs are replaced by incandescent lamps with the same luminous flux but efficacy of 20 lm W–1, what is difference in cost of electricity in using the lamps for 1200 hours? Each kW h of electricity costs $1.1.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tEfficacy =[eq:9]\t=[eq:10]\n1M\n\t\t= 55.6 lm W-1\n1A\n(b)\t(i)\t\n\n\t\t[fig:5]lamp\nX\nY\n2 m\n0.6 m\nθ\n[fig:6]lamp\nX\nY\n2 m\n0.6 m\nθ\n\n\n\t\tcos θ =[eq:11]\n1M\n\t\tE =[eq:12]\t=[eq:13][eq:14]\n1M\n\t\t\t= 105 lx\n1A\n\t(ii)\tTilt the book so that light falls on it normally.\n1A\n\t\tMove the book towards X.\n1A\n\t\t(Or other reasonable answers)\n\n(c)\tCFLs contain mercury.\n1A\n(d)\tBy efficacy =[eq:15],\n\n\tinput power of each incandescent lamp =[eq:16]\t=[eq:17]\n1M\n\t\t= 50 W\n\n\tDifference in cost of electricity = $1.1 × [(0.05 - 0.018) × 6 × 1200] = $253\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Efficacy =[eq:9]\t=[eq:10]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 55.6 lm W-1",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "cos θ =[eq:11]",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "E =[eq:12]\t=[eq:13][eq:14]",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "= 105 lx",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Tilt the book so that light falls on it normally.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Move the book towards X.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "CFLs contain mercury.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "input power of each incandescent lamp =[eq:16]\t=[eq:17]",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "Difference in cost of electricity = $1.1 × [(0.05 - 0.018) × 6 × 1200] = $253",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023103.png"
+        ],
+        "answer": [
+          "crops/PHY18023103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            534.19970703125,
+            156.4929962158203,
+            546.376708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023104",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 4,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThis question is about incandescent lamps.\n\t(a)\tWhy is the filament in the lamp very thin?\t(3 marks)\n\t(b)\tWhat is the function of the inert gas in the bulb?\t(1 mark)\n\t(c)\tThe figure below shows the wavelengths λ of the EM waves emitted by an incandescent lamp.\n[fig:7]2\t4\t6\t8\t10\t12\t14\t16\t18\t20\t22\t24\t26\t28\nintensity\nλ / 10-7 m\n[fig:8]2\t4\t6\t8\t10\t12\t14\t16\t18\t20\t22\t24\t26\t28\nintensity\nλ / 10-7 m\n\n\t\t(i)\tShade the area under the curve that represents the visible light region.\t(1 mark)\n\t\t(ii)\tAs seen in the diagram, which kind of EM waves is emitted the most?\t(1 mark)\n\t(d)\tAn incandescent lamp is installed in a storeroom as shown. Its rated power and luminous flux are 75 W and 1100 lm respectively. There is a small notice at point X on the wall. Find the illuminance on the notice due to the lamp. Neglect the reflection of light.\n\t(3 marks)\n[fig:9]X\nlamp\n0.8 m\n0.6 m\n[fig:10]X\nlamp\n0.8 m\n0.6 m\n\n\t(e)\tSuggest an advantage of an incandescent lamp over an LED lamp.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Why is the filament in the lamp very thin?",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "What is the function of the inert gas in the bulb?",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "The figure below shows the wavelengths λ of the EM waves emitted by an incandescent lamp.\n[fig:7]2\t4\t6\t8\t10\t12\t14\t16\t18\t20\t22\t24\t26\t28\nintensity\nλ / 10-7 m\n[fig:8]2\t4\t6\t8\t10\t12\t14\t16\t18\t20\t22\t24\t26\t28\nintensity\nλ / 10-7 m\n\n\t\t(i)\tShade the area under the curve that represents the visible light region.",
+          "marks": 1
+        },
+        {
+          "label": "c(ii)",
+          "text": "As seen in the diagram, which kind of EM waves is emitted the most?",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "An incandescent lamp is installed in a storeroom as shown. Its rated power and luminous flux are 75 W and 1100 lm respectively. There is a small notice at point X on the wall. Find the illuminance on the notice due to the lamp. Neglect the reflection of light.",
+          "marks": 3
+        },
+        {
+          "label": "e",
+          "text": "Suggest an advantage of an incandescent lamp over an LED lamp.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tBy P = I 2R, the higher the resistance, the higher the power output.\n1A\n\tTherefore, the resistance of the filament should be much higher than the connecting wires so that most power is dissipated by the filament.\n1A\n\tBy R =ρ[eq:18], the filament should have a small cross-sectional area in order to have a high resistance.\n1A\n(b)\tIt slows down the evaporation of the filament / lengthens the lifetime of the lamp.\n1A\n(c)\t(i)\t\n\n\t\t[fig:11]2\t4\t6\t7\t8\t10\t12\t14\t16\t18\t20\t22\t24\t26\t28\nintensity\nλ / 10-7 m\n[fig:12]2\t4\t6\t7\t8\t10\t12\t14\t16\t18\t20\t22\t24\t26\t28\nintensity\nλ / 10-7 m\n\n\n\t\t(4 × 10-7 m to 7 × 10-7 m)\n1A\n\t(ii)\tInfra-red radiation\n1A\n(d)\n\n\t[fig:13]X\nlamp\n0.8 m\n0.6 m\nθ\n[fig:14]X\nlamp\n0.8 m\n0.6 m\nθ\n\n\n\tcos θ =[eq:19]= 0.8\n1M\n\tE =[eq:20]\t=[eq:21]\n1M\n\t\t= 70.0 lx\n1A\n(e)\tCheaper\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "By P = I 2R, the higher the resistance, the higher the power output.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Therefore, the resistance of the filament should be much higher than the connecting wires so that most power is dissipated by the filament.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "By R =ρ[eq:18], the filament should have a small cross-sectional area in order to have a high resistance.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "It slows down the evaporation of the filament / lengthens the lifetime of the lamp.",
+            "code": "1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "(4 × 10-7 m to 7 × 10-7 m)",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Infra-red radiation",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "cos θ =[eq:19]= 0.8",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "E =[eq:20]\t=[eq:21]",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "= 70.0 lx",
+            "code": "1A"
+          },
+          {
+            "part": "e",
+            "point": "Cheaper",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023104.png"
+        ],
+        "answer": [
+          "crops/PHY18023104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            727.6497192382812,
+            156.4929962158203,
+            739.8267211914062
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023105",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 5,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\t(a)\tWrite down the energy conversions when an incandescent lamp operates.\t(2 marks)\n\t(b)\tOnly a small amount energy consumed by an incandescent lamp can be used for illumination. Explain the reason.\t(1 mark)\n\t(c)\tInstead of end-use energy efficiency, which quantity is used to measure the effectiveness of a light source? Explain briefly.\t(3 marks)\n\t(d)\tA student says that a CFL is more environmental friendly than an incandescent lamp. Comment on this statement.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Write down the energy conversions when an incandescent lamp operates.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Only a small amount energy consumed by an incandescent lamp can be used for illumination. Explain the reason.",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Instead of end-use energy efficiency, which quantity is used to measure the effectiveness of a light source? Explain briefly.",
+          "marks": 3
+        },
+        {
+          "label": "d",
+          "text": "A student says that a CFL is more environmental friendly than an incandescent lamp. Comment on this statement.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tElectrical energy is converted into internal energy of filament\n1A\n\tand energy of EM waves.\n1A\n(b)\tMost of the light emitted by an incandescent lamp is not visible light / is infra-red radiation.\n1A\n(c)\tEfficacy.\n1A\n\tThe human eye has different sensitivities to light of different wavelengths.\n1A\n\tTherefore, the output power of a light source should be corrected according to the sensitivity of the human eye.\n1A\n(d)\tThe statement is correct. The efficacy of a CFL is much higher than an incandescent lamp.\n1A+1A\nOr\tThe statement is incorrect. CFLs contain mercury while incandescent lamps do not.\n1A+1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Electrical energy is converted into internal energy of filament",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "and energy of EM waves.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Most of the light emitted by an incandescent lamp is not visible light / is infra-red radiation.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Efficacy.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The human eye has different sensitivities to light of different wavelengths.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Therefore, the output power of a light source should be corrected according to the sensitivity of the human eye.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The statement is correct. The efficacy of a CFL is much higher than an incandescent lamp. 1A+",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Or\tThe statement is incorrect. CFLs contain mercury while incandescent lamps do not. 1A+",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023105.png"
+        ],
+        "answer": [
+          "crops/PHY18023105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            100.44979095458984,
+            156.4929962158203,
+            112.62679290771484
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023106",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 6,
+      "type": "lq",
+      "level": "dif",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "→→\tA student does an experiment to study the relationship between the illuminance on a surface due to a point source of light and the orientation of the surface. She uses a light meter with a flat receptor to measure illuminance. The receptor is fixed at a position 1.2 m vertically below a light bulb. The light bulb is the only light source in the room.\n[fig:15]light bulb\nreceptor\nθ\n1.2 m\n[fig:16]light bulb\nreceptor\nθ\n1.2 m\n\n\tShe varies the angle θ between the receptor and the horizontal. The corresponding illuminance E is measured. The table below shows the results.\nθ\n0°\n15°\n30°\n45°\n60°\n75°\nE / lx\n95\n89\n82\n66\n53\n32\n\tAssume that the receptor is very small and the bulb can be regarded as a point source.\n\t(a)\tWhat is the physical meaning of the illuminance on a surface?\t(1 mark)\n\t(b)\tPlot a straight-line graph relating E and θ.\t(3 marks)\n\t(c)\tEstimate the luminous flux of the light bulb from the graph in (b).\t(3 marks)\n\t(d)\tDoes the straight line in (b) passes through the origin? Explain briefly.\t(2 marks)\n\t(e)\tSuggest one way to improve the accuracy of this experiment.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the physical meaning of the illuminance on a surface?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Plot a straight-line graph relating E and θ.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "Estimate the luminous flux of the light bulb from the graph in (b).",
+          "marks": 3
+        },
+        {
+          "label": "d",
+          "text": "Does the straight line in (b) passes through the origin? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "e",
+          "text": "Suggest one way to improve the accuracy of this experiment.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tIt is the luminous flux falling on a surface per unit area.\n1A\n(b)\t\nθ\n0°\n15°\n30°\n45°\n60°\n75°\ncos θ\n1\n0.97\n0.87\n0.71\n0.5\n0.26\nE / lx\n95\n89\n82\n66\n53\n32\n\n\n\t[fig:17]cos θ\nE / lx \n10\n20\n30\n40\n50\n60\n70\n80\n90\n100\n0.2\t0.4\t0.6\t0.8\t1.0\n0\n×\n×\n×\n×\n×\n×\n[fig:18]cos θ\nE / lx \n10\n20\n30\n40\n50\n60\n70\n80\n90\n100\n0.2\t0.4\t0.6\t0.8\t1.0\n0\n×\n×\n×\n×\n×\n×\n\n\n\t(Correct axes)\n1A\n\t(Correct data points)\n1A\n\t(Straight line of best fit, not passing through origin)\n1A\n(c)\tBy E =[eq:22],\n\n\tΦ =[eq:23]× 4πr 2\t= slope × 4πr 2\n1M\n\t\t=[eq:24]× 4π(1.2)2\n1M\n\t\t= 1490 lm\n1A\n\t(Accept other reasonable values)\n\n(d)\tThe graph does not pass through the origin.\n1A\n\tThis is because light reflected by walls and ceiling enters the receptor.\n1A\n(e)\tCover the walls and ceiling with black cloth.\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "It is the luminous flux falling on a surface per unit area.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "(Correct axes)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "(Correct data points)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "(Straight line of best fit, not passing through origin)",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Φ =[eq:23]× 4πr 2\t= slope × 4πr 2",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "=[eq:24]× 4π(1.2)2",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 1490 lm",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The graph does not pass through the origin.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "This is because light reflected by walls and ceiling enters the receptor.",
+            "code": "1A"
+          },
+          {
+            "part": "e",
+            "point": "Cover the walls and ceiling with black cloth.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023106.png"
+        ],
+        "answer": [
+          "crops/PHY18023106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            6,
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            497.3497619628906,
+            156.4929962158203,
+            509.5267639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023107",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 7,
+      "type": "lq",
+      "level": "dif",
+      "part": "core",
+      "marks": 11,
+      "stem": {
+        "text": "→→\tA point light source with a luminous flux of 1800 lm is placed at the centre of a cubic box. Point Z is at the centre of surface Y.\n[fig:19]surface Y\nlight source\nZ\n[fig:20]surface Y\nlight source\nZ\n\n\t(a)\tFind the luminous flux falling on surface Y.\t(1 mark)\n\t(b)\tFind the average illuminance on surface Y.\t(2 marks)\n\t(c)\tFind the illuminance at Z.\t(2 marks)\n\t(d)\tIf the length of each side of the box is doubled and the light source remains at the centre of the box, how will the answers in (a), (b) and (c) change? Explain briefly.\t(6 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the luminous flux falling on surface Y.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Find the average illuminance on surface Y.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Find the illuminance at Z.",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "If the length of each side of the box is doubled and the light source remains at the centre of the box, how will the answers in (a), (b) and (c) change? Explain briefly.",
+          "marks": 6
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tLuminous flux ΦY falling on surface Y =[eq:25]= 300 lm\n1A\n(b)\tAverage illuminance on surface Y =[eq:26]\t=[eq:27]\n1M\n\t\t= 75 lx\n1A\n(c)\tIlluminance at Z =[eq:28]\t=[eq:29]\n1M\n\t\t= 143 lx\n1A\n(d)\tThe luminous flux falling on surface Y will still be one-sixth of the luminous flux of the source,\n1A\n\tso it will not change.\n1A\n\tThe area of surface Y will become four times the value before.\n1A\n\tTherefore, the average illuminance on surface Y will become one-fourth of the value before.\n1A\n\tThe distance r between Z and the light source will be doubled.\n1A\n\tTherefore, the illuminance at Z will become one-fourth of the value before.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Luminous flux ΦY falling on surface Y =[eq:25]= 300 lm",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Average illuminance on surface Y =[eq:26]\t=[eq:27]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 75 lx",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Illuminance at Z =[eq:28]\t=[eq:29]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 143 lx",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The luminous flux falling on surface Y will still be one-sixth of the luminous flux of the source,",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "so it will not change.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The area of surface Y will become four times the value before.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Therefore, the average illuminance on surface Y will become one-fourth of the value before.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "The distance r between Z and the light source will be doubled.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Therefore, the illuminance at Z will become one-fourth of the value before.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023107.png"
+        ],
+        "answer": [
+          "crops/PHY18023107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            170.59976196289062,
+            156.4929962158203,
+            182.77676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023108",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 8,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tIn Hong Kong, sodium lamps are sometimes used as street lamps. They emit yellow light of wavelength about 590 nm. Their efficacy can be as high as 200 lm W-1.\n\t(a)\tWhat is the physical meaning of efficacy?\t(1 mark)\n\t(b)\tSuggest two reasons that the efficacy of a sodium lamp is so high.\t(2 marks)\n\t(c)\tIs a sodium lamp suitable for domestic use? Suggest a reason.\t(2 marks)\n\t(d)\tA street lamp is 4 m above the ground. Its luminous flux is 20 000 lm. What is the illuminance at a point on the ground which is 3 m away from the lamp pole? Assume that the lamp is a point source and is the only light source.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the physical meaning of efficacy?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Suggest two reasons that the efficacy of a sodium lamp is so high.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Is a sodium lamp suitable for domestic use? Suggest a reason.",
+          "marks": 2
+        },
+        {
+          "label": "d",
+          "text": "A street lamp is 4 m above the ground. Its luminous flux is 20 000 lm. What is the illuminance at a point on the ground which is 3 m away from the lamp pole? Assume that the lamp is a point source and is the only light source.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tAny one of the following:\n1A\n\tIt measures how much electrical energy is converted into visible light, corrected for the dependence on wavelength of the sensitivity of the human eye.\n\n\tEfficacy =[eq:30]\n\n(b)\tA large portion of the EM waves emitted is visible light.\n1A\n\tThe human eye is very sensitive to yellow light.\n1A\n\t(Or other reasonable answers)\n\n(c)\tNo.\n1A\n\tIt is difficult to distinguish the colours of objects illuminated by a sodium lamp.\n1A\n\t(Or other reasonable answers)\n\n(d)\t\n\n\t[fig:21]lamp\n4 m\n3 m\nθ\n[fig:22]lamp\n4 m\n3 m\nθ\n\n\n\tcos θ =[eq:31]= 0.8\n1M\n\tE =[eq:32]\t=[eq:33]\n1M\n\t\t= 50.9 lx\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Any one of the following:",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "A large portion of the EM waves emitted is visible light.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The human eye is very sensitive to yellow light.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "No.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "It is difficult to distinguish the colours of objects illuminated by a sodium lamp.",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "cos θ =[eq:31]= 0.8",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "E =[eq:32]\t=[eq:33]",
+            "code": "1M"
+          },
+          {
+            "part": "d",
+            "point": "= 50.9 lx",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023108.png"
+        ],
+        "answer": [
+          "crops/PHY18023108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            100.44979095458984,
+            156.4929962158203,
+            112.62679290771484
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18023109",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 9,
+      "type": "lq",
+      "level": "avg",
+      "part": "core",
+      "marks": 8,
+      "stem": {
+        "text": "→\tThe figure below shows an incandescent lamp. M is made of tungsten.\n[fig:23]\n\t(a)\tName M.\t(1 mark)\n\t(b)\tExplain how an incandescent lamp generates light by considering electron transition.\n\t(2 marks)\n\t(c)\tExplain briefly why the thinner part of M will break more easily.\t(3 marks)\n\t(d)\tThe figure below shows the wavelengths of the EM waves emitted by an incandescent lamp.\n[fig:24][fig:25]\n\t\t(i)\tState the range of wavelengths for visible light. Correct your answer to one significant figure.\t(1 mark)\n\t\t(ii)\tFrom the graph, explain why an incandescent lamp is not an effective light source.\n\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Name M.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Explain how an incandescent lamp generates light by considering electron transition.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Explain briefly why the thinner part of M will break more easily.",
+          "marks": 3
+        },
+        {
+          "label": "d",
+          "text": "The figure below shows the wavelengths of the EM waves emitted by an incandescent lamp.\n[fig:24][fig:25]\n\t\t(i)\tState the range of wavelengths for visible light. Correct your answer to one significant figure.",
+          "marks": 1
+        },
+        {
+          "label": "d(ii)",
+          "text": "From the graph, explain why an incandescent lamp is not an effective light source.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tFilament\n1A\n(b)\tThe electrons in the filament are excited when the filament is heated by the current passing through it.\n1A\n\tWhen the electrons move to lower energy levels, light is emitted.\n1A\n(c)\tThe thinner part has a higher resistance.\n1A\n\tBy P = I 2R, a greater heating effect is produced there when a current passes through the filament.\n1A\n\tTherefore, the temperature is higher and evaporation occurs faster there.\n1A\n(d)\t(i)\t400-700 nm\n1A\n\t(ii)\tMost of the light emitted by an incandescent lamp is not visible light.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Filament",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The electrons in the filament are excited when the filament is heated by the current passing through it.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "When the electrons move to lower energy levels, light is emitted.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The thinner part has a higher resistance.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "By P = I 2R, a greater heating effect is produced there when a current passes through the filament.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Therefore, the temperature is higher and evaporation occurs faster there.",
+            "code": "1A"
+          },
+          {
+            "part": "d(i)",
+            "point": "400-700 nm",
+            "code": "1A"
+          },
+          {
+            "part": "d(ii)",
+            "point": "Most of the light emitted by an incandescent lamp is not visible light.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18023109.png"
+        ],
+        "answer": [
+          "crops/PHY18023109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_LQ_e.docx",
+          "sha256": "9037304c9a881a6896c3ceded0c91d63ff8af4a8fdc4596c1bc4e3c3de3a22cf",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_LQ_e.pdf",
+          "pages": [
+            9,
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            725.5497436523438,
+            156.4929962158203,
+            737.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021101",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 1,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following device(s) produce(s) light by bombarding gaseous substances inside with electrons?\n\t(1)\tCompact fluorescent lamp\n\t(2)\tLight emitting diode\n\t(3)\tIncandescent lamp",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "In a CFL, there are a small amount of mercury and an inert gas under a very low pressure. During the process of the generation of light in a CFL, electrons ionize the inert gas atoms by bombarding them to form ions and more free electrons. The electrons in the mercury atoms are excited when the atoms are bombarded with electrons and ions.\n∴ (1) is correct.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021101.png"
+        ],
+        "answer": [
+          "crops/PHY18021101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.75,
+            71.9997787475586,
+            156.64198303222656,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021102",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 2,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following processes are involved in the principle of light emission of a compact fluorescent lamp?\n\t(1)\tThe electrons in mercury atoms inside the lamp are excited.\n\t(2)\tElectrons are emitted from the negative electrode.\n\t(3)\tUltra-violet radiation is emitted by the excited electrons in mercury atoms.",
+        "ocr": "PHY18021102>\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n* = Which of the following processes are involved in the principle of light emission of a compact\nfluorescent lamp?\n(1) The electrons in mercury atoms inside the lamp are excited.\n(2) Electrons are emitted from the negative electrode.\n(3) Ultra-violet radiation is emitted by the excited electrons in mercury atoms.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "In a CFL, there are a small amount of mercury and an inert gas under a very low pressure. When a high voltage is applied across the two electrodes, electrons are emitted from the negative electrode. The electrons ionize the inert gas atoms to form ions and more free electrons. The electrons in the mercury atoms are excited when the atoms are bombarded with electrons and ions. When the excited electrons jump to lower energy levels, energy is released mainly in the form of ultra-violet radiation.\n∴ (1), (2) and (3) are correct.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021102.png"
+        ],
+        "answer": [
+          "crops/PHY18021102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.75,
+            377.5997619628906,
+            156.6429901123047,
+            389.7767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021103",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 3,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tA 20-W compact fluorescent lamp (CFL) and a 120-W filament light bulb produce the same luminous flux. Which of the following statements about the two lighting devices is/are correct?\n\t(1)\tThe CFL costs less when both light devices are turned on for the same duration.\n\t(2)\tThe filament light bulb converts 120 J of electrical energy into visible light in 1 s.\n\t(3)\tA human eye perceives that the lighting devices give the same brightness when observed from the same distance.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "As the CFL has a lower power than the filament bulb, it costs less energy and less money when both light devices are turned on for the same duration.\n∴ (1) is correct.\nOnly a small portion of the emission of the filament light bulb is visible light.\n∴ (2) is incorrect.\nAs the two lighting devices produce the same luminous flux, they are equally bright to a human eye when observed from the same distance.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021103.png"
+        ],
+        "answer": [
+          "crops/PHY18021103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.75,
+            709.7997436523438,
+            156.6429901123047,
+            721.9767456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021104",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 4,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe efficacies and input powers of four different lamps are listed below. Which one appears the brightest to an observer standing at a fixed distance away?\n\nEfficacy\nInput power",
+        "ocr": "PHY18021104>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n\n* The efficacies and input powers of four different lamps are listed below. Which one appears the\nbrightest to an observer standing at a fixed distance away?\n\nEfficacy Input power\nA 60 Im Wt 6 W\nB 50 lm Wt 8W\nC 30 Im W 10 W\nD 20 lm Wt 18 W",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "60 lm W-1\n6 W"
+        },
+        {
+          "label": "B",
+          "text": "50 lm W-1\n8 W"
+        },
+        {
+          "label": "C",
+          "text": "30 lm W-1\n10 W"
+        },
+        {
+          "label": "D",
+          "text": "20 lm W-1\n18 W"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "By efficacy = [eq:1],\nluminous flux Φ = efficacy × input power\nOption A: Φ = 60 × 6 = 360 lm\nOption B: Φ = 50 × 8 = 400 lm\nOption C: Φ = 30 × 10 = 300 lm\nOption D: Φ = 20 × 18 = 360 lm\nAs the luminous flux in option B is the highest, this lamp appears the brightest to an observer standing at a fixed distance away.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021104.png"
+        ],
+        "answer": [
+          "crops/PHY18021104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.75,
+            405.3497619628906,
+            156.6429901123047,
+            417.5267639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021105",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 5,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about a light emitting diode (LED) is/are correct when it operates?\n\t(1)\tElectrons in an LED drop to lower energy levels and emit light.\n\t(2)\tThe materials forming the p-n junction in an LED determines the colour of light emitted.\n\t(3)\tAn LED glows steadily with both a.c. and d.c. power supply.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "A current can only flow through an LED in one direction from anode to cathode. A circuit for converting a.c. to d.c. is included in an LED lamp so that it can be operated normally by mains electricity.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021105.png"
+        ],
+        "answer": [
+          "crops/PHY18021105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.75,
+            71.9997787475586,
+            156.6429901123047,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021106",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 6,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Some LEDs are connected to a battery in different ways as shown. The letters ‘n’ and ‘p’ represent the n-type and the p-type semiconductors in the LEDs respectively. In which of the circuits can the LED(s) light up?\n(1)\n[fig:1]p\tn\n[fig:2]p\tn\n\n(2)\n[fig:3]n\tp\n[fig:4]n\tp\n\n(3)\n[fig:5]p\tn\nn\tp\n[fig:6]p\tn\nn\tp\n\n(4)\n[fig:7]p\tn\nn\tp\n[fig:8]p\tn\nn\tp",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (4) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (3) and (4) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "A current can only flow through an LED in one direction from anode to cathode, i.e. when the p-layer in the LED is connected to the positive terminal and the n-layer to the negative terminal of the battery.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021106.png"
+        ],
+        "answer": [
+          "crops/PHY18021106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.75,
+            366.2497863769531,
+            156.6429901123047,
+            378.4267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021107",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 7,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following lighting devices has the longest lifetime?",
+        "ocr": "PHY18021107>\n<lvl=easy><part=core><type=mc><mark=2><bk=E3><ch=02><content>\nWhich of the following lighting devices has the longest lifetime?\n\nA Compact fluorescent lamp\nBLED lamp\nC Incandescent lamp\nD_ Fluorescent tube lamp",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Compact fluorescent lamp"
+        },
+        {
+          "label": "B",
+          "text": "LED lamp"
+        },
+        {
+          "label": "C",
+          "text": "Incandescent lamp"
+        },
+        {
+          "label": "D",
+          "text": "Fluorescent tube lamp"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021107.png"
+        ],
+        "answer": [
+          "crops/PHY18021107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            108.8497543334961,
+            156.6429901123047,
+            121.0267562866211
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021108",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 8,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Two lamps appear to have the same brightness when they are observed from the same distance. The lamp with a higher efficacy is the one with",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "a smaller useful output power."
+        },
+        {
+          "label": "B",
+          "text": "a larger useful output power."
+        },
+        {
+          "label": "C",
+          "text": "a smaller input power."
+        },
+        {
+          "label": "D",
+          "text": "a larger input power."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Since the two lamps have the same brightness when observed from the same distance, they have the same luminous flux.\nBy efficacy = [eq:2], the lamp with a higher efficacy has a smaller input power.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021108.png"
+        ],
+        "answer": [
+          "crops/PHY18021108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            289.9997863769531,
+            156.6429901123047,
+            302.1767883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021109",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 9,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Lux is the unit of",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "luminous flux."
+        },
+        {
+          "label": "B",
+          "text": "illuminance."
+        },
+        {
+          "label": "C",
+          "text": "lumen."
+        },
+        {
+          "label": "D",
+          "text": "efficacy."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021109.png"
+        ],
+        "answer": [
+          "crops/PHY18021109.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            538.69970703125,
+            156.6429901123047,
+            550.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021110",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 10,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Four lamps are available in a lamp shop.\nLamp\nPower rating\nEfficacy\nP\n20 W\n85 lm W-1\nQ\n40 W\n35 lm W-1\nR\n60 W\n45 lm W-1\nS\n80 W\n25 lm W-1\n\tWhich lamp is the dimmest?",
+        "ocr": "PHY18021110>\n\n\n<lvl=easy><part=core><type=mc><mark=2><bk=E3><ch=02><content>\nFour lamps are available in a lamp shop.\n\nLamp Power rating Efficacy\nP 20 W 85 Im Wt\nQ 40 W 35 lm W?\nR 60 W 45 lm W?\nS 80 W 25 lm W'!\nWhich lamp is the dimmest?\nA P\nB Q\nC R\nD S§S",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "P"
+        },
+        {
+          "label": "B",
+          "text": "Q"
+        },
+        {
+          "label": "C",
+          "text": "R"
+        },
+        {
+          "label": "D",
+          "text": "S"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "By efficacy = [eq:3],\nluminous flux Φ = efficacy × input power\nP: Φ = 85 × 20 = 1700 lm\nQ: Φ = 35 × 40 = 1400 lm\nR: Φ = 45 × 60 = 2700 lm\nS: Φ = 25 × 80 = 2000 lm\nLamp Q is the dimmest as its luminous flux is the lowest.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021110.png"
+        ],
+        "answer": [
+          "crops/PHY18021110.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.75,
+            719.8497314453125,
+            156.2429962158203,
+            732.0267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021111",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 11,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of following statements about a fluorescent tube lamp is/are correct?\n\t(1)\tThe mercury atoms emit visible light for illumination.\n\t(2)\tElectrons are emitted from the negative electrode.\n\t(3)\tThe gas inside the lamp is ionized.",
+        "ocr": "PHY18021111>\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n* = Which of following statements about a fluorescent tube lamp is/are correct?\n(1) The mercury atoms emit visible light for illumination.\n(2) Electrons are emitted from the negative electrode.\n(3) The gas inside the lamp is ionized.\n\nA (3) only\n\nB= (4) and (2) only\nC (2) and (3) only\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(3) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "When a high voltage is applied across the two electrodes, electrons are emitted from the negative electrode. The electrons ionize the inert gas atoms to form ions and more free electrons.\n∴ (2) and (3) are correct.\nEnergy is released by the mercury atoms mainly in the form of ultra-violet radiation.\n∴ (1) is incorrect.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021111.png"
+        ],
+        "answer": [
+          "crops/PHY18021111.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.75,
+            442.6497802734375,
+            155.79299926757812,
+            454.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021112",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 12,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about a compact fluorescent lamp and an incandescent lamp must be correct?\n\t(1)\tA compact fluorescent lamp emits more visible light than an incandescent lamp with the same input power.\n\t(2)\tBoth lamps contain an inert gas.\n\t(3)\tBoth lamps emit infra-red radiation.",
+        "ocr": "PHY18021112>\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n* = Which of the following statements about a compact fluorescent lamp and an incandescent lamp\nmust be correct?\n(1) A compact fluorescent lamp emits more visible light than an incandescent lamp with the\nsame input power.\n(2) Both lamps contain an inert gas.\n(3) Both lamps emit infra-red radiation.\nA (1) only\nB= (4) and (2) only\nC (2) and (3) only\nD_ (1), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021112.png"
+        ],
+        "answer": [
+          "crops/PHY18021112.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.75,
+            84.64974212646484,
+            156.2429962158203,
+            96.82674407958984
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021113",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 13,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA surface of area 10 cm2 is 2 m from a point light source as shown. The luminous flux of the light source is 1000 lm. What is the illuminance at point X?\n[fig:9]light source\n2 m\n70°\nX\n[fig:10]light source\n2 m\n70°\nX",
+        "ocr": "PHY18021113>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n\n* A surface of area 10 cm’ is 2 m from a point light source as shown. The luminous flux of the\nlight source is 1000 lm. What is the illuminance at point X?\n\n2m xX\n\nlight source 7O0Xy\nA 6.80 Ix\nB 18.7 lx\nC 19.9 lx\nD = 94.0lx",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "6.80 lx"
+        },
+        {
+          "label": "B",
+          "text": "18.7 lx"
+        },
+        {
+          "label": "C",
+          "text": "19.9 lx"
+        },
+        {
+          "label": "D",
+          "text": "94.0lx"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "E = [eq:4] = [eq:5] = 18.7 lx",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021113.png"
+        ],
+        "answer": [
+          "crops/PHY18021113.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.75,
+            342.0997619628906,
+            156.2429962158203,
+            354.2767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021114",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 14,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following is/are the advantage(s) of using a pressure cooker to cook food?\n\t(1)\tFood can be cooked without inputting energy.\n\t(2)\tFood can be cooked in a much shorter time.\n\t(3)\tWhen the food is heated, the cooker surface does not get hot.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021114.png"
+        ],
+        "answer": [
+          "crops/PHY18021114.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            6,
+            7
+          ],
+          "bbox_pt": [
+            51.75,
+            621.1497802734375,
+            156.2429962158203,
+            633.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021115",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 15,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn the following figure, a piece of paper is held in random orientation a certain distance away from a light source emitting red light.\n[fig:11][fig:12]\n\tWhich of the following modifications must be able to increase the illuminance on the paper?\n\t(1)\tUse a violet light source of the same input power.\n\t(2)\tUse a green light source of the same input power.\n\t(3)\tTurn the paper so that light from the light source falls perpendicularly on the central part of the paper.",
+        "ocr": "PHY18021115>\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n* In the following figure, a piece of paper is held in random orientation a certain distance away\nfrom a light source emitting red light.\npaper\nlight source\n\nWhich of the following modifications must be able to increase the illuminance on the paper?\n(1) Use a violet light source of the same input power.\n\n(2) Use a green light source of the same input power.\n\n(3) Turn the paper so that light from the light source falls perpendicularly on the central part of\n\nthe paper.\nA (1) only\nB_ (8) only\nC (1) and (3) only\nD_ (2) and (3) only",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "We have no information on how the luminous flux will change when a violet or a green light source is used instead.\n∴ (1) and (2) are incorrect.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021115.png"
+        ],
+        "answer": [
+          "crops/PHY18021115.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.75,
+            180.44979858398438,
+            156.2429962158203,
+            192.62680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021116",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 16,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn the following figure, a small piece of white paper is put at point X on a table. A point light source is directly above the paper.\n[fig:13]X\nY\nZ\nlight source\ntable\nfloor\n[fig:14]X\nY\nZ\nlight source\ntable\nfloor\n\n\tWhich of the following methods can reduce the illuminance on the paper?\n\t(1)\tMove the paper to point Y.\n\t(2)\tPaint the paper black.\n\t(3)\tRemove the table and put the paper at point Z on the floor.",
+        "ocr": "PHY18021116>\n\n<lvl=avg><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n\n* In the following figure, a small piece of white paper is put at point X on a table. A point light\nsource is directly above the paper.\n\n\n» light source\n\ntable | |\n\nfloor\n\nWhich of the following methods can reduce the illuminance on the paper?\n(1) Move the paper to point Y.\n\n(2) Paint the paper black.\n\n(3) Remove the table and put the paper at point Z on the floor.\n\nA (1) and (2) only\nB= (4) and (3) only\nC (2) and (3) only\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Illuminance measures the power received per unit area. The colour of the paper does not affect the illuminance on the paper.\n∴ (2) is incorrect.\nBy E = [eq:6], when the paper is moved from point X to point Y, r increases and cos θ decreases (as θ increases), and so E decreases.\n∴ (1) is correct.\nBy E = [eq:7], when the paper is moved from point X to point Z, r increases, and so E decreases.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021116.png"
+        ],
+        "answer": [
+          "crops/PHY18021116.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            7,
+            8
+          ],
+          "bbox_pt": [
+            51.75,
+            573.1497802734375,
+            156.2429962158203,
+            585.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021117",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 17,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tThe figure below shows a flat surface on an artificial satellite. When sunlight makes an angle of 20° to the surface, the illuminance at X is E. What is the illuminance at X when sunlight makes an angle of 50° to the surface?\n[fig:15]20°\n50°\nX\nsurface\n[fig:16]20°\n50°\nX\nsurface",
+        "ocr": "PHY18021117>\n\n<lvl=dif><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n\n* * The figure below shows a flat surface on an artificial satellite. When sunlight makes an angle of\n20° to the surface, the illuminance at X is E. What is the illuminance at X when sunlight makes\nan angle of 50° to the surface?\n\n\nay)\n\nA 0.45E\n\nB 0.68E\n\nC 1.46E\n\nD 2.24E",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.45E"
+        },
+        {
+          "label": "B",
+          "text": "0.68E"
+        },
+        {
+          "label": "C",
+          "text": "1.46E"
+        },
+        {
+          "label": "D",
+          "text": "2.24E"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "E = E⊥ cos θ ∝ cos θ\n\t[eq:8]\t= [eq:9]\n\t[eq:10]\t= [eq:11]\n\tE1\t= 2.24E",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021117.png"
+        ],
+        "answer": [
+          "crops/PHY18021117.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            8,
+            9
+          ],
+          "bbox_pt": [
+            51.75,
+            577.5997314453125,
+            156.2429962158203,
+            589.7767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18021118",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 18,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tLamp X emits green light while lamp Y emits red light. The two lamps have the same input power and efficacy. Which of the following statements must be correct?\n\t(1)\tThey appear to have the same brightness from the same distance.\n\t(2)\tY converts more electrical energy into visible light than X does.\n\t(3)\tThe total output power of Y is larger than that of X.",
+        "ocr": "PHY18021118>\n<lvl=dif><part=core><type=mc><mark=2><bk=E3><ch=02><content>\n* * Lamp X emits green light while lamp Y emits red light. The two lamps have the same input\npower and efficacy. Which of the following statements must be correct?\n(1) They appear to have the same brightness from the same distance.\n(2) Y converts more electrical energy into visible light than X does.\n(3) The total output power of Y is larger than that of X.\nA (1) only\nB= (4) and (2) only\nC (2) and (3) only\nD_ (4), (2) and (3)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "By efficacy = [eq:12], the two lamps have the same luminous flux and so appear to have the same brightness from the same distance.\n∴ (1) is correct.\nSince human eye is more sensitive to green light than red light, Y must convert more electrical energy into visible light than X does to achieve the same luminous flux.\n∴ (2) and (3) are correct.",
+        "marking": [],
+        "source": "QB_E302/E3_ch02_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18021118.png"
+        ],
+        "answer": [
+          "crops/PHY18021118.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_MC_e.docx",
+          "sha256": "1d787f3ce2097dc84b272a12e0be051c56df9301770b12fe1b2910ef34417e29",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.75,
+            407.1497802734375,
+            156.2429962158203,
+            419.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18022101",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 1,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "A lamp has a power rating of 40 W. A light meter is moved around the lamp to measure the illuminance. The distance between them is maintained at 2 m and the light meter always faces the lamp normally. The illuminance measured is always 80 lx. Assume that the lamp is the only light source and the reflection of light from any surface is negligible.\n\t(a)\tEstimate the luminous flux of the lamp.\t(2 marks)\n\t(b)\tHence, estimate the efficacy of the lamp.\t(2 marks)",
+        "ocr": "PHY18022101>\n\n<lvl=easy><part=core><type=sq><mark=4><bk=E3><ch=02><content>\nA lamp has a power rating of 40 W. A light meter is moved around the lamp to measure the\nilluminance. The distance between them is maintained at 2 m and the light meter always faces\nthe lamp normally. The illuminance measured is always 80 lx. Assume that the lamp is the only\nlight source and the reflection of light from any surface is negligible.\n\n(a) Estimate the luminous flux of the lamp. (2 marks)\n(b) Hence, estimate the efficacy of the lamp. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Estimate the luminous flux of the lamp.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Hence, estimate the efficacy of the lamp.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tBy E =[eq:1],\n\n\tΦ =[eq:2]\t=[eq:3]\n1M\n\t\t= 4020 lm\n1A\n(b)\tEfficacy =[eq:4]\t=[eq:5]\n1M\n\t\t= 101 lm W-1\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Φ =[eq:2]\t=[eq:3]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 4020 lm",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Efficacy =[eq:4]\t=[eq:5]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 101 lm W-1",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18022101.png"
+        ],
+        "answer": [
+          "crops/PHY18022101.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_SQ_e.docx",
+          "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.75,
+            71.9997787475586,
+            157.09298706054688,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18022102",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 2,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\t(a)\tBriefly describe how an LED emits light.\t(3 marks)\n\t(b)\tWhat does the colour of the light emitted by an LED depend on?\t(1 mark)\n\t(c)\tSuggest an advantage and a disadvantage of an LED lamp when compared with an incandescent lamp.\t(2 marks)",
+        "ocr": "PHY18022102>\n<lvl=avg><part=core><type=sq><mark=6><bk=E3><ch=02><content>\n* (a) Briefly describe how an LED emits light. (3 marks)\n(b) What does the colour of the light emitted by an LED depend on? (1 mark)\n(c) Suggest an advantage and a disadvantage of an LED lamp when compared with an\nincandescent lamp. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Briefly describe how an LED emits light.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "What does the colour of the light emitted by an LED depend on?",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Suggest an advantage and a disadvantage of an LED lamp when compared with an incandescent lamp.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tWhen a forward d.c. voltage is applied to an LED,\n1A\n\telectrons and holes move towards the p-n junction and combine together.\n1A\n\tWhen this happens, electron transition from a higher to a lower energy level occurs and the excess energy is released in the form of an EM wave.\n1A\n(b)\tIt depends on the materials forming the p-n junction.\n1A\n(c)\tAdvantage: Longer lifetime\n1A\n\tDisadvantage: More expensive\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "When a forward d.c. voltage is applied to an LED,",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "electrons and holes move towards the p-n junction and combine together.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "When this happens, electron transition from a higher to a lower energy level occurs and the excess energy is released in the form of an EM wave.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "It depends on the materials forming the p-n junction.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Advantage: Longer lifetime",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Disadvantage: More expensive",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18022102.png"
+        ],
+        "answer": [
+          "crops/PHY18022102.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_SQ_e.docx",
+          "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.75,
+            403.4997863769531,
+            157.09298706054688,
+            415.6767883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18022103",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 3,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tThe figure below shows the package of an LED lamp.\n[fig:1]\n\t(a)\tFind the efficacy of the lamp.\t(2 marks)\n\t(b)\tThis lamp is as bright as a 40-W incandescent lamp.\n\t\t(i)\tWhy is an LED lamp more energy efficient than an incandescent lamp?\t(1 mark)\n\t\t(ii)\tFind the difference in the cost of electricity in using the two lamps for 1000 hours. The cost of electricity is $1.1 per kW h.\t(2 marks)\n\t\t(iii)\tSuggest another advantage of an LED lamp over an incandescent lamp besides being more energy efficient.\t(1 mark)",
+        "ocr": "PHY18022103>\n<lvl=avg><part=core><type=sq><mark=6><bk=E3><ch=02><content>\n* The figure below shows the package of an LED lamp.\n\n\nco\n\n}\n}\n\n5W E27 220-240V\n350 \\umen\n\nLEDbulb\nSw\n(a) Find the efficacy of the lamp. (2 marks)\n(b) This lamp is as bright as a 40-W incandescent lamp.\n(i) Why is an LED lamp more energy efficient than an incandescent lamp? (1 mark)\n(ii) Find the difference in the cost of electricity in using the two lamps for 1000 hours.\nThe cost of electricity is $1.1 per kW h. (2 marks)\n(iii) Suggest another advantage of an LED lamp over an incandescent lamp besides being\nmore energy efficient. (1 mark)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the efficacy of the lamp.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "This lamp is as bright as a 40-W incandescent lamp.\n\t\t(i)\tWhy is an LED lamp more energy efficient than an incandescent lamp?",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "Find the difference in the cost of electricity in using the two lamps for 1000 hours. The cost of electricity is $1.1 per kW h.",
+          "marks": 2
+        },
+        {
+          "label": "b(iii)",
+          "text": "Suggest another advantage of an LED lamp over an incandescent lamp besides being more energy efficient.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tEfficacy =[eq:6]\t=[eq:7]\n1M\n\t\t= 70 lm W-1\n1A\n(b)\t(i)\tAn LED lamp can be designed to emit only visible light.\n1A\n\t(ii)\tDifference in cost\t= $1.1 × (0.04 - 0.005) × 1000\n1M\n\t\t\t= $38.5\n1A\n\t(iii)\tLonger lifetime\n1A\n\t\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Efficacy =[eq:6]\t=[eq:7]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 70 lm W-1",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "An LED lamp can be designed to emit only visible light.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Difference in cost\t= $1.1 × (0.04 - 0.005) × 1000",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "= $38.5",
+            "code": "1A"
+          },
+          {
+            "part": "b(iii)",
+            "point": "Longer lifetime",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18022103.png"
+        ],
+        "answer": [
+          "crops/PHY18022103.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_SQ_e.docx",
+          "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_SQ_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.75,
+            688.999755859375,
+            157.09298706054688,
+            701.1767578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18022104",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 4,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tA light bulb with a reflector is 40 cm above a table as shown. The bulb is the only light source in the room. Its luminous flux is 300 lm. The area of the illuminated region on the table is 500 cm2 and the region is illuminated evenly. X is the point on the table directly below the bulb.\n[fig:2]illuminated region\nlight bulb\n40 cm\nreflector\ntable\nX\n[fig:3]illuminated region\nlight bulb\n40 cm\nreflector\ntable\nX\n\n\t(a)\tWhat is the physical meaning of the luminous flux?\t(1 mark)\n\t(b)\tEstimate the illuminance at X.\t(2 marks)\n\t(c)\tHow will the illuminance at X change if the reflector is removed? Explain briefly.\n\t(2 marks)",
+        "ocr": "PHY18022104>\n\n<lvl=avg><part=core><type=sq><mark=5><bk=E3><ch=02><content>\n\n* ~~ A light bulb with a reflector is 40 cm above a table as shown. The bulb is the only light source\nin the room. Its luminous flux is 300 Im. The area of the illuminated region on the table is 500\ncm’ and the region is illuminated evenly. X is the point on the table directly below the bulb.\n\nreflector\n\nlight bulb\n\nilluminated region\n\n\n\n(a) What is the physical meaning of the luminous flux? (1 mark)\n\n(b) Estimate the illuminance at X. (2 marks)\n(c) How will the illuminance at X change if the reflector is removed? Explain briefly.\n(2 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the physical meaning of the luminous flux?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Estimate the illuminance at X.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "How will the illuminance at X change if the reflector is removed? Explain briefly.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tIt is the power output of a light source corrected for the dependence on wavelength of the sensitivity of the human eye.\n1A\n(b)\tE =[eq:8]\t=[eq:9]\n1M\n\t\t= 6000 lx\n1A\n(c)\tThe illuminance at X will decreases\n1A\n\tas the luminous flux falling on the previously illuminated region will decrease.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "It is the power output of a light source corrected for the dependence on wavelength of the sensitivity of the human eye.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "E =[eq:8]\t=[eq:9]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 6000 lx",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The illuminance at X will decreases",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "as the luminous flux falling on the previously illuminated region will decrease.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18022104.png"
+        ],
+        "answer": [
+          "crops/PHY18022104.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_SQ_e.docx",
+          "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_SQ_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.75,
+            523.44970703125,
+            157.09298706054688,
+            535.626708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18022105",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 5,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 7,
+      "stem": {
+        "text": "→\tA fluorescent tube lamp (FTL) is a sealed tube containing a small amount of mercury.\n\t(a)\tWhat happens to the mercury when an FTL is turned on?\t(3 marks)\n\t(b)\tExplain the function of the coating on the tube of the lamp.\t(2 marks)\n\t(c)\tSuggest an advantage and a disadvantage of an FTL when compared with an incandescent lamp.\t(2 marks)",
+        "ocr": "PHY18022105>\n<lvl=avg><part=core><type=sq><mark=7><bk=E3><ch=02><content>\n* A fluorescent tube lamp (FTL) is a sealed tube containing a small amount of mercury.\n\n(a) What happens to the mercury when an FTL is turned on? (3 marks)\n(b) Explain the function of the coating on the tube of the lamp. (2 marks)\n(c) Suggest an advantage and a disadvantage of an FTL when compared with an incandescent\nlamp. (2 marks)",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What happens to the mercury when an FTL is turned on?",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Explain the function of the coating on the tube of the lamp.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Suggest an advantage and a disadvantage of an FTL when compared with an incandescent lamp.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tIt is vaporized by the current passing through the tube.\n1A\n\tThe mercury atoms in the vapour are excited by the collisions with the electrons and ions.\n1A\n\tEM waves (mainly ultra-violet) are emitted when the excited electrons in the mercury atoms jump to lower energy levels.\n1A\n(b)\tIt absorbs the ultra-violet radiation emitted by the mercury atoms\n1A\n\tand then emits visible light.\n1A\n(c)\tAdvantage: Higher efficacy\n1A\n\tDisadvantage: Contains mercury\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "It is vaporized by the current passing through the tube.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The mercury atoms in the vapour are excited by the collisions with the electrons and ions.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "EM waves (mainly ultra-violet) are emitted when the excited electrons in the mercury atoms jump to lower energy levels.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "It absorbs the ultra-violet radiation emitted by the mercury atoms",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "and then emits visible light.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Advantage: Higher efficacy",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Disadvantage: Contains mercury",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18022105.png"
+        ],
+        "answer": [
+          "crops/PHY18022105.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_SQ_e.docx",
+          "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.75,
+            321.6497802734375,
+            157.09298706054688,
+            333.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18022106",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 6,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tA torch emits a parallel light beam onto a small flat surface X as shown. X is 5 cm away from the torch and its area is 4 cm2. The cross-sectional area of the light beam is 30 cm2. The illuminance on X is 2000 lx when the light from the torch falls on it normally. The torch is the only light source.\n[fig:4]X\n5 cm\ntorch\nlight beam\n[fig:5]X\n5 cm\ntorch\nlight beam\n\n\t(a)\tEstimate the luminous flux of the torch.\t(2 marks)\n\t(b)\tIf X is tilted such that its normal makes an angle of 10° to the light, what would be the illuminance on it?\t(2 marks)\n\t(c)\tThe torch is replaced by a point light source. The distance between the new source and X remains 5 cm and the light still falls normally on X. What would the luminous flux of the new source be if the illuminance on X remains the same?\t(2 marks)",
+        "ocr": "PHY18022106>\n\n<lvl=avg><part=core><type=sq><mark=6><bk=E3><ch=02><content>\n\n* — A torch emits a parallel light beam onto a small flat surface X as shown. X is 5 cm away from\nthe torch and its area is 4 cm’. The cross-sectional area of the light beam is 30 cm’. The\nilluminance on X is 2000 Ix when the light from the torch falls on it normally. The torch is the\nonly light source.\n\n\nlight beam Xx\n\n—_,\n\n5cm\ntorch\n(a) Estimate the luminous flux of the torch. (2 marks)\n(b) IfX is tilted such that its normal makes an angle of 10° to the light, what would be the\nilluminance on it? (2 marks)\n\n(c) The torch is replaced by a point light source. The distance between the new source and X\nremains 5 cm and the light still falls normally on X. What would the luminous flux of the\n\nnew source be if the illuminance on X remains the same? (2 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Estimate the luminous flux of the torch.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "If X is tilted such that its normal makes an angle of 10° to the light, what would be the illuminance on it?",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "The torch is replaced by a point light source. The distance between the new source and X remains 5 cm and the light still falls normally on X. What would the luminous flux of the new source be if the illuminance on X remains the same?",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tBy E =[eq:10],\n\n\tΦ = EA\t= 2000 × (30 × 10-4)\n1M\n\t\t= 6 lm\n1A\n(b)\tIlluminance\t= 2000 cos 10°\n1M\n\t\t= 1970 lx\n1A\n(c)\tBy E =[eq:11],\n\n\tΦ =[eq:12]\t=[eq:13]\n1M\n\t\t= 62.8 lm\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Φ = EA\t= 2000 × (30 × 10-4)",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 6 lm",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Illuminance\t= 2000 cos 10°",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 1970 lx",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Φ =[eq:12]\t=[eq:13]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 62.8 lm",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18022106.png"
+        ],
+        "answer": [
+          "crops/PHY18022106.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_SQ_e.docx",
+          "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_SQ_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            650.249755859375,
+            157.09298706054688,
+            662.4267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18022107",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 7,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tA point light source with a luminous flux of 1800 lm is placed at point P. X is a point on a flat surface. The light from the source makes an angle of 60° to the normal of the surface at X. The point source is the only light source.\n[fig:6]\n\t(a)\tFind the illuminance at X.\t(2 marks)\n\t(b)\tIf the surface is moved upwards for 0.5 m, find the new illuminance at X.\t(3 marks)",
+        "ocr": "PHY18022107>\n<lvl=avg><part=core><type=sq><mark=5><bk=E3><ch=02><content>\n* A point light source with a luminous flux of 1800 Im is placed at point P. X is a point on a flat\n\nsurface. The light from the source makes an angle of 60° to the normal of the surface at X. The\npoint source is the only light source.\n\n: UaP\n| seen\n160°. -7~\naoe\nx\n(a) Find the illuminance at X. (2 marks)\n(b) Ifthe surface is moved upwards for 0.5 m, find the new illuminance at X. (3 marks)",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the illuminance at X.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "If the surface is moved upwards for 0.5 m, find the new illuminance at X.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tE =[eq:14]\t=[eq:15]\n1M\n\t\t= 49.7 lx\n1A\n(b)\n\n\t[fig:7]θ\na\nb\n[eq:16]\n\n\ta = (1.2 sin 60°) m\n\n\tb = 1.2 cos 60° - 0.5 = 0.1 m\n\n\tr 2 = a2 + b2 = (1.2 sin 60°)2 + 0.12 = 1.09 m2\n1M\n\tcos θ =[eq:17]=[eq:18]\n1M\n\tE =[eq:19]=[eq:20]= 12.6 lx\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "E =[eq:14]\t=[eq:15]",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 49.7 lx",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "r 2 = a2 + b2 = (1.2 sin 60°)2 + 0.12 = 1.09 m2",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "cos θ =[eq:17]=[eq:18]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "E =[eq:19]=[eq:20]= 12.6 lx",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18022107.png"
+        ],
+        "answer": [
+          "crops/PHY18022107.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_SQ_e.docx",
+          "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_SQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.75,
+            496.44976806640625,
+            157.09298706054688,
+            508.62677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY18022108",
+      "bank": "QB_E302",
+      "book": "E3",
+      "chapter": "02",
+      "seq": 8,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→→\tIn Figure a, a light meter is moved around a lamp to measure the illuminance at different positions. The distance between them remains at 2 m. The receptor of the light meter has a flat surface. Figure b shows the illuminance measured along PQ. Assume that the lamp is the only light source and the light from the lamp always falls perpendicularly on the surface of the receptor.\n[fig:8]lamp\n[fig:9]lamp\n\n[fig:10]\nFig a\nFig b\n\t(a)\tCan the luminous flux of the lamp be estimated by using the given information and the inverse square relationship? If yes, find its value. If no, explain briefly.\t(2 marks)\n\t(b)\tThe receptor is then placed at P. It is rotated to vary the angle θ between the normal of its surface and the light falling on it.\n[fig:11]lamp\nθ\nreceptor\nP\n[fig:12]lamp\nθ\nreceptor\nP\n\n\t\tSketch a graph to show how the illuminance measured varies with θ for θ = 0° to 360°.\n\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Can the luminous flux of the lamp be estimated by using the given information and the inverse square relationship? If yes, find its value. If no, explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The receptor is then placed at P. It is rotated to vary the angle θ between the normal of its surface and the light falling on it.\n[fig:11]lamp\nθ\nreceptor\nP\n[fig:12]lamp\nθ\nreceptor\nP\n\n\t\tSketch a graph to show how the illuminance measured varies with θ for θ = 0° to 360°.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tNo,\n1A\n\tthis is because the lamp does not emit light evenly in all directions / is not a point source.\n1A\n(b)\t\n\n\t[fig:13]90°\t180°\t270°\t360°\nθ\nilluminance / lx\n120\n0\n[fig:14]90°\t180°\t270°\t360°\nθ\nilluminance / lx\n120\n0\n\n\n\t(0°-90°: sinusoidal; illuminance decreases from 120 lx to zero)\n1A\n\t(90°-270°: illuminance remains zero)\n1A\n\t(270°-360°: sinusoidal; illuminance increases from zero to 120 lx)\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "No,",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "this is because the lamp does not emit light evenly in all directions / is not a point source.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "(0°-90°: sinusoidal; illuminance decreases from 120 lx to zero)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "(90°-270°: illuminance remains zero)",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "(270°-360°: sinusoidal; illuminance increases from zero to 120 lx)",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_E302/E3_ch02_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/PHY18022108.png"
+        ],
+        "answer": [
+          "crops/PHY18022108.ans.png"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_E302/E3_ch02_SQ_e.docx",
+          "sha256": "8718f50128351f27f329d46a5eb89b5cb3bb5a6263a03330f24b1cbe409ce718",
+          "pdf": "qb-pdf/QB_E302/E3_ch02_SQ_e.pdf",
+          "pages": [
+            5,
+            6
+          ],
+          "bbox_pt": [
+            51.75,
+            396.7497863769531,
+            157.09298706054688,
+            408.9267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    }
+  ]
+}

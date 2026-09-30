@@ -42,6 +42,11 @@ tests/sections/
 # QB pipeline (copyrighted DOCX/PDF/crops — gitignored per plan D3)
 qb/
 qb-pdf/
+
+# qb-web-ui staging (committed crops + metadata for /qb UI — not DOCX/PDF)
+!qb-web-ui-staging/
+!qb-web-ui-staging/**
+
 # F01 corpus-agnostic: keep bank census and source manifest tracked (re-include metadata/qb directory first)
 !metadata/qb/
 !metadata/qb/banks.json
