@@ -24,6 +24,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -131,6 +132,30 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
     manifest = load_json(manifest_p)
     if not isinstance(manifest, dict):
         raise SystemExit(f"{manifest_p} invalid: expected object")
+    files = manifest.get("files")
+    if not isinstance(files, list):
+        raise SystemExit(f"{manifest_p} invalid: expected files list")
+    for idx, entry in enumerate(files):
+        if not isinstance(entry, dict):
+            raise SystemExit(f"{manifest_p} files[{idx}] not an object")
+        path = entry.get("path")
+        if not isinstance(path, str) or not path:
+            raise SystemExit(f"{manifest_p} files[{idx}] invalid path: {path!r}")
+        bank = entry.get("bank")
+        if not isinstance(bank, str) or not bank.startswith("QB_"):
+            raise SystemExit(f"{manifest_p} files[{idx}] invalid bank: {bank!r}")
+        sha256 = entry.get("sha256")
+        if not isinstance(sha256, str) or not re.fullmatch(r"[0-9a-f]{64}", sha256):
+            raise SystemExit(f"{manifest_p} files[{idx}] invalid sha256: {sha256!r}")
+        size = entry.get("size")
+        if not isinstance(size, int) or size <= 0:
+            raise SystemExit(f"{manifest_p} files[{idx}] invalid size: {size!r}")
+    bank_list = manifest.get("bank_list")
+    if not isinstance(bank_list, list):
+        raise SystemExit(f"{manifest_p} invalid: expected bank_list list")
+    for idx, b in enumerate(bank_list):
+        if not isinstance(b, str) or not b.startswith("QB_"):
+            raise SystemExit(f"{manifest_p} bank_list[{idx}] invalid: {b!r}")
     banks = None
     if banks_path and banks_path.is_file():
         banks = load_json(banks_path)
@@ -158,11 +183,14 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
         # Per-bank docx counts
         if isinstance(banks.get("banks_detail"), list):
             detail = banks["banks_detail"]
+            if not detail:
+                raise SystemExit(f"{BANKS_PATH} missing or invalid banks_detail")
             expected_docx_by_bank: dict[str, int] = {}
             seen: set[str] = set()
             sum_docx = 0
             sum_items = 0
             sum_in_scope_items = 0
+            has_in_scope = False
             for idx, b in enumerate(detail):
                 if not isinstance(b, dict):
                     raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] not an object")
@@ -185,7 +213,10 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
                 sum_docx += expected_docx
                 sum_items += expected_items
                 if in_scope_flag:
+                    has_in_scope = True
                     sum_in_scope_items += expected_items
+            if not has_in_scope:
+                raise SystemExit(f"{BANKS_PATH} no in_scope banks")
             total_docx = banks.get("total_docx")
             if isinstance(total_docx, int) and total_docx != sum_docx:
                 raise SystemExit(f"{BANKS_PATH} total_docx {total_docx} != sum expected_docx {sum_docx}")
@@ -221,16 +252,23 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
         warnings.append(f"No QB root found; skipping per-file hash check (manifest {manifest_p})")
     else:
         for entry in manifest.get("files", []):
-            fpath = qb_root / entry["path"]
+            if not isinstance(entry, dict):
+                raise SystemExit(f"{manifest_p} files entry not an object")
+            path = entry.get("path")
+            sha256 = entry.get("sha256")
+            size = entry.get("size")
+            if not isinstance(path, str) or not isinstance(sha256, str) or not isinstance(size, int):
+                raise SystemExit(f"{manifest_p} files entry invalid: {entry!r}")
+            fpath = qb_root / path
             if not fpath.is_file():
-                errors.append(f"Missing DOCX: {entry['path']} (expected at {fpath})")
+                errors.append(f"Missing DOCX: {path} (expected at {fpath})")
                 continue
             actual_sha = sha256_file(fpath)
-            if actual_sha != entry["sha256"]:
-                errors.append(f"SHA mismatch: {entry['path']} manifest {entry['sha256'][:12]}... != actual {actual_sha[:12]}...")
+            if actual_sha != sha256:
+                errors.append(f"SHA mismatch: {path} manifest {sha256[:12]}... != actual {actual_sha[:12]}...")
             actual_size = fpath.stat().st_size
-            if actual_size != entry["size"]:
-                errors.append(f"Size mismatch: {entry['path']} manifest {entry['size']} != actual {actual_size}")
+            if actual_size != size:
+                errors.append(f"Size mismatch: {path} manifest {size} != actual {actual_size}")
 
     # Summary
     ok = not errors

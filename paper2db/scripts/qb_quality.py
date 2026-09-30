@@ -85,6 +85,8 @@ def _load_banks_for_gate():
             banks[bid] = (items, items)
             if in_scope_flag:
                 in_scope.add(bid)
+        if not in_scope:
+            raise SystemExit(f"{BANKS_JSON} no in_scope banks")
         expected_in_scope = {k: v for k, v in banks.items() if k in in_scope}
         total = data.get("total_items")
         if not isinstance(total, int) or total <= 0:
@@ -102,8 +104,6 @@ def _load_banks_for_gate():
         banks_count = data.get("banks")
         if isinstance(banks_count, int) and banks_count != len(detail):
             raise SystemExit(f"{BANKS_JSON} banks {banks_count} != len(banks_detail) {len(detail)}")
-        if not in_scope:
-            raise SystemExit(f"{BANKS_JSON} no in_scope banks")
         return total, in_scope_total, expected_in_scope, in_scope
     return None
 

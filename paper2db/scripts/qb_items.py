@@ -185,17 +185,27 @@ def get_in_scope_banks() -> set[str]:
             if in_scope_flag:
                 sum_in_scope_items += expected_items
                 in_scope.add(bid)
+        if not in_scope:
+            raise SystemExit(f"{BANKS_JSON} no in_scope banks")
         total_docx = banks.get("total_docx")
-        if isinstance(total_docx, int) and total_docx != sum_docx:
+        if not isinstance(total_docx, int) or total_docx <= 0:
+            raise SystemExit(f"{BANKS_JSON} missing or invalid total_docx")
+        if total_docx != sum_docx:
             raise SystemExit(f"{BANKS_JSON} total_docx {total_docx} != sum expected_docx {sum_docx}")
         banks_count = banks.get("banks")
-        if isinstance(banks_count, int) and banks_count != len(detail):
+        if not isinstance(banks_count, int) or banks_count <= 0:
+            raise SystemExit(f"{BANKS_JSON} missing or invalid banks")
+        if banks_count != len(detail):
             raise SystemExit(f"{BANKS_JSON} banks {banks_count} != len(banks_detail) {len(detail)}")
         total_items = banks.get("total_items")
-        if isinstance(total_items, int) and total_items != sum_items:
+        if not isinstance(total_items, int) or total_items <= 0:
+            raise SystemExit(f"{BANKS_JSON} missing or invalid total_items")
+        if total_items != sum_items:
             raise SystemExit(f"{BANKS_JSON} total_items {total_items} != sum expected_items {sum_items}")
         in_scope_items = banks.get("in_scope_items")
-        if isinstance(in_scope_items, int) and in_scope_items != sum_in_scope_items:
+        if not isinstance(in_scope_items, int) or in_scope_items <= 0:
+            raise SystemExit(f"{BANKS_JSON} missing or invalid in_scope_items")
+        if in_scope_items != sum_in_scope_items:
             raise SystemExit(f"{BANKS_JSON} in_scope_items {in_scope_items} != sum in_scope expected_items {sum_in_scope_items}")
         return in_scope
     return {f"QB_{i}" for i in list(range(201, 211)) + list(range(401, 409)) + list(range(501, 504))}
