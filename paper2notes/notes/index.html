@@ -4,168 +4,49 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Visual Notes for HKDSE Physics</title>
-  <link rel="stylesheet" href="book5/css/notes.css">
-  <style>
-    .book-cards {
-      display: grid;
-      gap: 0.9rem;
-      margin: 0 0 2rem;
-    }
-    .book-cards a {
-      display: grid;
-      grid-template-columns: 4.6rem 4.6rem 1fr;
-      gap: 0 1rem;
-      align-items: center;
-      text-decoration: none;
-      color: inherit;
-      padding: 1rem 1.1rem;
-      background: var(--panel);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-    }
-    .book-cards a:hover { border-color: var(--accent); }
-    .book-cards .icon {
-      grid-column: 1;
-      width: 4.2rem;
-      height: 4.2rem;
-      display: grid;
-      place-items: center;
-      background: var(--accent-soft);
-      border: 1px solid var(--rule-soft);
-      border-radius: 8px;
-    }
-    .book-cards .icon svg { width: 2.6rem; height: 2.6rem; }
-    .book-cards .num {
-      grid-column: 2;
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--accent-deep);
-      align-self: center;
-    }
-    .book-cards a strong {
-      grid-column: 3;
-      display: block;
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      font-weight: 600;
-    }
-    .book-cards a > span:not(.num):not(.icon) {
-      grid-column: 3;
-      display: block;
-      color: var(--muted);
-      font-size: 0.93rem;
-      margin-top: 0.15rem;
-    }
-    @media (max-width: 720px) {
-      .book-cards a { grid-template-columns: 3.4rem 1fr; }
-      .book-cards .icon { width: 3.2rem; height: 3.2rem; }
-      .book-cards .icon svg { width: 2rem; height: 2rem; }
-      .book-cards .num { grid-column: 1; grid-row: 1; font-size: 0.95rem; }
-      .book-cards .icon { grid-column: 1; grid-row: 1 / span 2; }
-      .book-cards a strong { grid-column: 2; }
-      .book-cards a > span:not(.num):not(.icon) { grid-column: 2; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="css/p2n-shell.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="index.html">Visual Notes for HKDSE Physics</a>
-    <nav>
+  <header class="p2n-top">
+    <a class="p2n-top-brand" href="index.html">paper<i>2</i>notes</a>
+    <nav class="p2n-top-nav" aria-label="Books">
       <a href="book2/index.html">Book 2</a>
       <a href="book4/index.html">Book 4</a>
       <a href="book5/index.html">Book 5</a>
       <a href="qb/index.html">QB</a>
     </nav>
   </header>
-  <main>
-    <p class="kicker">HKDSE Physics · Compulsory Part</p>
-    <h1>Visual Notes for HKDSE Physics</h1>
-
-    <div class="book-cards">
-      <a href="book2/index.html">
-        <span class="icon" aria-hidden="true">
-          <!-- Book 2: motion — projectile parabola with vector arrow -->
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 36 H42" stroke-width="1.5" opacity="0.5"/>
-            <path d="M6 36 V6" stroke-width="1.5" opacity="0.5"/>
-            <path d="M8 34 C14 14 26 10 38 22" />
-            <path d="M34 18 L38 22 L34 26" />
-            <path d="M10 36 L26 36" marker-end="none"/>
-            <path d="M10 30 L10 38 M26 30 L26 38" stroke-width="1.2"/>
-            <circle cx="10" cy="36" r="1.4" fill="currentColor" stroke="none"/>
-            <circle cx="26" cy="36" r="1.4" fill="currentColor" stroke="none"/>
-          </svg>
-        </span>
-        <span class="num">Book 2</span>
-        <strong>Force and Motion</strong>
-        <span>10 chapters · 50 h · Ch.1 Position &amp; displacement → Ch.10 Gravitation · Syllabus II (ch2.pdf) · <code>paper2db</code> §05–12</span>
+  <main class="p2n-page">
+    <div class="p2n-page-head">
+      <span class="p2n-label">HKDSE Physics</span>
+      <h1>Pick a book</h1>
+    </div>
+    <div class="p2n-cards">
+      <a class="p2n-cc" href="book2/index.html" style="--tone:var(--book2);--soft:var(--book2-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="rocket" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 2</span><b>Force &amp; Motion</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-
-      <a href="book4/index.html">
-        <span class="icon" aria-hidden="true">
-          <!-- Book 4: electricity — simple circuit with battery, resistor and coil -->
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <!-- battery -->
-            <path d="M14 12 V36" stroke-width="2.2"/>
-            <path d="M18 16 V32" stroke-width="3.2"/>
-            <!-- wire top -->
-            <path d="M14 14 H32" />
-            <path d="M32 14 V18" />
-            <!-- resistor zigzag -->
-            <path d="M32 18 L34 22 L30 26 L34 30 L32 34" />
-            <path d="M32 34 V38 H10 V12 H14" />
-            <!-- coil/inductor hint -->
-            <path d="M10 28 C10 24 14 24 14 28 C14 32 10 32 10 28" stroke-width="1.4" opacity="0.7"/>
-          </svg>
-        </span>
-        <span class="num">Book 4</span>
-        <strong>Electricity and Magnetism</strong>
-        <span>8 chapters · 48 h · Ch.1 Electrostatics → Ch.8 AC &amp; transmission · Syllabus IV (ch4.pdf) · <code>paper2db</code> §20–24</span>
+      <a class="p2n-cc" href="book4/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="zap" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 4</span><b>Electricity &amp; Magnetism</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-
-      <a href="book5/index.html">
-        <span class="icon" aria-hidden="true">
-          <!-- Book 5: radioactivity — trefoil -->
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <circle cx="24" cy="24" r="4.2" fill="currentColor" stroke="none" opacity="0.95"/>
-            <circle cx="24" cy="24" r="7.5" fill="none" stroke-width="1.4" opacity="0.35"/>
-            <!-- three blades: 120 deg sectors -->
-            <path d="M24 24 L24 10 A14 14 0 0 1 36.1 17 Z" fill="currentColor" stroke="none" opacity="0.9"/>
-            <path d="M24 24 L36.1 31 A14 14 0 0 1 24 38 Z" fill="currentColor" stroke="none" opacity="0.9"/>
-            <path d="M24 24 L11.9 31 A14 14 0 0 1 11.9 17 Z" fill="currentColor" stroke="none" opacity="0.9"/>
-            <circle cx="24" cy="24" r="1.6" fill="white" stroke="none"/>
-          </svg>
-        </span>
-        <span class="num">Book 5</span>
-        <strong>Radioactivity and Nuclear Energy</strong>
-        <span>3 chapters · 16 h · Ch.1 Radiation → Ch.3 Nuclear energy (fission / fusion / ΔE=Δmc²) · Syllabus V (ch5.pdf) · <code>paper2db</code> §25–27</span>
+      <a class="p2n-cc" href="book5/index.html" style="--tone:var(--book5);--soft:var(--book5-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="radiation" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 5</span><b>Radioactivity</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-
-      <a href="qb/index.html">
-        <span class="icon" aria-hidden="true">
-          <!-- QB: question bank — stack of papers with check -->
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 10 H36 V38 H12 V10" fill="none" />
-            <path d="M16 14 H32" />
-            <path d="M16 19 H32" />
-            <path d="M16 24 H24" />
-            <path d="M28 26 L32 30 L40 22" stroke-width="2.2" />
-            <path d="M10 16 V40 H34" opacity="0.45" />
-            <circle cx="38" cy="28" r="7" fill="none" opacity="0.15" stroke-width="1.2"/>
-          </svg>
-        </span>
-        <span class="num">QB</span>
-        <strong>Question Bank — DSE & QB Selector</strong>
-        <span>Two stores · DSE past-papers (573 MC + 170 LQ, 27 topics) & QB (1,881 in-scope, e.g. Nuclear Energy 67) · real crops, answers, percentages, marks & verification</span>
+      <a class="p2n-cc" href="qb/index.html" style="--tone:var(--bookqb);--soft:var(--bookqb-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="library" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Practice</span><b>Question bank</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
     </div>
-
-
   </main>
-  <footer style="text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.85rem">
-    <span>Monorepo: <code>paper2everything</code> — <a href="https://github.com/yeungsinchun/paper2everything">yeungsinchun/paper2everything</a></span>
-  </footer>
 <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="dd98c7">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">dd98c7</code></footer>
 </body>
 </html>
