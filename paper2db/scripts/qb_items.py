@@ -59,6 +59,9 @@ BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
 SOURCE_MANIFEST_JSON = ROOT / "metadata" / "qb" / "source-manifest.json"
 QB_SOURCE_MANIFEST = ROOT / "qb" / "source-manifest.json"
 
+from qb_banks import get_in_scope_banks as _central_get_in_scope
+from qb_banks import load_banks as _central_load_banks
+
 # Symbol font mapping (Adobe Symbol encoding, full; every U+F0xx seen in corpus)
 SYMBOL_MAP = {
     'F020': ' ', 'F021': '!', 'F022': '\u2200', 'F023': '#', 'F024': '\u2203',
@@ -139,76 +142,11 @@ def sha256_file(path: Path) -> str:
 
 
 def load_banks() -> dict | None:
-    """Load banks.json if present; corpus-agnostic source of truth for scope."""
-    if BANKS_JSON.is_file():
-        try:
-            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
-        except json.JSONDecodeError as e:
-            raise SystemExit(f"{BANKS_JSON} invalid JSON: {e}") from e
-        if not isinstance(data, dict):
-            raise SystemExit(f"{BANKS_JSON} invalid: expected object")
-        return data
-    return None
+    return _central_load_banks()
 
 
 def get_in_scope_banks() -> set[str]:
-    if BANKS_JSON.is_file():
-        banks = load_banks()
-        detail = banks.get("banks_detail") if isinstance(banks, dict) else None
-        if not isinstance(detail, list) or not detail:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid banks_detail")
-        in_scope: set[str] = set()
-        seen: set[str] = set()
-        sum_docx = 0
-        sum_items = 0
-        sum_in_scope_items = 0
-        for idx, entry in enumerate(detail):
-            if not isinstance(entry, dict):
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] not an object")
-            bid = entry.get("id")
-            if not isinstance(bid, str) or not bid.startswith("QB_"):
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] invalid id: {bid!r}")
-            if bid in seen:
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] duplicate id: {bid!r}")
-            seen.add(bid)
-            expected_docx = entry.get("expected_docx")
-            if not isinstance(expected_docx, int) or expected_docx <= 0:
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
-            expected_items = entry.get("expected_items")
-            if not isinstance(expected_items, int) or expected_items <= 0:
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_items: {expected_items!r}")
-            in_scope_flag = entry.get("in_scope")
-            if not isinstance(in_scope_flag, bool):
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
-            sum_docx += expected_docx
-            sum_items += expected_items
-            if in_scope_flag:
-                sum_in_scope_items += expected_items
-                in_scope.add(bid)
-        if not in_scope:
-            raise SystemExit(f"{BANKS_JSON} no in_scope banks")
-        total_docx = banks.get("total_docx")
-        if not isinstance(total_docx, int) or total_docx <= 0:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid total_docx")
-        if total_docx != sum_docx:
-            raise SystemExit(f"{BANKS_JSON} total_docx {total_docx} != sum expected_docx {sum_docx}")
-        banks_count = banks.get("banks")
-        if not isinstance(banks_count, int) or banks_count <= 0:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid banks")
-        if banks_count != len(detail):
-            raise SystemExit(f"{BANKS_JSON} banks {banks_count} != len(banks_detail) {len(detail)}")
-        total_items = banks.get("total_items")
-        if not isinstance(total_items, int) or total_items <= 0:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid total_items")
-        if total_items != sum_items:
-            raise SystemExit(f"{BANKS_JSON} total_items {total_items} != sum expected_items {sum_items}")
-        in_scope_items = banks.get("in_scope_items")
-        if not isinstance(in_scope_items, int) or in_scope_items <= 0:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid in_scope_items")
-        if in_scope_items != sum_in_scope_items:
-            raise SystemExit(f"{BANKS_JSON} in_scope_items {in_scope_items} != sum in_scope expected_items {sum_in_scope_items}")
-        return in_scope
-    return {f"QB_{i}" for i in list(range(201, 211)) + list(range(401, 409)) + list(range(501, 504))}
+    return _central_get_in_scope()
 
 
 def load_source_manifest_info() -> dict | None:
@@ -227,6 +165,8 @@ def load_source_manifest_info() -> dict | None:
                 "total_docx": m.get("total_docx"),
                 "banks": m.get("banks"),
             }
+    if BANKS_JSON.is_file():
+        raise SystemExit(f"Missing source-manifest.json (tried {QB_SOURCE_MANIFEST} and {SOURCE_MANIFEST_JSON}) when {BANKS_JSON} present")
     return None
 
 

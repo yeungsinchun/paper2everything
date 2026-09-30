@@ -33,6 +33,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from qb_banks import load_banks  # noqa: E402
 from qb_convert import EXPECTED_REAL_DOCX  # noqa: E402
 from qb_items import find_qb_root, normalize_symbol_xml  # noqa: E402
 
@@ -44,72 +45,14 @@ BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
 
 # F01 corpus-agnostic: load expected counts from banks.json when present
 def _load_banks_for_gate():
-    if BANKS_JSON.is_file():
-        try:
-            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
-        except json.JSONDecodeError as e:
-            raise SystemExit(f"{BANKS_JSON} invalid JSON: {e}") from e
-        if not isinstance(data, dict):
-            raise SystemExit(f"{BANKS_JSON} invalid: expected object")
-        detail = data.get("banks_detail")
-        if not isinstance(detail, list) or not detail:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid banks_detail")
-        banks: dict[str, tuple[int, int]] = {}
-        in_scope: set[str] = set()
-        seen: set[str] = set()
-        sum_docx = 0
-        sum_items = 0
-        sum_in_scope_items = 0
-        for idx, b in enumerate(detail):
-            if not isinstance(b, dict):
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] not an object")
-            bid = b.get("id")
-            if not isinstance(bid, str) or not bid.startswith("QB_"):
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] invalid id: {bid!r}")
-            if bid in seen:
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] duplicate id: {bid!r}")
-            seen.add(bid)
-            expected_docx = b.get("expected_docx")
-            if not isinstance(expected_docx, int) or expected_docx <= 0:
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
-            items = b.get("expected_items")
-            if not isinstance(items, int) or items <= 0:
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_items: {items!r}")
-            in_scope_flag = b.get("in_scope")
-            if not isinstance(in_scope_flag, bool):
-                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
-            sum_docx += expected_docx
-            sum_items += items
-            if in_scope_flag:
-                sum_in_scope_items += items
-            banks[bid] = (items, items)
-            if in_scope_flag:
-                in_scope.add(bid)
-        if not in_scope:
-            raise SystemExit(f"{BANKS_JSON} no in_scope banks")
-        expected_in_scope = {k: v for k, v in banks.items() if k in in_scope}
-        total = data.get("total_items")
-        if not isinstance(total, int) or total <= 0:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid total_items")
-        if total != sum_items:
-            raise SystemExit(f"{BANKS_JSON} total_items {total} != sum expected_items {sum_items}")
-        in_scope_total = data.get("in_scope_items")
-        if not isinstance(in_scope_total, int) or in_scope_total <= 0:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid in_scope_items")
-        if in_scope_total != sum_in_scope_items:
-            raise SystemExit(f"{BANKS_JSON} in_scope_items {in_scope_total} != sum in_scope expected_items {sum_in_scope_items}")
-        total_docx = data.get("total_docx")
-        if not isinstance(total_docx, int) or total_docx <= 0:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid total_docx")
-        if total_docx != sum_docx:
-            raise SystemExit(f"{BANKS_JSON} total_docx {total_docx} != sum expected_docx {sum_docx}")
-        banks_count = data.get("banks")
-        if not isinstance(banks_count, int) or banks_count <= 0:
-            raise SystemExit(f"{BANKS_JSON} missing or invalid banks")
-        if banks_count != len(detail):
-            raise SystemExit(f"{BANKS_JSON} banks {banks_count} != len(banks_detail) {len(detail)}")
-        return total, in_scope_total, expected_in_scope, in_scope
-    return None
+    data = load_banks()
+    if data is None:
+        return None
+    detail = data["banks_detail"]
+    banks: dict[str, tuple[int, int]] = {entry["id"]: (entry["expected_items"], entry["expected_items"]) for entry in detail}
+    in_scope: set[str] = {entry["id"] for entry in detail if entry["in_scope"]}
+    expected_in_scope = {k: v for k, v in banks.items() if k in in_scope}
+    return int(data["total_items"]), int(data["in_scope_items"]), expected_in_scope, in_scope
 
 _loaded = _load_banks_for_gate()
 if _loaded:

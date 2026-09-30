@@ -29,6 +29,8 @@ import sys
 import time
 from pathlib import Path
 
+from qb_banks import load_banks as _validate_banks
+
 ROOT = Path(__file__).resolve().parents[1]
 METADATA_MANIFEST = ROOT / "metadata" / "qb" / "source-manifest.json"
 QB_MANIFEST = ROOT / "qb" / "source-manifest.json"
@@ -202,61 +204,10 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
             errors.append(f"manifest banks {manifest.get('banks')} != banks.json banks {b_banks_count}")
         # Per-bank docx counts
         if banks is not None:
-            detail = banks.get("banks_detail")
-            if not isinstance(detail, list) or not detail:
-                raise SystemExit(f"{banks_actual} missing or invalid banks_detail")
-            expected_docx_by_bank: dict[str, int] = {}
-            seen: set[str] = set()
-            sum_docx = 0
-            sum_items = 0
-            sum_in_scope_items = 0
-            has_in_scope = False
-            for idx, b in enumerate(detail):
-                if not isinstance(b, dict):
-                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] not an object")
-                bid = b.get("id")
-                if not isinstance(bid, str) or not bid.startswith("QB_"):
-                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] invalid id: {bid!r}")
-                if bid in seen:
-                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] duplicate id: {bid!r}")
-                seen.add(bid)
-                expected_docx = b.get("expected_docx")
-                if not isinstance(expected_docx, int) or expected_docx <= 0:
-                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
-                expected_items = b.get("expected_items")
-                if not isinstance(expected_items, int) or expected_items <= 0:
-                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] {bid} invalid expected_items: {expected_items!r}")
-                in_scope_flag = b.get("in_scope")
-                if not isinstance(in_scope_flag, bool):
-                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
-                expected_docx_by_bank[bid] = expected_docx
-                sum_docx += expected_docx
-                sum_items += expected_items
-                if in_scope_flag:
-                    has_in_scope = True
-                    sum_in_scope_items += expected_items
-            if not has_in_scope:
-                raise SystemExit(f"{banks_actual} no in_scope banks")
-            total_docx = banks.get("total_docx")
-            if not isinstance(total_docx, int) or total_docx <= 0:
-                raise SystemExit(f"{banks_actual} missing or invalid total_docx")
-            if total_docx != sum_docx:
-                raise SystemExit(f"{banks_actual} total_docx {total_docx} != sum expected_docx {sum_docx}")
-            total_items = banks.get("total_items")
-            if not isinstance(total_items, int) or total_items <= 0:
-                raise SystemExit(f"{banks_actual} missing or invalid total_items")
-            if total_items != sum_items:
-                raise SystemExit(f"{banks_actual} total_items {total_items} != sum expected_items {sum_items}")
-            in_scope_items = banks.get("in_scope_items")
-            if not isinstance(in_scope_items, int) or in_scope_items <= 0:
-                raise SystemExit(f"{banks_actual} missing or invalid in_scope_items")
-            if in_scope_items != sum_in_scope_items:
-                raise SystemExit(f"{banks_actual} in_scope_items {in_scope_items} != sum in_scope expected_items {sum_in_scope_items}")
-            banks_count = banks.get("banks")
-            if not isinstance(banks_count, int) or banks_count <= 0:
-                raise SystemExit(f"{banks_actual} missing or invalid banks")
-            if banks_count != len(detail):
-                raise SystemExit(f"{banks_actual} banks {banks_count} != len(banks_detail) {len(detail)}")
+            validated = _validate_banks(banks_actual)
+            assert validated is not None
+            detail = validated["banks_detail"]
+            expected_docx_by_bank: dict[str, int] = {entry["id"]: entry["expected_docx"] for entry in detail}
             actual_by_bank = {}
             for f in manifest.get("files", []):
                 actual_by_bank[f["bank"]] = actual_by_bank.get(f["bank"], 0) + 1
