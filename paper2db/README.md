@@ -92,7 +92,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 14. **qb-items** - extract item JSON and per-item PNG crops
 15. **qb-audit** - strict QB quality gate and local crop review board
 
-The QB stages skip when no QB DOCX source tree is found. They use `qb/` in this repository or the canonical paper2notes QB tree if available. The QB source files and all generated QB outputs stay untracked. LibreOffice (`soffice`), `pdftoppm` and Tesseract must be on `PATH` to run these stages. Run only the QB track with `./pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit`; `--years` applies to past papers, not QB. The QB audit writes `qb-pdf/quality.json` and `.lavish/qb-review/index.html`; it checks the exact PDF and item counts, crops, key statuses, and conversion rendering. See `scripts/qb_quality.py` for the gate definitions.
+The QB stages skip when no QB DOCX source tree is found. They use `$P2DB_QB_ROOT` if set, otherwise `qb/` in this repository. The QB source files and all generated QB outputs stay untracked. LibreOffice (`soffice`), `pdftoppm` and Tesseract must be on `PATH` to run these stages. Run only the QB track with `./pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit`; `--years` applies to past papers, not QB. The QB audit writes `qb-pdf/quality.json` and `.lavish/qb-review/index.html`; it checks the exact PDF and item counts, crops, key statuses, and conversion rendering. See `scripts/qb_quality.py` for the gate definitions.
 
 ## Tests
 

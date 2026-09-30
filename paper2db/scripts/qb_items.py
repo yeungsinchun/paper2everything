@@ -141,7 +141,10 @@ def sha256_file(path: Path) -> str:
 def load_banks() -> dict | None:
     """Load banks.json if present; corpus-agnostic source of truth for scope."""
     if BANKS_JSON.is_file():
-        return json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+        try:
+            return json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            raise SystemExit(f"{BANKS_JSON} invalid JSON: {e}") from e
     return None
 
 
@@ -158,7 +161,10 @@ def load_source_manifest_info() -> dict | None:
     """Return manifest info for provenance field in v2 items."""
     for p in (QB_SOURCE_MANIFEST, SOURCE_MANIFEST_JSON):
         if p.is_file():
-            m = json.loads(p.read_text(encoding="utf-8"))
+            try:
+                m = json.loads(p.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as e:
+                raise SystemExit(f"{p} invalid JSON: {e}") from e
             return {
                 "manifest_path": str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p),
                 "manifest_sha256": sha256_file(p),

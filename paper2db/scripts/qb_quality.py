@@ -45,7 +45,10 @@ BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
 # F01 corpus-agnostic: load expected counts from banks.json when present
 def _load_banks_for_gate():
     if BANKS_JSON.is_file():
-        data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+        try:
+            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            raise SystemExit(f"{BANKS_JSON} invalid JSON: {e}") from e
         detail = data.get("banks_detail")
         if isinstance(detail, list) and detail:
             banks = {}

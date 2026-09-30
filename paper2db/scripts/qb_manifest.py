@@ -72,7 +72,10 @@ def sha256_file(path: Path) -> str:
 def load_json(path: Path) -> dict:
     if not path.is_file():
         raise SystemExit(f"Missing {path}")
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"{path} invalid JSON: {e}") from e
 
 
 def build_manifest(qb_root: Path) -> dict:

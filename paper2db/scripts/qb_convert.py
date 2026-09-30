@@ -52,7 +52,10 @@ BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
 
 def _expected_real_docx() -> int:
     if BANKS_JSON.is_file():
-        data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+        try:
+            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            raise SystemExit(f"{BANKS_JSON} invalid JSON: {e}") from e
         v = data.get("total_docx")
         if isinstance(v, int) and v > 0:
             return v
