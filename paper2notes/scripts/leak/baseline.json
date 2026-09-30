@@ -1,0 +1,24 @@
+{
+  "note": "Existing embeds pinned by leak-check.mjs; LEVEL|path|item.",
+  "allowed": [
+    "L1|notes/book2/ch01-position-and-displacement/index.html|2015-4",
+    "L1|notes/book5/ch01-radiation-and-radioactivity/25-1.html|PHY15011101",
+    "L1|notes/book5/ch01-radiation-and-radioactivity/25-1.html|PHY15011102",
+    "L1|notes/book5/ch01-radiation-and-radioactivity/25-3.html|PHY15011105",
+    "L1|notes/book5/ch01-radiation-and-radioactivity/25-3.html|PHY15011140",
+    "L1|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html|PHY15021107",
+    "L1|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html|PHY15021108",
+    "L1|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html|PHY15021117",
+    "L1|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html|PHY15021155",
+    "L1|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html|sap-35",
+    "L1|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html|PHY15011123",
+    "L1|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html|PHY15021141",
+    "L1|notes/book5/ch03-nuclear-energy/27-2.html|PHY15031111",
+    "L2.2|notes/book2/ch01-position-and-displacement/index.html|2015-4",
+    "L2.2|notes/book5/ch01-radiation-and-radioactivity/25-3.html|PHY15011140",
+    "L2.2|notes/book5/ch01-radiation-and-radioactivity/25-3.html|PHY15013105",
+    "L2.2|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html|PHY15023104",
+    "L2.2|notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html|PHY15023108",
+    "L2.2|notes/book5/ch03-nuclear-energy/27-2.html|PHY15031105"
+  ]
+}

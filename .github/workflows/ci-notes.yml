@@ -4,6 +4,7 @@ on:
     paths:
       - "paper2notes/notes/**"
       - "paper2notes/scripts/**"
+      - "paper2db/scripts/leak_fingerprints.py"
       - "paper2notes/.github/workflows/**"
       - ".github/workflows/ci-notes.yml"
   push:
@@ -11,6 +12,7 @@ on:
     paths:
       - "paper2notes/notes/**"
       - "paper2notes/scripts/**"
+      - "paper2db/scripts/leak_fingerprints.py"
       - "paper2notes/.github/workflows/**"
       - ".github/workflows/ci-notes.yml"
 jobs:
@@ -22,3 +24,5 @@ jobs:
         with:
           node-version: '20'
       - run: node paper2notes/scripts/ci-check.mjs
+      - run: node --test paper2notes/scripts/leak-check.test.mjs
+      - run: python3 paper2db/scripts/leak_fingerprints.py --check

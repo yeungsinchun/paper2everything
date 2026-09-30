@@ -7,11 +7,14 @@
 // can be resolved on disk without a browser, plus lavish notes-refactor boards
 // (before/after side-by-side and readable prose — enforced only on boards
 // carrying the notes-refactor marker; see paper2notes/.agents/skills/lavish-notes-review/SKILL.md),
-// plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML).
+// plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
+// plus leak-check (notes must not reproduce protected question/answer text;
+// see scripts/leak-check.mjs).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { runLeakCheck } from "./leak-check.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
@@ -359,6 +362,11 @@ function checkDeployFooter() {
   }
 }
 
+function checkLeaks() {
+  const { errors: leaks } = runLeakCheck();
+  for (const e of leaks) fail(`leak-check: ${e}`);
+}
+
 checkSiteRegionConsistency();
 checkLavishBoards();
 
@@ -371,6 +379,7 @@ checkBook4Structure();
 
 checkRelativeLinks();
 checkDeployFooter();
+checkLeaks();
 
 if (errors.length > 0) {
   console.error(`ci-check: ${errors.length} problem(s) found:\n`);
