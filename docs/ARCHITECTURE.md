@@ -31,8 +31,8 @@ image now carries crops.
 | `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book2/`, `/book4/`, `/book5/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` (82 files) staged to `_local/dse/` by `Dockerfile` |
 | `paper2notes/scripts/sync-dse.sh` | Bash (+ inline Python for placeholders) | run by hand from the repo root | `paper2notes/notes/_local/dse/` and `paper2notes/notes/book{2,4,5}/_local/dse/` (local dev) |
-| `paper2notes/scripts/ci-check.mjs` | Node | `ci-notes` workflow | pass/fail (structure and relative links) |
-| `paper2notes/deploy/cloudrun/` | Docker, nginx, gcloud | `deploy.sh` (build, push, roll out), `provision.sh` (one-time GCP setup) | Cloud Run service `paper2notes` in `asia-east2` |
+| `paper2notes/scripts/ci-check.mjs` | Node | `ci-notes` workflow | pass/fail (structure, relative links, lavish boards, and `deploy-commit-footer` per HTML) |
+| `paper2notes/deploy/cloudrun/` | Docker, nginx, gcloud | `deploy.sh` (inject `deploy-commit-footer` + build/push/roll out), `provision.sh` (one-time GCP setup), `Dockerfile` `ARG GIT_COMMIT` fallback | Cloud Run service `paper2notes` in `asia-east2` (every deployed HTML carries muted `deployed commit: <6-char>` footer; see `paper2notes/deploy/cloudrun/README.md`) |
 | `paper2mock/f1/test1/<1..10>/{question-paper,marking-scheme}/` | LuaLaTeX via latexmk | `compile-mocks` workflow | 20 PDFs, released as two zips per push to `main` |
 
 ## Data-dependency diagram
@@ -74,8 +74,8 @@ flowchart LR
 
   subgraph DEPLOY["Cloud Run (paper2notes-site)"]
     direction TB
-    DOCKER(["deploy/cloudrun/deploy.sh<br/>Dockerfile + root .dockerignore"])
-    IMG["nginx image<br/>notes/ + notes/dse→_local · minus _source · minus *.test.mjs"]
+    DOCKER(["deploy/cloudrun/deploy.sh (+ inject-commit-footer)<br/>Dockerfile + root .dockerignore + ARG GIT_COMMIT fallback"])
+    IMG["nginx image<br/>notes/ (+ deploy-commit-footer) + dse→_local · minus _source · minus *.test.mjs"]
     RUN["Cloud Run service<br/>asia-east2"]
   end
 
@@ -212,7 +212,7 @@ no path filter.
 
 | Workflow | Trigger | Does |
 |---|---|---|
-| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolution (links through `_local/` skipped), and lavish notes-refactor boards (before/after side-by-side at 1280 + 390 and readable-measure contract — see `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` and `docs/lavish-notes-boards.md`) |
+| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolution (links through `_local/` skipped), lavish notes-refactor boards (before/after side-by-side at 1280 + 390 and readable-measure contract — see `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` and `docs/lavish-notes-boards.md`), and `deploy-commit-footer` (`deployed commit: <6-char>` per `paper2notes/notes/**/*.html`; see `paper2notes/deploy/cloudrun/README.md`) |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
 | `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
@@ -224,21 +224,7 @@ Chrome path), and `sync-dse.sh`. The nested
 
 ### 6. Cloud Run deploy
 
-`paper2notes/deploy/cloudrun/deploy.sh` builds
-`paper2notes/deploy/cloudrun/Dockerfile` with the repo root as context (it
-detects the monorepo by looking for `paper2notes/notes/book5` at the git top
-level), pushes to Artifact Registry
-`asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, runs
-`gcloud run deploy`, and curls `/`, `/book2/`, `/book4/`, `/book5/`. The root
-`.dockerignore` admits `paper2notes/notes/` (including `notes/dse/`) and
-`nginx.conf`, minus `_source/`, `**/_local/` and `*.test.mjs`. The
-`Dockerfile` copies `notes/` to `/usr/share/nginx/html/` and then `RUN cp -r
-dse/* → _local/dse/` (and into each `book*/_local/dse/`) as `root` and `chown`s
-to `nginx`, so the shipped image serves the 82 `_local/dse/…` references from the
-tracked snapshot without needing `_local` in context. nginx serves the notes as static
-files on port 8080 with `absolute_redirect off`. `provision.sh` creates the GCP
-project, registry, runtime and deployer service accounts, the Cloud Run service
-and a Workload Identity Federation provider scoped to one GitHub repository.
+`paper2notes/deploy/cloudrun/deploy.sh` resolves the 6-char `HEAD` (or `local`), injects/updates a muted `deploy-commit-footer` (`deployed commit: <code>`) into every `paper2notes/notes/**/*.html` via `paper2notes/scripts/inject-commit-footer.mjs --commit <sha>` and passes `--build-arg GIT_COMMIT=<sha>` before building `paper2notes/deploy/cloudrun/Dockerfile` with the repo root as context (it detects the monorepo by looking for `paper2notes/notes/book5` at the git top level), pushes to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, runs `gcloud run deploy`, and curls `/`, `/book2/`, `/book4/`, `/book5/`. The root `.dockerignore` admits `paper2notes/notes/` (including `notes/dse/`) and `nginx.conf`, minus `_source/`, `**/_local/` and `*.test.mjs`. The `Dockerfile` re-injects/updates the same footer at image-build time via `ARG GIT_COMMIT` (fallback so standalone `docker build -f paper2notes/deploy/cloudrun/Dockerfile .` without `deploy.sh` still gets a footer) and then `RUN cp -r dse/* → _local/dse/` (and into each `book*/_local/dse/`) as `root` and `chown`s to `nginx`, so the shipped image serves the 82 `_local/dse/…` references from the tracked snapshot without needing `_local` in context. nginx serves the notes as static files on port 8080 with `absolute_redirect off`. `provision.sh` creates the GCP project, registry, runtime and deployer service accounts, the Cloud Run service and a Workload Identity Federation provider scoped to one GitHub repository. Footer details are owned by `paper2notes/deploy/cloudrun/README.md` and the injector `paper2notes/scripts/inject-commit-footer.mjs`.
 
 ## Design findings
 
