@@ -1,1 +1,41 @@
-/* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+/* Book 2 Ch.4 — chapter overrides: hud layout, centred stage, per-figure tweaks.
+   Shared rules live in ../../css/notes.css. This file fixes the stacked hud-labels
+   (they previously sat at their static flow position, appearing as a pile at the
+   bottom-left) and ensures the stage box is centred like Book 5's .visual.play.stage. */
+
+/* Centre the stage even if a figure omits the play token — Book 5 only centres
+   .play.stage, Book 2 Ch.4 was left full-bleed before this fix. */
+figure.fig > .visual.stage {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Base placement helper: each hud is already absolute with translate(-50%,0);
+   we switch to translate(-50%,-50%) so top/left refer to the label centre and
+   small tweaks do not push the text off the canvas. */
+.stage .hud-label {
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- Fig 2.8 — connected blocks (Newton II) ---------- */
+#connected-vis [data-hud="24N"] { left: 78%; top: 32%; }
+#connected-vis [data-hud="T"]   { left: 50%; top: 38%; }
+#connected-vis [data-hud="a"]   { left: 50%; top: 72%; }
+
+/* ---------- Fig 2.9 — action / reaction ---------- */
+#action-vis [data-hud="action"]   { left: 42%; top: 26%; }
+#action-vis [data-hud="reaction"] { left: 42%; top: 74%; }
+
+/* ---------- Fig 2.10 — verifying F = ma ---------- */
+#exp-vis [data-hud="aF"] { left: 36%; top: 58%; }
+#exp-vis [data-hud="am"] { left: 68%; top: 28%; }
+
+/* ---------- Fig 2.11 — incline ---------- */
+#incline-vis [data-hud="mgsin"] { left: 34%; top: 46%; }
+#incline-vis [data-hud="mgcos"] { left: 58%; top: 36%; }
+
+/* Keep labels from clipping at the stage edge on narrow screens */
+@media (max-width: 560px) {
+  #connected-vis [data-hud="24N"] { left: 76%; }
+  #exp-vis [data-hud="am"] { left: 66%; }
+}
