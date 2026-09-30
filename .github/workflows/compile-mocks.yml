@@ -6,6 +6,9 @@ name: compile-mocks
 
 on:
   pull_request:
+    paths:
+      - "paper2mock/**"
+      - ".github/workflows/compile-mocks.yml"
   push:
     branches: [main]
 
