@@ -1,1 +1,176 @@
 /* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+
+/* Center the visual stage box: constrain width and auto-center. */
+figure.fig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+figure.fig > .visual.stage,
+figure.fig > .pane-pair {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.visual.stage {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  display: block;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.pane-pair {
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Fix hud-label stacking: explicit absolute placement per label. */
+.stage {
+  position: relative;
+  overflow: hidden;
+}
+.stage .hud-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.92);
+  padding: 0.14rem 0.38rem;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.07);
+  font-size: 12px;
+  line-height: 1.2;
+  text-shadow: 0 0 4px #fff;
+  white-space: nowrap;
+}
+
+/* Projectile vis: vx horizontal, vy vertical, parabola near peak */
+#proj-vis [data-hud="vx"] { left: 38%; top: 78%; font-size: 11px; color: #174f78; }
+#proj-vis [data-hud="vy"] { left: 17%; top: 53%; font-size: 11px; color: #18846e; }
+#proj-vis [data-hud="parabola"] { left: 50%; top: 38%; font-size: 11px; color: #c0392b; font-weight: 600; }
+
+/* Bomber vis: bomber plane top-left, tower before target, target on ground */
+#bomber-vis [data-hud="bomber"] { left: 17%; top: 16%; font-size: 11px; font-weight: 700; }
+#bomber-vis [data-hud="tower"] { left: 76%; top: 66%; font-size: 11px; color: #5d6673; }
+#bomber-vis [data-hud="target"] { left: 86%; top: 78%; font-size: 11px; color: #18846e; font-weight: 600; }
+
+/* Range vis: 45° max label above peak */
+#range-vis [data-hud="45"] { left: 54%; top: 22%; font-size: 11px; color: #c0392b; font-weight: 600; }
+
+/* Baseball vis: 40° components */
+#baseball-vis [data-hud="40deg"] { left: 42%; top: 44%; font-size: 11px; color: #1b2129; font-weight: 600; }
+
+/* Shared dot style for animated projectile markers */
+.projectile-dot,
+.bomber-dot,
+.range-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: #c34832;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Projectile — follows the vacuum parabola (≈ Fig. 2.17) */
+.projectile-dot {
+  animation: projectile-dot-move 2.8s ease-in-out infinite;
+}
+@keyframes projectile-dot-move {
+  0%   { left: 26%; top: 73%; opacity: 1; }
+  18%  { left: 32%; top: 58%; opacity: 1; }
+  36%  { left: 42%; top: 44%; opacity: 1; }
+  55%  { left: 51%; top: 48%; opacity: 1; }
+  75%  { left: 59%; top: 62%; opacity: 1; }
+  88%  { left: 64%; top: 73%; opacity: 1; }
+  90%  { opacity: 0; }
+  92%  { left: 26%; top: 73%; opacity: 0; }
+  100% { left: 26%; top: 73%; opacity: 1; }
+}
+
+/* Bomber — horizontal release then parabolic fall (Fig. 2.18) */
+.bomber-dot {
+  animation: bomber-dot-drop 3.2s ease-in infinite;
+}
+@keyframes bomber-dot-drop {
+  0%   { left: 18%; top: 20%; opacity: 1; }
+  22%  { left: 33%; top: 24%; opacity: 1; }
+  44%  { left: 48%; top: 34%; opacity: 1; }
+  66%  { left: 64%; top: 52%; opacity: 1; }
+  84%  { left: 80%; top: 74%; opacity: 1; }
+  88%  { opacity: 0; }
+  90%  { left: 18%; top: 20%; opacity: 0; }
+  100% { left: 18%; top: 20%; opacity: 1; }
+}
+
+/* Range — 45° max-range vault (Fig. 2.19) */
+.range-dot {
+  animation: range-dot-move 2.6s ease-in-out infinite;
+}
+@keyframes range-dot-move {
+  0%   { left: 22%; top: 74%; opacity: 1; }
+  24%  { left: 34%; top: 46%; opacity: 1; }
+  50%  { left: 52%; top: 22%; opacity: 1; }
+  74%  { left: 68%; top: 46%; opacity: 1; }
+  92%  { left: 82%; top: 74%; opacity: 1; }
+  94%  { opacity: 0; }
+  96%  { left: 22%; top: 74%; opacity: 0; }
+  100% { left: 22%; top: 74%; opacity: 1; }
+}
+
+/* Label pulses — draw eye to the teaching point without obscuring the scene */
+@keyframes proj-label-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.06); }
+}
+#proj-vis [data-hud="parabola"] {
+  animation: proj-label-pulse 1.9s ease-in-out infinite;
+}
+@keyframes range-label-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.07); }
+}
+#range-vis [data-hud="45"] {
+  animation: range-label-pulse 2.1s ease-in-out infinite;
+}
+@keyframes baseball-label-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.86; transform: translate(-50%, -50%) scale(1.05); }
+}
+#baseball-vis [data-hud="40deg"] {
+  animation: baseball-label-pulse 2.4s ease-in-out infinite;
+}
+
+/* Gentle entrance for canvases so figures feel alive on load */
+#proj-vis .scene-canvas,
+#bomber-vis .scene-canvas,
+#range-vis .scene-canvas,
+#baseball-vis .scene-canvas {
+  animation: stage-in 0.45s ease-out both;
+}
+@keyframes stage-in {
+  from { opacity: 0.88; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #proj-vis [data-hud="parabola"],
+  #range-vis [data-hud="45"],
+  #baseball-vis [data-hud="40deg"],
+  .projectile-dot,
+  .bomber-dot,
+  .range-dot,
+  #proj-vis .scene-canvas,
+  #bomber-vis .scene-canvas,
+  #range-vis .scene-canvas,
+  #baseball-vis .scene-canvas {
+    animation: none !important;
+  }
+}
