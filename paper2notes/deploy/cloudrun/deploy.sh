@@ -49,8 +49,6 @@ if [ -z "$sha" ]; then sha="local"; fi
 if [ -f "$repo_root/paper2notes/scripts/inject-commit-footer.mjs" ]; then
   echo "deploy: injecting commit footer $sha into $repo_root/$notes_src"
   node "$repo_root/paper2notes/scripts/inject-commit-footer.mjs" --commit "$sha" --root "$repo_root/$notes_src" || echo "deploy: footer inject failed (continuing)"
-  echo "$sha" | cut -c1-6 > "$repo_root/$notes_src/commit.txt"
-  echo "$sha" | cut -c1-6 > "$repo_root/$notes_src/version.txt"
 fi
 registry="$REGION-docker.pkg.dev"
 image="$registry/$PROJECT_ID/$REPOSITORY/site"

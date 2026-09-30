@@ -23,9 +23,7 @@ RUN short=$(echo "$GIT_COMMIT" | cut -c1-6); \
       else \
         sed -i "s|</[Bb][Oo][Dd][Yy][[:space:]]*>|<footer class=\"deploy-commit-footer\" style=\"text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace\" data-commit=\"$short\">deployed commit: <code style=\"font:inherit;color:inherit;background:none;border:0;padding:0\">$short</code></footer></body>|g" "$f"; \
       fi; \
-    done; \
-    echo "$short" > /usr/share/nginx/html/commit.txt; \
-    echo "$short" > /usr/share/nginx/html/version.txt;
+    done;
 # Published DSE crops are stored at notes/dse/ (tracked) and mirrored to the
 # gitignored _local/dse/ paths that chapter pages reference via
 # ../_local/dse/… and _local/dse/… . The copy runs at build time so the

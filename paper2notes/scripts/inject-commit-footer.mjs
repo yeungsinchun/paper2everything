@@ -155,19 +155,6 @@ function main() {
     }
   }
 
-  // also write commit.txt and version.txt at notes root for debugging / future JS fallback
-  if (!check) {
-    try {
-      const commitTxt = join(notesDir, "commit.txt");
-      writeFileSync(commitTxt, short + "\n", "utf8");
-      const versionTxt = join(notesDir, "version.txt");
-      writeFileSync(versionTxt, short + "\n", "utf8");
-      // also at repo root for reference
-    } catch (e) {
-      console.warn("warning: could not write commit.txt:", e.message);
-    }
-  }
-
   if (check) {
     if (changed > 0) {
       console.error(`inject-commit-footer --check: ${changed} file(s) need injection/update (short=${short})`);

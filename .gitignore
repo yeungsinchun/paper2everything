@@ -55,10 +55,6 @@ paper2notes/.audit-cache/
 .audit/
 .audit-cache/
 
-# deploy commit footer — generated at build, not committed (footer in HTML is the source of truth)
-paper2notes/notes/commit.txt
-paper2notes/notes/version.txt
-
 # paper2mock
 paper2mock/.venv/
 
