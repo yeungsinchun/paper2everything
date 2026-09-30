@@ -21,7 +21,7 @@
     <h1>Moment and equilibrium</h1>
     <p class="lede">Turning effect and balance.</p>
 
-    <section class="lo-block" aria-labelledby="lo-heading">
+    <section id="ch--lo-1" class="lo-block" aria-labelledby="lo-heading">
       <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
@@ -35,7 +35,7 @@
 
     <section class="idea" id="moment">
       <header><h2><span class="sec-num">A</span>Moment \( M=Fd_\perp \)</h2></header>
-      <figure class="fig">
+      <figure id="moment--fig-1" class="fig">
         <div class="visual play stage" id="seesaw-vis" data-scene="seesaw" data-autoplay>
           <canvas class="scene-canvas" width="960" height="420" aria-label="Seesaw balanced, swap P Q keep balanced implies equal masses"></canvas>
           <span class="hud-label" data-hud="pivot">pivot O</span><span class="hud-label" data-hud="moment">\( M = F d_\perp \)</span>
@@ -43,8 +43,8 @@
         <figcaption><b>Fig 5.1</b> Farther from the pivot turns more: \( M=Fd_\perp \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>A force farther from the pivot turns more: moment \( = F \times d_\perp \) (N·m). The seesaw stays balanced after swapping P↔Q and R↔S only if \( m_P=m_Q \) and \( m_R=m_S \).</p></details>
       </figure>
-      <div class="def"><span class="tag">Moment / torque</span><p>\( M = F d_\perp \) clockwise vs anticlockwise. A <b>couple</b> is two equal opposite forces separated — pure rotation. Perpendicular distance matters, not the slant length.</p></div>
-      <div class="check" data-check="mc" data-answer="A">
+      <div id="moment--def-1" class="def"><span class="tag">Moment / torque</span><p>\( M = F d_\perp \) clockwise vs anticlockwise. A <b>couple</b> is two equal opposite forces separated — pure rotation. Perpendicular distance matters, not the slant length.</p></div>
+      <div id="moment--check-1" class="check" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>Seesaw pivot O, PQ = QO = OR = RS. Balanced. Swap P↔Q and R↔S, still balanced. What must hold?</p>
         <div class="choices">
@@ -53,13 +53,13 @@
           <button type="button" data-choice="C">All four equal</button>
           <button type="button" data-choice="D">\( m_P+m_Q=m_R+m_S \) only</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>A — swap symmetry requires pairwise equality to keep \( \sum M=0 \).</p></div>
+        <p class="feedback"></p><div id="moment--explain-1" class="explain" hidden><p>A — swap symmetry requires pairwise equality to keep \( \sum M=0 \).</p></div>
       </div>
     </section>
 
     <section class="idea" id="equilibrium">
       <header><h2><span class="sec-num">B</span>Equilibrium and centre of gravity</h2></header>
-      <figure class="fig">
+      <figure id="equilibrium--fig-1" class="fig">
         <div class="visual play stage" id="board-vis" data-scene="board" data-autoplay>
           <canvas class="scene-canvas" width="960" height="420" aria-label="Square board ABCD 0.3 m pivoted at B with 25 N 50 N forces, equilibrium"></canvas>
           <span class="hud-label" data-hud="B">pivot B</span><span class="hud-label" data-hud="CG">C.G.</span>
@@ -67,12 +67,12 @@
         <figcaption><b>Fig 5.2</b> Balance needs \( \sum F=0 \) and \( \sum M=0 \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Square board 0.3 m, pivoted at B, forces at A and C keep balance. Balance needs two things: \( \sum \vec F=0 \) and \( \sum M=0 \) about any point. The centre of gravity is where the total weight can be considered to act — found by plumb-line crossing or balancing.</p></details>
       </figure>
-      <div class="def"><span class="tag">Equilibrium</span><p>Rigid body: (1) \( \sum \vec F=0 \) (no translation) and (2) \( \sum M=0 \) (no rotation). For a regular shape with uniform density, C.G. is geometric centre; hanging gives two lines that cross at C.G.</p></div>
-      <div class="check" data-check="sa" data-answer="cg">
+      <div id="equilibrium--def-1" class="def"><span class="tag">Equilibrium</span><p>Rigid body: (1) \( \sum \vec F=0 \) (no translation) and (2) \( \sum M=0 \) (no rotation). For a regular shape with uniform density, C.G. is geometric centre; hanging gives two lines that cross at C.G.</p></div>
+      <div id="equilibrium--check-1" class="check" data-check="sa" data-answer="cg">
         <h3>Quick check</h3>
         <p>How do you find the C.G. of an irregular lamina experimentally?</p>
         <button type="button" data-reveal>Reveal</button>
-        <div class="model" hidden><p>Hang from two different points; hang a plumb line each time and draw the vertical through the suspension. The intersection is C.G. (weight acts there).</p></div>
+        <div id="equilibrium--model-1" class="model" hidden><p>Hang from two different points; hang a plumb line each time and draw the vertical through the suspension. The intersection is C.G. (weight acts there).</p></div>
       </div>
     </section>
 
@@ -80,7 +80,7 @@
     
     <section class="idea" id="lever">
       <header><h2><span class="sec-num">C</span>Levers and couples</h2></header>
-      <figure class="fig">
+      <figure id="lever--fig-1" class="fig">
         <div class="visual play stage" id="lever-vis" data-scene="lever" data-autoplay>
           <canvas class="scene-canvas" width="960" height="320" aria-label="Lever lifting load, mechanical advantage"></canvas>
           <span class="hud-label" data-hud="load">load</span><span class="hud-label" data-hud="effort">effort</span>
@@ -88,7 +88,7 @@
         <figcaption><b>Fig 5.3</b> Lever balances: effort × arm = load × arm.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Lever: effort × effort arm = load × load arm when balanced. A couple (two equal opposite forces) gives pure moment with zero net force.</p></details>
       </figure>
-      <div class="check" data-check="mc" data-answer="C">
+      <div id="lever--check-1" class="check" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>Door handle far from hinges — why?</p>
         <div class="choices">
@@ -97,14 +97,14 @@
           <button type="button" data-choice="C">Larger moment for same force (larger \( d_\perp \))</button>
           <button type="button" data-choice="D">More mass</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>C — moment grows with distance, so same push turns more.</p></div>
+        <p class="feedback"></p><div id="lever--explain-1" class="explain" hidden><p>C — moment grows with distance, so same push turns more.</p></div>
       </div>
     </section>
 
     
     <section class="idea" id="cg-find">
       <header><h2><span class="sec-num">D</span>Finding C.G. by plumb line</h2></header>
-      <figure class="fig">
+      <figure id="cg-find--fig-1" class="fig">
         <div class="visual play stage" id="plumb-vis" data-scene="plumb" data-autoplay>
           <canvas class="scene-canvas" width="960" height="320" aria-label="Plumb line method for C.G."></canvas>
           <span class="hud-label" data-hud="plumb">plumb line</span><span class="hud-label" data-hud="CG">C.G. at intersection</span>
@@ -112,17 +112,17 @@
         <figcaption><b>Fig 5.4</b> Two hangs cross at the C.G.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Hang the lamina from two points, draw the vertical each time. Intersection = C.G. For a uniform square it is the centre.</p></details>
       </figure>
-      <div class="check" data-check="sa" data-answer="plumb"><h3>Quick check</h3><p>Why two hangs, not one?</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>One hang gives a line; the C.G. can be anywhere on that line. Two lines pin it.</p></div></div>
+      <div id="cg-find--check-1" class="check" data-check="sa" data-answer="plumb"><h3>Quick check</h3><p>Why two hangs, not one?</p><button type="button" data-reveal>Reveal</button><div id="cg-find--model-1" class="model" hidden><p>One hang gives a line; the C.G. can be anywhere on that line. Two lines pin it.</p></div></div>
     </section>
 
     <section class="idea" id="quiz">
       <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <div class="check" data-check="sa">
+        <div id="quiz--check-1" class="check" data-check="sa">
           <h3>2012 MC Q6</h3>
           <p>A uniform 2 m gangplank is hinged at one end and raised by a force at the other. Where does its weight act when taking moments about the hinge?</p>
           <button type="button" data-reveal>Show answer</button>
-          <div class="model" hidden><p>Its weight acts at its midpoint, 1 m from the hinge. In equilibrium, clockwise and anticlockwise moments about the hinge are equal.</p></div>
+          <div id="quiz--model-1" class="model" hidden><p>Its weight acts at its midpoint, 1 m from the hinge. In equilibrium, clockwise and anticlockwise moments about the hinge are equal.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/07/combined.pdf" download>Export PDF for this section</a></p>
       </div>

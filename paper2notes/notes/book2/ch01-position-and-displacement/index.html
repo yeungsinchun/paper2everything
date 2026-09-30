@@ -21,7 +21,7 @@
     <h1>Position and displacement</h1>
     <p class="lede">Path length vs straight-line change.</p>
 
-    <aside class="quick-digest" aria-label="Chapter essentials">
+    <aside id="ch--digest-1" class="quick-digest" aria-label="Chapter essentials">
       <h2>Quick recap</h2>
       <div>
         <p><b>Distance</b><span>whole path · scalar</span></p>
@@ -30,7 +30,7 @@
       </div>
     </aside>
 
-    <details class="lo-block">
+    <details id="ch--lo-1" class="lo-block">
       <summary>Goals</summary>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
@@ -44,7 +44,7 @@
 
     <section class="idea" id="distance-vs-displacement">
       <header><h2><span class="sec-num">A</span>Distance vs displacement</h2></header>
-      <figure class="fig">
+      <figure id="distance-vs-displacement--fig-1" class="fig">
         <div class="fig-frame">
           <div class="p2n-readouts" role="group" aria-label="Live readouts for the mouse trench">
             <p class="p2n-readout" data-readout="distance" data-quantity="distance"><span class="p2n-swatch" aria-hidden="true"></span><b>Distance travelled</b><span class="p2n-num">0 m</span></p>
@@ -64,7 +64,7 @@
         <figcaption><b>Fig 1.1</b> Path 1000 m; straight-line displacement 707 m north-east.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Givens: the mouse starts at A, walks 500 m due east to B, then 500 m due north to C at a steady \( 1.6\ \text{m s}^{-1} \). The path is 1000 m; the straight-line change of position is 707 m at 45° north of east. The trip takes 625 s, so average velocity \( 707/625 = 1.13\ \text{m s}^{-1} \) NE is smaller than the average speed \( 1.6\ \text{m s}^{-1} \).</p></details>
       </figure>
-      <dl class="p2n-defs">
+      <dl id="distance-vs-displacement--def-1" class="p2n-defs">
         <div class="p2n-def" data-quantity="distance">
           <dt>Distance</dt>
           <dd>Whole path length: 500 m + 500 m = 1000 m on this trip.</dd>
@@ -76,7 +76,7 @@
           <dd>Vector — magnitude and direction both matter.</dd>
         </div>
       </dl>
-      <aside class="p2n-formula" data-quantity="displacement" aria-label="Displacement formula and key">
+      <aside id="distance-vs-displacement--formula-1" class="p2n-formula" data-quantity="displacement" aria-label="Displacement formula and key">
         <p>\( \Delta\vec s \;=\; \vec s_{\text{final}} - \vec s_{\text{initial}} \)</p>
         <dl class="p2n-formula-key">
           <dt>\( \Delta\vec s \)</dt><dd>displacement in metres, east and north positive</dd>
@@ -84,7 +84,7 @@
           <dt>\( \vec s_{\text{initial}} \)</dt><dd>position of the start, A</dd>
         </dl>
       </aside>
-      <div class="p2n-compare" role="group" aria-label="Distance and displacement compared">
+      <div id="distance-vs-displacement--table-1" class="p2n-compare" role="group" aria-label="Distance and displacement compared">
         <section class="p2n-compare-card" data-quantity="distance">
           <header><h3>Distance</h3></header>
           <p class="p2n-compare-row"><b>What it is</b><span>Length of the whole path</span></p>
@@ -98,7 +98,7 @@
           <p class="p2n-compare-row"><b>This trip</b><span>707 m north-east</span></p>
         </section>
       </div>
-      <div class="check" data-check="mc" data-answer="B">
+      <div id="distance-vs-displacement--check-1" class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Which arrow is the displacement for this trip?</p>
         <div class="choices">
@@ -109,14 +109,14 @@
         </div>
         <p class="feedback"></p>
         <button type="button" data-reveal>Show answer</button>
-        <div class="model" hidden><p>Distance is the path: \( 500 + 500 = 1000\ \text{m} \). Displacement is the straight arrow from A to C: \( |\Delta\vec s| = \sqrt{500^2+500^2} = 707\ \text{m} \) at \( 45^\circ \) north of east. Average speed \( = 1000/625 = 1.6\ \text{m s}^{-1} \); average velocity \( = 707/625 = 1.13\ \text{m s}^{-1} \) NE.</p></div>
+        <div id="distance-vs-displacement--model-1" class="model" hidden><p>Distance is the path: \( 500 + 500 = 1000\ \text{m} \). Displacement is the straight arrow from A to C: \( |\Delta\vec s| = \sqrt{500^2+500^2} = 707\ \text{m} \) at \( 45^\circ \) north of east. Average speed \( = 1000/625 = 1.6\ \text{m s}^{-1} \); average velocity \( = 707/625 = 1.13\ \text{m s}^{-1} \) NE.</p></div>
       </div>
     </section>
 
     <section class="idea" id="scalars-vectors">
       <header><h2><span class="sec-num">B</span>Scalars and vectors</h2></header>
       <div class="fig-pair">
-        <figure class="fig">
+        <figure id="scalars-vectors--fig-1" class="fig">
           <div class="fig-frame">
             <div class="visual stage" id="vector-add-vis" data-scene="vector-add">
               <canvas class="scene-canvas" width="480" height="360" aria-label="Tip-to-tail: vector a runs east from the start to the junction, vector b runs north from the junction to the finish, and the violet resultant a + b joins start to finish"></canvas>
@@ -130,7 +130,7 @@
           </div>
           <figcaption><b>Fig 1.2a</b> Tip-to-tail: tail of b at the tip of a.</figcaption>
         </figure>
-        <figure class="fig">
+        <figure id="scalars-vectors--fig-2" class="fig">
           <div class="fig-frame">
             <div class="p2n-readouts" role="group" aria-label="Live readouts for the return trip">
               <p class="p2n-readout" data-readout="distance" data-quantity="distance"><span class="p2n-swatch" aria-hidden="true"></span><b>Distance travelled</b><span class="p2n-num">0 m</span></p>
@@ -150,7 +150,7 @@
         </figure>
       </div>
       <details class="fig-more"><summary>More</summary><p>Left: adding vectors tip-to-tail — b starts where a ends, and the resultant a + b runs from the shared start to the final tip; the order does not matter. Right: O and P are 20 m apart; Peter walks out and straight back at a steady speed, the same time each way. Each arc is 62.8 m, so the whole trip is about 126 m of distance, yet he finishes where he started: displacement is zero, and so is his average velocity.</p></details>
-      <dl class="p2n-defs">
+      <dl id="scalars-vectors--def-1" class="p2n-defs">
         <div class="p2n-def" data-quantity="scalar">
           <dt>Scalar<span class="p2n-qicon" aria-hidden="true"><svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 7v10M42 7v10M6 12h36M18 9v6M30 9v6"/></svg></span></dt>
           <dd>Magnitude only — no direction.</dd>
@@ -162,7 +162,7 @@
           <dd><ul><li>displacement</li><li>velocity</li><li>acceleration</li><li>force</li></ul></dd>
         </div>
       </dl>
-      <div class="check" data-check="mc" data-answer="C">
+      <div id="scalars-vectors--check-1" class="check" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>For the out-and-back trip: which quantity is zero?</p>
         <div class="choices">
@@ -173,7 +173,7 @@
         </div>
         <p class="feedback"></p>
         <button type="button" data-reveal>Show answer</button>
-        <div class="model" hidden><p>He finishes at the start, so \( \Delta\vec s = \vec s_O - \vec s_O = 0 \) and the average velocity is zero too. Distance is not zero: \( 2 \times 62.8 = 126\ \text{m} \), so average speed \( = 126/t > 0 \). Same distance, opposite displacements on the two legs.</p></div>
+        <div id="scalars-vectors--model-1" class="model" hidden><p>He finishes at the start, so \( \Delta\vec s = \vec s_O - \vec s_O = 0 \) and the average velocity is zero too. Distance is not zero: \( 2 \times 62.8 = 126\ \text{m} \), so average speed \( = 126/t > 0 \). Same distance, opposite displacements on the two legs.</p></div>
       </div>
     </section>
 
@@ -181,7 +181,7 @@
     
     <section class="idea" id="graphs">
       <header><h2><span class="sec-num">C</span>Reading \( s\!-\!t \) graphs</h2></header>
-      <figure class="fig">
+      <figure id="graphs--fig-1" class="fig">
         <div class="visual stage" id="st-graph-vis" data-scene="st-vt">
           <canvas class="scene-canvas" width="960" height="420" aria-label="s-t graph with slope changing"></canvas>
           <span class="hud-label" data-hud="slope">slope = velocity</span>
@@ -189,7 +189,7 @@
         <figcaption><b>Fig 1.3</b> Steeper slope → larger velocity.</figcaption>
         <details class="fig-more"><summary>More</summary><p>A curved \( s\!-\!t \) means velocity changes. Straight → uniform velocity; horizontal → at rest. The area idea belongs to \( v\!-\!t \) (see Ch.2).</p></details>
       </figure>
-      <table class="notes">
+      <table id="graphs--table-1" class="notes">
         <thead><tr><th>What you see on \( s\!-\!t \)</th><th>Therefore</th></tr></thead>
         <tbody>
           <tr><td>Straight line through origin</td><td>Uniform velocity \( v = \text{slope} \)</td></tr>
@@ -197,7 +197,7 @@
           <tr><td>Curved line</td><td>Changing velocity → acceleration (handled in Ch.2)</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="B">
+      <div id="graphs--check-1" class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>On an \( s\!-\!t \) graph, a steeper line means…</p>
         <div class="choices">
@@ -206,14 +206,14 @@
           <button type="button" data-choice="C">Larger acceleration always</button>
           <button type="button" data-choice="D">Nothing about motion</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>B — slope is velocity; area is not used on \( s\!-\!t \).</p></div>
+        <p class="feedback"></p><div id="graphs--explain-1" class="explain" hidden><p>B — slope is velocity; area is not used on \( s\!-\!t \).</p></div>
       </div>
     </section>
 
     
     <section class="idea" id="vector-example">
       <header><h2><span class="sec-num">D</span>Worked: Shirley and Simon</h2></header>
-      <figure class="fig">
+      <figure id="vector-example--fig-1" class="fig">
         <div class="visual stage" id="shirley-vis" data-scene="shirley">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Shirley and Simon resultant"></canvas>
           <span class="hud-label" data-hud="Shirley">Shirley</span><span class="hud-label" data-hud="Simon">Simon</span>
@@ -221,7 +221,7 @@
         <figcaption><b>Fig 1.4</b> 3 m east + 4 m north → 5 m NE.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Shirley walks \( 3\ \text{m} \) east then \( 4\ \text{m} \) north — resultant \( 5\ \text{m} \) NE (3-4-5). Tip-to-tail is the same as parallelogram; the order does not matter.</p></details>
       </figure>
-      <div class="check" data-check="mc" data-answer="B">
+      <div id="vector-example--check-1" class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Shirley \( 3 \) east + \( 4 \) north. Resultant magnitude?</p>
         <div class="choices">
@@ -230,18 +230,18 @@
           <button type="button" data-choice="C">1 m</button>
           <button type="button" data-choice="D">0</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>B — \( \sqrt{3^2+4^2}=5 \).</p></div>
+        <p class="feedback"></p><div id="vector-example--explain-1" class="explain" hidden><p>B — \( \sqrt{3^2+4^2}=5 \).</p></div>
       </div>
     </section>
 
     <section class="idea" id="quiz">
       <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <div class="check" data-check="sa">
+        <div id="quiz--check-1" class="check" data-check="sa">
           <h3>2015 MC Q4</h3>
           <p>A particle travels at 2.0 m s⁻¹ due east for 1.5 s and then at 4.0 m s⁻¹ due north for 1.0 s. Find the magnitude of its average velocity for the whole journey.</p>
           <button type="button" data-reveal>Show answer</button>
-          <div class="model" hidden><p>The displacements are 3.0 m east and 4.0 m north, so the resultant displacement is √(3.0² + 4.0²) = 5.0 m. Average velocity = 5.0 m / 2.5 s = 2.0 m s⁻¹.</p></div>
+          <div id="quiz--model-1" class="model" hidden><p>The displacements are 3.0 m east and 4.0 m north, so the resultant displacement is √(3.0² + 4.0²) = 5.0 m. Average velocity = 5.0 m / 2.5 s = 2.0 m s⁻¹.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/05/combined.pdf" download>Export PDF for this section</a></p>
       </div>
