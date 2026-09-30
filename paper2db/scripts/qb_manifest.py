@@ -120,7 +120,9 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
     warnings: list[str] = []
 
     # Resolve manifest
-    if manifest_path and manifest_path.is_file():
+    if manifest_path:
+        if not manifest_path.is_file():
+            raise SystemExit(f"Missing {manifest_path}")
         manifest_p = manifest_path
     elif QB_MANIFEST.is_file():
         manifest_p = QB_MANIFEST
@@ -158,7 +160,9 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
             raise SystemExit(f"{manifest_p} bank_list[{idx}] invalid: {b!r}")
     banks = None
     banks_actual = banks_path if banks_path else BANKS_PATH
-    if banks_path and banks_path.is_file():
+    if banks_path:
+        if not banks_path.is_file():
+            raise SystemExit(f"Missing {banks_path}")
         banks = load_json(banks_path)
     elif BANKS_PATH.is_file():
         banks = load_json(BANKS_PATH)
@@ -197,9 +201,9 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
         if b_banks_count is not None and manifest.get("banks") != b_banks_count:
             errors.append(f"manifest banks {manifest.get('banks')} != banks.json banks {b_banks_count}")
         # Per-bank docx counts
-        if isinstance(banks.get("banks_detail"), list):
-            detail = banks["banks_detail"]
-            if not detail:
+        if banks is not None:
+            detail = banks.get("banks_detail")
+            if not isinstance(detail, list) or not detail:
                 raise SystemExit(f"{banks_actual} missing or invalid banks_detail")
             expected_docx_by_bank: dict[str, int] = {}
             seen: set[str] = set()
