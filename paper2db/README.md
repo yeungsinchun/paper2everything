@@ -66,6 +66,8 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `qb-pdf/` | Converted QB PDFs, OCR, item JSON, crops, conversion log and quality report (generated, gitignored) |
 | `schemas/qb-item.v1.json` | `paper2db.qb-item.v1` item contract (legacy) |
 | `schemas/qb-item.v2.json` | `paper2db.qb-item.v2` item contract (corpus-agnostic, with `scope` and `source_manifest`) |
+| `schemas/answer-pointer.v1.json` | `paper2db.answer-pointer.v1` store contract for answer pointers |
+| `metadata/pointers/{qb,dse}.json` | Tracked answer-pointer stores (empty until pointers are added) |
 | `metadata/mc/llm_classifications.json` | Tracked MC classification decisions (LLM or keyword backend) |
 | `metadata/lq/llm_classifications.json` | Tracked LQ classification decisions |
 | `metadata/qb/banks.json` | Tracked QB census per bank (46 banks, 169 DOCX → 3847 items, 1881 in-scope) — source of truth for counts |
@@ -98,6 +100,19 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 15. **qb-audit** - strict QB quality gate (counts from `metadata/qb/banks.json`: 169 PDFs / 46 banks → 3847 items, 1881 in-scope) and local crop review board
 
 The QB stages skip when no QB DOCX source tree is found. They use `$P2DB_QB_ROOT` if set, otherwise `qb/` in this repository (`qb/` itself stays gitignored; the tracked census is `metadata/qb/banks.json` and the tracked manifest is `metadata/qb/source-manifest.json`). `qb-pdf` first runs `scripts/qb_manifest.py verify` (sha256 per DOCX plus `banks.json` agreement) before conversion. The QB source files and all generated QB outputs stay untracked. LibreOffice (`soffice`), `pdftoppm` and Tesseract must be on `PATH` to run these stages. Run only the QB track with `./pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit`; `--years` applies to past papers, not QB. `qb-items` emits `paper2db.qb-item.v2` (`schemas/qb-item.v2.json`, with `scope` from `banks.json` and `source_manifest` provenance; `v1` is legacy). The QB audit writes `qb-pdf/quality.json` and `.lavish/qb-review/index.html`; it checks the exact PDF and item counts from `metadata/qb/banks.json` (169 PDFs / 46 banks → 3847 items, 1881 in-scope), crops, key statuses, and conversion rendering. See `scripts/qb_quality.py` and `scripts/qb_manifest.py` for the gate definitions.
+
+## Answer pointers
+
+`metadata/pointers/{qb,dse}.json` (`schemas/answer-pointer.v1.json`) say where each item's worked answer or marking scheme lives. An item may have several pointers; `scripts/pointers.py` merges them to one by tier (`verified` > `derived` > `inferred`), and two different targets at the same top tier are a conflict. Items are joined by `item_id` against the staged indexes in `qb-web-ui-staging/` (qb ids as-is, `dse-mc-<year>-<q>`, `dse-lq-<year>-q<n>`). Target paths are relative to `paper2db/`.
+
+```bash
+python3 scripts/pointers.py coverage             # in-scope items with a pointer, by type and tier
+python3 scripts/pointers.py coverage --json --min-pct 50
+python3 scripts/pointers.py merge --corpus dse   # resolved pointer per item
+python3 scripts/pointers.py check                # CI resolver: schema, known item, target exists
+```
+
+`check` runs in `.github/workflows/ci-pointers.yml`; it needs only the standard library. Targets under generated roots (`tests/`, `intermediate/`, `qb-pdf/`, `qb/`, `paper/`) are syntax-checked only since those trees are gitignored.
 
 ## Tests
 

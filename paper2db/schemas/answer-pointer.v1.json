@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "paper2db.answer-pointer.v1",
+  "description": "Store of answer pointers for one corpus (qb or dse): where the worked answer / marking scheme for an item lives. Merged per item by tier (verified > derived > inferred) via scripts/pointers.py.",
+  "type": "object",
+  "required": ["schema", "corpus", "pointers"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"type": "string", "const": "paper2db.answer-pointer.v1"},
+    "corpus": {"type": "string", "enum": ["qb", "dse"]},
+    "pointers": {"type": "array", "items": {"$ref": "#/definitions/pointer"}}
+  },
+  "definitions": {
+    "pointer": {
+      "type": "object",
+      "required": ["item_id", "tier", "kind", "target", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "item_id": {"type": "string", "minLength": 1, "description": "qb: PHY1... item id. dse: dse-mc-<year>-<q> or dse-lq-<year>-q<n>."},
+        "tier": {"type": "string", "enum": ["verified", "derived", "inferred"], "description": "verified = human-checked; derived = located deterministically from a source (e.g. marking-scheme crop); inferred = heuristic or LLM guess. Higher tier wins on merge."},
+        "kind": {"type": "string", "enum": ["crop", "page", "pdf"]},
+        "target": {
+          "type": "object",
+          "required": ["path"],
+          "additionalProperties": false,
+          "properties": {
+            "path": {"type": "string", "minLength": 1, "description": "Relative to paper2db/, forward slashes, no '..' segments."},
+            "page": {"type": "integer", "minimum": 1, "description": "1-based page for kind page|pdf."},
+            "bbox": {"type": "array", "items": {"type": "number", "minimum": 0, "maximum": 1}, "minItems": 4, "maxItems": 4, "description": "[x0, y0, x1, y1] as page fractions, x0<x1 and y0<y1."}
+          }
+        },
+        "source": {"type": "string", "minLength": 1, "description": "Provenance: script, reviewer or document that produced the pointer."},
+        "note": {"type": "string"}
+      }
+    }
+  }
+}
