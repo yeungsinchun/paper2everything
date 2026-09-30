@@ -30,10 +30,15 @@ Lavish board (if any): `.lavish/<board>.html` — still attach both-size PNGs in
 - Laptop 1280×800: <!-- `https://github.com/user-attachments/assets/<uuid-1280>` or "N/A — provably invisible because ..." -->
 - Mobile 390×844: <!-- `https://github.com/user-attachments/assets/<uuid-390>` or "N/A — ..." -->
 
+## Crop screenshots (required when the PR adds, removes or changes crops — DSE or QB)
+
+> Load `.agents/skills/paper2everything-crop-screenshot/SKILL.md` before launch. Attach representative PNG grids/samples (before/after where changed, sample where added, readable resolution) via `gh --attach` so they render inline. Checklist: skill §7.
+
 ## Checklist
 
 - [ ] Screenshots: before/after at **BOTH** 1280×800 **and** 390×844 for each changed visual, same URL/scroll/viewport per pair, attached inline via `gh --attach` (or browser drag-drop) — one-size-only is incomplete
 - [ ] Video (if any): attached inline via `gh --attach` as `user-attachments` URL on its own paragraph; UI demos have BOTH 1280×800 and 390×844 videos or a plain justification that one size is provably invisible
+- [ ] Crop PRs: representative PNG screenshots attached inline per `paper2everything-crop-screenshot` (skill §7)
 - [ ] `paper2everything-ui-screenshot` checklist (skill §7) and `paper2everything-pr-video` checklist (skill §6) pass where applicable
 
 ## Notes for reviewers
