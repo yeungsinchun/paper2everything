@@ -185,6 +185,15 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
         raise SystemExit(f"{manifest_p} bank_list {sorted(bank_list)} != files banks {sorted(files_banks)}")
     if len(bank_list) != len(set(bank_list)):
         raise SystemExit(f"{manifest_p} bank_list duplicate entries")
+    if len({entry["path"] for entry in files}) != len(files):
+        raise SystemExit(f"{manifest_p} duplicate path in files")
+    for entry in files:
+        if Path(entry["path"]).parent.name != entry["bank"]:
+            raise SystemExit(f"{manifest_p} files entry bank mismatch: {entry['path']!r} parent {Path(entry['path']).parent.name!r} != bank {entry['bank']!r}")
+    if "total_files" in manifest:
+        total_files = manifest["total_files"]
+        if not isinstance(total_files, int) or total_files != total_docx_m or total_files != len(files):
+            raise SystemExit(f"{manifest_p} total_files {total_files!r} != total_docx {total_docx_m} or len(files) {len(files)}")
 
     # Cross-check manifest vs banks.json
     if banks:
