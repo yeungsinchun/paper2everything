@@ -5,32 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book 2 Ch.1 · Position and displacement</title>
   <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
   <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="../index.html">Book 2 · Ch.1<small>Position and displacement</small></a>
-    <nav>
-      <a href="../index.html">Map</a>
-      <a href="../ch01-position-and-displacement/index.html" aria-current="page">Ch.1</a>
-      <a href="../ch02-velocity-and-acceleration/index.html">Ch.2</a>
-      <a href="../ch03-forces-and-newton-i/index.html">Ch.3</a>
-      <a href="../ch04-newton-ii-and-iii/index.html">Ch.4</a>
-      <a href="../ch05-moment-and-equilibrium/index.html">Ch.5</a>
-      <a href="../ch06-work-energy-power/index.html">Ch.6</a>
-      <a href="../ch07-momentum/index.html">Ch.7</a>
-      <a href="../ch08-projectile-motion/index.html">Ch.8</a>
-      <a href="../ch09-circular-motion/index.html">Ch.9</a>
-      <a href="../ch10-gravitation/index.html">Ch.10</a>
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Force &amp; Motion</small></a>
+    <nav aria-label="Chapters">
+      <a href="../index.html" aria-label="Book 2 chapter map">Map</a>
+      <a href="../ch01-position-and-displacement/index.html" aria-current="page" aria-label="Chapter 1">1</a><a href="../ch02-velocity-and-acceleration/index.html" aria-label="Chapter 2">2</a><a href="../ch03-forces-and-newton-i/index.html" aria-label="Chapter 3">3</a><a href="../ch04-newton-ii-and-iii/index.html" aria-label="Chapter 4">4</a><a href="../ch05-moment-and-equilibrium/index.html" aria-label="Chapter 5">5</a><a href="../ch06-work-energy-power/index.html" aria-label="Chapter 6">6</a><a href="../ch07-momentum/index.html" aria-label="Chapter 7">7</a><a href="../ch08-projectile-motion/index.html" aria-label="Chapter 8">8</a><a href="../ch09-circular-motion/index.html" aria-label="Chapter 9">9</a><a href="../ch10-gravitation/index.html" aria-label="Chapter 10">10</a>
     </nav>
   </header>
   <main>
     <h1>Position and displacement</h1>
-    <p class="lede">Track the path, compare it with the straight-line change in position, then read motion from a graph.</p>
+    <p class="lede">Path length vs straight-line change.</p>
 
     <aside class="quick-digest" aria-label="Chapter essentials">
-      <h2>In 20 seconds</h2>
+      <h2>Quick recap</h2>
       <div>
         <p><b>Distance</b><span>whole path · scalar</span></p>
         <p><b>Displacement</b><span>start → finish · vector</span></p>
@@ -39,7 +31,7 @@
     </aside>
 
     <details class="lo-block">
-      <summary>Learning objectives</summary>
+      <summary>Goals</summary>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
         <li><p>describe the change of position of objects in terms of distance and displacement</p></li>
@@ -60,7 +52,8 @@
           <span class="hud-label" data-hud="A">A</span><span class="hud-label" data-hud="B">B</span><span class="hud-label" data-hud="C">C</span>
           <span class="trench-dot" aria-hidden="true"></span>
         </div>
-        <figcaption><b>Fig. 2.1</b> The mouse goes 500 m east then 500 m north. Distance travelled \( = 1000\ \text{m} \) (scalar). Displacement \( = \vec{AC} \) from start to finish — magnitude \( 707\ \text{m} \) NE, direction matters.</figcaption>
+        <figcaption><b>Fig 1.1</b> Path 1000 m; displacement 707 m NE.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>The mouse goes 500 m east then 500 m north. Distance travelled \( = 1000\ \text{m} \) (scalar). Displacement \( = \vec{AC} \) from start to finish — magnitude \( 707\ \text{m} \) NE, direction matters.</p></details>
       </figure>
       <div class="def"><span class="tag">Definition</span><p><b>Distance</b> is the length of the path (scalar, no direction). <b>Displacement</b> \( \Delta\vec s = \vec s_{\text{final}} - \vec s_{\text{initial}} \) is the vector from start to finish. Same distance can give different displacements.</p></div>
       <table class="notes">
@@ -72,7 +65,7 @@
         </tbody>
       </table>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>The mouse’s average speed is \( 1.6\ \text{m s}^{-1} \). Which statement is correct about the trip A→B→C (500 m + 500 m)?</p>
         <div class="choices">
           <button type="button" data-choice="A">Displacement is 1000 m north-east</button>
@@ -86,7 +79,7 @@
     </section>
 
     <section class="idea" id="scalars-vectors">
-      <header><h2><span class="sec-num">B</span>Scalars, vectors and adding them</h2></header>
+      <header><h2><span class="sec-num">B</span>Scalars and vectors</h2></header>
       <figure class="fig">
         <div class="pane-pair">
           <div class="visual stage" id="vector-add-vis" data-scene="vector-add">
@@ -98,7 +91,8 @@
             <span class="hud-label" data-hud="red">red path</span><span class="hud-label" data-hud="green">green return</span>
           </div>
         </div>
-        <figcaption><b>Fig. 2.2</b> Left: add vectors tip-to-tail (or parallelogram) — the resultant joins start to finish. Right: Peter takes same time each way on a circular O–P route; same distance but opposite displacement → different average velocity.</figcaption>
+        <figcaption><b>Fig 1.2</b> Left: tip-to-tail. Right: same distance, opposite displacement.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Left: add vectors tip-to-tail (or parallelogram) — the resultant joins start to finish. Right: Peter takes same time each way on a circular O–P route; same distance but opposite displacement → different average velocity.</p></details>
       </figure>
       <table class="notes">
         <thead><tr><th>Scalar (magnitude only)</th><th>Vector (magnitude + direction)</th></tr></thead>
@@ -108,7 +102,7 @@
         </tbody>
       </table>
       <div class="check" data-check="tf">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <div class="tf-item" data-answer="false">
           <p>Peter’s average speed equals the magnitude of his average velocity for the O→P→O loop.</p>
           <button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button>
@@ -125,13 +119,14 @@
 
     
     <section class="idea" id="graphs">
-      <header><h2><span class="sec-num">C</span>Reading \( s\!-\!t \) and describing motion</h2></header>
+      <header><h2><span class="sec-num">C</span>Reading \( s\!-\!t \) graphs</h2></header>
       <figure class="fig">
         <div class="visual stage" id="st-graph-vis" data-scene="st-vt">
           <canvas class="scene-canvas" width="960" height="420" aria-label="s-t graph with slope changing"></canvas>
           <span class="hud-label" data-hud="slope">slope = velocity</span>
         </div>
-        <figcaption><b>Fig. 2.3</b> A curved \( s\!-\!t \) means velocity changes. Straight → uniform velocity; horizontal → at rest. The area idea belongs to \( v\!-\!t \) (see Ch.2).</figcaption>
+        <figcaption><b>Fig 1.3</b> Steeper slope → larger velocity.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>A curved \( s\!-\!t \) means velocity changes. Straight → uniform velocity; horizontal → at rest. The area idea belongs to \( v\!-\!t \) (see Ch.2).</p></details>
       </figure>
       <table class="notes">
         <thead><tr><th>What you see on \( s\!-\!t \)</th><th>Therefore</th></tr></thead>
@@ -142,7 +137,7 @@
         </tbody>
       </table>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>On an \( s\!-\!t \) graph, a steeper line means…</p>
         <div class="choices">
           <button type="button" data-choice="A">Smaller speed</button>
@@ -162,10 +157,11 @@
           <canvas class="scene-canvas" width="960" height="420" aria-label="Shirley and Simon resultant"></canvas>
           <span class="hud-label" data-hud="Shirley">Shirley</span><span class="hud-label" data-hud="Simon">Simon</span>
         </div>
-        <figcaption><b>Fig. 2.4</b> Shirley walks \( 3\ \text{m} \) east then \( 4\ \text{m} \) north — resultant \( 5\ \text{m} \) NE (3-4-5). Tip-to-tail is the same as parallelogram; the order does not matter.</figcaption>
+        <figcaption><b>Fig 1.4</b> 3 m east + 4 m north → 5 m NE.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Shirley walks \( 3\ \text{m} \) east then \( 4\ \text{m} \) north — resultant \( 5\ \text{m} \) NE (3-4-5). Tip-to-tail is the same as parallelogram; the order does not matter.</p></details>
       </figure>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Shirley \( 3 \) east + \( 4 \) north. Resultant magnitude?</p>
         <div class="choices">
           <button type="button" data-choice="A">7 m</button>
@@ -178,14 +174,12 @@
     </section>
 
     <section class="idea" id="quiz">
-      <header><h2><span class="sec-num">Q</span>Section quiz — DSE classified</h2></header>
-      <p>One question at a time. Use <em>Prev / Next</em> to move. Past papers are separate from the in-flow checks above.</p>
+      <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <p class="quiz-note">Adapted from classified DSE 2015 MC Q4 · Section 05 Motion. Check the original paper for its choices.</p>
         <div class="check" data-check="sa">
-          <h3>2015 MC Q4 · Section 05 Motion</h3>
+          <h3>2015 MC Q4</h3>
           <p>A particle travels at 2.0 m s⁻¹ due east for 1.5 s and then at 4.0 m s⁻¹ due north for 1.0 s. Find the magnitude of its average velocity for the whole journey.</p>
-          <button type="button" data-reveal>Show model answer</button>
+          <button type="button" data-reveal>Show answer</button>
           <div class="model" hidden><p>The displacements are 3.0 m east and 4.0 m north, so the resultant displacement is √(3.0² + 4.0²) = 5.0 m. Average velocity = 5.0 m / 2.5 s = 2.0 m s⁻¹.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/05/combined.pdf" download>Export PDF for this section</a></p>

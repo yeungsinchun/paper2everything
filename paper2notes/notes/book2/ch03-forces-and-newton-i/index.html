@@ -5,32 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book 2 Ch.3 · Forces and Newton’s first law</title>
   <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
   <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="../index.html">Book 2 · Ch.3<small>Forces and Newton’s first law</small></a>
-    <nav>
-      <a href="../index.html">Map</a>
-      <a href="../ch01-position-and-displacement/index.html">Ch.1</a>
-      <a href="../ch02-velocity-and-acceleration/index.html">Ch.2</a>
-      <a href="../ch03-forces-and-newton-i/index.html" aria-current="page">Ch.3</a>
-      <a href="../ch04-newton-ii-and-iii/index.html">Ch.4</a>
-      <a href="../ch05-moment-and-equilibrium/index.html">Ch.5</a>
-      <a href="../ch06-work-energy-power/index.html">Ch.6</a>
-      <a href="../ch07-momentum/index.html">Ch.7</a>
-      <a href="../ch08-projectile-motion/index.html">Ch.8</a>
-      <a href="../ch09-circular-motion/index.html">Ch.9</a>
-      <a href="../ch10-gravitation/index.html">Ch.10</a>
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Force &amp; Motion</small></a>
+    <nav aria-label="Chapters">
+      <a href="../index.html" aria-label="Book 2 chapter map">Map</a>
+      <a href="../ch01-position-and-displacement/index.html" aria-label="Chapter 1">1</a><a href="../ch02-velocity-and-acceleration/index.html" aria-label="Chapter 2">2</a><a href="../ch03-forces-and-newton-i/index.html" aria-current="page" aria-label="Chapter 3">3</a><a href="../ch04-newton-ii-and-iii/index.html" aria-label="Chapter 4">4</a><a href="../ch05-moment-and-equilibrium/index.html" aria-label="Chapter 5">5</a><a href="../ch06-work-energy-power/index.html" aria-label="Chapter 6">6</a><a href="../ch07-momentum/index.html" aria-label="Chapter 7">7</a><a href="../ch08-projectile-motion/index.html" aria-label="Chapter 8">8</a><a href="../ch09-circular-motion/index.html" aria-label="Chapter 9">9</a><a href="../ch10-gravitation/index.html" aria-label="Chapter 10">10</a>
     </nav>
   </header>
   <main>
-    <h1>Forces and Newton’s first law</h1>
-    <p class="lede">Force, inertia, friction and vector sum.</p>
+    <h1>Forces and Newton I</h1>
+    <p class="lede">No net force, no change in motion.</p>
 
     <section class="lo-block" aria-labelledby="lo-heading">
-      <h2 id="lo-heading">Learning objectives</h2>
+      <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
         <li><p>describe the meaning of inertia and its relationship to mass</p></li>
@@ -43,18 +35,19 @@
 
 
     <section class="idea" id="vector-forces">
-      <header><h2><span class="sec-num">A</span>Force is a vector — adding and splitting</h2></header>
+      <header><h2><span class="sec-num">A</span>Adding and splitting forces</h2></header>
       <figure class="fig">
         <div class="visual play stage" id="add-vis" data-scene="force-add">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Forces 1 N and 3 N left, 5 N and 2 N right, sum to 3 N right"></canvas>
           <span class="hud-label" data-hud="net">\( F_{\text{net}} = 3\ \text{N} \)</span>
           <span class="hud-label" data-hud="resolve">\( F_x = F\cos\theta \)</span>
         </div>
-        <figcaption><b>Fig. 2.6</b> Four horizontal forces: \( 5\ \text{N} \) and \( 2\ \text{N} \) right, \( 1\ \text{N} \) and \( 3\ \text{N} \) left → \( F_{\text{net}} = +5+2-1-3 = +3\ \text{N} \) (3 N right). Resolve any \( F \) into \( F_x=F\cos\theta,\ F_y=F\sin\theta \) for sum by components.</figcaption>
+        <figcaption><b>Fig 3.1</b> Net force \( = +5+2-1-3 = +3\ \text{N} \) to the right.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Four horizontal forces: \( 5\ \text{N} \) and \( 2\ \text{N} \) right, \( 1\ \text{N} \) and \( 3\ \text{N} \) left → \( F_{\text{net}} = +5+2-1-3 = +3\ \text{N} \) (3 N right). Resolve any \( F \) into \( F_x=F\cos\theta,\ F_y=F\sin\theta \) for sum by components.</p></details>
       </figure>
       <div class="def"><span class="tag">Net force</span><p>\( \vec F_{\text{net}} = \sum \vec F_i \) (vector sum). Graphical: triangle/parallelogram; algebraic: add \( x \) and \( y \) components separately. A zero net force is not zero motion — it is zero acceleration.</p></div>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Forces \( 1\ \text{N} \) and \( 3\ \text{N} \) left, \( 5\ \text{N} \) and \( 2\ \text{N} \) right (right = +). Net?</p>
         <div class="choices">
           <button type="button" data-choice="A">\( -11\ \text{N} \)</button>
@@ -67,18 +60,19 @@
     </section>
 
     <section class="idea" id="newton1-friction">
-      <header><h2><span class="sec-num">B</span>Inertia, Newton I and friction</h2></header>
+      <header><h2><span class="sec-num">B</span>Inertia and friction</h2></header>
       <figure class="fig">
         <div class="visual play stage" id="inertia-vis" data-scene="inertia">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Block on rough surface, friction opposes motion, inertia keeps moving without push"></canvas>
           <span class="hud-label" data-hud="friction">\( f \) opposes motion</span>
           <span class="hud-label" data-hud="inertia">inertia \( \propto m \)</span>
         </div>
-        <figcaption><b>Fig. 2.7</b> Without a net push, a block keeps its velocity (Newton I). Friction opposes the motion or its tendency, growing to \( f_s \le \mu_s N \) then sliding with \( f_k = \mu_k N \). “Thinking distance + braking distance” is inertia + \( ma \) to stop.</figcaption>
+        <figcaption><b>Fig 3.2</b> No net push → velocity stays the same.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Without a net push, a block keeps its velocity (Newton I). Friction opposes the motion or its tendency, growing to \( f_s \le \mu_s N \) then sliding with \( f_k = \mu_k N \). “Thinking distance + braking distance” is inertia + \( ma \) to stop.</p></details>
       </figure>
       <div class="def"><span class="tag">Newton I</span><p>If \( \vec F_{\text{net}}=0 \) then \( \vec v \) does not change (at rest stays at rest, moving stays uniform). <b>Inertia</b> measures resistance to change — larger mass means larger inertia. Friction never helps motion; it opposes it.</p></div>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Which explains stopping distance after seeing danger?</p>
         <div class="choices">
           <button type="button" data-choice="A">Only braking distance matters</button>
@@ -93,18 +87,19 @@
 
     
     <section class="idea" id="resolution">
-      <header><h2><span class="sec-num">C</span>Resolution into components</h2></header>
+      <header><h2><span class="sec-num">C</span>Resolving into components</h2></header>
       <figure class="fig">
         <div class="visual play stage" id="resolve-vis" data-scene="resolve">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Force resolved into x y components"></canvas>
           <span class="hud-label" data-hud="Fx">\( F_x = F\cos\theta \)</span>
           <span class="hud-label" data-hud="Fy">\( F_y = F\sin\theta \)</span>
         </div>
-        <figcaption><b>Fig. 2.8</b> Any force splits cleanly into perpendicular components: adjacent side \( = F\cos\theta \), opposite \( =F\sin\theta \). Add components separately to get the net.</figcaption>
+        <figcaption><b>Fig 3.3</b> \( F_x=F\cos\theta,\ F_y=F\sin\theta \).</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Any force splits cleanly into perpendicular components: adjacent side \( = F\cos\theta \), opposite \( =F\sin\theta \). Add components separately to get the net.</p></details>
       </figure>
       <div class="def"><span class="tag">Resolution</span><p>\[ F_x = F\cos\theta \qquad F_y = F\sin\theta \] Choose axes that make the add easy — often one along the slope.</p></div>
       <div class="check" data-check="mc" data-answer="A">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A force \( 10\ \text{N} \) at \( 30^\circ \) to the horizontal. \( F_x \)?</p>
         <div class="choices">
           <button type="button" data-choice="A">\( 8.66\ \text{N} \)</button>
@@ -125,23 +120,22 @@
           <span class="hud-label" data-hud="static">static \( f_s \le \mu_s N \)</span>
           <span class="hud-label" data-hud="kinetic">kinetic \( f_k = \mu_k N \)</span>
         </div>
-        <figcaption><b>Fig. 2.9</b> Pull gently: static friction matches you and holds. Pass \( \mu_s N \): it slips and kinetic \( \mu_k N \) (usually smaller) takes over. The block on a slope will slide only if component \( mg\sin\theta > f_s \) max.</figcaption>
+        <figcaption><b>Fig 3.4</b> Static friction holds up to \( \mu_s N \), then slips.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Pull gently: static friction matches you and holds. Pass \( \mu_s N \): it slips and kinetic \( \mu_k N \) (usually smaller) takes over. The block on a slope will slide only if component \( mg\sin\theta > f_s \) max.</p></details>
       </figure>
       <div class="check" data-check="tf">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <div class="tf-item" data-answer="true"><p>Friction always opposes the motion, not causes it.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" hidden><p>True — it opposes sliding/tendency; it can’t initiate motion alone.</p></div></div>
       </div>
     </section>
 
     <section class="idea" id="quiz">
-      <header><h2><span class="sec-num">Q</span>Section quiz — DSE classified</h2></header>
-      <p>One question at a time. Use <em>Prev / Next</em> to move. Past papers are separate from the in-flow checks above.</p>
+      <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <p class="quiz-note">Adapted from classified DSE 2012 MC Q5 · Section 06 Force. Check the original paper for its diagrams and choices.</p>
         <div class="check" data-check="sa">
-          <h3>2012 MC Q5 · Section 06 Force</h3>
+          <h3>2012 MC Q5</h3>
           <p>Two forces of fixed magnitude act at one point. How does their resultant change as the angle between them increases from 0° to 180°?</p>
-          <button type="button" data-reveal>Show model answer</button>
+          <button type="button" data-reveal>Show answer</button>
           <div class="model" hidden><p>It decreases from F₁ + F₂ to |F₁ − F₂|, since R² = F₁² + F₂² + 2F₁F₂ cos θ.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/06/combined.pdf" download>Export PDF for this section</a></p>

@@ -10,8 +10,8 @@ figure.fig > .visual.stage {
 /* Make hud pills readable and give them a default pill look */
 .stage .hud-label {
   padding: 0.18rem 0.45rem;
-  border: 1px solid #dde6e9;
-  border-radius: 4px;
+  border: 2px solid var(--line-soft);
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.94);
   text-shadow: none;
   line-height: 1.25;

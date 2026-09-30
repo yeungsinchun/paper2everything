@@ -39,8 +39,8 @@ figure.fig > .pane-pair {
   transform: translate(-50%, -50%);
   background: rgba(255,255,255,0.92);
   padding: 0.14rem 0.38rem;
-  border-radius: 3px;
-  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 999px;
+  border: 2px solid var(--line-soft);
   font-size: 12px;
   line-height: 1.2;
   text-shadow: 0 0 4px #fff;
@@ -50,23 +50,23 @@ figure.fig > .pane-pair {
 /* === per-figure hud placements === */
 
 /* Fig 2.12 work: chair up cable, W = Fs cosθ */
-#work-vis [data-hud="W"] { left: 62%; top: 32%; font-size: 11px; color: #174f78; font-weight: 600; }
+#work-vis [data-hud="W"] { left: 62%; top: 32%; font-size: 11px; color: var(--fig-velocity); font-weight: 600; }
 #work-vis [data-hud="200kg"] { left: 30%; top: 60%; font-size: 11px; }
 
 /* Fig 2.13 energy: PE / KE bars swapping */
-#energy-vis [data-hud="PE"] { left: 76%; top: 26%; font-size: 11px; color: #18846e; font-weight: 600; }
-#energy-vis [data-hud="KE"] { left: 24%; top: 74%; font-size: 11px; color: #c34832; font-weight: 600; }
+#energy-vis [data-hud="PE"] { left: 76%; top: 26%; font-size: 11px; color: var(--fig-field); font-weight: 600; }
+#energy-vis [data-hud="KE"] { left: 24%; top: 74%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
 
 /* Fig 2.14 power: P = W/t */
-#power-vis [data-hud="P"] { left: 52%; top: 34%; font-size: 11px; color: #1b2129; font-weight: 600; }
+#power-vis [data-hud="P"] { left: 52%; top: 34%; font-size: 11px; color: var(--ink); font-weight: 600; }
 
 /* Fig 2.15 pumped storage: store / generate */
-#pumped-vis [data-hud="store"] { left: 29%; top: 26%; font-size: 11px; color: #174f78; }
-#pumped-vis [data-hud="gen"] { left: 71%; top: 74%; font-size: 11px; color: #c34832; }
+#pumped-vis [data-hud="store"] { left: 29%; top: 26%; font-size: 11px; color: var(--fig-velocity); }
+#pumped-vis [data-hud="gen"] { left: 71%; top: 74%; font-size: 11px; color: var(--fig-force); }
 
 /* Fig 2.16 roller: PE max at top, KE max at bottom */
-#roller-vis [data-hud="PE"] { left: 24%; top: 28%; font-size: 11px; color: #18846e; }
-#roller-vis [data-hud="KE"] { left: 50%; top: 80%; font-size: 11px; color: #c34832; }
+#roller-vis [data-hud="PE"] { left: 24%; top: 28%; font-size: 11px; color: var(--fig-field); }
+#roller-vis [data-hud="KE"] { left: 50%; top: 80%; font-size: 11px; color: var(--fig-force); }
 
 /* === animations === */
 
@@ -84,7 +84,7 @@ figure.fig > .pane-pair {
   position: absolute;
   width: 13px;
   height: 13px;
-  background: #18846e;
+  background: var(--fig-field);
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
@@ -97,7 +97,7 @@ figure.fig > .pane-pair {
   0%, 100% { transform: translate(-50%, -50%) scale(1); }
   40% { transform: translate(-50%, -50%) scale(1.07); }
 }
-#work-vis [data-hud="W"] { animation: work-w-pulse 3.4s ease-in-out infinite; }
+#work-vis [data-hud="W"] { animation: work-w-pulse 3.4s ease-in-out 1; }
 
 /* Energy: dot climbs the incline; PE/KE labels swap emphasis */
 @keyframes energy-dot-move {
@@ -113,7 +113,7 @@ figure.fig > .pane-pair {
   position: absolute;
   width: 13px;
   height: 13px;
-  background: #c34832;
+  background: var(--fig-force);
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
@@ -132,8 +132,8 @@ figure.fig > .pane-pair {
   62% { transform: translate(-50%,-50%) scale(1.08); opacity: 1; }
   80%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.95; }
 }
-#energy-vis [data-hud="PE"] { animation: pe-pulse 3.8s ease-in-out infinite; }
-#energy-vis [data-hud="KE"] { animation: ke-pulse 3.8s ease-in-out infinite; }
+#energy-vis [data-hud="PE"] { animation: pe-pulse 3.8s ease-in-out 1; }
+#energy-vis [data-hud="KE"] { animation: ke-pulse 3.8s ease-in-out 1; }
 
 /* Power: steady motion at constant v, P = Fv */
 @keyframes power-dot-move {
@@ -148,7 +148,7 @@ figure.fig > .pane-pair {
   position: absolute;
   width: 12px;
   height: 12px;
-  background: #174f78;
+  background: var(--fig-velocity);
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
@@ -161,7 +161,7 @@ figure.fig > .pane-pair {
   0%, 100% { transform: translate(-50%,-50%) scale(1); }
   50% { transform: translate(-50%,-50%) scale(1.06); }
 }
-#power-vis [data-hud="P"] { animation: power-p-pulse 2.6s ease-in-out infinite; }
+#power-vis [data-hud="P"] { animation: power-p-pulse 2.6s ease-in-out 1; }
 
 /* Pumped: water drops vertically through turbine */
 @keyframes pumped-dot-move {
@@ -177,7 +177,7 @@ figure.fig > .pane-pair {
   position: absolute;
   width: 11px;
   height: 11px;
-  background: #c39422;
+  background: var(--fig-energy);
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
@@ -196,8 +196,8 @@ figure.fig > .pane-pair {
   58% { opacity: 1; transform: translate(-50%,-50%) scale(1.08); }
   70%, 100% { opacity: 0.9; transform: translate(-50%,-50%) scale(1); }
 }
-#pumped-vis [data-hud="store"] { animation: pumped-store-pulse 4.2s ease-in-out infinite; }
-#pumped-vis [data-hud="gen"] { animation: pumped-gen-pulse 4.2s ease-in-out infinite; }
+#pumped-vis [data-hud="store"] { animation: pumped-store-pulse 4.2s ease-in-out 1; }
+#pumped-vis [data-hud="gen"] { animation: pumped-gen-pulse 4.2s ease-in-out 1; }
 
 /* Roller: THREE.js ball already travels; add PE/KE swap pulse */
 @keyframes roller-pe-pulse {
@@ -210,8 +210,8 @@ figure.fig > .pane-pair {
   62% { transform: translate(-50%,-50%) scale(1.09); opacity: 1; background: rgba(251,235,234,0.9); }
   82%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.92; }
 }
-#roller-vis [data-hud="PE"] { animation: roller-pe-pulse 3.6s ease-in-out infinite; }
-#roller-vis [data-hud="KE"] { animation: roller-ke-pulse 3.6s ease-in-out infinite; }
+#roller-vis [data-hud="PE"] { animation: roller-pe-pulse 3.6s ease-in-out 1; }
+#roller-vis [data-hud="KE"] { animation: roller-ke-pulse 3.6s ease-in-out 1; }
 
 /* Subtle stage entrance */
 #work-vis .scene-canvas,
