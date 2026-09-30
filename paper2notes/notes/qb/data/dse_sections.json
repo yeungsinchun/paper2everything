@@ -1,0 +1,465 @@
+{
+  "sections": [
+    {
+      "number": 1,
+      "book": "01_Heat_and_Gases",
+      "folder": "01_Temperature_and_Heat_Transfer",
+      "name": "Temperature and Heat Transfer",
+      "bookLabel": "Heat and Gases"
+    },
+    {
+      "number": 2,
+      "book": "01_Heat_and_Gases",
+      "folder": "02_Heat_Capacity",
+      "name": "Heat Capacity",
+      "bookLabel": "Heat and Gases"
+    },
+    {
+      "number": 3,
+      "book": "01_Heat_and_Gases",
+      "folder": "03_Change_of_State",
+      "name": "Change of State",
+      "bookLabel": "Heat and Gases"
+    },
+    {
+      "number": 4,
+      "book": "01_Heat_and_Gases",
+      "folder": "04_Gas_Law_and_Kinetic_Theory",
+      "name": "Gas Law and Kinetic Theory",
+      "bookLabel": "Heat and Gases"
+    },
+    {
+      "number": 5,
+      "book": "02_Force_and_Motion",
+      "folder": "05_Motion",
+      "name": "Motion",
+      "bookLabel": "Force and Motion"
+    },
+    {
+      "number": 6,
+      "book": "02_Force_and_Motion",
+      "folder": "06_Force",
+      "name": "Force",
+      "bookLabel": "Force and Motion"
+    },
+    {
+      "number": 7,
+      "book": "02_Force_and_Motion",
+      "folder": "07_More_about_Forces",
+      "name": "More about Forces",
+      "bookLabel": "Force and Motion"
+    },
+    {
+      "number": 8,
+      "book": "02_Force_and_Motion",
+      "folder": "08_Work_Energy_and_Power",
+      "name": "Work, Energy and Power",
+      "bookLabel": "Force and Motion"
+    },
+    {
+      "number": 9,
+      "book": "02_Force_and_Motion",
+      "folder": "09_Momentum",
+      "name": "Momentum",
+      "bookLabel": "Force and Motion"
+    },
+    {
+      "number": 10,
+      "book": "02_Force_and_Motion",
+      "folder": "10_Projectile_Motion",
+      "name": "Projectile Motion",
+      "bookLabel": "Force and Motion"
+    },
+    {
+      "number": 11,
+      "book": "02_Force_and_Motion",
+      "folder": "11_Uniform_Circular_Motion",
+      "name": "Uniform Circular Motion",
+      "bookLabel": "Force and Motion"
+    },
+    {
+      "number": 12,
+      "book": "02_Force_and_Motion",
+      "folder": "12_Gravitation",
+      "name": "Gravitation",
+      "bookLabel": "Force and Motion"
+    },
+    {
+      "number": 13,
+      "book": "03A_Wave_Motion",
+      "folder": "13_Wave_Motion",
+      "name": "Wave Motion",
+      "bookLabel": "Wave Motion"
+    },
+    {
+      "number": 14,
+      "book": "03A_Wave_Motion",
+      "folder": "14_Reflection_Refraction_and_Diffraction",
+      "name": "Reflection, Refraction and Diffraction",
+      "bookLabel": "Wave Motion"
+    },
+    {
+      "number": 15,
+      "book": "03A_Wave_Motion",
+      "folder": "15_Interference_and_Stationary_Wave",
+      "name": "Interference and Stationary Wave",
+      "bookLabel": "Wave Motion"
+    },
+    {
+      "number": 16,
+      "book": "03A_Wave_Motion",
+      "folder": "16_Light_and_Sound",
+      "name": "Light and Sound",
+      "bookLabel": "Wave Motion"
+    },
+    {
+      "number": 17,
+      "book": "03B_Ray_Optics",
+      "folder": "17_Reflection_of_Light",
+      "name": "Reflection of Light",
+      "bookLabel": "Ray Optics"
+    },
+    {
+      "number": 18,
+      "book": "03B_Ray_Optics",
+      "folder": "18_Refraction_of_Light",
+      "name": "Refraction of Light",
+      "bookLabel": "Ray Optics"
+    },
+    {
+      "number": 19,
+      "book": "03B_Ray_Optics",
+      "folder": "19_Lenses",
+      "name": "Lenses",
+      "bookLabel": "Ray Optics"
+    },
+    {
+      "number": 20,
+      "book": "04_Electricity_and_Magnetism",
+      "folder": "20_Electrostatics",
+      "name": "Electrostatics",
+      "bookLabel": "Electricity and Magnetism"
+    },
+    {
+      "number": 21,
+      "book": "04_Electricity_and_Magnetism",
+      "folder": "21_Circuit_and_Power",
+      "name": "Circuit and Power",
+      "bookLabel": "Electricity and Magnetism"
+    },
+    {
+      "number": 22,
+      "book": "04_Electricity_and_Magnetism",
+      "folder": "22_AC_and_Domestic_Electricity",
+      "name": "AC and Domestic Electricity",
+      "bookLabel": "Electricity and Magnetism"
+    },
+    {
+      "number": 23,
+      "book": "04_Electricity_and_Magnetism",
+      "folder": "23_Electromagnetism",
+      "name": "Electromagnetism",
+      "bookLabel": "Electricity and Magnetism"
+    },
+    {
+      "number": 24,
+      "book": "04_Electricity_and_Magnetism",
+      "folder": "24_Electromagnetic_Induction",
+      "name": "Electromagnetic Induction",
+      "bookLabel": "Electricity and Magnetism"
+    },
+    {
+      "number": 25,
+      "book": "05_Radioactivity_and_Nuclear_Energy",
+      "folder": "25_Radiation_and_Radioactivity",
+      "name": "Radiation and Radioactivity",
+      "bookLabel": "Radioactivity and Nuclear Energy"
+    },
+    {
+      "number": 26,
+      "book": "05_Radioactivity_and_Nuclear_Energy",
+      "folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "name": "Rate of Decay and Uses of Radionuclides",
+      "bookLabel": "Radioactivity and Nuclear Energy"
+    },
+    {
+      "number": 27,
+      "book": "05_Radioactivity_and_Nuclear_Energy",
+      "folder": "27_Nuclear_Energy",
+      "name": "Nuclear Energy",
+      "bookLabel": "Radioactivity and Nuclear Energy"
+    }
+  ],
+  "stats": [
+    {
+      "number": 1,
+      "name": "Temperature and Heat Transfer",
+      "book": "01_Heat_and_Gases",
+      "bookLabel": "Heat and Gases",
+      "folder": "01_Temperature_and_Heat_Transfer",
+      "mcCount": 14,
+      "lqCount": 3,
+      "total": 17
+    },
+    {
+      "number": 2,
+      "name": "Heat Capacity",
+      "book": "01_Heat_and_Gases",
+      "bookLabel": "Heat and Gases",
+      "folder": "02_Heat_Capacity",
+      "mcCount": 12,
+      "lqCount": 13,
+      "total": 25
+    },
+    {
+      "number": 3,
+      "name": "Change of State",
+      "book": "01_Heat_and_Gases",
+      "bookLabel": "Heat and Gases",
+      "folder": "03_Change_of_State",
+      "mcCount": 16,
+      "lqCount": 7,
+      "total": 23
+    },
+    {
+      "number": 4,
+      "name": "Gas Law and Kinetic Theory",
+      "book": "01_Heat_and_Gases",
+      "bookLabel": "Heat and Gases",
+      "folder": "04_Gas_Law_and_Kinetic_Theory",
+      "mcCount": 21,
+      "lqCount": 15,
+      "total": 36
+    },
+    {
+      "number": 5,
+      "name": "Motion",
+      "book": "02_Force_and_Motion",
+      "bookLabel": "Force and Motion",
+      "folder": "05_Motion",
+      "mcCount": 29,
+      "lqCount": 9,
+      "total": 38
+    },
+    {
+      "number": 6,
+      "name": "Force",
+      "book": "02_Force_and_Motion",
+      "bookLabel": "Force and Motion",
+      "folder": "06_Force",
+      "mcCount": 38,
+      "lqCount": 13,
+      "total": 51
+    },
+    {
+      "number": 7,
+      "name": "More about Forces",
+      "book": "02_Force_and_Motion",
+      "bookLabel": "Force and Motion",
+      "folder": "07_More_about_Forces",
+      "mcCount": 22,
+      "lqCount": 1,
+      "total": 23
+    },
+    {
+      "number": 8,
+      "name": "Work, Energy and Power",
+      "book": "02_Force_and_Motion",
+      "bookLabel": "Force and Motion",
+      "folder": "08_Work_Energy_and_Power",
+      "mcCount": 17,
+      "lqCount": 9,
+      "total": 26
+    },
+    {
+      "number": 9,
+      "name": "Momentum",
+      "book": "02_Force_and_Motion",
+      "bookLabel": "Force and Motion",
+      "folder": "09_Momentum",
+      "mcCount": 21,
+      "lqCount": 7,
+      "total": 28
+    },
+    {
+      "number": 10,
+      "name": "Projectile Motion",
+      "book": "02_Force_and_Motion",
+      "bookLabel": "Force and Motion",
+      "folder": "10_Projectile_Motion",
+      "mcCount": 11,
+      "lqCount": 6,
+      "total": 17
+    },
+    {
+      "number": 11,
+      "name": "Uniform Circular Motion",
+      "book": "02_Force_and_Motion",
+      "bookLabel": "Force and Motion",
+      "folder": "11_Uniform_Circular_Motion",
+      "mcCount": 9,
+      "lqCount": 7,
+      "total": 16
+    },
+    {
+      "number": 12,
+      "name": "Gravitation",
+      "book": "02_Force_and_Motion",
+      "bookLabel": "Force and Motion",
+      "folder": "12_Gravitation",
+      "mcCount": 14,
+      "lqCount": 2,
+      "total": 16
+    },
+    {
+      "number": 13,
+      "name": "Wave Motion",
+      "book": "03A_Wave_Motion",
+      "bookLabel": "Wave Motion",
+      "folder": "13_Wave_Motion",
+      "mcCount": 28,
+      "lqCount": 6,
+      "total": 34
+    },
+    {
+      "number": 14,
+      "name": "Reflection, Refraction and Diffraction",
+      "book": "03A_Wave_Motion",
+      "bookLabel": "Wave Motion",
+      "folder": "14_Reflection_Refraction_and_Diffraction",
+      "mcCount": 27,
+      "lqCount": 5,
+      "total": 32
+    },
+    {
+      "number": 15,
+      "name": "Interference and Stationary Wave",
+      "book": "03A_Wave_Motion",
+      "bookLabel": "Wave Motion",
+      "folder": "15_Interference_and_Stationary_Wave",
+      "mcCount": 29,
+      "lqCount": 4,
+      "total": 33
+    },
+    {
+      "number": 16,
+      "name": "Light and Sound",
+      "book": "03A_Wave_Motion",
+      "bookLabel": "Wave Motion",
+      "folder": "16_Light_and_Sound",
+      "mcCount": 26,
+      "lqCount": 10,
+      "total": 36
+    },
+    {
+      "number": 17,
+      "name": "Reflection of Light",
+      "book": "03B_Ray_Optics",
+      "bookLabel": "Ray Optics",
+      "folder": "17_Reflection_of_Light",
+      "mcCount": 5,
+      "lqCount": 0,
+      "total": 5
+    },
+    {
+      "number": 18,
+      "name": "Refraction of Light",
+      "book": "03B_Ray_Optics",
+      "bookLabel": "Ray Optics",
+      "folder": "18_Refraction_of_Light",
+      "mcCount": 13,
+      "lqCount": 7,
+      "total": 20
+    },
+    {
+      "number": 19,
+      "name": "Lenses",
+      "book": "03B_Ray_Optics",
+      "bookLabel": "Ray Optics",
+      "folder": "19_Lenses",
+      "mcCount": 23,
+      "lqCount": 10,
+      "total": 33
+    },
+    {
+      "number": 20,
+      "name": "Electrostatics",
+      "book": "04_Electricity_and_Magnetism",
+      "bookLabel": "Electricity and Magnetism",
+      "folder": "20_Electrostatics",
+      "mcCount": 31,
+      "lqCount": 3,
+      "total": 34
+    },
+    {
+      "number": 21,
+      "name": "Circuit and Power",
+      "book": "04_Electricity_and_Magnetism",
+      "bookLabel": "Electricity and Magnetism",
+      "folder": "21_Circuit_and_Power",
+      "mcCount": 45,
+      "lqCount": 13,
+      "total": 58
+    },
+    {
+      "number": 22,
+      "name": "AC and Domestic Electricity",
+      "book": "04_Electricity_and_Magnetism",
+      "bookLabel": "Electricity and Magnetism",
+      "folder": "22_AC_and_Domestic_Electricity",
+      "mcCount": 27,
+      "lqCount": 7,
+      "total": 34
+    },
+    {
+      "number": 23,
+      "name": "Electromagnetism",
+      "book": "04_Electricity_and_Magnetism",
+      "bookLabel": "Electricity and Magnetism",
+      "folder": "23_Electromagnetism",
+      "mcCount": 29,
+      "lqCount": 11,
+      "total": 40
+    },
+    {
+      "number": 24,
+      "name": "Electromagnetic Induction",
+      "book": "04_Electricity_and_Magnetism",
+      "bookLabel": "Electricity and Magnetism",
+      "folder": "24_Electromagnetic_Induction",
+      "mcCount": 26,
+      "lqCount": 8,
+      "total": 34
+    },
+    {
+      "number": 25,
+      "name": "Radiation and Radioactivity",
+      "book": "05_Radioactivity_and_Nuclear_Energy",
+      "bookLabel": "Radioactivity and Nuclear Energy",
+      "folder": "25_Radiation_and_Radioactivity",
+      "mcCount": 18,
+      "lqCount": 11,
+      "total": 29
+    },
+    {
+      "number": 26,
+      "name": "Rate of Decay and Uses of Radionuclides",
+      "book": "05_Radioactivity_and_Nuclear_Energy",
+      "bookLabel": "Radioactivity and Nuclear Energy",
+      "folder": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+      "mcCount": 17,
+      "lqCount": 13,
+      "total": 30
+    },
+    {
+      "number": 27,
+      "name": "Nuclear Energy",
+      "book": "05_Radioactivity_and_Nuclear_Energy",
+      "bookLabel": "Radioactivity and Nuclear Energy",
+      "folder": "27_Nuclear_Energy",
+      "mcCount": 13,
+      "lqCount": 6,
+      "total": 19
+    }
+  ]
+}

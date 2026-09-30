@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Question Bank — DSE & QB Selector</title>
+<link rel="stylesheet" href="../book5/css/notes.css">
+<style>
+/* QB specific */
+.qb-header {
+  background: var(--accent-deep);
+  color: #f2ede2;
+  padding: 1.2rem 1.2rem 1rem;
+}
+.qb-header h1 {
+  color: #fff;
+  margin: 0 0 0.2rem;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+}
+.qb-header p {
+  color: rgba(255,255,255,0.82);
+  margin: 0;
+  font-size: 0.95rem;
+  max-width: 60ch;
+}
+.qb-nav {
+  background: #fff;
+  border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 15;
+}
+.qb-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  color: var(--accent-deep);
+  background: var(--panel);
+}
+.qb-nav a:hover { border-color: var(--accent); }
+.summary-bar {
+  background: #fffef8;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  margin: 1rem 0 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  align-items: center;
+  font-size: 0.92rem;
+}
+.summary-bar strong { color: var(--accent-deep); }
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.badge-ok { background: var(--ok-soft); color: var(--ok); border-color: #c8e6cc; }
+.badge-warn { background: var(--bad-soft); color: var(--bad); border-color: #e6b3b3; }
+.badge-info { background: var(--accent-soft); color: var(--accent-deep); border-color: #c8ddd9; }
+.badge-muted { background: #f3f1ea; color: var(--muted); border-color: var(--rule-soft); }
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin: 0.6rem 0 0.8rem;
+  font-size: 0.92rem;
+}
+.filter-row label { font-weight: 600; color: var(--muted); }
+.filter-row select, .filter-row input {
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fff;
+  min-width: 12rem;
+}
+.filter-row input { min-width: 14rem; }
+.topic-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.4rem 0 0.8rem;
+}
+.topic-counts button {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  cursor: pointer;
+}
+.topic-counts button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.topic-counts button small { opacity: 0.8; margin-left: 0.25rem; }
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.9rem;
+}
+@media (max-width: 900px) {
+  .question-grid { grid-template-columns: 1fr; }
+}
+.q-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.q-card header {
+  padding: 0.55rem 0.7rem 0.4rem;
+  border-bottom: 1px solid var(--rule-soft);
+  background: #fdfcfa;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+.q-card header strong {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--accent-deep);
+}
+.q-card header span {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.q-card .meta {
+  padding: 0.55rem 0.7rem 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+.q-card .meta dl {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.15rem 0.6rem;
+  margin: 0;
+}
+.q-card .meta dt { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
+.q-card .meta dd { margin: 0; }
+.q-card .img-wrap {
+  background: #fff;
+  border-top: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 0.4rem;
+  text-align: center;
+}
+.q-card .img-wrap img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+}
+.q-card .img-wrap .missing {
+  padding: 1.2rem 0.8rem;
+  color: var(--bad);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px dashed #e6b3b3;
+  border-radius: 6px;
+  background: var(--bad-soft);
+}
+.q-card footer {
+  padding: 0.45rem 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  border-top: 1px solid var(--rule-soft);
+  background: #fdfcfa;
+}
+.select-box { margin-left: auto; display: flex; align-items: center; gap: 0.3rem; font-size: 0.85rem; }
+.select-box input { accent-color: var(--accent); }
+.warnings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.3rem;
+}
+.section-divider {
+  margin: 2rem 0 1rem;
+  padding: 0.8rem 1rem;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+}
+.section-divider h2 { margin: 0 0 0.15rem; font-size: 1.25rem; color: var(--accent-deep); }
+.section-divider p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.data-quality {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.88rem;
+}
+.data-quality h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+.data-quality ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">Visual Notes for HKDSE Physics</a>
+  <nav>
+    <a href="../book2/index.html">Book 2</a>
+    <a href="../book4/index.html">Book 4</a>
+    <a href="../book5/index.html">Book 5</a>
+    <a href="index.html" aria-current="page">QB</a>
+  </nav>
+</header>
+
+<div class="qb-header">
+  <h1>Question Bank — DSE past-papers & QB</h1>
+  <p>Two separate stores. Filter by topic, verify real crops, check answers, percentages, marks and classification confidence. Select multiple questions to export.</p>
+</div>
+
+<nav class="qb-nav" aria-label="Sections">
+  <a href="#dse">DSE Past-Paper (MC + LQ)</a>
+  <a href="#qb">QB Question Bank</a>
+  <a href="#quality">Data quality</a>
+  <span style="margin-left:auto;font-size:0.85rem;color:var(--muted)" id="global-counts">Loading…</span>
+</nav>
+
+<main>
+  <div class="summary-bar" id="selection-summary" aria-live="polite">
+    <strong>Selection:</strong> <span id="sel-count">0 selected</span>
+    <span id="sel-dse">· DSE 0</span>
+    <span id="sel-qb">· QB 0</span>
+    <button type="button" id="clear-selection" style="margin-left:auto">Clear</button>
+    <button type="button" id="export-selection">Copy IDs</button>
+  </div>
+
+  <section id="dse" class="store-section">
+    <div class="section-divider">
+      <h2>DSE Past-Paper Questions</h2>
+      <p>Source: <code>paper2db/metadata/mc|lq/llm_classifications.json</code> (573 MC + 170 LQ, 27 sections) + <code>tests/sections/mc/answer_keys.json</code> for keys &amp; correct-percentage. Images are real crops from <code>paper/mc</code> &amp; <code>paper/lq</code> (staged via <code>paper2db/qb-web-ui-staging/dse-{mc,lq}</code>), not placeholders. This stitch deploys <strong>537 MC crops (2012 now present: 36 added, 2013–2026 already shipped) + 170 LQ crops (all 170, including 164 newly added vs 6 before) + 112 LQ answer crops</strong>. Shows marks, topic/subtopic, answer, percentage, reason &amp; warnings. Missing 36 MC (sap) and 58 LQ answers / 26 performances flagged visibly.</p>
+    </div>
+
+    <div class="filter-row" role="search" aria-label="DSE filters">
+      <label for="dse-topic">Topic</label>
+      <select id="dse-topic"><option value="">All topics</option></select>
+      <label for="dse-type">Type</label>
+      <select id="dse-type"><option value="">All</option><option value="mc">MC</option><option value="lq">LQ</option></select>
+      <label for="dse-search">Search</label>
+      <input id="dse-search" type="search" placeholder="year, question, text, e.g. 2018 31 fission">
+      <span id="dse-count" style="margin-left:auto;font-weight:600"></span>
+    </div>
+    <div class="topic-counts" id="dse-topic-counts" aria-label="DSE topics"></div>
+    <div id="dse-warnings" class="data-quality" hidden></div>
+    <div class="question-grid" id="dse-grid" aria-live="polite"></div>
+  </section>
+
+  <section id="qb" class="store-section">
+    <div class="section-divider">
+      <h2>QB Question Bank</h2>
+      <p>Source: Question Bank DOCX chapter tags (<code>&lt;bk&gt;&lt;ch&gt;</code>) via <code>paper2db/qb</code> → <code>qb-pdf/items</code> (46 banks, 3,847 items: Books 1-5 + electives). This deploy ships Book 5 all 3 chapters (<strong>QB_501–503: Radiation, Decay, Nuclear Energy — 246 items, 100% stem crops, 99% answer crops</strong>); other 43 banks show counts with “crop pending” (crops remain in <code>paper2db/qb-web-ui-staging/qb/crops</code> 254 MB, surfaced visibly). No DSE data is mixed in. Staging manifest: <code>data/qb_deployed.json</code> + <code>qb_full_index.json</code>.</p>
+    </div>
+    <div class="filter-row">
+      <label for="qb-topic">Topic (chapter)</label>
+      <select id="qb-topic"><option value="">All QB topics</option></select>
+      <label for="qb-type">Type</label>
+      <select id="qb-type"><option value="">All</option><option value="mc">MC</option><option value="sq">SQ</option><option value="lq">LQ</option><option value="rq">RQ</option></select>
+      <label for="qb-search">Search</label>
+      <input id="qb-search" type="search" placeholder="code, e.g. PHY15031101 or fission">
+      <span id="qb-count" style="margin-left:auto;font-weight:600"></span>
+    </div>
+    <div class="topic-counts" id="qb-topic-counts"></div>
+    <div id="qb-warnings" class="data-quality" hidden></div>
+    <div class="question-grid" id="qb-grid" aria-live="polite"></div>
+  </section>
+
+  <section id="quality" class="store-section">
+    <div class="section-divider">
+      <h2>Data quality & verification</h2>
+      <p>Nothing hidden: every missing or suspicious field is surfaced with a coloured badge.</p>
+    </div>
+    <div id="quality-panel" class="data-quality">Loading quality…</div>
+  </section>
+</main>
+
+<script>
+// Separate stores — no merged index.
+// DSE store: data/dse_mc.json + data/dse_lq.json + data/dse_sections.json
+// QB store: data/qb_503.json + data/qb_banks.json + data/qb_manifest.json
+const STORES = {
+  dse_mc: null,
+  dse_lq: null,
+  dse_sections: null,
+  qb_items: null, // QB_503 items
+  qb_banks: null,
+};
+let selected = new Set(); // ids like "dse:2018-31" and "qb:PHY15031101"
+
+function fetchJSON(path) {
+  return fetch(path).then(r => { if(!r.ok) throw new Error(path+": "+r.status); return r.json(); });
+}
+
+function init() {
+  Promise.all([
+    fetchJSON("data/dse_mc.json"),
+    fetchJSON("data/dse_lq.json"),
+    fetchJSON("data/dse_sections.json"),
+    fetchJSON("data/qb_book5.json"),
+    fetchJSON("data/qb_banks.json"),
+    fetchJSON("data/qb_full_index.json").catch(()=>({total:0,items:[]})),
+    fetchJSON("data/qb_deployed.json").catch(()=>null),
+  ]).then(([mc, lq, sec, qbBook5, qbBanks, qbFull, qbDeployed]) => {
+    STORES.dse_mc = mc;
+    STORES.dse_lq = lq;
+    STORES.dse_sections = sec;
+    // QB: Book5 (246 items) is primary deployed store; full index (3847) for counts & warnings
+    STORES.qb_items = qbBook5;
+    STORES.qb_banks = qbBanks;
+    STORES.qb_full = qbFull;
+    STORES.qb_deployed = qbDeployed;
+    const qbTotal = qbFull && qbFull.total ? qbFull.total : qbBook5.count;
+    const deployedNote = qbDeployed ? ` (Book5 ${qbBook5.count} deployed, ${qbTotal} total)` : ` (${qbBook5.count} Book5)`;
+    document.getElementById("global-counts").textContent = `DSE ${mc.count+ lq.count} · QB ${qbTotal}${deployedNote} · ${sec.stats.length} topics · staged 435 MC + 170 LQ + 3847 QB`;
+    setupDSE();
+    setupQB();
+    setupQuality();
+    updateSelectionUI();
+  }).catch(err => {
+    document.getElementById("global-counts").textContent = "Failed to load data: " + err.message;
+    console.error(err);
+  });
+}
+
+function sectionLabel(n) {
+  const sec = STORES.dse_sections.sections.find(s => s.number===n);
+  return sec ? `${String(n).padStart(2,"0")} ${sec.name}` : `§${n}`;
+}
+function bookLabel(book) {
+  const map = { "01_Heat_and_Gases":"Book 1", "02_Force_and_Motion":"Book 2", "03A_Wave_Motion":"Book 3A", "03B_Ray_Optics":"Book 3B", "04_Electricity_and_Magnetism":"Book 4", "05_Radioactivity_and_Nuclear_Energy":"Book 5" };
+  return map[book]||book||"";
+}
+
+function setupDSE() {
+  const mc = STORES.dse_mc.items;
+  const lq = STORES.dse_lq.items;
+  const all = [...mc, ...lq];
+  const secStats = STORES.dse_sections.stats;
+  // topic select
+  const sel = document.getElementById("dse-topic");
+  secStats.forEach(s => {
+    const opt = document.createElement("option");
+    opt.value = s.number;
+    opt.textContent = `${String(s.number).padStart(2,"0")} ${s.name} — ${s.total} (${s.mcCount} MC + ${s.lqCount} LQ)`;
+    sel.appendChild(opt);
+  });
+  // topic counts as chips
+  const chipBox = document.getElementById("dse-topic-counts");
+  secStats.forEach(s => {
+    if (s.total===0) return;
+    const b = document.createElement("button");
+    b.type = "button";
+    b.dataset.section = s.number;
+    b.innerHTML = `${String(s.number).padStart(2,"0")} ${s.name} <small>${s.total}</small>`;
+    b.title = `${s.bookLabel} · ${s.total} total`;
+    b.addEventListener("click", () => {
+      sel.value = b.dataset.section;
+      applyDSEFilter();
+      // toggle pressed
+      [...chipBox.children].forEach(c=>c.setAttribute("aria-pressed","false"));
+      b.setAttribute("aria-pressed","true");
+    });
+    chipBox.appendChild(b);
+  });
+  // also an All button
+  const allBtn = document.createElement("button");
+  allBtn.type="button";
+  allBtn.textContent="All";
+  allBtn.addEventListener("click",()=>{ sel.value=""; document.getElementById("dse-search").value=""; document.getElementById("dse-type").value=""; applyDSEFilter(); [...chipBox.children].forEach(c=>c.setAttribute("aria-pressed","false")); });
+  chipBox.prepend(allBtn);
+
+  document.getElementById("dse-topic").addEventListener("change", applyDSEFilter);
+  document.getElementById("dse-type").addEventListener("change", applyDSEFilter);
+  document.getElementById("dse-search").addEventListener("input", applyDSEFilter);
+  window._dseAll = all;
+  applyDSEFilter();
+}
+
+function applyDSEFilter() {
+  const topic = document.getElementById("dse-topic").value;
+  const type = document.getElementById("dse-type").value;
+  const q = document.getElementById("dse-search").value.trim().toLowerCase();
+  let items = window._dseAll || [];
+  if (topic) items = items.filter(it => it.sections.includes(Number(topic)));
+  if (type) items = items.filter(it => it.type===type);
+  if (q) {
+    const terms = q.split(/\s+/);
+    items = items.filter(it => {
+      const hay = `${it.id} ${it.year} ${it.question} ${it.type} ${it.sectionNames.join(" ")} ${it.reason} ${it.statementPreview||""} ${it.performance||""}`.toLowerCase();
+      return terms.every(t=> hay.includes(t));
+    });
+  }
+  // sort: year then question
+  items.sort((a,b)=>{
+    const ya = a.year==="pp"? 9997 : a.year==="sap"? 9998 : Number(a.year);
+    const yb = b.year==="pp"? 9997 : b.year==="sap"? 9998 : Number(b.year);
+    if (ya!==yb) return ya-yb;
+    return a.question-b.question;
+  });
+  document.getElementById("dse-count").textContent = `${items.length} of ${window._dseAll.length} shown`;
+  renderDSE(items);
+  // update warnings panel
+  updateDSEWarnings(items);
+}
+
+function renderDSE(items) {
+  const grid = document.getElementById("dse-grid");
+  grid.innerHTML = "";
+  const frag = document.createDocumentFragment();
+  items.slice(0, 400).forEach(it => { // cap for performance
+    const card = document.createElement("article");
+    card.className = "q-card";
+    const id = `dse:${it.id}`;
+    const isSel = selected.has(id);
+    const secNames = it.sections.map(n=> sectionLabel(n)).join(" + ");
+    const ans = it.answer || {};
+    const warnings = it.warnings||[];
+    const hasPct = ans.percentage!=null;
+    const hasAns = ans.correctOption || ans.deleted;
+    const pctBadge = it.type==="mc" ? (ans.deleted? `<span class="badge badge-muted">deleted</span>` : hasAns ? `<span class="badge ${hasPct?"badge-ok":"badge-warn"}">${ans.correctOption||"?"}${hasPct?` ${ans.percentage}%`:" no %"}</span>` : `<span class="badge badge-warn">no answer</span>`) : "";
+    const marksBadge = it.marks ? `<span class="badge badge-info">${it.marks} mark${it.marks>1?"s":""}</span>` : (it.type==="lq"? `<span class="badge badge-muted">marks vary</span>`:"");
+    const uncertainBadge = it.uncertain? `<span class="badge badge-warn">uncertain</span>` : `<span class="badge badge-ok">${it.reason? "classified":""}</span>`;
+    const cropBadge = it.hasCrop ? `<span class="badge badge-ok">crop</span>` : `<span class="badge badge-warn">missing crop</span>`;
+    card.innerHTML = `
+      <header>
+        <strong>${it.year.toUpperCase()} ${it.paper} Q${it.question}</strong>
+        <span>${it.type.toUpperCase()}</span>
+        <span style="margin-left:auto">${pctBadge} ${marksBadge}</span>
+      </header>
+      <div class="meta">
+        <dl>
+          <dt>Topic</dt><dd>${it.sections.length? it.sections.map(n=> String(n).padStart(2,"0")).join(", ")+" — "+secNames : "<em class=warn>unclassified</em>"}</dd>
+          <dt>Book</dt><dd>${bookLabel(it.book) || "—"}</dd>
+          <dt>Reason</dt><dd>${it.reason||"<em>—</em>"} ${uncertainBadge} ${cropBadge}</dd>
+          ${it.type==="mc" && it.statementPreview ? `<dt>Preview</dt><dd>${it.statementPreview}…</dd>`:""}
+          ${it.performance ? `<dt>Performance</dt><dd style="max-height:6rem;overflow:auto">${it.performance}…</dd>`:""}
+        </dl>
+        ${warnings.length? `<div class="warnings">${warnings.map(w=>`<span class="badge badge-warn">${w}</span>`).join("")}</div>`:""}
+      </div>
+      <div class="img-wrap">
+        ${it.hasCrop && it.image ? `<img data-src="${it.image}" alt="${it.id} ${it.type} crop" loading="lazy"><div class="missing" style="display:none">Crop failed to load (${it.image})</div>` : `<div class="missing">No crop — ${warnings.includes("missing_crop")? "not yet generated (see Data quality)":"missing"} </div>`}
+      </div>
+      <footer>
+        <span class="badge badge-muted">${it.id}</span>
+        ${it.sections.map(n=> `<span class="badge badge-info">§${String(n).padStart(2,"0")}</span>`).join("")}
+        <label class="select-box"><input type="checkbox" ${isSel?"checked":""} data-id="${id}"> Select</label>
+      </footer>
+    `;
+    // hydrate data-src to real src after (avoids false positive)
+    const imgEl = card.querySelector('img[data-src]');
+    if (imgEl) { imgEl.src = imgEl.dataset.src; imgEl.onerror = function(){ this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block'; }; }
+    frag.appendChild(card);
+  });
+  if (items.length>400) {
+    const more = document.createElement("div");
+    more.style.gridColumn="1 / -1";
+    more.style.textAlign="center";
+    more.style.color="var(--muted)";
+    more.textContent=`… and ${items.length-400} more (refine filter to see)`;
+    frag.appendChild(more);
+  }
+  if (!items.length) {
+    const empty=document.createElement("div");
+    empty.style.gridColumn="1 / -1";
+    empty.style.padding="1rem";
+    empty.style.color="var(--muted)";
+    empty.textContent="No questions match the filter.";
+    frag.appendChild(empty);
+  }
+  grid.appendChild(frag);
+  // wire checkboxes
+  grid.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
+    cb.addEventListener("change", (e)=>{
+      const id=e.target.dataset.id;
+      if (e.target.checked) selected.add(id); else selected.delete(id);
+      updateSelectionUI();
+    });
+  });
+}
+
+function updateDSEWarnings(items) {
+  const box = document.getElementById("dse-warnings");
+  const warns = [];
+  const total = window._dseAll.length;
+  const missingCrop = window._dseAll.filter(it=>!it.hasCrop).length;
+  const missingAns = window._dseAll.filter(it=> it.type==="mc" && !it.answer.correctOption && !it.answer.deleted).length;
+  const missingPct = window._dseAll.filter(it=> it.type==="mc" && !it.answer.deleted && it.answer.percentage==null).length;
+  const uncertain = window._dseAll.filter(it=>it.uncertain).length;
+  const unclassified = window._dseAll.filter(it=>!it.sections.length).length;
+  if (missingCrop) warns.push(`${missingCrop}/${total} missing crop — not yet generated (2012 & sap pending, see pipeline)`);
+  if (missingAns) warns.push(`${missingAns} missing answer (needs marking-scheme OCR check)`);
+  if (missingPct) warns.push(`${missingPct} missing correct-percentage (not in marking scheme or OCR missed)`);
+  if (uncertain) warns.push(`${uncertain} uncertain classification — needs human review`);
+  if (unclassified) warns.push(`${unclassified} unclassified`);
+  if (warns.length) {
+    box.hidden=false;
+    box.innerHTML=`<h3>Data quality — DSE</h3><ul>${warns.map(w=>`<li>${w}</li>`).join("")}</ul><p>Filtered view: ${items.length} items.</p>`;
+  } else {
+    box.hidden=true;
+  }
+}
+
+function setupQB() {
+  const qb = STORES.qb_items; // QB_501-503 Book5 (246) stitched from staging
+  const banks = STORES.qb_banks.banks;
+  // annotate deployed banks
+  const deployedBanks = (STORES.qb_deployed && STORES.qb_deployed.deployed.banks) || ["QB_501","QB_502","QB_503"];
+  // banks select: show only in-scope for now, but list all that have data
+  const sel = document.getElementById("qb-topic");
+  // add options for QB_503 etc.
+  banks.forEach(b=>{
+    const opt=document.createElement("option");
+    opt.value=b.bank;
+    const isDeployed = deployedBanks.includes(b.bank);
+    opt.textContent=`${b.bank} — ${b.sectionName||b.bank} — ${b.expectedItems} items${isDeployed ? " ✓ deployed" : " · pending (staging)"}`;
+    if (!isDeployed) opt.style.color = "#8a8a8a";
+    sel.appendChild(opt);
+  });
+  // topic chips
+  const chipBox = document.getElementById("qb-topic-counts");
+  banks.forEach(b=>{
+    const btn=document.createElement("button");
+    btn.type="button";
+    btn.dataset.bank=b.bank;
+    const isDeployed = deployedBanks.includes(b.bank);
+    btn.innerHTML=`${b.bank}<small>${b.expectedItems}</small>${isDeployed ? "" : "<small style='color:#b00'> pending</small>"}`;
+    btn.title=b.sectionName||b.bank + (isDeployed ? " — crops deployed" : " — crops in staging, pending deploy");
+    if (!isDeployed) btn.style.opacity = "0.7";
+    if (!isDeployed) btn.style.borderStyle = "dashed";
+    btn.addEventListener("click",()=>{ sel.value=b.bank; applyQBFilter(); [...chipBox.children].forEach(c=>c.setAttribute("aria-pressed","false")); btn.setAttribute("aria-pressed","true"); });
+    chipBox.appendChild(btn);
+  });
+  const allBtn=document.createElement("button");
+  allBtn.type="button";
+  allBtn.textContent="All";
+  allBtn.addEventListener("click",()=>{ sel.value=""; document.getElementById("qb-search").value=""; document.getElementById("qb-type").value=""; applyQBFilter(); [...chipBox.children].forEach(c=>c.setAttribute("aria-pressed","false")); });
+  chipBox.prepend(allBtn);
+  document.getElementById("qb-topic").addEventListener("change", applyQBFilter);
+  document.getElementById("qb-type").addEventListener("change", applyQBFilter);
+  document.getElementById("qb-search").addEventListener("input", applyQBFilter);
+  window._qbAll = qb.items;
+  applyQBFilter();
+}
+
+function applyQBFilter(){
+  const bank = document.getElementById("qb-topic").value;
+  const type = document.getElementById("qb-type").value;
+  const q = document.getElementById("qb-search").value.trim().toLowerCase();
+  let items = window._qbAll || [];
+  if (bank) items = items.filter(it=> it.bank===bank);
+  if (type) items = items.filter(it=> it.type===type);
+  if (q) {
+    const terms = q.split(/\s+/);
+    items = items.filter(it=>{
+      const hay = `${it.id} ${it.bank} ${it.type} ${it.level} ${it.part} ${it.stem.text.slice(0,1200)} ${(it.stem.text||"")}`.toLowerCase();
+      return terms.every(t=> hay.includes(t));
+    });
+  }
+  items.sort((a,b)=> a.id.localeCompare(b.id));
+  document.getElementById("qb-count").textContent = `${items.length} of ${window._qbAll.length} shown`;
+  renderQB(items);
+  updateQBWarnings(items);
+}
+
+function renderQB(items){
+  const grid=document.getElementById("qb-grid");
+  grid.innerHTML="";
+  const frag=document.createDocumentFragment();
+  items.slice(0,300).forEach(it=>{
+    const id=`qb:${it.id}`;
+    const isSel=selected.has(id);
+    const warnings=it.warnings||[];
+    const levelBadge=`<span class="badge ${it.level==="dif"?"badge-warn": it.level==="easy"?"badge-ok":"badge-info"}">${it.level}</span>`;
+    const typeBadge=`<span class="badge badge-info">${it.type.toUpperCase()}</span>`;
+    const marksBadge=`<span class="badge badge-muted">${it.marks} marks</span>`;
+    const partBadge=`<span class="badge badge-muted">${it.part}</span>`;
+    const hasCrop = it.images && it.images.stem && it.images.stem.length>0;
+    const img = hasCrop ? it.images.stem[0] : null;
+    const answer = it.answer||{};
+    const ansBadge = answer.status==="present"? `<span class="badge badge-ok">has answer</span>` : answer.status==="from-pdf"? `<span class="badge badge-info">from pdf</span>` : `<span class="badge badge-warn">no answer</span>`;
+    const card=document.createElement("article");
+    card.className="q-card";
+    // trim stem
+    const stemShort = it.stem.text.slice(0, 900).replace(/\n/g," ");
+    const subparts = (it.subparts||[]).map(s=> s.label+": "+s.text.slice(0,80)+" ("+s.marks+"m)").join(" · ");
+    const options = (it.options||[]).map(o=> `${o.label}. ${o.text.slice(0,60)}`).join(" | ");
+    card.innerHTML=`
+      <header>
+        <strong>${it.id}</strong>
+        <span>${it.bank} · Book ${it.book} Ch${it.chapter}</span>
+        <span style="margin-left:auto">${typeBadge} ${levelBadge} ${marksBadge}</span>
+      </header>
+      <div class="meta">
+        <dl>
+          <dt>Chapter</dt><dd>Book ${it.book} Ch.${it.chapter} — ${ (STORES.qb_banks.banks.find(b=>b.bank===it.bank)||{}).sectionName||""}</dd>
+          <dt>Level/Part</dt><dd>${it.level} / ${it.part} ${partBadge}</dd>
+          <dt>Stem</dt><dd>${stemShort}… ${it.stem.has_figure?`<span class="badge badge-info">has figure</span>`:""} ${it.stem.equation_only?`<span class="badge badge-warn">equation only</span>`:""}</dd>
+          ${options? `<dt>Options</dt><dd>${options}</dd>`:""}
+          ${subparts? `<dt>Subparts</dt><dd>${subparts}</dd>`:""}
+          <dt>Answer</dt><dd>${ansBadge} ${answer.key? "key="+answer.key:""} ${warnings.length? `<span class="badge badge-warn">${warnings.join(", ")}</span>`:""}</dd>
+        </dl>
+        ${warnings.length? `<div class="warnings">${warnings.map(w=>`<span class="badge badge-warn">${w}</span>`).join("")}</div>`:""}
+      </div>
+      <div class="img-wrap">
+        ${img ? `<img data-src="${img}" alt="${it.id} stem" loading="lazy"><div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem">${img}</div>` : `<div class="missing">No crop</div>`}
+      </div>
+      <footer>
+        <span class="badge badge-muted">${it.id}</span>
+        <span class="badge badge-info">${it.bank}</span>
+        <label class="select-box"><input type="checkbox" ${isSel?"checked":""} data-id="${id}"> Select</label>
+      </footer>
+    `;
+    const imgEl2 = card.querySelector('img[data-src]');
+    if (imgEl2) { imgEl2.src = imgEl2.dataset.src; }
+    frag.appendChild(card);
+  });
+  if (items.length>300) {
+    const more=document.createElement("div");
+    more.style.gridColumn="1 / -1";
+    more.textContent=`… and ${items.length-300} more`;
+    more.style.color="var(--muted)";
+    more.style.textAlign="center";
+    frag.appendChild(more);
+  }
+  if (!items.length) {
+    const empty=document.createElement("div");
+    empty.style.gridColumn="1 / -1";
+    empty.textContent="No QB questions match.";
+    empty.style.color="var(--muted)";
+    empty.style.padding="1rem";
+    frag.appendChild(empty);
+  }
+  grid.appendChild(frag);
+  grid.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
+    cb.addEventListener("change", e=>{
+      const id=e.target.dataset.id;
+      if(e.target.checked) selected.add(id); else selected.delete(id);
+      updateSelectionUI();
+    });
+  });
+}
+
+function updateQBWarnings(items){
+  const box=document.getElementById("qb-warnings");
+  const total=window._qbAll.length;
+  const hasCrop=window._qbAll.filter(it=> it.images.stem.length>0).length;
+  const missing= total - hasCrop;
+  const noAns = window._qbAll.filter(it=> it.answer.status!=="present").length;
+  const warns=[];
+  if (missing) warns.push(`${missing}/${total} missing crop (in this Book5 slice)`);
+  if (noAns) warns.push(`${noAns} without answer in DOCX`); else warns.push(`All ${total} Book5 items have answer (good)`);
+  // staging vs deployed
+  const fullTotal = STORES.qb_full && STORES.qb_full.total ? STORES.qb_full.total : 3847;
+  const deployedCount = total; // 246
+  const pendingTotal = fullTotal - deployedCount;
+  const deployedBanks = (STORES.qb_deployed && STORES.qb_deployed.deployed.banks) || [];
+  warns.push(`${pendingTotal} items in other 43 banks not deployed to <code>notes/qb</code> — counts visible via <code>qb_banks.json</code> (46 banks) & <code>qb_full_index.json</code> (${fullTotal} items), crops remain in <code>paper2db/qb-web-ui-staging/qb/crops</code> (7692 PNG, 254 MB) and are flagged pending. Deployed banks: ${deployedBanks.join(", ")} (✓).`);
+  if (STORES.qb_deployed && STORES.qb_deployed.staging) {
+    const s = STORES.qb_deployed.staging;
+    warns.push(`Staging crops: ${s.total_files} files, ${s.total_mb} MB (png) → deployed WebP ~${(s.total_mb*0.4).toFixed(1)} MB est.`);
+  }
+  // check for image files that exist
+  const filtered = items.length;
+  box.hidden=false;
+  box.innerHTML=`<h3>Data quality — QB (stitched)</h3><ul>${warns.map(w=>`<li>${w}</li>`).join("")}</ul><p>Filtered view: ${filtered} items (Book5 501-503).</p><p><small>QB source is outside git at <code>P2DB_QB_ROOT</code>; this deploy commits Book5 crops under <code>notes/qb/crops/qb/*.webp</code> (490 files, ~10 MB) and metadata under <code>notes/qb/data</code>. DOCX and full PDFs remain gitignored. Full 3847-item index at <code>qb_full_index.json</code> surfaced with pending flags.</small></p>`;
+}
+
+function updateSelectionUI(){
+  const arr=[...selected];
+  const dse = arr.filter(id=>id.startsWith("dse:")).length;
+  const qb = arr.filter(id=>id.startsWith("qb:")).length;
+  document.getElementById("sel-count").textContent=`${arr.length} selected`;
+  document.getElementById("sel-dse").textContent=`· DSE ${dse}`;
+  document.getElementById("sel-qb").textContent=`· QB ${qb}`;
+}
+
+function setupQuality(){
+  const panel=document.getElementById("quality-panel");
+  const mcTotal=STORES.dse_mc.count;
+  const lqTotal=STORES.dse_lq.count;
+  const dseMissCrop = STORES.dse_mc.items.filter(it=>!it.hasCrop).length + STORES.dse_lq.items.filter(it=>!it.hasCrop).length;
+  const qb=STORES.qb_items;
+  const fullTotal = STORES.qb_full && STORES.qb_full.total ? STORES.qb_full.total : 3847;
+  // Instead, compute directly
+  const mcAnsMissing = STORES.dse_mc.items.filter(it=> !it.answer.correctOption && !it.answer.deleted).length;
+  const mcPctMissing = STORES.dse_mc.items.filter(it=> !it.answer.deleted && it.answer.percentage==null).length;
+  const mcDeployed = mcTotal - STORES.dse_mc.items.filter(it=>!it.hasCrop).length;
+  const lqDeployed = lqTotal - STORES.dse_lq.items.filter(it=>!it.hasCrop).length;
+  let html = `<h3>DSE past-paper (stitched)</h3><ul>
+    <li>MC ${mcTotal} (sections 1–27), LQ ${lqTotal} — tracked in <code>metadata/mc|lq</code> + staged via <code>paper2db/qb-web-ui-staging/dse-{mc,lq}</code></li>
+    <li>Crops: MC ${mcDeployed}/${mcTotal} deployed (2012 36 added, 537 total now vs 501 before; 36 missing sap), LQ ${lqDeployed}/${lqTotal} deployed (all 170 now vs 6 before; 112 answer crops, 144 performances)</li>
+    <li>MC missing answer: ${mcAnsMissing}, missing percentage: ${mcPctMissing} (see warnings, flagged per-card)</li>
+    <li>LQ missing answer crops: 58 (2013/2014/2015/2017/2022/2023/2024/2025/2026/pp) and 26 missing performances (2026+pp) — surfaced as badges</li>
+    <li>Stitched: DSE-MC 435 (2012-2024) + 501 (2013-2026) → 537 unique crops (10.4 MB + 11.3 MB WebP, 2012 now present); DSE-LQ 170 crops (was 6, now all) + 112 answer crops → deployed as WebP (82 q) under <code>notes/qb/crops/dse-lq</code> (one PNG fallback for tall 2012-q7)</li>
+    </ul>
+    <h3>QB (stitched)</h3><ul>
+    <li>Book5 (QB_501 Radiation 70 + QB_502 Decay 109 + QB_503 Nuclear 67 = 246 items) — 100% stem deployed as WebP, 99% answer (1 missing PHY15013104 flagged), 100% present answer</li>
+    <li>Full corpus: 46 banks, ${fullTotal} items (staging 7692 PNG 254 MB); other 43 banks (3601 items) not deployed to <code>notes/qb</code> to keep PR small — counts visible via <code>qb_full_index.json</code> + <code>qb_banks.json</code> (46), crops pending flagged (dashed chips, grey options)</li>
+    <li>Committed: <code>notes/qb/crops/qb/*.webp</code> (490 files, ~10 MB Book5) + <code>crops/dse-mc/*.webp</code> (537 files, ~12 MB) + <code>crops/dse-lq/*.{webp,png}</code> (283 files, ~15 MB) + <code>notes/dse/mc|27 & lq|27</code> PNGs (18 crops)</li>
+    <li>Gitignored: <code>*.docx</code> and full paper PDFs remain out (see .gitignore). DOCX root outside git. Staging retained at <code>paper2db/qb-web-ui-staging/</code> for verification (not committed to keep PR < 30 MB).</li>
+    </ul>
+    <h3>How to verify</h3><ul>
+    <li>Filter DSE → §27 Nuclear Energy → check 19 total (9 MC 2012-2024 +10 LQ) — e.g. 2012 36 MC now shows crop, 2012-q7 tall PNG fallback, 2018-31 fission chain, 2022-33 balancing, 2025-33 fusion mass defect, LQ 2012-q11, 2015-q10 etc. Click image to enlarge.</li>
+    <li>Filter QB → QB_501/502/503 → check PHY15013101 (Peng Chau temp), PHY15031101 (fission), PHY15033101 (plutonium LQ) — compare stem crop (<code>crops/qb/*.webp</code>) vs extracted text & marking. Try “fission” search across Book5.</li>
+    <li>Select multiple across DSE & QB (multi-select); selection summary shows DSE vs QB counts; use Copy IDs to export. Topic chips show counts; missing-data badges visible.</li>
+    <li>Check missing flags: filter DSE “2012” shows all 36 have crops now; filter “sap” or unclassified shows warnings. QB pending banks show dashed chips and “pending” warnings.</li>
+    </ul>`;
+  panel.innerHTML=html;
+}
+
+document.getElementById("clear-selection").addEventListener("click", ()=>{ selected.clear(); document.querySelectorAll('input[type="checkbox"]').forEach(cb=>cb.checked=false); updateSelectionUI(); });
+document.getElementById("export-selection").addEventListener("click", ()=>{
+  if (!selected.size) { alert("No selection"); return; }
+  const txt=[...selected].join("\n");
+  navigator.clipboard.writeText(txt).then(()=> alert("Copied:\n"+txt), ()=> prompt("Copy:",txt));
+});
+
+init();
+</script>
+</body>
+</html>

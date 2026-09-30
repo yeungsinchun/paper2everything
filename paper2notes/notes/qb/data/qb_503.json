@@ -1,0 +1,5705 @@
+{
+  "bank": "QB_503",
+  "generated_at": "2026-09-29T16:57:33Z",
+  "tool_versions": {
+    "pymupdf": "1.28.2",
+    "tesseract": "tesseract 5.5.3",
+    "soffice": "LibreOffice 26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77"
+  },
+  "count": 67,
+  "items": [
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033101",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 1,
+      "type": "lq",
+      "level": "easy",
+      "part": "core",
+      "marks": 10,
+      "stem": {
+        "text": "The following equation shows a nuclear reaction involving plutonium (Pu), krypton (Kr) and xenon (Xe).\n[eq:1]\n\t(a)\t(i)\tFind the values of w, x, y and z.\t(3 marks)\n\t\t(ii)\tIs this nuclear reaction a fission or fusion? Explain.\t(2 marks)\n\t\t(iii)\tDo plutonium nuclei spontaneously change into krypton nuclei and xenon nuclei? Explain.\t(2 marks)\n\t(b)\tThis nuclear reaction releases energy.\n\t\t(i)\tCompare the total mass of the particles before and after the nuclear reaction.\t(1 mark)\n\t\t(ii)\tState one advantage and one disadvantage of using this reaction to generate electrical power.\t(2 marks)",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Find the values of w, x, y and z.",
+          "marks": 3
+        },
+        {
+          "label": "a(ii)",
+          "text": "Is this nuclear reaction a fission or fusion? Explain.",
+          "marks": 2
+        },
+        {
+          "label": "a(iii)",
+          "text": "Do plutonium nuclei spontaneously change into krypton nuclei and xenon nuclei? Explain.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "This nuclear reaction releases energy.\n\t\t(i)\tCompare the total mass of the particles before and after the nuclear reaction.",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "State one advantage and one disadvantage of using this reaction to generate electrical power.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tx = 1, y = 0\n1A\n\t\tConsider the mass numbers.\n\n\t\t239 + 1 = 103 + 134 + w × 1\n\n\t\t\tw = 3\n1A\n\t\t94 + 0 = 40 + z + 3 × 0\n\n\t\t\tz = 54\n1A\n\t(ii)\tIt is a fission\n1A\n\t\tas a nucleus splits into two lighter nuclei in the reaction.\n1A\n\t(iii)\tNo,\n1A\n\t\tthe reaction is initiated by a neutron.\n1A\n(b)\t(i)\tThe total mass before the reaction is greater than that after the reaction.\n1A\n\t(ii)\tAdvantage: This reaction does not produce greenhouse gases.\n1A\n\t\tDisadvantage: Radioactive waste is produced.\n1A\n\t\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "x = 1, y = 0",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "w = 3",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "z = 54",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "It is a fission",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "as a nucleus splits into two lighter nuclei in the reaction.",
+            "code": "1A"
+          },
+          {
+            "part": "a(iii)",
+            "point": "No,",
+            "code": "1A"
+          },
+          {
+            "part": "a(iii)",
+            "point": "the reaction is initiated by a neutron.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "The total mass before the reaction is greater than that after the reaction.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Advantage: This reaction does not produce greenhouse gases.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Disadvantage: Radioactive waste is produced.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033101.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033101.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4929962158203,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033102",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 2,
+      "type": "lq",
+      "level": "easy",
+      "part": "ext",
+      "marks": 10,
+      "stem": {
+        "text": "The following equation shows the nuclear reaction involving a tritium (T) and a deuterium (D). Tritium and deuterium are isotopes of the same element.\n[eq:2]\n\t(a)\t(i)\tFind the values of x, y and z.\t(3 marks)\n\t\t(ii)\tIs this nuclear reaction a fission or fusion reaction?\t(1 mark)\n\t(b)\tThe nuclear reaction releases 2.8128 × 10–12 J of energy.\n\t\tGiven:\tmass of D = 2.0141 u\n\t\t\tmass of He-4 = 4.0026 u\n\t\t\tmass of n = 1.0087 u\n\t\t\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.\n\t\t(i)\tWhat is the amount of energy released in MeV?\t(2 marks)\n\t\t(ii)\tFind the mass in u that the energy is equivalent to.\t(2 marks)\n\t\t(iii)\tCalculate the mass of tritium in u.\t(2 marks)",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Find the values of x, y and z.",
+          "marks": 3
+        },
+        {
+          "label": "a(ii)",
+          "text": "Is this nuclear reaction a fission or fusion reaction?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "The nuclear reaction releases 2.8128 × 10–12 J of energy.\n\t\tGiven:\tmass of D = 2.0141 u\n\t\t\tmass of He-4 = 4.0026 u\n\t\t\tmass of n = 1.0087 u\n\t\t\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.\n\t\t(i)\tWhat is the amount of energy released in MeV?",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "Find the mass in u that the energy is equivalent to.",
+          "marks": 2
+        },
+        {
+          "label": "b(iii)",
+          "text": "Calculate the mass of tritium in u.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tConsider the mass numbers.\n\n\t\t\tx + 2\t= 4 + 1\n\n\t\t\tx\t= 3\n1A\n\t\tConsider the atomic numbers.\n\t\ty + z = 2 and y = z\n\n\t\t⇒ y = z = 1\n2 × 1A\n\t(ii)\tA fusion reaction\n1A\n(b)\t(i)\tEnergy released\t=[eq:3]\n1M\n\t\t\t= 17.6 MeV\n1A\n\t(ii)\tMass\t= [eq:4]\n1M\n\t\t\t= 0.0189 u\n1A\n\t(iii)\t\tEnergy released\t= mass before reaction - mass after reaction\n\t\t\t0.0189\t= (mT + 2.0141) - (4.0026 + 1.0087)\n\t\t\tmT\t= 3.02 u\n\t\tThe mass of tritium is 3.02 u.\n\n1M\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "x\t= 3",
+            "code": "1A"
+          },
+          {
+            "part": "a(i)",
+            "point": "⇒ y = z = 1 2 ×",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "A fusion reaction",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Energy released\t=[eq:3]",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "= 17.6 MeV",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Mass\t= [eq:4]",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "= 0.0189 u",
+            "code": "1A"
+          },
+          {
+            "part": "b(iii)",
+            "point": "Energy released\t= mass before reaction - mass after reaction\n\t\t\t0.0189\t= (mT + 2.0141) - (4.0026 + 1.0087)\n\t\t\tmT\t= 3.02 u\n\t\tThe mass of tritium is 3.02 u.",
+            "code": "1M 1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033102.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033102.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            556.249755859375,
+            156.4929962158203,
+            568.4267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033103",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 3,
+      "type": "lq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 10,
+      "stem": {
+        "text": "→\tThe following equation shows a nuclear reaction involving carbon (C), helium (He) and oxygen (O).\n[eq:5]\n\tGiven:\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.\n\t(a)\t(i)\tWrite down the mass of the carbon-12 atom in atomic mass units.\t(1 mark)\n\t\t(ii)\tThe mass of a helium-4 atom is 6.648 324 × 10–27 kg. Convert this mass to atomic mass unit. Correct your answer to the nearest 6 decimal places.\t(2 marks)\n\t(b)\tThe amount of energy released in the above reaction is equivalent to 0.007 688 u.\n\t\t(i)\tCalculate the mass of an oxygen-16 atom in atomic mass units and correct it to the nearest 6 decimal places.\t(2 marks)\n\t\t(ii)\tCalculate the amount of energy released in MeV.\t(2 marks)\n\t(c)\tSometimes, [eq:6] is used as a unit of mass, where c is the speed of light in a vacuum. The mass of a particle is known to be 1777 [eq:7].\n\t\t(i)\tShow that the amount of energy released would be 1777 MeV if the particle were converted into energy completely.\t(1 mark)\n\t\t(ii)\tRewrite the energy of the particle in SI units.\t(2 marks)",
+        "ocr": "",
+        "equations": 3,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Write down the mass of the carbon-12 atom in atomic mass units.",
+          "marks": 1
+        },
+        {
+          "label": "a(ii)",
+          "text": "The mass of a helium-4 atom is 6.648 324 × 10–27 kg. Convert this mass to atomic mass unit. Correct your answer to the nearest 6 decimal places.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The amount of energy released in the above reaction is equivalent to 0.007 688 u.\n\t\t(i)\tCalculate the mass of an oxygen-16 atom in atomic mass units and correct it to the nearest 6 decimal places.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "Calculate the amount of energy released in MeV.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Sometimes, [eq:6] is used as a unit of mass, where c is the speed of light in a vacuum. The mass of a particle is known to be 1777 [eq:7].\n\t\t(i)\tShow that the amount of energy released would be 1777 MeV if the particle were converted into energy completely.",
+          "marks": 1
+        },
+        {
+          "label": "c(ii)",
+          "text": "Rewrite the energy of the particle in SI units.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\t12 u\n1A\n\t(ii)\tMass\t=[eq:8]\n1M\n\t\t\t= 4.002 603 u\n1A\n(b)\t(i)\t\tEnergy released\t= mass before reaction - mass after reaction\n\n\t\t\t0.007 688\t= (12 + 4.002 603) - mO\n1M\n\t\t\tmO\t= 15.994 915 u\n\t\tThe mass of an oxygen-16 atom is 15.994 915 u.\n1A\n\n\t(ii)\tEnergy released\t= 0.007 688 × 931\n\t\t\t= 7.16 MeV\n1M\n1A\n(c)\t(i)\tEnergy released = Δmc2 =[eq:9]× c2 = 1777 MeV\n1A\n\t(ii)\tEnergy released\t= (1777 × 106) × (1.60 × 10-19)\n1M\n\t\t\t= 2.84 × 10–10 J\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "12 u",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "Mass\t=[eq:8]",
+            "code": "1M"
+          },
+          {
+            "part": "a(ii)",
+            "point": "= 4.002 603 u",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "0.007 688\t= (12 + 4.002 603) - mO",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "mO\t= 15.994 915 u\n\t\tThe mass of an oxygen-16 atom is 15.994 915 u.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Energy released\t= 0.007 688 × 931\n\t\t\t= 7.16 MeV",
+            "code": "1M 1A"
+          },
+          {
+            "part": "c(i)",
+            "point": "Energy released = Δmc2 =[eq:9]× c2 = 1777 MeV",
+            "code": "1A"
+          },
+          {
+            "part": "c(ii)",
+            "point": "Energy released\t= (1777 × 106) × (1.60 × 10-19)",
+            "code": "1M"
+          },
+          {
+            "part": "c(ii)",
+            "point": "= 2.84 × 10–10 J",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033103.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033103.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            503.5997619628906,
+            156.4929962158203,
+            515.7767333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy",
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033104",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 4,
+      "type": "lq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 11,
+      "stem": {
+        "text": "→\tIn the reactor of the Daya Bay Nuclear Power Station, the following reaction takes place:\n\t\t[eq:10]U +[eq:11]n →[eq:12]Ba +[eq:13]Kr + 3[eq:14]n\n\tThe energy released in each reaction is 2.79 × 10-11 J.\n\tGiven:\tmass of [eq:15]Kr nucleus = 90.923 u\n\t\tmass of [eq:16]Ba nucleus = 141.916 u\n\t\tmass of [eq:17]U nucleus = 235.044 u\n\t\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.\n\t(a)\t(i)\tFind the loss in total mass after the reaction in kg.\t(2 marks)\n\t\t(ii)\tHence, estimate the mass of a neutron in atomic mass units.\t(3 marks)\n\t(b)\tThe fuel in the reactor contains 1.0 × 104 kg of U-235.\n\t\t(i)\tHow many U-235 nuclei does the fuel contain?\t(2 marks)\n\t\t(ii)\tHence, find the total energy released by the U-235 in the fuel if all the U-235 nuclei undergo the above fission.\t(1 mark)\n\t\t(iii)\tIf the average power output of the reactor is 5.0 × 108 W and only 60% of the energy released in fission is converted into electrical energy, how many years can the fuel be used for?\t(3 marks)",
+        "ocr": "",
+        "equations": 8,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Find the loss in total mass after the reaction in kg.",
+          "marks": 2
+        },
+        {
+          "label": "a(ii)",
+          "text": "Hence, estimate the mass of a neutron in atomic mass units.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "The fuel in the reactor contains 1.0 × 104 kg of U-235.\n\t\t(i)\tHow many U-235 nuclei does the fuel contain?",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "Hence, find the total energy released by the U-235 in the fuel if all the U-235 nuclei undergo the above fission.",
+          "marks": 1
+        },
+        {
+          "label": "b(iii)",
+          "text": "If the average power output of the reactor is 5.0 × 108 W and only 60% of the energy released in fission is converted into electrical energy, how many years can the fuel be used for?",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tBy ΔE = Δmc2,\n\n\t\tΔm =[eq:18]\t=[eq:19]\n1M\n\t\t\t= 3.10 × 10-28 kg\n1A\n\t(ii)\tLoss in total mass =[eq:20]= 0.187 u\n1M\n\t\t\tLoss in total mass\t= mass before reaction - mass after reaction\n\n\t\t\t0.187\t= (235.044 + m) - (141.916 + 90.923 + 3m)\n1M\n\t\t\tm\t= 1.01 u\n1A\n\t\tThe mass of a neutron is 1.01 u.\n\n(b)\t(i)\tNumber of U-235 nuclei in the fuel\t=[eq:21]\n1M\n\t\t\t= 2.561 × 1028\n\t\t\t≈ 2.56 × 1028\n\n1A\n\t(ii)\tTotal energy released = (2.561 × 1028) × (2.79 × 10-11) = 7.15 × 1017 J\n1A\n\t(iii)\tTotal energy output by reactor = (7.15 × 1017) × 60% = 4.29 × 1017 J\n1M\n\t\tTime for which the fuel can be used\t=[eq:22]\n1M\n\t\t\t= 8.58 × 108 s\n\n\t\t\t= 27.2 years\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "Δm =[eq:18]\t=[eq:19]",
+            "code": "1M"
+          },
+          {
+            "part": "a(i)",
+            "point": "= 3.10 × 10-28 kg",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "Loss in total mass =[eq:20]= 0.187 u",
+            "code": "1M"
+          },
+          {
+            "part": "a(ii)",
+            "point": "0.187\t= (235.044 + m) - (141.916 + 90.923 + 3m)",
+            "code": "1M"
+          },
+          {
+            "part": "a(ii)",
+            "point": "m\t= 1.01 u",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Number of U-235 nuclei in the fuel\t=[eq:21]",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "= 2.561 × 1028\n\t\t\t≈ 2.56 × 1028",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Total energy released = (2.561 × 1028) × (2.79 × 10-11) = 7.15 × 1017 J",
+            "code": "1A"
+          },
+          {
+            "part": "b(iii)",
+            "point": "Total energy output by reactor = (7.15 × 1017) × 60% = 4.29 × 1017 J",
+            "code": "1M"
+          },
+          {
+            "part": "b(iii)",
+            "point": "Time for which the fuel can be used\t=[eq:22]",
+            "code": "1M"
+          },
+          {
+            "part": "b(iii)",
+            "point": "= 27.2 years",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033104.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033104.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            499.0497741699219,
+            156.4929962158203,
+            511.2267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy",
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033105",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 5,
+      "type": "lq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 10,
+      "stem": {
+        "text": "→\t(a)\tIn a nuclear fusion process, a [eq:23] nucleus and a [eq:24] nucleus fuse together to form a [eq:25] nucleus and release a particle X.\n\t\t(i)\tWhat is X?\t(1 mark)\n\t\t(ii)\tWrite down an equation to describe the above fusion process.\t(1 mark)\n\t\t(iii)\tParticle X plays an important role in a fission reactor. Explain briefly what the role is.\t(2 marks)\n\t(b)\t[eq:26]Rn nucleus undergoes α decay to become [eq:27]Po nucleus.\n\t\tGiven:\tmass of α particle = 4.001 506 u\n\t\t\tmass of [eq:28]Po nucleus = 216.001 915 u\n\t\t\tmass of [eq:29]Rn nucleus = 220.011 394 u\n\t\t\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.\n\t\t(i)\tFind the energy released in the above decay. Express your answer in joules.\t(4 marks)\n\t\t(ii)\tSuppose the all the energy released is in the form of the kinetic energy of the α particle. Find the speed of the α particle.\t(2 marks)",
+        "ocr": "",
+        "equations": 7,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "In a nuclear fusion process, a [eq:23] nucleus and a [eq:24] nucleus fuse together to form a [eq:25] nucleus and release a particle X.\n\t\t(i)\tWhat is X?",
+          "marks": 1
+        },
+        {
+          "label": "a(ii)",
+          "text": "Write down an equation to describe the above fusion process.",
+          "marks": 1
+        },
+        {
+          "label": "a(iii)",
+          "text": "Particle X plays an important role in a fission reactor. Explain briefly what the role is.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "[eq:26]Rn nucleus undergoes α decay to become [eq:27]Po nucleus.\n\t\tGiven:\tmass of α particle = 4.001 506 u\n\t\t\tmass of [eq:28]Po nucleus = 216.001 915 u\n\t\t\tmass of [eq:29]Rn nucleus = 220.011 394 u\n\t\t\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.\n\t\t(i)\tFind the energy released in the above decay. Express your answer in joules.",
+          "marks": 4
+        },
+        {
+          "label": "b(ii)",
+          "text": "Suppose the all the energy released is in the form of the kinetic energy of the α particle. Find the speed of the α particle.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tNeutron \n1A\n\t(ii)\t[eq:30]\n1A\n\t(iii)\tFission of the fuel nuclei occurs as they are split by neutrons.\n1A\n\t\tSome of the neutrons emitted during fission split other fuel nuclei to sustain a chain reaction\n\n1A\n(b)\t(i)\tΔm = 220.011 394 - (216.001 915 + 4.001 506) = 0.007 973 u\n1M\n\t\tEnergy released = Δmc2\t= (0.007 973 × 1.661 × 10-27) × (3.00 × 108)2\n1M\n\t\t\t= 1.19 × 10-12 J\n1A\n\t(ii)\tBy KE =[eq:31],\n\n\t\t\t1.19 × 10-12\t= [eq:32]× (4.001 506 × 1.661 × 10-27) × v2\n1M\n\t\t\tv\t= 1.89 × 107 m s-1\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "Neutron",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "[eq:30]",
+            "code": "1A"
+          },
+          {
+            "part": "a(iii)",
+            "point": "Fission of the fuel nuclei occurs as they are split by neutrons.",
+            "code": "1A"
+          },
+          {
+            "part": "a(iii)",
+            "point": "Some of the neutrons emitted during fission split other fuel nuclei to sustain a chain reaction",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Δm = 220.011 394 - (216.001 915 + 4.001 506) = 0.007 973 u",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "Energy released = Δmc2\t= (0.007 973 × 1.661 × 10-27) × (3.00 × 108)2",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "= 1.19 × 10-12 J",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "1.19 × 10-12\t= [eq:32]× (4.001 506 × 1.661 × 10-27) × v2",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "v\t= 1.89 × 107 m s-1",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033105.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033105.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            555.749755859375,
+            156.4929962158203,
+            567.9267578125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy",
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033106",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 6,
+      "type": "lq",
+      "level": "dif",
+      "part": "ext",
+      "marks": 9,
+      "stem": {
+        "text": "→→\tU-238 and U-235 are the two common isotopes of uranium. At present, about 99.3% of uranium is U-238 and 0.7% is U-235. However, two billion years ago, the proportion of U-235 was as high as about 3%. The change in proportion is due to the difference in half-lives of the two isotopes. \n\tThe amount of other isotopes of uranium is negligible. Also neglect the amount of new U-238 and U-235 formed in the past two billion years. \n\tGiven:\t1 billion = 109\n\t\tHalf-life of U-238 = 4.47 billion years\n\t(a)\tA sample of natural uranium currently contains 8 × 1010 uranium atoms. \n\t\t(i)\tFind the present number of U-238 atoms in the sample.\t(1 mark)\n\t\t(ii)\tCalculate the decay constant of U-238. Express your answer in yr-1.\t(2 marks)\n\t\t(iii)\tEstimate the number of U-238 atoms in the sample 2 billion years ago.\t(2 marks)\n\t\t(iv)\tIs the half-life of U-235 longer or shorter than that of U-238? Explain briefly.\n\t(2 marks)\n\t(b)\tA uranium mine in Gabon (an African country) was found in 1972. Only 0.44% of the uranium is U-235. This proportion is much smaller than usual. It is believed that the site was a natural ‘nuclear reactor’ for nuclear chain reactions to occur long ago. \n\t\t(i)\tOnly one of the above-mentioned uranium isotopes is able to sustain a nuclear chain reaction. Which isotope is it?\t(1 mark)\n\t\t(ii)\tThe isotope can undergo the following nuclear reaction.\n\t\t\t\tU + n → Xe + Sr + 3n\n\t\t\tExplain why this nuclear reaction is able to trigger a chain reaction.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "A sample of natural uranium currently contains 8 × 1010 uranium atoms. \n\t\t(i)\tFind the present number of U-238 atoms in the sample.",
+          "marks": 1
+        },
+        {
+          "label": "a(ii)",
+          "text": "Calculate the decay constant of U-238. Express your answer in yr-1.",
+          "marks": 2
+        },
+        {
+          "label": "a(iii)",
+          "text": "Estimate the number of U-238 atoms in the sample 2 billion years ago.",
+          "marks": 2
+        },
+        {
+          "label": "a(iv)",
+          "text": "Is the half-life of U-235 longer or shorter than that of U-238? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "A uranium mine in Gabon (an African country) was found in 1972. Only 0.44% of the uranium is U-235. This proportion is much smaller than usual. It is believed that the site was a natural ‘nuclear reactor’ for nuclear chain reactions to occur long ago. \n\t\t(i)\tOnly one of the above-mentioned uranium isotopes is able to sustain a nuclear chain reaction. Which isotope is it?",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "The isotope can undergo the following nuclear reaction.\n\t\t\t\tU + n → Xe + Sr + 3n\n\t\t\tExplain why this nuclear reaction is able to trigger a chain reaction.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tNumber of U-238 = (8 × 1010) × 99.3% = 7.94 × 1010 \n1A\n\t(ii)\tk =[eq:33]\t=[eq:34]\n1M\n\t\t\t= 1.55 × 10-10 yr-1\n1A\n\t(iii)\tBy N = N0e-kt,\n\n\t\tN0 = Nekt\t= (7.94 × 1010)e[eq:35]\n1M\n\t\t\t= 1.08 × 1011\n1A\n\t\tThe sample contained 1.08 × 1011 U-238 atoms 2 billion years ago.\n\n\t(iv)\tThe half-life of U-235 is shorter\n1A\n\t\tbecause a larger portion of U-235 decayed in two billion years.\n1A\n(b)\t(i)\tU-235\n1A\n\t(ii)\tThis is because three (more than one) neutrons are produced in each reaction, which can trigger further reactions.\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "Number of U-238 = (8 × 1010) × 99.3% = 7.94 × 1010",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "k =[eq:33]\t=[eq:34]",
+            "code": "1M"
+          },
+          {
+            "part": "a(ii)",
+            "point": "= 1.55 × 10-10 yr-1",
+            "code": "1A"
+          },
+          {
+            "part": "a(iii)",
+            "point": "N0 = Nekt\t= (7.94 × 1010)e[eq:35]",
+            "code": "1M"
+          },
+          {
+            "part": "a(iii)",
+            "point": "= 1.08 × 1011",
+            "code": "1A"
+          },
+          {
+            "part": "a(iv)",
+            "point": "The half-life of U-235 is shorter",
+            "code": "1A"
+          },
+          {
+            "part": "a(iv)",
+            "point": "because a larger portion of U-235 decayed in two billion years.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "U-235",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "This is because three (more than one) neutrons are produced in each reaction, which can trigger further reactions.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033106.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033106.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            5,
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            468.0997619628906,
+            156.4929962158203,
+            480.2767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033107",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 7,
+      "type": "lq",
+      "level": "dif",
+      "part": "core",
+      "marks": 9,
+      "stem": {
+        "text": "→→\tThe following figure is a simplified structure of an atomic bomb. When the explosive is set off, the uranium at the upper end of the barrel collides with the uranium at the bottom end. This makes the ‘neutron generator’ start to emit neutrons.\n[fig:1]uranium\ntamper\nbarrel\nexplosive\nneutron generator\n[fig:2]uranium\ntamper\nbarrel\nexplosive\nneutron generator\n\n\t(a)\tWhich uranium isotope is responsible for the fission in the bomb?\t(1 mark)\n\t(b)\t(i)\tWhat is the requirement on the total mass of the isotope in (a) for sustainable fission in the bomb?\t(1 mark)\n\t\t(ii)\tWhy is the uranium separated into two parts before the bomb is detonated?\t(2 marks)\n\t(c)\tOne of the functions of the tamper is to reflect neutrons back to the uranium. Suggest a purpose of this design.\t(1 mark)\n\t(d)\tThe uranium used in the bomb is enriched so that 90% of the uranium is the isotope in (a). There are totally 1.54 × 1026 uranium nuclei in the bomb and the average energy released by a fission reaction is 3.2 × 10-11 J. \n\t\t(i)\tWhat would happen if naturally occurring uranium was used instead of the enriched one?\t(1 mark)\n\t\t(ii)\tEstimate the maximum amount of energy released by the bomb.\t(2 marks)\n\t\t(iii)\tIn practice, the energy produced is smaller than the maximum value. Give a reason for this.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Which uranium isotope is responsible for the fission in the bomb?",
+          "marks": 1
+        },
+        {
+          "label": "b(i)",
+          "text": "What is the requirement on the total mass of the isotope in (a) for sustainable fission in the bomb?",
+          "marks": 1
+        },
+        {
+          "label": "b(ii)",
+          "text": "Why is the uranium separated into two parts before the bomb is detonated?",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "One of the functions of the tamper is to reflect neutrons back to the uranium. Suggest a purpose of this design.",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "The uranium used in the bomb is enriched so that 90% of the uranium is the isotope in (a). There are totally 1.54 × 1026 uranium nuclei in the bomb and the average energy released by a fission reaction is 3.2 × 10-11 J. \n\t\t(i)\tWhat would happen if naturally occurring uranium was used instead of the enriched one?",
+          "marks": 1
+        },
+        {
+          "label": "d(ii)",
+          "text": "Estimate the maximum amount of energy released by the bomb.",
+          "marks": 2
+        },
+        {
+          "label": "d(iii)",
+          "text": "In practice, the energy produced is smaller than the maximum value. Give a reason for this.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tUranium-235\n1A\n(b)\t(i)\tThe total mass of the isotope should be larger than the critical mass.\n1A\n\t(ii)\tUranium is separated into two parts such that each part has a mass smaller than the critical mass. \n\n1A\n\t\tIn this way, chain reaction will not occur during transportation and storage.\n1A\n(c)\tThis increases the chance of splitting uranium nuclei and hence increases the rate of fission.\n\n1A\n(d)\t(i)\tChain reaction would not occur.\n1A\n\t(ii)\tMaximum amount of energy released\t= (1.54 × 1026 × 90%) × (3.2 × 10-11)\n1M\n\t\t\t= 4.44 × 1015 J\n1A\n\t(iii)\tNot all the U-235 nuclei in the bomb undergo fission\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Uranium-235",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "The total mass of the isotope should be larger than the critical mass.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "Uranium is separated into two parts such that each part has a mass smaller than the critical mass.",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "In this way, chain reaction will not occur during transportation and storage.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "This increases the chance of splitting uranium nuclei and hence increases the rate of fission.",
+            "code": "1A"
+          },
+          {
+            "part": "d(i)",
+            "point": "Chain reaction would not occur.",
+            "code": "1A"
+          },
+          {
+            "part": "d(ii)",
+            "point": "Maximum amount of energy released\t= (1.54 × 1026 × 90%) × (3.2 × 10-11)",
+            "code": "1M"
+          },
+          {
+            "part": "d(ii)",
+            "point": "= 4.44 × 1015 J",
+            "code": "1A"
+          },
+          {
+            "part": "d(iii)",
+            "point": "Not all the U-235 nuclei in the bomb undergo fission",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033107.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033107.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            6,
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            465.44976806640625,
+            156.4929962158203,
+            477.62677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033108",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 8,
+      "type": "lq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 8,
+      "stem": {
+        "text": "→\tWhen an α particle collides with an N-14 nucleus, the following nuclear reaction may take place:\n[eq:36]\n\tThe table below shows the masses of the particles.\nParticle\nMass / u\nProton\n1.007 276\nα particle\n4.001 506\nN-14 nucleus\n14.003 074\nO-17 nucleus\n16.999 132\n\t(a)\tShow that energy is absorbed during the reaction.\t(3 marks)\n\t(b)\tAssume the N-14 atom is held stationary and all the energy absorbed in the reaction comes from the KE of the α particle. \n\t\tGiven:\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.\n\t\t(i)\tEstimate the minimum KE of the α particle in joules.\t(3 marks)\n\t\t(ii)\tHence find the minimum speed of the α particle.\t(2 marks)",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Show that energy is absorbed during the reaction.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Assume the N-14 atom is held stationary and all the energy absorbed in the reaction comes from the KE of the α particle. \n\t\tGiven:\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.\n\t\t(i)\tEstimate the minimum KE of the α particle in joules.",
+          "marks": 3
+        },
+        {
+          "label": "b(ii)",
+          "text": "Hence find the minimum speed of the α particle.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tTotal mass of particles before the reaction \n\n\t= 14.003 074 + 4.001 506 = 18.004 580 u\n1A\n\tTotal mass of particles after the reaction \n\n\t= 16.999 132 + 1.007 276 = 18.006 408 u\n1A\n\tDuring the reaction, the total mass of particles increases, so energy is absorbed.\n1A\n(b)\t(i)\tΔm\t= 18.006 408 - 18.004 580\n\t\t\t= 0.001 828 u\n\t\tMinimum KE\t= energy absorbed during reaction \n\t\t\t= Δmc2\n\t\t\t= (0.001 828 × 1.661 × 10-27) (3.00 × 108)2\n\t\t\t= 2.733 × 10-13 J\n1M\n\n\n\n1M\n\n\t\t\t≈ 2.73 × 10-13 J\n1A\n\t(ii)\tBy KE =[eq:37],\n\n\t\t2.733 × 10-13 = [eq:38] × (4.001 506 × 1.661 × 10-27) × v2\n1M\n\t\t\tv = 9.07 × 106 m s-1\n1A\n\t\tThe minimum speed of the α particle is 9.07 × 106 m s-1.",
+        "marking": [
+          {
+            "part": "a",
+            "point": "= 14.003 074 + 4.001 506 = 18.004 580 u",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "= 16.999 132 + 1.007 276 = 18.006 408 u",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "During the reaction, the total mass of particles increases, so energy is absorbed.",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Δm\t= 18.006 408 - 18.004 580\n\t\t\t= 0.001 828 u\n\t\tMinimum KE\t= energy absorbed during reaction \n\t\t\t= Δmc2\n\t\t\t= (0.001 828 × 1.661 × 10-27) (3.00 × 108)2\n\t\t\t= 2.733 × 10-13 J",
+            "code": "1M 1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "≈ 2.73 × 10-13 J",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "2.733 × 10-13 = [eq:38] × (4.001 506 × 1.661 × 10-27) × v2",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "v = 9.07 × 106 m s-1",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033108.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033108.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            7,
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            489.2497863769531,
+            156.4929962158203,
+            501.4267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15033109",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 9,
+      "type": "lq",
+      "level": "dif",
+      "part": "ext",
+      "marks": 8,
+      "stem": {
+        "text": "→→\tThe radioactive decay of Rn-220 nucleus can be represented by the following equation:\n[eq:39]\n\tThe masses of Rn-220 nucleus and Po-216 nucleus are 220.011 394 u and 216.001 915 u respectively. The amount of energy released in this decay is 1.0273 × 10-12 J.\n\tGiven:\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.\n\t(a)\tWhat type of decay is it?\t(1 mark)\n\t(b)\tAccording to the given data, find the mass of [eq:40] nucleus in u. Correct your answer to the nearest 6 decimal places.\t(3 marks)\n\t(c)\tThe half-life of Rn-220 is 55.6 s. The power output of a sample of Rn-220 due to radioactive decay is 3.08 × 10-7 W at a certain instant. Estimate the number of undecayed Rn-220 nuclei in the sample at that instant.\t(4 marks)",
+        "ocr": "",
+        "equations": 2,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What type of decay is it?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "According to the given data, find the mass of [eq:40] nucleus in u. Correct your answer to the nearest 6 decimal places.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "The half-life of Rn-220 is 55.6 s. The power output of a sample of Rn-220 due to radioactive decay is 3.08 × 10-7 W at a certain instant. Estimate the number of undecayed Rn-220 nuclei in the sample at that instant.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tα decay\n1A\n(b)\tBy ΔE = Δmc2,\n\n\tΔm =[eq:41]\t=[eq:42]\n1M\n\t\t= 1.1414 × 10–29 kg\n\n\tLet m be the mass of [eq:43] nucleus.\n\n\t\tΔm\t= total mass before reaction - total mass after reaction\n\n\t\t[eq:44]\t= 220.011 394 - (216.001 915 + m)\n1M\n\t\tm\t= 4.002 607 u\n1A\n\tThe mass of [eq:45] nucleus is 4.002 607 u.\n\n(c)\tA =[eq:46]= 3.00 × 105\n1M\n\tk =[eq:47]\t=[eq:48]\n1M\n\t\t= 0.0125 s-1\n\n\tBy A = kN,\n\n\tN =[eq:49]\t=[eq:50]\n1M\n\t\t= 2.40 × 107\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "α decay",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Δm =[eq:41]\t=[eq:42]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "[eq:44]\t= 220.011 394 - (216.001 915 + m)",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "m\t= 4.002 607 u",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "A =[eq:46]= 3.00 × 105",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "k =[eq:47]\t=[eq:48]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "N =[eq:49]\t=[eq:50]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 2.40 × 107",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_LQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15033109.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15033109.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_LQ_e.docx",
+          "sha256": "27decf18d296236772504a8171f6b3865b08e3fc32468fc78ac8e80715549d9f",
+          "pdf": "qb-pdf/QB_503/5_ch03_LQ_e.pdf",
+          "pages": [
+            8,
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            489.8997802734375,
+            156.4929962158203,
+            502.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031101",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 1,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following reactions is/are nuclear fission?\n\t(1)\t[eq:1]\n\t(2)\t[eq:2]\n\t(3)\t[eq:3]",
+        "ocr": "",
+        "equations": 3,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "In nuclear fission, a nucleus splits into several lighter nuclei. Reactions (1) and (3) fulfil this requirement and therefore are nuclear fissions.\nIn reaction (2), a heavier helium-4 nucleus is formed as two helium-3 nuclei join together. Therefore, reaction (2) is a nuclear fusion.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031101.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031101.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.04299926757812,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031102",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 2,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tConsider the nuclear reactions below. Which of them may result in a chain reaction?\n\t(1)\t[eq:4]\n\t(2)\t[eq:5]\n\t(3)\t[eq:6]",
+        "ocr": "",
+        "equations": 3,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "All reactions (1), (2) and (3) are triggered by neutrons. For chain reaction to occur, more than one neutron must be released in the reaction. Only (1) and (3) fulfil this requirement.\n∴ Only (1) and (3) may result in a chain reaction.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031102.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031102.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            378.5497741699219,
+            156.04299926757812,
+            390.7267761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031103",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 3,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tConsider the nuclear reaction below.\n[eq:7]\n\tWhich of the following statements about the reaction is/are correct?\n\t(1)\tIt is a spontaneous reaction.\n\t(2)\tIt results in a chain reaction.\n\t(3)\tA very high temperature is needed for the reaction to occur.",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "The reaction is a nuclear fusion. For this reaction to take place, the temperature must be very high so that the two nuclei have very high kinetic energy to overcome the electrostatic repulsion. The two nuclei have to get very close to each other and so it is not a spontaneous reaction.\n∴ (3) is correct. (1) is incorrect.\nChain reaction occurs when the products of the reaction can trigger another reaction to occur. In this reaction, both products are not required to trigger the reaction.\n∴ (2) is incorrect.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031103.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031103.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            672.44970703125,
+            156.04299926757812,
+            684.626708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031104",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 4,
+      "type": "mc",
+      "level": "avg",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn reaction X, the total mass of the particles before the reaction is M. During the reaction, a mass of m is lost and an energy of E is released. In reaction Y, the total mass of the particles before the reaction is 3M. If a mass of 2m is converted into energy during reaction Y, what is the energy released?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "[eq:8]"
+        },
+        {
+          "label": "B",
+          "text": "E"
+        },
+        {
+          "label": "C",
+          "text": "[eq:9]"
+        },
+        {
+          "label": "D",
+          "text": "2E"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "By ΔE = Δmc2, ΔE ∝ Δm\n[eq:10]\t=[eq:11]\n\tΔEY\t= ΔEX × [eq:12]= E × [eq:13]= 2E",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031104.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031104.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            374.7997741699219,
+            156.04299926757812,
+            386.9767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031105",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 5,
+      "type": "mc",
+      "level": "easy",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following mass is different from the others?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1 u"
+        },
+        {
+          "label": "B",
+          "text": "[eq:14] × mass of a carbon-12 atom"
+        },
+        {
+          "label": "C",
+          "text": "1.661 × 10−27 kg"
+        },
+        {
+          "label": "D",
+          "text": "Mass of neutron"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Atomic mass unit (u) is defined as:\n1 u = [eq:15]× mass of a carbon-12 atom = 1.661 × 10–27 kg\nMass of neutron = 1.008 665 u ≠ 1 u",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031105.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031105.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            705.1497192382812,
+            156.04299926757812,
+            717.3267211914062
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031106",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 6,
+      "type": "mc",
+      "level": "easy",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "What is the mass equivalent to 1000 MeV of energy?\n\tGiven:\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1 kg"
+        },
+        {
+          "label": "B",
+          "text": "1.07 u"
+        },
+        {
+          "label": "C",
+          "text": "1.606 × 10−10 J"
+        },
+        {
+          "label": "D",
+          "text": "1.661 × 10−24 kg"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Joule (J) cannot not be used to express mass.\nMass equivalent to 1000 MeV of energy\t= [eq:16] u \n\t= 1.07 u\n\t= 1.07 × (1.661 × 10–27) kg \n\t= 1.78 × 10–27 kg",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031106.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031106.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            297.3997497558594,
+            156.04299926757812,
+            309.5767517089844
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031107",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 7,
+      "type": "mc",
+      "level": "avg",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "→\tA uranium nucleus undergoes decay as shown below.\n[eq:17]\n\tThe mass of U-238 nucleus is 238.050 788 u, the mass of Th-234 nucleus is 234.043 601 u and the mass of alpha particle is 4.001 506 u. What is the energy released in the decay process?\n\tGiven:\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "8.49 × 10−13 J"
+        },
+        {
+          "label": "B",
+          "text": "5.98 × 10−10 J"
+        },
+        {
+          "label": "C",
+          "text": "3.50 × 10−8 J"
+        },
+        {
+          "label": "D",
+          "text": "3.56 × 10−8 J"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "Δm = 238.050 788 - (234.043 601 + 4.001 506) = 0.005 681 u\nΔE = Δmc2 = (0.005 681 × 1.661 × 10–27) × (3.00 × 108)2 = 8.49 × 10–13 J",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031107.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031107.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            624.69970703125,
+            156.04299926757812,
+            636.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031108",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 8,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following applications is/are making use of controlled nuclear fission?\n\t(1)\tMedical imaging\n\t(2)\tRadiotherapy\n\t(3)\tElectricity generation",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "In X-ray imaging, cathode ray tube produces X-rays for imaging. In radionuclide imaging, radioactive decays of nuclides produces nuclear radiation for imaging.\n∴ (1) is incorrect.\nRadiotherapy makes use of radioactive decays of nuclides to produce nuclear radiation to cure diseases.\n∴ (2) is incorrect.\nNuclear power plants make use of controlled nuclear fission to generate electricity.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031108.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031108.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            285.5997619628906,
+            156.04299926757812,
+            297.7767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031109",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 9,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following correctly describes a nuclear fission?\n\tA\tA nucleus is fragmented into lighter ones.\n\tB\tA neutron is split into an electron and a proton.\n\tC\tTwo nuclei are combined into a heavier one.\n\tD\tThe process is random in nature.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031109.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031109.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            602.8997802734375,
+            156.04299926757812,
+            615.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031110",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 10,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "At present, most nuclear power stations generate electricity using",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "fission and the fuel is deuterium."
+        },
+        {
+          "label": "B",
+          "text": "fission and the fuel is uranium."
+        },
+        {
+          "label": "C",
+          "text": "fusion and the fuel is deuterium."
+        },
+        {
+          "label": "D",
+          "text": "fusion and the fuel is uranium."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Current nuclear power plants make use of controlled nuclear fission to generate electricity and the fuel commonly used is uranium-235.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031110.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031110.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            124.64974212646484,
+            155.59298706054688,
+            136.82675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031111",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 11,
+      "type": "mc",
+      "level": "easy",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "The masses of a helium-4 nucleus ([eq:18]), a proton and a neutron are 4.001 506 u, 1.007 276 u and 1.008 665 u respectively. Assuming that a suitable number of protons and neutrons can fuse to form a helium-4 nucleus, how much mass is converted into energy?",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "0.003 126 u"
+        },
+        {
+          "label": "B",
+          "text": "0.030 376 u"
+        },
+        {
+          "label": "C",
+          "text": "1.017 435 u"
+        },
+        {
+          "label": "D",
+          "text": "2.014 455 u"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "A helium-4 nucleus consists of 2 protons and 2 neutrons.\nΔm = (2 × 1.007 276 + 2 × 1.008 665) - 4.001 506 = 0.030 376 u",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031111.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031111.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            330.2497863769531,
+            155.1929931640625,
+            342.4267883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031112",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 12,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about fission reactions must be correct?\n\t(1)\tUranium-235 nuclei are split.\n\t(2)\tFission reactions are triggered by the bombardment of neutrons.\n\t(3)\tLighter nuclei are produced.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(3) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "In nuclear fission, a nucleus splits into several lighter nuclei. Uranium-235 is one of many nuclides that can undergo nuclear fission.\n∴ (3) is correct. (1) is not necessarily correct.\nFission reactions may occur spontaneously.\n∴ (2) is not necessarily correct.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031112.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031112.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            5,
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            573.19970703125,
+            155.59298706054688,
+            585.376708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031113",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 13,
+      "type": "mc",
+      "level": "avg",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn a nuclear power station, uranium fuel is used in the reactor to generate electricity at a constant rate throughout the whole year. The efficiency of the power station is 25%. In this year, the difference in mass between the fuel consumed and the fission products is about 30 g. Estimate the output power of the power station.\n\tTake 1 year = 3.16 × 107 s.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "2.14 × 107 W"
+        },
+        {
+          "label": "B",
+          "text": "6.41 × 107 W"
+        },
+        {
+          "label": "C",
+          "text": "2.14 × 1010 W"
+        },
+        {
+          "label": "D",
+          "text": "6.41× 1010 W"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "ΔE = Δmc2 = 0.03 × (3.00 × 108)2 = 2.70 × 1015 J\nOutput power of the power station\n[eq:19]",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031113.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031113.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            201.29977416992188,
+            155.59298706054688,
+            213.47677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031114",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 14,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following nuclear reactions are possible?\n\t(1)\t[eq:20]U + [eq:21] →[eq:22]Sr +[eq:23]Xe + 4[eq:24]\n\t(2)\t[eq:25]U + [eq:26] →[eq:27]Kr +[eq:28]Ba + 3[eq:29]\n\t(3)\t[eq:30]Pu + [eq:31] →[eq:32]Kr +[eq:33]Xe + 3[eq:34]",
+        "ocr": "",
+        "equations": 15,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Consider reaction (1).\nSum of mass numbers on the left = 233 + 1 = 234\nSum of mass numbers on the right = 93 + 137 + 4 × 1 = 234\nSum of atomic numbers on the left = 92\nSum of atomic numbers on the right = 38 + 54 = 92\n∴ (1) is possible.\nConsider reaction (2).\nSum of mass numbers on the left = 235 + 1 = 236\nSum of mass numbers on the right = 95 + 137 + 3 × 1 = 235\n∴ (2) is not possible.\nConsider reaction (3).\nSum of mass numbers on the left = 239 + 1 = 240\nSum of mass numbers on the right = 103 + 134 + 3 × 1 = 240\nSum of atomic numbers on the left = 94\nSum of atomic numbers on the right = 40 + 54 = 94\n∴ (3) is possible.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031114.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031114.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            6,
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            547.3497314453125,
+            155.59298706054688,
+            559.5267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy",
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031115",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 15,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "A chain reaction can be sustained in a sphere of plutonium. However, if the sphere is cut into four pieces and separated from each other, the chain reaction can no longer be sustained. Which of the following is the explanation?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "The half-life of plutonium decreases."
+        },
+        {
+          "label": "B",
+          "text": "The half-life of plutonium increases."
+        },
+        {
+          "label": "C",
+          "text": "The electrons emitted in nuclear reactions become less likely to be captured by the plutonium nuclei."
+        },
+        {
+          "label": "D",
+          "text": "The neutrons emitted in nuclear reactions become less likely to be captured by the plutonium nuclei."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "As the mass of each piece is smaller than the sphere, the number of neutrons on average from each fission causing another fission becomes smaller than one. As a result, the chain reaction cannot be sustained.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031115.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031115.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            346.9997863769531,
+            155.59298706054688,
+            359.1767883300781
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031116",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 16,
+      "type": "mc",
+      "level": "easy",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following can be a unit of energy?\n\t(1)\tAtomic mass unit\n\t(2)\tElectron-volt\n\t(3)\tBecquerel",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Becquerel is a unit of activity.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031116.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031116.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            7,
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            617.0497436523438,
+            155.59298706054688,
+            629.2267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031117",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 17,
+      "type": "mc",
+      "level": "easy",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "The mass of a man is 53 kg. Express his mass in u. \n\tGiven:\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "8.80 × 10-26 u"
+        },
+        {
+          "label": "B",
+          "text": "1.77 × 10-7 u"
+        },
+        {
+          "label": "C",
+          "text": "1.59 × 1010 u"
+        },
+        {
+          "label": "D",
+          "text": "3.19 × 1028 u"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Mass of the man [eq:35]",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031117.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031117.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            201.49978637695312,
+            155.59298706054688,
+            213.67678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031118",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 18,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The following equation represents a nuclear reaction:\n\t\t[eq:36]\n\tWhat is X?",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Electron"
+        },
+        {
+          "label": "B",
+          "text": "Proton"
+        },
+        {
+          "label": "C",
+          "text": "Neutron"
+        },
+        {
+          "label": "D",
+          "text": "Nucleus"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "[eq:37]\nConsider the atomic number.\n[eq:38]\nConsider the mass number.\n[eq:39]\nX is [eq:40], which is a neutron.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031118.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031118.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            473.0997619628906,
+            155.59298706054688,
+            485.2767639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031119",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 19,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "The following equation represents a nuclear reaction:\n\t\t[eq:41]\n\tWhat are the values of a and b?\n\na\nb",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "54\n92"
+        },
+        {
+          "label": "B",
+          "text": "54\n94"
+        },
+        {
+          "label": "C",
+          "text": "56\n92"
+        },
+        {
+          "label": "D",
+          "text": "56\n94"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Consider the atomic number.\n[eq:42]\nConsider the mass number.\n[eq:43]",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031119.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031119.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            160.84976196289062,
+            155.59298706054688,
+            173.02676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031120",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 20,
+      "type": "mc",
+      "level": "easy",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "The mass of a hydrogen nucleus is 1.007 276 u. How much energy is this mass equivalent to?\n\tGiven:\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.6 × 10-18 J"
+        },
+        {
+          "label": "B",
+          "text": "1.5 × 10-10 J"
+        },
+        {
+          "label": "C",
+          "text": "6.7 × 109 J"
+        },
+        {
+          "label": "D",
+          "text": "8.4 × 1019 J"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Energy\t= (1.007 276 × 1.661 × 10-27) × (3.00 × 108)2\n\t= 1.5 × 10-10 J",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031120.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031120.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            475.8497619628906,
+            156.04299926757812,
+            488.0267639160156
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031121",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 21,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "When a U-235 nucleus undergoes fission, which of the following could never be formed?\n\t(1)\t[eq:44]\n\t(2)\t[eq:45]\n\t(3)\t[eq:46]",
+        "ocr": "",
+        "equations": 3,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "In nuclear fission, a nucleus splits into several lighter nuclei. Neutrons may be emitted during the process.\n∴ (1) could never be formed.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031121.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031121.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.04299926757812,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031122",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 22,
+      "type": "mc",
+      "level": "easy",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "Where does the energy released in a fusion reaction mainly come from?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Mass difference before and after the reaction"
+        },
+        {
+          "label": "B",
+          "text": "Chemical energy stored in the nuclei"
+        },
+        {
+          "label": "C",
+          "text": "Kinetic energy of the nuclei"
+        },
+        {
+          "label": "D",
+          "text": "Heat input into the system"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "In a fusion reaction, the loss in mass is converted into energy and released as energy in different forms.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031122.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031122.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            366.94976806640625,
+            156.04299926757812,
+            379.12677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031123",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 23,
+      "type": "mc",
+      "level": "easy",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "Which of the following nuclear reactions is not a fusion reaction?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "[eq:47]"
+        },
+        {
+          "label": "B",
+          "text": "[eq:48]"
+        },
+        {
+          "label": "C",
+          "text": "[eq:49]"
+        },
+        {
+          "label": "D",
+          "text": "[eq:50]"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "In B, [eq:51] nucleus splits into lighter [eq:52] nucleus and [eq:53] nucleus. Therefore, it is a fission reaction.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031123.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031123.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            569.1497802734375,
+            156.04299926757812,
+            581.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031124",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 24,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about nuclear fission are correct?\n\t(1)\tA huge amount of energy is usually released in the process.\n\t(2)\tA nucleus can split in several ways.\n\t(3)\tNeutrons are usually emitted.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031124.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031124.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            157.34976196289062,
+            156.04299926757812,
+            169.52676391601562
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031125",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 25,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following equation shows a nuclear reaction:\n\t\t[eq:54]P +[eq:55]Q →[eq:56]R + 2[eq:57]S\n\tWhich of the following statements about this nuclear reaction are correct?\n\t(1)\tThis is nuclear fusion.\t\n\t(2)\tNuclides P and R are isotopes.\n\t(3)\tS is a neutron.",
+        "ocr": "",
+        "equations": 4,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "[eq:58] and [eq:59] are lighter than [eq:60].\nThe nuclear reaction is nuclear fusion.\n∴ (1) is correct.\nIsotopes are different atoms that contain the same number of protons but different numbers of neutrons.\nNumber of protons of P = atomic number = 2\nNumber of protons of R = 2\nNumber of neutrons of P = mass number - atomic number = 3 – 2 = 1\nNumber of neutrons of R = 4 – 2 = 2\n∴ (2) is correct.\nConsider the atomic number.\n[eq:61]\nConsider the mass number.\n[eq:62]\nS is [eq:63], which is a proton.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031125.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031125.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            381.69976806640625,
+            156.04299926757812,
+            393.87677001953125
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031126",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 26,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about the fusion of hydrogen are correct?\n\t(1)\tA high temperature is needed to initiate the reaction.\n\t(2)\tA neutron is needed to trigger the reaction.\n\t(3)\tThis is the source of energy of the sun.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031126.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031126.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            12
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            233.04977416992188,
+            156.04299926757812,
+            245.22677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031127",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 27,
+      "type": "mc",
+      "level": "avg",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn some older stars, the following reactions may take place to produce C-12.\n\t\t[eq:64]He +[eq:65]He →[eq:66]Be\n\t\t[eq:67]Be +[eq:68]He →[eq:69]C\n\tGiven:\tmass of He-4 nucleus = 4.001 506 u\n\t\tmass of C-12 nucleus = 11.996 709 u\n\t\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.\n\tEstimate the total energy released in the above nuclear reactions.",
+        "ocr": "",
+        "equations": 6,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.14 MeV"
+        },
+        {
+          "label": "B",
+          "text": "4.21 MeV"
+        },
+        {
+          "label": "C",
+          "text": "7.27 MeV"
+        },
+        {
+          "label": "D",
+          "text": "10.33 MeV"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Δm = 3 × 4.001 506 - 11.996 709 = 0.007 809 u\nΔE = 0.007 809 × 931 = 7.27 MeV",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031127.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031127.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            12,
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            457.3997802734375,
+            156.04299926757812,
+            469.5767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy",
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031128",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 28,
+      "type": "mc",
+      "level": "avg",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe following nuclear reaction releases 17.58 MeV of energy.\n\t\t[eq:70]H +[eq:71]H →[eq:72]He +[eq:73]n\n\tGiven:\tmass of H-2 nucleus = 2.013 553 u\n\t\tmass of H-3 nucleus = 3.015 500 u \n\t\tmass of He-4 nucleus = 4.001 506 u\n\t\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.\n\tEstimate the mass of a neutron from the above data.",
+        "ocr": "",
+        "equations": 4,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.007 276 u"
+        },
+        {
+          "label": "B",
+          "text": "1.008 664 u"
+        },
+        {
+          "label": "C",
+          "text": "1.008 925 u"
+        },
+        {
+          "label": "D",
+          "text": "1.027 547 u"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "[eq:74]\nLet m be the mass of a neutron.\n0.018 883 = (2.013 553 + 3.015 500) - (4.001 506 + m)\n\tm = 1.008 664 u",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031128.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031128.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            13
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            157.24978637695312,
+            156.04299926757812,
+            169.42678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031129",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 29,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following would be the advantages of a fusion-driven power station over a fission-driven one?\n\t(1)\tIt does not emit carbon dioxide when generating electricity.\n\t(2)\tThe fusion products are less dangerous.\n\t(3)\tIts fuel is practically inexhaustible.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "C",
+        "worked": "Both nuclear fission and fusion do not emit carbon dioxide when generating electricity.\n∴ (1) is incorrect.\nNuclear fusion does not produce any long-lived radioactive nuclear waste.\n∴ (2) is correct.\nThe supply of fuel, namely hydrogen-2 and hydrogen-3, is abundant. Hydrogen-2 can be obtained easily from the sea; hydrogen-3 can be artificially created.\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031129.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031129.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            13,
+            14
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            554.0497436523438,
+            156.04299926757812,
+            566.2267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031130",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 30,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about fission is/are correct? \n\t(1)\tThe atomic number of the nucleus before fission is equal to the sum of the atomic numbers of all the fission products.\n\t(2)\tFission is reversible.\n\t(3)\tThe fission products of U-235 nucleus can only be Ba-144 nucleus, Kr-90 nucleus and neutrons.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "(1) is correct when the fission reaction happens spontaneously. Even when a neutron is needed to bombard the nucleus to trigger the fission reaction, (1) is still correct as the atomic number of neutron is 0.\n∴ (1) is correct.\nFission is irreversible.\n(2) is incorrect.\nA U-235 nucleus can split in many ways.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031130.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031130.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            14
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            220.49978637695312,
+            156.04299926757812,
+            232.67678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031131",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 31,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following statements about the nuclear waste produced in a nuclear power plant is/are correct?\n\t(1)\tIt should be sealed in metal containers.\n\t(2)\tIt should be stored underground.\n\t(3)\tIt remains harmful for a long time.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Nuclear waste is radioactive and usually contains radionuclides that have long half-lives.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031131.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031131.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            14,
+            15
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            574.8997802734375,
+            156.04299926757812,
+            587.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031132",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 32,
+      "type": "mc",
+      "level": "avg",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhat is the mass difference between a [eq:75]Pb atom and its components?\n\tGiven:\tmass of a proton = 1.007 276 u\n\t\tmass of a neutron = 1.008 665 u\n\t\tmass of an electron = 0.000 549 u\n\t\tmass of a [eq:76]Pb atom = 205.974 465 u",
+        "ocr": "",
+        "equations": 2,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.696 627 u"
+        },
+        {
+          "label": "B",
+          "text": "1.741 645 u"
+        },
+        {
+          "label": "C",
+          "text": "84.407 157 u"
+        },
+        {
+          "label": "D",
+          "text": "84.452 175 u"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Number of electrons in a [eq:77] atom = number of protons in a [eq:78] atom = 82\nNumber of neutrons in a [eq:79] atom = 206 – 82 = 124\nMass difference\n= (82 × 1.007 276 + 124 × 1.008 665 + 82 × 0.000 549) - 205.974 465\n= 1.741 645 u",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031132.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031132.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            15
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            157.24978637695312,
+            156.04299926757812,
+            169.42678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031133",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 33,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tIn a nuclear reactor, a uranium-235 nucleus is bombarded by a neutron. It is then split up into two nuclei and a few neutrons are produced. Which of the following statements are correct?\n\t(1)\tThis process is called fission.\n\t(2)\tFast-moving neutrons are used to bombard the uranium-235 nuclei.\n\t(3)\tA large amount of energy is released.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "In a nuclear reactor, slow-moving neutrons are used to bombard the uranium-235 nuclei.\n∴ (2) is incorrect.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031133.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031133.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            15
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            505.6997375488281,
+            156.04299926757812,
+            517.876708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031134",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 34,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tWhich of the following correctly describes the difference between radioactive decay and nuclear fission?",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "Nuclear fission is usually triggered by neutron bombardment while radioactive decay is spontaneous."
+        },
+        {
+          "label": "B",
+          "text": "Radiation is released during radioactive decay while no radiation is released during nuclear fission."
+        },
+        {
+          "label": "C",
+          "text": "Nuclear fission releases energy while radioactive decay does not."
+        },
+        {
+          "label": "D",
+          "text": "Radioactive decay always forms radioactive products while nuclear fission always forms non-radioactive products."
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "In both radioactive decay and nuclear fission, energy is released. Some energy may be released in the form of radiation such as γ rays.\n∴ B and C are incorrect.\nNuclear fission usually forms radioactive products.\n∴ D is incorrect.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031134.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031134.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            16
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            107.7497787475586,
+            156.04299926757812,
+            119.9267807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031135",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 35,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tThe figure below shows a chain reaction of nuclear fission. X collides with a U-235 nucleus and a nuclear reaction occurs. The reaction produces two X and they collide with another two U-235 nuclei.\n[fig:1]X\nU-235 nucleus\n\n[fig:2]X\nU-235 nucleus\n\n\n\tWhich of the following statements about the above chain reaction must be correct?\n\t(1)\tX is a neutron.\n\t(2)\tThe chain reaction is sustained only if the mass of the sample of U-235 is below the critical mass.\n\t(3)\tThe chain reaction is uncontrollable.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(3) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "A",
+        "worked": "The chain reaction is sustained if the mass of the sample of U-235 is larger than the critical mass.\n∴ (2) is incorrect.\nBy controlling the mass or concentration of U-235 and the number of neutrons that trigger further fission, the chain reaction can be controlled.\n∴ (3) is incorrect.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031135.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031135.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            16,
+            17
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            404.3997802734375,
+            156.04299926757812,
+            416.5767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031136",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 36,
+      "type": "mc",
+      "level": "avg",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→\tX undergoes fission as follows with m > 1:\n\t\t[eq:80]\n\tWhich of the following equations is/are correct?\n\t(1)\ta = c + e\n\t(2)\tb = d + f\n\t(3)\ta - b = c - d + e - f + m - 1",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) only"
+        },
+        {
+          "label": "B",
+          "text": "(2) only"
+        },
+        {
+          "label": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "label": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "D",
+        "worked": "Consider the mass number.\n\ta + 1\t= c + e + m × 1\n\ta\t= c + e + m - 1 ……(i)\n\ta\t≠ c + e  ( [eq:81] m > 1)\n∴ (1) is incorrect.\nConsider the atomic number.\nb = d + f ……(ii)\n∴ (2) is correct.\n(i) – (ii):\na - b\t= c + e + m - 1 - d - f\n\t= c - d + e - f + m - 1\n∴ (3) is correct.",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031136.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031136.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            17
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            253.94979858398438,
+            156.04299926757812,
+            266.1268005371094
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031137",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 37,
+      "type": "mc",
+      "level": "dif",
+      "part": "ext",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tWhen a polonium-210 (Po-210) nucleus undergoes α decay, 5.31 MeV of energy is released. The half-life of Po-210 is 138 days. Estimate the total amount of energy released by 1 kg of Po-210 in 100 days. Take the mass of a Po-210 atom as 210 u. Assume the decay products are stable.\n\tGiven:\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.13 × 1024 MeV"
+        },
+        {
+          "label": "B",
+          "text": "6.01 × 1024 MeV"
+        },
+        {
+          "label": "C",
+          "text": "9.21 × 1024 MeV"
+        },
+        {
+          "label": "D",
+          "text": "1.05 × 1027 MeV"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "N0 = [eq:82] = 2.867 × 1024\nk = [eq:83] = [eq:84] = 5.023 × 10-3 day-1\nAfter 100 days,\nN = Ne-kt = (2.867 × 1024) × [eq:85] = 1.735 × 1024\nNumber of polonium-210 nuclei that decayed in 100 days\n= N0 - N = 2.867 × 1024 - 1.735 × 1024 = 1.132 × 1024\nTotal amount of energy released in 100 days = (1.132 × 1024) × 5.31 = 6.01 × 1024 MeV",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031137.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031137.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            17,
+            18
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            670.19970703125,
+            156.04299926757812,
+            682.376708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15031138",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 38,
+      "type": "mc",
+      "level": "dif",
+      "part": "core",
+      "marks": 2,
+      "stem": {
+        "text": "→→\tThe fission of one atom of uranium-235 (U-235) generates 202.5 MeV of energy. Suppose that a power plant consumes 0.5 kg of U-235 each hour and its efficiency in converting nuclear energy into electrical energy is 30%. Estimate its electrical power output. (1 GW = 109 W)\n\tGiven:\tmolar mass of U-235 = 235 g\n\t\tAvogadro’s number NA = 6.02 × 1023 mol-1\n\t\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [
+        {
+          "label": "A",
+          "text": "1.24 GW"
+        },
+        {
+          "label": "B",
+          "text": "3.46 GW"
+        },
+        {
+          "label": "C",
+          "text": "6.92 GW"
+        },
+        {
+          "label": "D",
+          "text": "11.5 GW"
+        }
+      ],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": "B",
+        "worked": "Number of moles n in 0.5 kg of U-235 = [eq:86] = [eq:87] = 2.13 mol\nNumber of nuclei N in 0.5 kg of U-235 = nNA = 2.13 × (6.02 × 1023) = 1.28 × 1024\nP = [eq:88] = [eq:89] = 3.46 × 109 W = 3.46 GW",
+        "marking": [],
+        "source": "QB_503/5_ch03_MC_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15031138.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15031138.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_MC_e.docx",
+          "sha256": "2afc734860997fcfbecde624a6af9b6449616b017fadfb4eb29376a387a2c05b",
+          "pdf": "qb-pdf/QB_503/5_ch03_MC_e.pdf",
+          "pages": [
+            18
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            437.6497802734375,
+            156.04299926757812,
+            449.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15034101",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 1,
+      "type": "rq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\nTreatment of nuclear waste\n\tA nuclear powe plant does not emit greenhouse gases when generating electricity. However, the nuclear waste produced is harmful. Direct disposal and reuse are two common ways to treat the nuclear waste.\n\tUsed fuel removed from nuclear reactors is stored in pools filled with water, which can cool down the waste and absorb the radiation emitted. Since there are fissile materials left in the waste, it should not be placed close to each other. Moreover, neutron-absorbing materials are added to the racks holding the waste. \n\tAfter staying in the pool for several years, the waste is sealed in reinforced casks, typically made of steel. The casks may have to be stored for thousands, or even millions, of years. However, no permanent storage site is ready yet.\n\tIf nuclear waste is to be reused, useful substances will be extracted from the waste and used for different purposes. For example, the extracted strontium-90 can be used in industrial thickness gauge and treatment of bone cancer. \n\n\t(a)\tWhy should nuclear waste be stored for a very long time?\t(1 mark)\n\t(b)\tThe nuclear waste stored in pools should not be too crowded. Explain the reason.\n\t(2 marks)\n\t(c)\tSuggest one requirement of a storage site of nuclear waste.\t(1 mark)\n\t(d)\tSuggest one advantage of reusing the waste over direct disposal.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Why should nuclear waste be stored for a very long time?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "The nuclear waste stored in pools should not be too crowded. Explain the reason.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Suggest one requirement of a storage site of nuclear waste.",
+          "marks": 1
+        },
+        {
+          "label": "d",
+          "text": "Suggest one advantage of reusing the waste over direct disposal.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe half-life of the waste is very long.\n1A\n(b)\tThere are fissile materials left in the waste.\n\tIf it is too crowded, chain reaction may occur. \n1A\n1A\n(c)\tFar away from population\n1A\n\t(Or other reasonable answers)\n\n(d)\tReduce the demands for storing nuclear waste.\n\t(Or other reasonable answers)\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The half-life of the waste is very long.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "There are fissile materials left in the waste.\n\tIf it is too crowded, chain reaction may occur.",
+            "code": "1A 1A"
+          },
+          {
+            "part": "c",
+            "point": "Far away from population",
+            "code": "1A"
+          },
+          {
+            "part": "d",
+            "point": "Reduce the demands for storing nuclear waste.\n\t(Or other reasonable answers)",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_RQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15034101.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15034101.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_RQ_e.docx",
+          "sha256": "0116151773585cd6f9d9762083e1b5d7a80dce8d9095b3b4fc53df5d185f6494",
+          "pdf": "qb-pdf/QB_503/5_ch03_RQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            24.75,
+            71.9997787475586,
+            130.09300231933594,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032101",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 1,
+      "type": "sq",
+      "level": "dif",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→→\tIn a nuclear reactor, the amount of energy released in a fission reaction of uranium-235 nucleus is 3.18 × 10-11 J. Find\n\t(a)\tthe number of fission reactions;\t(2 marks)\n\t(b)\tthe minimum mass of uranium-235\t(2 marks)\n\trequired to maintain an output power of 1 × 109 W for a year (365 days). Assume the efficiency of the nuclear reactor is 100%. Given: the mass of 1 mole of uranium-235 is 235 g.\n\tGiven: Avogadro’s number NA = 6.02 × 1023 mol–1",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "the number of fission reactions;",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "the minimum mass of uranium-235",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tTotal amount of energy required = Pt\t= (1 × 109)(365 × 24 × 60 × 60)\n1M\n\t\t= 3.154 × 1016 J\n\n\tNumber of fission reactions required =[eq:1]= 9.92 × 1026\n1A\n(b)\tMass of uranium-235 required\t= number of moles × molar mass\n\n\t\t=[eq:2]× 0.235\n1M\n\t\t= 387 kg\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Total amount of energy required = Pt\t= (1 × 109)(365 × 24 × 60 × 60)",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "Number of fission reactions required =[eq:1]= 9.92 × 1026",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "=[eq:2]× 0.235",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 387 kg",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032101.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032101.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            71.9997787475586,
+            156.4929962158203,
+            84.1767807006836
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032102",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 2,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "A fission reaction is shown below.\n[eq:3]\n\t(a)\tFind x and y.\t(2 marks)\n\t(b)\tState one property of the above reaction which makes it possible for a chain reaction to sustain. Explain briefly.\t(2 marks)",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find x and y.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "State one property of the above reaction which makes it possible for a chain reaction to sustain. Explain briefly.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tConsider the atomic numbers.\n\n\t\t92 + 0\t= x + 36 + (2)(0)\n\n\t\tx\t= 56\n1A\n\tConsider the mass numbers.\n\n\t\t235 + 1\t= 144 + y + (2)(1)\n\n\t\ty\t= 90\n1A\n(b)\tSince two (more than one) neutrons are produced in each fission,\n1A\n\tthey can trigger further fissions.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "x\t= 56",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "y\t= 90",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Since two (more than one) neutrons are produced in each fission,",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "they can trigger further fissions.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032102.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032102.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            1
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            411.2997741699219,
+            156.4929962158203,
+            423.4767761230469
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032103",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 3,
+      "type": "sq",
+      "level": "easy",
+      "part": "ext",
+      "marks": 5,
+      "stem": {
+        "text": "[fig:1]\n\tIn the core of the Sun, the following nuclear reaction continuously takes place.\n[eq:4]\n\t(a)\tIs it a nuclear fission or a nuclear fusion?\t(1 mark)\n\t(b)\tWhat is X?\t(1 mark)\n\t(c)\tFind the energy released in the reaction. Express your answer in joule. \t(3 marks)\n\t\tGiven:\tmass of [eq:5]= 2.013 553 u\n\t\t\tmass of [eq:6]= 3.016 029 u\n\t\t\tmass of X = 1.008 665 u\n\t\t\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 3,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Is it a nuclear fission or a nuclear fusion?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "What is X?",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Find the energy released in the reaction. Express your answer in joule.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tNuclear fusion\n1A\n(b)\tNeutron\n1A\n(c)\tΔm\t= 2.013 553 × 2 - (3.016 029 + 1.008 665)\n1M\n\t\t= 0.002 412 u\n\n\tΔQ = Δmc2\t= (0.002 412 × 1.661 × 10-27)(3.00 × 108)2\n1M\n\t\t= 3.61 × 10-13 J\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Nuclear fusion",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Neutron",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Δm\t= 2.013 553 × 2 - (3.016 029 + 1.008 665)",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "ΔQ = Δmc2\t= (0.002 412 × 1.661 × 10-27)(3.00 × 108)2",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "= 3.61 × 10-13 J",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032103.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032103.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            714.3497314453125,
+            156.4929962158203,
+            726.5267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy",
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032104",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 4,
+      "type": "sq",
+      "level": "easy",
+      "part": "ext",
+      "marks": 5,
+      "stem": {
+        "text": "The reaction between nitrogen-15 and hydrogen-1 is represented by the following equation.\n[eq:7]\n\t(a)\tFind the values of x and y.\t(2 marks)\n\t(b)\tThe energy released in the above reaction is 7.97 × 10-13 J. What is the difference between the total mass of the reactants and the products? Express your answer in u.\t(3 marks)\n\t\tGiven:\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the values of x and y.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The energy released in the above reaction is 7.97 × 10-13 J. What is the difference between the total mass of the reactants and the products? Express your answer in u.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tConsider the mass numbers.\n\n\t\t15 + 1\t= y + 4\n\n\t\ty\t= 12\n1A\n\tConsider the atomic numbers.\n\n\t\t7 + 1\t= x + 2\n\n\t\tx\t= 6\n1A\n(b)\tBy ΔE = Δmc2,\n\n\tΔm =[eq:8]\t=[eq:9]\n1M\n\t\t= 8.86 × 10-30 kg\n\n\t\t=[eq:10]u\n1M\n\t\t= 0.005 33 u\n1A\n\tThe difference between the total mass of the reactants and the products is 0.005 33 u.",
+        "marking": [
+          {
+            "part": "a",
+            "point": "y\t= 12",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "x\t= 6",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Δm =[eq:8]\t=[eq:9]",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "=[eq:10]u",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 0.005 33 u",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032104.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032104.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            592.94970703125,
+            156.4929962158203,
+            605.126708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032105",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 5,
+      "type": "sq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 5,
+      "stem": {
+        "text": "→\tThe following table shows the masses of some particles.\nParticle\nMass / u\nSg-263 nucleus\n263.118 294\nRf-259 nucleus\n259.105 596\nα particle\n4.002 603\n\tIt is known that Sg-263 nucleus can undergoes an α decay to form Rf-259 nucleus.\n\t(a)\tBy considering the masses of the particles involved in the reaction, show that the reaction is possible.\t(2 marks)\n\t(b)\tHence, find the energy released in the reaction in MeV. \t(2 marks)\n\t\tGiven:\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.\n\t(c)\tSuggest one kind of energy that the released energy in the reaction becomes.\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "By considering the masses of the particles involved in the reaction, show that the reaction is possible.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Hence, find the energy released in the reaction in MeV.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "Suggest one kind of energy that the released energy in the reaction becomes.",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tTotal mass before reaction\t= mass of Sg-263 nuclide\n\n\t\t= 263.118 294 u\n\n\tTotal mass after the reaction\t= mass of Rf-259 nuclide + mass of α particle\n\n\t\t= 259.105 596 + 4.002 603\n\n\t\t= 263.108 199 u\n1M\n\tSince the total mass after the reaction is less than the total mass before the reaction, the reaction is possible.\n\n1A\n(b)\tEnergy released\t= (263.118 294 – 263.108 199) × 931\n1M\n\t\t= 9.40 MeV\n1A\n(c)\tKinetic energy of the decay products\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "= 263.108 199 u",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "Since the total mass after the reaction is less than the total mass before the reaction, the reaction is possible.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Energy released\t= (263.118 294 – 263.108 199) × 931",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 9.40 MeV",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Kinetic energy of the decay products",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032105.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032105.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            3
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            412.6497802734375,
+            156.4929962158203,
+            424.8267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032106",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 6,
+      "type": "sq",
+      "level": "easy",
+      "part": "ext",
+      "marks": 5,
+      "stem": {
+        "text": "Bismuth-210 decays according to the equation below:\n\t\t[eq:11]\n\t(a)\tWhat type of decay is it?\t(1 mark)\n\t(b)\tIt is known that the masses of [eq:12],[eq:13] and [eq:14] are 209.984 120 u, 209.982 874 u and 0.000 549 u respectively.\n\t\t(i)\tFind the loss in mass in the reaction. Express your answer in atomic mass unit.\n\t(2 marks)\n\t\t(ii)\tFind the energy released in the reaction. Express your answer in joules.\t(2 marks)\n\t\tGiven:\tc = 3.00 × 108 m s–1\n\t\t\te = 1.60 × 10–19 C\n\t\t\t1 u = 1.661 × 10–27 kg\n\t\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 4,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What type of decay is it?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "It is known that the masses of [eq:12],[eq:13] and [eq:14] are 209.984 120 u, 209.982 874 u and 0.000 549 u respectively.\n\t\t(i)\tFind the loss in mass in the reaction. Express your answer in atomic mass unit.",
+          "marks": 2
+        },
+        {
+          "label": "b(ii)",
+          "text": "Find the energy released in the reaction. Express your answer in joules.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tβ decay\n1A\n(b)\t(i)\tΔm\t= 209.984 120 - (209.982 874 + 0.000 549)\n1M\n\t\t\t= 0.000 697 u\n1A\n\t(ii)\tΔE = Δmc2\t= 0.000 697 × 1.661 × 10-27 × (3.00 × 108)2\n1M\n\t\t\t= 1.04 × 10-13 J\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "β decay",
+            "code": "1A"
+          },
+          {
+            "part": "b(i)",
+            "point": "Δm\t= 209.984 120 - (209.982 874 + 0.000 549)",
+            "code": "1M"
+          },
+          {
+            "part": "b(i)",
+            "point": "= 0.000 697 u",
+            "code": "1A"
+          },
+          {
+            "part": "b(ii)",
+            "point": "ΔE = Δmc2\t= 0.000 697 × 1.661 × 10-27 × (3.00 × 108)2",
+            "code": "1M"
+          },
+          {
+            "part": "b(ii)",
+            "point": "= 1.04 × 10-13 J",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032106.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032106.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            4
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            212.54977416992188,
+            156.4929962158203,
+            224.72677612304688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032107",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 7,
+      "type": "sq",
+      "level": "easy",
+      "part": "ext",
+      "marks": 4,
+      "stem": {
+        "text": "Deuterium is an isotope of hydrogen. The mass of its nucleus is 2.013 553 u.\n\t(a)\tWhat is the mass number and atomic number of deuterium?\t(2 marks)\n\t(b)\tExpress the mass of a deuterium nucleus in kg.\t(2 marks)\n\tGiven:\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "What is the mass number and atomic number of deuterium?",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Express the mass of a deuterium nucleus in kg.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tThe mass number is 2.\n1A\n\tThe atomic number is 1.\n1A\n(b)\tMass of deuterium nucleus\t= 2.013 553 × (1.661 × 10-27)\n1M\n\t\t= 3.34 × 10-27 kg\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The mass number is 2.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The atomic number is 1.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Mass of deuterium nucleus\t= 2.013 553 × (1.661 × 10-27)",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= 3.34 × 10-27 kg",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032107.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032107.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            4,
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            587.5497436523438,
+            156.4929962158203,
+            599.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032108",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 8,
+      "type": "sq",
+      "level": "easy",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "The following equations represent two types of nuclear reactions.\n\tNuclear reaction I:\n\t\t[eq:15]\n\tNuclear reaction II:\n\t\t[eq:16]\n\t(a)\t(i)\tWhich of the above reactions occurs in the Sun?\t(1 mark)\n\t\t(ii)\tWhich of the above reactions occurs in a nuclear reactor?\t(1 mark)\n\t(b)\tFind the values of s and r.\t(2 marks)",
+        "ocr": "",
+        "equations": 2,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a(i)",
+          "text": "Which of the above reactions occurs in the Sun?",
+          "marks": 1
+        },
+        {
+          "label": "a(ii)",
+          "text": "Which of the above reactions occurs in a nuclear reactor?",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Find the values of s and r.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t(i)\tReaction II\n1A\n\t(ii)\tReaction I\n1A\n(b)\tConsider the atomic numbers in reaction I.\n\n\t\t92 + 0\t= s + 38 + 2 × 0\n\n\t\ts\t= 54\n1A\n\tConsider the mass numbers in reaction II.\n\n\t\t3 + r\t= 4 + 1\n\n\t\tr\t= 2\n1A",
+        "marking": [
+          {
+            "part": "a(i)",
+            "point": "Reaction II",
+            "code": "1A"
+          },
+          {
+            "part": "a(ii)",
+            "point": "Reaction I",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "s\t= 54",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "r\t= 2",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032108.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032108.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            5
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            194.14974975585938,
+            156.4929962158203,
+            206.32675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032109",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 9,
+      "type": "sq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 6,
+      "stem": {
+        "text": "→\tA star much more massive than the Sun releases energy by nuclear fusion in its core, just like the Sun. However, the fusion does not stop at forming helium. The equation below shows a reaction that will take place in the core of the star after the hydrogen in its core is used up.\n\t\t[eq:17]C +[eq:18]He →[eq:19]O\n\tGiven:\tmass of neutron = 1.008 665 u\n\t\tmass of H-2 nucleus = 2.013 553 u\n\t\tmass of H-3 nucleus = 3.015 500 u\n\t\tmass of He-4 nucleus = 4.001 506 u\n\t\tmass of C-12 nucleus = 11.996 709 u\n\t\tmass of O-16 nucleus = 15.990 525 u\n\t\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.\n\t(a)\tWhen there is still plenty of hydrogen in the core of the star, H-2 can combine with H-3 to form He-4 and another particle. Write an equation to represent this reaction.\t(1 mark)\n\t(b)\tCompare the energy given out in the formation of O-16 and He-4 by the fusion described above.\t(3 marks)\n\t(c)\tThe star will explode at the end of its evolution. It will eject a large amount of matter into the space and release 1044 J of energy. Before the explosion, the mass of the star is about 10 times the mass of the Sun. The remains will be only 1.5 times the solar mass. Estimate the mass of matter ejected into the space during the explosion.\n\t\tGiven: solar mass = 1.99 × 1030 kg\t(2 marks)",
+        "ocr": "",
+        "equations": 3,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "When there is still plenty of hydrogen in the core of the star, H-2 can combine with H-3 to form He-4 and another particle. Write an equation to represent this reaction.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Compare the energy given out in the formation of O-16 and He-4 by the fusion described above.",
+          "marks": 3
+        },
+        {
+          "label": "c",
+          "text": "The star will explode at the end of its evolution. It will eject a large amount of matter into the space and release 1044 J of energy. Before the explosion, the mass of the star is about 10 times the mass of the Sun. The remains will be only 1.5 times the solar mass. Estimate the mass of matter ejected into the space during the explosion.\n\t\tGiven: solar mass = 1.99 × 1030 kg",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\t[eq:20]H +[eq:21]H →[eq:22]He +[eq:23]n\n1A\n(b)\tEnergy given out in forming He-4\n\n\t= (2.013 553 + 3.015 500) - (4.001 506 + 1.008 665) = 0.018 882 u\n1M\n\tEnergy given out in forming O-16\n\n\t= (11.996 709 + 4.001 506) - 15.990 525 = 0.007 690 u\n1M\n\t∴ The energy given out in forming He-4 is larger.\n1A\n(c)\tMass that become energy in explosion =[eq:24]\t=[eq:25]\n1M\n\t\t= 1.11 × 1027 kg\n\n\tMass of matter ejected \n\t= 10 × 1.99 × 1030 - 1.5 × 1.99 × 1030 - 1.11 × 1027 = 1.69 × 1031 kg\n\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "[eq:20]H +[eq:21]H →[eq:22]He +[eq:23]n",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "= (2.013 553 + 3.015 500) - (4.001 506 + 1.008 665) = 0.018 882 u",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "= (11.996 709 + 4.001 506) - 15.990 525 = 0.007 690 u",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "∴ The energy given out in forming He-4 is larger.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Mass that become energy in explosion =[eq:24]\t=[eq:25]",
+            "code": "1M"
+          },
+          {
+            "part": "c",
+            "point": "Mass of matter ejected \n\t= 10 × 1.99 × 1030 - 1.5 × 1.99 × 1030 - 1.11 × 1027 = 1.69 × 1031 kg",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032109.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032109.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            5,
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            550.7997436523438,
+            156.4929962158203,
+            562.9767456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy",
+        "crop_multi_page"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032110",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 10,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 6,
+      "stem": {
+        "text": "→\tThe equation below represents a fission reaction.\n\t\t[eq:26]U +[eq:27]n →[eq:28]Xe +[eq:29]Sr + 3[eq:30]n\n\t(a)\tState two kinds of energy that the released energy in the reaction becomes. \t(2 marks)\n\t(b)\tCan this reaction lead to a chain reaction? Explain briefly.\t(2 marks)\n\t(c)\tState one advantage and one disadvantage in using this kind of reaction to generate electricity.\t(2 marks)",
+        "ocr": "",
+        "equations": 5,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "State two kinds of energy that the released energy in the reaction becomes.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Can this reaction lead to a chain reaction? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "c",
+          "text": "State one advantage and one disadvantage in using this kind of reaction to generate electricity.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tElectromagnetic radiation\n\tand kinetic energy of fission products\n1A\n1A\n(b)\tSince three (more than one) neutrons are released in each fission,\n\tthe reaction can lead to a chain reaction if the amount of U-235 reaches the critical mass.\n1A\n\n1A\n(c)\tAdvantage: Few air pollutants are released.\n\tDisadvantage: Nuclear waste is radioactive.\n\t(Or other reasonable answers)\n1A\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Electromagnetic radiation\n\tand kinetic energy of fission products",
+            "code": "1A 1A"
+          },
+          {
+            "part": "b",
+            "point": "Since three (more than one) neutrons are released in each fission,\n\tthe reaction can lead to a chain reaction if the amount of U-235 reaches the critical mass.",
+            "code": "1A 1A"
+          },
+          {
+            "part": "c",
+            "point": "Advantage: Few air pollutants are released.\n\tDisadvantage: Nuclear waste is radioactive.\n\t(Or other reasonable answers)",
+            "code": "1A 1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032110.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032110.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            6
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            521.3497314453125,
+            156.04299926757812,
+            533.5267333984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032111",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 11,
+      "type": "sq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 4,
+      "stem": {
+        "text": "→\tA positron is the antiparticle of an electron. A particle and its antiparticle have the same mass but opposite charges. When a particle collides with its antiparticle, they will be converted into energy completely. \n\tGiven:\tmass of positron = 5.486 × 10-4 u\n\t\tcharge of positron = 1.60 × 10-19 C\n\t\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.\n\t(a)\tFind the energy released in MeV when a positron collides with an electron. Neglect the initial kinetic energy of the two particles.\t(2 marks)\n\t(b)\tA proton also has an antiparticle, the antiproton. When a proton collides with an antiproton, will the energy released be higher or lower than the answer in (a)? Explain briefly.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the energy released in MeV when a positron collides with an electron. Neglect the initial kinetic energy of the two particles.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "A proton also has an antiparticle, the antiproton. When a proton collides with an antiproton, will the energy released be higher or lower than the answer in (a)? Explain briefly.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tEnergy\t= 2 × 5.486 × 10-4 × 931\n\t\t= 1.022 MeV\n\t\t≈ 1.02 MeV\n1M\n\n1A\n(b)\tThe energy released will be higher \n\tsince the mass of a proton is larger than that of an electron.\n1A\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Energy\t= 2 × 5.486 × 10-4 × 931\n\t\t= 1.022 MeV\n\t\t≈ 1.02 MeV",
+            "code": "1M 1A"
+          },
+          {
+            "part": "b",
+            "point": "The energy released will be higher \n\tsince the mass of a proton is larger than that of an electron.",
+            "code": "1A 1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032111.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032111.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            167.44979858398438,
+            155.6429901123047,
+            179.62680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032112",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 12,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\tNuclear reaction takes place inside a nuclear power plant to generate electricity.\n\t(a)\tName one possible fuels used in nuclear reactors.\t(1 mark)\n\t(b)\tFor a nuclear power plant to operate continuously, what is the condition of the mass of the fuel?\t(1 mark)\n\t(c)\tDescribe briefly the process of the nuclear reaction inside the reactor.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Name one possible fuels used in nuclear reactors.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "For a nuclear power plant to operate continuously, what is the condition of the mass of the fuel?",
+          "marks": 1
+        },
+        {
+          "label": "c",
+          "text": "Describe briefly the process of the nuclear reaction inside the reactor.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tUranium-235\n1A\n\t(Or other reasonable answers)\n\n(b)\tThe mass of the fuel should exceed the critical mass.\n1A\n(c)\tWhen a nucleus of the fuel is bombarded by a neutron, the nucleus splits into smaller nuclei.\n\n1A\n\tSeveral neutrons and a large amount of energy are released.\n1A\n\tThe neutrons emitted split other nuclei of the fuel to trigger further fissions. This results in a chain reaction.\n\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Uranium-235",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The mass of the fuel should exceed the critical mass.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "When a nucleus of the fuel is bombarded by a neutron, the nucleus splits into smaller nuclei.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "Several neutrons and a large amount of energy are released.",
+            "code": "1A"
+          },
+          {
+            "part": "c",
+            "point": "The neutrons emitted split other nuclei of the fuel to trigger further fissions. This results in a chain reaction.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032112.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032112.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            7
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            543.94970703125,
+            156.04299926757812,
+            556.126708984375
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032113",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 13,
+      "type": "sq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 4,
+      "stem": {
+        "text": "→\tThe mass of a nucleus is smaller than the total mass of its constituent nucleons. This means if the nucleons join together to form the nucleus, energy is released. Find the energy released in J when the nucleons join together to form a [eq:31] nucleus.\t(4 marks)\n\tGiven:\tmass of a proton = 1.007 276 u\n\t\tmass of a neutron = 1.008 665 u\n\t\tmass of a [eq:32] nucleus = 3.015 500 u\n\t\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.",
+        "ocr": "",
+        "equations": 2,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\nA [eq:33] nucleus contains 1 proton and 2 neutrons.\n\nΔm\t= (1.007 276 + 2 × 1.008 665) - 3.015 500 \n1M\n\t= 0.009 106 u\n\n\t= 0.009 106 × (1.661 × 10-27) kg\n1M\n\t= 1.51 × 10-29 kg\n\nEnergy released = Δmc2\t= (1.51 × 10-29) × (3.00 × 108)2\n1M\n\t= 1.36 × 10-12 J\n1A",
+        "marking": [
+          {
+            "part": "",
+            "point": "Δm\t= (1.007 276 + 2 × 1.008 665) - 3.015 500",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "= 0.009 106 × (1.661 × 10-27) kg",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "Energy released = Δmc2\t= (1.51 × 10-29) × (3.00 × 108)2",
+            "code": "1M"
+          },
+          {
+            "part": "",
+            "point": "= 1.36 × 10-12 J",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032113.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032113.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            165.44979858398438,
+            156.04299926757812,
+            177.62680053710938
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032114",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 14,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tFusion and fission are different nuclear reactions.\n\t(a)\tState one similarities and two differences between fusion and fission.\t(3 marks)\n\t(b)\tWhich reaction is now used in a power plant to produce electricity?\t(1 mark)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "State one similarities and two differences between fusion and fission.",
+          "marks": 3
+        },
+        {
+          "label": "b",
+          "text": "Which reaction is now used in a power plant to produce electricity?",
+          "marks": 1
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tSimilarities:\n\n\tThe nuclides before and after the reaction are different in both fusion and fission.\n1A\n\tDifferences (any two of the following):\n2 × 1A\n\tIn fission, a nucleus splits into several lighter nuclei. In fusion, two nuclei join together to form a heavier nucleus.\n\n\tFission is usually triggered by the bombardments of neutrons while fusion is not.\n\n\tThe temperature at which fusion occurs is much higher than that of fission.\n\t(Or other reasonable answers)\n\n(b)\tFission\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "The nuclides before and after the reaction are different in both fusion and fission.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "Differences (any two of the following): 2 ×",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Fission",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032114.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032114.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            8
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            533.5497436523438,
+            156.04299926757812,
+            545.7267456054688
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032115",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 15,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tThe following figure shows the flaring Sun.\n[fig:2]\n\t(a)\tThe Sun radiates at a power of 3.83 × 1026 W. In the most common fusion process in the Sun, four hydrogen nuclei ([eq:34]) undergo fusion to produce helium nucleus and other particles, releasing energy of 4.27 × 10-12 J.\n\t\tAssume that only the above reaction takes place in the Sun. Estimate how many hydrogen nuclei are consumed each second.\t(2 marks)\n\t(b)\tSuggest a condition for fusion to occur. Explain briefly.\t(2 marks)",
+        "ocr": "",
+        "equations": 1,
+        "has_figure": true,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "The Sun radiates at a power of 3.83 × 1026 W. In the most common fusion process in the Sun, four hydrogen nuclei ([eq:34]) undergo fusion to produce helium nucleus and other particles, releasing energy of 4.27 × 10-12 J.\n\t\tAssume that only the above reaction takes place in the Sun. Estimate how many hydrogen nuclei are consumed each second.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Suggest a condition for fusion to occur. Explain briefly.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tNumber of hydrogen nuclei consumed each second\t=[eq:35]× 4\n1M\n\t\t= 3.59 × 1038\n1A\n(b)\tNuclei carry positive charges and repel each other.\n1A\n\tFor fusion to occur, the nuclei have very high kinetic energy to overcome the electrostatic repulsion.\n\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Number of hydrogen nuclei consumed each second\t=[eq:35]× 4",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 3.59 × 1038",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Nuclei carry positive charges and repel each other.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "For fusion to occur, the nuclei have very high kinetic energy to overcome the electrostatic repulsion.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032115.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032115.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            138.14974975585938,
+            156.04299926757812,
+            150.32675170898438
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032116",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 16,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 4,
+      "stem": {
+        "text": "→\tA power station consists of 2 nuclear reactor. Each reactor has an average output power of \n950 MW. (1 MW = 106 W)\n\t(a)\tFind the energy supplied by the power station in a whole day.\t(2 marks)\n\t(b)\tThe energy released by fission from 1 kg of uranium fuel in the reactor is 2.88 × 1014 J and the power station has an efficiency of 25%. Find the mass of uranium fuel used in a whole day.\t(2 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the energy supplied by the power station in a whole day.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "The energy released by fission from 1 kg of uranium fuel in the reactor is 2.88 × 1014 J and the power station has an efficiency of 25%. Find the mass of uranium fuel used in a whole day.",
+          "marks": 2
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tEnergy supplied = Pt\t= (2 × 950 × 106) × (60 × 60 × 24)\n1M\n\t\t= 1.64 × 1014 J\n1A\n(b)\tInput energy in a whole day =[eq:36]= 6.56 × 1014 J\n1M\n\tMass of uranium fuel used in a whole day =[eq:37]= 2.28 kg\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Energy supplied = Pt\t= (2 × 950 × 106) × (60 × 60 × 24)",
+            "code": "1M"
+          },
+          {
+            "part": "a",
+            "point": "= 1.64 × 1014 J",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Input energy in a whole day =[eq:36]= 6.56 × 1014 J",
+            "code": "1M"
+          },
+          {
+            "part": "b",
+            "point": "Mass of uranium fuel used in a whole day =[eq:37]= 2.28 kg",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032116.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032116.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            9
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            556.8997802734375,
+            156.04299926757812,
+            569.0767822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032117",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 17,
+      "type": "sq",
+      "level": "avg",
+      "part": "core",
+      "marks": 5,
+      "stem": {
+        "text": "→\t(a)\tIs it suitable to build nuclear power plant in Hong Kong? Explain briefly.\t(2 marks)\n\t(b)\tSuggest a method to treat nuclear waste. Give one advantage and one disadvantage of this method.\t(3 marks)",
+        "ocr": "",
+        "equations": 0,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Is it suitable to build nuclear power plant in Hong Kong? Explain briefly.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Suggest a method to treat nuclear waste. Give one advantage and one disadvantage of this method.",
+          "marks": 3
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tNo.\n1A\n\tThe location of a nuclear power plant should be far away from the populated areas. However, it is difficult to find such a location in Hong Kong. \n\n1A\n\t(Or other reasonable answers)\n\n(b)\tBury the nuclear waste underground.\n1A\n\tAdvantage: The waste can be isolated from the human environment.\n1A\n\tDisadvantage: The land for burying the waste cannot be used for a long time.\n1A\n\t(Or other reasonable answers)",
+        "marking": [
+          {
+            "part": "a",
+            "point": "No.",
+            "code": "1A"
+          },
+          {
+            "part": "a",
+            "point": "The location of a nuclear power plant should be far away from the populated areas. However, it is difficult to find such a location in Hong Kong.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Bury the nuclear waste underground.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Advantage: The waste can be isolated from the human environment.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Disadvantage: The land for burying the waste cannot be used for a long time.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032117.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032117.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            177.49978637695312,
+            156.04299926757812,
+            189.67678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032118",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 18,
+      "type": "sq",
+      "level": "avg",
+      "part": "ext",
+      "marks": 5,
+      "stem": {
+        "text": "→\tWhen a uranium-235 nucleus is bombarded by a slow-moving neutron, it may undergo fission. The equations below show two possible reactions.\n\tReaction 1: [eq:38]\n\tReaction 2: [eq:39]\n\t(a)\tFind the value of x.\t(1 mark)\n\t(b)\tWhich reaction releases more energy? Explain briefly.\t(4 marks)\n\t\tGiven:\tmass of [eq:40]= 138.918 793 u\n\t\t\tmass of [eq:41]= 94.919 359 u\n\t\t\tmass of [eq:42]= 115.914 159 u\n\t\t\tmass of a neutron = 1.008 665 u",
+        "ocr": "",
+        "equations": 5,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Find the value of x.",
+          "marks": 1
+        },
+        {
+          "label": "b",
+          "text": "Which reaction releases more energy? Explain briefly.",
+          "marks": 4
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tConsider the mass numbers.\n\n\t\t1 + 235\t= 2 × 116 + x\n\n\t\tx\t= 4\n1A\n(b)\tTotal mass after reaction 1\n\n\t= 138.918 793 + 94.919 359 + 2 × 1.008 665 = 235.855 482 u\n1A\n\tTotal mass after reaction 2\n\n\t= 2 × 115.914 159 + 4 × 1.008 665 = 235.862 978 u\n1A\n\tThe total mass after reaction 1 is smaller. This means that the loss in mass in reaction 1 is greater.\n\n1A\n\tAccording to the mass-energy relationship, reaction 1 releases more energy.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "x\t= 4",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "= 138.918 793 + 94.919 359 + 2 × 1.008 665 = 235.855 482 u",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "= 2 × 115.914 159 + 4 × 1.008 665 = 235.862 978 u",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "The total mass after reaction 1 is smaller. This means that the loss in mass in reaction 1 is greater.",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "According to the mass-energy relationship, reaction 1 releases more energy.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032118.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032118.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            10
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            428.1497802734375,
+            156.04299926757812,
+            440.3267822265625
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    },
+    {
+      "schema": "paper2db.qb-item.v1",
+      "id": "PHY15032119",
+      "bank": "QB_503",
+      "book": "5",
+      "chapter": "03",
+      "seq": 19,
+      "type": "sq",
+      "level": "dif",
+      "part": "ext",
+      "marks": 7,
+      "stem": {
+        "text": "→→\tBoth nuclear reactions shown below release energy.\n\tReaction 1: [eq:43]U +[eq:44]n →[eq:45]Ba +[eq:46]Kr + 2[eq:47]n\n\tReaction 2: [eq:48]H +[eq:49]H →[eq:50]He +[eq:51]n\n\tGiven:\tmass of H-2 nucleus = 2.013 553 u\n\t\tmass of H-3 nucleus = 3.015 500 u\n\t\tmass of He-4 nucleus = 4.001506 u\n\t\tmass of U-235 nucleus = 235.043 923 u\n\t\tmass of neutron = 1.008 665 u\n\t\tc = 3.00 × 108 m s–1\n\t\te = 1.60 × 10–19 C\n\t\t1 u = 1.661 × 10–27 kg\n\t\t1 u is equivalent to 931 MeV.\n\tThe energy released in reaction 1 is 2.882 × 10-11 J.\n\t(a)\tCalculate the energy (in J) released in reaction 2.\t(2 marks)\n\t(b)\tSuppose there are two kinds of fuels: 1 kg of U-235 and 1 kg of a mixture of H-2 and H-3 in the ratio of 1 : 1. Which of the fuels releases more energy if all the fuels are used up? Show your calculation.\t(5 marks)",
+        "ocr": "",
+        "equations": 9,
+        "has_figure": false,
+        "equation_only": false
+      },
+      "options": [],
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Calculate the energy (in J) released in reaction 2.",
+          "marks": 2
+        },
+        {
+          "label": "b",
+          "text": "Suppose there are two kinds of fuels: 1 kg of U-235 and 1 kg of a mixture of H-2 and H-3 in the ratio of 1 : 1. Which of the fuels releases more energy if all the fuels are used up? Show your calculation.",
+          "marks": 5
+        }
+      ],
+      "answer": {
+        "status": "present",
+        "key": null,
+        "worked": "Solutions\nMarks\n(a)\tEnergy released in reaction 2\n\t= Δmc2\n\t= [(2.013 553 + 3.015 500) - (4.001506 + 1.008 665)] × (1.661 × 10-27)\n\t× (3.00 × 108)2\n\t= 2.82 × 10-12 J\n\n\n1M\n\n1A\n(b)\tNumber of U-235 in the fuel =[eq:52]= 2.56 × 1024\n1A\n\tEnergy released = (2.56 × 1024) × (2.882 × 10-11) = 7.38 × 1013 J\n1A\n\tNumber of H-2 in the fuel =[eq:53]= 1.20 × 1026\n1A\n\tEnergy released = (1.20 × 1026) × (2.82 × 10-12) = 3.38 × 1014 J\n1A\n\t∴ The mixture of H-2 and H-3 releases more energy.\n1A",
+        "marking": [
+          {
+            "part": "a",
+            "point": "Energy released in reaction 2\n\t= Δmc2\n\t= [(2.013 553 + 3.015 500) - (4.001506 + 1.008 665)] × (1.661 × 10-27)\n\t× (3.00 × 108)2\n\t= 2.82 × 10-12 J",
+            "code": "1M 1A"
+          },
+          {
+            "part": "b",
+            "point": "Number of U-235 in the fuel =[eq:52]= 2.56 × 1024",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Energy released = (2.56 × 1024) × (2.882 × 10-11) = 7.38 × 1013 J",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Number of H-2 in the fuel =[eq:53]= 1.20 × 1026",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "Energy released = (1.20 × 1026) × (2.82 × 10-12) = 3.38 × 1014 J",
+            "code": "1A"
+          },
+          {
+            "part": "b",
+            "point": "∴ The mixture of H-2 and H-3 releases more energy.",
+            "code": "1A"
+          }
+        ],
+        "source": "QB_503/5_ch03_SQ_e.docx"
+      },
+      "images": {
+        "stem": [
+          "crops/qb/PHY15032119.webp"
+        ],
+        "answer": [
+          "crops/qb/PHY15032119.ans.webp"
+        ]
+      },
+      "sources": [
+        {
+          "file": "QB_503/5_ch03_SQ_e.docx",
+          "sha256": "66204637c659c613dff021dcb2bfbd19f5e197770691d429e3948d2764c24cfb",
+          "pdf": "qb-pdf/QB_503/5_ch03_SQ_e.pdf",
+          "pages": [
+            11
+          ],
+          "bbox_pt": [
+            51.150001525878906,
+            194.74978637695312,
+            156.04299926757812,
+            206.92678833007812
+          ],
+          "origin": "libreoffice"
+        }
+      ],
+      "warnings": [
+        "equation_heavy"
+      ]
+    }
+  ]
+}
