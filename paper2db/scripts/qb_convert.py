@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """qb-pdf: convert every QB DOCX to PDF via LibreOffice.
 
-Inputs:  qb/**/*.docx  (canonical: paper2db/qb or $P2DB_QB_ROOT or paper2notes/qb — see find_qb_root)
+Inputs:  qb/**/*.docx  (canonical: paper2db/qb or $P2DB_QB_ROOT — see find_qb_root)
          plus 6 PDF-only sources that have no DOCX twin.
 Outputs: qb-pdf/<bank>/<stem>.pdf
          qb-pdf/convert-log.json  (sha256, page count, timing, converter)
@@ -13,7 +13,7 @@ Unicode equivalents in a temporary copy of the DOCX, because LibreOffice
 otherwise renders them as PUA bullets instead of alpha/beta/gamma.
 
 The --qb-root flag or $P2DB_QB_ROOT env var lets the caller point at the canonical QB tree outside the worktree.
-By default it probes $P2DB_QB_ROOT, then qb/ in-tree, then the paper2notes canonical path.
+By default it probes $P2DB_QB_ROOT, then qb/ in-tree.
 """
 from __future__ import annotations
 
@@ -51,14 +51,12 @@ BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
 
 
 def _expected_real_docx() -> int:
-    try:
-        if BANKS_JSON.is_file():
-            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
-            v = data.get("total_docx")
-            if isinstance(v, int) and v > 0:
-                return v
-    except Exception:
-        pass
+    if BANKS_JSON.is_file():
+        data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+        v = data.get("total_docx")
+        if isinstance(v, int) and v > 0:
+            return v
+        raise SystemExit(f"{BANKS_JSON} missing or invalid total_docx")
     return 169
 
 

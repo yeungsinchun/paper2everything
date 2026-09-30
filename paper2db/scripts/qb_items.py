@@ -140,19 +140,17 @@ def sha256_file(path: Path) -> str:
 
 def load_banks() -> dict | None:
     """Load banks.json if present; corpus-agnostic source of truth for scope."""
-    try:
-        if BANKS_JSON.is_file():
-            return json.loads(BANKS_JSON.read_text(encoding="utf-8"))
-    except Exception:
-        pass
+    if BANKS_JSON.is_file():
+        return json.loads(BANKS_JSON.read_text(encoding="utf-8"))
     return None
 
 
 def get_in_scope_banks() -> set[str]:
-    banks = load_banks()
-    if banks and isinstance(banks.get("banks_detail"), list):
-        return {b["id"] for b in banks["banks_detail"] if b.get("in_scope")}
-    # Fallback for legacy or when banks.json missing: original hardcoded set (Books 2,4,5)
+    if BANKS_JSON.is_file():
+        banks = load_banks()
+        if banks and isinstance(banks.get("banks_detail"), list):
+            return {b["id"] for b in banks["banks_detail"] if b.get("in_scope")}
+        raise SystemExit(f"{BANKS_JSON} missing or invalid banks_detail")
     return {f"QB_{i}" for i in list(range(201, 211)) + list(range(401, 409)) + list(range(501, 504))}
 
 
@@ -160,17 +158,13 @@ def load_source_manifest_info() -> dict | None:
     """Return manifest info for provenance field in v2 items."""
     for p in (QB_SOURCE_MANIFEST, SOURCE_MANIFEST_JSON):
         if p.is_file():
-            try:
-                m = json.loads(p.read_text(encoding="utf-8"))
-                # Also compute the manifest file's own sha256 for provenance
-                return {
-                    "manifest_path": str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p),
-                    "manifest_sha256": sha256_file(p),
-                    "total_docx": m.get("total_docx"),
-                    "banks": m.get("banks"),
-                }
-            except Exception:
-                continue
+            m = json.loads(p.read_text(encoding="utf-8"))
+            return {
+                "manifest_path": str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p),
+                "manifest_sha256": sha256_file(p),
+                "total_docx": m.get("total_docx"),
+                "banks": m.get("banks"),
+            }
     return None
 
 

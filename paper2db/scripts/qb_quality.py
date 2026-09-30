@@ -44,32 +44,25 @@ BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
 
 # F01 corpus-agnostic: load expected counts from banks.json when present
 def _load_banks_for_gate():
-    try:
-        if BANKS_JSON.is_file():
-            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
-            detail = data.get("banks_detail")
-            if isinstance(detail, list) and detail:
-                banks = {}
-                in_scope = set()
-                for b in detail:
-                    bid = b.get("id")
-                    items = b.get("expected_items")
-                    if bid and isinstance(items, int):
-                        # F00 canonical: all keys present, so withKey == items for in-scope
-                        banks[bid] = (items, items) if b.get("in_scope") else (items, items)
-                        if b.get("in_scope"):
-                            in_scope.add(bid)
-                # But for gate we only need the in-scope subset; banks.json contains all 46,
-                # gate expects only the in-scope slice (Books 2,4,5) with withKey logic.
-                # Re-filter to keep the 21 in-scope banks as EXPECTED_BANKS shape.
-                expected_in_scope = {k: v for k, v in banks.items() if k in in_scope}
-                total = data.get("total_items")
-                in_scope_total = data.get("in_scope_items")
-                # Only override if we have the full 21 in-scope banks with plausible totals
-                if len(expected_in_scope) >= 21 and total and in_scope_total:
-                    return total, in_scope_total, expected_in_scope, in_scope
-    except Exception:
-        pass
+    if BANKS_JSON.is_file():
+        data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+        detail = data.get("banks_detail")
+        if isinstance(detail, list) and detail:
+            banks = {}
+            in_scope = set()
+            for b in detail:
+                bid = b.get("id")
+                items = b.get("expected_items")
+                if bid and isinstance(items, int):
+                    banks[bid] = (items, items) if b.get("in_scope") else (items, items)
+                    if b.get("in_scope"):
+                        in_scope.add(bid)
+            expected_in_scope = {k: v for k, v in banks.items() if k in in_scope}
+            total = data.get("total_items")
+            in_scope_total = data.get("in_scope_items")
+            if len(expected_in_scope) >= 21 and total and in_scope_total:
+                return total, in_scope_total, expected_in_scope, in_scope
+        raise SystemExit(f"{BANKS_JSON} missing or invalid banks data")
     return None
 
 _loaded = _load_banks_for_gate()
