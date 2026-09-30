@@ -58,6 +58,7 @@
       axis();curve(function(u){return [-2.5+4.5*u,-1.8+3.3*u-3.7*u*u];},60,accent);curve(function(u){return [-2.5+4.5*u,-1.8+2.6*u-3.7*u*u];},60,green);arrow(1,0,0,-1,ink);
     } else if(name==='st-vt'){
       axis();curve(function(u){return [-3+6*u,-1.8+3.4*u*u];},60,accent);line([[-3,-1.8],[3,1.6]],ink);
+      moving=ball(-3,-1.8,.14,accent);travel=function(u){moving.position.set(-3+6*u,-1.8+3.4*u*u,0);};
     } else if(name==='exp'){
       axis();line([[-3,-1.8],[2.8,1.5]],ink);
       // four reference dots plus an animated trolley dot travelling along the a–F line (slope = 1/m)
@@ -73,16 +74,80 @@
     } else if(name==='collision'){
       line([[-3,-1.9],[3,-1.9]],pale);ball(-1.5,-1.5,.32,accent);ball(1.2,-1.5,.32,green);arrow(-2.7,-1.5,1,0,ink);arrow(2.5,-1.5,-1,0,ink);
     } else if(name==='force-add'){
-      box(0,-.6,1.1,.7,green);line([[-3,-1.2],[3,-1.2]],pale);
-      arrow(-.6,-.4,-.5,0,accent);arrow(-.6,-.8,-1.5,0,accent);
-      arrow(.6,-.4,2.5,0,ink);arrow(.6,-.8,1,0,ink);
+      line([[-3,-1.2],[3,-1.2]],pale);
+      // block that drifts with net force — subtle loop to show 3 N right is non-zero
+      var blk = box(0,-.6,1.1,.7,green);
+      var aL1 = new T.ArrowHelper(new T.Vector3(-1,0,0), new T.Vector3(-.6,-.4,0), .5, accent);
+      var aL2 = new T.ArrowHelper(new T.Vector3(-1,0,0), new T.Vector3(-.6,-.8,0), 1.5, accent);
+      var aR1 = new T.ArrowHelper(new T.Vector3(1,0,0), new T.Vector3(.6,-.4,0), 2.5, ink);
+      var aR2 = new T.ArrowHelper(new T.Vector3(1,0,0), new T.Vector3(.6,-.8,0), 1.0, ink);
+      scene.add(aL1); scene.add(aL2); scene.add(aR1); scene.add(aR2);
+      // net arrow pulsing to highlight resultant
+      var net = new T.ArrowHelper(new T.Vector3(1,0,0), new T.Vector3(0,.45,0), 1.2, gold);
+      scene.add(net);
+      var baseX = blk.position.x;
+      travel = function(u){
+        var drift = Math.sin(u*2*Math.PI)*0.18;
+        blk.position.x = baseX + drift;
+        aL1.position.x = -.6 + drift; aL2.position.x = -.6 + drift;
+        aR1.position.x = .6 + drift; aR2.position.x = .6 + drift;
+        var pulse = 1.0 + 0.18*Math.sin(u*2*Math.PI*1.4);
+        net.setLength(1.2*pulse, 0.22, 0.13);
+        net.position.x = drift;
+      };
     } else if(name==='inertia'){
-      box(-1,-1,1,.7,green);line([[-3,-1.45],[3,-1.45]],pale);
-      arrow(-.4,-.7,2.3,0,ink);arrow(-1.5,-1,0,-.8,accent);
+      line([[-3,-1.45],[3,-1.45]],pale);
+      var blk = box(-2.4,-1,1,.7,green);
+      var fric = new T.ArrowHelper(new T.Vector3(-1,0,0), new T.Vector3(0,-.9,0), 1.2, accent);
+      var push = new T.ArrowHelper(new T.Vector3(1,0,0), new T.Vector3(-.2,-.7,0), 1.8, ink);
+      scene.add(fric); scene.add(push);
+      // inertia: block glides at uniform velocity (Newton I) with friction opposing motion
+      travel = function(u){
+        var x = -2.4 + 4.8*(u % 1);
+        if(x>2.2) x = -2.4 + (x-2.2); // wrap for continuous loop
+        var loop = (u % 1);
+        // keep block looping left->right; wrap visually by resetting
+        var xx = -2.6 + 5.6*loop;
+        if(xx>2.6) xx -= 5.6;
+        blk.position.x = xx;
+        // arrows follow block
+        fric.position.x = xx; fric.position.y = -0.9;
+        push.position.x = xx -0.2; push.position.y = -0.7;
+        // friction always opposite velocity (left), push only at start then zero
+        var moving = loop>0.08 && loop<0.92;
+        push.visible = loop<0.12;
+        fric.visible = moving;
+      };
     } else if(name==='friction'){
-      box(0,-1,1.3,.8,green);line([[-3,-1.45],[3,-1.45]],pale);
-      arrow(.7,-.9,1.7,0,ink);arrow(-.7,-1,-1.7,0,accent);
-      arrow(0,-.5,0,-1.1,gold);
+      line([[-3,-1.45],[3,-1.45]],pale);
+      var blk = box(-1.2,-1,1.3,.8,green);
+      var applied = new T.ArrowHelper(new T.Vector3(1,0,0), new T.Vector3(-.6,-.9,0), 0.6, ink);
+      var resist = new T.ArrowHelper(new T.Vector3(-1,0,0), new T.Vector3(.6,-1.0,0), 0.6, accent);
+      var weight = new T.ArrowHelper(new T.Vector3(0,-1,0), new T.Vector3(0,-.5,0), 1.1, gold);
+      scene.add(applied); scene.add(resist); scene.add(weight);
+      // static holds then kinetic slips: u 0→0.45 static (no motion), 0.45→1 sliding
+      travel = function(u){
+        var phase = u % 1;
+        var appLen = phase<0.45 ? 0.6 + phase*2.0 : 1.9;
+        var resLen = Math.min(appLen, 1.4);
+        var sliding = phase>=0.45;
+        applied.setLength(appLen, 0.22, 0.13);
+        resist.setLength(resLen, 0.22, 0.13);
+        // block sticks (static) then slides with kinetic ~ mu_k N < max
+        var x = sliding ? -1.2 + (phase-0.45)*3.2 : -1.2;
+        blk.position.x = x;
+        var off = x +1.2;
+        applied.position.x = -.6 + off;
+        resist.position.x = .6 + off;
+        weight.position.x = off;
+        if(sliding){
+          resist.setColor(new T.Color(accent));
+          // kinetic slightly smaller than max static
+          resist.setLength(1.15, 0.22, 0.13);
+        } else {
+          resist.setColor(new T.Color(accent));
+        }
+      };
     } else if(name==='action'){
       box(-1.3,-1,1.4,.8,green);box(-1.3,-1.7,2.3,.22,pale);
       var actDown=arrow(-1.3,-.6,0,-.9,accent);
@@ -155,60 +220,91 @@
       moving=ball(radius,0,.18,accent);travel=function(u){moving.position.set(radius*Math.cos(u*2*Math.PI),radius*Math.sin(u*2*Math.PI),0);};
       arrow(radius,0,-1.05,0,accent);
       if(name==='debris')for(var k=0;k<12;k++)ball(2.4*Math.cos(k*.52),2.4*Math.sin(k*.52),.05,pale);
-    } else if(['trench','vector-add','resolve'].includes(name)) {
-      var ox=-2.7,oy=-1.3;arrow(ox,oy,2.4,0,ink);arrow(ox+2.4,oy,0,2.4,green);arrow(ox,oy,2.4,2.4,accent);
-      if(name==='resolve'){line([[ox,oy+2.4],[ox+2.4,oy+2.4]],pale);}
-    } else if(name==='connected'){
-      // Newton II — two blocks sharing the same a = F/(m1+m2), tension T = mY*a
-      var groundC=line([[-3,-1.45],[3,-1.45]],pale);
-      var bX=box(-1.8,-1,1,.7,ink);
-      var bY=box(1,-1,1.4,.7,green);
-      var link=line([[-1.3,-1],[.3,-1]],pale);
-      var pull=arrow(1.7,-1,1.2,0,accent);
-      var tens=arrow(-0.55,-0.72,0.85,0,green);
-      moving=ball(-0.4,-0.35,.12,accent);
-      travel=function(u){
-        var phase=(u*1.1)%1;
-        var shift=(phase*1.8)-0.9;
-        var wob=0.08*Math.sin(u*2*Math.PI*2);
-        var total=shift+wob;
-        bX.position.x=-1.8+total;
-        bY.position.x=1+total;
-        link.position.x=total;
-        if(pull) pull.position.set(1.7+total,-1,0);
-        if(tens) tens.position.set(-0.55+total,-0.72,0);
-        moving.position.set(-0.4+total, -0.35, 0);
-      };
-    } else if(name==='incline'){
-      line([[-3,-2],[3,-2],[-1,1.5],[-3,-2]],ink);
-      var incBox=box(-1.4,0.9,.7,.45,green);
-      var aWeight=arrow(-1.0,0.6,0,-0.9,accent);
-      var aNorm=arrow(-1.0,0.6,-0.55,0.42,pale);
-      var aSlope=arrow(-1.0,0.6,-0.68,-1.0,ink);
-      moving=incBox;
-      travel=function(u){
-        // slide down the hypotenuse then reset — one-way drift shows a = g sinθ
-        var t=(u*1.2)%1;
-        // keep box on slope: param 0 at upper third, 1 near base
-        var x=-1.2 + (-1.6)*t;
-        var y=1.0 + (-2.6)*t;
-        var off=0.24;
-        incBox.position.set(x, y+off, 0);
-        if(aWeight) aWeight.position.set(x, y+off, 0);
-        if(aNorm) aNorm.position.set(x, y+off, 0);
-        if(aSlope) aSlope.position.set(x, y+off, 0);
-      };
+    } else if(['trench','vector-add','resolve','connected','incline'].includes(name)) {
+      if(name==='trench'||name==='vector-add'||name==='resolve') {
+        var ox=-2.7,oy=-1.3;
+        if(name==='resolve'){
+          // animated decomposition: theta sweeps 18°→62° to show Fx=Fcosθ, Fy=Fsinθ
+          var len=2.45;
+          var gx = new T.ArrowHelper(new T.Vector3(1,0,0), new T.Vector3(ox,oy,0), len, ink);
+          var gy = new T.ArrowHelper(new T.Vector3(0,1,0), new T.Vector3(ox+len,oy,0), len, green);
+          var gf = new T.ArrowHelper(new T.Vector3(1,0,0), new T.Vector3(ox,oy,0), len, accent);
+          scene.add(gx); scene.add(gy); scene.add(gf);
+          // keep pale rectangle guides faint—update not needed; Fx/Fy arrows show decomposition
+          line([[ox,oy+len],[ox+len,oy+len]], pale);
+          line([[ox+len,oy],[ox+len,oy+len]], pale);
+          travel = function(u){
+            var th = (18 + 44*(0.5+0.5*Math.sin(u*2*Math.PI)))*Math.PI/180;
+            var fx = len*Math.cos(th), fy = len*Math.sin(th);
+            gx.setDirection(new T.Vector3(1,0,0)); gx.setLength(fx, 0.22, 0.13);
+            gy.position.set(ox+fx, oy, 0); gy.setDirection(new T.Vector3(0,1,0)); gy.setLength(fy, 0.22, 0.13);
+            gf.setDirection(new T.Vector3(Math.cos(th), Math.sin(th), 0)); gf.setLength(len, 0.22, 0.13);
+          };
+        } else {
+          arrow(ox,oy,2.4,0,ink);arrow(ox+2.4,oy,0,2.4,green);arrow(ox,oy,2.4,2.4,accent);
+        }
+      } else if(name==='incline') {
+        line([[-3,-2],[3,-2],[-1,1.5],[-3,-2]],ink);
+        var incBox=box(-1.4,0.9,.7,.45,green);
+        var aWeight=arrow(-1.0,0.6,0,-0.9,accent);
+        var aNorm=arrow(-1.0,0.6,-0.55,0.42,pale);
+        var aSlope=arrow(-1.0,0.6,-0.68,-1.0,ink);
+        moving=incBox;
+        travel=function(u){
+          // slide down the hypotenuse then reset — one-way drift shows a = g sinθ
+          var t=(u*1.2)%1;
+          // keep box on slope: param 0 at upper third, 1 near base
+          var x=-1.2 + (-1.6)*t;
+          var y=1.0 + (-2.6)*t;
+          var off=0.24;
+          incBox.position.set(x, y+off, 0);
+          if(aWeight) aWeight.position.set(x, y+off, 0);
+          if(aNorm) aNorm.position.set(x, y+off, 0);
+          if(aSlope) aSlope.position.set(x, y+off, 0);
+        };
+      } else { // connected — Newton II animated
+        // Newton II — two blocks sharing the same a = F/(m1+m2), tension T = mY*a
+        var groundC=line([[-3,-1.45],[3,-1.45]],pale);
+        var bX=box(-1.8,-1,1,.7,ink);
+        var bY=box(1,-1,1.4,.7,green);
+        var link=line([[-1.3,-1],[.3,-1]],pale);
+        var pull=arrow(1.7,-1,1.2,0,accent);
+        var tens=arrow(-0.55,-0.72,0.85,0,green);
+        moving=ball(-0.4,-0.35,.12,accent);
+        travel=function(u){
+          var phase=(u*1.1)%1;
+          var shift=(phase*1.8)-0.9;
+          var wob=0.08*Math.sin(u*2*Math.PI*2);
+          var total=shift+wob;
+          bX.position.x=-1.8+total;
+          bY.position.x=1+total;
+          link.position.x=total;
+          if(pull) pull.position.set(1.7+total,-1,0);
+          if(tens) tens.position.set(-0.55+total,-0.72,0);
+          moving.position.set(-0.4+total, -0.35, 0);
+        };
+      }
     } else if(['lever','seesaw'].includes(name)) {
       line([[-2.8,-.3],[2.8,.5]],ink);line([[-.5,-1.7],[.5,-1.7],[0,-.3]],pale);
       arrow(-2,-.2,0,-1.1,accent);arrow(2,.35,0,-.8,green);
     } else if(['uam','freefall'].includes(name)) {
       axis();
-      if(name==='freefall'){line([[-2.6,2],[2.6,2]],pale);curve(function(u){return [0,1.7-3.5*u*u];},40,accent);moving=ball(0,1.7,.18);travel=function(u){moving.position.set(0,1.7-3.5*u*u,0);};}
-      else {curve(function(u){return [-3+6*u,-1.8+3.2*u*u];},50,ink);for(var j=0;j<6;j++)ball(-3+j,-1.8+3.2*(j/6)**2,.08,accent);}
+      if(name==='freefall'){line([[-2.6,2],[2.6,2]],pale);curve(function(u){return [0,1.7-3.5*u*u];},40,accent);moving=ball(0,1.7,.18,accent);travel=function(u){moving.position.set(0,1.7-3.5*u*u,0);};}
+      else {curve(function(u){return [-3+6*u,-1.8+3.2*u*u];},50,ink);for(var j=0;j<6;j++)ball(-3+j,-1.8+3.2*(j/6)**2,.08,accent);moving=ball(-3,-1.8,.14,accent);travel=function(u){moving.position.set(-3+6*u,-1.8+3.2*u*u,0);};}
     }
-    function frame(t){if(travel)travel((t*.0002)%1);renderer.render(scene,camera);if(travel)requestAnimationFrame(frame);}
+    function frame(t){if(travel)travel((t*.00022)%1);renderer.render(scene,camera);if(travel)requestAnimationFrame(frame);}
+    host.addEventListener('notes-replay', function(){ renderer.render(scene,camera); });
     frame(0);
   }
-  function init(){document.querySelectorAll('canvas.scene-canvas').forEach(boot);}
+  function init(){
+    document.querySelectorAll('canvas.scene-canvas').forEach(boot);
+    document.querySelectorAll('[data-replay]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-replay');
+        var host = document.getElementById(id);
+        if(host) host.dispatchEvent(new Event('notes-replay'));
+      });
+    });
+  }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })(window);

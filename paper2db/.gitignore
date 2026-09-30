@@ -42,3 +42,7 @@ tests/sections/
 # QB pipeline (copyrighted DOCX/PDF/crops — gitignored per plan D3)
 qb/
 qb-pdf/
+# F01 corpus-agnostic: keep bank census and source manifest tracked (re-include metadata/qb directory first)
+!metadata/qb/
+!metadata/qb/banks.json
+!metadata/qb/source-manifest.json

@@ -1,1 +1,120 @@
 /* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+
+/* Center the visual stage box: constrain width and auto-center. */
+figure.fig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+figure.fig > .visual.stage,
+figure.fig > .pane-pair {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.visual.stage {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  display: block;
+  /* subtle elevation to make centered box read as a stage */
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.pane-pair {
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Fix hud-label stacking: explicit absolute placement per label. */
+.stage {
+  position: relative;
+  overflow: hidden;
+}
+.stage .hud-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.92);
+  padding: 0.14rem 0.38rem;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.07);
+  font-size: 12px;
+  line-height: 1.2;
+  text-shadow: 0 0 4px #fff;
+  white-space: nowrap;
+}
+
+/* Trench vis: mouse A -> B -> C with diagonal displacement */
+#trench-vis [data-hud="A"] { left: 21%; top: 74%; font-weight: 700; }
+#trench-vis [data-hud="B"] { left: 60.5%; top: 74%; font-weight: 700; }
+#trench-vis [data-hud="C"] { left: 63%; top: 20%; font-weight: 700; }
+#trench-vis [data-hud="dist"] { left: 39%; top: 82%; font-size: 11px; color: #1b2129; }
+#trench-vis [data-hud="disp"] { left: 44%; top: 44%; font-size: 11px; color: #c0392b; font-weight: 600; }
+
+/* Vector add: resultant along diagonal */
+#vector-add-vis [data-hud="res"] { left: 52%; top: 41%; font-size: 11px; color: #c0392b; font-weight: 600; }
+
+/* Peter O-P circular route: red top, green bottom */
+#peter-vis [data-hud="red"] { left: 50%; top: 22%; font-size: 11px; color: #c0392b; }
+#peter-vis [data-hud="green"] { left: 50%; top: 80%; font-size: 11px; color: #18846e; }
+
+/* s-t graph: slope label */
+#st-graph-vis [data-hud="slope"] { left: 64%; top: 34%; font-size: 11px; }
+
+/* Shirley & Simon: 3m east + 4m north */
+#shirley-vis [data-hud="Shirley"] { left: 33%; top: 80%; font-size: 11px; }
+#shirley-vis [data-hud="Simon"] { left: 56%; top: 46%; font-size: 11px; }
+
+/* Trench animation: displacement label pulse + moving dot along L path. */
+@keyframes trench-pulse {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.72; transform: translate(-50%, -50%) scale(1.07); }
+}
+#trench-vis [data-hud="disp"] {
+  animation: trench-pulse 1.9s ease-in-out infinite;
+}
+
+.trench-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #c34832;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%);
+  animation: trench-dot-move 3.4s linear infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@keyframes trench-dot-move {
+  0%   { left: 21%; top: 74%; opacity: 1; }
+  32%  { left: 60.5%; top: 74%; opacity: 1; }
+  62%  { left: 63%; top: 20%; opacity: 1; }
+  78%  { opacity: 1; }
+  86%  { opacity: 0; }
+  87%  { left: 21%; top: 74%; opacity: 0; }
+  100% { left: 21%; top: 74%; opacity: 1; }
+}
+
+/* Subtle stage entrance for the trench canvas itself */
+#trench-vis .scene-canvas {
+  animation: trench-stage-in 0.45s ease-out both;
+}
+@keyframes trench-stage-in {
+  from { opacity: 0.88; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #trench-vis [data-hud="disp"],
+  .trench-dot,
+  #trench-vis .scene-canvas {
+    animation: none !important;
+  }
+}
