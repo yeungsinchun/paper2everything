@@ -6,7 +6,8 @@
 // eight chapters when present, plus in-repo relative links (href/src) that
 // can be resolved on disk without a browser, plus lavish notes-refactor boards
 // (before/after side-by-side and readable prose — enforced only on boards
-// carrying the notes-refactor marker; see paper2notes/.agents/skills/lavish-notes-review/SKILL.md).
+// carrying the notes-refactor marker; see paper2notes/.agents/skills/lavish-notes-review/SKILL.md),
+// plus the deploy-commit footer (muted `deployed commit: <6-char>` per HTML).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
@@ -321,6 +322,43 @@ function checkLavishBoards() {
   }
 }
 
+function checkDeployFooter() {
+  if (!existsSync(notesDir)) return;
+  const htmlFiles = walkHtmlFiles(notesDir);
+  // Only deployed notes: skip _source and _local (gitignored) and vendor-less html
+  const deployed = htmlFiles.filter(f => !f.includes("/_source/") && !f.includes("/_local/") && !f.includes("/.lavish/"));
+  const missing = [];
+  for (const file of deployed) {
+    const content = readFileSync(file, "utf8");
+    if (!content.includes("deploy-commit-footer") || !content.includes("deployed commit:")) {
+      missing.push(relative(repoRoot, file));
+    } else {
+      // also ensure commit looks like 6 hex chars (or "local")
+      const m = content.match(/data-commit="([^"]+)"/);
+      if (m) {
+        const v = m[1];
+        if (v !== "local" && !/^[0-9a-f]{6}$/i.test(v)) {
+          fail(`Invalid deploy-commit footer in ${relative(repoRoot, file)}: data-commit="${v}" (expected 6 hex chars or "local")`);
+        }
+      }
+      // inline code should also have commit
+      const codeM = content.match(/deployed commit:\s*<code[^>]*>([^<]+)<\/code>/i);
+      if (codeM) {
+        const cv = codeM[1].trim();
+        if (cv !== "local" && !/^[0-9a-f]{6}$/i.test(cv)) {
+          fail(`Invalid deployed commit code in ${relative(repoRoot, file)}: "${cv}" (expected 6 hex chars or "local")`);
+        }
+      }
+    }
+  }
+  if (missing.length) {
+    // report first 10, then summary
+    const preview = missing.slice(0, 10).join(", ");
+    const more = missing.length > 10 ? ` and ${missing.length - 10} more` : "";
+    fail(`Missing deploy-commit footer in ${missing.length} HTML file(s): ${preview}${more}. Run: node paper2notes/scripts/inject-commit-footer.mjs --commit $(git rev-parse HEAD | cut -c1-6) (see paper2notes/deploy/cloudrun/Dockerfile)`);
+  }
+}
+
 checkSiteRegionConsistency();
 checkLavishBoards();
 
@@ -332,6 +370,7 @@ checkBook2Structure();
 checkBook4Structure();
 
 checkRelativeLinks();
+checkDeployFooter();
 
 if (errors.length > 0) {
   console.error(`ci-check: ${errors.length} problem(s) found:\n`);
