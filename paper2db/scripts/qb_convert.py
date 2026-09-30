@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """qb-pdf: convert every QB DOCX to PDF via LibreOffice.
 
-Inputs:  qb/**/*.docx  (canonical: paper2db/qb or $P2DB_QB_ROOT or paper2notes/qb — see find_qb_root)
+Inputs:  qb/**/*.docx  (canonical: paper2db/qb or $P2DB_QB_ROOT — see find_qb_root)
          plus 6 PDF-only sources that have no DOCX twin.
 Outputs: qb-pdf/<bank>/<stem>.pdf
          qb-pdf/convert-log.json  (sha256, page count, timing, converter)
@@ -13,7 +13,7 @@ Unicode equivalents in a temporary copy of the DOCX, because LibreOffice
 otherwise renders them as PUA bullets instead of alpha/beta/gamma.
 
 The --qb-root flag or $P2DB_QB_ROOT env var lets the caller point at the canonical QB tree outside the worktree.
-By default it probes $P2DB_QB_ROOT, then qb/ in-tree, then the paper2notes canonical path.
+By default it probes $P2DB_QB_ROOT, then qb/ in-tree.
 """
 from __future__ import annotations
 
@@ -33,6 +33,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from qb_banks import load_banks  # noqa: E402
 from qb_items import CANDIDATE_QB_ROOTS, find_qb_root, normalize_symbol_xml  # noqa: E402
 
 DEFAULT_OUT = ROOT / "qb-pdf"
@@ -46,7 +47,18 @@ PDF_ONLY_STEMS = {
     "QB_208/2_ch08_MC_e",
     "QB_208/2_ch08_MC_e_blank",
 }
-EXPECTED_REAL_DOCX = 169
+# F01 corpus-agnostic: load expected DOCX count from banks.json if present
+BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
+
+
+def _expected_real_docx() -> int:
+    data = load_banks()
+    if data is not None:
+        return int(data["total_docx"])
+    return 169
+
+
+EXPECTED_REAL_DOCX = _expected_real_docx()
 
 def docx_symbol_glyphs(docx: Path) -> list[str]:
     with zipfile.ZipFile(str(docx)) as z:

@@ -1,0 +1,335 @@
+{
+  "generated_at": "2026-09-28T18:07:00Z",
+  "source": "new_qb",
+  "source_manifest": "paper2db/metadata/qb/source-manifest.json",
+  "total_docx": 169,
+  "total_items": 3847,
+  "in_scope_items": 1881,
+  "banks": 46,
+  "bank_list": [
+    "QB_101",
+    "QB_102",
+    "QB_103",
+    "QB_104",
+    "QB_105",
+    "QB_201",
+    "QB_202",
+    "QB_203",
+    "QB_204",
+    "QB_205",
+    "QB_206",
+    "QB_207",
+    "QB_208",
+    "QB_209",
+    "QB_210",
+    "QB_3A01",
+    "QB_3A02",
+    "QB_3A03",
+    "QB_3B04",
+    "QB_3B05",
+    "QB_3B06",
+    "QB_3B07",
+    "QB_401",
+    "QB_402",
+    "QB_403",
+    "QB_404",
+    "QB_405",
+    "QB_406",
+    "QB_407",
+    "QB_408",
+    "QB_501",
+    "QB_502",
+    "QB_503",
+    "QB_E101",
+    "QB_E102",
+    "QB_E103",
+    "QB_E201",
+    "QB_E202",
+    "QB_E203",
+    "QB_E301",
+    "QB_E302",
+    "QB_E303",
+    "QB_E304",
+    "QB_E401",
+    "QB_E402",
+    "QB_E403"
+  ],
+  "banks_detail": [
+    {
+      "id": "QB_101",
+      "expected_docx": 4,
+      "expected_items": 38,
+      "in_scope": false
+    },
+    {
+      "id": "QB_102",
+      "expected_docx": 4,
+      "expected_items": 73,
+      "in_scope": false
+    },
+    {
+      "id": "QB_103",
+      "expected_docx": 4,
+      "expected_items": 97,
+      "in_scope": false
+    },
+    {
+      "id": "QB_104",
+      "expected_docx": 4,
+      "expected_items": 106,
+      "in_scope": false
+    },
+    {
+      "id": "QB_105",
+      "expected_docx": 4,
+      "expected_items": 96,
+      "in_scope": false
+    },
+    {
+      "id": "QB_201",
+      "expected_docx": 4,
+      "expected_items": 59,
+      "in_scope": true
+    },
+    {
+      "id": "QB_202",
+      "expected_docx": 4,
+      "expected_items": 109,
+      "in_scope": true
+    },
+    {
+      "id": "QB_203",
+      "expected_docx": 4,
+      "expected_items": 81,
+      "in_scope": true
+    },
+    {
+      "id": "QB_204",
+      "expected_docx": 4,
+      "expected_items": 113,
+      "in_scope": true
+    },
+    {
+      "id": "QB_205",
+      "expected_docx": 4,
+      "expected_items": 61,
+      "in_scope": true
+    },
+    {
+      "id": "QB_206",
+      "expected_docx": 4,
+      "expected_items": 96,
+      "in_scope": true
+    },
+    {
+      "id": "QB_207",
+      "expected_docx": 4,
+      "expected_items": 125,
+      "in_scope": true
+    },
+    {
+      "id": "QB_208",
+      "expected_docx": 4,
+      "expected_items": 84,
+      "in_scope": true
+    },
+    {
+      "id": "QB_209",
+      "expected_docx": 4,
+      "expected_items": 77,
+      "in_scope": true
+    },
+    {
+      "id": "QB_210",
+      "expected_docx": 4,
+      "expected_items": 68,
+      "in_scope": true
+    },
+    {
+      "id": "QB_3A01",
+      "expected_docx": 4,
+      "expected_items": 83,
+      "in_scope": false
+    },
+    {
+      "id": "QB_3A02",
+      "expected_docx": 4,
+      "expected_items": 124,
+      "in_scope": false
+    },
+    {
+      "id": "QB_3A03",
+      "expected_docx": 4,
+      "expected_items": 98,
+      "in_scope": false
+    },
+    {
+      "id": "QB_3B04",
+      "expected_docx": 4,
+      "expected_items": 89,
+      "in_scope": false
+    },
+    {
+      "id": "QB_3B05",
+      "expected_docx": 4,
+      "expected_items": 109,
+      "in_scope": false
+    },
+    {
+      "id": "QB_3B06",
+      "expected_docx": 4,
+      "expected_items": 100,
+      "in_scope": false
+    },
+    {
+      "id": "QB_3B07",
+      "expected_docx": 4,
+      "expected_items": 102,
+      "in_scope": false
+    },
+    {
+      "id": "QB_401",
+      "expected_docx": 4,
+      "expected_items": 131,
+      "in_scope": true
+    },
+    {
+      "id": "QB_402",
+      "expected_docx": 4,
+      "expected_items": 105,
+      "in_scope": true
+    },
+    {
+      "id": "QB_403",
+      "expected_docx": 3,
+      "expected_items": 61,
+      "in_scope": true
+    },
+    {
+      "id": "QB_404",
+      "expected_docx": 4,
+      "expected_items": 107,
+      "in_scope": true
+    },
+    {
+      "id": "QB_405",
+      "expected_docx": 3,
+      "expected_items": 67,
+      "in_scope": true
+    },
+    {
+      "id": "QB_406",
+      "expected_docx": 4,
+      "expected_items": 89,
+      "in_scope": true
+    },
+    {
+      "id": "QB_407",
+      "expected_docx": 4,
+      "expected_items": 121,
+      "in_scope": true
+    },
+    {
+      "id": "QB_408",
+      "expected_docx": 4,
+      "expected_items": 81,
+      "in_scope": true
+    },
+    {
+      "id": "QB_501",
+      "expected_docx": 4,
+      "expected_items": 70,
+      "in_scope": true
+    },
+    {
+      "id": "QB_502",
+      "expected_docx": 4,
+      "expected_items": 109,
+      "in_scope": true
+    },
+    {
+      "id": "QB_503",
+      "expected_docx": 4,
+      "expected_items": 67,
+      "in_scope": true
+    },
+    {
+      "id": "QB_E101",
+      "expected_docx": 3,
+      "expected_items": 55,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E102",
+      "expected_docx": 3,
+      "expected_items": 77,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E103",
+      "expected_docx": 3,
+      "expected_items": 75,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E201",
+      "expected_docx": 3,
+      "expected_items": 73,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E202",
+      "expected_docx": 3,
+      "expected_items": 107,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E203",
+      "expected_docx": 3,
+      "expected_items": 69,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E301",
+      "expected_docx": 3,
+      "expected_items": 45,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E302",
+      "expected_docx": 3,
+      "expected_items": 35,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E303",
+      "expected_docx": 3,
+      "expected_items": 67,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E304",
+      "expected_docx": 3,
+      "expected_items": 60,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E401",
+      "expected_docx": 3,
+      "expected_items": 67,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E402",
+      "expected_docx": 3,
+      "expected_items": 61,
+      "in_scope": false
+    },
+    {
+      "id": "QB_E403",
+      "expected_docx": 3,
+      "expected_items": 60,
+      "in_scope": false
+    }
+  ]
+}
