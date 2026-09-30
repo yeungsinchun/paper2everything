@@ -11,7 +11,7 @@
 //
 // Resolves commit from (in order): --commit arg, $GIT_COMMIT, $DEPLOY_COMMIT, $GITHUB_SHA, `git rev-parse HEAD`.
 
-import { readdirSync, readFileSync, writeFileSync, existsSync, statSync, mkdirSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execSync } from "node:child_process";

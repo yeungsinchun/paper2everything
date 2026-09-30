@@ -13,20 +13,19 @@ COPY paper2notes/notes/ /usr/share/nginx/html/
 # before build and passes --build-arg GIT_COMMIT; this is the fallback.
 ARG GIT_COMMIT=local
 USER root
-RUN if [ "$GIT_COMMIT" != "local" ] && [ -n "$GIT_COMMIT" ]; then \
-      short=$(echo "$GIT_COMMIT" | cut -c1-6); \
-      echo "injecting deploy commit $short at image build"; \
-      for f in $(find /usr/share/nginx/html -name "*.html" -type f); do \
-        if grep -q "deploy-commit-footer" "$f"; then \
-          sed -i "s/data-commit=\"[^\"]*\"/data-commit=\"$short\"/g" "$f"; \
-          sed -i "s|deployed commit: <code[^>]*>[^<]*</code>|deployed commit: <code style=\"font:inherit;color:inherit;background:none;border:0;padding:0\">$short</code>|g" "$f"; \
-        else \
-          sed -i "s|</body>|<footer class=\"deploy-commit-footer\" style=\"text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace\" data-commit=\"$short\">deployed commit: <code style=\"font:inherit;color:inherit;background:none;border:0;padding:0\">$short</code></footer></body>|g" "$f"; \
-        fi; \
-      done; \
-      echo "$short" > /usr/share/nginx/html/commit.txt; \
-      echo "$short" > /usr/share/nginx/html/version.txt; \
-    fi
+RUN short=$(echo "$GIT_COMMIT" | cut -c1-6); \
+    if [ -z "$short" ]; then short="local"; fi; \
+    echo "injecting deploy commit $short at image build"; \
+    find /usr/share/nginx/html -name "*.html" -type f -print0 | while IFS= read -r -d '' f; do \
+      if grep -q "deploy-commit-footer" "$f"; then \
+        sed -i "s/data-commit=\"[^\"]*\"/data-commit=\"$short\"/g" "$f"; \
+        sed -i "s|deployed commit: <code[^>]*>[^<]*</code>|deployed commit: <code style=\"font:inherit;color:inherit;background:none;border:0;padding:0\">$short</code>|g" "$f"; \
+      else \
+        sed -i "s|</[Bb][Oo][Dd][Yy][[:space:]]*>|<footer class=\"deploy-commit-footer\" style=\"text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace\" data-commit=\"$short\">deployed commit: <code style=\"font:inherit;color:inherit;background:none;border:0;padding:0\">$short</code></footer></body>|g" "$f"; \
+      fi; \
+    done; \
+    echo "$short" > /usr/share/nginx/html/commit.txt; \
+    echo "$short" > /usr/share/nginx/html/version.txt;
 # Published DSE crops are stored at notes/dse/ (tracked) and mirrored to the
 # gitignored _local/dse/ paths that chapter pages reference via
 # ../_local/dse/… and _local/dse/… . The copy runs at build time so the
