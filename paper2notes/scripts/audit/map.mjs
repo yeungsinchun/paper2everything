@@ -9,7 +9,12 @@
  * Each item is mapped by pi to a section page in its bank's chapter.
  * Items with confidence < 0.6 get tier S = all sections of the chapter.
  *
- * Output: .audit/mapping/<bank>.json
+ * Items are mapped in parallel (--concurrency, default 4). DSE deck items
+ * (--dse-section) need no model call: the deck page is the section.
+ * --items <id,id> and --page <page> restrict which items are (re)mapped;
+ * previously mapped items with a matching inputs_sha are kept in the file.
+ *
+ * Output: <P2E_AUDIT_ROOT or .audit>/mapping/<bank>.json
  *
  * Uses PI_BIN env for pi binary (fake pi in tests).
  */
@@ -19,44 +24,43 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { pagesForBank } from "./bank-pages.mjs";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { sectionPagesForBank, sectionIdForPage, pageMatches, allBanks } from "./bank-pages.mjs";
+import { repoRoot, auditDirs, resolveImagePath, qbItemsCandidates, parseList } from "./paths.mjs";
+import { loadDseSection, isDseBank } from "./dse.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(__dirname, "../..");
-const monoRepoRoot = path.resolve(repoRoot, "..");
-
-function resolveImagePath(image) {
-  if (!image) return null;
-  if (path.isAbsolute(image)) return fs.existsSync(image) ? image : null;
-  const cands = [
-    path.resolve(repoRoot, image),
-    path.join(repoRoot, "../paper2db/qb-pdf", image),
-    path.join(repoRoot, "paper2db/qb-pdf", image),
-    path.join(monoRepoRoot, "paper2db/qb-pdf", image),
-  ];
-  for (const p of cands) if (fs.existsSync(p)) return p;
-  return path.resolve(repoRoot, image);
-}
-function qbItemsCandidates(bank) {
-  return [
-    path.join(repoRoot, "../paper2db/qb-pdf/items", `${bank}.json`),
-    path.join(monoRepoRoot, "paper2db/qb-pdf/items", `${bank}.json`),
-    path.join(repoRoot, `paper2db/qb-pdf/items/${bank}.json`),
-  ];
+const execFileAsync = promisify(execFile);
+function pLimit(concurrency) {
+  let active = 0;
+  const queue = [];
+  const next = () => {
+    if (!queue.length || active >= concurrency) return;
+    active++;
+    const { fn, resolve, reject } = queue.shift();
+    Promise.resolve().then(fn).then(v => { active--; resolve(v); next(); }, e => { active--; reject(e); next(); });
+  };
+  return fn => new Promise((resolve, reject) => { queue.push({ fn, resolve, reject }); next(); });
 }
 
 function readPrompt(p) {
   return fs.readFileSync(path.join(__dirname, "prompts", p), "utf8");
 }
 function parseArgs(argv) {
-  const out = { items: null, bank: null, outDir: path.join(repoRoot, ".audit/mapping"), bundleDir: null, fixture: null, force: false };
+  const out = { itemsFile: null, itemIds: null, page: null, bank: null, all: false, dseSection: null, outDir: auditDirs().mapping, bundleDir: null, fixture: null, force: false, concurrency: 4 };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
-    if (a === "--items" && argv[i + 1]) out.items = path.resolve(argv[++i]);
+    if (a === "--items-file" && argv[i + 1]) out.itemsFile = path.resolve(argv[++i]);
+    else if (a === "--items" && argv[i + 1]) out.itemIds = parseList(argv[++i]);
+    else if (a === "--page" && argv[i + 1]) out.page = argv[++i];
     else if (a === "--bank" && argv[i + 1]) out.bank = argv[++i];
+    else if (a === "--all") out.all = true;
+    else if (a === "--dse-section" && argv[i + 1]) out.dseSection = argv[++i];
     else if (a === "--out" && argv[i + 1]) out.outDir = path.resolve(argv[++i]);
     else if (a === "--bundle" && argv[i + 1]) out.bundleDir = path.resolve(argv[++i]);
     else if (a === "--fixture" && argv[i + 1]) out.fixture = path.resolve(argv[++i]);
+    else if (a === "--concurrency" && argv[i + 1]) out.concurrency = Math.max(1, parseInt(argv[++i], 10) || 1);
     else if (a === "--force") out.force = true;
   }
   return out;
@@ -72,7 +76,7 @@ function extractJsonBlock(text) {
   return null;
 }
 
-function collectSectionInfo(pages) {
+function collectSectionInfo(bank, pages) {
   // pages: list of html paths for a chapter
   const infos = [];
   for (const p of pages) {
@@ -90,7 +94,7 @@ function collectSectionInfo(pages) {
     const ideaRe = /<section\s+class="idea"[^>]*>[\s\S]*?<h2[^>]*>([\s\S]*?)<\/h2>/gi;
     let im;
     while ((im = ideaRe.exec(html)) !== null) ideaHeads.push(im[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
-    const base = path.basename(p, ".html");
+    const base = sectionIdForPage(bank, p);
     infos.push({ section: base, title: titleM ? titleM[1].trim() : base, h1: h1M ? h1M[1].replace(/<[^>]+>/g, " ").trim() : "", los, ideas: ideaHeads, path: p });
   }
   return infos;
@@ -140,7 +144,9 @@ ${bundleNotes ? bundleNotes.slice(0, 8000) : "(no bundle)"}
   args.push(fs.readFileSync(promptFile, "utf8"));
 
   // Execute pi
-  const result = spawnSync(piBin, args, { encoding: "utf8", timeout: 120000, maxBuffer: 10 * 1024 * 1024 });
+  let result;
+  try { result = await execFileAsync(piBin, args, { encoding: "utf8", timeout: 120000, maxBuffer: 10 * 1024 * 1024 }); }
+  catch (error) { result = error; }
   fs.rmSync(tmpDir, { recursive: true, force: true });
   const out = (result.stdout || "") + (result.stderr || "");
   const parsed = extractJsonBlock(out);
@@ -149,92 +155,108 @@ ${bundleNotes ? bundleNotes.slice(0, 8000) : "(no bundle)"}
   return { section: null, confidence: 0, secondary: [], _raw: out.slice(0, 500) };
 }
 
-async function main() {
-  const { items, bank, outDir, bundleDir, fixture, force } = parseArgs(process.argv.slice(2));
-  fs.mkdirSync(outDir, { recursive: true });
-
-  let itemFiles = [];
-  if (items) {
-    itemFiles = [items];
-  } else if (bank) {
-    // Try paper2db location (monorepo sibling first) and fixture
-    const candidates = qbItemsCandidates(bank);
-    if (fixture) candidates.unshift(fixture);
-    const found = candidates.find((p) => fs.existsSync(p));
-    if (found) itemFiles = [found];
-    else {
-      console.error(`No item file for bank ${bank}. Tried: ${candidates.join(", ")}`);
-      // Leave itemFiles empty so the missing input is reported below.
-      itemFiles = [];
-    }
-  } else if (fixture) {
-    itemFiles = [fixture];
-  } else {
-    // Default: look for any fixture
-    const maybe = path.join(repoRoot, "scripts/audit/fixtures");
-    if (fs.existsSync(maybe)) {
-      itemFiles = fs.readdirSync(maybe).filter((f) => f.endsWith(".json")).map((f) => path.join(maybe, f));
-    }
-  }
-
-  if (!itemFiles.length) throw new Error("No item files found");
-
-  for (const file of itemFiles) {
-    const data = JSON.parse(fs.readFileSync(file, "utf8"));
-    const itemsList = data.items || data || [];
-    const bankName = bank || data.bank || path.basename(file, ".json");
-    if (data.bank && data.bank !== bankName) throw new Error(`Item bank ${data.bank} does not match ${bankName}`);
-    const sectionPages = pagesForBank(repoRoot, bankName).filter(p => path.basename(p) !== "summary.html");
-    const sectionInfos = collectSectionInfo(sectionPages);
-
-    // Bundle notes for context (if bundleDir given, read notes.md)
-    let bundleNotes = "";
-    if (bundleDir && fs.existsSync(path.join(bundleDir, "notes.md"))) {
-      bundleNotes = fs.readFileSync(path.join(bundleDir, "notes.md"), "utf8");
-    } else if (sectionPages.length) {
-      // Try default bundle location
-      const possibleBundle = path.join(repoRoot, `.audit/bundles/${bankName}/notes.md`);
-      if (fs.existsSync(possibleBundle)) bundleNotes = fs.readFileSync(possibleBundle, "utf8");
-    }
-
-    const outFile = path.join(outDir, `${bankName}.json`);
-    const piVersion = (() => { try { return spawnSync(process.env.PI_BIN || "pi", ["--version"], { encoding: "utf8" }).stdout.trim(); } catch { return "unknown"; } })();
-    const hash = crypto.createHash("sha256");
-    for (const part of [fs.readFileSync(file), readPrompt("map.system.md"), fs.readFileSync(fileURLToPath(import.meta.url)), piVersion, bundleNotes.replace(/^(Generated|Notes ref): .*$/gm, ""), ...sectionPages.flatMap((p) => [path.relative(repoRoot, p), fs.readFileSync(p)])]) hash.update(part).update("\0");
-    const inputsSha = hash.digest("hex");
-    const previous = new Map();
-    if (!force && fs.existsSync(outFile)) {
-      try {
-        const existing = JSON.parse(fs.readFileSync(outFile, "utf8"));
-        if (existing.inputs_sha === inputsSha) for (const m of existing.mappings || []) if (m.method === "pi") previous.set(m.id, m);
-      } catch {}
-    }
-
-    const mappings = [];
-    for (const item of itemsList) {
-      if (previous.has(item.id)) {
-        mappings.push(previous.get(item.id));
-        continue;
-      }
-      const res = await callPi(item, sectionInfos, bundleNotes);
-      // Enforce confidence <0.6 handling later by run.mjs (tier S = all sections)
-      const valid = sectionInfos.some(info => info.section === res.section);
-      mappings.push({ id: item.id, section: valid ? res.section : null, confidence: valid ? (res.confidence ?? 0) : 0, secondary: res.secondary || [], raw: res._raw ? res._raw.slice(0, 200) : undefined, method: valid ? "pi" : "unmapped" });
-      // slight delay to avoid hammering
-      await new Promise((r) => setTimeout(r, 10));
-    }
-
-    const payload = {
-      bank: bankName,
-      generated_at: new Date().toISOString(),
-      inputs_sha: inputsSha,
-      tool_versions: { pi: piVersion },
-      section_pages: sectionPages.map((p) => path.relative(repoRoot, p)),
-      mappings,
-    };
-    fs.writeFileSync(outFile, JSON.stringify(payload, null, 2), "utf8");
-    console.log(`Mapping written ${outFile} (${mappings.length} items, ${previous.size} reused)`);
-  }
+function piVersionOf() {
+  try { return spawnSync(process.env.PI_BIN || "pi", ["--version"], { encoding: "utf8" }).stdout.trim(); } catch { return "unknown"; }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+/**
+ * Map the items of one bank. `itemsList` is the full inventory; `select`
+ * ({ ids, page }) restricts which items are (re)mapped this call.
+ * QB banks use pi; DSE deck banks map to their own section page.
+ */
+export async function mapBank({ bank, parentBank = bank, itemsList, inventorySha, select = {}, outDir, bundleDir, force = false, concurrency = 4 }) {
+  fs.mkdirSync(outDir, { recursive: true });
+  const sectionPages = sectionPagesForBank(repoRoot, parentBank);
+  const sectionInfos = collectSectionInfo(parentBank, sectionPages);
+  const dse = isDseBank(bank);
+
+  let bundleNotes = "";
+  const possibleBundle = bundleDir ? path.join(bundleDir, "notes.md") : path.join(auditDirs().bundles, bank, "notes.md");
+  if (!dse && fs.existsSync(possibleBundle)) bundleNotes = fs.readFileSync(possibleBundle, "utf8");
+
+  const outFile = path.join(outDir, `${bank}.json`);
+  const piVersion = dse ? "n/a" : piVersionOf();
+  const hash = crypto.createHash("sha256");
+  for (const part of [inventorySha, readPrompt("map.system.md"), fs.readFileSync(fileURLToPath(import.meta.url)), piVersion, bundleNotes.replace(/^(Generated|Notes ref): .*$/gm, ""), ...sectionPages.flatMap(p => [path.relative(repoRoot, p), fs.readFileSync(p)])]) hash.update(part).update("\0");
+  const inputsSha = hash.digest("hex");
+
+  const previous = new Map();
+  if (fs.existsSync(outFile)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(outFile, "utf8"));
+      if (existing.inputs_sha === inputsSha) for (const m of existing.mappings || []) if (m.method === "pi" || m.method === "deck") previous.set(m.id, m);
+    } catch {}
+  }
+
+  const selected = item => {
+    if (select.ids && !select.ids.includes(item.id)) return false;
+    if (select.page && dse && !pageMatches(repoRoot, parentBank, path.resolve(repoRoot, item.dse.page), select.page)) return false;
+    return true;
+  };
+  const limit = pLimit(concurrency);
+  let reused = 0;
+  const mappings = (await Promise.all(itemsList.map(item => limit(async () => {
+    const prev = previous.get(item.id);
+    if (prev && (!force || !selected(item))) { reused++; return prev; }
+    if (!selected(item)) return null;
+    if (dse) return { id: item.id, section: item.dse.section, confidence: 1, secondary: [], method: "deck" };
+    const res = await callPi(item, sectionInfos, bundleNotes);
+    const valid = sectionInfos.some(info => info.section === res.section);
+    return { id: item.id, section: valid ? res.section : null, confidence: valid ? (res.confidence ?? 0) : 0, secondary: res.secondary || [], raw: res._raw ? res._raw.slice(0, 200) : undefined, method: valid ? "pi" : "unmapped" };
+  })))).filter(Boolean);
+
+  const payload = {
+    bank,
+    generated_at: new Date().toISOString(),
+    inputs_sha: inputsSha,
+    tool_versions: { pi: piVersion },
+    section_pages: sectionPages.map(p => path.relative(repoRoot, p)),
+    mappings,
+  };
+  fs.writeFileSync(outFile, JSON.stringify(payload, null, 2), "utf8");
+  console.log(`Mapping written ${outFile} (${mappings.length} items, ${reused} reused)`);
+  return payload;
+}
+
+function loadItemFile(file) {
+  const data = JSON.parse(fs.readFileSync(file, "utf8"));
+  return { data, list: data.items || (Array.isArray(data) ? data : []), sha: crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex") };
+}
+
+async function main() {
+  const opts = parseArgs(process.argv.slice(2));
+  const select = { ids: opts.itemIds, page: opts.page };
+  const jobs = [];
+  if (opts.dseSection) {
+    for (const d of loadDseSection(repoRoot, opts.dseSection)) jobs.push({ bank: d.bank, parentBank: d.parent_bank, itemsList: d.items, inventorySha: crypto.createHash("sha256").update(JSON.stringify(d.items)).digest("hex") });
+  } else {
+    let files = [];
+    if (opts.itemsFile) files = [{ bank: opts.bank, file: opts.itemsFile }];
+    else if (opts.all || opts.bank) {
+      for (const bank of opts.all ? allBanks() : [opts.bank]) {
+        const candidates = qbItemsCandidates(bank);
+        if (opts.fixture) candidates.unshift(opts.fixture);
+        const found = candidates.find(p => fs.existsSync(p));
+        if (!found) { console.error(`No item file for bank ${bank}. Tried: ${candidates.join(", ")}`); continue; }
+        files.push({ bank, file: found });
+      }
+    } else if (opts.fixture) files = [{ bank: null, file: opts.fixture }];
+    else {
+      const dir = path.join(__dirname, "fixtures");
+      files = fs.readdirSync(dir).filter(f => f.endsWith(".json")).map(f => ({ bank: null, file: path.join(dir, f) }));
+    }
+    for (const { bank, file } of files) {
+      const { data, list, sha } = loadItemFile(file);
+      const bankName = bank || data.bank || path.basename(file, ".json");
+      if (data.bank && data.bank !== bankName) throw new Error(`Item bank ${data.bank} does not match ${bankName}`);
+      jobs.push({ bank: bankName, itemsList: list, inventorySha: sha });
+    }
+  }
+  if (!jobs.length) throw new Error("No item files found");
+  // Banks map in parallel; each bank's items are bounded by --concurrency.
+  await Promise.all(jobs.map(job => mapBank({ ...job, select, outDir: opts.outDir, bundleDir: opts.bundleDir, force: opts.force, concurrency: opts.concurrency })));
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch(e => { console.error(e); process.exit(1); });
+}
