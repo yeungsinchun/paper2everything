@@ -45,14 +45,19 @@ from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PDF = ROOT / "qb-pdf"
+# Corpus-agnostic (F01): only $P2DB_QB_ROOT (env) and ROOT/qb are trusted.
+# The paper2notes fallbacks were legacy pollution paths and are no longer searched.
 CANDIDATE_QB_ROOTS = [
     ROOT / "qb",
-    ROOT.parent / "paper2notes" / "qb",
-    Path("/Users/sinchunyeung/github/paper2notes/qb"),
 ]
 
 # Env var override for QB root (F00). Checked first in find_qb_root.
 P2DB_QB_ROOT_ENV = "P2DB_QB_ROOT"
+
+# F01 corpus-agnostic: bank scope and totals from banks.json
+BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
+SOURCE_MANIFEST_JSON = ROOT / "metadata" / "qb" / "source-manifest.json"
+QB_SOURCE_MANIFEST = ROOT / "qb" / "source-manifest.json"
 
 # Symbol font mapping (Adobe Symbol encoding, full; every U+F0xx seen in corpus)
 SYMBOL_MAP = {
@@ -131,6 +136,42 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def load_banks() -> dict | None:
+    """Load banks.json if present; corpus-agnostic source of truth for scope."""
+    try:
+        if BANKS_JSON.is_file():
+            return json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return None
+
+
+def get_in_scope_banks() -> set[str]:
+    banks = load_banks()
+    if banks and isinstance(banks.get("banks_detail"), list):
+        return {b["id"] for b in banks["banks_detail"] if b.get("in_scope")}
+    # Fallback for legacy or when banks.json missing: original hardcoded set (Books 2,4,5)
+    return {f"QB_{i}" for i in list(range(201, 211)) + list(range(401, 409)) + list(range(501, 504))}
+
+
+def load_source_manifest_info() -> dict | None:
+    """Return manifest info for provenance field in v2 items."""
+    for p in (QB_SOURCE_MANIFEST, SOURCE_MANIFEST_JSON):
+        if p.is_file():
+            try:
+                m = json.loads(p.read_text(encoding="utf-8"))
+                # Also compute the manifest file's own sha256 for provenance
+                return {
+                    "manifest_path": str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p),
+                    "manifest_sha256": sha256_file(p),
+                    "total_docx": m.get("total_docx"),
+                    "banks": m.get("banks"),
+                }
+            except Exception:
+                continue
+    return None
 
 
 def tool_versions() -> dict:
@@ -851,9 +892,12 @@ def main() -> None:
         by_bank[data["_best"]["_docx"].parent.name].append(code)
 
     versions = tool_versions()
-    in_scope_banks = {f"QB_{i}" for i in list(range(201, 211)) + list(range(401, 409)) + list(range(501, 504))}
+    in_scope_banks = get_in_scope_banks()
+    source_manifest_info = load_source_manifest_info()
     in_scope_count = sum(len(codes) for bank, codes in by_bank.items() if bank in in_scope_banks)
     print(f"Total unique: {len(merged)}  In-scope: {in_scope_count}")
+    if source_manifest_info:
+        print(f"Source manifest: {source_manifest_info['manifest_path']}  sha256={source_manifest_info['manifest_sha256'][:12]}...")
 
     all_index: list[dict] = []
     crop_ok = 0
@@ -962,8 +1006,17 @@ def main() -> None:
                     }
                 )
 
+            scope = "in-scope" if bank in in_scope_banks else "out-of-scope"
+            # F01: per-item source_manifest provenance (best variant's docx hash + manifest hash)
+            per_docx_sha = best["_sha256"]
+            source_manifest = {
+                "file": best["_rel_file"],
+                "sha256": per_docx_sha,
+                "manifest": source_manifest_info["manifest_path"] if source_manifest_info else None,
+                "manifest_sha256": source_manifest_info["manifest_sha256"] if source_manifest_info else None,
+            }
             item = {
-                "schema": "paper2db.qb-item.v1",
+                "schema": "paper2db.qb-item.v2",
                 "id": code,
                 "bank": bank,
                 "book": best["_bk"],
@@ -973,6 +1026,8 @@ def main() -> None:
                 "level": level,
                 "part": part,
                 "marks": int(best["_marks"]),
+                "scope": scope,
+                "source_manifest": source_manifest,
                 "stem": {
                     "text": stem_text,
                     "ocr": ocr_text[:3000],

@@ -46,7 +46,23 @@ PDF_ONLY_STEMS = {
     "QB_208/2_ch08_MC_e",
     "QB_208/2_ch08_MC_e_blank",
 }
-EXPECTED_REAL_DOCX = 169
+# F01 corpus-agnostic: load expected DOCX count from banks.json if present
+BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
+
+
+def _expected_real_docx() -> int:
+    try:
+        if BANKS_JSON.is_file():
+            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+            v = data.get("total_docx")
+            if isinstance(v, int) and v > 0:
+                return v
+    except Exception:
+        pass
+    return 169
+
+
+EXPECTED_REAL_DOCX = _expected_real_docx()
 
 def docx_symbol_glyphs(docx: Path) -> list[str]:
     with zipfile.ZipFile(str(docx)) as z:

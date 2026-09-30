@@ -40,19 +40,54 @@ QB_PDF = ROOT / "qb-pdf"
 ITEMS_DIR = QB_PDF / "items"
 CROPS_DIR = QB_PDF / "crops"
 LAVISH_OUT = ROOT / ".lavish" / "qb-review"
+BANKS_JSON = ROOT / "metadata" / "qb" / "banks.json"
 
-EXPECTED_TOTAL_ITEMS = 3847
-EXPECTED_IN_SCOPE = 1881
-# Plan §3.2 in-scope census: bank -> (items, withKey from DOCX) — F00 canonical (169 DOCX, 46 banks; recomputed via qb-items on F00 corpus)
-EXPECTED_BANKS = {
-    "QB_201": (59, 59), "QB_202": (109, 109), "QB_203": (81, 81), "QB_204": (113, 113),
-    "QB_205": (61, 61), "QB_206": (96, 96), "QB_207": (125, 125), "QB_208": (84, 84),
-    "QB_209": (77, 77), "QB_210": (68, 68),
-    "QB_401": (131, 131), "QB_402": (105, 105), "QB_403": (61, 61), "QB_404": (107, 107),
-    "QB_405": (67, 67), "QB_406": (89, 89), "QB_407": (121, 121), "QB_408": (81, 81),
-    "QB_501": (70, 70), "QB_502": (109, 109), "QB_503": (67, 67),
-}
-IN_SCOPE_BANKS = set(EXPECTED_BANKS)
+# F01 corpus-agnostic: load expected counts from banks.json when present
+def _load_banks_for_gate():
+    try:
+        if BANKS_JSON.is_file():
+            data = json.loads(BANKS_JSON.read_text(encoding="utf-8"))
+            detail = data.get("banks_detail")
+            if isinstance(detail, list) and detail:
+                banks = {}
+                in_scope = set()
+                for b in detail:
+                    bid = b.get("id")
+                    items = b.get("expected_items")
+                    if bid and isinstance(items, int):
+                        # F00 canonical: all keys present, so withKey == items for in-scope
+                        banks[bid] = (items, items) if b.get("in_scope") else (items, items)
+                        if b.get("in_scope"):
+                            in_scope.add(bid)
+                # But for gate we only need the in-scope subset; banks.json contains all 46,
+                # gate expects only the in-scope slice (Books 2,4,5) with withKey logic.
+                # Re-filter to keep the 21 in-scope banks as EXPECTED_BANKS shape.
+                expected_in_scope = {k: v for k, v in banks.items() if k in in_scope}
+                total = data.get("total_items")
+                in_scope_total = data.get("in_scope_items")
+                # Only override if we have the full 21 in-scope banks with plausible totals
+                if len(expected_in_scope) >= 21 and total and in_scope_total:
+                    return total, in_scope_total, expected_in_scope, in_scope
+    except Exception:
+        pass
+    return None
+
+_loaded = _load_banks_for_gate()
+if _loaded:
+    EXPECTED_TOTAL_ITEMS, EXPECTED_IN_SCOPE, EXPECTED_BANKS, IN_SCOPE_BANKS = _loaded
+else:
+    EXPECTED_TOTAL_ITEMS = 3847
+    EXPECTED_IN_SCOPE = 1881
+    # Plan §3.2 in-scope census: bank -> (items, withKey from DOCX) — F00 canonical (169 DOCX, 46 banks; recomputed via qb-items on F00 corpus)
+    EXPECTED_BANKS = {
+        "QB_201": (59, 59), "QB_202": (109, 109), "QB_203": (81, 81), "QB_204": (113, 113),
+        "QB_205": (61, 61), "QB_206": (96, 96), "QB_207": (125, 125), "QB_208": (84, 84),
+        "QB_209": (77, 77), "QB_210": (68, 68),
+        "QB_401": (131, 131), "QB_402": (105, 105), "QB_403": (61, 61), "QB_404": (107, 107),
+        "QB_405": (67, 67), "QB_406": (89, 89), "QB_407": (121, 121), "QB_408": (81, 81),
+        "QB_501": (70, 70), "QB_502": (109, 109), "QB_503": (67, 67),
+    }
+    IN_SCOPE_BANKS = set(EXPECTED_BANKS)
 EXPECTED_FROM_PDF = {}
 MAX_PAGE_DELTA = 1
 
