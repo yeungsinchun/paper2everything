@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book 2 Ch.8 · Projectile motion</title>
   <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
@@ -20,7 +21,6 @@
       <a href="../ch05-moment-and-equilibrium/index.html">Ch.5</a>
       <a href="../ch06-work-energy-power/index.html">Ch.6</a>
       <a href="../ch07-momentum/index.html">Ch.7</a>
-      <a href="../ch08-projectile-motion/index.html">Ch.8</a>
       <a href="../ch09-circular-motion/index.html">Ch.9</a>
       <a href="../ch10-gravitation/index.html">Ch.10</a>
     </nav>
@@ -46,6 +46,7 @@
         <div class="visual stage" id="proj-vis" data-scene="projectile">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Projectile parabola, split into horizontal uniform and vertical accelerated"></canvas>
           <span class="hud-label" data-hud="vx">\( v_x \) constant</span><span class="hud-label" data-hud="vy">\( v_y = u_y - gt \)</span><span class="hud-label" data-hud="parabola">parabola</span>
+          <span class="projectile-dot" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.17</b> Parabola without air. Horizontal: \( v_x = u\cos\theta \) constant (no force). Vertical: \( a=g \) downward, \( y = u_y t - \tfrac12 gt^2 \). The time is the same for both — that is the link.</figcaption>
       </figure>
@@ -69,6 +70,7 @@
         <div class="visual stage" id="bomber-vis" data-scene="bomber">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Bomber 500 m 150 m s-1 over 30 m tower to target"></canvas>
           <span class="hud-label" data-hud="bomber">500 m</span><span class="hud-label" data-hud="tower">30 m tower</span><span class="hud-label" data-hud="target">target</span>
+          <span class="bomber-dot" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.18</b> Bomber at 500 m, 150 m s\(^{-1}\), tower 30 m high 80 m before target. Does a bomb aimed at the target clear the tower? Use \( t = x/v_x \) and \( y \) from vertical. A ball launched horizontally 0.5 m s\(^{-1}\) from 6 m: time \( = \sqrt{2·6/g}=1.11 \) s, independent of \( v_x \).</figcaption>
       </figure>
@@ -83,6 +85,7 @@
         <div class="visual stage" id="range-vis" data-scene="range">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Projectile range vs angle, 45 degrees max without air"></canvas>
           <span class="hud-label" data-hud="45">\( 45^\circ \) max range (no air)</span>
+          <span class="range-dot" aria-hidden="true"></span>
         </div>
         <figcaption><b>Fig. 2.19</b> Range \( R = (u^2\sin2\theta)/g \) (level ground, no air) → max at \( 45^\circ \). With a height difference (bomber at 500 m), the optimum shifts and the tower clearance check matters.</figcaption>
       </figure>

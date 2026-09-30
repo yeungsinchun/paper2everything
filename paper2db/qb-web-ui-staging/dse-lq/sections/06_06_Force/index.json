@@ -1,0 +1,299 @@
+{
+  "section": 6,
+  "name": "Force",
+  "book": "02_Force_and_Motion",
+  "folder": "06_Force",
+  "count": 9,
+  "items": [
+    {
+      "id": "2014-q4",
+      "year": "2014",
+      "question": 4,
+      "primary_section": 6,
+      "primary_name": "Force",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "06_Force",
+      "all_sections": [
+        6
+      ],
+      "all_section_names": [
+        "Force"
+      ],
+      "crop": "crops/2014-q4.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q4-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was on force and acceleration. Candidates were required to comprehend a short passage on accelerometers as well as their use in smart phones. Candidates' performance was far from satisfactory. In (a), only the more able ones drew the free-body diagram correctly. Most failed to explain clearly that a net upward force was required when the box accelerated upward and thus the tension would be greater (than the weight) and the spring extended further (h decreased). Candidates did poorly in (b). Not many obtained the correct reading of the spring balance using the information given. Quite a number of them did not understand what quantity is being measured by a spring balance and wrongly gave their answers in metres. In (b), few candidates found the acceleration correctly using the equation T − W = ma. Some wrongly included mass m = 5 kg in their calculation. In (c), only the most able ones deduced the display mode correctly by considering the angle rotated by the phone or the component of the acceleration due to gravity along the y-axis of the phone. Many candidates were weak in resolving vectors and some were confused by the negative sign associated with the data.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: tension",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2014/q4.png",
+      "answer_png": "output/lq/2014/ans/q4.png"
+    },
+    {
+      "id": "2015-q5",
+      "year": "2015",
+      "question": 5,
+      "primary_section": 6,
+      "primary_name": "Force",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "06_Force",
+      "all_sections": [
+        6
+      ],
+      "all_section_names": [
+        "Force"
+      ],
+      "crop": "crops/2015-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2015-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question required candidates to describe how to measure the acceleration of a train using the apparatus provided. Their general performance was poor. Many of them did not mention procedures such as connecting the ends of the string to the metal ball and to the hole of the protractor. Only the most able ones showed an understanding of the proper orientation of the protractor and the correct position of the string when the metal ball accelerated forward with the train (inclined to the vertical at angle θ in the opposite direction). Some candidates did not mention the measurement to be taken and they just stated the result a = g tan θ without the mathematical derivation required.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: protractor, metal ball with a hook, measure the acceleration",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2015/q5.png",
+      "answer_png": "output/lq/2015/ans/q5.png"
+    },
+    {
+      "id": "2016-q4",
+      "year": "2016",
+      "question": 4,
+      "primary_section": 6,
+      "primary_name": "Force",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "06_Force",
+      "all_sections": [
+        6
+      ],
+      "all_section_names": [
+        "Force"
+      ],
+      "crop": "crops/2016-q4.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q4-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of Newton's laws of motion via an unfamiliar situation. Candidates' performance was poor. In (a), few candidates knew that the momentum change of water requires a net force from the jetpack and as a result of an action-and-reaction pair an equal and opposite supporting force is produced. Many had a misconception that this force comes from the interaction between the water ejected from the jetpack and the water surface. More than half of the candidates managed to draw the correct free-body diagram in (b). Some had difficulty in applying F = Δp/Δt to find F in (c)(i) as the directions of water flow needed to be considered. In (c)(ii), a few candidates did not know what mechanical energy consists of. Candidates' performance in (c)(iii) was unsatisfactory. Quite a number of them suggested that a greater power is required for the person to stay at a higher position.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: newton, free-body",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2016/q4.png",
+      "answer_png": "output/lq/2016/ans/q4.png"
+    },
+    {
+      "id": "2017-q1",
+      "year": "2017",
+      "question": 1,
+      "primary_section": 6,
+      "primary_name": "Force",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "06_Force",
+      "all_sections": [
+        6
+      ],
+      "all_section_names": [
+        "Force"
+      ],
+      "crop": "crops/2017-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2017-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was based on a passage describing the use of soil thermometers. The situation was unfamiliar to most candidates and the general performance was unsatisfactory. In (a), few were able to state that a larger bulb of such a thermometer would improve its sensitivity. Most candidates did well in parts (b)(i)(ii). However, very few gave a concise explanation of the function of paraffin wax in (b)(iii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: score-based; primary=max(S1,S6)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2017/q1.png",
+      "answer_png": "output/lq/2017/ans/q1.png"
+    },
+    {
+      "id": "2019-q5",
+      "year": "2019",
+      "question": 5,
+      "primary_section": 6,
+      "primary_name": "Force",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "06_Force",
+      "all_sections": [
+        6
+      ],
+      "all_section_names": [
+        "Force"
+      ],
+      "crop": "crops/2019-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was in general well answered. Most obtained the correct answers in (a) although a few wrongly counted the number of wavelengths in the shallow region. In (b)(i), the less able candidates struggled to find the frequency of the water wave in the deep region, which should remain unchanged (at 10 Hz). Quite a number of the candidates failed to sketch the refracted wavefronts properly in (b)(ii). Common mistakes included wavefronts bending towards instead of away from the normal or not continuing across the boundary. Part (b)(iii) was well answered except for a few who confused refraction with diffraction.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "fallback: force cues",
+      "page_from": 8,
+      "page_to": 8,
+      "png": "output/lq/2019/q5.png",
+      "answer_png": "output/lq/2019/ans/q5.png"
+    },
+    {
+      "id": "2020-q5",
+      "year": "2020",
+      "question": 5,
+      "primary_section": 6,
+      "primary_name": "Force",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "06_Force",
+      "all_sections": [
+        6
+      ],
+      "all_section_names": [
+        "Force"
+      ],
+      "crop": "crops/2020-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was fair in general. In (a)(i), most were able to indicate the forces acting on the block when it was treated as a free body. However, a few candidates made mistakes in either the direction or the labelling of the normal reaction. Candidates' performance in (a)(ii) was poor. Not many managed to resolve the forces and correctly set up the equations required. Some wrongly recalled R = mg cosθ for the reaction in such a situation that involved an extra force F. A lot of the candidates answered (b)(i) correctly though some of them used F (the force being removed) to find the acceleration. Part (b)(ii) was unfamiliar to candidates and some failed to realise that the perpendicular component of F had a part to play in such a situation.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "fallback: force cues",
+      "page_from": 8,
+      "page_to": 8,
+      "png": "output/lq/2020/q5.png",
+      "answer_png": "output/lq/2020/ans/q5.png"
+    },
+    {
+      "id": "2022-q3",
+      "year": "2022",
+      "question": 3,
+      "primary_section": 6,
+      "primary_name": "Force",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "06_Force",
+      "all_sections": [
+        6
+      ],
+      "all_section_names": [
+        "Force"
+      ],
+      "crop": "crops/2022-q3.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2022-q3-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of force and motion in the context of a quadcopter. The overall performance was fair. In (a), some candidates failed to state clearly the two balancing forces acting on the hovering quadcopter. A few wrongly thought that the thrust acting on the quadcopter came from the ground's reaction due to the air streams. Answers from weaker candidates suggested they thought that the thrust was greater than the quadcopter's weight. Part (b) was poorly answered. Some candidates had difficulties in handling the equation mass = density × volume and a few got mass of the quadcopter and mass of air streams mixed up. Candidates did well in (c). Some failed to label correctly the upward thrust acting on the quadcopter or wrongly included a centripetal force in the free-body diagram (which in fact would come from the thrust's horizontal component). A few did not realise that the speed of air streams in (c) was different from that in (b).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: newton",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2022/q3.png",
+      "answer_png": "output/lq/2022/ans/q3.png"
+    },
+    {
+      "id": "2024-q10",
+      "year": "2024",
+      "question": 10,
+      "primary_section": 8,
+      "primary_name": "Work, Energy and Power",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "08_Work_Energy_and_Power",
+      "all_sections": [
+        8,
+        6
+      ],
+      "all_section_names": [
+        "Work, Energy and Power",
+        "Force"
+      ],
+      "crop": "crops/2024-q10.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q10-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates did well in (a) which asked for how to demonstrate the conservation of energy. A few of them forgot to point out the measurements to be made. Part (b) examined candidates' knowledge and understanding of momentum in the context of Newton's cradle. The overall performance was fair. In (b)(i)(I), some candidates mixed up the conservation of linear momentum and the conservation of mechanical energy and stated 'no work done by the tensions' as the explanation. In explaining why the case was impossible in (b)(i)(II), a few candidates did not calculate the initial and final kinetic energy of the system or failed to find the correct values. Quite a number of the candidates failed to account for the loss in kinetic energy in the repeated collisions in (b)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: conservation of energy; dual with S6 (significant earlier part)",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2024/q10.png",
+      "answer_png": "output/lq/2024/ans/q10.png"
+    },
+    {
+      "id": "2026-q3",
+      "year": "2026",
+      "question": 3,
+      "primary_section": 6,
+      "primary_name": "Force",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "06_Force",
+      "all_sections": [
+        6
+      ],
+      "all_section_names": [
+        "Force"
+      ],
+      "crop": "crops/2026-q3.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: tension",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2026/q3.png",
+      "answer_png": "output/lq/2026/ans/q3.png"
+    }
+  ]
+}

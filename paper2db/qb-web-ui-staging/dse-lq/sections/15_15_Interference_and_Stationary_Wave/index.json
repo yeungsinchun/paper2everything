@@ -1,0 +1,107 @@
+{
+  "section": 15,
+  "name": "Interference and Stationary Wave",
+  "book": "03A_Wave_Motion",
+  "folder": "15_Interference_and_Stationary_Wave",
+  "count": 3,
+  "items": [
+    {
+      "id": "2013-q7",
+      "year": "2013",
+      "question": 7,
+      "primary_section": 15,
+      "primary_name": "Interference and Stationary Wave",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "15_Interference_and_Stationary_Wave",
+      "all_sections": [
+        15
+      ],
+      "all_section_names": [
+        "Interference and Stationary Wave"
+      ],
+      "crop": "crops/2013-q7.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2013-q7-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Most candidates answered part (a) correctly although a few of them forgot to convert the unit of wavelength to metres. Some candidates were not able to demonstrate an understanding that microwaves travel at the speed of light and a few even mistook it as the speed of sound (340 m s⁻¹). In (b)(i), candidates showed an understanding that the alternate maxima and minima were due to constructive and destructive interference respectively, but very few stated the reason for this was due to variation of path difference along XY. In (b)(ii), some candidates failed to realize that the path difference concerned was 1½λ or mistook it as AP − BP. Candidates' performance in (b)(iii) was poor. Many did not count the zeroth order maximum or incorrectly stated that the order corresponding to θ = 90° could still be observed. The equation d sinθ = nλ was also incorrectly applied as the slit separation was not negligible in such a situation. In (c), most candidates knew that the diffraction effect of radio waves was more significant compared to microwaves but very few mentioned how the reflection of waves from small obstacles would be affected as a result.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: interference; primary=max(S13,S15)",
+      "page_from": 9,
+      "page_to": 11,
+      "png": "output/lq/2013/q7.png",
+      "answer_png": "output/lq/2013/ans/q7.png"
+    },
+    {
+      "id": "2015-q7",
+      "year": "2015",
+      "question": 7,
+      "primary_section": 15,
+      "primary_name": "Interference and Stationary Wave",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "15_Interference_and_Stationary_Wave",
+      "all_sections": [
+        15
+      ],
+      "all_section_names": [
+        "Interference and Stationary Wave"
+      ],
+      "crop": "crops/2015-q7.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "Part (a) was well answered. Some candidates made mistakes in converting units when calculating the fringe separation. In (b), few candidates realized that interference did occur but was unobservable as the sources were incoherent. Many thought that an interference pattern with smaller fringe separation formed would occur as the source separation was greater. Some confused phase and coherence, and stated 'the interference was unobservable because they were out of phase'. Quite a number of them sketched straight lines instead of curves for the antinodal lines in (c). In (d)(i), more than half of the candidates incorrectly read the value of y even though correct antinodal lines were drawn as they might have overlooked the scale (10 mm per division) given. Part (d)(ii) was poorly answered as most candidates did not know the geometrical constraints in estimating the fringe separation.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: interference",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2015/q7.png",
+      "answer_png": "output/lq/2015/ans/q7.png"
+    },
+    {
+      "id": "2025-q10",
+      "year": "2025",
+      "question": 10,
+      "primary_section": 15,
+      "primary_name": "Interference and Stationary Wave",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "15_Interference_and_Stationary_Wave",
+      "all_sections": [
+        15,
+        7
+      ],
+      "all_section_names": [
+        "Interference and Stationary Wave",
+        "More about Forces"
+      ],
+      "crop": "crops/2025-q10.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' understanding of stationary wave and its application to musical instruments. Candidates performed poorly. In (a)(i), about a third labelled some antinodes and nodes, only a third labelled all correctly. Part (a)(ii) was well answered, although a small number seemingly did not understand the concept of 'phase'. Only about a third answered (a)(iii) correctly. In (a)(iv), many failed to determine the wavelength of the next stationary wave pattern. Nearly half drew the correct pattern in (b)(i). In (b)(ii), only a very small number realised that sound quality depends on the superposition of harmonics. The performance in (b)(iii) was poor. Many did not compare appropriate wave characteristics and some mismatched terms like 'stationary' and 'longitudinal'.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: stationary wave; dual with S7 (significant earlier part)",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2025/q10.png",
+      "answer_png": "output/lq/2025/ans/q10.png"
+    }
+  ]
+}

@@ -609,9 +609,19 @@ figure.fig figcaption b {
   color: var(--ink);
   pointer-events: none;
   white-space: nowrap;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
   text-shadow: 0 0 5px #fff, 0 0 5px #fff;
 }
+
+/* Ch.3 — prevent hud-label stacking at bottom-left */
+#add-vis [data-hud="net"] { left: 58%; top: 18%; }
+#add-vis [data-hud="resolve"] { left: 78%; top: 28%; }
+#inertia-vis [data-hud="friction"] { left: 32%; top: 72%; }
+#inertia-vis [data-hud="inertia"] { left: 72%; top: 22%; }
+#resolve-vis [data-hud="Fx"] { left: 38%; top: 74%; }
+#resolve-vis [data-hud="Fy"] { left: 70%; top: 38%; }
+#friction2-vis [data-hud="static"] { left: 26%; top: 38%; }
+#friction2-vis [data-hud="kinetic"] { left: 74%; top: 38%; }
 
 .pane-pair {
   display: grid;

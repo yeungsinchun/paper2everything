@@ -1,1 +1,42 @@
 /* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+/* ch02: center stage, unstack hud labels, make velocity graphs readable */
+
+/* Center the stage box (shared rule only applies to .play; ensure all ch02 stages are centered) */
+figure.fig > .visual.stage {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Make hud pills readable and give them a default pill look */
+.stage .hud-label {
+  padding: 0.18rem 0.45rem;
+  border: 1px solid #dde6e9;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.94);
+  text-shadow: none;
+  line-height: 1.25;
+  top: auto;
+  bottom: 0.55rem;
+}
+
+/* Fig. 2.3 — s-t / v-t : two labels spread */
+#st-vt-vis [data-hud="slope"] { left: 28%; }
+#st-vt-vis [data-hud="area"] { left: 72%; }
+
+/* Fig. 2.4 — UAM : v-t line and s-t parabola */
+#uam-vis [data-hud="vt"] { left: 30%; }
+#uam-vis [data-hud="st"] { left: 70%; }
+
+/* Fig. 2.5 — free-fall : g and air drag */
+#freefall-vis [data-hud="g"] { left: 32%; }
+#freefall-vis [data-hud="air"] { left: 68%; }
+
+/* Fig. 2.6 — ticker tape : single label centered */
+#ticker-vis [data-hud="dots"] { left: 50%; }
+
+/* Fig. 2.7 — light gate : single label centered */
+#g-vis [data-hud="gate"] { left: 50%; }
+
+@media (max-width: 620px) {
+  .stage .hud-label { font-size: 11px; padding: 0.12rem 0.32rem; }
+}

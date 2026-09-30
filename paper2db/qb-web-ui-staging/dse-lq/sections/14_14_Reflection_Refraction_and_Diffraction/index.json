@@ -1,0 +1,171 @@
+{
+  "section": 14,
+  "name": "Reflection, Refraction and Diffraction",
+  "book": "03A_Wave_Motion",
+  "folder": "14_Reflection_Refraction_and_Diffraction",
+  "count": 5,
+  "items": [
+    {
+      "id": "2012-q6",
+      "year": "2012",
+      "question": 6,
+      "primary_section": 14,
+      "primary_name": "Reflection, Refraction and Diffraction",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "14_Reflection_Refraction_and_Diffraction",
+      "all_sections": [
+        14
+      ],
+      "all_section_names": [
+        "Reflection, Refraction and Diffraction"
+      ],
+      "crop": "crops/2012-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Part (a) was poorly answered. Not many candidates identified the correct positions of the anti-nodal line L₁ and nodal line L₂ by drawing a smooth curve through the points for each line. Many candidates wrongly drew straight lines for L₁ and L₂. Only the more able ones correctly pointed out that the separation between L₁ and L₂ would increase when S₁S₂ was reduced slightly in separation. Candidates' performance in (b) and (c) was satisfactory. Many failed to give the correct path difference at Q. In (d), the majority of candidates were able to obtain the numerical answer using the equation Δy = λD/a but some mixed up the meaning of Δy (fringe separation) and a (slit separation).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: ripple tank; primary=max(S7,S13,S14)",
+      "page_from": 8,
+      "page_to": 8,
+      "png": "output/lq/2012/q6.png",
+      "answer_png": "output/lq/2012/ans/q6.png"
+    },
+    {
+      "id": "2014-q7",
+      "year": "2014",
+      "question": 7,
+      "primary_section": 14,
+      "primary_name": "Reflection, Refraction and Diffraction",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "14_Reflection_Refraction_and_Diffraction",
+      "all_sections": [
+        14
+      ],
+      "all_section_names": [
+        "Reflection, Refraction and Diffraction"
+      ],
+      "crop": "crops/2014-q7.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "Candidates performed well in parts (a)(i) and (ii) involving the calculations of diffraction grating. Many did not have a clear concept of percentage error in x or θ and therefore failed to score marks in (a)(iii). It seems that most candidates did not understand what part (b) asked for and gave answers like using a grating with more lines per mm.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: diffraction",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2014/q7.png",
+      "answer_png": "output/lq/2014/ans/q7.png"
+    },
+    {
+      "id": "2018-q7",
+      "year": "2018",
+      "question": 7,
+      "primary_section": 14,
+      "primary_name": "Reflection, Refraction and Diffraction",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "14_Reflection_Refraction_and_Diffraction",
+      "all_sections": [
+        14
+      ],
+      "all_section_names": [
+        "Reflection, Refraction and Diffraction"
+      ],
+      "crop": "crops/2018-q7.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q7-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates performed well in (a)(i). Only a few candidates did not realise that the percentage error in measurement was being referred to and they answered 'easier to locate the positions of maxima as the dots are brighter'. Some candidates failed to find the correct values of θ or mistook the order of diffraction as n = 4 in (a)(iii). Weaker ones wrongly applied Δy = λD/a in this situation. In (b)(i), not many candidates knew that the equation Δy = λD/a could only be applied when λ ≪ a and a ≪ D. Some even thought that the equation was only applicable for light.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: diffraction",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2018/q7.png",
+      "answer_png": "output/lq/2018/ans/q7.png"
+    },
+    {
+      "id": "2024-q6",
+      "year": "2024",
+      "question": 6,
+      "primary_section": 14,
+      "primary_name": "Reflection, Refraction and Diffraction",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "14_Reflection_Refraction_and_Diffraction",
+      "all_sections": [
+        14
+      ],
+      "all_section_names": [
+        "Reflection, Refraction and Diffraction"
+      ],
+      "crop": "crops/2024-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. In (a), quite a number of the candidates used the formula for double slits in their calculation, which is not applicable to diffraction grating. Part (b) was well answered.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: diffraction",
+      "page_from": 5,
+      "page_to": 5,
+      "png": "output/lq/2024/q6.png",
+      "answer_png": "output/lq/2024/ans/q6.png"
+    },
+    {
+      "id": "2026-q5",
+      "year": "2026",
+      "question": 5,
+      "primary_section": 14,
+      "primary_name": "Reflection, Refraction and Diffraction",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "14_Reflection_Refraction_and_Diffraction",
+      "all_sections": [
+        14,
+        13
+      ],
+      "all_section_names": [
+        "Reflection, Refraction and Diffraction",
+        "Wave Motion"
+      ],
+      "crop": "crops/2026-q5.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: ripple tank; dual with S13 (significant earlier part)",
+      "page_from": 6,
+      "page_to": 6,
+      "png": "output/lq/2026/q5.png",
+      "answer_png": "output/lq/2026/ans/q5.png"
+    }
+  ]
+}

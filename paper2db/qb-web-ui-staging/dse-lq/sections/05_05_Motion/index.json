@@ -1,0 +1,331 @@
+{
+  "section": 5,
+  "name": "Motion",
+  "book": "02_Force_and_Motion",
+  "folder": "05_Motion",
+  "count": 10,
+  "items": [
+    {
+      "id": "2014-q3",
+      "year": "2014",
+      "question": 3,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/2014-q3.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q3-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was on the motion of two cars travelling along a straight horizontal road and was in general well answered. In (a), most candidates described the motion of car A along the whole journey correctly. Part (b) was well answered although some weaker candidates stated the unit of acceleration wrongly in (b)(i). In (c)(i), most candidates understood that the area under a velocity-time graph represents displacement and were able to find the separation between cars A and B. In (c)(ii), only the more able ones deduced correctly the time at which car B caught up with car A using the result of (c)(i). Candidates' performance in (d) was poor. Not many obtained the correct answer using the relation P = Fv. Weaker ones even confused power with work done and some failed to handle ratio properly.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: score-based",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2014/q3.png",
+      "answer_png": "output/lq/2014/ans/q3.png"
+    },
+    {
+      "id": "2015-q4",
+      "year": "2015",
+      "question": 4,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/2015-q4.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2015-q4-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of motion, namely a block on an inclined plane. Candidates' performance was satisfactory. A few candidates failed to describe correctly the motion in (a), which was based on the velocity-time graph given. In (b)(i), most candidates worked out the correct acceleration using the graph but some overlooked calculating the magnitude. Part (b)(ii) was well answered. In (c), many candidates were able to draw a free-body diagram showing the forces (with labels) acting on the block as it moved up the plane. However, some candidates wrongly included the resultant force and/or the weight component along the plane (mg sin θ) in addition to mg. They also wrongly drew the direction and line of action of the frictional force. Part (d) was poorly answered. Only the most able candidates were able to set up correctly two equations for the forces acting on the block as it decelerated up and accelerated down the inclined plane.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: velocity-time",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2015/q4.png",
+      "answer_png": "output/lq/2015/ans/q4.png"
+    },
+    {
+      "id": "2016-q3",
+      "year": "2016",
+      "question": 3,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/2016-q3.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q3-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This was a typical question on kinematics involving apparent weight. Candidates' performance was satisfactory. Parts (a) and (b) were well answered. In (c)(i), some candidates failed to verify the result as they made mistakes in the sign of acceleration in the calculation. Most were able to obtain the answer in (c)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: velocity-time",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2016/q3.png",
+      "answer_png": "output/lq/2016/ans/q3.png"
+    },
+    {
+      "id": "2017-q6",
+      "year": "2017",
+      "question": 6,
+      "primary_section": 13,
+      "primary_name": "Wave Motion",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "13_Wave_Motion",
+      "all_sections": [
+        13,
+        5
+      ],
+      "all_section_names": [
+        "Wave Motion",
+        "Motion"
+      ],
+      "crop": "crops/2017-q6.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' basic knowledge of wave motion. Candidates' performance was satisfactory. Part (a) was well answered. In (b)(i), some candidates only stated 'crest meets trough at Q' to explain why a minimum occurred there. Quite a number of them did not know that in (b)(iii) the amplitude of the water waves would decrease gradually with the distance from the source.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: wave speed, frequency; dual with S5 (significant earlier part)",
+      "page_from": 8,
+      "page_to": 9,
+      "png": "output/lq/2017/q6.png",
+      "answer_png": "output/lq/2017/ans/q6.png"
+    },
+    {
+      "id": "2023-q3",
+      "year": "2023",
+      "question": 3,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/2023-q3.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2023-q3-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of force and motion in the context of a cyclist. Candidates' performance was good. In (a), more than half of the candidates correctly indicated the frictional force acting on the rear wheel. Candidates did well in (b) and (c)(i). A few omitted the reaction time in completing the v-t graph. Consequently, this might have lead to incorrect numerical answers in (c)(ii)(iii). Some candidates wrongly stated that a padded cushion was for 'absorbing force' or 'reducing pressure' due to its softness and large area as explanations for (d).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: velocity-time",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2023/q3.png",
+      "answer_png": "output/lq/2023/ans/q3.png"
+    },
+    {
+      "id": "2024-q9",
+      "year": "2024",
+      "question": 9,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/2024-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. Most knew that there was separation of positive and negative charges on both spheres in (a). However, some did not pay attention to the balance of opposite charges on each sphere. In (b), a few candidates wrongly thought that the plastic rod would not lose charge as it is an insulator. Although some candidates failed to identify the sign of charges carried by sphere *P*, most were able to describe the procedure for finding the unknown polarity of another charged rod in (c).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "fallback: weak keyword match -> Motion",
+      "page_from": 9,
+      "page_to": 9,
+      "png": "output/lq/2024/q9.png",
+      "answer_png": "output/lq/2024/ans/q9.png"
+    },
+    {
+      "id": "2025-q3",
+      "year": "2025",
+      "question": 3,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/2025-q3.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question required candidates to interpret a motion graph. Candidates' performance was satisfactory. In (a), about a quarter provided a complete description of the motion. Performance in (b) was satisfactory, although some did not specify the position with reference to point *O*. Part (c) was well answered.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: velocity-time",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2025/q3.png",
+      "answer_png": "output/lq/2025/ans/q3.png"
+    },
+    {
+      "id": "2026-q11",
+      "year": "2026",
+      "question": 11,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/2026-q11.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: velocity-time, displacement-time",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2026/q11.png",
+      "answer_png": "output/lq/2026/ans/q11.png"
+    },
+    {
+      "id": "pp-q4",
+      "year": "pp",
+      "question": 4,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/pp-q4.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "fallback: weak keyword match -> Motion",
+      "page_from": 3,
+      "page_to": 3,
+      "png": "output/lq/pp/q4.png",
+      "answer_png": "output/lq/pp/ans/q4.png"
+    },
+    {
+      "id": "pp-q12",
+      "year": "pp",
+      "question": 12,
+      "primary_section": 5,
+      "primary_name": "Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "05_Motion",
+      "all_sections": [
+        5
+      ],
+      "all_section_names": [
+        "Motion"
+      ],
+      "crop": "crops/pp-q12.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "fallback: weak keyword match -> Motion",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/pp/q12.png",
+      "answer_png": "output/lq/pp/ans/q12.png"
+    }
+  ]
+}

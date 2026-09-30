@@ -1,0 +1,335 @@
+{
+  "section": 27,
+  "name": "Nuclear Energy",
+  "book": "05_Radioactivity_and_Nuclear_Energy",
+  "folder": "27_Nuclear_Energy",
+  "count": 10,
+  "items": [
+    {
+      "id": "2012-q11",
+      "year": "2012",
+      "question": 11,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27
+      ],
+      "all_section_names": [
+        "Nuclear Energy"
+      ],
+      "crop": "crops/2012-q11.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q11-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Parts (a) and (b) were well answered. In (a), a few candidates wrote the equation with wrong notation. In (b), weaker candidates made mistakes in converting units like u, MeV and J. Candidates' performance in part (c) was fair. Many were weak in calculation with moles and they mixed up curie (Ci) and disintegrations per second (or Bq) when expressing the activity.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: energy released in the decay, energy released, nuclear equation, mev",
+      "page_from": 17,
+      "page_to": 17,
+      "png": "output/lq/2012/q11.png",
+      "answer_png": "output/lq/2012/ans/q11.png"
+    },
+    {
+      "id": "2015-q10",
+      "year": "2015",
+      "question": 10,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27
+      ],
+      "all_section_names": [
+        "Nuclear Energy"
+      ],
+      "crop": "crops/2015-q10.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "Candidates only did well in (a). A few candidates had difficulty in dealing with the units eV and J. In (b)(i), not many knew that the energy used for overcoming the repulsion between the two positive nuclei became electrical potential energy. Some wrongly thought that it turned into kinetic energy, heat or nuclear energy. In (b)(iii), most candidates failed to relate the average kinetic energy of the nuclei to the large amount of work done needed. A few even wrongly employed E = 17.58 MeV in (a) in their calculations.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: fusion, energy released, mev, nucleus",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2015/q10.png",
+      "answer_png": "output/lq/2015/ans/q10.png"
+    },
+    {
+      "id": "2016-q9",
+      "year": "2016",
+      "question": 9,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27,
+        26
+      ],
+      "all_section_names": [
+        "Nuclear Energy",
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2016-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' understanding of radioactivity. Part (a) was well answered. Most candidates employed a correct formula in (b)(i) to find the age of the sample but not many were able to work out the correct ratio N/N₀ = 3/5 from the information given. In (b)(ii), the reasons stated by the candidates for the age found being an underestimate were mostly far from concise. In sketching the graph in (b)(iii), few candidates realized that the number of Pb-206 atoms is non-zero at t = 0.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: uranium, nucleus; dual with S26 (significant earlier part)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2016/q9.png",
+      "answer_png": "output/lq/2016/ans/q9.png"
+    },
+    {
+      "id": "2017-q10",
+      "year": "2017",
+      "question": 10,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27
+      ],
+      "all_section_names": [
+        "Nuclear Energy"
+      ],
+      "crop": "crops/2017-q10.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question on radioactivity was in general well answered. Candidates did well in parts (a) and (c). In (b), quite a number of candidates wrongly thought that the α particles neutralised the charged dust directly. Most candidates knew how to calculate the activity in part (d), only some of them made mistakes in the unit.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: nuclear equation, nucleus; primary=max(S20,S25,S27)",
+      "page_from": 16,
+      "page_to": 16,
+      "png": "output/lq/2017/q10.png",
+      "answer_png": "output/lq/2017/ans/q10.png"
+    },
+    {
+      "id": "2019-q10",
+      "year": "2019",
+      "question": 10,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27
+      ],
+      "all_section_names": [
+        "Nuclear Energy"
+      ],
+      "crop": "crops/2019-q10.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q10-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Part (a)(i) was well answered. Not many gave the crucial condition that the number of neutrons produced in fission must be greater than one for a chain reaction be sustained in (a)(ii). Weaker candidates may have thought that slow neutrons had to be the products of the fission reaction. Most managed to find the amount of U-235 in the sample 2 × 10⁹ years ago in (b)(i) but not many obtained the correct value of its concentration by mass in (b)(ii). Candidates' performance in (c) was poor. Very few were able to relate the energy of fission with the dry up of underground water, which led to a ceasing of the supply of slow neutrons. Wrong answers given by candidates included: the neutrons were not energetic enough or the concentration of the fuel was not high enough.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: fission, mev, uranium",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2019/q10.png",
+      "answer_png": "output/lq/2019/ans/q10.png"
+    },
+    {
+      "id": "2020-q10",
+      "year": "2020",
+      "question": 10,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27
+      ],
+      "all_section_names": [
+        "Nuclear Energy"
+      ],
+      "crop": "crops/2020-q10.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q10-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Part (a) was well answered. Some candidates were unable to identify the product X despite they had found the correct proton and mass numbers. In (b), most managed to find the mass defect correctly. Some failed to convert the mass defect to energy in MeV. Weaker ones mistook the energy equivalent of the mass of an α particle as the minimum kinetic energy or omitted the α particle or the proton in finding the minimum kinetic energy. Candidates' performance in (c) was poor. Only a few were able to give correct explanations based on the conservation of momentum. Popular explanations included 'extra energy is needed because of inelastic collision or binding energy', 'to compensate for the energy loss to surroundings' or 'to overcome repulsive forces'.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: mev, nucleus; primary=max(S8,S27)",
+      "page_from": 16,
+      "page_to": 16,
+      "png": "output/lq/2020/q10.png",
+      "answer_png": "output/lq/2020/ans/q10.png"
+    },
+    {
+      "id": "2022-q10",
+      "year": "2022",
+      "question": 10,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27
+      ],
+      "all_section_names": [
+        "Nuclear Energy"
+      ],
+      "crop": "crops/2022-q10.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of nuclear fission and fusion. The performance of candidates was far from satisfactory. In (a), most were able to calculate the mass defect correctly. Quite a number of them mistook this mass defect for two deuterium nuclides as the maximum energy produced by one mole of hydrogen/deuterium nuclides. In their calculations, some did not realise that two deuterium nuclides were required for each reaction. A few weaker candidates mistook the mass of a deuterium nuclide or the total mass of helium and neutron as the energy produced. About one-third of the candidates correctly gave an alternate fusion reaction in (b). Many candidates employed general terms in (c) to explain the advantages of fusion over fission: e.g. more stable/safe, less harmful/pollution, higher efficiency, cleaner, etc., without further elaboration. Their answers also revealed a misconception that the energy released by one fusion reaction was greater than that released by one fission reaction.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: fusion, mev",
+      "page_from": 17,
+      "page_to": 17,
+      "png": "output/lq/2022/q10.png",
+      "answer_png": "output/lq/2022/ans/q10.png"
+    },
+    {
+      "id": "2023-q9",
+      "year": "2023",
+      "question": 9,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27,
+        26
+      ],
+      "all_section_names": [
+        "Nuclear Energy",
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2023-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2023-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of radioactivity. The overall performance was satisfactory. Most candidates answered correctly in (a). A few wrongly stated 'α-decay' as a kind of radiation. In (b), quite a number of the candidates mistook N/N₀ as the proportion of Th-232 decaying in ten years. Less than half of them answered correctly in (c)(i). Some candidates held a misconception that the long half-life of Th implied low activity and therefore caused no harmful effect. In (c)(ii), some candidates failed to employ the result found in (b) to answer this part.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: radium, nucleus; dual with S26 (significant earlier part)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2023/q9.png",
+      "answer_png": "output/lq/2023/ans/q9.png"
+    },
+    {
+      "id": "2026-q12",
+      "year": "2026",
+      "question": 12,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27,
+        26
+      ],
+      "all_section_names": [
+        "Nuclear Energy",
+        "Rate of Decay and Uses of Radionuclides"
+      ],
+      "crop": "crops/2026-q12.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: nuclear equation; dual with S26 (significant earlier part)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/2026/q12.png",
+      "answer_png": "output/lq/2026/ans/q12.png"
+    },
+    {
+      "id": "pp-q14",
+      "year": "pp",
+      "question": 14,
+      "primary_section": 27,
+      "primary_name": "Nuclear Energy",
+      "primary_book": "05_Radioactivity_and_Nuclear_Energy",
+      "primary_folder": "27_Nuclear_Energy",
+      "all_sections": [
+        27
+      ],
+      "all_section_names": [
+        "Nuclear Energy"
+      ],
+      "crop": "crops/pp-q14.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: fission, mev",
+      "page_from": 18,
+      "page_to": 18,
+      "png": "output/lq/pp/q14.png",
+      "answer_png": "output/lq/pp/ans/q14.png"
+    }
+  ]
+}

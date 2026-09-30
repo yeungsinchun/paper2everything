@@ -1,0 +1,105 @@
+{
+  "section": 9,
+  "name": "Momentum",
+  "book": "02_Force_and_Motion",
+  "folder": "09_Momentum",
+  "count": 3,
+  "items": [
+    {
+      "id": "2017-q2",
+      "year": "2017",
+      "question": 2,
+      "primary_section": 9,
+      "primary_name": "Momentum",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "09_Momentum",
+      "all_sections": [
+        9
+      ],
+      "all_section_names": [
+        "Momentum"
+      ],
+      "crop": "crops/2017-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2017-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question required candidates to describe how to measure the speed of a bullet using the apparatus provided. The general performance was poor. Many candidates failed to mention that the speed of the trolley immediately after the collision should have been taken. A small number of candidates did not know that the motion sensor registered the trolley's speed instead of its distance travelled. Not many were able to state the precautions for getting a more accurate result such as the bullet should be fired along the trolley's direction of travel.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: score-based",
+      "page_from": 2,
+      "page_to": 2,
+      "png": "output/lq/2017/q2.png",
+      "answer_png": "output/lq/2017/ans/q2.png"
+    },
+    {
+      "id": "2018-q4",
+      "year": "2018",
+      "question": 4,
+      "primary_section": 9,
+      "primary_name": "Momentum",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "09_Momentum",
+      "all_sections": [
+        9
+      ],
+      "all_section_names": [
+        "Momentum"
+      ],
+      "crop": "crops/2018-q4.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q4-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Part (a)(i) was well answered. In (a)(ii), only the more able candidates understood that as the spring gun was fixed, external force(s) acted on the system and thus momentum was not conserved. Moreover, some candidates only mentioned in their answers that momentum was not the same before and after the process, without giving any explanation. Part (b) was well answered. However, a few candidates had difficulties in resolving the initial velocity of the cannon ball correctly into its vertical and horizontal components. In (c), only the more able ones reasoned without any numerical calculation that t_f would increase as the initial vertical velocity v sin θ increased.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: momentum",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2018/q4.png",
+      "answer_png": "output/lq/2018/ans/q4.png"
+    },
+    {
+      "id": "2025-q5",
+      "year": "2025",
+      "question": 5,
+      "primary_section": 9,
+      "primary_name": "Momentum",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "09_Momentum",
+      "all_sections": [
+        9
+      ],
+      "all_section_names": [
+        "Momentum"
+      ],
+      "crop": "crops/2025-q5.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question assessed candidates' understanding of experimental design and force analysis during a collision. The performance was poor. While most recognised the action-reaction pair between *A* and *B*, many failed to draw the force-time graphs correctly.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: collision",
+      "page_from": 5,
+      "page_to": 5,
+      "png": "output/lq/2025/q5.png",
+      "answer_png": "output/lq/2025/ans/q5.png"
+    }
+  ]
+}
