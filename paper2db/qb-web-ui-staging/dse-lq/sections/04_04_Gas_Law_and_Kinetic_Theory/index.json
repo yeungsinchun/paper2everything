@@ -1,0 +1,427 @@
+{
+  "section": 4,
+  "name": "Gas Law and Kinetic Theory",
+  "book": "01_Heat_and_Gases",
+  "folder": "04_Gas_Law_and_Kinetic_Theory",
+  "count": 13,
+  "items": [
+    {
+      "id": "2012-q2",
+      "year": "2012",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2012-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Satisfactory. In (a), most candidates were able to apply Boyle's law but some of them did not know the relation between the bubble's volume and its radius or the formulae for calculating a spherical volume. In (b), few candidates stated the constant average speed (kinetic energy) of gas molecules and realised the gas pressure caused by collisions of gas molecules on a surface.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: kinetic theory",
+      "page_from": 2,
+      "page_to": 2,
+      "png": "output/lq/2012/q2.png",
+      "answer_png": "output/lq/2012/ans/q2.png"
+    },
+    {
+      "id": "2015-q2",
+      "year": "2015",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2015-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2015-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding on gas laws. In general, candidates' performance was good. Some candidates, however, applied the equation pV = nRT without first converting the data into S.I. units, while a few did not change the temperature from Celsius scale to Kelvin scale.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "fallback: gas cues",
+      "page_from": 1,
+      "page_to": 1,
+      "png": "output/lq/2015/q2.png",
+      "answer_png": "output/lq/2015/ans/q2.png"
+    },
+    {
+      "id": "2016-q2",
+      "year": "2016",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2016-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding on gas laws. The general performance was fair. In (a), most candidates were able to find the number of moles though some of them failed to get the final answer which is the number of gas molecules. Some had a misconception in (b)(i) that the gas temperature could be kept constant by wrapping the syringe with an insulator. In (b)(ii), quite a number of them wrongly thought that V₀ is the volume of gas at absolute zero or under infinite pressure. Part (b)(iii) was well answered.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: gas molecules, pressure of the gas",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2016/q2.png",
+      "answer_png": "output/lq/2016/ans/q2.png"
+    },
+    {
+      "id": "2017-q3",
+      "year": "2017",
+      "question": 3,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2017-q3.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question was on the microscopic properties of gases. Candidates' performance was fair. In (a), most candidates knew that the root-mean-square speed of gas molecules was related to the gas temperature, but some forgot to take the square root of the ratio of temperatures. Quite a number of them had a misconception in part (b) that the collisions among gas molecules themselves would contribute to the gas pressure.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: gas molecules, monatomic gas, avogadro",
+      "page_from": 3,
+      "page_to": 3,
+      "png": "output/lq/2017/q3.png",
+      "answer_png": "output/lq/2017/ans/q3.png"
+    },
+    {
+      "id": "2018-q2",
+      "year": "2018",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2018-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "In (a), most candidates were able to use the data to find the amount of helium gas in vessel A. However, some of them just used 3 and 1 instead of 3p and V in their working. In (b)(i), not many started with the conservation of number of gas molecules. Weaker ones even tried to employ p_A V_A /(n_A R) = p_B V_B /(n_B R) to find the answer. (b)(ii) was well answered though some candidates considered the whole system which led to the conclusion that the volume of the gas increases, which was not appropriate. In general, candidates were able to use the terms in kinetic theory to answer the question (like 'particles hit the container wall more frequently'). Weaker ones held a misconception that pressure was due to collisions among gas molecules.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: ideal gas",
+      "page_from": 1,
+      "page_to": 1,
+      "png": "output/lq/2018/q2.png",
+      "answer_png": "output/lq/2018/ans/q2.png"
+    },
+    {
+      "id": "2019-q2",
+      "year": "2019",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2019-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "The question was in general well answered. Most managed to obtain the answer in (a) despite some forgetting to convert the temperature given in Celsius to an absolute temperature on the Kelvin scale or mixed up number of molecules with the number of moles. In (b)(i), many candidates knew that the decrease in pressure would in effect increase the volume of the balloon. However, few were able to compare the change in pressure with the change in temperature while some wrongly thought that the volume remained unchanged. Candidates did well in the calculation in (b)(ii) although some considered the temperature to be constant and wrongly used Boyle's law to estimate the pressure. A few made mistakes when converting units or wrongly took the base of the exponential function as an electronic charge.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "fallback: gas cues",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2019/q2.png",
+      "answer_png": "output/lq/2019/ans/q2.png"
+    },
+    {
+      "id": "2020-q2",
+      "year": "2020",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2020-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. Some candidates failed to indicate where the force should act in (a)(i). In (a)(ii), some calculated the force by the steam or the force due to atmospheric pressure instead of the force keeping the piston stationary. Weaker candidates mistook 'force = pressure/area'. In (a)(iii), a few took the temperature of the steam to be 273 °C instead of 237 °C. Some mistook the number of moles n to be 1. In (b)(i), most managed to find the work done by considering the gain of kinetic energy of the jet fighter. Many candidates, who employed work done equals force × distance, wrongly used the initial force and/or mistook the distance travelled as the product of the final velocity and time taken. Some candidates only found the net force instead of the work done or considered the work done as mass × acceleration or force × velocity. Candidates did well in (b)(ii). Some struggled to obtain 'an average value' for the average acceleration found. Most candidates knew that the acceleration was decreasing in (b)(iii) but were not able to clearly explain why. Some confused 'decreasing' with 'decreased' and stated that 'friction reduces the speed and hence acceleration is decreasing'.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: ideal gas, mole",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2020/q2.png",
+      "answer_png": "output/lq/2020/ans/q2.png"
+    },
+    {
+      "id": "2022-q2",
+      "year": "2022",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4,
+        1
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory",
+        "Temperature and Heat Transfer"
+      ],
+      "crop": "crops/2022-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2022-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. In (a)(i)(I), some candidates calculated the number of moles n only or wrongly took it as the number of molecules N. A few gave a numerical value of n ten times smaller or bigger as the answer. In (a)(i)(II), some candidates mistook N found in (a)(i)(I) as N_A in finding the average kinetic energy E_K. Some wrongly calculated the total kinetic energy of the molecules or divided E_K by the number of moles to get the average kinetic energy. In (a)(ii)(I), some candidates did not demonstrate they understood that E_K remained the same if temperature T was constant while others indicated that N was inversely proportional to m and E_K was proportional to m, probably by referring literally to the equation pV = (1/3)Nm c̄². Candidates performed well in (a)(ii)(II) except for some who mistook the given root-mean-square speed 600 m s⁻¹ as mean-square speed. Part (b) was poorly answered. Most candidates tried to explain the slow diffusion process using difference in pressure, density, concentration or mass instead of via the microscopic view of gas. Some misinterpreted the question and explained why gas C diffused upward.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: gas molecules, monatomic gas; dual with S1 (significant earlier part)",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2022/q2.png",
+      "answer_png": "output/lq/2022/ans/q2.png"
+    },
+    {
+      "id": "2023-q2",
+      "year": "2023",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2023-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2023-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. Most candidates managed to find the mass of the trapped air in (a). Candidates did well in (b)(i) although some made mistakes in manipulating ratios. In (b)(ii), some candidates forgot to mention that there were more gas molecules trapped in the bottle. A few wrongly held that the gas pressure was due to collisions between molecules while some candidates mistook 'more collisions' as 'more violently'. In (b)(iii), quite a number of the candidates employed an incorrect equation relating pressure and force – pressure = force × area. Candidates' performance in (c)(i) was poor. Some failed to identify the correct pair of action and reaction forces between water and rocket. A common misconception was that the 'action force on the ground by the water' caused the 'reaction force on the rocket'.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: kinetic theory",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2023/q2.png",
+      "answer_png": "output/lq/2023/ans/q2.png"
+    },
+    {
+      "id": "2024-q2",
+      "year": "2024",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2024-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. The calculations in (a)(i)(ii) were straightforward and many candidates answered correctly. A few candidates wrongly added 273 K to or subtracted 273 K from the absolute temperature *T_b* calculated. In (b), quite a number of the candidates did not know that *c_r.m.s.* depends on the temperature. Some tried to explain by using the equation *c_r.m.s.* = √(3*pV*/*Nm*) but wrongly held that only *N* decreased and *p* remained the same.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: monatomic gas",
+      "page_from": 1,
+      "page_to": 1,
+      "png": "output/lq/2024/q2.png",
+      "answer_png": "output/lq/2024/ans/q2.png"
+    },
+    {
+      "id": "2025-q9",
+      "year": "2025",
+      "question": 9,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2025-q9.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question assessed candidates' application of the ideal gas law. The overall performance was good. Some candidates confused the number of moles with the number of molecules when applying the equation.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: ideal gas, number of molecules, mole",
+      "page_from": 11,
+      "page_to": 11,
+      "png": "output/lq/2025/q9.png",
+      "answer_png": "output/lq/2025/ans/q9.png"
+    },
+    {
+      "id": "2026-q9",
+      "year": "2026",
+      "question": 9,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/2026-q9.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: r.m.s.",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2026/q9.png",
+      "answer_png": "output/lq/2026/ans/q9.png"
+    },
+    {
+      "id": "pp-q1",
+      "year": "pp",
+      "question": 1,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory"
+      ],
+      "crop": "crops/pp-q1.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "fallback: gas cues",
+      "page_from": 0,
+      "page_to": 0,
+      "png": "output/lq/pp/q1.png",
+      "answer_png": "output/lq/pp/ans/q1.png"
+    }
+  ]
+}

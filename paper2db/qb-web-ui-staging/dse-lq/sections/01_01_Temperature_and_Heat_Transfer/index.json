@@ -1,0 +1,171 @@
+{
+  "section": 1,
+  "name": "Temperature and Heat Transfer",
+  "book": "01_Heat_and_Gases",
+  "folder": "01_Temperature_and_Heat_Transfer",
+  "count": 5,
+  "items": [
+    {
+      "id": "2013-q2",
+      "year": "2013",
+      "question": 2,
+      "primary_section": 1,
+      "primary_name": "Temperature and Heat Transfer",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "01_Temperature_and_Heat_Transfer",
+      "all_sections": [
+        1
+      ],
+      "all_section_names": [
+        "Temperature and Heat Transfer"
+      ],
+      "crop": "crops/2013-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2013-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "In (a), not many candidates were able to state the correct procedures to be done before taking a reading. They mentioned stirring the water but not stopping the heat. In (b)(i), many candidates managed to work out the correct numerical answer but some of them used incorrect units. In (b)(ii), the concept of absolute zero by experiment (ℓ = 0) was not well interpreted by some candidates. Many of them just stated −273°C as absolute zero without deducing the value from the data given.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: thermometer",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2013/q2.png",
+      "answer_png": "output/lq/2013/ans/q2.png"
+    },
+    {
+      "id": "2022-q1",
+      "year": "2022",
+      "question": 1,
+      "primary_section": 1,
+      "primary_name": "Temperature and Heat Transfer",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "01_Temperature_and_Heat_Transfer",
+      "all_sections": [
+        1
+      ],
+      "all_section_names": [
+        "Temperature and Heat Transfer"
+      ],
+      "crop": "crops/2022-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2022-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question examined candidates' knowledge and understanding of heat transfer. The performance was fair. Most candidates knew the meaning of 'fair test' in answering (a). In (b), although candidates mentioned that the rate of energy loss decreased with time, not many were able to explicitly point out that it was due to the decrease in temperature difference. Part (c)(i) was well answered. In (c)(ii), quite a number of the candidates did not know that a shiny surface is a good reflector/poor radiator of thermal energy. Weaker candidates gave wrong explanations in terms of conduction, for example, aluminium is a good thermal conductor. Part (d) was well answered.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: thermometer",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2022/q1.png",
+      "answer_png": "output/lq/2022/ans/q1.png"
+    },
+    {
+      "id": "2022-q2",
+      "year": "2022",
+      "question": 2,
+      "primary_section": 4,
+      "primary_name": "Gas Law and Kinetic Theory",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "04_Gas_Law_and_Kinetic_Theory",
+      "all_sections": [
+        4,
+        1
+      ],
+      "all_section_names": [
+        "Gas Law and Kinetic Theory",
+        "Temperature and Heat Transfer"
+      ],
+      "crop": "crops/2022-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2022-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. In (a)(i)(I), some candidates calculated the number of moles n only or wrongly took it as the number of molecules N. A few gave a numerical value of n ten times smaller or bigger as the answer. In (a)(i)(II), some candidates mistook N found in (a)(i)(I) as N_A in finding the average kinetic energy E_K. Some wrongly calculated the total kinetic energy of the molecules or divided E_K by the number of moles to get the average kinetic energy. In (a)(ii)(I), some candidates did not demonstrate they understood that E_K remained the same if temperature T was constant while others indicated that N was inversely proportional to m and E_K was proportional to m, probably by referring literally to the equation pV = (1/3)Nm c̄². Candidates performed well in (a)(ii)(II) except for some who mistook the given root-mean-square speed 600 m s⁻¹ as mean-square speed. Part (b) was poorly answered. Most candidates tried to explain the slow diffusion process using difference in pressure, density, concentration or mass instead of via the microscopic view of gas. Some misinterpreted the question and explained why gas C diffused upward.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: gas molecules, monatomic gas; dual with S1 (significant earlier part)",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2022/q2.png",
+      "answer_png": "output/lq/2022/ans/q2.png"
+    },
+    {
+      "id": "2024-q1",
+      "year": "2024",
+      "question": 1,
+      "primary_section": 1,
+      "primary_name": "Temperature and Heat Transfer",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "01_Temperature_and_Heat_Transfer",
+      "all_sections": [
+        1
+      ],
+      "all_section_names": [
+        "Temperature and Heat Transfer"
+      ],
+      "crop": "crops/2024-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' basic understanding of heat transfer. The performance was satisfactory. Most candidates correctly stated the way of heat transfer in (a). However, not many knew that as the aluminum foil is a poor radiation absorber, it would not speed up the rate of temperature increase. Although over one-third of the candidates could not identify the source of the water droplets in (c)(i), most were able to answer (c)(ii) correctly.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: heat transfer",
+      "page_from": 0,
+      "page_to": 0,
+      "png": "output/lq/2024/q1.png",
+      "answer_png": "output/lq/2024/ans/q1.png"
+    },
+    {
+      "id": "pp-q9",
+      "year": "pp",
+      "question": 9,
+      "primary_section": 1,
+      "primary_name": "Temperature and Heat Transfer",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "01_Temperature_and_Heat_Transfer",
+      "all_sections": [
+        1
+      ],
+      "all_section_names": [
+        "Temperature and Heat Transfer"
+      ],
+      "crop": "crops/pp-q9.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: thermometer",
+      "page_from": 9,
+      "page_to": 10,
+      "png": "output/lq/pp/q9.png",
+      "answer_png": "output/lq/pp/ans/q9.png"
+    }
+  ]
+}
