@@ -99,10 +99,14 @@ def _load_banks_for_gate():
         if in_scope_total != sum_in_scope_items:
             raise SystemExit(f"{BANKS_JSON} in_scope_items {in_scope_total} != sum in_scope expected_items {sum_in_scope_items}")
         total_docx = data.get("total_docx")
-        if isinstance(total_docx, int) and total_docx != sum_docx:
+        if not isinstance(total_docx, int) or total_docx <= 0:
+            raise SystemExit(f"{BANKS_JSON} missing or invalid total_docx")
+        if total_docx != sum_docx:
             raise SystemExit(f"{BANKS_JSON} total_docx {total_docx} != sum expected_docx {sum_docx}")
         banks_count = data.get("banks")
-        if isinstance(banks_count, int) and banks_count != len(detail):
+        if not isinstance(banks_count, int) or banks_count <= 0:
+            raise SystemExit(f"{BANKS_JSON} missing or invalid banks")
+        if banks_count != len(detail):
             raise SystemExit(f"{BANKS_JSON} banks {banks_count} != len(banks_detail) {len(detail)}")
         return total, in_scope_total, expected_in_scope, in_scope
     return None

@@ -157,12 +157,28 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
         if not isinstance(b, str) or not b.startswith("QB_"):
             raise SystemExit(f"{manifest_p} bank_list[{idx}] invalid: {b!r}")
     banks = None
+    banks_actual = banks_path if banks_path else BANKS_PATH
     if banks_path and banks_path.is_file():
         banks = load_json(banks_path)
     elif BANKS_PATH.is_file():
         banks = load_json(BANKS_PATH)
     if banks is not None and not isinstance(banks, dict):
-        raise SystemExit(f"{BANKS_PATH if not banks_path else banks_path} invalid: expected object")
+        raise SystemExit(f"{banks_actual} invalid: expected object")
+    total_docx_m = manifest.get("total_docx")
+    if not isinstance(total_docx_m, int) or total_docx_m <= 0:
+        raise SystemExit(f"{manifest_p} missing or invalid total_docx")
+    if total_docx_m != len(files):
+        raise SystemExit(f"{manifest_p} total_docx {total_docx_m} != len(files) {len(files)}")
+    banks_m = manifest.get("banks")
+    if not isinstance(banks_m, int) or banks_m <= 0:
+        raise SystemExit(f"{manifest_p} missing or invalid banks")
+    if banks_m != len(bank_list):
+        raise SystemExit(f"{manifest_p} banks {banks_m} != len(bank_list) {len(bank_list)}")
+    files_banks = {entry["bank"] for entry in files}
+    if set(bank_list) != files_banks:
+        raise SystemExit(f"{manifest_p} bank_list {sorted(bank_list)} != files banks {sorted(files_banks)}")
+    if len(bank_list) != len(set(bank_list)):
+        raise SystemExit(f"{manifest_p} bank_list duplicate entries")
 
     # Cross-check manifest vs banks.json
     if banks:
@@ -184,7 +200,7 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
         if isinstance(banks.get("banks_detail"), list):
             detail = banks["banks_detail"]
             if not detail:
-                raise SystemExit(f"{BANKS_PATH} missing or invalid banks_detail")
+                raise SystemExit(f"{banks_actual} missing or invalid banks_detail")
             expected_docx_by_bank: dict[str, int] = {}
             seen: set[str] = set()
             sum_docx = 0
@@ -193,22 +209,22 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
             has_in_scope = False
             for idx, b in enumerate(detail):
                 if not isinstance(b, dict):
-                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] not an object")
+                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] not an object")
                 bid = b.get("id")
                 if not isinstance(bid, str) or not bid.startswith("QB_"):
-                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] invalid id: {bid!r}")
+                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] invalid id: {bid!r}")
                 if bid in seen:
-                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] duplicate id: {bid!r}")
+                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] duplicate id: {bid!r}")
                 seen.add(bid)
                 expected_docx = b.get("expected_docx")
                 if not isinstance(expected_docx, int) or expected_docx <= 0:
-                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
+                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
                 expected_items = b.get("expected_items")
                 if not isinstance(expected_items, int) or expected_items <= 0:
-                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] {bid} invalid expected_items: {expected_items!r}")
+                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] {bid} invalid expected_items: {expected_items!r}")
                 in_scope_flag = b.get("in_scope")
                 if not isinstance(in_scope_flag, bool):
-                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
+                    raise SystemExit(f"{banks_actual} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
                 expected_docx_by_bank[bid] = expected_docx
                 sum_docx += expected_docx
                 sum_items += expected_items
@@ -216,19 +232,27 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
                     has_in_scope = True
                     sum_in_scope_items += expected_items
             if not has_in_scope:
-                raise SystemExit(f"{BANKS_PATH} no in_scope banks")
+                raise SystemExit(f"{banks_actual} no in_scope banks")
             total_docx = banks.get("total_docx")
-            if isinstance(total_docx, int) and total_docx != sum_docx:
-                raise SystemExit(f"{BANKS_PATH} total_docx {total_docx} != sum expected_docx {sum_docx}")
+            if not isinstance(total_docx, int) or total_docx <= 0:
+                raise SystemExit(f"{banks_actual} missing or invalid total_docx")
+            if total_docx != sum_docx:
+                raise SystemExit(f"{banks_actual} total_docx {total_docx} != sum expected_docx {sum_docx}")
             total_items = banks.get("total_items")
-            if isinstance(total_items, int) and total_items != sum_items:
-                raise SystemExit(f"{BANKS_PATH} total_items {total_items} != sum expected_items {sum_items}")
+            if not isinstance(total_items, int) or total_items <= 0:
+                raise SystemExit(f"{banks_actual} missing or invalid total_items")
+            if total_items != sum_items:
+                raise SystemExit(f"{banks_actual} total_items {total_items} != sum expected_items {sum_items}")
             in_scope_items = banks.get("in_scope_items")
-            if isinstance(in_scope_items, int) and in_scope_items != sum_in_scope_items:
-                raise SystemExit(f"{BANKS_PATH} in_scope_items {in_scope_items} != sum in_scope expected_items {sum_in_scope_items}")
+            if not isinstance(in_scope_items, int) or in_scope_items <= 0:
+                raise SystemExit(f"{banks_actual} missing or invalid in_scope_items")
+            if in_scope_items != sum_in_scope_items:
+                raise SystemExit(f"{banks_actual} in_scope_items {in_scope_items} != sum in_scope expected_items {sum_in_scope_items}")
             banks_count = banks.get("banks")
-            if isinstance(banks_count, int) and banks_count != len(detail):
-                raise SystemExit(f"{BANKS_PATH} banks {banks_count} != len(banks_detail) {len(detail)}")
+            if not isinstance(banks_count, int) or banks_count <= 0:
+                raise SystemExit(f"{banks_actual} missing or invalid banks")
+            if banks_count != len(detail):
+                raise SystemExit(f"{banks_actual} banks {banks_count} != len(banks_detail) {len(detail)}")
             actual_by_bank = {}
             for f in manifest.get("files", []):
                 actual_by_bank[f["bank"]] = actual_by_bank.get(f["bank"], 0) + 1
