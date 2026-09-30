@@ -41,14 +41,24 @@ else
 fi
 if [ ! -d "$repo_root/$notes_src/book5" ]; then echo "deploy: $notes_src/book5 missing under $repo_root" >&2; exit 1; fi
 
-sha="$(git -C "$repo_root" rev-parse --short HEAD 2>/dev/null || echo local)"
+sha="$(git -C "$repo_root" rev-parse HEAD 2>/dev/null | cut -c1-6 || echo local)"
+if [ -z "$sha" ]; then sha="local"; fi
+# Inject deploy-commit footer into the notes tree before copying into the image.
+# The Dockerfile also has a fallback RUN that re-injects via build-arg, so
+# standalone `docker build -f Dockerfile .` without deploy.sh still gets a footer.
+if [ -f "$repo_root/paper2notes/scripts/inject-commit-footer.mjs" ]; then
+  echo "deploy: injecting commit footer $sha into $repo_root/$notes_src"
+  node "$repo_root/paper2notes/scripts/inject-commit-footer.mjs" --commit "$sha" --root "$repo_root/$notes_src" || echo "deploy: footer inject failed (continuing)"
+  echo "$sha" | cut -c1-6 > "$repo_root/$notes_src/commit.txt"
+  echo "$sha" | cut -c1-6 > "$repo_root/$notes_src/version.txt"
+fi
 registry="$REGION-docker.pkg.dev"
 image="$registry/$PROJECT_ID/$REPOSITORY/site"
 tag="$image:$(date -u +%Y%m%dT%H%M%SZ)-$sha"
 
 echo "deploy: building $tag from $repo_root (dockerfile $dockerfile, notes $notes_src)"
 # Cloud Run runs amd64; build for it explicitly so laptops on arm64 work too.
-docker build --platform linux/amd64 -f "$repo_root/$dockerfile" -t "$tag" "$repo_root"
+docker build --platform linux/amd64 --build-arg GIT_COMMIT="$sha" -f "$repo_root/$dockerfile" -t "$tag" "$repo_root"
 
 gcloud auth configure-docker "$registry" --quiet
 docker push "$tag"
