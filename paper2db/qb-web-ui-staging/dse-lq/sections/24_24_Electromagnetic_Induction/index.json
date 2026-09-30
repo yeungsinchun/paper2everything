@@ -1,0 +1,267 @@
+{
+  "section": 24,
+  "name": "Electromagnetic Induction",
+  "book": "04_Electricity_and_Magnetism",
+  "folder": "24_Electromagnetic_Induction",
+  "count": 8,
+  "items": [
+    {
+      "id": "2012-q9",
+      "year": "2012",
+      "question": 9,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24,
+        22
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction",
+        "AC and Domestic Electricity"
+      ],
+      "crop": "crops/2012-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Poor. In (a), most candidates failed to point out that water can provide a conducting path or lower the resistance for an electric current. In (b), only a few candidates correctly explained why the human body would not get an electric shock if one of the conducting wires in the shaver circuit was touched. Most of them wrongly reasoned that the conducting wires were isolated from the high voltage. Some candidates did not understand the action of transformers and wrongly thought that current went to the earth in the primary coil because of low resistance.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: transformer; dual with S22 (significant earlier part)",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2012/q9.png",
+      "answer_png": "output/lq/2012/ans/q9.png"
+    },
+    {
+      "id": "2014-q9",
+      "year": "2014",
+      "question": 9,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction"
+      ],
+      "crop": "crops/2014-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "In (a), very few candidates scored full marks. Many of them omitted that the ring would fall back to the coil when the current as well as the resulting magnetic field are constant and eddy currents no longer flow. It seems that some candidates did not understand Lenz's law and were not able to express their answer clearly. Some even confused the apparatus with the Lenz's law apparatus – a small magnet falling through a metal tube – and wrongly stated that the law could be demonstrated by comparing the falling speed of the aluminum ring along the retort stand under different conditions, with the switch on or off. In (b)(i), quite a number of them confused the words flow and float. A few candidates failed to give precise answers and stated no change or no observation etc in (b)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: induction, lenz",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2014/q9.png",
+      "answer_png": "output/lq/2014/ans/q9.png"
+    },
+    {
+      "id": "2015-q9",
+      "year": "2015",
+      "question": 9,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction"
+      ],
+      "crop": "crops/2015-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2015-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "In (a), some candidates tried to explain the direction of the electromagnetic force acting on the rod rather than to describe its subsequent motion. In (b)(i), most were able to apply the definition of moment (F × d) to solve this problem but many of them failed to identify the correct value of d and ended up with an incorrect numerical answer. Some candidates did not convert cm into m in their calculations. Incorrect equation (e.g. B = μ₀I/(2πr)) or unit (e.g. Bq, Wb) were quoted in (b)(ii). In (c)(i), some candidates treated the rod as a bar magnet and sketched the field pattern wrongly. Common errors included incorrect direction of field lines, none of the field lines crossed the rod or uniform field patterns. Not many were able to state that the rod performs circular motion in an anti-clockwise direction in (c)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: faraday; primary=max(S7,S23,S24)",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2015/q9.png",
+      "answer_png": "output/lq/2015/ans/q9.png"
+    },
+    {
+      "id": "2018-q9",
+      "year": "2018",
+      "question": 9,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction"
+      ],
+      "crop": "crops/2018-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Although most candidates indicated the direction of I correctly in (a)(i), not many mentioned the resulting magnetic force as well as the need for an external force to balance it in order to maintain a uniform motion of the rod. In (a)(iii), many candidates employed Faraday's law to prove the equation instead of considering the mechanical power input, which was required by the question. In calculating the induced e.m.f. in (b)(ii), some candidates made mistakes in resolving the magnetic field or in converting its unit. Many did not understand the relation of induced e.m.f. and distribution of charges inside a conducting rod. (b)(iii) was poorly answered. Weaker candidates just based their answers on whether the circuit was open or closed to determine whether there would be a current. Some stated that the induced current flowing in opposite directions would cancel each other.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: generator",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2018/q9.png",
+      "answer_png": "output/lq/2018/ans/q9.png"
+    },
+    {
+      "id": "2021-q7",
+      "year": "2021",
+      "question": 7,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction"
+      ],
+      "crop": "crops/2021-q7.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q7-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of eddy currents and their applications. The performance was poor in general. In (a)(i), not many candidates identified the correct direction of movement of the metal sheet. Most knew how eddy currents were induced, however, some forgot to mention the relative motion between the plate and the magnet. In (a)(ii), quite a number of the candidates omitted the electrical energy produced in the process. In (a)(iii), very few realised that eddy braking operates only when the vehicle is moving. Some wrongly held that frictional braking was more effective or eddy braking would generate an enormous amount of thermal energy. Part (b) was well answered. Not many stated the correct term 'lamination' in answering (c). Some candidates misunderstood part (d), using the production of eddy currents due to changing magnetic field instead of the magnetic field generated by eddy currents in their answer.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: induction; primary=max(S6,S8,S21,S23,S24)",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2021/q7.png",
+      "answer_png": "output/lq/2021/ans/q7.png"
+    },
+    {
+      "id": "pp-q6",
+      "year": "pp",
+      "question": 6,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction"
+      ],
+      "crop": "crops/pp-q6.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: generator; primary=max(S16,S24)",
+      "page_from": 5,
+      "page_to": 5,
+      "png": "output/lq/pp/q6.png",
+      "answer_png": "output/lq/pp/ans/q6.png"
+    },
+    {
+      "id": "pp-q7",
+      "year": "pp",
+      "question": 7,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction"
+      ],
+      "crop": "crops/pp-q7.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: generator",
+      "page_from": 6,
+      "page_to": 6,
+      "png": "output/lq/pp/q7.png",
+      "answer_png": "output/lq/pp/ans/q7.png"
+    },
+    {
+      "id": "pp-q13",
+      "year": "pp",
+      "question": 13,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction"
+      ],
+      "crop": "crops/pp-q13.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: transformer; primary=max(S22,S24)",
+      "page_from": 16,
+      "page_to": 17,
+      "png": "output/lq/pp/q13.png",
+      "answer_png": "output/lq/pp/ans/q13.png"
+    }
+  ]
+}

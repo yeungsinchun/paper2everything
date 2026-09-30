@@ -1,0 +1,201 @@
+{
+  "section": 11,
+  "name": "Uniform Circular Motion",
+  "book": "02_Force_and_Motion",
+  "folder": "11_Uniform_Circular_Motion",
+  "count": 6,
+  "items": [
+    {
+      "id": "2012-q3",
+      "year": "2012",
+      "question": 3,
+      "primary_section": 11,
+      "primary_name": "Uniform Circular Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "11_Uniform_Circular_Motion",
+      "all_sections": [
+        11
+      ],
+      "all_section_names": [
+        "Uniform Circular Motion"
+      ],
+      "crop": "crops/2012-q3.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q3-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Most candidates answered part (a) correctly. In (a)(ii), many candidates made the correct choice while a few concluded this from exact explanation v² ∝ r. In (b), some candidates misunderstood that the centripetal force remained constant while the friction became smaller. Only a few pointed out that the reduced friction was not enough to provide the centripetal force required to keep the car moving in the circular lane.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: centripetal",
+      "page_from": 3,
+      "page_to": 3,
+      "png": "output/lq/2012/q3.png",
+      "answer_png": "output/lq/2012/ans/q3.png"
+    },
+    {
+      "id": "2019-q4",
+      "year": "2019",
+      "question": 4,
+      "primary_section": 11,
+      "primary_name": "Uniform Circular Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "11_Uniform_Circular_Motion",
+      "all_sections": [
+        11
+      ],
+      "all_section_names": [
+        "Uniform Circular Motion"
+      ],
+      "crop": "crops/2019-q4.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q4-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was fair. Quite a lot of them had difficulties relating the angular velocity with the rotation rate in (a)(i). Most candidates were able to find the centripetal force F_c in (a)(ii). However, a few did not indicate F_c in the figure or mistook the length of the string to be the radius. In (a)(iii), a majority of the candidates tackled this part by finding out the value of the tension. Weaker candidates held that the tension was the resultant of the bob's weight and the centripetal force. In (b)(i), some candidates failed to point out that no work is done by the gravitational force acting on the Moon while weaker ones failed to realise that the centripetal force is actually the gravitational pull and stated that the net force acting on the Moon was zero. In (b)(ii), most were able to mention an action-and-reaction pair or use F = GMm/r² to explain.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: centripetal",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2019/q4.png",
+      "answer_png": "output/lq/2019/ans/q4.png"
+    },
+    {
+      "id": "2023-q4",
+      "year": "2023",
+      "question": 4,
+      "primary_section": 11,
+      "primary_name": "Uniform Circular Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "11_Uniform_Circular_Motion",
+      "all_sections": [
+        11
+      ],
+      "all_section_names": [
+        "Uniform Circular Motion"
+      ],
+      "crop": "crops/2023-q4.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2023-q4-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "The overall performance was satisfactory. In (a)(i), quite a number of the candidates failed to label the forces indicated. Not many were able to obtain the rotation speed in revolutions per minutes in (b)(i). Candidates did well in (b)(ii). Although most were able to find the speed of the water droplet in (b)(iii), some employed the centripetal force equation instead of simply using v = ωr. Candidates' performance in (b)(iv) was fair and just over half of them answered it correctly.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: centripetal",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2023/q4.png",
+      "answer_png": "output/lq/2023/ans/q4.png"
+    },
+    {
+      "id": "2023-q5",
+      "year": "2023",
+      "question": 5,
+      "primary_section": 11,
+      "primary_name": "Uniform Circular Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "11_Uniform_Circular_Motion",
+      "all_sections": [
+        11
+      ],
+      "all_section_names": [
+        "Uniform Circular Motion"
+      ],
+      "crop": "crops/2023-q5.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' basic understanding of longitudinal waves. The overall performance was good. Candidates did well in (a). A few made rudimentary mistakes in the calculations in (b)(i)(ii), e.g. wrongly converting 200 cm to 0.2 m. More than half of the candidates correctly deduced the displacement-time graph for particle m in (b)(iii). Some failed to state clearly the change on the position of particle h in (c).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: centripetal, angular speed",
+      "page_from": 8,
+      "page_to": 9,
+      "png": "output/lq/2023/q5.png",
+      "answer_png": "output/lq/2023/ans/q5.png"
+    },
+    {
+      "id": "2024-q4",
+      "year": "2024",
+      "question": 4,
+      "primary_section": 11,
+      "primary_name": "Uniform Circular Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "11_Uniform_Circular_Motion",
+      "all_sections": [
+        11
+      ],
+      "all_section_names": [
+        "Uniform Circular Motion"
+      ],
+      "crop": "crops/2024-q4.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q4-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was good. Most were able to find the centripetal force and correctly indicated the direction of motion of *P* in (a)(i)(ii). Although in (b)(i) most candidates identified *P* and *Q* having the same angular speed, some candidates wrongly held that *P* and *Q* had the same radius for their respective circular motions in (b)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: centripetal, angular speed",
+      "page_from": 3,
+      "page_to": 3,
+      "png": "output/lq/2024/q4.png",
+      "answer_png": "output/lq/2024/ans/q4.png"
+    },
+    {
+      "id": "2025-q4",
+      "year": "2025",
+      "question": 4,
+      "primary_section": 11,
+      "primary_name": "Uniform Circular Motion",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "11_Uniform_Circular_Motion",
+      "all_sections": [
+        11
+      ],
+      "all_section_names": [
+        "Uniform Circular Motion"
+      ],
+      "crop": "crops/2025-q4.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' understanding of circular motion. The overall performance was fair. About two thirds determined the angular speed correctly in (a). Part (b) was poorly answered, with some incorrectly naming the force as 'centripetal force'. Just under half gave a full explanation in (c), while a few omitted that the angular speed of *Q* remained constant.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: angular speed",
+      "page_from": 4,
+      "page_to": 4,
+      "png": "output/lq/2025/q4.png",
+      "answer_png": "output/lq/2025/ans/q4.png"
+    }
+  ]
+}

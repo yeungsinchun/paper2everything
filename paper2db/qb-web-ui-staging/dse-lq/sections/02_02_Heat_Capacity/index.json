@@ -1,0 +1,403 @@
+{
+  "section": 2,
+  "name": "Heat Capacity",
+  "book": "01_Heat_and_Gases",
+  "folder": "02_Heat_Capacity",
+  "count": 12,
+  "items": [
+    {
+      "id": "2012-q1",
+      "year": "2012",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2012-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Parts (a) and (c) were well answered but only the more able candidates managed to answer part (b). In (a), some candidates wrongly used 4200 J kg⁻¹ °C⁻¹ for the specific heat capacity of steam. In (b), many candidates failed to take into account the energy released by water from 100°C to temperature T in their calculation.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: latent heat, vaporization, steam; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2012/q1.png",
+      "answer_png": "output/lq/2012/ans/q1.png"
+    },
+    {
+      "id": "2013-q1",
+      "year": "2013",
+      "question": 1,
+      "primary_section": 2,
+      "primary_name": "Heat Capacity",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "02_Heat_Capacity",
+      "all_sections": [
+        2
+      ],
+      "all_section_names": [
+        "Heat Capacity"
+      ],
+      "crop": "crops/2013-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2013-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was in general well answered. In (a), most candidates were able to calculate the energy released by the water using the equation E = mcΔT, but less able candidates failed to include the 15% energy lost during the transfer of water. In (b), most candidates were able to work out the time needed for the water temperature to drop to 60°C although some did not give their answers in hours as required. In (c), only the more able candidates gave a satisfactory explanation on why the rate of heat released by the system gradually dropped.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: specific heat, heat capacity",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2013/q1.png",
+      "answer_png": "output/lq/2013/ans/q1.png"
+    },
+    {
+      "id": "2014-q1",
+      "year": "2014",
+      "question": 1,
+      "primary_section": 2,
+      "primary_name": "Heat Capacity",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "02_Heat_Capacity",
+      "all_sections": [
+        2
+      ],
+      "all_section_names": [
+        "Heat Capacity"
+      ],
+      "crop": "crops/2014-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was on an experiment to find the specific heat capacity of a metal. Parts (a) and (b) were well answered. Some weaker candidates mixed up the terms heat and temperature and failed to explain properly why the temperature of the block continued to rise after the heater was switched off. Some even confused the function of the heater and the power supply. In (c)(i), only the more able candidates identified the maximum temperature rise from the graph correctly and used the equation mcΔT = IVt to work out the answer. Candidates' performance in parts (c)(ii) and (d) were satisfactory.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: specific heat, heat capacity",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2014/q1.png",
+      "answer_png": "output/lq/2014/ans/q1.png"
+    },
+    {
+      "id": "2016-q1",
+      "year": "2016",
+      "question": 1,
+      "primary_section": 2,
+      "primary_name": "Heat Capacity",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "02_Heat_Capacity",
+      "all_sections": [
+        2
+      ],
+      "all_section_names": [
+        "Heat Capacity"
+      ],
+      "crop": "crops/2016-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "In (a), many candidates failed to figure out how to raise the temperature of the sphere to 80 °C by using the water bath given. Some mistook the towel for insulation of the polystyrene cup rather than drying the sphere. Candidates' performance in (b) was satisfactory though some of them failed to point out that the temperature rise of water is lower than it should be.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: specific heat, heat capacity",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2016/q1.png",
+      "answer_png": "output/lq/2016/ans/q1.png"
+    },
+    {
+      "id": "2018-q1",
+      "year": "2018",
+      "question": 1,
+      "primary_section": 2,
+      "primary_name": "Heat Capacity",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "02_Heat_Capacity",
+      "all_sections": [
+        2
+      ],
+      "all_section_names": [
+        "Heat Capacity"
+      ],
+      "crop": "crops/2018-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding on heat capacity and electric power. It was generally well answered. Some weaker candidates did not know the correct relation between energy and power. In (b), quite a number of the candidates had difficulties working out the correct flow rate of water in kg per minute.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: specific heat, heat capacity",
+      "page_from": 0,
+      "page_to": 0,
+      "png": "output/lq/2018/q1.png",
+      "answer_png": "output/lq/2018/ans/q1.png"
+    },
+    {
+      "id": "2019-q1",
+      "year": "2019",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2019-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was in general well answered. In (a)(i), most candidates obtained the correct answer though a few omitted the term for the heat gained by the melted ice to reach the final temperature of 10 °C. Although most candidates realised that more ice was needed in (a)(ii), some wrongly stated that more energy should be 'absorbed' by the container if its heat capacity was not negligible. In (b), the heat transfer processes were well understood by candidates, however, quite a number of them mistook the direction of heat flow and stated that the inner silvery surface was a poor absorber of radiation in (b)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: latent heat, fusion, ice at 0; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2019/q1.png",
+      "answer_png": "output/lq/2019/ans/q1.png"
+    },
+    {
+      "id": "2020-q1",
+      "year": "2020",
+      "question": 1,
+      "primary_section": 2,
+      "primary_name": "Heat Capacity",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "02_Heat_Capacity",
+      "all_sections": [
+        2
+      ],
+      "all_section_names": [
+        "Heat Capacity"
+      ],
+      "crop": "crops/2020-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question examined candidates' knowledge and understanding of heat transfer. It was generally well answered. Most candidates obtained the correct answer in (a). Candidates' performance was good in (b)(i) though a few misunderstood the question and tried to explain 'why the soup should be kept at 96 °C'. In (b)(ii), many omitted the contribution of the container in the calculation. Some candidates mistook the temperature drop (9 °C) as the final temperature. Most candidates did well in (b)(iii). A few wrongly assumed that the temperature drop would remain the same despite the temperature difference becoming smaller.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: specific heat, heat capacity",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2020/q1.png",
+      "answer_png": "output/lq/2020/ans/q1.png"
+    },
+    {
+      "id": "2021-q1",
+      "year": "2021",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2021-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question examined candidates' knowledge and understanding of heat transfer. Candidates' performance was satisfactory. Most candidates managed to obtain the correct numerical answers in (a) and (b). However, some failed to present the answers with correct units. Part (c) was well answered. In (d), weaker candidates wrongly held that a good conductor such as copper absorbed more thermal energy. Perhaps they got heat capacity and conduction mixed up.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: latent heat, vaporization, boiling; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2021/q1.png",
+      "answer_png": "output/lq/2021/ans/q1.png"
+    },
+    {
+      "id": "2023-q1",
+      "year": "2023",
+      "question": 1,
+      "primary_section": 2,
+      "primary_name": "Heat Capacity",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "02_Heat_Capacity",
+      "all_sections": [
+        2
+      ],
+      "all_section_names": [
+        "Heat Capacity"
+      ],
+      "crop": "crops/2023-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2023-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question examined candidates' knowledge and understanding of heat transfer. The performance was satisfactory. Most candidates managed to find the temperature of the iron cube in (a). A few made mistakes in the temperature drop of the iron cube. Part (b) was well answered. In (c), although candidates knew there was heat loss to the surroundings, many were unable to account for the underestimation of the cube's temperature. In (d)(i), quite a number of the candidates wrongly thought that the measuring limits of the mercury-in-glass thermometer was the reason. Very few were aware of the poor thermal contact. Less than half of the candidates answered (d)(ii) correctly.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: specific heat, heat capacity",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2023/q1.png",
+      "answer_png": "output/lq/2023/ans/q1.png"
+    },
+    {
+      "id": "2025-q1",
+      "year": "2025",
+      "question": 1,
+      "primary_section": 2,
+      "primary_name": "Heat Capacity",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "02_Heat_Capacity",
+      "all_sections": [
+        2
+      ],
+      "all_section_names": [
+        "Heat Capacity"
+      ],
+      "crop": "crops/2025-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2025-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' understanding of heat transfer and electromagnetic radiation emitted from hot objects. Candidates' performance was good. In (a), about two thirds recognised that thermal energy from the water is transferred to the cup, while some incorrectly attributed the heat loss to evaporation. Part (b) was well attempted. In (c), a high proportion showed that they knew that hot objects emit infra-red radiation. However, about a third failed to name a relevant daily-life device.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: specific heat, heat capacity",
+      "page_from": 0,
+      "page_to": 0,
+      "png": "output/lq/2025/q1.png",
+      "answer_png": "output/lq/2025/ans/q1.png"
+    },
+    {
+      "id": "2026-q1",
+      "year": "2026",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2026-q1.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: latent heat, fusion, boiling, melting; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 0,
+      "png": "output/lq/2026/q1.png",
+      "answer_png": "output/lq/2026/ans/q1.png"
+    },
+    {
+      "id": "2026-q2",
+      "year": "2026",
+      "question": 2,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2026-q2.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: latent heat, fusion, boiling, melting; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2026/q2.png",
+      "answer_png": "output/lq/2026/ans/q2.png"
+    }
+  ]
+}

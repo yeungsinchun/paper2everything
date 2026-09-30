@@ -1,0 +1,211 @@
+{
+  "section": 3,
+  "name": "Change of State",
+  "book": "01_Heat_and_Gases",
+  "folder": "03_Change_of_State",
+  "count": 6,
+  "items": [
+    {
+      "id": "2012-q1",
+      "year": "2012",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2012-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Parts (a) and (c) were well answered but only the more able candidates managed to answer part (b). In (a), some candidates wrongly used 4200 J kg⁻¹ °C⁻¹ for the specific heat capacity of steam. In (b), many candidates failed to take into account the energy released by water from 100°C to temperature T in their calculation.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: latent heat, vaporization, steam; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2012/q1.png",
+      "answer_png": "output/lq/2012/ans/q1.png"
+    },
+    {
+      "id": "2015-q1",
+      "year": "2015",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3
+      ],
+      "all_section_names": [
+        "Change of State"
+      ],
+      "crop": "crops/2015-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2015-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested the variation of resistance with temperature as well as the measurement of specific heat capacity using a resistance thermometer, assuming a linear resistance-temperature relationship. Parts (a)(i)(ii) were in general well answered. In (b), some candidates confused experimental value with actual value. More able candidates were able to explain why the experimental value is lower than the actual value.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: boiling, melting, steam",
+      "page_from": 0,
+      "page_to": 0,
+      "png": "output/lq/2015/q1.png",
+      "answer_png": "output/lq/2015/ans/q1.png"
+    },
+    {
+      "id": "2019-q1",
+      "year": "2019",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2019-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question was in general well answered. In (a)(i), most candidates obtained the correct answer though a few omitted the term for the heat gained by the melted ice to reach the final temperature of 10 °C. Although most candidates realised that more ice was needed in (a)(ii), some wrongly stated that more energy should be 'absorbed' by the container if its heat capacity was not negligible. In (b), the heat transfer processes were well understood by candidates, however, quite a number of them mistook the direction of heat flow and stated that the inner silvery surface was a poor absorber of radiation in (b)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: latent heat, fusion, ice at 0; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2019/q1.png",
+      "answer_png": "output/lq/2019/ans/q1.png"
+    },
+    {
+      "id": "2021-q1",
+      "year": "2021",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2021-q1.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q1-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question examined candidates' knowledge and understanding of heat transfer. Candidates' performance was satisfactory. Most candidates managed to obtain the correct numerical answers in (a) and (b). However, some failed to present the answers with correct units. Part (c) was well answered. In (d), weaker candidates wrongly held that a good conductor such as copper absorbed more thermal energy. Perhaps they got heat capacity and conduction mixed up.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: latent heat, vaporization, boiling; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2021/q1.png",
+      "answer_png": "output/lq/2021/ans/q1.png"
+    },
+    {
+      "id": "2026-q1",
+      "year": "2026",
+      "question": 1,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2026-q1.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: latent heat, fusion, boiling, melting; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 0,
+      "png": "output/lq/2026/q1.png",
+      "answer_png": "output/lq/2026/ans/q1.png"
+    },
+    {
+      "id": "2026-q2",
+      "year": "2026",
+      "question": 2,
+      "primary_section": 3,
+      "primary_name": "Change of State",
+      "primary_book": "01_Heat_and_Gases",
+      "primary_folder": "03_Change_of_State",
+      "all_sections": [
+        3,
+        2
+      ],
+      "all_section_names": [
+        "Change of State",
+        "Heat Capacity"
+      ],
+      "crop": "crops/2026-q2.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: latent heat, fusion, boiling, melting; dual with S2 (significant earlier part)",
+      "page_from": 0,
+      "page_to": 1,
+      "png": "output/lq/2026/q2.png",
+      "answer_png": "output/lq/2026/ans/q2.png"
+    }
+  ]
+}

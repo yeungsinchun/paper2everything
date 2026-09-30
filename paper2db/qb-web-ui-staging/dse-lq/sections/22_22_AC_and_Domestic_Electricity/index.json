@@ -1,0 +1,235 @@
+{
+  "section": 22,
+  "name": "AC and Domestic Electricity",
+  "book": "04_Electricity_and_Magnetism",
+  "folder": "22_AC_and_Domestic_Electricity",
+  "count": 7,
+  "items": [
+    {
+      "id": "2012-q8",
+      "year": "2012",
+      "question": 8,
+      "primary_section": 22,
+      "primary_name": "AC and Domestic Electricity",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "22_AC_and_Domestic_Electricity",
+      "all_sections": [
+        22
+      ],
+      "all_section_names": [
+        "AC and Domestic Electricity"
+      ],
+      "crop": "crops/2012-q8.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q8-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance in parts (a) and (b) was fair. In (b), many candidates wrongly substituted 550W as the power consumed in the calculation and got a wrong answer – 88 Ω. Some of them did not understand the concept of greater power consumption when two resistors are connected in parallel. In (c), a few candidates did not read the question carefully and calculated the resistance of R₂ only.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: mains, a.c.; primary=max(S21,S22)",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2012/q8.png",
+      "answer_png": "output/lq/2012/ans/q8.png"
+    },
+    {
+      "id": "2012-q9",
+      "year": "2012",
+      "question": 9,
+      "primary_section": 24,
+      "primary_name": "Electromagnetic Induction",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "24_Electromagnetic_Induction",
+      "all_sections": [
+        24,
+        22
+      ],
+      "all_section_names": [
+        "Electromagnetic Induction",
+        "AC and Domestic Electricity"
+      ],
+      "crop": "crops/2012-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Poor. In (a), most candidates failed to point out that water can provide a conducting path or lower the resistance for an electric current. In (b), only a few candidates correctly explained why the human body would not get an electric shock if one of the conducting wires in the shaver circuit was touched. Most of them wrongly reasoned that the conducting wires were isolated from the high voltage. Some candidates did not understand the action of transformers and wrongly thought that current went to the earth in the primary coil because of low resistance.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: transformer; dual with S22 (significant earlier part)",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2012/q9.png",
+      "answer_png": "output/lq/2012/ans/q9.png"
+    },
+    {
+      "id": "2014-q8",
+      "year": "2014",
+      "question": 8,
+      "primary_section": 22,
+      "primary_name": "AC and Domestic Electricity",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "22_AC_and_Domestic_Electricity",
+      "all_sections": [
+        22
+      ],
+      "all_section_names": [
+        "AC and Domestic Electricity"
+      ],
+      "crop": "crops/2014-q8.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "Part (a) was well answered. In (b), some weaker candidates failed to identify the resistance network involved in mode X. In (c), many candidates were able to identify overall resistance least for parallel connections but did not state that the power dissipation is inversely proportional to the resistance under the same voltage. In (d)(i), quite a number of them failed to identify the mode that corresponds to the largest operating current. In (d)(ii), most candidates knew that the switch S should be installed in the live wire, however, not many were able to point out the hazards of not doing so. Part (d)(iii) was well answered.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: mains, fuse, a.c.",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2014/q8.png",
+      "answer_png": "output/lq/2014/ans/q8.png"
+    },
+    {
+      "id": "2018-q8",
+      "year": "2018",
+      "question": 8,
+      "primary_section": 22,
+      "primary_name": "AC and Domestic Electricity",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "22_AC_and_Domestic_Electricity",
+      "all_sections": [
+        22
+      ],
+      "all_section_names": [
+        "AC and Domestic Electricity"
+      ],
+      "crop": "crops/2018-q8.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q8-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "A considerable number of candidates wrongly chose terminals Y in (a)(i) for the 'heating' mode. Even for those who chose terminals X and correctly found the current drawn from the supply in (a)(ii), some wrongly employed this total current to find the power consumed in the mode of 'keeping warm' in (a)(iii). In (b)(i), many thought that the meter M was to record voltage, current or power. (b)(ii) was in general well answered although some candidates did not attempt this part possibly as it was too challenging.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: mains",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2018/q8.png",
+      "answer_png": "output/lq/2018/ans/q8.png"
+    },
+    {
+      "id": "2019-q8",
+      "year": "2019",
+      "question": 8,
+      "primary_section": 22,
+      "primary_name": "AC and Domestic Electricity",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "22_AC_and_Domestic_Electricity",
+      "all_sections": [
+        22
+      ],
+      "all_section_names": [
+        "AC and Domestic Electricity"
+      ],
+      "crop": "crops/2019-q8.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q8-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "The question tested candidates' knowledge and understanding on domestic circuits. The overall performance was good. Most answered part (a) correctly though some drawings of the connecting wires were quite messy. In (b)(i), many candidates knew the advantage of connecting L₁ and L₂ in parallel, however, some gave incomplete or wrong answers like 'both can work under the same voltage' or 'when one lighting set failed to work due to a short circuit, the other can still work'. Although most managed to find the working currents of the two lighting sets in (b)(ii), a few wrongly thought that the fuse value should be greater than either currents but not the total. Part (c) was well answered.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: mains, fuse, live wire, neutral wire",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2019/q8.png",
+      "answer_png": "output/lq/2019/ans/q8.png"
+    },
+    {
+      "id": "2020-q8",
+      "year": "2020",
+      "question": 8,
+      "primary_section": 22,
+      "primary_name": "AC and Domestic Electricity",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "22_AC_and_Domestic_Electricity",
+      "all_sections": [
+        22
+      ],
+      "all_section_names": [
+        "AC and Domestic Electricity"
+      ],
+      "crop": "crops/2020-q8.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q8-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of circuits in the context of a car's lighting system. The overall performance was fair. In (a), few were able to point out that light bulbs L₁ and L₂ were shorted. Many held that no current passed them was due to 'open circuit' or 'their resistances are lower than those of the bulbs in the parallel branch'. Part (b) was well answered. Most knew that the potential difference was 12 V and indicated the correct directions of currents. Many candidates figured out the light bulbs were all connected in parallel and obtained some marks in (c). A few made careless mistakes in finding the equivalent resistance. Most candidates understood the function of fuse and answered part (d) correctly.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: fuse; primary=max(S21,S22)",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2020/q8.png",
+      "answer_png": "output/lq/2020/ans/q8.png"
+    },
+    {
+      "id": "pp-q8",
+      "year": "pp",
+      "question": 8,
+      "primary_section": 22,
+      "primary_name": "AC and Domestic Electricity",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "22_AC_and_Domestic_Electricity",
+      "all_sections": [
+        22
+      ],
+      "all_section_names": [
+        "AC and Domestic Electricity"
+      ],
+      "crop": "crops/pp-q8.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: mains, fuse, domestic, live wire",
+      "page_from": 7,
+      "page_to": 8,
+      "png": "output/lq/pp/q8.png",
+      "answer_png": "output/lq/pp/ans/q8.png"
+    }
+  ]
+}

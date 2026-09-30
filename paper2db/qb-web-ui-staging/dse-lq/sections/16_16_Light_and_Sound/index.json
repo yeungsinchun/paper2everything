@@ -1,0 +1,233 @@
+{
+  "section": 16,
+  "name": "Light and Sound",
+  "book": "03A_Wave_Motion",
+  "folder": "16_Light_and_Sound",
+  "count": 7,
+  "items": [
+    {
+      "id": "2020-q6",
+      "year": "2020",
+      "question": 6,
+      "primary_section": 16,
+      "primary_name": "Light and Sound",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "16_Light_and_Sound",
+      "all_sections": [
+        16
+      ],
+      "all_section_names": [
+        "Light and Sound"
+      ],
+      "crop": "crops/2020-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding in an experiment to find the speed of sound in air. In general, candidates' performance was fair. In (a), quite a number of candidates did not understand how the experiment worked and thus failed to indicate the appropriate location where a sharp loud sound should be produced. Many candidates obtained full marks in (b)(i). A few took the average value of all the four timer readings. Weaker candidates confused microphones with loudspeakers and thought that it was an experiment about the interference of sound, thus employing the wave equation v = fλ. About half of the candidates failed to score in (b)(ii). Many answers were in fact not adjustments to the experimental setting, e.g. 'repeat the experiment and take average', 'surround the set-up with sound-proof materials', etc.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: speed of sound",
+      "page_from": 9,
+      "page_to": 9,
+      "png": "output/lq/2020/q6.png",
+      "answer_png": "output/lq/2020/ans/q6.png"
+    },
+    {
+      "id": "2021-q2",
+      "year": "2021",
+      "question": 2,
+      "primary_section": 16,
+      "primary_name": "Light and Sound",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "16_Light_and_Sound",
+      "all_sections": [
+        16
+      ],
+      "all_section_names": [
+        "Light and Sound"
+      ],
+      "crop": "crops/2021-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was satisfactory. In (a), quite a number of the candidates did not realise that the sound travelled twice the water depth within the time interval. Most were able to apply the ideal gas equation to answer (b)(i) although a few candidates forgot to add 273 in converting the temperature in degrees Celsius. A lot of the candidates were competent in using kinetic theory to explain the pressure drop in (b)(ii). Candidates employed different approaches, including mole ratio or pressure ratio, in answering (c). Quite a number of them did not realise that the pressure of compressed gas needed to be greater than the pressure outside, i.e. 4.0 atm at the seabed.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: speed of sound",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2021/q2.png",
+      "answer_png": "output/lq/2021/ans/q2.png"
+    },
+    {
+      "id": "2022-q6",
+      "year": "2022",
+      "question": 6,
+      "primary_section": 16,
+      "primary_name": "Light and Sound",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "16_Light_and_Sound",
+      "all_sections": [
+        16
+      ],
+      "all_section_names": [
+        "Light and Sound"
+      ],
+      "crop": "crops/2022-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2022-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was fair. In (a), most candidates knew the meaning of 'coherent', however, some failed to state it concisely. Parts (b)(i)(ii) were well answered. In (b)(i), candidates understood that as a result of interference, alternate maximum and minimum of CRO trace were observed. Some did not get full marks as the correspondence between maximum/minimum and constructive/destructive interference was not explicitly stated. Some mistook the path difference in (c) to be 0.5λ, λ or 2λ rather than 1.5λ. In (d), only the most able candidates knew how separation AB and the number of maxima were related. Just over half of the candidates answered (e) correctly.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: sound wave, microphone",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2022/q6.png",
+      "answer_png": "output/lq/2022/ans/q6.png"
+    },
+    {
+      "id": "2024-q5",
+      "year": "2024",
+      "question": 5,
+      "primary_section": 16,
+      "primary_name": "Light and Sound",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "16_Light_and_Sound",
+      "all_sections": [
+        16
+      ],
+      "all_section_names": [
+        "Light and Sound"
+      ],
+      "crop": "crops/2024-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question examined candidates' basic understanding of longitudinal waves. The overall performance was fair. Not many were able to sketch the displacement-distance graph correctly in (a). Perhaps they did not realise that air particles at the centre of compression / rarefaction are at their respective undisturbed positions. Parts (b)(i)(ii) were well answered.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: sound wave",
+      "page_from": 4,
+      "page_to": 4,
+      "png": "output/lq/2024/q5.png",
+      "answer_png": "output/lq/2024/ans/q5.png"
+    },
+    {
+      "id": "2024-q7",
+      "year": "2024",
+      "question": 7,
+      "primary_section": 16,
+      "primary_name": "Light and Sound",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "16_Light_and_Sound",
+      "all_sections": [
+        16
+      ],
+      "all_section_names": [
+        "Light and Sound"
+      ],
+      "crop": "crops/2024-q7.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2024-q7-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "The overall performance of candidates was fair. In (a), quite a number of the candidates mistook a linearly increasing relationship as a directly proportional one. Not many were able to account for the refraction of sound waves in the situation described in (b). Some wrongly thought that the air layer higher above the ground was cooler, which was in fact the contrary. Most candidates correctly obtained the speed ratio of light and sound in (c)(i). Some of them performed complicated calculations in (c)(ii) as they failed to ignore the negligible time of travel for light.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: speed of sound",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2024/q7.png",
+      "answer_png": "output/lq/2024/ans/q7.png"
+    },
+    {
+      "id": "2026-q6",
+      "year": "2026",
+      "question": 6,
+      "primary_section": 16,
+      "primary_name": "Light and Sound",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "16_Light_and_Sound",
+      "all_sections": [
+        16
+      ],
+      "all_section_names": [
+        "Light and Sound"
+      ],
+      "crop": "crops/2026-q6.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: microphone",
+      "page_from": 7,
+      "page_to": 7,
+      "png": "output/lq/2026/q6.png",
+      "answer_png": "output/lq/2026/ans/q6.png"
+    },
+    {
+      "id": "pp-q10",
+      "year": "pp",
+      "question": 10,
+      "primary_section": 16,
+      "primary_name": "Light and Sound",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "16_Light_and_Sound",
+      "all_sections": [
+        16
+      ],
+      "all_section_names": [
+        "Light and Sound"
+      ],
+      "crop": "crops/pp-q10.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: speed of sound",
+      "page_from": 11,
+      "page_to": 11,
+      "png": "output/lq/pp/q10.png",
+      "answer_png": "output/lq/pp/ans/q10.png"
+    }
+  ]
+}

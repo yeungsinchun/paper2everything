@@ -1,0 +1,86 @@
+{
+  "totalItems": 435,
+  "years": [
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024"
+  ],
+  "yearCounts": {
+    "2012": 36,
+    "2013": 36,
+    "2014": 33,
+    "2015": 33,
+    "2016": 33,
+    "2017": 33,
+    "2018": 33,
+    "2019": 33,
+    "2020": 33,
+    "2021": 33,
+    "2022": 33,
+    "2023": 33,
+    "2024": 33
+  },
+  "sectionCounts": {
+    "2": 8,
+    "3": 14,
+    "4": 17,
+    "6": 27,
+    "7": 16,
+    "5": 23,
+    "8": 13,
+    "10": 10,
+    "9": 17,
+    "12": 11,
+    "13": 23,
+    "14": 19,
+    "15": 21,
+    "16": 24,
+    "19": 16,
+    "20": 23,
+    "21": 33,
+    "23": 22,
+    "24": 20,
+    "22": 20,
+    "26": 14,
+    "25": 14,
+    "18": 11,
+    "27": 9,
+    "1": 9,
+    "11": 6,
+    "17": 3
+  },
+  "missingAnswer": 9,
+  "missingPercentage": 23,
+  "uncertain": 0,
+  "imageStats": {
+    "count": 435,
+    "originalMB": 43.92,
+    "optimizedPngMB": 19.54,
+    "webpMB": 10.4,
+    "combinedMB": 29.94
+  },
+  "pipeline": {
+    "stages": [
+      "mc-anchors",
+      "mc-split",
+      "keys"
+    ],
+    "source": "paper/mc/*p1a.pdf + paper/ans/*ans.pdf",
+    "classifications": "metadata/mc/llm_classifications.json (573 MC total, 435 in 2012-2024)"
+  },
+  "warningsSummary": {
+    "missingAnswer": 9,
+    "missingPercentage": 23,
+    "uncertain": 0
+  }
+}

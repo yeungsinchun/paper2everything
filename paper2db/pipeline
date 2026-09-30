@@ -487,7 +487,7 @@ def qb_source_root() -> Path | None:
 
 def qb_stage_skipped(stage: str) -> bool:
     if qb_source_root() is None:
-        print(f"skip {stage}: no QB DOCX source tree found (tried $P2DB_QB_ROOT, qb/, and the canonical paper2notes/qb)")
+        print(f"skip {stage}: no QB DOCX source tree found (tried $P2DB_QB_ROOT and qb/)")
         return True
     return False
 
@@ -499,6 +499,9 @@ def force_args(force: bool) -> tuple[str, ...]:
 def stage_qb_pdf(*, force: bool) -> None:
     if qb_stage_skipped("qb-pdf"):
         return
+    # F01: verify source manifest (sha256 per DOCX) before conversion
+    print("=== qb-manifest: verify source-manifest.json ===")
+    run_script("qb_manifest.py", "verify")
     print("=== qb-pdf: DOCX -> PDF (LibreOffice) ===")
     run_script("qb_convert.py", "--workers", "2", *force_args(force))
 

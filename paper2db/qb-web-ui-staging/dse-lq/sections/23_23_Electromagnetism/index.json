@@ -1,0 +1,329 @@
+{
+  "section": 23,
+  "name": "Electromagnetism",
+  "book": "04_Electricity_and_Magnetism",
+  "folder": "23_Electromagnetism",
+  "count": 10,
+  "items": [
+    {
+      "id": "2012-q10",
+      "year": "2012",
+      "question": 10,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2012-q10.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2012-q10-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Unsatisfactory. Many candidates failed to draw a clear diagram to show the experimental setup. Some of them used apparatus other than that provided in the question. They also suggested stronger magnets or increasing the length of the magnet as factors affecting e.m.f. induced. Not many were able to express their answers in an organised manner. Some overlooked the fact that the conducting wire could use as a conductor. Some candidates mistook the light-beam galvanometer as a power supply. They wrongly thought that the galvanometer could function as a CRO. Many candidates did not state the expected result or observation of the factors affecting the e.m.f..",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: magnetic field",
+      "page_from": 16,
+      "page_to": 16,
+      "png": "output/lq/2012/q10.png",
+      "answer_png": "output/lq/2012/ans/q10.png"
+    },
+    {
+      "id": "2013-q4",
+      "year": "2013",
+      "question": 4,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2013-q4.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2013-q4-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Part (a)(i) was well answered. In (a)(ii), some candidates failed to indicate the direction of the electron's acceleration at point P. In (b), many candidates were able to point out that the force was perpendicular to the electron's displacement/velocity but very few mentioned that there was no work done or that the kinetic energy remained unchanged. In (c), some candidates were able to arrive at r = mv/(qB) but they failed to deduce that v should be halved either by calculation or explanation.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: magnetic field",
+      "page_from": 6,
+      "page_to": 6,
+      "png": "output/lq/2013/q4.png",
+      "answer_png": "output/lq/2013/ans/q4.png"
+    },
+    {
+      "id": "2017-q9",
+      "year": "2017",
+      "question": 9,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2017-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2017-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding on electromagnetism. Their performance was fair. Part (a) was in general well answered except (a)(iv) in which not many were able to explain why the two magnetic forces, a pair of action and reaction forces, were equal in magnitude. In (b)(i), only the more able candidates referred to the direction of currents in neighbouring wire segments when explaining the origin of magnetic forces. Some misunderstood the situation in (b)(ii) and tried to answer the question by considering the induced current in the spring.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: magnetic field",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2017/q9.png",
+      "answer_png": "output/lq/2017/ans/q9.png"
+    },
+    {
+      "id": "2019-q9",
+      "year": "2019",
+      "question": 9,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2019-q9.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2019-q9-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was poor. In (a)(i), most candidates employed Lenz's law to explain and stated that there was a change of magnetic flux due to the decrease in magnetic field strength but forgot to mention the induced e.m.f. for driving the induced current. Some candidates were confused about 'flux change' and 'change in total flux linkage' in (a)(ii) though they managed to find the induced e.m.f. in the coil. In (b)(i), many failed to realise that the direction of magnetic flux through the coil would have been reversed after a rotation of 180°. In (b)(ii), many candidates wrongly thought that there would be no induced current at the moment when the magnetic flux through the coil was zero (while the change of magnetic flux was in fact at a maximum). Part (c) was poorly answered. Most candidates failed to indicate precisely where the eddy currents were induced. It seemed that candidates' answer to (c)(ii) were quite random - not moving, from left to right, or even rotating or oscillating.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: magnetic field",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2019/q9.png",
+      "answer_png": "output/lq/2019/ans/q9.png"
+    },
+    {
+      "id": "2020-q3",
+      "year": "2020",
+      "question": 3,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2020-q3.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2020-q3-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding in Electromagnetism in the context of magnetically levitated trains. The overall performance was fair. In (a), most candidates were able to point out the lowered resistance allowed a larger current flow. However, a number of them described the current as eddy currents. A considerable number of candidates wrongly believed that 'unlike poles repel each other' in (b) and a few used 'positive pole/charge' to describe magnetic poles. Candidates' performance in (c) was fair. Although most were able to explain the situation in general terms, their descriptions were far from precise. Some simply wrote 'no friction' instead of no friction between the train and the track. Few pointed out explicitly that 'air resistance' was the only resistive force that needed to be overcome.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: magnetic field; primary=max(S21,S23)",
+      "page_from": 4,
+      "page_to": 5,
+      "png": "output/lq/2020/q3.png",
+      "answer_png": "output/lq/2020/ans/q3.png"
+    },
+    {
+      "id": "2022-q7",
+      "year": "2022",
+      "question": 7,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2022-q7.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2022-q7-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was unsatisfactory. In (a)(i), quite a number of them wrongly stated the polarity of magnets as positive/negative. Part (a)(ii) was well answered. In (a)(iii), less than half of the candidates knew why the magnets should not be in contact with the iron filings. Many were not familiar with the experiment in (b)(i) despite the magnetic field pattern being a typical one. Very few candidates obtained high marks. In some answers, the needle of the compass drawn on a field line did not align with the field direction and/or with adjacent compasses. A few candidates forgot to describe how to obtain several field lines. However, about one-third of them were able to suggest an advantage of the plotting-compass method in (b)(ii).",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: magnetic field",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2022/q7.png",
+      "answer_png": "output/lq/2022/ans/q7.png"
+    },
+    {
+      "id": "2022-q9",
+      "year": "2022",
+      "question": 9,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2022-q9.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' knowledge and understanding of electromagnetic induction in the context of a metal loop entering a magnetic field. The performance of candidates was unsatisfactory. Most were able to indicate the direction of the induced current in (a). A few wrongly drew currents flowing inside or around the magnetic field. In (b), quite a number of the candidates mistook that the induced e.m.f. (ε = Blv) only applied to the wire cutting the magnetic field and not the loop (i.e. the complete circuit). A few wrongly equated magnetic force on current-carrying wire with magnetic and/or electric forces on moving charges. Weaker candidates considered 'induced e.m.f.' (Blv) to be the 'magnetic force' exerted on a current-carrying wire. In (c)(i), candidates often mistook the IR drop within the wire YZ as the potential difference (p.d.) across it. Some considered the induced e.m.f. or one-quarter of it to be the p.d. across YZ. (c)(ii) revealed that candidates did not have a clear understanding of the relationship between induced e.m.f., p.d. and IR drop across a resistor.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: magnetic field; primary=max(S21,S23)",
+      "page_from": 16,
+      "page_to": 16,
+      "png": "output/lq/2022/q9.png",
+      "answer_png": "output/lq/2022/ans/q9.png"
+    },
+    {
+      "id": "2023-q8",
+      "year": "2023",
+      "question": 8,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2023-q8.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2023-q8-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was fair. Nearly one-third of them wrongly marked the (+) and (-) terminals of the ammeter in (a). Most were able to indicate the current and the magnetic force but not the magnetic field in (b). Part (c) was well answered. Quite a number of the candidates forgot to mention using the ammeter to measure the current in (d)(i). In (d)(ii), very few correctly described the linear relationship between the two quantities. A 'proportional relationship' was the most common mistake. In (d)(iii), many realised that the weight of wire/support was the reason, which could be taken as an alternative to 'reset the balance to zero'.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: magnetic field",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2023/q8.png",
+      "answer_png": "output/lq/2023/ans/q8.png"
+    },
+    {
+      "id": "2024-q12",
+      "year": "2024",
+      "question": 12,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2024-q12.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "Candidates did poorly in this question. Most knew the direction of the magnetic field in (a) but failed to sketch precisely the field pattern. In explaining the electromagnetic induction between the transmitting and receiving coils in (b)(i), quite a number of the candidates failed to spell out explicitly that the transmitting coil produced a changing magnetic field. In (b)(ii), very few candidates realised that the amplitude of the voltage induced in coil *R* would double when the frequency was doubled. In (c), not many candidates realised that the use of non-metallic back covers for mobile phones was to facilitate the passage of magnetic field between the transmitting and receiving coils. Some wrongly thought that 'electric shock may occur as metals are conductors' or 'current may flow through the metallic cover and cause a heating effect'.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: magnetic field; primary=max(S22,S23)",
+      "page_from": 14,
+      "page_to": 15,
+      "png": "output/lq/2024/q12.png",
+      "answer_png": "output/lq/2024/ans/q12.png"
+    },
+    {
+      "id": "2025-q8",
+      "year": "2025",
+      "question": 8,
+      "primary_section": 23,
+      "primary_name": "Electromagnetism",
+      "primary_book": "04_Electricity_and_Magnetism",
+      "primary_folder": "23_Electromagnetism",
+      "all_sections": [
+        23
+      ],
+      "all_section_names": [
+        "Electromagnetism"
+      ],
+      "crop": "crops/2025-q8.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' understanding of electromagnetic induction via rotating coils in a magnetic field. The overall performance was satisfactory. About a third drew a waveform with correct shape, period and phase in (a). Part (b) was well answered, although some wrongly applied *B* = μ₀*I* / (2π*r*) to determine the magnetic flux.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: magnetic field",
+      "page_from": 10,
+      "page_to": 10,
+      "png": "output/lq/2025/q8.png",
+      "answer_png": "output/lq/2025/ans/q8.png"
+    }
+  ]
+}

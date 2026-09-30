@@ -1,0 +1,107 @@
+{
+  "section": 7,
+  "name": "More about Forces",
+  "book": "02_Force_and_Motion",
+  "folder": "07_More_about_Forces",
+  "count": 3,
+  "items": [
+    {
+      "id": "2014-q2",
+      "year": "2014",
+      "question": 2,
+      "primary_section": 7,
+      "primary_name": "More about Forces",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "07_More_about_Forces",
+      "all_sections": [
+        7
+      ],
+      "all_section_names": [
+        "More about Forces"
+      ],
+      "crop": "crops/2014-q2.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2014-q2-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "This question tested candidates' knowledge and understanding on gas laws and kinetic theory. The general performance was fair. In (a), many candidates did not fully understand the relationship between pressure and volume in the context of pumping a ball. Some were able to relate the pressure with the number of gas molecules in the basketball, but failed to work out their proportional relationship with the required volume of air originally at atmospheric pressure. In (b), few candidates were able to state that both temperature and volume were constant before they went on to explain the increase of pressure inside the basketball using kinetic theory.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: equilibrium",
+      "page_from": 2,
+      "page_to": 3,
+      "png": "output/lq/2014/q2.png",
+      "answer_png": "output/lq/2014/ans/q2.png"
+    },
+    {
+      "id": "2018-q5",
+      "year": "2018",
+      "question": 5,
+      "primary_section": 7,
+      "primary_name": "More about Forces",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "07_More_about_Forces",
+      "all_sections": [
+        7
+      ],
+      "all_section_names": [
+        "More about Forces"
+      ],
+      "crop": "crops/2018-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2018-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "In (a)(i), most candidates correctly considered the balance of moments in the system. However, a few made mistakes in the conversion of units (like 1 cm = 0.001 m or 50 g = 0.5 kg). (a)(ii) was new to most candidates. Many considered the maximum and minimum values and found their difference instead of using percentage error. Some candidates overlooked that only the error associated with the counter-weight's position was considered or used ±0.05 cm in their calculations. In (b), most were able to use W = mg to find the correct value. In (c), only some candidates were able to correctly state the counter-weight position on the beam balance. Most were able to indicate that there was an increase of spring balance reading. Candidates' performance in (c)(ii) was poor. Very few were able to precisely explain why the beam balance failed to work in a free falling lift. Some of them wrongly thought that the beam balance reading would decrease.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: equilibrium",
+      "page_from": 6,
+      "page_to": 7,
+      "png": "output/lq/2018/q5.png",
+      "answer_png": "output/lq/2018/ans/q5.png"
+    },
+    {
+      "id": "2025-q10",
+      "year": "2025",
+      "question": 10,
+      "primary_section": 15,
+      "primary_name": "Interference and Stationary Wave",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "15_Interference_and_Stationary_Wave",
+      "all_sections": [
+        15,
+        7
+      ],
+      "all_section_names": [
+        "Interference and Stationary Wave",
+        "More about Forces"
+      ],
+      "crop": "crops/2025-q10.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' understanding of stationary wave and its application to musical instruments. Candidates performed poorly. In (a)(i), about a third labelled some antinodes and nodes, only a third labelled all correctly. Part (a)(ii) was well answered, although a small number seemingly did not understand the concept of 'phase'. Only about a third answered (a)(iii) correctly. In (a)(iv), many failed to determine the wavelength of the next stationary wave pattern. Nearly half drew the correct pattern in (b)(i). In (b)(ii), only a very small number realised that sound quality depends on the superposition of harmonics. The performance in (b)(iii) was poor. Many did not compare appropriate wave characteristics and some mismatched terms like 'stationary' and 'longitudinal'.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: stationary wave; dual with S7 (significant earlier part)",
+      "page_from": 12,
+      "page_to": 13,
+      "png": "output/lq/2025/q10.png",
+      "answer_png": "output/lq/2025/ans/q10.png"
+    }
+  ]
+}

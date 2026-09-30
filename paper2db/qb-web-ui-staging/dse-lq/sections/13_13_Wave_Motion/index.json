@@ -1,0 +1,141 @@
+{
+  "section": 13,
+  "name": "Wave Motion",
+  "book": "03A_Wave_Motion",
+  "folder": "13_Wave_Motion",
+  "count": 4,
+  "items": [
+    {
+      "id": "2016-q6",
+      "year": "2016",
+      "question": 6,
+      "primary_section": 13,
+      "primary_name": "Wave Motion",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "13_Wave_Motion",
+      "all_sections": [
+        13
+      ],
+      "all_section_names": [
+        "Wave Motion"
+      ],
+      "crop": "crops/2016-q6.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2016-q6-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Although most candidates applied the correct formula to find λ in (a)(i), many made mistakes in getting the fringe separation from the pattern given or in converting the units. In (a)(ii), quite a number of the candidates confused slit width with slit separation. Not many pointed out explicitly that the diffracted waves from the slits have to overlap for interference to occur. Some candidates wrongly applied Δy = λD/a to find the separation between bright spots in (b)(i). Candidates' performance in (b)(ii) was poor. The patterns drawn were either with uniform separation between bright spots, not symmetrical about the centre or without the central bright spot.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: wavelength; primary=max(S10,S13)",
+      "page_from": 10,
+      "page_to": 11,
+      "png": "output/lq/2016/q6.png",
+      "answer_png": "output/lq/2016/ans/q6.png"
+    },
+    {
+      "id": "2017-q6",
+      "year": "2017",
+      "question": 6,
+      "primary_section": 13,
+      "primary_name": "Wave Motion",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "13_Wave_Motion",
+      "all_sections": [
+        13,
+        5
+      ],
+      "all_section_names": [
+        "Wave Motion",
+        "Motion"
+      ],
+      "crop": "crops/2017-q6.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": "This question tested candidates' basic knowledge of wave motion. Candidates' performance was satisfactory. Part (a) was well answered. In (b)(i), some candidates only stated 'crest meets trough at Q' to explain why a minimum occurred there. Quite a number of them did not know that in (b)(iii) the amplitude of the water waves would decrease gradually with the distance from the source.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": false
+      },
+      "has_missing": true,
+      "reason": "keywords: wave speed, frequency; dual with S5 (significant earlier part)",
+      "page_from": 8,
+      "page_to": 9,
+      "png": "output/lq/2017/q6.png",
+      "answer_png": "output/lq/2017/ans/q6.png"
+    },
+    {
+      "id": "2026-q5",
+      "year": "2026",
+      "question": 5,
+      "primary_section": 14,
+      "primary_name": "Reflection, Refraction and Diffraction",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "14_Reflection_Refraction_and_Diffraction",
+      "all_sections": [
+        14,
+        13
+      ],
+      "all_section_names": [
+        "Reflection, Refraction and Diffraction",
+        "Wave Motion"
+      ],
+      "crop": "crops/2026-q5.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: ripple tank; dual with S13 (significant earlier part)",
+      "page_from": 6,
+      "page_to": 6,
+      "png": "output/lq/2026/q5.png",
+      "answer_png": "output/lq/2026/ans/q5.png"
+    },
+    {
+      "id": "pp-q5",
+      "year": "pp",
+      "question": 5,
+      "primary_section": 13,
+      "primary_name": "Wave Motion",
+      "primary_book": "03A_Wave_Motion",
+      "primary_folder": "13_Wave_Motion",
+      "all_sections": [
+        13
+      ],
+      "all_section_names": [
+        "Wave Motion"
+      ],
+      "crop": "crops/pp-q5.png",
+      "crop_exists": true,
+      "answer_crop": null,
+      "answer_exists": false,
+      "candidate_performance": null,
+      "has_candidate_performance": false,
+      "missing_flags": {
+        "crop": false,
+        "answer": true,
+        "candidate_performance": true
+      },
+      "has_missing": true,
+      "reason": "keywords: wavelength",
+      "page_from": 4,
+      "page_to": 4,
+      "png": "output/lq/pp/q5.png",
+      "answer_png": "output/lq/pp/ans/q5.png"
+    }
+  ]
+}

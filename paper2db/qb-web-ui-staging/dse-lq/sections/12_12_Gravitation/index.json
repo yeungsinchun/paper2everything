@@ -1,0 +1,41 @@
+{
+  "section": 12,
+  "name": "Gravitation",
+  "book": "02_Force_and_Motion",
+  "folder": "12_Gravitation",
+  "count": 1,
+  "items": [
+    {
+      "id": "2021-q5",
+      "year": "2021",
+      "question": 5,
+      "primary_section": 12,
+      "primary_name": "Gravitation",
+      "primary_book": "02_Force_and_Motion",
+      "primary_folder": "12_Gravitation",
+      "all_sections": [
+        12
+      ],
+      "all_section_names": [
+        "Gravitation"
+      ],
+      "crop": "crops/2021-q5.png",
+      "crop_exists": true,
+      "answer_crop": "crops/2021-q5-ans.png",
+      "answer_exists": true,
+      "candidate_performance": "Candidates' performance was fair in general. Some candidates failed to relate the average thrust to the rate of change of momentum of the exhaust gas in (a)(i). In applying Newton's laws of motion to find the rocket's acceleration in (a)(ii), weaker candidates omitted the weight mg or wrongly took the net force as F_thrust + mg. Candidates performed poorly in (a)(iii). Not many were able to point out that the average thrust remained the same while the rocket's mass decreased. A few candidates mistook the period of the satellite around the Earth as 1 year or 365 days in (b)(i). In (b)(ii), only the more able ones knew how to make use of GM/R² = g to tackle this part.",
+      "has_candidate_performance": true,
+      "missing_flags": {
+        "crop": false,
+        "answer": false,
+        "candidate_performance": false
+      },
+      "has_missing": false,
+      "reason": "keywords: orbit, satellite",
+      "page_from": 8,
+      "page_to": 10,
+      "png": "output/lq/2021/q5.png",
+      "answer_png": "output/lq/2021/ans/q5.png"
+    }
+  ]
+}

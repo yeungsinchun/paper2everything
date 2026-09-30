@@ -66,10 +66,13 @@ class TestQbPipelineStages(unittest.TestCase):
             self.pipe.stage_qb_pdf(force=False)
             self.pipe.stage_qb_audit()
         calls = [c.args for c in run.call_args_list]
-        self.assertEqual(calls[0], ("qb_convert.py", "--workers", "2", "--force"))
-        self.assertEqual(calls[1], ("qb_ocr.py", "--workers", "4", "--force"))
-        self.assertEqual(calls[2], ("qb_convert.py", "--workers", "2"))
-        self.assertEqual(calls[3], ("qb_quality.py", "--strict"))
+        # F01: qb-pdf now verifies source-manifest before conversion
+        self.assertEqual(calls[0], ("qb_manifest.py", "verify"))
+        self.assertEqual(calls[1], ("qb_convert.py", "--workers", "2", "--force"))
+        self.assertEqual(calls[2], ("qb_ocr.py", "--workers", "4", "--force"))
+        self.assertEqual(calls[3], ("qb_manifest.py", "verify"))
+        self.assertEqual(calls[4], ("qb_convert.py", "--workers", "2"))
+        self.assertEqual(calls[5], ("qb_quality.py", "--strict"))
 
 
 class TestQbConvertSymbols(unittest.TestCase):
