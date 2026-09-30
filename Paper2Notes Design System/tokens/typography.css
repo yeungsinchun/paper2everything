@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+:root{
+--font-display:"Fredoka","Nunito",system-ui,sans-serif;
+--font-body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+--font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+--text-xs:12px;--text-sm:14px;--text-md:16px;--text-lg:19px;--text-xl:24px;--text-2xl:30px;--text-3xl:40px;--text-4xl:56px;
+--lh-tight:1.15; /* @kind other */
+--lh-body:1.45; /* @kind other */
+}
+html{font-size:16px}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:400 var(--text-md)/var(--lh-body) var(--font-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:var(--lh-tight);margin:0;letter-spacing:-.005em}
+h1{font-size:var(--text-2xl)}h2{font-size:var(--text-xl)}h3{font-size:var(--text-lg)}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+.p2n-label{font:700 var(--text-xs)/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint)}
+.p2n-num{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
