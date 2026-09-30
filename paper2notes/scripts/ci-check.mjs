@@ -9,12 +9,14 @@
 // carrying the notes-refactor marker; see paper2notes/.agents/skills/lavish-notes-review/SKILL.md),
 // plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
 // plus leak-check (notes must not reproduce protected question/answer text;
-// see scripts/leak-check.mjs).
+// see scripts/leak-check.mjs),
+// plus anchor ids / moves.json / answer pointers (see scripts/anchor-lint.mjs).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runLeakCheck } from "./leak-check.mjs";
+import { lintAnchors } from "./anchor-lint.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
@@ -380,6 +382,7 @@ checkBook4Structure();
 checkRelativeLinks();
 checkDeployFooter();
 checkLeaks();
+errors.push(...lintAnchors({ repoRoot }).errors);
 
 if (errors.length > 0) {
   console.error(`ci-check: ${errors.length} problem(s) found:\n`);
