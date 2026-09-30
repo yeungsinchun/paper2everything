@@ -153,7 +153,24 @@ def verify_manifest(qb_root: Path | None, manifest_path: Path | None, banks_path
             errors.append(f"manifest banks {manifest.get('banks')} != banks.json banks {b_banks_count}")
         # Per-bank docx counts
         if isinstance(banks.get("banks_detail"), list):
-            expected_docx_by_bank = {b["id"]: b["expected_docx"] for b in banks["banks_detail"]}
+            detail = banks["banks_detail"]
+            expected_docx_by_bank: dict[str, int] = {}
+            for idx, b in enumerate(detail):
+                if not isinstance(b, dict):
+                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] not an object")
+                bid = b.get("id")
+                if not isinstance(bid, str) or not bid.startswith("QB_"):
+                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] invalid id: {bid!r}")
+                expected_docx = b.get("expected_docx")
+                if not isinstance(expected_docx, int) or expected_docx <= 0:
+                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
+                expected_items = b.get("expected_items")
+                if not isinstance(expected_items, int) or expected_items <= 0:
+                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] {bid} invalid expected_items: {expected_items!r}")
+                in_scope_flag = b.get("in_scope")
+                if not isinstance(in_scope_flag, bool):
+                    raise SystemExit(f"{BANKS_PATH} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
+                expected_docx_by_bank[bid] = expected_docx
             actual_by_bank = {}
             for f in manifest.get("files", []):
                 actual_by_bank[f["bank"]] = actual_by_bank.get(f["bank"], 0) + 1

@@ -151,9 +151,28 @@ def load_banks() -> dict | None:
 def get_in_scope_banks() -> set[str]:
     if BANKS_JSON.is_file():
         banks = load_banks()
-        if banks and isinstance(banks.get("banks_detail"), list):
-            return {b["id"] for b in banks["banks_detail"] if b.get("in_scope")}
-        raise SystemExit(f"{BANKS_JSON} missing or invalid banks_detail")
+        detail = banks.get("banks_detail") if isinstance(banks, dict) else None
+        if not isinstance(detail, list) or not detail:
+            raise SystemExit(f"{BANKS_JSON} missing or invalid banks_detail")
+        in_scope: set[str] = set()
+        for idx, entry in enumerate(detail):
+            if not isinstance(entry, dict):
+                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] not an object")
+            bid = entry.get("id")
+            if not isinstance(bid, str) or not bid.startswith("QB_"):
+                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] invalid id: {bid!r}")
+            expected_docx = entry.get("expected_docx")
+            if not isinstance(expected_docx, int) or expected_docx <= 0:
+                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_docx: {expected_docx!r}")
+            expected_items = entry.get("expected_items")
+            if not isinstance(expected_items, int) or expected_items <= 0:
+                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid expected_items: {expected_items!r}")
+            in_scope_flag = entry.get("in_scope")
+            if not isinstance(in_scope_flag, bool):
+                raise SystemExit(f"{BANKS_JSON} banks_detail[{idx}] {bid} invalid in_scope: {in_scope_flag!r}")
+            if in_scope_flag:
+                in_scope.add(bid)
+        return in_scope
     return {f"QB_{i}" for i in list(range(201, 211)) + list(range(401, 409)) + list(range(501, 504))}
 
 
