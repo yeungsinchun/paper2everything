@@ -58,6 +58,7 @@
       axis();curve(function(u){return [-2.5+4.5*u,-1.8+3.3*u-3.7*u*u];},60,accent);curve(function(u){return [-2.5+4.5*u,-1.8+2.6*u-3.7*u*u];},60,green);arrow(1,0,0,-1,ink);
     } else if(name==='st-vt'){
       axis();curve(function(u){return [-3+6*u,-1.8+3.4*u*u];},60,accent);line([[-3,-1.8],[3,1.6]],ink);
+      moving=ball(-3,-1.8,.14,accent);travel=function(u){moving.position.set(-3+6*u,-1.8+3.4*u*u,0);};
     } else if(name==='exp'){
       axis();line([[-3,-1.8],[2.8,1.5]],ink);for(var j=1;j<=4;j++)ball(-3+j*1.15,-1.8+j*.66,.11,accent);
     } else if(name==='collision'){
@@ -144,12 +145,22 @@
       arrow(-2,-.2,0,-1.1,accent);arrow(2,.35,0,-.8,green);
     } else if(['uam','freefall'].includes(name)) {
       axis();
-      if(name==='freefall'){line([[-2.6,2],[2.6,2]],pale);curve(function(u){return [0,1.7-3.5*u*u];},40,accent);moving=ball(0,1.7,.18);travel=function(u){moving.position.set(0,1.7-3.5*u*u,0);};}
-      else {curve(function(u){return [-3+6*u,-1.8+3.2*u*u];},50,ink);for(var j=0;j<6;j++)ball(-3+j,-1.8+3.2*(j/6)**2,.08,accent);}
+      if(name==='freefall'){line([[-2.6,2],[2.6,2]],pale);curve(function(u){return [0,1.7-3.5*u*u];},40,accent);moving=ball(0,1.7,.18,accent);travel=function(u){moving.position.set(0,1.7-3.5*u*u,0);};}
+      else {curve(function(u){return [-3+6*u,-1.8+3.2*u*u];},50,ink);for(var j=0;j<6;j++)ball(-3+j,-1.8+3.2*(j/6)**2,.08,accent);moving=ball(-3,-1.8,.14,accent);travel=function(u){moving.position.set(-3+6*u,-1.8+3.2*u*u,0);};}
     }
-    function frame(t){if(travel)travel((t*.0002)%1);renderer.render(scene,camera);if(travel)requestAnimationFrame(frame);}
+    function frame(t){if(travel)travel((t*.00022)%1);renderer.render(scene,camera);if(travel)requestAnimationFrame(frame);}
+    host.addEventListener('notes-replay', function(){ renderer.render(scene,camera); });
     frame(0);
   }
-  function init(){document.querySelectorAll('canvas.scene-canvas').forEach(boot);}
+  function init(){
+    document.querySelectorAll('canvas.scene-canvas').forEach(boot);
+    document.querySelectorAll('[data-replay]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-replay');
+        var host = document.getElementById(id);
+        if(host) host.dispatchEvent(new Event('notes-replay'));
+      });
+    });
+  }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })(window);
