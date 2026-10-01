@@ -39,8 +39,8 @@ figure.fig > .pane-pair {
   transform: translate(-50%, -50%);
   background: rgba(255,255,255,0.92);
   padding: 0.14rem 0.38rem;
-  border-radius: 3px;
-  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 999px;
+  border: 2px solid var(--line-soft);
   font-size: 12px;
   line-height: 1.2;
   text-shadow: 0 0 4px #fff;
@@ -48,20 +48,20 @@ figure.fig > .pane-pair {
 }
 
 /* Projectile vis: vx horizontal, vy vertical, parabola near peak */
-#proj-vis [data-hud="vx"] { left: 38%; top: 78%; font-size: 11px; color: #174f78; }
-#proj-vis [data-hud="vy"] { left: 17%; top: 53%; font-size: 11px; color: #18846e; }
-#proj-vis [data-hud="parabola"] { left: 50%; top: 38%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#proj-vis [data-hud="vx"] { left: 38%; top: 78%; font-size: 11px; color: var(--fig-velocity); }
+#proj-vis [data-hud="vy"] { left: 17%; top: 53%; font-size: 11px; color: var(--fig-field); }
+#proj-vis [data-hud="parabola"] { left: 50%; top: 38%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
 
 /* Bomber vis: bomber plane top-left, tower before target, target on ground */
 #bomber-vis [data-hud="bomber"] { left: 17%; top: 16%; font-size: 11px; font-weight: 700; }
-#bomber-vis [data-hud="tower"] { left: 76%; top: 66%; font-size: 11px; color: #5d6673; }
-#bomber-vis [data-hud="target"] { left: 86%; top: 78%; font-size: 11px; color: #18846e; font-weight: 600; }
+#bomber-vis [data-hud="tower"] { left: 76%; top: 66%; font-size: 11px; color: var(--ink-2); }
+#bomber-vis [data-hud="target"] { left: 86%; top: 78%; font-size: 11px; color: var(--fig-field); font-weight: 600; }
 
 /* Range vis: 45° max label above peak */
-#range-vis [data-hud="45"] { left: 54%; top: 22%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#range-vis [data-hud="45"] { left: 54%; top: 22%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
 
 /* Baseball vis: 40° components */
-#baseball-vis [data-hud="40deg"] { left: 42%; top: 44%; font-size: 11px; color: #1b2129; font-weight: 600; }
+#baseball-vis [data-hud="40deg"] { left: 42%; top: 44%; font-size: 11px; color: var(--ink); font-weight: 600; }
 
 /* Shared dot style for animated projectile markers */
 .projectile-dot,
@@ -70,7 +70,7 @@ figure.fig > .pane-pair {
   position: absolute;
   width: 11px;
   height: 11px;
-  background: #c34832;
+  background: var(--fig-force);
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
@@ -131,21 +131,21 @@ figure.fig > .pane-pair {
   50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.06); }
 }
 #proj-vis [data-hud="parabola"] {
-  animation: proj-label-pulse 1.9s ease-in-out infinite;
+  animation: proj-label-pulse 1.9s ease-in-out 1;
 }
 @keyframes range-label-pulse {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.07); }
 }
 #range-vis [data-hud="45"] {
-  animation: range-label-pulse 2.1s ease-in-out infinite;
+  animation: range-label-pulse 2.1s ease-in-out 1;
 }
 @keyframes baseball-label-pulse {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.86; transform: translate(-50%, -50%) scale(1.05); }
 }
 #baseball-vis [data-hud="40deg"] {
-  animation: baseball-label-pulse 2.4s ease-in-out infinite;
+  animation: baseball-label-pulse 2.4s ease-in-out 1;
 }
 
 /* Gentle entrance for canvases so figures feel alive on load */

@@ -39,8 +39,8 @@ figure.fig > .pane-pair {
   transform: translate(-50%, -50%);
   background: rgba(255,255,255,0.92);
   padding: 0.14rem 0.38rem;
-  border-radius: 3px;
-  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 999px;
+  border: 2px solid var(--line-soft);
   font-size: 12px;
   line-height: 1.2;
   text-shadow: 0 0 4px #fff;
@@ -48,20 +48,20 @@ figure.fig > .pane-pair {
 }
 
 /* Fig 2.19 circular-vis: uniform circular motion, ω top, a → centre on left-inward side */
-#circular-vis [data-hud="w"] { left: 50%; top: 16%; font-size: 11px; color: #1b2129; font-weight: 600; }
-#circular-vis [data-hud="a"] { left: 30%; top: 46%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#circular-vis [data-hud="w"] { left: 50%; top: 16%; font-size: 11px; color: var(--ink); font-weight: 600; }
+#circular-vis [data-hud="a"] { left: 30%; top: 46%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
 
 /* Fig 2.20 bung-vis: T near circular path top, clip near hanging weight bottom-right */
-#bung-vis [data-hud="T"] { left: 44%; top: 18%; font-size: 11px; color: #c0392b; font-weight: 600; }
-#bung-vis [data-hud="clip"] { left: 86%; top: 78%; font-size: 11px; color: #5d6673; }
+#bung-vis [data-hud="T"] { left: 44%; top: 18%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
+#bung-vis [data-hud="clip"] { left: 86%; top: 78%; font-size: 11px; color: var(--ink-2); }
 
 /* Fig 2.21 gvalue-vis: G on the parabola left, 137g on the drum right */
-#gvalue-vis [data-hud="G"] { left: 24%; top: 26%; font-size: 11px; color: #1b2129; font-weight: 600; }
-#gvalue-vis [data-hud="137"] { left: 78%; top: 18%; font-size: 11px; color: #18846e; font-weight: 600; }
+#gvalue-vis [data-hud="G"] { left: 24%; top: 26%; font-size: 11px; color: var(--ink); font-weight: 600; }
+#gvalue-vis [data-hud="137"] { left: 78%; top: 18%; font-size: 11px; color: var(--fig-field); font-weight: 600; }
 
 /* Fig 2.22 hole-vis: X circles top of ellipse, Y hangs bottom-right */
-#hole-vis [data-hud="X"] { left: 44%; top: 18%; font-size: 11px; color: #c0392b; font-weight: 600; }
-#hole-vis [data-hud="Y"] { left: 86%; top: 78%; font-size: 11px; color: #5d6673; font-weight: 600; }
+#hole-vis [data-hud="X"] { left: 44%; top: 18%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
+#hole-vis [data-hud="Y"] { left: 86%; top: 78%; font-size: 11px; color: var(--ink-2); font-weight: 600; }
 
 /* Animated orbit dots — CSS fallback for the three.js travellers so motion reads even if canvas stalls. */
 .circular-dot,
@@ -71,7 +71,7 @@ figure.fig > .pane-pair {
   position: absolute;
   width: 11px;
   height: 11px;
-  background: #c34832;
+  background: var(--fig-force);
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
@@ -138,28 +138,28 @@ figure.fig > .pane-pair {
   50% { opacity: 0.78; transform: translate(-50%, -50%) scale(1.07); }
 }
 #circular-vis [data-hud="a"] {
-  animation: circular-a-pulse 1.9s ease-in-out infinite;
+  animation: circular-a-pulse 1.9s ease-in-out 1;
 }
 @keyframes bung-t-pulse {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.84; transform: translate(-50%, -50%) scale(1.06); }
 }
 #bung-vis [data-hud="T"] {
-  animation: bung-t-pulse 2.0s ease-in-out infinite;
+  animation: bung-t-pulse 2.0s ease-in-out 1;
 }
 @keyframes gvalue-pulse {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.07); }
 }
 #gvalue-vis [data-hud="137"] {
-  animation: gvalue-pulse 2.1s ease-in-out infinite;
+  animation: gvalue-pulse 2.1s ease-in-out 1;
 }
 @keyframes hole-x-pulse {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.84; transform: translate(-50%, -50%) scale(1.06); }
 }
 #hole-vis [data-hud="X"] {
-  animation: hole-x-pulse 2.0s ease-in-out infinite;
+  animation: hole-x-pulse 2.0s ease-in-out 1;
 }
 
 /* Gentle entrance for canvases so figures feel alive on load */

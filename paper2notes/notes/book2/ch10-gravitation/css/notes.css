@@ -39,8 +39,8 @@ figure.fig > .pane-pair {
   transform: translate(-50%, -50%);
   background: rgba(255,255,255,0.92);
   padding: 0.14rem 0.38rem;
-  border-radius: 3px;
-  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 999px;
+  border: 2px solid var(--line-soft);
   font-size: 12px;
   line-height: 1.2;
   text-shadow: 0 0 4px #fff;
@@ -48,19 +48,19 @@ figure.fig > .pane-pair {
 }
 
 /* Fig 2.21 gravity-vis: F=GMm/r² between Earth–Sun, g=GM/r² near height bracket */
-#gravity-vis [data-hud="FG"] { left: 46%; top: 22%; font-size: 11px; color: #c0392b; font-weight: 600; }
-#gravity-vis [data-hud="field"] { left: 74%; top: 74%; font-size: 11px; color: #1b2129; font-weight: 600; }
+#gravity-vis [data-hud="FG"] { left: 46%; top: 22%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
+#gravity-vis [data-hud="field"] { left: 74%; top: 74%; font-size: 11px; color: var(--ink); font-weight: 600; }
 
 /* Fig 2.22 orbit-vis: v=√(GM/r) top of circular orbit, debris label top-right */
-#orbit-vis [data-hud="v"] { left: 42%; top: 16%; font-size: 11px; color: #c0392b; font-weight: 600; }
-#orbit-vis [data-hud="debris"] { left: 76%; top: 26%; font-size: 11px; color: #5d6673; }
+#orbit-vis [data-hud="v"] { left: 42%; top: 16%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
+#orbit-vis [data-hud="debris"] { left: 76%; top: 26%; font-size: 11px; color: var(--ink-2); }
 
 /* Fig 2.23 kepler-vis: Kepler left plot, field right plot */
-#kepler-vis [data-hud="Kepler"] { left: 22%; top: 24%; font-size: 11px; color: #c0392b; font-weight: 600; }
-#kepler-vis [data-hud="field"] { left: 74%; top: 20%; font-size: 11px; color: #18846e; font-weight: 600; }
+#kepler-vis [data-hud="Kepler"] { left: 22%; top: 24%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
+#kepler-vis [data-hud="field"] { left: 74%; top: 20%; font-size: 11px; color: var(--fig-field); font-weight: 600; }
 
 /* Fig 2.24 debris-vis: LEO crowded centered top */
-#debris-vis [data-hud="crowd"] { left: 50%; top: 18%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#debris-vis [data-hud="crowd"] { left: 50%; top: 18%; font-size: 11px; color: var(--fig-force); font-weight: 600; }
 
 /* Animated dots — CSS fallback for three.js travellers so motion reads even if canvas stalls. */
 .gravity-dot,
@@ -71,7 +71,7 @@ figure.fig > .pane-pair {
   position: absolute;
   width: 11px;
   height: 11px;
-  background: #c34832;
+  background: var(--fig-force);
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.18);
@@ -82,7 +82,7 @@ figure.fig > .pane-pair {
 .kepler-field-dot {
   width: 9px;
   height: 9px;
-  background: #d4a017;
+  background: var(--fig-energy);
   border: 2px solid #fff;
 }
 
@@ -166,28 +166,28 @@ figure.fig > .pane-pair {
   50% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.06); }
 }
 #gravity-vis [data-hud="FG"] {
-  animation: gravity-fg-pulse 1.9s ease-in-out infinite;
+  animation: gravity-fg-pulse 1.9s ease-in-out 1;
 }
 @keyframes orbit-v-pulse {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.84; transform: translate(-50%, -50%) scale(1.06); }
 }
 #orbit-vis [data-hud="v"] {
-  animation: orbit-v-pulse 2.0s ease-in-out infinite;
+  animation: orbit-v-pulse 2.0s ease-in-out 1;
 }
 @keyframes kepler-pulse {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.80; transform: translate(-50%, -50%) scale(1.07); }
 }
 #kepler-vis [data-hud="Kepler"] {
-  animation: kepler-pulse 2.1s ease-in-out infinite;
+  animation: kepler-pulse 2.1s ease-in-out 1;
 }
 @keyframes debris-crowd-pulse {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.05); }
 }
 #debris-vis [data-hud="crowd"] {
-  animation: debris-crowd-pulse 2.0s ease-in-out infinite;
+  animation: debris-crowd-pulse 2.0s ease-in-out 1;
 }
 
 /* Gentle entrance for canvases so figures feel alive on load */

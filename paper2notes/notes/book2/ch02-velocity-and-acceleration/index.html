@@ -5,32 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book 2 Ch.2 · Velocity, acceleration and uniformly accelerated motion</title>
   <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
   <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="../index.html">Book 2 · Ch.2<small>Velocity, acceleration and uniformly accelerated motion</small></a>
-    <nav>
-      <a href="../index.html">Map</a>
-      <a href="../ch01-position-and-displacement/index.html">Ch.1</a>
-      <a href="../ch02-velocity-and-acceleration/index.html" aria-current="page">Ch.2</a>
-      <a href="../ch03-forces-and-newton-i/index.html">Ch.3</a>
-      <a href="../ch04-newton-ii-and-iii/index.html">Ch.4</a>
-      <a href="../ch05-moment-and-equilibrium/index.html">Ch.5</a>
-      <a href="../ch06-work-energy-power/index.html">Ch.6</a>
-      <a href="../ch07-momentum/index.html">Ch.7</a>
-      <a href="../ch08-projectile-motion/index.html">Ch.8</a>
-      <a href="../ch09-circular-motion/index.html">Ch.9</a>
-      <a href="../ch10-gravitation/index.html">Ch.10</a>
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Force &amp; Motion</small></a>
+    <nav aria-label="Chapters">
+      <a href="../index.html" aria-label="Book 2 chapter map">Map</a>
+      <a href="../ch01-position-and-displacement/index.html" aria-label="Chapter 1">1</a><a href="../ch02-velocity-and-acceleration/index.html" aria-current="page" aria-label="Chapter 2">2</a><a href="../ch03-forces-and-newton-i/index.html" aria-label="Chapter 3">3</a><a href="../ch04-newton-ii-and-iii/index.html" aria-label="Chapter 4">4</a><a href="../ch05-moment-and-equilibrium/index.html" aria-label="Chapter 5">5</a><a href="../ch06-work-energy-power/index.html" aria-label="Chapter 6">6</a><a href="../ch07-momentum/index.html" aria-label="Chapter 7">7</a><a href="../ch08-projectile-motion/index.html" aria-label="Chapter 8">8</a><a href="../ch09-circular-motion/index.html" aria-label="Chapter 9">9</a><a href="../ch10-gravitation/index.html" aria-label="Chapter 10">10</a>
     </nav>
   </header>
   <main>
-    <h1>Velocity, acceleration and uniformly accelerated motion</h1>
-    <p class="lede">Speed, velocity, acceleration and UAM.</p>
+    <h1>Velocity and acceleration</h1>
+    <p class="lede">How fast, and how fast it changes.</p>
 
     <section class="lo-block" aria-labelledby="lo-heading">
-      <h2 id="lo-heading">Learning objectives</h2>
+      <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
         <li><p>define average speed as distance travelled in a given period of time and average velocity as displacement changed in a period of time</p></li>
@@ -43,14 +35,15 @@
 
 
     <section class="idea" id="speed-velocity">
-      <header><h2><span class="sec-num">A</span>Speed and velocity · instantaneous vs average</h2></header>
+      <header><h2><span class="sec-num">A</span>Speed and velocity</h2></header>
       <figure class="fig">
         <div class="visual play stage" id="st-vt-vis" data-autoplay data-scene="st-vt">
           <canvas class="scene-canvas" width="960" height="420" aria-label="s-t slope is velocity, v-t area is displacement"></canvas>
           <span class="hud-label" data-hud="slope">slope = \( v \)</span><span class="hud-label" data-hud="area">area = \( s \)</span>
           <button type="button" class="stage-replay" data-replay="st-vt-vis">Replay</button>
         </div>
-        <figcaption><b>Fig. 2.3</b> On \( s\!-\!t \), slope is velocity; on \( v\!-\!t \), area under the curve is displacement. Instantaneous = tangent at that time; average = secant over an interval.</figcaption>
+        <figcaption><b>Fig 2.1</b> \( s\!-\!t \) slope is velocity; \( v\!-\!t \) area is displacement.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>On \( s\!-\!t \), slope is velocity; on \( v\!-\!t \), area under the curve is displacement. Instantaneous = tangent at that time; average = secant over an interval.</p></details>
       </figure>
       <div class="def"><span class="tag">Definitions</span><p>Average speed \( = \dfrac{\text{distance}}{\Delta t} \) (scalar). Average velocity \( = \dfrac{\Delta\vec s}{\Delta t} \) (vector). Instantaneous = limit \( \Delta t \to 0 \) — the tangent.</p></div>
       <table class="notes">
@@ -62,7 +55,7 @@
         </tbody>
       </table>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A car holds \( 15\ \text{m s}^{-1} \) round a bend radius \( 50\ \text{m} \). What changes while speed stays the same?</p>
         <div class="choices">
           <button type="button" data-choice="A">Velocity stays the same</button>
@@ -75,14 +68,15 @@
     </section>
 
     <section class="idea" id="uam">
-      <header><h2><span class="sec-num">B</span>Uniformly accelerated motion — the four equations</h2></header>
+      <header><h2><span class="sec-num">B</span>Constant acceleration equations</h2></header>
       <figure class="fig">
         <div class="visual play stage" id="uam-vis" data-autoplay data-scene="uam">
           <canvas class="scene-canvas" width="960" height="420" aria-label="UAM: v-t straight line, s-t parabola, dots speed up uniformly"></canvas>
           <span class="hud-label" data-hud="vt">\( v = u + at \)</span><span class="hud-label" data-hud="st">\( s = ut + \tfrac12 at^2 \)</span>
           <button type="button" class="stage-replay" data-replay="uam-vis">Replay</button>
         </div>
-        <figcaption><b>Fig. 2.4</b> With constant acceleration, \( v\!-\!t \) is straight (slope \( a \)), \( s\!-\!t \) is a parabola. Ticker-tape dots are equally spaced in speed increase.</figcaption>
+        <figcaption><b>Fig 2.2</b> Constant \( a \): \( v\!-\!t \) straight, \( s\!-\!t \) parabola.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>With constant acceleration, \( v\!-\!t \) is straight (slope \( a \)), \( s\!-\!t \) is a parabola. Ticker-tape dots are equally spaced in speed increase.</p></details>
       </figure>
       <div class="def"><span class="tag">UAM equations (a constant)</span>
         <p>\[ v = u + at \qquad s = \tfrac12(u+v)t \qquad s = ut + \tfrac12 at^2 \qquad v^2 = u^2 + 2as \]</p>
@@ -98,7 +92,7 @@
         </tbody>
       </table>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A ball falls \( 3\ \text{m s}^{-1} \) down, bounces to \( 2\ \text{m s}^{-1} \) up in \( 0.2\ \text{s} \). Average acceleration (take up as +)?</p>
         <div class="choices">
           <button type="button" data-choice="A">\( 5\ \text{m s}^{-2} \) downward</button>
@@ -118,11 +112,12 @@
           <span class="hud-label" data-hud="g">\( g \approx 9.81\ \text{m s}^{-2} \)</span><span class="hud-label" data-hud="air">air drag</span>
           <button type="button" class="stage-replay" data-replay="freefall-vis">Replay</button>
         </div>
-        <figcaption><b>Fig. 2.5</b> In vacuum, all masses fall with same \( g \) downward. With air, drag grows with speed → slower net acceleration; measured \( g \) from slope of \( v\!-\!t \) after correcting for drag.</figcaption>
+        <figcaption><b>Fig 2.3</b> In vacuum every mass falls with the same \( g \).</figcaption>
+        <details class="fig-more"><summary>More</summary><p>In vacuum, all masses fall with same \( g \) downward. With air, drag grows with speed → slower net acceleration; measured \( g \) from slope of \( v\!-\!t \) after correcting for drag.</p></details>
       </figure>
       <div class="def"><span class="tag">Free-fall</span><p>Vertical UAM with \( a = g \) downward if air negligible. Light gates or ticker give \( v\!-\!t \); slope \( = g \). The resident’s jump (2.5 s to cushion, then 3 m thickness) and the basketball hang-time are solved with the same four equations, using \( s = ut + \tfrac12 gt^2 \) with sign for up/down.</p></div>
       <div class="check" data-check="sa" data-answer="freefall">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Why does the “hang-time” of a good jumper feel long? Use \( g \).</p>
         <button type="button" data-reveal>Reveal</button>
         <div class="model" hidden><p>Vertical motion is symmetric: time up = time down. High jump means high \( u \); \( t_{\text{flight}} = 2u/g \), so big \( u \) gives long air time plus perception at the top where vertical speed is near zero.</p></div>
@@ -132,13 +127,14 @@
 
     
     <section class="idea" id="graphs-detail">
-      <header><h2><span class="sec-num">C</span>Graphs and ticker tape</h2></header>
+      <header><h2><span class="sec-num">D</span>Graphs and ticker tape</h2></header>
       <figure class="fig">
         <div class="visual play stage" id="ticker-vis" data-scene="ticker">
           <canvas class="scene-canvas" width="960" height="280" aria-label="Ticker tape dots getting farther apart as speed increases"></canvas>
           <span class="hud-label" data-hud="dots">dots · time interval constant</span>
         </div>
-        <figcaption><b>Fig. 2.6</b> Ticker tape: each dot is constant time (e.g. 0.02 s). Wider spacing → faster. Slope of \( v\!-\!t \) is \( a \); area under \( v\!-\!t \) is displacement.</figcaption>
+        <figcaption><b>Fig 2.4</b> Equal time per dot; wider spacing → faster.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Ticker tape: each dot is constant time (e.g. 0.02 s). Wider spacing → faster. Slope of \( v\!-\!t \) is \( a \); area under \( v\!-\!t \) is displacement.</p></details>
       </figure>
       <table class="notes">
         <thead><tr><th>Graph</th><th>Slope</th><th>Area</th></tr></thead>
@@ -149,33 +145,32 @@
         </tbody>
       </table>
       <div class="check" data-check="tf">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <div class="tf-item" data-answer="true"><p>In uniformly accelerated motion, \( v\!-\!t \) is a straight line.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" hidden><p>True — constant slope = constant \( a \).</p></div></div>
         <div class="tf-item" data-answer="true"><p>Ticker spacing increasing uniformly means constant acceleration.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" hidden><p>True — distance per time interval grows linearly with \( v \).</p></div></div>
       </div>
     </section>
 
     <section class="idea" id="freefall-meas">
-      <header><h2><span class="sec-num">D</span>Measuring \( g \)</h2></header>
+      <header><h2><span class="sec-num">E</span>Measuring \( g \)</h2></header>
       <figure class="fig">
         <div class="visual play stage" id="g-vis" data-scene="g">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Light gate measuring g"></canvas>
           <span class="hud-label" data-hud="gate">light gate · \( g = \Delta v/\Delta t \)</span>
         </div>
-        <figcaption><b>Fig. 2.7</b> Free-fall in the lab: a picket fence through a light gate gives \( v \) at two heights; \( g = (v_2 - v_1)/t \). Without air, \( g \approx 9.81\ \text{m s}^{-2} \) downward everywhere near the ground.</figcaption>
+        <figcaption><b>Fig 2.5</b> Light gate: \( g = (v_2 - v_1)/t \).</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Free-fall in the lab: a picket fence through a light gate gives \( v \) at two heights; \( g = (v_2 - v_1)/t \). Without air, \( g \approx 9.81\ \text{m s}^{-2} \) downward everywhere near the ground.</p></details>
       </figure>
-      <div class="check" data-check="sa" data-answer="g"><h3>Concept check</h3><p>A student gets \( g=10.2\ \text{m s}^{-2} \). What went wrong?</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>Air drag not corrected, or timing includes reaction. The accepted is 9.81; close is fine — method must show slope of \( v\!-\!t \), not just one drop.</p></div></div>
+      <div class="check" data-check="sa" data-answer="g"><h3>Quick check</h3><p>A student gets \( g=10.2\ \text{m s}^{-2} \). What went wrong?</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>Air drag not corrected, or timing includes reaction. The accepted is 9.81; close is fine — method must show slope of \( v\!-\!t \), not just one drop.</p></div></div>
     </section>
 
     <section class="idea" id="quiz">
-      <header><h2><span class="sec-num">Q</span>Section quiz — DSE classified</h2></header>
-      <p>One question at a time. Use <em>Prev / Next</em> to move. Past papers are separate from the in-flow checks above.</p>
+      <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <p class="quiz-note">Adapted from classified DSE 2013 MC Q8 · Section 05 Motion. Check the original paper for its diagrams and choices.</p>
         <div class="check" data-check="sa">
-          <h3>2013 MC Q8 · Section 05 Motion</h3>
+          <h3>2013 MC Q8</h3>
           <p>A body falls freely from rest. The distances in two successive intervals are in the ratio 9:16. What relation between distance fallen and time should you use?</p>
-          <button type="button" data-reveal>Show model answer</button>
+          <button type="button" data-reveal>Show answer</button>
           <div class="model" hidden><p>For free fall from rest, s = ½gt². Use the cumulative distances to obtain each elapsed time before comparing the intervals.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/05/combined.pdf" download>Export PDF for this section</a></p>

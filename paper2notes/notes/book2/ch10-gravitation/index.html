@@ -5,32 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book 2 Ch.10 · Gravitation</title>
   <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
   <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="../index.html">Book 2 · Ch.10<small>Gravitation</small></a>
-    <nav>
-      <a href="../index.html">Map</a>
-      <a href="../ch01-position-and-displacement/index.html">Ch.1</a>
-      <a href="../ch02-velocity-and-acceleration/index.html">Ch.2</a>
-      <a href="../ch03-forces-and-newton-i/index.html">Ch.3</a>
-      <a href="../ch04-newton-ii-and-iii/index.html">Ch.4</a>
-      <a href="../ch05-moment-and-equilibrium/index.html">Ch.5</a>
-      <a href="../ch06-work-energy-power/index.html">Ch.6</a>
-      <a href="../ch07-momentum/index.html">Ch.7</a>
-      <a href="../ch08-projectile-motion/index.html">Ch.8</a>
-      <a href="../ch09-circular-motion/index.html">Ch.9</a>
-      <a href="../ch10-gravitation/index.html" aria-current="page">Ch.10</a>
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Force &amp; Motion</small></a>
+    <nav aria-label="Chapters">
+      <a href="../index.html" aria-label="Book 2 chapter map">Map</a>
+      <a href="../ch01-position-and-displacement/index.html" aria-label="Chapter 1">1</a><a href="../ch02-velocity-and-acceleration/index.html" aria-label="Chapter 2">2</a><a href="../ch03-forces-and-newton-i/index.html" aria-label="Chapter 3">3</a><a href="../ch04-newton-ii-and-iii/index.html" aria-label="Chapter 4">4</a><a href="../ch05-moment-and-equilibrium/index.html" aria-label="Chapter 5">5</a><a href="../ch06-work-energy-power/index.html" aria-label="Chapter 6">6</a><a href="../ch07-momentum/index.html" aria-label="Chapter 7">7</a><a href="../ch08-projectile-motion/index.html" aria-label="Chapter 8">8</a><a href="../ch09-circular-motion/index.html" aria-label="Chapter 9">9</a><a href="../ch10-gravitation/index.html" aria-current="page" aria-label="Chapter 10">10</a>
     </nav>
   </header>
   <main>
     <h1>Gravitation</h1>
-    <p class="lede">GMm/r², field and orbits.</p>
+    <p class="lede">Every mass pulls every other mass.</p>
 
     <section class="lo-block" aria-labelledby="lo-heading">
-      <h2 id="lo-heading">Learning objectives</h2>
+      <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
         <li><p>state Newton’s law of universal gravitation \( F = GMm/r^2 \)</p></li>
@@ -41,21 +33,22 @@
 
 
     <section class="idea" id="universal">
-      <header><h2><span class="sec-num">A</span>Universal gravitation — \( F=GMm/r^2 \)</h2></header>
+      <header><h2><span class="sec-num">A</span>Universal gravitation \( F=GMm/r^2 \)</h2></header>
       <figure class="fig">
         <div class="visual stage" id="gravity-vis" data-scene="gravity">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Earth Sun pull, inverse square, field weakens with height"></canvas>
           <span class="hud-label" data-hud="FG">\( F=GMm/r^2 \)</span><span class="hud-label" data-hud="field">\( g=GM/r^2 \)</span>
           <span class="gravity-dot" aria-hidden="true"></span>
         </div>
-        <figcaption><b>Fig. 2.21</b> Every pair of masses attracts along the line joining them with \( 1/r^2 \). At height \( h \), field \( g' = GM/(R+h)^2 \) is weaker than at surface \( g=GM/R^2 \).</figcaption>
+        <figcaption><b>Fig 10.1</b> Force falls as \( 1/r^2 \); field is weaker at height.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Every pair of masses attracts along the line joining them with \( 1/r^2 \). At height \( h \), field \( g' = GM/(R+h)^2 \) is weaker than at surface \( g=GM/R^2 \).</p></details>
       </figure>
       <div class="def"><span class="tag">Newton’s law</span><p>\[ F = \frac{GMm}{r^2} \qquad G = 6.67\times10^{-11}\ \text{N m}^2\text{kg}^{-2} \] \( r \) is centre-to-centre distance. \( F \) is the same on both bodies (Newton III).</p></div>
       <table class="notes"><thead><tr><th>Ask</th><th>Use</th></tr></thead>
         <tbody><tr><td>Weight at surface</td><td>\( W = mg = GMm/R^2 \) → \( g=GM/R^2 \)</td></tr><tr><td>Field at height \( h \)</td><td>\( g' = GM/(R+h)^2 = g \cdot R^2/(R+h)^2 \)</td></tr><tr><td>Days in year if \( r→r/2 \)</td><td>Kepler: \( T^2 \propto r^3 \) → \( T' = T/ (2\sqrt2) ≈129 \) d</td></tr></tbody>
       </table>
       <div class="check" data-check="mc" data-answer="A">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Earth–Sun distance became half (circular orbit). New year?</p>
         <div class="choices">
           <button type="button" data-choice="A">129 days</button>
@@ -75,16 +68,17 @@
           <span class="hud-label" data-hud="v">\( v=\sqrt{GM/r} \)</span><span class="hud-label" data-hud="debris">debris also orbits</span>
           <span class="orbit-dot" aria-hidden="true"></span>
         </div>
-        <figcaption><b>Fig. 2.22</b> Circular orbit speed \( v = \sqrt{GM/r} \) — higher orbit means slower. GPS is one such orbit; debris stays in similar orbits until drag lowers them. Angular speed \( \omega = v/r \).</figcaption>
+        <figcaption><b>Fig 10.2</b> Higher orbit → slower: \( v=\sqrt{GM/r} \).</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Circular orbit speed \( v = \sqrt{GM/r} \) — higher orbit means slower. GPS is one such orbit; debris stays in similar orbits until drag lowers them. Angular speed \( \omega = v/r \).</p></details>
       </figure>
       <div class="def"><span class="tag">Orbit condition</span><p>\[ \frac{GMm}{r^2} = \frac{mv^2}{r} \quad\Rightarrow\quad v = \sqrt{\frac{GM}{r}} \qquad \omega = \frac{v}{r} \] Measured Earth orbit (\( r=1.496×10^{11} \) m, \( T=365.3 \) d) estimates Earth’s \( M_{\text{sun}} \) etc.</p></div>
-      <div class="check" data-check="sa" data-answer="orbit"><h3>Concept check</h3><p>Estimate Earth’s angular speed around Sun (take \( T=365.3 \) d).</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>\( \omega =2\pi/T =2\pi/(365.3×86400)≈1.99×10^{-7}\ \text{rad s}^{-1} \). Then \( g_{\text{field}} \) vs height or \( M \) from \( v^2 r = GM \).</p></div></div>
+      <div class="check" data-check="sa" data-answer="orbit"><h3>Quick check</h3><p>Estimate Earth’s angular speed around Sun (take \( T=365.3 \) d).</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>\( \omega =2\pi/T =2\pi/(365.3×86400)≈1.99×10^{-7}\ \text{rad s}^{-1} \). Then \( g_{\text{field}} \) vs height or \( M \) from \( v^2 r = GM \).</p></div></div>
     </section>
 
 
     
     <section class="idea" id="kepler">
-      <header><h2><span class="sec-num">C</span>Kepler’s third law and field variation</h2></header>
+      <header><h2><span class="sec-num">C</span>Kepler’s third law, field</h2></header>
       <figure class="fig">
         <div class="visual stage" id="kepler-vis" data-scene="kepler">
           <canvas class="scene-canvas" width="960" height="320" aria-label="T squared vs r cubed, field vs height"></canvas>
@@ -92,10 +86,11 @@
           <span class="kepler-dot" aria-hidden="true"></span>
           <span class="kepler-field-dot" aria-hidden="true"></span>
         </div>
-        <figcaption><b>Fig. 2.23</b> Gravity → centripetal gives \( T^2 = (4\pi^2/GM) r^3 \). Field at \( h=2R \) is \( g/9 \); at GPS orbit (~20 000 km) it is about \( 0.6\ \text{m s}^{-2} \) not 9.81.</figcaption>
+        <figcaption><b>Fig 10.3</b> \( T^2 \propto r^3 \); at \( h=2R \), field is \( g/9 \).</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Gravity → centripetal gives \( T^2 = (4\pi^2/GM) r^3 \). Field at \( h=2R \) is \( g/9 \); at GPS orbit (~20 000 km) it is about \( 0.6\ \text{m s}^{-2} \) not 9.81.</p></details>
       </figure>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Field at 1 Earth radius height (\( h=R \)) vs surface?</p>
         <div class="choices">
           <button type="button" data-choice="A">Same 9.81</button>
@@ -116,20 +111,19 @@
           <span class="hud-label" data-hud="crowd">LEO crowded</span>
           <span class="debris-dot" aria-hidden="true"></span>
         </div>
-        <figcaption><b>Fig. 2.24</b> Space around Earth is crowded — useful satellites plus debris share similar orbits (\( v=\sqrt{GM/r} \)). Drag at low heights slowly decays them; higher stays for centuries.</figcaption>
+        <figcaption><b>Fig 10.4</b> Satellites and debris share orbits; drag lowers low ones.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Space around Earth is crowded — useful satellites plus debris share similar orbits (\( v=\sqrt{GM/r} \)). Drag at low heights slowly decays them; higher stays for centuries.</p></details>
       </figure>
-      <div class="check" data-check="sa" data-answer="debris"><h3>Concept check</h3><p>Why does low debris fall faster?</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>Air drag (most at LEO) removes energy; radius shrinks → hotter but still loses.</p></div></div>
+      <div class="check" data-check="sa" data-answer="debris"><h3>Quick check</h3><p>Why does low debris fall faster?</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>Air drag (most at LEO) removes energy; radius shrinks → hotter but still loses.</p></div></div>
     </section>
 
     <section class="idea" id="quiz">
-      <header><h2><span class="sec-num">Q</span>Section quiz — DSE classified</h2></header>
-      <p>One question at a time. Use <em>Prev / Next</em> to move. Past papers are separate from the in-flow checks above.</p>
+      <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <p class="quiz-note">Adapted from classified DSE 2014 MC Q12 · Section 12 Gravitation. Check the original paper for its diagrams and choices.</p>
         <div class="check" data-check="sa">
-          <h3>2014 MC Q12 · Section 12 Gravitation</h3>
+          <h3>2014 MC Q12</h3>
           <p>A satellite orbits at height equal to Earth’s radius. If surface gravitational acceleration is g, what is its orbital acceleration?</p>
-          <button type="button" data-reveal>Show model answer</button>
+          <button type="button" data-reveal>Show answer</button>
           <div class="model" hidden><p>Its distance from Earth’s centre is 2R. Inverse square gravity gives GM/(2R)² = g/4.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/12/combined.pdf" download>Export PDF for this section</a></p>

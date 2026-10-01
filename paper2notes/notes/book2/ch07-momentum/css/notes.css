@@ -39,8 +39,8 @@ figure.fig > .pane-pair {
   transform: translate(-50%, -50%);
   background: rgba(255,255,255,0.92);
   padding: 0.14rem 0.38rem;
-  border-radius: 3px;
-  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 999px;
+  border: 2px solid var(--line-soft);
   font-size: 12px;
   line-height: 1.2;
   text-shadow: 0 0 4px #fff;
@@ -48,19 +48,19 @@ figure.fig > .pane-pair {
 }
 
 /* Fig 2.15 · Hose momentum — water jet 0.2 m/s hits wall */
-#hose-vis [data-hud="p"] { left: 30%; top: 34%; color: #1d4f91; font-weight: 600; }
-#hose-vis [data-hud="F"] { left: 71%; top: 34%; color: #c0392b; font-weight: 600; }
+#hose-vis [data-hud="p"] { left: 30%; top: 34%; color: var(--fig-velocity); font-weight: 600; }
+#hose-vis [data-hud="F"] { left: 71%; top: 34%; color: var(--fig-force); font-weight: 600; }
 
 /* Fig 2.16 · Collision — trolleys A (5.5 kg) & B (7 kg) head-on stick */
-#collision-vis [data-hud="before"] { left: 29%; top: 22%; font-weight: 700; color: #1d4f91; }
-#collision-vis [data-hud="after"] { left: 73%; top: 22%; font-weight: 700; color: #18846e; }
+#collision-vis [data-hud="before"] { left: 29%; top: 22%; font-weight: 700; color: var(--fig-velocity); }
+#collision-vis [data-hud="after"] { left: 73%; top: 22%; font-weight: 700; color: var(--fig-field); }
 
 /* Fig 2.17 · Safety — long Δt → small F (airbag/helmet) */
-#safety-vis [data-hud="long"] { left: 58%; top: 30%; color: #18846e; font-weight: 600; font-size: 11px; }
+#safety-vis [data-hud="long"] { left: 58%; top: 30%; color: var(--fig-field); font-weight: 600; font-size: 11px; }
 
 /* Fig 2.18 · Throw up with air drag — up vs down drag arrows */
-#throw-vis [data-hud="up"] { left: 33%; top: 30%; color: #c0392b; font-size: 11px; font-weight: 600; }
-#throw-vis [data-hud="down"] { left: 68%; top: 52%; color: #1d4f91; font-size: 11px; font-weight: 600; }
+#throw-vis [data-hud="up"] { left: 33%; top: 30%; color: var(--fig-force); font-size: 11px; font-weight: 600; }
+#throw-vis [data-hud="down"] { left: 68%; top: 52%; color: var(--fig-velocity); font-size: 11px; font-weight: 600; }
 
 /* ── Hose animation: water droplets streaming from hose to wall ── */
 .hose-drop,
@@ -69,7 +69,7 @@ figure.fig > .pane-pair {
   position: absolute;
   width: 9px;
   height: 9px;
-  background: #2a62a8;
+  background: var(--fig-velocity);
   border: 1.5px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
@@ -96,7 +96,7 @@ figure.fig > .pane-pair {
   50% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.04); }
 }
 #hose-vis [data-hud="F"] {
-  animation: hose-hud-pulse 2.2s ease-in-out infinite;
+  animation: hose-hud-pulse 2.2s ease-in-out 1;
 }
 
 /* ── Collision animation: trolleys approach, stick, drift slowly right ── */
@@ -112,8 +112,8 @@ figure.fig > .pane-pair {
   pointer-events: none;
   z-index: 5;
 }
-.trolley-a { background: #c34832; animation: trolley-a-move 3.2s ease-in-out infinite; }
-.trolley-b { background: #18846e; animation: trolley-b-move 3.2s ease-in-out infinite; }
+.trolley-a { background: var(--fig-force); animation: trolley-a-move 3.2s ease-in-out infinite; }
+.trolley-b { background: var(--fig-field); animation: trolley-b-move 3.2s ease-in-out infinite; }
 
 @keyframes trolley-a-move {
   0%   { left: 18%; top: 71%; }
@@ -143,7 +143,7 @@ figure.fig > .pane-pair {
   78%, 100% { opacity: 0.45; }
 }
 #collision-vis [data-hud="after"] {
-  animation: collision-hud-flash 3.2s ease-in-out infinite;
+  animation: collision-hud-flash 3.2s ease-in-out 1;
 }
 
 /* ── Safety animation: broad vs sharp impulse — gentle emphasis ── */
@@ -152,7 +152,7 @@ figure.fig > .pane-pair {
   50% { opacity: 0.86; transform: translate(-50%, -50%) scale(1.06); }
 }
 #safety-vis [data-hud="long"] {
-  animation: safety-pulse 2.6s ease-in-out infinite;
+  animation: safety-pulse 2.6s ease-in-out 1;
 }
 
 /* ── Throw animation: two balls arcing, clean higher than drag ── */
@@ -168,8 +168,8 @@ figure.fig > .pane-pair {
   pointer-events: none;
   z-index: 5;
 }
-.throw-ball { background: #c34832; animation: throw-clean 2.8s ease-in-out infinite; }
-.throw-ball-drag { background: #2f7a4a; animation: throw-drag 2.8s ease-in-out infinite; }
+.throw-ball { background: var(--fig-force); animation: throw-clean 2.8s ease-in-out infinite; }
+.throw-ball-drag { background: var(--ok-edge); animation: throw-drag 2.8s ease-in-out infinite; }
 
 @keyframes throw-clean {
   0%   { left: 12%; top: 71%; opacity: 1; }

@@ -3,9 +3,7 @@
 .quick-digest {
   margin: 0 0 1.2rem;
   padding: 0.75rem 0.9rem 0.85rem;
-  border: 1px solid var(--rule);
-  border-top: 3px solid var(--accent);
-  background: #fff;
+  background: var(--card);
 }
 
 .quick-digest h2 {
@@ -100,8 +98,8 @@ figure.fig > .pane-pair {
   transform: translate(-50%, -50%);
   background: rgba(255, 255, 255, 0.92);
   padding: 0.14rem 0.38rem;
-  border-radius: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 999px;
+  border: 2px solid var(--line-soft);
   font-size: 12px;
   line-height: 1.2;
   text-shadow: 0 0 4px #fff;
@@ -124,7 +122,7 @@ figure.fig > .pane-pair {
 
 .stage .hud-label[data-hud="disp"].metric {
   top: 2.55rem;
-  color: #a53426;
+  color: var(--fig-displacement);
 }
 
 .stage .hud-label[data-hud="A"],
@@ -137,11 +135,11 @@ figure.fig > .pane-pair {
 #trench-vis [data-hud="C"] { left: 63%; top: 20%; }
 
 /* Vector add: resultant along diagonal */
-#vector-add-vis [data-hud="res"] { left: 52%; top: 41%; font-size: 11px; color: #c0392b; font-weight: 600; }
+#vector-add-vis [data-hud="res"] { left: 52%; top: 41%; font-size: 11px; color: var(--fig-displacement); font-weight: 700; }
 
 /* Peter O-P circular route: red top, green bottom */
-#peter-vis [data-hud="red"] { left: 50%; top: 22%; font-size: 11px; color: #c0392b; }
-#peter-vis [data-hud="green"] { left: 50%; top: 80%; font-size: 11px; color: #18846e; }
+#peter-vis [data-hud="red"] { left: 50%; top: 22%; font-size: 11px; color: var(--fig-force); }
+#peter-vis [data-hud="green"] { left: 50%; top: 80%; font-size: 11px; color: var(--fig-velocity); }
 
 /* s-t graph: slope label */
 #st-graph-vis [data-hud="slope"] { left: 64%; top: 34%; font-size: 11px; }
@@ -156,19 +154,19 @@ figure.fig > .pane-pair {
   50% { opacity: 0.72; transform: translate(-50%, -50%) scale(1.07); }
 }
 #trench-vis [data-hud="disp"].metric {
-  animation: trench-pulse 1.9s ease-in-out infinite;
+  animation: trench-pulse 1.9s ease-out 1;
 }
 
 .trench-dot {
   position: absolute;
   width: 12px;
   height: 12px;
-  background: #c34832;
+  background: var(--fig-force);
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.18);
   transform: translate(-50%, -50%);
-  animation: trench-dot-move 3.4s linear infinite;
+  animation: trench-dot-move 3.4s linear 1 forwards;
   z-index: 5;
   pointer-events: none;
 }
@@ -177,10 +175,7 @@ figure.fig > .pane-pair {
   0% { left: 21%; top: 74%; opacity: 1; }
   32% { left: 60.5%; top: 74%; opacity: 1; }
   62% { left: 63%; top: 20%; opacity: 1; }
-  78% { opacity: 1; }
-  86% { opacity: 0; }
-  87% { left: 21%; top: 74%; opacity: 0; }
-  100% { left: 21%; top: 74%; opacity: 1; }
+  100% { left: 63%; top: 20%; opacity: 1; }
 }
 
 /* Subtle stage entrance for the trench canvas itself */
@@ -203,8 +198,8 @@ figure.fig > .pane-pair {
   gap: 0.55rem;
   align-items: center;
   padding: 0.35rem 0.45rem;
-  border: 1px solid rgba(217, 210, 196, 0.95);
-  border-radius: 5px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 2px 8px rgba(27, 33, 41, 0.09);
 }
