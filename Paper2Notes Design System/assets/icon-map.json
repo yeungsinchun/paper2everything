@@ -1,0 +1,55 @@
+{
+  "books": {
+    "book2": "rocket",
+    "book4": "zap",
+    "book5": "radiation",
+    "qb": "library"
+  },
+  "book2": [
+    "move-up-right",
+    "gauge",
+    "square-arrow-right",
+    "weight",
+    "scale",
+    "battery-charging",
+    "circle-dot-dashed",
+    "chart-spline",
+    "orbit",
+    "earth"
+  ],
+  "book4": [
+    "zap",
+    "cable",
+    "split",
+    "plug-zap",
+    "magnet",
+    "cog",
+    "waves",
+    "utility-pole"
+  ],
+  "book5": [
+    "radiation",
+    "hourglass",
+    "atom"
+  ],
+  "ui": {
+    "quickCheck": "zap",
+    "objectives": "target",
+    "help": "circle-help",
+    "trap": "triangle-alert",
+    "correct": "circle-check",
+    "retry": "lightbulb",
+    "replay": "rotate-ccw",
+    "next": "arrow-right",
+    "streak": "flame",
+    "xp": "zap",
+    "level": "star",
+    "achievement": "trophy",
+    "locked": "lock",
+    "home": "house",
+    "menu": "menu",
+    "close": "x",
+    "pdf": "file-down",
+    "formula": "sigma"
+  }
+}

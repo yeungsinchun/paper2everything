@@ -1,0 +1,414 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**",
+              "components/game/**",
+              "components/learning/**",
+              "components/nav/**",
+              "ui_kits/notes-web/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Fredoka|Nunito|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Fredoka, Nunito, JetBrains Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AchievementBadge'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|title|tier|progress|goal|unlocked|key|ref|className|style|children)$/]",
+        "message": "<AchievementBadge> doesn't accept that prop. Declared props: icon, title, tier, progress, goal, unlocked."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AchievementBadge'] > JSXAttribute[name.name='tier'] > Literal[value!=/^(?:bronze|silver|gold)$/]",
+        "message": "<AchievementBadge> tier must be one of 'bronze' | 'silver' | 'gold'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AchievementToast'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|title|tier|key|ref|className|style|children)$/]",
+        "message": "<AchievementToast> doesn't accept that prop. Declared props: icon, title, tier."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AchievementToast'] > JSXAttribute[name.name='tier'] > Literal[value!=/^(?:bronze|silver|gold)$/]",
+        "message": "<AchievementToast> tier must be one of 'bronze' | 'silver' | 'gold'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|icon|iconOnly|label|href|disabled|onClick|children|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, icon, iconOnly, label, href, disabled, onClick, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|sun|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'sun' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ChapterCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|title|sub|icon|iconSrc|progress|tone|onClick|key|ref|className|style|children)$/]",
+        "message": "<ChapterCard> doesn't accept that prop. Declared props: label, title, sub, icon, iconSrc, progress, tone, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FigureFrame'] > JSXAttribute > JSXIdentifier[name!=/^(?:num|caption|animated|children|key|ref|className|style|children)$/]",
+        "message": "<FigureFrame> doesn't accept that prop. Declared props: num, caption, animated, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormulaTerm'] > JSXAttribute > JSXIdentifier[name!=/^(?:sym|meaning|unit|color|key|ref|className|style|children)$/]",
+        "message": "<FormulaTerm> doesn't accept that prop. Declared props: sym, meaning, unit, color."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HelpLocation'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|where|href|key|ref|className|style|children)$/]",
+        "message": "<HelpLocation> doesn't accept that prop. Declared props: title, where, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|src|size|label|style|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, src, size, label, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LearningObjective'] > JSXAttribute > JSXIdentifier[name!=/^(?:text|code|ext|done|key|ref|className|style|children)$/]",
+        "message": "<LearningObjective> doesn't accept that prop. Declared props: text, code, ext, done."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProgressRing'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|size|stroke|color|children|key|ref|className|style|children)$/]",
+        "message": "<ProgressRing> doesn't accept that prop. Declared props: value, size, stroke, color, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='QuickCheckOption'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|icon|figure|key|ref|className|style|children)$/]",
+        "message": "<QuickCheckOption> doesn't accept that prop. Declared props: label, icon, figure."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatPill'] > JSXAttribute > JSXIdentifier[name!=/^(?:kind|value|key|ref|className|style|children)$/]",
+        "message": "<StatPill> doesn't accept that prop. Declared props: kind, value."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatPill'] > JSXAttribute[name.name='kind'] > Literal[value!=/^(?:streak|xp|level)$/]",
+        "message": "<StatPill> kind must be one of 'streak' | 'xp' | 'level'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TopBar'] > JSXAttribute > JSXIdentifier[name!=/^(?:crumbs|streak|xp|level|onHome|key|ref|className|style|children)$/]",
+        "message": "<TopBar> doesn't accept that prop. Declared props: crumbs, streak, xp, level, onHome."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Trap'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|wrong|right|label|key|ref|className|style|children)$/]",
+        "message": "<Trap> doesn't accept that prop. Declared props: children, wrong, right, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='XPBar'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|max|level|key|ref|className|style|children)$/]",
+        "message": "<XPBar> doesn't accept that prop. Declared props: value, max, level."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "AchievementBadge": {
+        "replaces": []
+      },
+      "AchievementToast": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "ChapterCard": {
+        "replaces": []
+      },
+      "FigureFrame": {
+        "replaces": []
+      },
+      "FormulaTerm": {
+        "replaces": []
+      },
+      "HelpLocation": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "LearningObjective": {
+        "replaces": []
+      },
+      "ProgressRing": {
+        "replaces": []
+      },
+      "QuickCheckOption": {
+        "replaces": []
+      },
+      "StatPill": {
+        "replaces": []
+      },
+      "TopBar": {
+        "replaces": []
+      },
+      "Trap": {
+        "replaces": []
+      },
+      "XPBar": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--book2",
+      "--book2-soft",
+      "--book4",
+      "--book4-soft",
+      "--book5",
+      "--book5-soft",
+      "--bookqb",
+      "--bookqb-soft",
+      "--border",
+      "--border-w",
+      "--brand",
+      "--brand-soft",
+      "--brand-strong",
+      "--card",
+      "--content-w",
+      "--dur",
+      "--dur-fast",
+      "--dur-slow",
+      "--ease-out",
+      "--ease-spring",
+      "--edge",
+      "--edge-brand",
+      "--edge-sun",
+      "--fig-accel",
+      "--fig-alpha",
+      "--fig-anim",
+      "--fig-anim-step",
+      "--fig-arrow",
+      "--fig-beta",
+      "--fig-bg",
+      "--fig-displacement",
+      "--fig-distance",
+      "--fig-dot",
+      "--fig-electron",
+      "--fig-energy",
+      "--fig-field",
+      "--fig-force",
+      "--fig-gamma",
+      "--fig-guide",
+      "--fig-ink",
+      "--fig-neutron",
+      "--fig-proton",
+      "--fig-stroke",
+      "--fig-stroke-bold",
+      "--fig-stroke-hair",
+      "--fig-velocity",
+      "--flame-100",
+      "--flame-500",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--hit",
+      "--ink",
+      "--ink-2",
+      "--ink-3",
+      "--lh-body",
+      "--lh-tight",
+      "--line",
+      "--line-soft",
+      "--nudge",
+      "--nudge-edge",
+      "--nudge-soft",
+      "--ok",
+      "--ok-edge",
+      "--ok-soft",
+      "--paper",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xl",
+      "--shadow-card",
+      "--shadow-pop",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--sun-100",
+      "--sun-400",
+      "--sun-500",
+      "--sun-700",
+      "--surface-card",
+      "--surface-page",
+      "--surface-sunk",
+      "--teal-100",
+      "--teal-300",
+      "--teal-50",
+      "--teal-500",
+      "--teal-600",
+      "--teal-700",
+      "--teal-900",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-body",
+      "--text-faint",
+      "--text-lg",
+      "--text-md",
+      "--text-muted",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tier-bronze",
+      "--tier-gold",
+      "--tier-silver",
+      "--wide-w"
+    ],
+    "tokenKinds": {
+      "--teal-50": "color",
+      "--teal-100": "color",
+      "--teal-300": "color",
+      "--teal-500": "color",
+      "--teal-600": "color",
+      "--teal-700": "color",
+      "--teal-900": "color",
+      "--sun-100": "color",
+      "--sun-400": "color",
+      "--sun-500": "color",
+      "--sun-700": "color",
+      "--flame-100": "color",
+      "--flame-500": "color",
+      "--paper": "color",
+      "--card": "color",
+      "--ink": "color",
+      "--ink-2": "color",
+      "--ink-3": "color",
+      "--line": "color",
+      "--line-soft": "color",
+      "--ok": "color",
+      "--ok-soft": "color",
+      "--ok-edge": "color",
+      "--nudge": "color",
+      "--nudge-soft": "color",
+      "--nudge-edge": "color",
+      "--fig-force": "color",
+      "--fig-velocity": "color",
+      "--fig-accel": "color",
+      "--fig-displacement": "color",
+      "--fig-distance": "color",
+      "--fig-energy": "color",
+      "--fig-field": "color",
+      "--fig-ink": "color",
+      "--fig-guide": "color",
+      "--fig-bg": "color",
+      "--fig-alpha": "color",
+      "--fig-beta": "color",
+      "--fig-gamma": "color",
+      "--fig-proton": "color",
+      "--fig-neutron": "color",
+      "--fig-electron": "color",
+      "--book2": "color",
+      "--book2-soft": "color",
+      "--book4": "color",
+      "--book4-soft": "color",
+      "--book5": "color",
+      "--book5-soft": "color",
+      "--bookqb": "color",
+      "--bookqb-soft": "color",
+      "--tier-bronze": "color",
+      "--tier-silver": "color",
+      "--tier-gold": "color",
+      "--surface-page": "color",
+      "--surface-card": "color",
+      "--surface-sunk": "color",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-faint": "font",
+      "--border": "color",
+      "--brand": "color",
+      "--brand-strong": "color",
+      "--brand-soft": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-mono": "font",
+      "--text-xs": "font",
+      "--text-sm": "font",
+      "--text-md": "font",
+      "--text-lg": "font",
+      "--text-xl": "font",
+      "--text-2xl": "font",
+      "--text-3xl": "font",
+      "--text-4xl": "font",
+      "--lh-tight": "other",
+      "--lh-body": "other",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--radius-pill": "radius",
+      "--border-w": "spacing",
+      "--edge": "color",
+      "--edge-brand": "color",
+      "--edge-sun": "color",
+      "--shadow-pop": "shadow",
+      "--shadow-card": "shadow",
+      "--hit": "spacing",
+      "--content-w": "spacing",
+      "--wide-w": "spacing",
+      "--ease-out": "other",
+      "--ease-spring": "other",
+      "--dur-fast": "other",
+      "--dur": "other",
+      "--dur-slow": "other",
+      "--fig-stroke-hair": "other",
+      "--fig-stroke": "other",
+      "--fig-stroke-bold": "other",
+      "--fig-dot": "other",
+      "--fig-arrow": "other",
+      "--fig-anim": "other",
+      "--fig-anim-step": "other"
+    },
+    "fontFamilies": [
+      "Fredoka",
+      "JetBrains Mono",
+      "Nunito"
+    ]
+  }
+}

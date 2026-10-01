@@ -1,0 +1,28 @@
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
+--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px;--radius-pill:999px;
+--border-w:2px;
+/* chunky "edge" shadows: pressable things sit 3px proud of the page */
+--edge:0 3px 0 var(--line);--edge-brand:0 3px 0 var(--teal-900);--edge-sun:0 3px 0 var(--sun-700);
+--shadow-pop:0 10px 30px rgba(23,33,43,.12);--shadow-card:0 1px 0 var(--line),0 6px 18px rgba(23,33,43,.05);
+--hit:44px;--content-w:720px;--wide-w:1040px;
+/* motion */
+--ease-out:cubic-bezier(.2,.8,.2,1); /* @kind other */
+--ease-spring:cubic-bezier(.34,1.56,.64,1); /* @kind other */
+--dur-fast:120ms; /* @kind other */
+--dur:240ms; /* @kind other */
+--dur-slow:600ms; /* @kind other */
+/* figure guideline: line weights (px in a 480-wide viewBox) + animation */
+--fig-stroke-hair:1.5; /* @kind other */
+--fig-stroke:2.5; /* @kind other */
+--fig-stroke-bold:4; /* @kind other */
+--fig-dot:6; /* @kind other */
+--fig-arrow:10; /* @kind other */
+--fig-anim:1.4s; /* @kind other */
+--fig-anim-step:.4s; /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--dur:0ms; /* @kind other */
+--dur-slow:0ms; /* @kind other */
+--fig-anim:0s; /* @kind other */
+}}
