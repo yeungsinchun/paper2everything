@@ -1,5 +1,1589 @@
 [
   {
+    "id": "dse-mc-pp-1",
+    "year": "pp",
+    "question": 1,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      1
+    ],
+    "sectionDetails": [
+      {
+        "num": 1,
+        "book": "01_Heat_and_Gases",
+        "section": "01_Temperature_and_Heat_Transfer",
+        "title": "Temperature and Heat Transfer"
+      }
+    ],
+    "reason": "R-theta graphs of circuit elements usable as thermometers.",
+    "statementPreview": "Le The graphs below show how the electrical resistances R of three different circuit elements change wi temperature @ Which of the circuit elements can be used to measure temperatu",
+    "image": {
+      "png": "crops/pp/q01.png",
+      "webp": "crops/pp/q01.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1049,
+      "height": 687
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-2",
+    "year": "pp",
+    "question": 2,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      2
+    ],
+    "sectionDetails": [
+      {
+        "num": 2,
+        "book": "01_Heat_and_Gases",
+        "section": "02_Heat_Capacity",
+        "title": "Heat Capacity"
+      }
+    ],
+    "reason": "Shallower/smaller pool heats faster in sunlight; heat capacity.",
+    "statementPreview": "2 In the figure below, a training pool B is located next to the main pool A. The training pool B has a small area and is shallower. If the pools are under the sunlight at the same ",
+    "image": {
+      "png": "crops/pp/q02.png",
+      "webp": "crops/pp/q02.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1049,
+      "height": 562
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-3",
+    "year": "pp",
+    "question": 3,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      2
+    ],
+    "sectionDetails": [
+      {
+        "num": 2,
+        "book": "01_Heat_and_Gases",
+        "section": "02_Heat_Capacity",
+        "title": "Heat Capacity"
+      }
+    ],
+    "reason": "Milk-tea mixture final temperature; specific heat capacity.",
+    "statementPreview": "Peter adds 50 g of milk at 20°C to 350 g of tea at 80°C, what is the final temperature of the mixture ? Given: Specific heat capacity of milk = 3800 J kg! °c Specific heat capacity",
+    "image": {
+      "png": "crops/pp/q03.png",
+      "webp": "crops/pp/q03.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1051,
+      "height": 232
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-4",
+    "year": "pp",
+    "question": 4,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      1
+    ],
+    "sectionDetails": [
+      {
+        "num": 1,
+        "book": "01_Heat_and_Gases",
+        "section": "01_Temperature_and_Heat_Transfer",
+        "title": "Temperature and Heat Transfer"
+      }
+    ],
+    "reason": "Rooftop cooling by water sprinkles; heat conduction / specific heat explanations.",
+    "statementPreview": "The sprinkler system on a rooftop is able to spray small water droplets onto the rooftop which can lov the temperature of the rooftop on hot sunny days. Which of the following expl",
+    "image": {
+      "png": "crops/pp/q04.png",
+      "webp": "crops/pp/q04.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1051,
+      "height": 510
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-5",
+    "year": "pp",
+    "question": 5,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      4
+    ],
+    "sectionDetails": [
+      {
+        "num": 4,
+        "book": "01_Heat_and_Gases",
+        "section": "04_Gas_Law_and_Kinetic_Theory",
+        "title": "Gas Law and Kinetic Theory"
+      }
+    ],
+    "reason": "Ideal gas cooled at constant pressure; molecular separation, rms speed, collisions.",
+    "statementPreview": "*5, A fixed mass of an ideal gas is contained in a cylinder fitted with a frictionless piston as shown in the fig below. If the gas is cooled under constant pressure, V4 piston (1)",
+    "image": {
+      "png": "crops/pp/q05.png",
+      "webp": "crops/pp/q05.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1051,
+      "height": 449
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-6",
+    "year": "pp",
+    "question": 6,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      5
+    ],
+    "sectionDetails": [
+      {
+        "num": 5,
+        "book": "02_Force_and_Motion",
+        "section": "05_Motion",
+        "title": "Motion"
+      }
+    ],
+    "reason": "Toy car path; average speed from total distance and time.",
+    "statementPreview": "N t Sminis 10min5Ss  A toy car travelled due east for 10 m in 5 s, then immediately turned north and travelled 5 m for 1 s. WI was the average speed of the car ?",
+    "image": {
+      "png": "crops/pp/q06.png",
+      "webp": "crops/pp/q06.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 410
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-7",
+    "year": "pp",
+    "question": 7,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      5
+    ],
+    "sectionDetails": [
+      {
+        "num": 5,
+        "book": "02_Force_and_Motion",
+        "section": "05_Motion",
+        "title": "Motion"
+      }
+    ],
+    "reason": "Free-fall kinematics; distance ratio in successive seconds from rest.",
+    "statementPreview": "A stone falls from rest. Neglecting air resistance, the ratio of the distance travelled by the stone in | 1 second to that travelled in the 2\" second is",
+    "image": {
+      "png": "crops/pp/q07.png",
+      "webp": "crops/pp/q07.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 186
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-8",
+    "year": "pp",
+    "question": 8,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      6
+    ],
+    "sectionDetails": [
+      {
+        "num": 6,
+        "book": "02_Force_and_Motion",
+        "section": "06_Force",
+        "title": "Force"
+      }
+    ],
+    "reason": "Block on table with vertical force; weight, normal force, action-reaction pairs.",
+    "statementPreview": "o an A block of weight 100 N is placed on a horizontal table and a vertical force of 60 N is exerted on the blo as shown in the figure above. Which of the following statements is/a",
+    "image": {
+      "png": "crops/pp/q08.png",
+      "webp": "crops/pp/q08.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 465
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-9",
+    "year": "pp",
+    "question": 9,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      6
+    ],
+    "sectionDetails": [
+      {
+        "num": 6,
+        "book": "02_Force_and_Motion",
+        "section": "06_Force",
+        "title": "Force"
+      }
+    ],
+    "reason": "Connected blocks and added mass; tension changes under constant F (Newton 2).",
+    "statementPreview": "Blocks, P, Q and R, connected by light inextensible threads, are placed on a smooth horizontal surface shown. A constant force F is applied to P so that the whole system travels to",
+    "image": {
+      "png": "crops/pp/q09.png",
+      "webp": "crops/pp/q09.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1061,
+      "height": 458
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-10",
+    "year": "pp",
+    "question": 10,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      5
+    ],
+    "sectionDetails": [
+      {
+        "num": 5,
+        "book": "02_Force_and_Motion",
+        "section": "05_Motion",
+        "title": "Motion"
+      }
+    ],
+    "reason": "Block on incline then ground; which speed-time graph matches higher release.",
+    "statementPreview": "v smooth inclined plane a  Figure (a) 9 Figure (b) As shown in Figure (a), a block slides down along a smooth inclined plane from rest. The correspondi speed-time graph of its moti",
+    "image": {
+      "png": "crops/pp/q10.png",
+      "webp": "crops/pp/q10.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1061,
+      "height": 904
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-11",
+    "year": "pp",
+    "question": 11,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      8
+    ],
+    "sectionDetails": [
+      {
+        "num": 8,
+        "book": "02_Force_and_Motion",
+        "section": "08_Work_Energy_and_Power",
+        "title": "Work, Energy and Power"
+      }
+    ],
+    "reason": "Ball speed at height from launch speed; mechanical energy conservation.",
+    "statementPreview": "xX 2m 4  A football player kicks a ball on the ground. The ball leaves the ground with speed v and hits the bar at with a speed of 17 ms'', X is 2 m above the ground. Neglecting ai",
+    "image": {
+      "png": "crops/pp/q11.png",
+      "webp": "crops/pp/q11.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1029,
+      "height": 457
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-12",
+    "year": "pp",
+    "question": 12,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      7
+    ],
+    "sectionDetails": [
+      {
+        "num": 7,
+        "book": "02_Force_and_Motion",
+        "section": "07_More_about_Forces",
+        "title": "More about Forces"
+      }
+    ],
+    "reason": "Hinged rod held by string; arrangement giving smallest tension (moments).",
+    "statementPreview": "A rod XY hinged at X is kept horizontal by a light string. M is the midpoint of XY. In which of t following arrangements will the tension T in the string be the smallest ? AL B. 4 ",
+    "image": {
+      "png": "crops/pp/q12.png",
+      "webp": "crops/pp/q12.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1029,
+      "height": 536
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-13",
+    "year": "pp",
+    "question": 13,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      9
+    ],
+    "sectionDetails": [
+      {
+        "num": 9,
+        "book": "02_Force_and_Motion",
+        "section": "09_Momentum",
+        "title": "Momentum"
+      }
+    ],
+    "reason": "Ball rebound v-t graph; change in momentum, average force, energy loss.",
+    "statementPreview": "13, v/ms\" 4 Niicue cde aang 0 sidtaadissssel aeiven ereeerHinTTTTTT tls Fae itaeies eet a -4 A ball of mass 0.2 kg is released from rest, It hits the ground and rebounds. The veloc",
+    "image": {
+      "png": "crops/pp/q13.png",
+      "webp": "crops/pp/q13.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1048,
+      "height": 737
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-14",
+    "year": "pp",
+    "question": 14,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      9
+    ],
+    "sectionDetails": [
+      {
+        "num": 9,
+        "book": "02_Force_and_Motion",
+        "section": "09_Momentum",
+        "title": "Momentum"
+      }
+    ],
+    "reason": "2D collision of discs; y-component of velocity after impact (momentum).",
+    "statementPreview": "A disc of mass 0.1 kg and velocity 5 ms strikes a stationary disc of mass 0.2 kg on a smooth table. Af the collision, the 0.1 kg disc moves with a speed of 3 m s* at 50° to the x d",
+    "image": {
+      "png": "crops/pp/q14.png",
+      "webp": "crops/pp/q14.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1048,
+      "height": 505
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-15",
+    "year": "pp",
+    "question": 15,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      11
+    ],
+    "sectionDetails": [
+      {
+        "num": 11,
+        "book": "02_Force_and_Motion",
+        "section": "11_Uniform_Circular_Motion",
+        "title": "Uniform Circular Motion"
+      }
+    ],
+    "reason": "Person in rotor pressed to wall; which force provides centripetal force.",
+    "statementPreview": "*15, = — wall ‘rotor’ Co} cam A man is rotating with constant speed inside a cylindrical ‘rotor’ and he remains pressed against the wz The floor of the ‘rotor’ is smooth. Which of ",
+    "image": {
+      "png": "crops/pp/q15.png",
+      "webp": "crops/pp/q15.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1044,
+      "height": 531
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-16",
+    "year": "pp",
+    "question": 16,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      16
+    ],
+    "sectionDetails": [
+      {
+        "num": 16,
+        "book": "03A_Wave_Motion",
+        "section": "16_Light_and_Sound",
+        "title": "Light and Sound"
+      }
+    ],
+    "reason": "Which phenomenon shows light is an electromagnetic wave.",
+    "statementPreview": "Which of the following phenomena demonstrates that light is an electromagnetic wave ? AL Light carries energy.",
+    "image": {
+      "png": "crops/pp/q16.png",
+      "webp": "crops/pp/q16.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1044,
+      "height": 167
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-17",
+    "year": "pp",
+    "question": 17,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      13
+    ],
+    "sectionDetails": [
+      {
+        "num": 13,
+        "book": "03A_Wave_Motion",
+        "section": "13_Wave_Motion",
+        "title": "Wave Motion"
+      }
+    ],
+    "reason": "Travelling longitudinal wave; wavelength and particle motion at an instant.",
+    "statementPreview": "17, 2cm ke 1 2 3 4 5 6 7 8 9 10 I 12 13 ee ee . . . eo 2 © © 123 4 °5 6 7 8 9 10 11 12 13 —_______» direction of propagation A longitudinal wave travels to the right through a medi",
+    "image": {
+      "png": "crops/pp/q17.png",
+      "webp": "crops/pp/q17.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1048,
+      "height": 626
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-18",
+    "year": "pp",
+    "question": 18,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      14
+    ],
+    "sectionDetails": [
+      {
+        "num": 14,
+        "book": "03A_Wave_Motion",
+        "section": "14_Reflection_Refraction_and_Diffraction",
+        "title": "Reflection, Refraction and Diffraction"
+      }
+    ],
+    "reason": "Pulses on string fixed at wall; waveform after reflection.",
+    "statementPreview": "— > # wall bs > Two pulses, X and Y, are travelling along a string which is fixed at one end to the wall as shown in t figure above. Which of the following is a possible waveform o",
+    "image": {
+      "png": "crops/pp/q18.png",
+      "webp": "crops/pp/q18.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1048,
+      "height": 677
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-19",
+    "year": "pp",
+    "question": 19,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      15
+    ],
+    "sectionDetails": [
+      {
+        "num": 15,
+        "book": "03A_Wave_Motion",
+        "section": "15_Interference_and_Stationary_Wave",
+        "title": "Interference and Stationary Wave"
+      }
+    ],
+    "reason": "Stationary wave on string; wave speed from frequency and wavelength.",
+    "statementPreview": "2 90 cm 4 ¢ SB fhm 4 4 $ wall 4 ¢ 4 A stationary wave is set up along a string by a vibrator, The waveform at a certain instant is shown abot If the frequency of the vibrator is 50",
+    "image": {
+      "png": "crops/pp/q19.png",
+      "webp": "crops/pp/q19.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1039,
+      "height": 416
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-20",
+    "year": "pp",
+    "question": 20,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      18
+    ],
+    "sectionDetails": [
+      {
+        "num": 18,
+        "book": "03B_Ray_Optics",
+        "section": "18_Refraction_of_Light",
+        "title": "Refraction of Light"
+      }
+    ],
+    "reason": "Ray through three media; order speeds of light (refraction / optical density).",
+    "statementPreview": "' medium 1 medium 2 ' medium 3 As shown above, a ray of light travels from medium 1 to medium 2, and then enters medium 3. T boundaries are parallel to each other. Arrange the spee",
+    "image": {
+      "png": "crops/pp/q20.png",
+      "webp": "crops/pp/q20.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1039,
+      "height": 438
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-21",
+    "year": "pp",
+    "question": 21,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      19
+    ],
+    "sectionDetails": [
+      {
+        "num": 19,
+        "book": "03B_Ray_Optics",
+        "section": "19_Lenses",
+        "title": "Lenses"
+      }
+    ],
+    "reason": "Convex lens; 1/v vs 1/u graph when focal length shortened.",
+    "statementPreview": "illuminated object lly p Jens screen . 0 lu Figure (a) Figure (b) A student uses the set-up in Figure (a) to study the relationship between the object distance w and { image distan",
+    "image": {
+      "png": "crops/pp/q21.png",
+      "webp": "crops/pp/q21.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1051,
+      "height": 1032
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-22",
+    "year": "pp",
+    "question": 22,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      15
+    ],
+    "sectionDetails": [
+      {
+        "num": 15,
+        "book": "03A_Wave_Motion",
+        "section": "15_Interference_and_Stationary_Wave",
+        "title": "Interference and Stationary Wave"
+      }
+    ],
+    "reason": "Young's double slit; new fringe separation after changing λ and slit separation.",
+    "statementPreview": "| light source | screen double slit In a Young’s double slit experiment, a monochromatic light source of wavelength 600 nm is used. T fringe separation is 5 mm on the screen. If th",
+    "image": {
+      "png": "crops/pp/q22.png",
+      "webp": "crops/pp/q22.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1046,
+      "height": 439
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-23",
+    "year": "pp",
+    "question": 23,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      14
+    ],
+    "sectionDetails": [
+      {
+        "num": 14,
+        "book": "03A_Wave_Motion",
+        "section": "14_Reflection_Refraction_and_Diffraction",
+        "title": "Reflection, Refraction and Diffraction"
+      }
+    ],
+    "reason": "Diffraction grating; angular difference between 3rd and 4th order fringes.",
+    "statementPreview": "Yellow light of wavelength 590 nm is incident normally on a diffraction grating with 400 lines per m Find the difference in angular positions for the third order and the fourth ord",
+    "image": {
+      "png": "crops/pp/q23.png",
+      "webp": "crops/pp/q23.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1046,
+      "height": 193
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-24",
+    "year": "pp",
+    "question": 24,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      20
+    ],
+    "sectionDetails": [
+      {
+        "num": 20,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "20_Electrostatics",
+        "title": "Electrostatics"
+      }
+    ],
+    "reason": "Three point charges; direction and magnitude of E at X and Y.",
+    "statementPreview": "24, q Three identical point charges q (represented by dots) are situated in the space as shown. Which of th following descriptions about the direction and magnitude of the electric",
+    "image": {
+      "png": "crops/pp/q24.png",
+      "webp": "crops/pp/q24.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1046,
+      "height": 397
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-25",
+    "year": "pp",
+    "question": 25,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      20
+    ],
+    "sectionDetails": [
+      {
+        "num": 20,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "20_Electrostatics",
+        "title": "Electrostatics"
+      }
+    ],
+    "reason": "Uniform electric field; potential at Z from known potentials on square.",
+    "statementPreview": "x w <> Zz Y The figure above shows four points W, X, Y and Z in a uniform electric field. WXZY is a square. 1 electric potential at W, X and Y are 1 V, 5 V and 5 V respectively. Wh",
+    "image": {
+      "png": "crops/pp/q25.png",
+      "webp": "crops/pp/q25.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 438
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-26",
+    "year": "pp",
+    "question": 26,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Same material rods, same volume; resistance when length doubled.",
+    "statementPreview": "Two metal rods, X and Y, of uniform cross-sectional area are made of the same material and have the sai volume. The length and resistance of X are / and R respectively. What is the",
+    "image": {
+      "png": "crops/pp/q26.png",
+      "webp": "crops/pp/q26.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 211
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-27",
+    "year": "pp",
+    "question": 27,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Cell with internal r and bulb; voltmeter reading across bulb.",
+    "statementPreview": "The figure below shows a battery of e.m.f. 3.0 V and internal resistance 2.0 Q is connected to a light bi of resistance 10.0 Q. A voltmeter of internal resistance 10 kQ is connecte",
+    "image": {
+      "png": "crops/pp/q27.png",
+      "webp": "crops/pp/q27.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 439
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-28",
+    "year": "pp",
+    "question": 28,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Identical resistors series then parallel; power dissipated by each.",
+    "statementPreview": "In Figure (a), two identical resistors are connected in series to a cell of e.m.f. V and negligible inter resistance. The power dissipated by each resistor is P. If the two resisto",
+    "image": {
+      "png": "crops/pp/q28.png",
+      "webp": "crops/pp/q28.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1051,
+      "height": 472
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-29",
+    "year": "pp",
+    "question": 29,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Three bulbs and switches; conditions for maximum brightness of P.",
+    "statementPreview": "In the circuit below, three identical light bulbs are connected to a cell. Under what conditions will li bulb P have the maximum brightness ? —— x Yy P Switch X Switch Y  AL closed",
+    "image": {
+      "png": "crops/pp/q29.png",
+      "webp": "crops/pp/q29.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1051,
+      "height": 427
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-30",
+    "year": "pp",
+    "question": 30,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      22
+    ],
+    "sectionDetails": [
+      {
+        "num": 22,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "22_AC_and_Domestic_Electricity",
+        "title": "AC and Domestic Electricity"
+      }
+    ],
+    "reason": "Electric iron wiring; when fuse blows (live/earth/insulation fault).",
+    "statementPreview": "x oo S_L 14 ‘N metal case . heating = element The figure above shows the main parts of an electric iron. In which of the following situations will | fuse blow when the switch is cl",
+    "image": {
+      "png": "crops/pp/q30.png",
+      "webp": "crops/pp/q30.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1051,
+      "height": 428
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-31",
+    "year": "pp",
+    "question": 31,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      23
+    ],
+    "sectionDetails": [
+      {
+        "num": 23,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "23_Electromagnetism",
+        "title": "Electromagnetism"
+      }
+    ],
+    "reason": "Current-carrying rod in B field; direction and magnitude of magnetic force.",
+    "statementPreview": "The figure below shows a current of 1.0 A flowing in a metal rod of length 0.5 m. _ The rod is plac inside a region with a uniform magnetic field of strength 5 mT. | What is the di",
+    "image": {
+      "png": "crops/pp/q31.png",
+      "webp": "crops/pp/q31.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 523
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-32",
+    "year": "pp",
+    "question": 32,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      23
+    ],
+    "sectionDetails": [
+      {
+        "num": 23,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "23_Electromagnetism",
+        "title": "Electromagnetism"
+      }
+    ],
+    "reason": "Hall probe; magnetic field from Hall voltage, current, thickness, n.",
+    "statementPreview": "#32. A Hall probe is placed in a uniform magnetic field. The slice of semiconductor inside the Hall probe 1.3 x 10° m thick and has 10° charge carriers per cubic metre. When a stea",
+    "image": {
+      "png": "crops/pp/q32.png",
+      "webp": "crops/pp/q32.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 238
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-33",
+    "year": "pp",
+    "question": 33,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      24
+    ],
+    "sectionDetails": [
+      {
+        "num": 24,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "24_Electromagnetic_Induction",
+        "title": "Electromagnetic Induction"
+      }
+    ],
+    "reason": "Square frame in B; change in magnetic flux for 90° and 180° rotations.",
+    "statementPreview": "#33, X, x xX XIX X X xk xix x] x t xp x1 x XP >« H L xP xix xp>x< xx xix xP x 1 x xX XIX X X yi A square metal frame of side length L is placed inside a uniform magnetic field B as",
+    "image": {
+      "png": "crops/pp/q33.png",
+      "webp": "crops/pp/q33.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1052,
+      "height": 572
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-34",
+    "year": "pp",
+    "question": 34,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      25
+    ],
+    "sectionDetails": [
+      {
+        "num": 25,
+        "book": "05_Radioactivity_and_Nuclear_Energy",
+        "section": "25_Radiation_and_Radioactivity",
+        "title": "Radiation and Radioactivity"
+      }
+    ],
+    "reason": "Properties of α and β particles; mass, penetration, discharging effect.",
+    "statementPreview": "34, Which of the following statements about a and £ particles is/are correct ?  qd) The mass of an @ particle is greater than that of a # particle.  (2) a particles have a stronger",
+    "image": {
+      "png": "crops/pp/q34.png",
+      "webp": "crops/pp/q34.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1040,
+      "height": 264
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-35",
+    "year": "pp",
+    "question": 35,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      25
+    ],
+    "sectionDetails": [
+      {
+        "num": 25,
+        "book": "05_Radioactivity_and_Nuclear_Energy",
+        "section": "25_Radiation_and_Radioactivity",
+        "title": "Radiation and Radioactivity"
+      }
+    ],
+    "reason": "Source in B field with GM tubes; deductions about radiation types.",
+    "statementPreview": "J XXX GM tubes lead box * X X X X Y Y  A radioactive source is placed in front of a uniform magnetic field pointing into the paper as shown abo The count rates recorded by the GM t",
+    "image": {
+      "png": "crops/pp/q35.png",
+      "webp": "crops/pp/q35.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1040,
+      "height": 419
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-pp-36",
+    "year": "pp",
+    "question": 36,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      27
+    ],
+    "sectionDetails": [
+      {
+        "num": 27,
+        "book": "05_Radioactivity_and_Nuclear_Energy",
+        "section": "27_Nuclear_Energy",
+        "title": "Nuclear Energy"
+      }
+    ],
+    "reason": "Nuclear reaction ²H+³H→⁴He+n; fusion vs fission and energy from mass defect.",
+    "statementPreview": "#36, For the following nuclear reaction, state the type of reaction and determine the energy released.  7H+ HO $He+ dn  Given: mass of }H=2.014u mass of 7H = 3.016 u mass of 3 He =",
+    "image": {
+      "png": "crops/pp/q36.png",
+      "webp": "crops/pp/q36.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1040,
+      "height": 427
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/ppp1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
     "id": "dse-mc-2012-1",
     "year": 2012,
     "question": 1,
@@ -6125,20 +7709,17 @@
       "height": 454
     },
     "answer": {
-      "option": null,
-      "percentage": null,
+      "option": "A",
+      "percentage": 49,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2016p1a.pdf",
-    "warnings": [
-      "missing_answer",
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2016-12",
@@ -7494,20 +9075,17 @@
       "height": 631
     },
     "answer": {
-      "option": null,
-      "percentage": null,
+      "option": "B",
+      "percentage": 57,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2017p1a.pdf",
-    "warnings": [
-      "missing_answer",
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2017-12",
@@ -8442,7 +10020,7 @@
     "answer": {
       "option": null,
       "percentage": null,
-      "deleted": true,
+      "deleted": false,
       "missing": true
     },
     "classification": {
@@ -8451,7 +10029,8 @@
     },
     "sourcePdf": "paper/mc/2018p1a.pdf",
     "warnings": [
-      "missing_answer"
+      "missing_answer",
+      "missing_percentage"
     ]
   },
   {
@@ -12933,20 +14512,17 @@
       "height": 444
     },
     "answer": {
-      "option": null,
-      "percentage": null,
+      "option": "B",
+      "percentage": 85,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2021p1a.pdf",
-    "warnings": [
-      "missing_answer",
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2021-12",
@@ -17015,20 +18591,17 @@
       "height": 487
     },
     "answer": {
-      "option": null,
-      "percentage": null,
+      "option": "C",
+      "percentage": 55,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_answer",
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-12",
@@ -17059,20 +18632,17 @@
       "height": 395
     },
     "answer": {
-      "option": null,
-      "percentage": null,
+      "option": "A",
+      "percentage": 83,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_answer",
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-13",
@@ -17310,20 +18880,17 @@
       "height": 451
     },
     "answer": {
-      "option": null,
-      "percentage": null,
+      "option": "D",
+      "percentage": 63,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_answer",
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-19",
@@ -17436,20 +19003,17 @@
       "height": 167
     },
     "answer": {
-      "option": null,
-      "percentage": null,
+      "option": "B",
+      "percentage": 90,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_answer",
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-22",
@@ -17946,5 +19510,2810 @@
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
     "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-1",
+    "year": 2025,
+    "question": 1,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      2
+    ],
+    "sectionDetails": [
+      {
+        "num": 2,
+        "book": "01_Heat_and_Gases",
+        "section": "02_Heat_Capacity",
+        "title": "Heat Capacity"
+      }
+    ],
+    "reason": "Largest temperature rise from equal energy via m c; specific heat capacity.",
+    "statementPreview": "1, An equal amount of energy is supplied to each of the substances P, Q, R and S' of mass and specific heat capacity listed below. Which substance would have the largest rise in te",
+    "image": {
+      "png": "crops/2025/q01.png",
+      "webp": "crops/2025/q01.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 216
+    },
+    "answer": {
+      "option": "C",
+      "percentage": 88,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-2",
+    "year": 2025,
+    "question": 2,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      3
+    ],
+    "sectionDetails": [
+      {
+        "num": 3,
+        "book": "01_Heat_and_Gases",
+        "section": "03_Change_of_State",
+        "title": "Change of State"
+      }
+    ],
+    "reason": "Experiment for specific latent heat of fusion of ice.",
+    "statementPreview": "The set-up below can be used to find the specific latent heat of fusion of ice, /s. The energy supplied by the heater is measured by a joulemeter, The mass of ice melted by the hea",
+    "image": {
+      "png": "crops/2025/q02.png",
+      "webp": "crops/2025/q02.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 619
+    },
+    "answer": {
+      "option": "D",
+      "percentage": 55,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-3",
+    "year": 2025,
+    "question": 3,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      4
+    ],
+    "sectionDetails": [
+      {
+        "num": 4,
+        "book": "01_Heat_and_Gases",
+        "section": "04_Gas_Law_and_Kinetic_Theory",
+        "title": "Gas Law and Kinetic Theory"
+      }
+    ],
+    "reason": "Gas molecules: rms speed, average KE, collision frequency; kinetic theory.",
+    "statementPreview": "#3, Identical closed vessels X and Y contain carbon dioxide (CO2) and oxygen (Oz) respectively. vessel X vessel Y Both gases are at room temperature and atmospheric pressure. Which",
+    "image": {
+      "png": "crops/2025/q03.png",
+      "webp": "crops/2025/q03.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 431
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 33,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-4",
+    "year": 2025,
+    "question": 4,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      5
+    ],
+    "sectionDetails": [
+      {
+        "num": 5,
+        "book": "02_Force_and_Motion",
+        "section": "05_Motion",
+        "title": "Motion"
+      }
+    ],
+    "reason": "Water droplets falling from rest; free-fall kinematics for height h.",
+    "statementPreview": "4 3 h +2 4.0m Water drips regularly at a constant rate from a building’s roof, which is at a height / above the ground. The droplets fall from rest such that the first droplet reac",
+    "image": {
+      "png": "crops/2025/q04.png",
+      "webp": "crops/2025/q04.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 397
+    },
+    "answer": {
+      "option": "C",
+      "percentage": 50,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-5",
+    "year": 2025,
+    "question": 5,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      8
+    ],
+    "sectionDetails": [
+      {
+        "num": 8,
+        "book": "02_Force_and_Motion",
+        "section": "08_Work_Energy_and_Power",
+        "title": "Work, Energy and Power"
+      }
+    ],
+    "reason": "Gain in KE from work by angled force minus friction over displacement.",
+    "statementPreview": "A block, initially at rest, is pulled along a horizontal surface by a force of 10 N making an angle of 60° with the horizontal. There is a constant friction of 2 N between the bloc",
+    "image": {
+      "png": "crops/2025/q05.png",
+      "webp": "crops/2025/q05.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 326
+    },
+    "answer": {
+      "option": "C",
+      "percentage": 75,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-6",
+    "year": 2025,
+    "question": 6,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      6
+    ],
+    "sectionDetails": [
+      {
+        "num": 6,
+        "book": "02_Force_and_Motion",
+        "section": "06_Force",
+        "title": "Force"
+      }
+    ],
+    "reason": "Elevator cable tension vs time from v-t graph; Newton's second law.",
+    "statementPreview": "T v elevator 0 t An elevator is pulled upward by a cable. The v-t graph above shows the variation of the elevator’s velocity with time. Which of the following correctly indicates t",
+    "image": {
+      "png": "crops/2025/q06.png",
+      "webp": "crops/2025/q06.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 698
+    },
+    "answer": {
+      "option": "C",
+      "percentage": 52,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-7",
+    "year": 2025,
+    "question": 7,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      7
+    ],
+    "sectionDetails": [
+      {
+        "num": 7,
+        "book": "02_Force_and_Motion",
+        "section": "07_More_about_Forces",
+        "title": "More about Forces"
+      }
+    ],
+    "reason": "Hinged rod in equilibrium under weight and horizontal force; hinge reaction.",
+    "statementPreview": "A uniform rod of weight W hinged at its upper end is at rest under a horizontal force F applied at its lower end. Which figure correctly shows the force R acting on the rod at the ",
+    "image": {
+      "png": "crops/2025/q07.png",
+      "webp": "crops/2025/q07.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 643
+    },
+    "answer": {
+      "option": "C",
+      "percentage": 63,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-8",
+    "year": 2025,
+    "question": 8,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      8
+    ],
+    "sectionDetails": [
+      {
+        "num": 8,
+        "book": "02_Force_and_Motion",
+        "section": "08_Work_Energy_and_Power",
+        "title": "Work, Energy and Power"
+      }
+    ],
+    "reason": "KE and PE of ball at point Q after vertical throw; mechanical energy.",
+    "statementPreview": "A small ball of mass m is thrown vertically upward from point O with an initial speed uv. It reaches the highest point P and then falls to point Q such that OP = OQ = H. The ball’s",
+    "image": {
+      "png": "crops/2025/q08.png",
+      "webp": "crops/2025/q08.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 698
+    },
+    "answer": {
+      "option": "A",
+      "percentage": 58,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-9",
+    "year": 2025,
+    "question": 9,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      10
+    ],
+    "sectionDetails": [
+      {
+        "num": 10,
+        "book": "02_Force_and_Motion",
+        "section": "10_Projectile_Motion",
+        "title": "Projectile Motion"
+      }
+    ],
+    "reason": "Horizontal projection from incline; time of flight projectile motion.",
+    "statementPreview": "*9, Xx u 04 Q X and Y are two points on an incline making an angle @ with the horizontal. A particle projected horizontally from X with speed u lands at Yas shown. Which expression",
+    "image": {
+      "png": "crops/2025/q09.png",
+      "webp": "crops/2025/q09.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1024,
+      "height": 535
+    },
+    "answer": {
+      "option": "D",
+      "percentage": 48,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-10",
+    "year": 2025,
+    "question": 10,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      7
+    ],
+    "sectionDetails": [
+      {
+        "num": 7,
+        "book": "02_Force_and_Motion",
+        "section": "07_More_about_Forces",
+        "title": "More about Forces"
+      }
+    ],
+    "reason": "Couple / moment to loosen screw; forces on screwdriver handle.",
+    "statementPreview": "Loosening a screw requires a pair of forces of 10 N acting tangentially as shown in Figure (1). A suitable screwdriver with a handle of diameter 0.025 m shown in Figure (2) is chos",
+    "image": {
+      "png": "crops/2025/q10.png",
+      "webp": "crops/2025/q10.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1024,
+      "height": 452
+    },
+    "answer": {
+      "option": "A",
+      "percentage": 58,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-11",
+    "year": 2025,
+    "question": 11,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      11
+    ],
+    "sectionDetails": [
+      {
+        "num": 11,
+        "book": "02_Force_and_Motion",
+        "section": "11_Uniform_Circular_Motion",
+        "title": "Uniform Circular Motion"
+      }
+    ],
+    "reason": "Centripetal force on car at top of circular humpback bridge.",
+    "statementPreview": "A car of weight W travels with constant speed on a circular humpback bridge. At the moment when the car passes the top of the bridge, the normal reaction acting on it by the bridge",
+    "image": {
+      "png": "crops/2025/q11.png",
+      "webp": "crops/2025/q11.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1024,
+      "height": 358
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 63,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-12",
+    "year": 2025,
+    "question": 12,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      12
+    ],
+    "sectionDetails": [
+      {
+        "num": 12,
+        "book": "02_Force_and_Motion",
+        "section": "12_Gravitation",
+        "title": "Gravitation"
+      }
+    ],
+    "reason": "Weight vs distance from Earth's centre; inverse-square gravitation.",
+    "statementPreview": "Two identical objects located at point X and point Y are at distances r and 2r from the Earth’s centre. The weight of the object at point X is W. What is the weight of the object a",
+    "image": {
+      "png": "crops/2025/q12.png",
+      "webp": "crops/2025/q12.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1017,
+      "height": 439
+    },
+    "answer": {
+      "option": "A",
+      "percentage": 77,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-13",
+    "year": 2025,
+    "question": 13,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      17
+    ],
+    "sectionDetails": [
+      {
+        "num": 17,
+        "book": "03B_Ray_Optics",
+        "section": "17_Reflection_of_Light",
+        "title": "Reflection of Light"
+      }
+    ],
+    "reason": "Images formed by two plane mirrors; reflection of light.",
+    "statementPreview": "13, A point object O is placed in front of two plane mirrors M, and M as shown. P. PEE a EEEEEEEEEH Heer Hiei catia ee eee i H IJ a im HI ee HE een ESS ESL At which position(s) can",
+    "image": {
+      "png": "crops/2025/q13.png",
+      "webp": "crops/2025/q13.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1017,
+      "height": 536
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 25,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-14",
+    "year": 2025,
+    "question": 14,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      18
+    ],
+    "sectionDetails": [
+      {
+        "num": 18,
+        "book": "03B_Ray_Optics",
+        "section": "18_Refraction_of_Light",
+        "title": "Refraction of Light"
+      }
+    ],
+    "reason": "TIR at Y-Z boundary; compare light speeds / refractive indices.",
+    "statementPreview": "14, Xx MMMM HA HH cH  The figure shows three media X, Y and Z separated by parallel boundaries. A light ray travelling from X into Y then undergoes total internal reflection at the",
+    "image": {
+      "png": "crops/2025/q14.png",
+      "webp": "crops/2025/q14.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1017,
+      "height": 428
+    },
+    "answer": {
+      "option": "D",
+      "percentage": 50,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-15",
+    "year": 2025,
+    "question": 15,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      13
+    ],
+    "sectionDetails": [
+      {
+        "num": 13,
+        "book": "03A_Wave_Motion",
+        "section": "13_Wave_Motion",
+        "title": "Wave Motion"
+      }
+    ],
+    "reason": "Displacement-distance graph of travelling sound wave; wave motion.",
+    "statementPreview": "The graph shows the variation of the displacement of air particles from their equilibrium positions with distance for a sound wave at a certain instant. Displacement along the dire",
+    "image": {
+      "png": "crops/2025/q15.png",
+      "webp": "crops/2025/q15.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1024,
+      "height": 518
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 58,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-16",
+    "year": 2025,
+    "question": 16,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      15
+    ],
+    "sectionDetails": [
+      {
+        "num": 15,
+        "book": "03A_Wave_Motion",
+        "section": "15_Interference_and_Stationary_Wave",
+        "title": "Interference and Stationary Wave"
+      }
+    ],
+    "reason": "Two coherent sources in ripple tank; amplitude at P by interference.",
+    "statementPreview": "In the ripple tank shown below, dippers S; and S2 are vibrating in phase and generate water waves of wavelength 0.8 cm towards each other at the same speed. For a particle P at dis",
+    "image": {
+      "png": "crops/2025/q16.png",
+      "webp": "crops/2025/q16.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1024,
+      "height": 580
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 66,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-17",
+    "year": 2025,
+    "question": 17,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      14
+    ],
+    "sectionDetails": [
+      {
+        "num": 14,
+        "book": "03A_Wave_Motion",
+        "section": "14_Reflection_Refraction_and_Diffraction",
+        "title": "Reflection, Refraction and Diffraction"
+      }
+    ],
+    "reason": "Diffraction grating; angular separation of spectral lines.",
+    "statementPreview": "The light from a sodium lamp consists of two wavelengths 589.00 nm and 589.59 nm. Find the angle between these two spectral lines in the second-order after the light passes through",
+    "image": {
+      "png": "crops/2025/q17.png",
+      "webp": "crops/2025/q17.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1024,
+      "height": 217
+    },
+    "answer": {
+      "option": "A",
+      "percentage": 64,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-18",
+    "year": 2025,
+    "question": 18,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      14
+    ],
+    "sectionDetails": [
+      {
+        "num": 14,
+        "book": "03A_Wave_Motion",
+        "section": "14_Reflection_Refraction_and_Diffraction",
+        "title": "Reflection, Refraction and Diffraction"
+      }
+    ],
+    "reason": "Double-slit interference vs diffraction-grating patterns compared.",
+    "statementPreview": "In an experiment, monochromatic light is incident normally on a double slit and a diffraction grating placed in turn at the same position. The respective interference and diffracti",
+    "image": {
+      "png": "crops/2025/q18.png",
+      "webp": "crops/2025/q18.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 310
+    },
+    "answer": {
+      "option": "D",
+      "percentage": 37,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-19",
+    "year": 2025,
+    "question": 19,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      19
+    ],
+    "sectionDetails": [
+      {
+        "num": 19,
+        "book": "03B_Ray_Optics",
+        "section": "19_Lenses",
+        "title": "Lenses"
+      }
+    ],
+    "reason": "Convex lens; find focal length from object/image distances to foci.",
+    "statementPreview": "ier ge cm ye | Wa 40.1. cm z| image foci  Given that the distances of the object and the image to the respective foci F and F’ of the convex lens are 11.0 cm and 40.1 cm as shown, ",
+    "image": {
+      "png": "crops/2025/q19.png",
+      "webp": "crops/2025/q19.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 548
+    },
+    "answer": {
+      "option": "C",
+      "percentage": 67,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-20",
+    "year": 2025,
+    "question": 20,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      14
+    ],
+    "sectionDetails": [
+      {
+        "num": 14,
+        "book": "03A_Wave_Motion",
+        "section": "14_Reflection_Refraction_and_Diffraction",
+        "title": "Reflection, Refraction and Diffraction"
+      }
+    ],
+    "reason": "Ultrasound beam at water-air interface; refraction properties.",
+    "statementPreview": "A source in water emits a beam of ultrasound towards the water-air interface as shown. normal H air i 1 i water ultrasound beam Which of the following statements is INCORRECT ?",
+    "image": {
+      "png": "crops/2025/q20.png",
+      "webp": "crops/2025/q20.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 443
+    },
+    "answer": {
+      "option": "D",
+      "percentage": 46,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-21",
+    "year": 2025,
+    "question": 21,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      14
+    ],
+    "sectionDetails": [
+      {
+        "num": 14,
+        "book": "03A_Wave_Motion",
+        "section": "14_Reflection_Refraction_and_Diffraction",
+        "title": "Reflection, Refraction and Diffraction"
+      }
+    ],
+    "reason": "Echoes, rainbows, mirages linked to wave speed differing by medium.",
+    "statementPreview": "Which of the following phenomena can be explained by the speed of waves being different in different media ? (1) echoes Q) rainbows (3) mirages",
+    "image": {
+      "png": "crops/2025/q21.png",
+      "webp": "crops/2025/q21.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1022,
+      "height": 281
+    },
+    "answer": {
+      "option": "C",
+      "percentage": 62,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-22",
+    "year": 2025,
+    "question": 22,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      20
+    ],
+    "sectionDetails": [
+      {
+        "num": 20,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "20_Electrostatics",
+        "title": "Electrostatics"
+      }
+    ],
+    "reason": "Charged spheres pairwise attraction; electrostatic charging conclusions.",
+    "statementPreview": "Three light conducting spheres are suspended by nylon threads. Any two of them are found to attract each other when they are brought close to each other. Which conclusion below is ",
+    "image": {
+      "png": "crops/2025/q22.png",
+      "webp": "crops/2025/q22.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1022,
+      "height": 191
+    },
+    "answer": {
+      "option": "D",
+      "percentage": 78,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-23",
+    "year": 2025,
+    "question": 23,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      20
+    ],
+    "sectionDetails": [
+      {
+        "num": 20,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "20_Electrostatics",
+        "title": "Electrostatics"
+      }
+    ],
+    "reason": "Negatively charged particle path in uniform electric field.",
+    "statementPreview": "A negatively charged particle X enters an electric field with initial velocity v perpendicular to the field lines as shown, Neglect the effects of gravity. Top view ee ° oe R<--. !",
+    "image": {
+      "png": "crops/2025/q23.png",
+      "webp": "crops/2025/q23.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1022,
+      "height": 578
+    },
+    "answer": {
+      "option": "D",
+      "percentage": 63,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-24",
+    "year": 2025,
+    "question": 24,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      20
+    ],
+    "sectionDetails": [
+      {
+        "num": 20,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "20_Electrostatics",
+        "title": "Electrostatics"
+      }
+    ],
+    "reason": "Electric field at corner of square from fixed point charges.",
+    "statementPreview": "*24, P - M +O r r oO F Nv Point charges +@ and —Q are fixed respectively at corners P and N of square MNOP of side length r as shown above. What is the electric field at 0?",
+    "image": {
+      "png": "crops/2025/q24.png",
+      "webp": "crops/2025/q24.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1150,
+      "height": 587
+    },
+    "answer": {
+      "option": "A",
+      "percentage": 66,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-25",
+    "year": 2025,
+    "question": 25,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Simple cell-bulb circuit fault diagnosis; not polarity reversal.",
+    "statementPreview": "A student tests an electric circuit by connecting a filament light bulb to a dry cell using two connecting wires. The bulb does not light up. Which of the following is certainly NO",
+    "image": {
+      "png": "crops/2025/q25.png",
+      "webp": "crops/2025/q25.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1150,
+      "height": 186
+    },
+    "answer": {
+      "option": "C",
+      "percentage": 57,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-26",
+    "year": 2025,
+    "question": 26,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Series resistors with ideal vs non-ideal voltmeters; reading ratio.",
+    "statementPreview": "In the circuit below, a voltage Vo is applied across resistors of 0.1 MQ and 1 MQ connected in series. Voltmeter V; and V2 are connected respectively across the two resistors as sh",
+    "image": {
+      "png": "crops/2025/q26.png",
+      "webp": "crops/2025/q26.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1020,
+      "height": 474
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 51,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-27",
+    "year": 2025,
+    "question": 27,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      22
+    ],
+    "sectionDetails": [
+      {
+        "num": 22,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "22_AC_and_Domestic_Electricity",
+        "title": "AC and Domestic Electricity"
+      }
+    ],
+    "reason": "Household ring-circuit wiring faults; which lamps light.",
+    "statementPreview": "The figure shows how lamps L;, Lz and Z3 are connected in the ring circuit of a house. There are som wrong connections in the circuit. Ly ly Ls Sr Sy Sx Live Neutral If switches S2",
+    "image": {
+      "png": "crops/2025/q27.png",
+      "webp": "crops/2025/q27.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1020,
+      "height": 548
+    },
+    "answer": {
+      "option": "A",
+      "percentage": 33,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-28",
+    "year": 2025,
+    "question": 28,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      23
+    ],
+    "sectionDetails": [
+      {
+        "num": 23,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "23_Electromagnetism",
+        "title": "Electromagnetism"
+      }
+    ],
+    "reason": "Current-carrying coil in magnetic field with slip rings; motor torque.",
+    "statementPreview": "The figure shows a rectangular coil connected in series with a dry cell and a switch through a pair of slip rings. The magnetic field between the two magnets is uniform and is perp",
+    "image": {
+      "png": "crops/2025/q28.png",
+      "webp": "crops/2025/q28.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 694
+    },
+    "answer": {
+      "option": "A",
+      "percentage": 56,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-29",
+    "year": 2025,
+    "question": 29,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      24
+    ],
+    "sectionDetails": [
+      {
+        "num": 24,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "24_Electromagnetic_Induction",
+        "title": "Electromagnetic Induction"
+      }
+    ],
+    "reason": "Search coil on CRO; no emf from constant field of permanent magnet.",
+    "statementPreview": "A student uses a search coil to measure the magnetic field of a permanent magnet. However, no reading is observed on the CRO connected to the search coil. Which of the following is",
+    "image": {
+      "png": "crops/2025/q29.png",
+      "webp": "crops/2025/q29.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 193
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 53,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-30",
+    "year": 2025,
+    "question": 30,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      22
+    ],
+    "sectionDetails": [
+      {
+        "num": 22,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "22_AC_and_Domestic_Electricity",
+        "title": "AC and Domestic Electricity"
+      }
+    ],
+    "reason": "Electric iron on a.c. mains; power under different V_rms and frequency.",
+    "statementPreview": "Anelectric iron works at its rated power of 1100 W under a 50 Hza.c. mains of root-mean-square voltage 220 V. What power will it deliver when working under a 100 Hz a.c. of root-me",
+    "image": {
+      "png": "crops/2025/q30.png",
+      "webp": "crops/2025/q30.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 211
+    },
+    "answer": {
+      "option": "A",
+      "percentage": 48,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-31",
+    "year": 2025,
+    "question": 31,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      26
+    ],
+    "sectionDetails": [
+      {
+        "num": 26,
+        "book": "05_Radioactivity_and_Nuclear_Energy",
+        "section": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+        "title": "Rate of Decay and Uses of Radionuclides"
+      }
+    ],
+    "reason": "Activity from number of nuclides decayed per minute; Bq definition.",
+    "statementPreview": "A radioactive source undergoes decay such that 300 nuclides have decayed in 1 minute. Its activity is",
+    "image": {
+      "png": "crops/2025/q31.png",
+      "webp": "crops/2025/q31.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 169
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 59,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-32",
+    "year": 2025,
+    "question": 32,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      25
+    ],
+    "sectionDetails": [
+      {
+        "num": 25,
+        "book": "05_Radioactivity_and_Nuclear_Energy",
+        "section": "25_Radiation_and_Radioactivity",
+        "title": "Radiation and Radioactivity"
+      }
+    ],
+    "reason": "Alpha/beta decay series on N-Z plot; possible member nuclides.",
+    "statementPreview": "Radium-226 undergoes a series of a and f decays before finally becomes a stable nuclide. Referring to the plot of mass number against atomic number below, which nuclides, W,X, Y an",
+    "image": {
+      "png": "crops/2025/q32.png",
+      "webp": "crops/2025/q32.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 692
+    },
+    "answer": {
+      "option": "B",
+      "percentage": 65,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2025-33",
+    "year": 2025,
+    "question": 33,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      27
+    ],
+    "sectionDetails": [
+      {
+        "num": 27,
+        "book": "05_Radioactivity_and_Nuclear_Energy",
+        "section": "27_Nuclear_Energy",
+        "title": "Nuclear Energy"
+      }
+    ],
+    "reason": "Nuclear fusion X+Y->Z; mass defect from energy released.",
+    "statementPreview": "#33, In the following nuclear reaction, nuclide X and Y fuse to form nuclide Z under suitable conditions and the amount of energy released is 7.16 MeV. X+YOZ  The total mass of X a",
+    "image": {
+      "png": "crops/2025/q33.png",
+      "webp": "crops/2025/q33.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1023,
+      "height": 271
+    },
+    "answer": {
+      "option": "D",
+      "percentage": 72,
+      "deleted": false,
+      "missing": false
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2025p1a.pdf",
+    "warnings": []
+  },
+  {
+    "id": "dse-mc-2026-1",
+    "year": 2026,
+    "question": 1,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      1
+    ],
+    "sectionDetails": [
+      {
+        "num": 1,
+        "book": "01_Heat_and_Gases",
+        "section": "01_Temperature_and_Heat_Transfer",
+        "title": "Temperature and Heat Transfer"
+      }
+    ],
+    "reason": "Black vs silvery flasks; radiation absorption.",
+    "statementPreview": "Flasks X and Y are identical except that for their outer surfaces: X is black and Y is silvery. Each flask contains the same amount of water initially at 25 °C, sealed and equipped",
+    "image": {
+      "png": "crops/2026/q01.png",
+      "webp": "crops/2026/q01.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1146,
+      "height": 208
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-2",
+    "year": 2026,
+    "question": 2,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      1
+    ],
+    "sectionDetails": [
+      {
+        "num": 1,
+        "book": "01_Heat_and_Gases",
+        "section": "01_Temperature_and_Heat_Transfer",
+        "title": "Temperature and Heat Transfer"
+      }
+    ],
+    "reason": "Resistance thermometer; temperature from R-T linear relation.",
+    "statementPreview": "The resistance of a resistance thermometer is 100.0 Q in pure melting ice. Its resistance increases linearly with temperature by 0.385 Q °C\"!. Find the temperature when the resista",
+    "image": {
+      "png": "crops/2026/q02.png",
+      "webp": "crops/2026/q02.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1146,
+      "height": 187
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-3",
+    "year": 2026,
+    "question": 3,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      2
+    ],
+    "sectionDetails": [
+      {
+        "num": 2,
+        "book": "01_Heat_and_Gases",
+        "section": "02_Heat_Capacity",
+        "title": "Heat Capacity"
+      }
+    ],
+    "reason": "Hot metal sphere in water; heat capacity.",
+    "statementPreview": "J. 9°cOE _— 0°cQ —— > — |_| )_| SSeS | O 25 °C. 35°C 35°C 2 A metal sphere at 90 °C is put into a cup of water. The temperature of the water increases from 25 °C to 35 °C. Ifa seco",
+    "image": {
+      "png": "crops/2026/q03.png",
+      "webp": "crops/2026/q03.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1146,
+      "height": 473
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-4",
+    "year": 2026,
+    "question": 4,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      7
+    ],
+    "sectionDetails": [
+      {
+        "num": 7,
+        "book": "02_Force_and_Motion",
+        "section": "07_More_about_Forces",
+        "title": "More about Forces"
+      }
+    ],
+    "reason": "Sphere suspended by strings to wall/ceiling and balance; forces / equilibrium.",
+    "statementPreview": "4, ceiling string wall sphere string electronic balance A sphere of weight 18 N is suspended by two light and inextensible strings. One string is attached horizontally to a wall, a",
+    "image": {
+      "png": "crops/2026/q04.png",
+      "webp": "crops/2026/q04.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1027,
+      "height": 577
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-5",
+    "year": 2026,
+    "question": 5,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      6
+    ],
+    "sectionDetails": [
+      {
+        "num": 6,
+        "book": "02_Force_and_Motion",
+        "section": "06_Force",
+        "title": "Force"
+      }
+    ],
+    "reason": "Luggage on train floor; forces / inertia in accelerating frame.",
+    "statementPreview": "A train is moving horizontally along a straight line. A piece of luggage rests on the floor of the train. The diagram shows the frictional force acting on the luggage, directed to ",
+    "image": {
+      "png": "crops/2026/q05.png",
+      "webp": "crops/2026/q05.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1027,
+      "height": 510
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-6",
+    "year": 2026,
+    "question": 6,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      6
+    ],
+    "sectionDetails": [
+      {
+        "num": 6,
+        "book": "02_Force_and_Motion",
+        "section": "06_Force",
+        "title": "Force"
+      }
+    ],
+    "reason": "Two blocks on incline at constant velocity; friction between blocks.",
+    "statementPreview": "We : oy cae F 30? A 1-kg block is placed on a 2-kg block, and both are on a smooth incline at 30° to the horizontal. A constant force F is applied to the 1-kg block upward along th",
+    "image": {
+      "png": "crops/2026/q06.png",
+      "webp": "crops/2026/q06.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1028,
+      "height": 499
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-7",
+    "year": 2026,
+    "question": 7,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      7
+    ],
+    "sectionDetails": [
+      {
+        "num": 7,
+        "book": "02_Force_and_Motion",
+        "section": "07_More_about_Forces",
+        "title": "More about Forces"
+      }
+    ],
+    "reason": "Moments of three forces on plate; greatest net moment about a point.",
+    "statementPreview": "Im lm Fi | R Fy Q Fy  A rectangular plate of width 2 m and length 4 m is placed on a smooth horizontal surface. Three force F\\, Fy and F3 of equal magnitude act on it as shown. F\\ ",
+    "image": {
+      "png": "crops/2026/q07.png",
+      "webp": "crops/2026/q07.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1028,
+      "height": 666
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-8",
+    "year": 2026,
+    "question": 8,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      6
+    ],
+    "sectionDetails": [
+      {
+        "num": 6,
+        "book": "02_Force_and_Motion",
+        "section": "06_Force",
+        "title": "Force"
+      }
+    ],
+    "reason": "Balloon-string free-body diagrams; Newton's third-law pairs.",
+    "statementPreview": "One end of a light and inextensible string is connected to a floating balloon and the other end is fixed to the ground as shown. The string is taut. balloon —>\\ string ——> ground T",
+    "image": {
+      "png": "crops/2026/q08.png",
+      "webp": "crops/2026/q08.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1027,
+      "height": 807
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-9",
+    "year": 2026,
+    "question": 9,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      8
+    ],
+    "sectionDetails": [
+      {
+        "num": 8,
+        "book": "02_Force_and_Motion",
+        "section": "08_Work_Energy_and_Power",
+        "title": "Work, Energy and Power"
+      }
+    ],
+    "reason": "Total mechanical energy vs time for bouncing ball; energy loss.",
+    "statementPreview": "A ball is released from a certain height. It rebounds from the ground several times before it comes to rest. Neglect air resistance. Which of the following graphs best represents t",
+    "image": {
+      "png": "crops/2026/q09.png",
+      "webp": "crops/2026/q09.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1027,
+      "height": 543
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-10",
+    "year": 2026,
+    "question": 10,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      9
+    ],
+    "sectionDetails": [
+      {
+        "num": 9,
+        "book": "02_Force_and_Motion",
+        "section": "09_Momentum",
+        "title": "Momentum"
+      }
+    ],
+    "reason": "Block on trolley after push; common final speed by momentum.",
+    "statementPreview": "A 1-kg trolley with a 0.5-kg block placed on its horizontal platform is resting on a smooth horizontal floor. The block is then given a sharp push to the right. At an instant after",
+    "image": {
+      "png": "crops/2026/q10.png",
+      "webp": "crops/2026/q10.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1126,
+      "height": 401
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-11",
+    "year": 2026,
+    "question": 11,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      12
+    ],
+    "sectionDetails": [
+      {
+        "num": 12,
+        "book": "02_Force_and_Motion",
+        "section": "12_Gravitation",
+        "title": "Gravitation"
+      }
+    ],
+    "reason": "Satellites in circular orbits of radii r and 4r; orbital period ratio.",
+    "statementPreview": "‘ll. Satellites ¥ and Y revolve around the Earth in circular orbits, in the same plane and in the same direction. The radii of their orbits are r and 4r respectively. The figure be",
+    "image": {
+      "png": "crops/2026/q11.png",
+      "webp": "crops/2026/q11.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1126,
+      "height": 882
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-12",
+    "year": 2026,
+    "question": 12,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      12
+    ],
+    "sectionDetails": [
+      {
+        "num": 12,
+        "book": "02_Force_and_Motion",
+        "section": "12_Gravitation",
+        "title": "Gravitation"
+      }
+    ],
+    "reason": "Rocket thrust for acceleration g at surface vs at distance 2R.",
+    "statementPreview": "A rocket on the Earth’s surface is launched by an upward thrust F, producing an upward acceleration g, where g is the acceleration due to gravity near the Earth’s surface, as shown",
+    "image": {
+      "png": "crops/2026/q12.png",
+      "webp": "crops/2026/q12.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1028,
+      "height": 724
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-13",
+    "year": 2026,
+    "question": 13,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      15
+    ],
+    "sectionDetails": [
+      {
+        "num": 15,
+        "book": "03A_Wave_Motion",
+        "section": "15_Interference_and_Stationary_Wave",
+        "title": "Interference and Stationary Wave"
+      }
+    ],
+    "reason": "Stationary wave on string; nodes, tension, wavelength.",
+    "statementPreview": "The figure shows a string with one end fixed on the wall and the other end tied to a vibrator with frequency f. A stationary wave is formed as shown at a certain instant. The dista",
+    "image": {
+      "png": "crops/2026/q13.png",
+      "webp": "crops/2026/q13.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1028,
+      "height": 549
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-14",
+    "year": 2026,
+    "question": 14,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      15
+    ],
+    "sectionDetails": [
+      {
+        "num": 15,
+        "book": "03A_Wave_Motion",
+        "section": "15_Interference_and_Stationary_Wave",
+        "title": "Interference and Stationary Wave"
+      }
+    ],
+    "reason": "Which phenomena involve superposition of waves.",
+    "statementPreview": "14, Which of the following phenomena involve(s) the principle of superposition of waves ?  qd) Ripples in a pond overlap and create regions with different amplitudes,  (2) Stationa",
+    "image": {
+      "png": "crops/2026/q14.png",
+      "webp": "crops/2026/q14.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1043,
+      "height": 286
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-15",
+    "year": 2026,
+    "question": 15,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      13
+    ],
+    "sectionDetails": [
+      {
+        "num": 13,
+        "book": "03A_Wave_Motion",
+        "section": "13_Wave_Motion",
+        "title": "Wave Motion"
+      }
+    ],
+    "reason": "Longitudinal travelling wave particle positions; wavelength and motion.",
+    "statementPreview": "eit ie EET By aa Figure (1) shows the equilibrium positions of particles a to k in a medium. A longitudinal wave is travelling through the medium and the positions of the particles",
+    "image": {
+      "png": "crops/2026/q15.png",
+      "webp": "crops/2026/q15.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1043,
+      "height": 588
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-16",
+    "year": 2026,
+    "question": 16,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      19
+    ],
+    "sectionDetails": [
+      {
+        "num": 19,
+        "book": "03B_Ray_Optics",
+        "section": "19_Lenses",
+        "title": "Lenses"
+      }
+    ],
+    "reason": "Convex lens virtual image at focus; object/image properties.",
+    "statementPreview": "The image of an object formed by a convex lens is virtual and is situated at the focus F as shown. virtual image A ' F principal axis Which of the following statements is/are corre",
+    "image": {
+      "png": "crops/2026/q16.png",
+      "webp": "crops/2026/q16.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1043,
+      "height": 517
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-17",
+    "year": 2026,
+    "question": 17,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      19
+    ],
+    "sectionDetails": [
+      {
+        "num": 19,
+        "book": "03B_Ray_Optics",
+        "section": "19_Lenses",
+        "title": "Lenses"
+      }
+    ],
+    "reason": "Ray through concave lens; emergent ray relative to foci.",
+    "statementPreview": "Light ray Y is incident on a concave lens as shown. F and F’ are the foci of the lens. Which light ray best represents the emergent ray ? y P Q principal axis F F R Ss",
+    "image": {
+      "png": "crops/2026/q17.png",
+      "webp": "crops/2026/q17.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1019,
+      "height": 444
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-18",
+    "year": 2026,
+    "question": 18,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      19
+    ],
+    "sectionDetails": [
+      {
+        "num": 19,
+        "book": "03B_Ray_Optics",
+        "section": "19_Lenses",
+        "title": "Lenses"
+      }
+    ],
+    "reason": "Graph of linear magnification m against image distance v for lens.",
+    "statementPreview": "A convex lens is used to project sharp images of an object onto a screen at different object distances u. For each value of wu, the corresponding image distance v and the linear ma",
+    "image": {
+      "png": "crops/2026/q18.png",
+      "webp": "crops/2026/q18.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1019,
+      "height": 546
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-19",
+    "year": 2026,
+    "question": 19,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      15
+    ],
+    "sectionDetails": [
+      {
+        "num": 15,
+        "book": "03A_Wave_Motion",
+        "section": "15_Interference_and_Stationary_Wave",
+        "title": "Interference and Stationary Wave"
+      }
+    ],
+    "reason": "Double-slit fringe pattern; diffraction and interference involved.",
+    "statementPreview": "A monochromatic light beam is directed to a double slit and a fringe pattern is formed. Which of the following physical phenomena is/are involved ? qd) dispersion (2) diffraction (",
+    "image": {
+      "png": "crops/2026/q19.png",
+      "webp": "crops/2026/q19.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1019,
+      "height": 283
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-20",
+    "year": 2026,
+    "question": 20,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      14
+    ],
+    "sectionDetails": [
+      {
+        "num": 14,
+        "book": "03A_Wave_Motion",
+        "section": "14_Reflection_Refraction_and_Diffraction",
+        "title": "Reflection, Refraction and Diffraction"
+      }
+    ],
+    "reason": "Diffraction grating; highest observable order from given angle.",
+    "statementPreview": "A beam of monochromatic light is incident normally on a diffraction grating. Second-order diffracted beams are found at 48° to the incident direction as shown in the figure. Find t",
+    "image": {
+      "png": "crops/2026/q20.png",
+      "webp": "crops/2026/q20.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1030,
+      "height": 418
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-21",
+    "year": 2026,
+    "question": 21,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      20
+    ],
+    "sectionDetails": [
+      {
+        "num": 20,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "20_Electrostatics",
+        "title": "Electrostatics"
+      }
+    ],
+    "reason": "Coulomb force when charge and separation both doubled.",
+    "statementPreview": "Two small charged spheres exert an electrostatic force of magnitude F on each other. If the amount of charge on each sphere is doubled and the distance between them is also doubled",
+    "image": {
+      "png": "crops/2026/q21.png",
+      "webp": "crops/2026/q21.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1030,
+      "height": 239
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-22",
+    "year": 2026,
+    "question": 22,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Four resistors arrangement; minimum equivalent resistance X-Y.",
+    "statementPreview": "pe leone} ueee--t | Looe i 1 xX H i oy cot oo te oe a et Four resistors of resistance 10 2, 20 Q, 30 Q and 40 Q respectively are installed in the empty places in the above circuit.",
+    "image": {
+      "png": "crops/2026/q22.png",
+      "webp": "crops/2026/q22.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1030,
+      "height": 392
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-23",
+    "year": 2026,
+    "question": 23,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Identical bulbs with rheostat; which burn out as R reduced.",
+    "statementPreview": "G F R H 9V In the circuit above, light bulbs F, G and H are identical and the battery is ideal. Rheostat R is initially set to maximum resistance. The maximum voltage across each b",
+    "image": {
+      "png": "crops/2026/q23.png",
+      "webp": "crops/2026/q23.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1028,
+      "height": 553
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-24",
+    "year": 2026,
+    "question": 24,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Heater elements X and Y; heating time when both connected (power).",
+    "statementPreview": "4 mains supply xX ¥ The above shows a simplified diagram of the circuit in a heater. It consists of two heating elements X and Y. The time taken for the heater to heat a certain am",
+    "image": {
+      "png": "crops/2026/q24.png",
+      "webp": "crops/2026/q24.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1028,
+      "height": 605
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-25",
+    "year": 2026,
+    "question": 25,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      22
+    ],
+    "sectionDetails": [
+      {
+        "num": 22,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "22_AC_and_Domestic_Electricity",
+        "title": "AC and Domestic Electricity"
+      }
+    ],
+    "reason": "Function of earth wire in household appliances.",
+    "statementPreview": "In household appliances, the function of the earth wire is",
+    "image": {
+      "png": "crops/2026/q25.png",
+      "webp": "crops/2026/q25.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1028,
+      "height": 163
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-26",
+    "year": 2026,
+    "question": 26,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      21
+    ],
+    "sectionDetails": [
+      {
+        "num": 21,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "21_Circuit_and_Power",
+        "title": "Circuit and Power"
+      }
+    ],
+    "reason": "Two bulbs at rated values with series R; find resistance of R.",
+    "statementPreview": "6V, 0.3 W Oy, ae 6 V, 0.6 W () ! 12V If both light bulbs work at their rated values as shown, find the resistance of R.",
+    "image": {
+      "png": "crops/2026/q26.png",
+      "webp": "crops/2026/q26.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1139,
+      "height": 527
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-27",
+    "year": 2026,
+    "question": 27,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      23
+    ],
+    "sectionDetails": [
+      {
+        "num": 23,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "23_Electromagnetism",
+        "title": "Electromagnetism"
+      }
+    ],
+    "reason": "Current-carrying triangular loop in B field; net magnetic force.",
+    "statementPreview": "magnetic field of 0.8 T ae veree I 3cm : 3cm wire loop with current 0.1 A 3m billet hee kee An equilateral triangular wire loop with sides of 3 cm is placed in a uniform magnetic f",
+    "image": {
+      "png": "crops/2026/q27.png",
+      "webp": "crops/2026/q27.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1139,
+      "height": 568
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-28",
+    "year": 2026,
+    "question": 28,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      24
+    ],
+    "sectionDetails": [
+      {
+        "num": 24,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "24_Electromagnetic_Induction",
+        "title": "Electromagnetic Induction"
+      }
+    ],
+    "reason": "Transformer efficiency; current drawn from mains for given output.",
+    "statementPreview": "‘The input terminals of a transformer are connected to a 220 V mains supply. Its output power is 18 W and its output voltage is 5.0 V. If the efficiency of the transformer is 85%, ",
+    "image": {
+      "png": "crops/2026/q28.png",
+      "webp": "crops/2026/q28.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1139,
+      "height": 212
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-29",
+    "year": 2026,
+    "question": 29,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      23
+    ],
+    "sectionDetails": [
+      {
+        "num": 23,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "23_Electromagnetism",
+        "title": "Electromagnetism"
+      }
+    ],
+    "reason": "Charged particle undeflected in crossed E and B fields.",
+    "statementPreview": "uniform electric and —_—_—_—_—_—_—_—_—_—_—_—_—_—_—— magnetic field? —~ yee i @——> 1 metal plates { charged particle ' power supply A particle with charge q travels horizontally at ",
+    "image": {
+      "png": "crops/2026/q29.png",
+      "webp": "crops/2026/q29.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1027,
+      "height": 785
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-30",
+    "year": 2026,
+    "question": 30,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      24
+    ],
+    "sectionDetails": [
+      {
+        "num": 24,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "24_Electromagnetic_Induction",
+        "title": "Electromagnetic Induction"
+      }
+    ],
+    "reason": "Copper loop moving in uniform B; induced pd and current.",
+    "statementPreview": "A rectangular copper loop PORS, with its plane perpendicular to a uniform magnetic field of flux density B, is moving with velocity v in a direction perpendicular to the field as s",
+    "image": {
+      "png": "crops/2026/q30.png",
+      "webp": "crops/2026/q30.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1027,
+      "height": 535
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-31",
+    "year": 2026,
+    "question": 31,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      24
+    ],
+    "sectionDetails": [
+      {
+        "num": 24,
+        "book": "04_Electricity_and_Magnetism",
+        "section": "24_Electromagnetic_Induction",
+        "title": "Electromagnetic Induction"
+      }
+    ],
+    "reason": "Two facing coils; mutual induction and voltmeter reading factors.",
+    "statementPreview": "Coil A and coil B are placed close and facing each other with the number of turns of coil B being doubled that of coil A. Coil 4 is connected to an a.c. source while coil B is conn",
+    "image": {
+      "png": "crops/2026/q31.png",
+      "webp": "crops/2026/q31.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1036,
+      "height": 632
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-32",
+    "year": 2026,
+    "question": 32,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      26
+    ],
+    "sectionDetails": [
+      {
+        "num": 26,
+        "book": "05_Radioactivity_and_Nuclear_Energy",
+        "section": "26_Rate_of_Decay_and_Uses_of_Radionuclides",
+        "title": "Rate of Decay and Uses of Radionuclides"
+      }
+    ],
+    "reason": "Unit for radiation equivalent dose (sievert) in radiotherapy.",
+    "statementPreview": "32 Which of the following units is used for measuring the radiation equivalent dose of a patient receiving radiotherapy treatment ?",
+    "image": {
+      "png": "crops/2026/q32.png",
+      "webp": "crops/2026/q32.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1036,
+      "height": 195
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
+  },
+  {
+    "id": "dse-mc-2026-33",
+    "year": 2026,
+    "question": 33,
+    "paper": "1A",
+    "type": "mc",
+    "marks": 1,
+    "sections": [
+      27
+    ],
+    "sectionDetails": [
+      {
+        "num": 27,
+        "book": "05_Radioactivity_and_Nuclear_Energy",
+        "section": "27_Nuclear_Energy",
+        "title": "Nuclear Energy"
+      }
+    ],
+    "reason": "Nuclear fusion reaction; energy released from mass data.",
+    "statementPreview": "Consider the following nuclear reaction: 23 4 1 iH+ |H— ,He+ gn Using the data below, estimate the energy released when 5 got 1H completely reacts with iH through the reaction. mas",
+    "image": {
+      "png": "crops/2026/q33.png",
+      "webp": "crops/2026/q33.webp",
+      "pngExists": true,
+      "webpExists": true,
+      "width": 1036,
+      "height": 497
+    },
+    "answer": {
+      "option": null,
+      "percentage": null,
+      "deleted": false,
+      "missing": true
+    },
+    "classification": {
+      "uncertain": false,
+      "source": "metadata/mc/llm_classifications.json"
+    },
+    "sourcePdf": "paper/mc/2026p1a.pdf",
+    "warnings": [
+      "missing_answer",
+      "missing_percentage"
+    ]
   }
 ]

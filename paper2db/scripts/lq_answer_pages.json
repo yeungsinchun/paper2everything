@@ -1,0 +1,14 @@
+{
+  "_doc": "Hand-verified marking-scheme page map for LQ answer crops where OCR orientation/label detection fails (year -> question -> 1-based pdf pages). Whole pages are cropped, upright as scanned (no orientation guess, no chrome stripping). Questions sharing a page share its crop.",
+  "2025": {
+    "1": [2], "2": [2],
+    "3": [3], "4": [3],
+    "5": [4],
+    "6": [5],
+    "7": [6], "8": [6],
+    "9": [7],
+    "10": [8],
+    "11": [9],
+    "12": [10]
+  }
+}

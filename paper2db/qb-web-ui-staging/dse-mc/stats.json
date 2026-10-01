@@ -1,5 +1,5 @@
 {
-  "totalItems": 435,
+  "totalItems": 537,
   "years": [
     "2012",
     "2013",
@@ -13,9 +13,13 @@
     "2021",
     "2022",
     "2023",
-    "2024"
+    "2024",
+    "2025",
+    "2026",
+    "pp"
   ],
   "yearCounts": {
+    "pp": 36,
     "2012": 36,
     "2013": 36,
     "2014": 33,
@@ -28,46 +32,48 @@
     "2021": 33,
     "2022": 33,
     "2023": 33,
-    "2024": 33
+    "2024": 33,
+    "2025": 33,
+    "2026": 33
   },
   "sectionCounts": {
-    "2": 8,
-    "3": 14,
-    "4": 17,
-    "6": 27,
-    "7": 16,
-    "5": 23,
-    "8": 13,
-    "10": 10,
-    "9": 17,
-    "12": 11,
-    "13": 23,
-    "14": 19,
-    "15": 21,
-    "16": 24,
-    "19": 16,
-    "20": 23,
-    "21": 33,
-    "23": 22,
-    "24": 20,
-    "22": 20,
-    "26": 14,
-    "25": 14,
-    "18": 11,
-    "27": 9,
-    "1": 9,
-    "11": 6,
-    "17": 3
+    "1": 13,
+    "2": 12,
+    "4": 19,
+    "5": 27,
+    "6": 33,
+    "8": 17,
+    "7": 21,
+    "9": 20,
+    "11": 8,
+    "16": 25,
+    "13": 26,
+    "14": 26,
+    "15": 27,
+    "18": 13,
+    "19": 21,
+    "20": 29,
+    "21": 43,
+    "22": 24,
+    "23": 27,
+    "24": 25,
+    "25": 17,
+    "27": 12,
+    "3": 15,
+    "10": 11,
+    "12": 14,
+    "26": 16,
+    "17": 4
   },
-  "missingAnswer": 9,
-  "missingPercentage": 23,
+  "missingAnswer": 71,
+  "missingPercentage": 86,
   "uncertain": 0,
   "imageStats": {
-    "count": 435,
-    "originalMB": 43.92,
-    "optimizedPngMB": 19.54,
-    "webpMB": 10.4,
-    "combinedMB": 29.94
+    "count": 102,
+    "originalMB": 9.23,
+    "optimizedPngMB": 4.29,
+    "webpMB": 2.59,
+    "combinedMB": 6.88
   },
   "pipeline": {
     "stages": [
@@ -76,11 +82,11 @@
       "keys"
     ],
     "source": "paper/mc/*p1a.pdf + paper/ans/*ans.pdf",
-    "classifications": "metadata/mc/llm_classifications.json (573 MC total, 435 in 2012-2024)"
+    "classifications": "metadata/mc/llm_classifications.json (573 MC total; sap not staged)"
   },
   "warningsSummary": {
-    "missingAnswer": 9,
-    "missingPercentage": 23,
+    "missingAnswer": 71,
+    "missingPercentage": 86,
     "uncertain": 0
   }
 }

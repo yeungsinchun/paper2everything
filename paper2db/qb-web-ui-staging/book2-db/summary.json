@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-10-01T17:24:51Z",
+  "total": 1068,
+  "by_source_kind": {
+    "dse_lq": 45,
+    "dse_mc": 150,
+    "qb_lq": 371,
+    "qb_mc": 502
+  },
+  "qb_subtypes": {
+    "sq": 203,
+    "lq": 155,
+    "rq": 13,
+    "mc": 502
+  },
+  "sections": {
+    "5": {
+      "title": "Motion",
+      "dse_lq": 7,
+      "dse_mc": 27,
+      "qb_lq": 67,
+      "qb_mc": 101
+    },
+    "6": {
+      "title": "Force",
+      "dse_lq": 13,
+      "dse_mc": 33,
+      "qb_lq": 71,
+      "qb_mc": 123
+    },
+    "7": {
+      "title": "More about Forces",
+      "dse_lq": 1,
+      "dse_mc": 21,
+      "qb_lq": 27,
+      "qb_mc": 34
+    },
+    "8": {
+      "title": "Work, Energy and Power",
+      "dse_lq": 9,
+      "dse_mc": 17,
+      "qb_lq": 45,
+      "qb_mc": 51
+    },
+    "9": {
+      "title": "Momentum",
+      "dse_lq": 7,
+      "dse_mc": 20,
+      "qb_lq": 56,
+      "qb_mc": 69
+    },
+    "10": {
+      "title": "Projectile Motion",
+      "dse_lq": 6,
+      "dse_mc": 11,
+      "qb_lq": 37,
+      "qb_mc": 47
+    },
+    "11": {
+      "title": "Uniform Circular Motion",
+      "dse_lq": 7,
+      "dse_mc": 8,
+      "qb_lq": 38,
+      "qb_mc": 39
+    },
+    "12": {
+      "title": "Gravitation",
+      "dse_lq": 2,
+      "dse_mc": 14,
+      "qb_lq": 30,
+      "qb_mc": 38
+    }
+  },
+  "note": "dse counts list a question under every in-scope section it is classified in; sum(sections) can exceed the unique total"
+}

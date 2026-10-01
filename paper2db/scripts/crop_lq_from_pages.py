@@ -249,7 +249,10 @@ def main() -> None:
         help="Export missing pages/ without rewriting starts.json or qN.png",
     )
     args = parser.parse_args()
-    root = ROOT / "output" / "lq"
+    # ./pipeline writes lq-pages under tests/reconstructed/lq; output/lq is the legacy layout.
+    root = ROOT / "tests" / "reconstructed" / "lq"
+    if not root.is_dir():
+        root = ROOT / "output" / "lq"
     total = 0
     selected: list[str] = []
     for year_dir in sorted(root.iterdir()):

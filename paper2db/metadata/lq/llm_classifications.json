@@ -787,9 +787,9 @@
   },
   "2024-q9": {
     "sections": [
-      5
+      20
     ],
-    "reason": "fallback: weak keyword match -> Motion"
+    "reason": "manual review: electrostatic induction, charged spheres (was weak-keyword fallback -> Motion)"
   },
   "2024-q10": {
     "sections": [
@@ -989,9 +989,9 @@
   },
   "pp-q4": {
     "sections": [
-      5
+      13
     ],
-    "reason": "fallback: weak keyword match -> Motion"
+    "reason": "manual review: wave pulse reflection on a string (was weak-keyword fallback -> Motion)"
   },
   "pp-q5": {
     "sections": [

@@ -78,6 +78,15 @@ def load_classification():
     rows = list(csv.DictReader(csv_path.open(encoding="utf-8")))
     # Sort by year then question
     rows.sort(key=lambda r: (year_key(str(r["Year"])), int(r["Question"])))
+    # metadata/lq/llm_classifications.json holds the tracked decisions; the CSV is a
+    # derived, possibly stale copy (57 of 170 rows disagreed). Decisions win;
+    # sections[0] is the primary.
+    decisions = load_llm_meta()
+    for r in rows:
+        d = decisions.get(f"{r['Year']}-q{r['Question']}")
+        if d and d.get("sections"):
+            r["Primary"] = str(d["sections"][0])
+            r["AllSections"] = ";".join(str(x) for x in d["sections"])
     return rows
 
 def load_llm_meta():

@@ -362,8 +362,18 @@ MANUAL_KEYS: dict[str, dict[int, dict]] = {
 }
 
 
+def load_override_file() -> dict[str, dict[int, dict]]:
+    """Hand-verified patches kept in scripts/answer_key_overrides.json (year -> question -> key)."""
+    path = Path(__file__).with_name("answer_key_overrides.json")
+    if not path.is_file():
+        return {}
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    return {year: {int(q): payload for q, payload in qs.items()} for year, qs in raw.items()}
+
+
 def main() -> None:
     args = parse_args()
+    overrides = load_override_file()
     answers = args.answers
     result: dict[str, dict[str, dict]] = {}
 
@@ -374,6 +384,7 @@ def main() -> None:
         # Apply / merge manual patches (manual wins).
         if year in MANUAL_KEYS:
             keys.update(MANUAL_KEYS[year])
+        keys.update(overrides.get(year, {}))
         # Drop entries that are clearly wrong (option missing and not deleted).
         cleaned = {
             str(n): {
