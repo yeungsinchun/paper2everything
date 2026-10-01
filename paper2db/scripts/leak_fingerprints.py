@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate salted leak fingerprints for the protected question/answer corpus.
 
-Reads the committed QB/DSE item JSON under ``paper2notes/notes/qb/data/`` and
-writes ``paper2notes/scripts/leak/fingerprints.v1.json.gz``. The file holds only
+Reads canonical committed QB/DSE staging records and publication identities,
+and writes ``paper2notes/scripts/leak/fingerprints.v1.json.gz``. The file holds only
 salted hashes, so it can be checked in and read by ``leak-check.mjs`` without
 carrying the protected text itself.
 
@@ -33,6 +33,7 @@ from collections import defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
+STAGING = REPO / "paper2db" / "qb-web-ui-staging"
 DATA_DIR = REPO / "paper2notes" / "notes" / "qb" / "data"
 OUT = REPO / "paper2notes" / "scripts" / "leak" / "fingerprints.v1.json.gz"
 
@@ -122,19 +123,30 @@ def answer_text(item):
 
 
 def load_items():
-    """Items that carry protected text, deduped by id (first file wins)."""
+    """Protected records and textless identities, with canonical text first."""
     items = {}
-    for path in sorted(DATA_DIR.glob("*.json")):
+    paths = [
+        *sorted((STAGING / "qb" / "items").glob("QB_*.json")),
+        STAGING / "qb" / "items" / "index.json",
+        STAGING / "dse-mc" / "index.json",
+        STAGING / "dse-lq" / "index.json",
+        *sorted(DATA_DIR.glob("*.json")),
+    ]
+    for path in paths:
         data = json.loads(path.read_text(encoding="utf-8"))
-        rows = data.get("items") if isinstance(data, dict) else None
+        rows = data.get("items") if isinstance(data, dict) else data
         if not isinstance(rows, list):
             continue
         for row in rows:
             if not isinstance(row, dict) or not row.get("id"):
                 continue
-            if not question_text(row) and not answer_text(row):
-                continue
-            items.setdefault(str(row["id"]), row)
+            item_id = str(row["id"])
+            previous = items.get(item_id)
+            if previous is None or (
+                not question_text(previous) and not answer_text(previous)
+                and (question_text(row) or answer_text(row))
+            ):
+                items[item_id] = row
     return items
 
 

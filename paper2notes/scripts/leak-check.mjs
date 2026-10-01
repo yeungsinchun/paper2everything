@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Leak check: make sure notes (and generated briefs) do not reproduce the
+// Leak check: make sure notes do not reproduce the
 // protected question bank / worked solutions.
 //
 // Compares text against the salted hashes in scripts/leak/fingerprints.v1.json.gz
@@ -19,15 +19,14 @@
 //
 // Deck exemptions: pages under notes/qb/ and notes/dse/ (the item bank and past
 // paper decks), `_source/` and `_local/` trees, and any page that declares
-// <meta name="leak-check" content="deck">. Explicit file arguments that are not
-// HTML (e.g. briefs/*.md) are never exempt.
+// <meta name="leak-check" content="deck">.
 //
 // normalize/tokens/numset MUST stay equivalent to leak_fingerprints.py.
 //
-// Usage: node paper2notes/scripts/leak-check.mjs [--fingerprints FILE] [--verbose]
+// Usage: node paper2notes/scripts/leak-check.mjs [--verbose]
 //          [--update-baseline] [file...]
 //   no files: scans every non-exempt HTML under notes/ against the baseline.
-//   explicit files (e.g. a generated brief) are checked with no baseline.
+//   explicit HTML files are checked with no baseline.
 
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
@@ -77,9 +76,9 @@ export function numset(toks) {
 
 // ---- fingerprints -----------------------------------------------------------
 
-export function loadFingerprints(path = DEFAULT_FINGERPRINTS) {
-  const fp = JSON.parse(gunzipSync(readFileSync(path)).toString("utf8"));
-  if (fp.schema !== SCHEMA) throw new Error(`${path}: unexpected schema ${fp.schema}`);
+export function loadFingerprints() {
+  const fp = JSON.parse(gunzipSync(readFileSync(DEFAULT_FINGERPRINTS)).toString("utf8"));
+  if (fp.schema !== SCHEMA) throw new Error(`${DEFAULT_FINGERPRINTS}: unexpected schema ${fp.schema}`);
   const digest = (value, hexLen) =>
     createHash("sha256").update(`${fp.salt}\u0000${value}`).digest("hex").slice(0, hexLen);
   const gramIndex = new Map(); // hash -> [item index]
@@ -129,7 +128,7 @@ export function htmlBlocks(html) {
   const stripped = html
     .replace(/<!--[\s\S]*?-->/g, " ")
     .replace(/<head\b[\s\S]*?<\/head>/gi, " ")
-    .replace(/<(script|style|svg|noscript|template)\b[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, " ")
     .replace(new RegExp(`</?(?:${BLOCK_TAGS})\\b[^>]*>`, "gi"), "\n")
     .replace(/<[^>]*>/g, " ");
   return decodeEntities(stripped)
@@ -153,11 +152,10 @@ function isExemptPath(file) {
 // ---- checks -----------------------------------------------------------------
 
 /**
- * Check a list of text blocks. `deck` skips the content levels and L4.
+ * Check a list of text blocks.
  * Returns findings [{level, item, detail, severity}].
  */
-export function checkBlocks(blocks, fp, { deck = false } = {}) {
-  if (deck) return [];
+export function checkBlocks(blocks, fp) {
   const findings = [];
   const add = (level, item, detail, severity = "error") => findings.push({ level, item, detail, severity });
 
@@ -206,15 +204,11 @@ export function checkBlocks(blocks, fp, { deck = false } = {}) {
   return findings;
 }
 
-export function checkFile(file, fp, { explicit = false } = {}) {
+export function checkFile(file, fp) {
+  if (!/\.html?$/i.test(file)) throw new Error(`leak-check: expected an HTML file: ${file}`);
   const raw = readFileSync(file, "utf8");
-  const isHtml = /\.html?$/i.test(file);
-  if (isHtml) {
-    if (isDeckPage(raw) || (!explicit && isExemptPath(file))) return [];
-    if (explicit && isExemptPath(file)) return [];
-    return checkBlocks(htmlBlocks(raw), fp);
-  }
-  return checkBlocks(raw.split("\n").map((l) => l.trim()).filter(Boolean), fp);
+  if (isDeckPage(raw) || isExemptPath(file)) return [];
+  return checkBlocks(htmlBlocks(raw), fp);
 }
 
 function walkHtml(dir, out = []) {
@@ -241,11 +235,11 @@ function loadBaseline(path) {
  * Scan files (default: all notes HTML, filtered through the baseline).
  * Returns {scanned, errors, warnings, baselined, stale, keys}.
  */
-export function runLeakCheck({ files, fingerprints = DEFAULT_FINGERPRINTS, baseline = DEFAULT_BASELINE } = {}) {
-  if (!existsSync(fingerprints)) {
-    return { scanned: 0, errors: [`leak fingerprints missing: ${relative(process.cwd(), fingerprints)} (run paper2db/scripts/leak_fingerprints.py)`], warnings: [], baselined: 0, stale: [], keys: [] };
+export function runLeakCheck({ files, baseline = DEFAULT_BASELINE } = {}) {
+  if (!existsSync(DEFAULT_FINGERPRINTS)) {
+    return { scanned: 0, errors: [`leak fingerprints missing: ${relative(process.cwd(), DEFAULT_FINGERPRINTS)} (run paper2db/scripts/leak_fingerprints.py)`], warnings: [], baselined: 0, stale: [], keys: [] };
   }
-  const fp = loadFingerprints(fingerprints);
+  const fp = loadFingerprints();
   const explicit = Boolean(files?.length);
   const targets = explicit ? files : existsSync(notesDir) ? walkHtml(notesDir) : [];
   const allowed = explicit ? new Set() : loadBaseline(baseline);
@@ -255,7 +249,7 @@ export function runLeakCheck({ files, fingerprints = DEFAULT_FINGERPRINTS, basel
   const keys = [];
   let baselined = 0;
   for (const file of targets) {
-    for (const f of checkFile(file, fp, { explicit })) {
+    for (const f of checkFile(file, fp)) {
       const msg = `${f.level} ${relative(process.cwd(), file)}: item ${f.item}: ${f.detail}`;
       if (f.severity === "warn") {
         warnings.push(msg);
@@ -274,17 +268,16 @@ export function runLeakCheck({ files, fingerprints = DEFAULT_FINGERPRINTS, basel
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
-  let fingerprints = DEFAULT_FINGERPRINTS;
   let verbose = false;
   let update = false;
   const files = [];
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--fingerprints") fingerprints = resolve(args[++i]);
-    else if (args[i] === "--verbose") verbose = true;
-    else if (args[i] === "--update-baseline") update = true;
-    else files.push(resolve(args[i]));
+  for (const arg of args) {
+    if (arg === "--verbose") verbose = true;
+    else if (arg === "--update-baseline") update = true;
+    else if (arg.startsWith("-")) throw new Error(`leak-check: unknown option: ${arg}`);
+    else files.push(resolve(arg));
   }
-  const result = runLeakCheck({ files, fingerprints, baseline: update ? join(__dirname, "leak", "__none__") : DEFAULT_BASELINE });
+  const result = runLeakCheck({ files, baseline: update ? join(__dirname, "leak", "__none__") : DEFAULT_BASELINE });
   if (update) {
     const allowed = [...new Set([...result.keys])].sort();
     writeFileSync(DEFAULT_BASELINE, `${JSON.stringify({ note: "Existing embeds pinned by leak-check.mjs; LEVEL|path|item.", allowed }, null, 2)}\n`);

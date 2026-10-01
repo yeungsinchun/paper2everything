@@ -1,8 +1,8 @@
 // Acceptance tests for leak-check.mjs: node --test paper2notes/scripts/leak-check.test.mjs
-import { test } from "node:test";
+import { after, test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { execFileSync, spawnSync } from "node:child_process";
+import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadFingerprints, numset, runLeakCheck, tokens } from "./leak-check.mjs";
@@ -10,9 +10,13 @@ import { loadFingerprints, numset, runLeakCheck, tokens } from "./leak-check.mjs
 const here = dirname(fileURLToPath(import.meta.url));
 const bank = JSON.parse(readFileSync(resolve(here, "../notes/qb/data/qb_book5.json"), "utf8")).items;
 const fp = loadFingerprints();
+const fixtureRoot = mkdtempSync(join(here, ".leak-test-"));
+after(() => rmSync(fixtureRoot, { recursive: true, force: true }));
+const staging = resolve(here, "../../paper2db/qb-web-ui-staging");
+const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 
 function page(body, head = "") {
-  const dir = mkdtempSync(join(tmpdir(), "leak-"));
+  const dir = mkdtempSync(join(fixtureRoot, "page-"));
   const file = join(dir, "page.html");
   writeFileSync(file, `<!doctype html><html><head><title>t</title>${head}</head><body>${body}</body></html>`);
   return file;
@@ -44,4 +48,98 @@ test("item id cited fails L4; deck meta exempts", () => {
   const item = bank.find((x) => x.id === "PHY15011101");
   const deck = page(`<p>${item.stem.text}</p><p>PHY15011101</p>`, '<meta name="leak-check" content="deck">');
   assert.deepEqual(levels(deck), []);
+});
+
+test("fingerprints cover all canonical and published identities", () => {
+  const paths = [
+    ...readdirSync(join(staging, "qb/items")).filter((name) => name.endsWith(".json")).map((name) => join(staging, "qb/items", name)),
+    join(staging, "dse-mc/index.json"),
+    join(staging, "dse-lq/index.json"),
+    ...readdirSync(resolve(here, "../notes/qb/data")).filter((name) => name.endsWith(".json")).map((name) => resolve(here, "../notes/qb/data", name)),
+  ];
+  const ids = new Set(fp.items.map((item) => item.id));
+  for (const path of paths) {
+    const data = readJson(path);
+    for (const item of (Array.isArray(data) ? data : data.items) ?? []) {
+      assert.ok(ids.has(item.id), `${path}: missing ${item.id}`);
+    }
+  }
+});
+
+test("Book 2 and Book 4 canonical stems fail L1", () => {
+  for (const [name, id] of [["QB_201", "PHY12013101"], ["QB_401", "PHY14013001"]]) {
+    const item = readJson(join(staging, `qb/items/${name}.json`)).items.find((row) => row.id === id);
+    const errors = runLeakCheck({ files: [page(`<p>${item.stem.text}</p>`)] }).errors;
+    assert.ok(errors.some((error) => error.startsWith("L1 ") && error.includes(`item ${id}:`)), errors.join("\n"));
+  }
+});
+
+test("DSE stems and textless LQ identities are protected in both representations", () => {
+  const mc = readJson(join(staging, "dse-mc/index.json"))[0];
+  const published = readJson(resolve(here, "../notes/qb/data/dse_mc.json")).items[0];
+  const lq = readJson(join(staging, "dse-lq/index.json")).items[0];
+  const errors = runLeakCheck({ files: [page(`<p>${mc.statementPreview}</p><p>${mc.id} ${published.id} ${lq.id}</p>`)] }).errors;
+  for (const id of [mc.id, published.id]) {
+    assert.ok(errors.some((error) => error.startsWith("L1 ") && error.includes(`item ${id}:`)), errors.join("\n"));
+  }
+  for (const id of [mc.id, published.id, lq.id]) {
+    assert.ok(errors.some((error) => error.startsWith("L4 ") && error.includes(`item ${id}:`)), errors.join("\n"));
+  }
+});
+
+test("generator retains index-only identities without masking available text", () => {
+  const root = mkdtempSync(join(fixtureRoot, "corpus-"));
+  const save = (path, data) => {
+    const file = join(root, path);
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, JSON.stringify(data));
+  };
+  save("staging/qb/items/QB_201.json", { items: [{ id: "CANONICAL", stem: "A canonical protected question uses 12 34 56 78 for its given values." }] });
+  save("staging/qb/items/index.json", { items: [{ id: "CANONICAL" }, { id: "INDEX_ONLY" }, { id: "LATER_TEXT" }] });
+  save("staging/dse-mc/index.json", [{ id: "MC_ONLY" }]);
+  save("staging/dse-lq/index.json", { items: [{ id: "LQ_ONLY" }] });
+  save("data/mirror.json", { items: [{ id: "CANONICAL", stem: "An incomplete mirror." }, { id: "LATER_TEXT", stem: "This protected question has enough words to produce several unique fingerprints." }, { id: "MIRROR_ONLY" }] });
+  const doc = JSON.parse(execFileSync("python3", ["-c", `
+import importlib.util, json, sys
+from pathlib import Path
+spec = importlib.util.spec_from_file_location("leak_fingerprints", sys.argv[1])
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+module.STAGING = Path(sys.argv[2]) / "staging"
+module.DATA_DIR = Path(sys.argv[2]) / "data"
+print(json.dumps(module.build()))
+`, resolve(here, "../../paper2db/scripts/leak_fingerprints.py"), root], { encoding: "utf8", env: { ...process.env, PYTHONDONTWRITEBYTECODE: "1" } }));
+  assert.deepEqual(doc.items.map((item) => item.id), ["CANONICAL", "INDEX_ONLY", "LATER_TEXT", "LQ_ONLY", "MC_ONLY", "MIRROR_ONLY"]);
+  assert.equal(doc.items.find((item) => item.id === "CANONICAL").nums.length, 4);
+  assert.ok(doc.items.find((item) => item.id === "LATER_TEXT").g.length >= 2);
+  for (const item of doc.items.filter((item) => item.id.endsWith("ONLY"))) {
+    assert.deepEqual([item.g, item.w, item.nums], [[], [], []]);
+  }
+});
+
+test("SVG text is checked while deck exemptions still apply", () => {
+  const item = bank.find((row) => row.id === "PHY15011101");
+  const body = `<svg><text>${item.stem.text.replace(/\n/g, " ")}</text><text>${item.id}</text></svg>`;
+  const errors = runLeakCheck({ files: [page(body)] }).errors;
+  for (const level of ["L1", "L4"]) {
+    assert.ok(errors.some((error) => error.startsWith(`${level} `) && error.includes(`item ${item.id}:`)), errors.join("\n"));
+  }
+  assert.deepEqual(levels(page(body, '<meta name="leak-check" content="deck">')), []);
+});
+
+test("only explicit HTML inputs and the fixed corpus are accepted by the CLI", () => {
+  const html = page("<p>PHY12013101</p>");
+  const cli = join(here, "leak-check.mjs");
+  const valid = spawnSync(process.execPath, [cli, html], { encoding: "utf8" });
+  assert.equal(valid.status, 1);
+  assert.match(valid.stderr, /L4 .*item PHY12013101:/);
+  const alternate = spawnSync(process.execPath, [cli, "--fingerprints", "unused.gz", html], { encoding: "utf8" });
+  assert.notEqual(alternate.status, 0);
+  assert.match(alternate.stderr, /unknown option: --fingerprints/);
+  const brief = join(fixtureRoot, "brief.md");
+  writeFileSync(brief, "PHY12013101");
+  assert.throws(() => runLeakCheck({ files: [brief] }), /expected an HTML file/);
+  const nonHtml = spawnSync(process.execPath, [cli, brief], { encoding: "utf8" });
+  assert.notEqual(nonHtml.status, 0);
+  assert.match(nonHtml.stderr, /expected an HTML file/);
 });
