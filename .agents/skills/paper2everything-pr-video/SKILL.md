@@ -20,6 +20,8 @@ inline by GitHub's markdown renderer. This skill guarantees inline playback by
 forcing the one flow GitHub supports: **upload the file as a PR/issue attachment and
 embed the resulting `https://github.com/user-attachments/assets/...` URL**.
 
+For web UI demo/walkthrough videos (any PR that changes `paper2notes` UI and shows motion/interaction), you must record **both** a laptop-size video at 1280×800 and a mobile-size video at 390×844 - one video per size capturing the same URL/interaction - and attach each inline via `gh --attach` (or browser drag-drop) so each renders as a player, unless the change is provably invisible at one of them (and you state why in the PR body).
+
 ## 2. Why external URLs and raw HTML tags do not render inline
 
 GitHub sanitizes PR bodies and comments with a strict allowlist:
@@ -229,6 +231,8 @@ gh pr create --title "fix(book2-ch01): ..." --body-file /tmp/pr-video.md --attac
 gh pr comment 123 --body-file /tmp/pr-video.md --attach /tmp/book2-ch01-trench.mp4
 ```
 
+For UI demo/walkthrough videos, repeat the same capture at both 1280×800 (laptop) and 390×844 (mobile) - one video file per size - and attach both inline (two `user-attachments` URLs, each on its own paragraph with blank lines). See §5.1 for when a single size is allowed.
+
 Verify the body that hit the forge actually contains the anonymized URL and not the
 local path:
 
@@ -259,6 +263,16 @@ Load and follow this skill **before** `gh pr create` / `gh pr edit` / `gh pr com
 
 If the PR has no video, this skill does not apply.
 
+### 5.1 Viewport coverage for UI demo/walkthrough videos
+
+When the video is a **UI demo or walkthrough** that shows `paper2notes` behaviour (stage animation, interaction, responsive layout, before/after motion):
+
+- Record **both** a laptop-size video at 1280×800 and a mobile-size video at 390×844, each capturing the same URL/interaction and each attached inline via `gh --attach` (or browser drag-drop) on its own paragraph so it renders as a player. The two videos must be separate files (e.g. `demo-1280.mp4`, `demo-390.mp4`) and both `user-attachments` URLs must appear in the PR body/comment.
+- The only exception is when the change is **provably invisible at one size** - e.g. a CSS fix that is inside a `@media (min-width: 900px)` block that never applies at 390 px, or a hover-only desktop interaction with no mobile equivalent. In that case record the visible size and state plainly in the PR body why the other size has no visible effect (e.g. "No visible change at 390×844 - media query `...` does not apply below 900 px, verified by capture at 390").
+- A UI demo PR with a single-size video and no justification is incomplete, just as a screenshot-only UI PR with one viewport is incomplete (see `paper2everything-ui-screenshot` §3/§7). Reviewers must request the missing size.
+
+Non-UI videos (e.g. pipeline logs, LaTeX compile output that has no viewport) are exempt from this two-size rule; §6 still applies for inline attachment.
+
 ## 6. Verification checklist (paste into PR body or keep locally)
 
 This is the gate reviewers should check. Every box must be ticked when the PR claims
@@ -270,11 +284,12 @@ a video.
 - [ ] Video uploaded as GitHub file attachment via browser drag-drop/paperclip or via `gh --attach` (not via external URL, not via raw <video>/<iframe> HTML)
 - [ ] PR body or PR comment contains the resulting `https://github.com/user-attachments/assets/...` URL and that URL is on its own paragraph with blank lines before/after (player, not link)
 - [ ] Attachment is a supported media type (`.mp4` / `.mov` / `.webm`, H.264 recommended) and under the size limit (10 MB on this free-plan repo, 100 MB on paid)
+- [ ] For UI demo/walkthrough video: BOTH laptop 1280×800 and mobile 390×844 videos attached inline (one `user-attachments` URL per size, each on its own paragraph), or single size with plain justification that the change is provably invisible at the other size
 - [ ] CLI path verified with `gh api /repos/.../issues/<n>/comments --jq .body` showing the `user-attachments` URL, not the local path; visual path verified in the browser - PR page shows a native player that plays with controls
 ```
 
 A PR that mentions a video but has any box unchecked **fails review** - request changes
-with "video not uploaded as GitHub attachment - see `.agents/skills/paper2everything-pr-video/SKILL.md` §6".
+with "video not uploaded as GitHub attachment - see `.agents/skills/paper2everything-pr-video/SKILL.md` §6". A UI demo PR with only one size and no provably-invisible justification also fails review under the same section.
 
 ## 7. Dry-run validation (proves the skill works on this repo)
 
@@ -325,6 +340,10 @@ gh api /repos/yeungsinchun/paper2everything/issues/55/comments --jq '.[-1].body'
 # user-attachments URL renders as a native <video controls> player that plays.
 # (gh itself cannot render video - browser is required.)
 
+# For UI demos, repeat with two files (1280x800 and 390x844 captures):
+# gh pr create --body-file /tmp/video-body-both.md --attach /tmp/demo-1280.mp4 --attach /tmp/demo-390.mp4
+# Body must contain both local refs on separate paragraphs so both URLs render inline.
+
 # Cleanup (issue 62 test data):
 gh issue close 62 --reason "not planned"
 # (comments can be deleted via DELETE /repos/{owner}/{repo}/issues/comments/{id} if needed)
@@ -335,7 +354,7 @@ Expected gate: a PR whose body contains an external `https://.../video.mp4` or a
 **must** be returned with "video not uploaded as GitHub attachment - see
 `.agents/skills/paper2everything-pr-video/SKILL.md` §6". The same PR after re-posting
 with the attachment flow above **must** pass: API body shows the anonymized URL on its
-own paragraph and the browser shows a playable player.
+own paragraph and the browser shows a playable player. For UI demos, a PR with only one viewport video and no provably-invisible justification must also be returned under §6/§5.1.
 
 Note for local validation without polluting the forge: run the above on a throwaway
 issue (as shown) and delete/close it after confirming - the skill's flow is still
@@ -346,7 +365,7 @@ proved by the real PR/comment you ship.
 - This skill is discoverable via `ls .agents/skills/` → `.agents/skills/paper2everything-pr-video/SKILL.md`.
 - `paper2everything-ui-screenshot` governs screenshot proof for UI PRs; this skill
   governs video proof. A PR may need both (screenshot pair + inline video). The two
-  checklists are independent and must both pass when both artefacts are present.
+  checklists are independent and must both pass when both artefacts are present. For web UI changes both require laptop 1280×800 and mobile 390×844 coverage (screenshots: always both; video: both unless provably invisible at one).
 - `paper2notes/.agents/skills/lavish-notes-review` governs before/after board layout;
   videos do not replace Lavish boards when the change is a chapter refactor - add the
   board alongside the clip.

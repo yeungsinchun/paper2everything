@@ -6,4 +6,4 @@
 
 Keep `paper2notes/notes/**/_local/` and generated `paper2db/` files out of git; `paper2db/README.md` lists the reviewed JSON inputs that stay tracked. CI is `node paper2notes/scripts/ci-check.mjs` (validates `deploy-commit-footer` per HTML; see `paper2notes/deploy/cloudrun/README.md`). Deploy is `paper2notes/deploy/cloudrun` (injects `deploy-commit-footer` via `scripts/inject-commit-footer.mjs`).
 
-UI PRs (paper2notes HTML/CSS/JS, visuals, animations, stage): load `.agents/skills/paper2everything-ui-screenshot/SKILL.md` before launch - before/after screenshots required in PR body (chrome-devtools-axi / lavish-axi, checklist in skill section 7).
+UI PRs (paper2notes HTML/CSS/JS, visuals, animations, stage): load `.agents/skills/paper2everything-ui-screenshot/SKILL.md` before launch - before/after screenshots at BOTH laptop 1280×800 and mobile 390×844 required in PR body (one pair per size, same URL/scroll/viewport, attached via `gh --attach` so they render inline - one-size-only is incomplete; checklist in skill §7) and, if video demo, both sizes via `gh --attach` unless provably invisible at one (`.agents/skills/paper2everything-pr-video/SKILL.md` §5.1/§6).
