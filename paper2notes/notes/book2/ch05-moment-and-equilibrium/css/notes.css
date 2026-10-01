@@ -1,1 +1,10 @@
 /* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+/* Fix hud-label stack: give each label an explicit anchor so two labels never collapse to 0,0 */
+#seesaw-vis [data-hud="pivot"] { left: 50%; top: 64%; }
+#seesaw-vis [data-hud="moment"] { left: 74%; top: 16%; }
+#board-vis [data-hud="B"] { left: 18%; top: 82%; }
+#board-vis [data-hud="CG"] { left: 53%; top: 48%; }
+#lever-vis [data-hud="load"] { left: 20%; top: 32%; }
+#lever-vis [data-hud="effort"] { left: 82%; top: 32%; }
+#plumb-vis [data-hud="plumb"] { left: 60%; top: 24%; }
+#plumb-vis [data-hud="CG"] { left: 56%; top: 54%; }
