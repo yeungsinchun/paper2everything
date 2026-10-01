@@ -41,12 +41,12 @@
           });
           if (pick === answer) {
             btn.classList.add("correct");
-            setFeedback(out, true, "Correct.");
+            setFeedback(out, true, "Right. Nice.");
           } else {
             btn.classList.add("wrong");
             var right = $("button[data-choice='" + answer + "']", box);
             if (right) right.classList.add("correct");
-            setFeedback(out, false, "Not quite. The answer is " + answer + ".");
+            setFeedback(out, false, "Not quite. It's " + answer + ".");
           }
           var ex = $(":scope > .explain", box);
           if (ex) ex.hidden = false;
@@ -68,10 +68,10 @@
             });
             if (pick === answer) {
               btn.classList.add("correct");
-              setFeedback(out, true, "Correct.");
+              setFeedback(out, true, "Right. Nice.");
             } else {
               btn.classList.add("wrong");
-              setFeedback(out, false, "Not quite. This statement is " + (answer ? "true" : "false") + ".");
+              setFeedback(out, false, "Not quite. It's " + (answer ? "true" : "false") + ".");
             }
             reveal(item);
           });
@@ -90,19 +90,16 @@
         var open = model.hidden;
         model.hidden = !open;
         btn.setAttribute("aria-expanded", open ? "true" : "false");
-        btn.textContent = open ? "Hide model answer" : "Show model answer";
+        btn.textContent = open ? "Hide answer" : "Show answer";
       });
     });
   }
 
   function numberChecks() {
-    var n = 0;
     $all(".check").forEach(function (box) {
       var h = $("h3", box);
       if (!h || h.getAttribute("data-numbered")) return;
-      n += 1;
-      var label = box.getAttribute("data-check") === "sa" ? "Write it out" : "Check";
-      h.textContent = label + " " + n;
+      h.textContent = box.getAttribute("data-check") === "sa" ? "Write it out" : "Quick check";
       h.removeAttribute("data-src");
       h.setAttribute("data-numbered", "true");
     });
@@ -363,13 +360,13 @@
           out.textContent = "";
           var verdict = document.createElement("b");
           verdict.className = "quiz-verdict";
-          verdict.textContent = right ? "Correct" : ("Not quite. The answer is " + key.option + ".");
+          verdict.textContent = right ? "Right." : ("Not quite. It's " + key.option + ".");
           out.appendChild(verdict);
           if (key.pct != null) {
             out.appendChild(document.createTextNode(" "));
             var stat = document.createElement("span");
             stat.className = "quiz-stat";
-            stat.textContent = "Correct percentage: " + key.pct + "%";
+            stat.textContent = key.pct + "% got this";
             out.appendChild(stat);
           }
         }
