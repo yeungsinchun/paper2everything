@@ -4437,7 +4437,7 @@
     ],
     "reason": "Heating curves of P and Q with melting plateaus; phase-change comparison.",
     "uncertain": false,
-    "PNG": "output/2024/q1.png",
+    "PNG": "tests/reconstructed/mc/2024/q1.png",
     "StatementPreview": "lL. Substance P and Q are of the same mass and both are solids at temperature 7). The graph below shows the variation of temperature of the substances with energy transferred.  tem"
   },
   {
@@ -4448,7 +4448,7 @@
     ],
     "reason": "Mix warm water with ice; final temperature using latent heat of fusion.",
     "uncertain": false,
-    "PNG": "output/2024/q2.png",
+    "PNG": "tests/reconstructed/mc/2024/q2.png",
     "StatementPreview": "Which statement below is correct ?"
   },
   {
@@ -4459,7 +4459,7 @@
     ],
     "reason": "Best vacuum: estimate molecular number density via kinetic theory/gas law.",
     "uncertain": false,
-    "PNG": "output/2024/q3.png",
+    "PNG": "tests/reconstructed/mc/2024/q3.png",
     "StatementPreview": "#3. The best vacuum attained in the laboratory has a pressure of about 10~* Pa. Estimate the order of magnitude of the number of air molecules in | cm’ of such ‘vacuum’ at room tem"
   },
   {
@@ -4470,7 +4470,7 @@
     ],
     "reason": "Shaded area under v-t graph represents displacement.",
     "uncertain": false,
-    "PNG": "output/2024/q4.png",
+    "PNG": "tests/reconstructed/mc/2024/q4.png",
     "StatementPreview": "v LA. ; What physical quantity does the shaded area represent in the above velocity-time (v-t) graph ?"
   },
   {
@@ -4481,7 +4481,7 @@
     ],
     "reason": "Block slides rough incline at constant velocity; contact force on incline.",
     "uncertain": false,
-    "PNG": "output/2024/q5.png",
+    "PNG": "tests/reconstructed/mc/2024/q5.png",
     "StatementPreview": "a0 an oe oon 0 horizontal  A block of mass m slides down along a fixed rough incline with constant velocity as shown. The incline makes an angle 6 with the horizontal. What is the "
   },
   {
@@ -4492,7 +4492,7 @@
     ],
     "reason": "Elevator and object; identify Newton's third-law action-reaction pair.",
     "uncertain": false,
-    "PNG": "output/2024/q6.png",
+    "PNG": "tests/reconstructed/mc/2024/q6.png",
     "StatementPreview": "An object of weight w is placed inside an elevator of weight W. T A force T pulls the elevator upward. A supporting force X acts on the object while the floor of the elevator exper"
   },
   {
@@ -4503,7 +4503,7 @@
     ],
     "reason": "KE vs distance with horizontal force and friction; work-energy when F doubled.",
     "uncertain": false,
-    "PNG": "output/2024/q7.png",
+    "PNG": "tests/reconstructed/mc/2024/q7.png",
     "StatementPreview": "In an experiment, a horizontal force F acts on a block placed on a rough horizontal surface as shown in Figure (a). Figure (b) shows the variation of the block’s kinetic energy Zz "
   },
   {
@@ -4514,7 +4514,7 @@
     ],
     "reason": "Atwood-like pulley blocks; dynamics then time to reach ground.",
     "uncertain": false,
-    "PNG": "output/2024/q8.png",
+    "PNG": "tests/reconstructed/mc/2024/q8.png",
     "StatementPreview": "Block X and Y of mass 3.0 kg and 1.0 kg respectively are connected by a light inextensible string passing over a smooth light pulley fixed to the ceiling as shown. The blocks are r"
   },
   {
@@ -4525,7 +4525,7 @@
     ],
     "reason": "Pulling own hair cannot lift self; internal vs external force (Newton's laws).",
     "uncertain": false,
-    "PNG": "output/2024/q9.png",
+    "PNG": "tests/reconstructed/mc/2024/q9.png",
     "StatementPreview": "A person thought that when he pulls his hair with a large enough force, eventually he will be able to pull himself off the ground. This is a misconception because"
   },
   {
@@ -4536,7 +4536,7 @@
     ],
     "reason": "Toppling wrestler about contact point; moments for minimum push F.",
     "uncertain": false,
-    "PNG": "output/2024/q10.png",
+    "PNG": "tests/reconstructed/mc/2024/q10.png",
     "StatementPreview": "A child tries to push a 150 kg (sumo) wrestler in order to topple him backwards in a game. The simplified diagram indicates the weight W of the wrestler and the horizontal pushing "
   },
   {
@@ -4547,7 +4547,7 @@
     ],
     "reason": "Elastic rebound off cushion; average force from impulse/change of momentum.",
     "uncertain": false,
-    "PNG": "output/2024/q11.png",
+    "PNG": "tests/reconstructed/mc/2024/q11.png",
     "StatementPreview": "ll. On a billiard table, a billiard ball of mass 0.16 kg and moving with a uniform speed of 1.20 ms“ collides elastically with the cushion. It rebounds with the same speed normal t"
   },
   {
@@ -4558,7 +4558,7 @@
     ],
     "reason": "Uniform circular motion; directions of velocity and centripetal acceleration.",
     "uncertain": false,
-    "PNG": "output/2024/q12.png",
+    "PNG": "tests/reconstructed/mc/2024/q12.png",
     "StatementPreview": "H i The figure shows a particle performing uniform circular motion. Which of the following correctly indicates the directions of its velocity and acceleration at the instant shown "
   },
   {
@@ -4569,7 +4569,7 @@
     ],
     "reason": "Satellite circular orbits; period vs orbital radius (Kepler/gravitation).",
     "uncertain": false,
-    "PNG": "output/2024/q13.png",
+    "PNG": "tests/reconstructed/mc/2024/q13.png",
     "StatementPreview": "A satellite orbits the Earth in a circular orbit of radius r with a period of 24 hours. The period of another satellite which orbits the Earth in a circular orbit of radius 2r is"
   },
   {
@@ -4580,7 +4580,7 @@
     ],
     "reason": "Monochromatic beams split in glass block; refraction, speed, critical angle.",
     "uncertain": false,
-    "PNG": "output/2024/q14.png",
+    "PNG": "tests/reconstructed/mc/2024/q14.png",
     "StatementPreview": "14, A light beam consisting of monochromatic light beam_X and Y is incident on a rectangular glass block. It splits into two beams as shown. glass block x  Which of the following c"
   },
   {
@@ -4591,7 +4591,7 @@
     ],
     "reason": "Ripple-tank plane waves reflected from L-shaped barrier.",
     "uncertain": false,
-    "PNG": "output/2024/q15.png",
+    "PNG": "tests/reconstructed/mc/2024/q15.png",
     "StatementPreview": "Top view . L-shaped barrier | 45° In a ripple tank, a series of plane water waves approach an L-shaped barrier as shown above. Whic diagram below best shows the wave pattern reflec"
   },
   {
@@ -4602,7 +4602,7 @@
     ],
     "reason": "Travelling wave on slinky; wavelength, amplitude, time between snapshots.",
     "uncertain": false,
-    "PNG": "output/2024/q16.png",
+    "PNG": "tests/reconstructed/mc/2024/q16.png",
     "StatementPreview": "abe d e t ghijk SOE Cece) Figure (a) a b ce def g h i i PERE EEE ee Pee Pee eeeees’) Figure (b) Som direction of wave propagation —— > A series of particles is uniformly distribute"
   },
   {
@@ -4613,7 +4613,7 @@
     ],
     "reason": "Two loudspeakers in anti-phase; constructive/destructive interference at points.",
     "uncertain": false,
-    "PNG": "output/2024/q17.png",
+    "PNG": "tests/reconstructed/mc/2024/q17.png",
     "StatementPreview": "Two identical loudspeakers S; and S2 connected to a signal generator produce sounds of wavelength 0.10 m which are in anti-phase. P 2.5m ' Si 3.0m ' On norm nn nnn neon enn nnn nnn"
   },
   {
@@ -4624,7 +4624,7 @@
     ],
     "reason": "Stationary wave on string; effect of doubling vibrator frequency.",
     "uncertain": false,
-    "PNG": "output/2024/q18.png",
+    "PNG": "tests/reconstructed/mc/2024/q18.png",
     "StatementPreview": "A string is tied to a vibrator at one end while the other end is fixed to a wall. The figure shows the stationary wave formed at a certain frequency of the vibrator. wall x, Y vibr"
   },
   {
@@ -4635,7 +4635,7 @@
     ],
     "reason": "Convex lens ray from object on principal axis; emergent ray choice.",
     "uncertain": false,
-    "PNG": "output/2024/q19.png",
+    "PNG": "tests/reconstructed/mc/2024/q19.png",
     "StatementPreview": "X is a light ray from an object O placed on the principal axis of a convex Jens as shown. F and F’ are the foci of the lens. Which light ray best represents the emergent ray ? P Q "
   },
   {
@@ -4646,7 +4646,7 @@
     ],
     "reason": "Concave lens object/image heights and distance; find focal length.",
     "uncertain": false,
-    "PNG": "output/2024/q20.png",
+    "PNG": "tests/reconstructed/mc/2024/q20.png",
     "StatementPreview": "An object of height 10 cm placed at 20 cm in front of a concave fens forms an image of height 8 cm. Find the focal length of the concave lens."
   },
   {
@@ -4657,7 +4657,7 @@
     ],
     "reason": "Microwaves as EM waves: visibility, speed in vacuum, radar use.",
     "uncertain": false,
-    "PNG": "output/2024/q21.png",
+    "PNG": "tests/reconstructed/mc/2024/q21.png",
     "StatementPreview": "Which description below is INCORRECT ?"
   },
   {
@@ -4668,7 +4668,7 @@
     ],
     "reason": "CRO traces of musical notes; compare pitch and loudness.",
     "uncertain": false,
-    "PNG": "output/2024/q22.png",
+    "PNG": "tests/reconstructed/mc/2024/q22.png",
     "StatementPreview": "Figure (a) and (b) are the CRO displays of musical note X and Y using the same time axis and intensity axis. COO Figure (a) zw] | et note X TINY SY LTT ETE tert [ATA TIA TAT vive) "
   },
   {
@@ -4679,7 +4679,7 @@
     ],
     "reason": "Electric field of +Q and -2Q along a line; zeros and field directions.",
     "uncertain": false,
-    "PNG": "output/2024/q23.png",
+    "PNG": "tests/reconstructed/mc/2024/q23.png",
     "StatementPreview": "Charges +Q and —2Q are fixed at X and Y as shown. +2 522 eS aaa Xx Yy Which description(s) about the electric field along the dotted line is/are correct ? (1) Between_X and Y, the "
   },
   {
@@ -4690,7 +4690,7 @@
     ],
     "reason": "Resistor network on terminals; pair with smallest equivalent resistance.",
     "uncertain": false,
-    "PNG": "output/2024/q24.png",
+    "PNG": "tests/reconstructed/mc/2024/q24.png",
     "StatementPreview": "22 P Q 1Q 22 Ss R 1Q Four resistors are connected to terminals PORS of a circuit board as shown. Across which pair o terminals below is the equivalent resistance smallest ?"
   },
   {
@@ -4701,7 +4701,7 @@
     ],
     "reason": "Circuit with switch; how ammeter and voltmeter readings change.",
     "uncertain": false,
-    "PNG": "output/2024/q25.png",
+    "PNG": "tests/reconstructed/mc/2024/q25.png",
     "StatementPreview": "In the circuit below, the two resistors are identical. When S is closed, how would the readings of th ammeter and voltmeter change ? C+) —— Lo Ss ammeter reading _ voltmeter readin"
   },
   {
@@ -4712,7 +4712,7 @@
     ],
     "reason": "Magnetic force on wire MN due to long straight current PQ.",
     "uncertain": false,
-    "PNG": "output/2024/q26.png",
+    "PNG": "tests/reconstructed/mc/2024/q26.png",
     "StatementPreview": "P h it} M—*—Nn Q  PQ in the figure is a section of a fixed long straight wire carrying a current /). MN is a section of another long straight wire carrying a current J2. MN is perp"
   },
   {
@@ -4723,7 +4723,7 @@
     ],
     "reason": "Coil in decreasing uniform B; magnitude of induced e.m.f.",
     "uncertain": false,
-    "PNG": "output/2024/q27.png",
+    "PNG": "tests/reconstructed/mc/2024/q27.png",
     "StatementPreview": "A coil of radius 2 cm is placed inside a square region of uniform magnetic field pointing out of the paper as shown. 10 cm a coil ee oe ee ew ew ow a square region of .* uniform ma"
   },
   {
@@ -4734,7 +4734,7 @@
     ],
     "reason": "Identify which I-t graphs represent alternating current.",
     "uncertain": false,
-    "PNG": "output/2024/q28.png",
+    "PNG": "tests/reconstructed/mc/2024/q28.png",
     "StatementPreview": "Which of the following current against time (/- £) graphs represent an a.c. ? a Q) (3) I | I | I 0 t 0 t 0 t"
   },
   {
@@ -4745,7 +4745,7 @@
     ],
     "reason": "Charged particle path in uniform B; find charge from F=Bqv.",
     "uncertain": false,
-    "PNG": "output/2024/q29.png",
+    "PNG": "tests/reconstructed/mc/2024/q29.png",
     "StatementPreview": "uniform magnetic field of"
   },
   {
@@ -4756,7 +4756,7 @@
     ],
     "reason": "High-voltage power transmission; cable power loss I^2R.",
     "uncertain": false,
-    "PNG": "output/2024/q30.png",
+    "PNG": "tests/reconstructed/mc/2024/q30.png",
     "StatementPreview": "A power station generates 217 MW of power for transmission to downtown under a voltage of 132 kV via a transmission cable which has an effective resistance of 0.02 Q km™'. The powe"
   },
   {
@@ -4767,7 +4767,7 @@
     ],
     "reason": "Domestic electricity: fuses, earth wire, appliance safety.",
     "uncertain": false,
-    "PNG": "output/2024/q31.png",
+    "PNG": "tests/reconstructed/mc/2024/q31.png",
     "StatementPreview": "Which statements about domestic electricity are correct ?  qd) All fuses should be installed in the live wire.  (2) An electrical appliance can work even without an earth wire.  (3"
   },
   {
@@ -4778,7 +4778,7 @@
     ],
     "reason": "Radioactive activity drop; half-life / decay-rate calculation.",
     "uncertain": false,
-    "PNG": "output/2024/q32.png",
+    "PNG": "tests/reconstructed/mc/2024/q32.png",
     "StatementPreview": "It takes 2.0 years for the activity of a sample containing a radioactive nuclide to drop from 800 Bq to 600 Bq. How long will it take for the activity of the sample to drop from 60"
   },
   {
@@ -4789,7 +4789,7 @@
     ],
     "reason": "Choosing radioisotope (half-life, radiation type) for leak tracing use.",
     "uncertain": false,
-    "PNG": "output/2024/q33.png",
+    "PNG": "tests/reconstructed/mc/2024/q33.png",
     "StatementPreview": "In order to locate the cracks in an underground water pipe, a small amount of a radioisotope is added to the water in the pipe. The radioactive substance will leak through the crac"
   },
   {

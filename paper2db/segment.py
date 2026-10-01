@@ -107,9 +107,10 @@ def detect_paper_type(pdf: Path, *, cover_pages: int = 1) -> str:
 
 def find_mc_overrides(pdf: Path) -> Path | None:
     match = re.search(r"(20\d{2})", pdf.stem)
-    if not match:
+    label = match.group(1) if match else "sap" if pdf.stem.lower().startswith("sapp") else None
+    if not label:
         return None
-    path = SCRIPTS / f"overrides_{match.group(1)}.json"
+    path = SCRIPTS / f"overrides_{label}.json"
     return path if path.is_file() else None
 
 
