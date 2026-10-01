@@ -107,7 +107,6 @@ The QB stages skip when no QB DOCX source tree is found. They use `$P2DB_QB_ROOT
 
 ```bash
 python3 scripts/pointers.py coverage             # in-scope items with a pointer, by type and tier
-python3 scripts/pointers.py coverage --json --min-pct 50
 python3 scripts/pointers.py merge --corpus dse   # resolved pointer per item
 python3 scripts/pointers.py check                # CI resolver: schema, known item, target exists
 ```

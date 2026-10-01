@@ -1,6 +1,7 @@
 """Tests for answer-pointer validation, tier merge, item join, coverage and the CI check."""
 from __future__ import annotations
 
+import io
 import json
 import tempfile
 import unittest
@@ -58,14 +59,16 @@ class ValidateTests(unittest.TestCase):
 
 class MergeTests(unittest.TestCase):
     def test_highest_tier_wins(self):
-        resolved = pointers.merge([ptr("a", "inferred", "x.png"), ptr("a", "verified", "y.png"), ptr("a", "derived", "z.png")])
-        self.assertEqual(resolved["a"]["tier"], "verified")
-        self.assertEqual(resolved["a"]["target"]["path"], "y.png")
-        self.assertEqual(resolved["a"]["alternates"], 2)
+        winner = ptr("a", "verified", "y.png")
+        resolved = pointers.merge([ptr("a", "inferred", "x.png"), winner, ptr("a", "derived", "z.png")])
+        self.assertEqual(resolved, {"a": winner})
+        self.assertIsNot(resolved["a"], winner)
 
     def test_same_tier_identical_targets_collapse(self):
-        resolved = pointers.merge([ptr("a", path="x.png"), ptr("a", path="x.png")])
-        self.assertEqual(resolved["a"]["alternates"], 1)
+        winner = ptr("a", path="x.png")
+        resolved = pointers.merge([winner, ptr("a", path="x.png")])
+        self.assertEqual(resolved, {"a": winner})
+        self.assertIsNot(resolved["a"], winner)
 
     def test_same_tier_conflict_raises(self):
         with self.assertRaises(pointers.PointerError):
@@ -90,7 +93,7 @@ class JoinCoverageTests(unittest.TestCase):
     def test_join(self):
         resolved = pointers.merge([ptr("q1")])
         joined = pointers.join_items(self.ITEMS, resolved)
-        self.assertEqual(joined[0]["answer_pointer"]["item_id"], "q1")
+        self.assertEqual(joined[0]["answer_pointer"], ptr("q1"))
         self.assertIsNone(joined[1]["answer_pointer"])
         self.assertNotIn("answer_pointer", self.ITEMS[0])
 
@@ -101,6 +104,66 @@ class JoinCoverageTests(unittest.TestCase):
         self.assertEqual(report["lq"]["total"], 1)
         self.assertEqual(report["all"]["covered"], 2)
         self.assertEqual(report["all"]["tiers"], {"verified": 1, "derived": 0, "inferred": 1})
+
+
+class CommandTests(unittest.TestCase):
+    def setUp(self):
+        tmp = self.enterContext(tempfile.TemporaryDirectory())
+        directory = Path(tmp)
+        self.enterContext(mock.patch.object(pointers, "POINTERS_DIR", directory))
+        self.winner = ptr("q1", "verified", "y.png")
+        stores = {
+            "qb": [],
+            "dse": [ptr("q1", "inferred", "x.png"), self.winner, dict(self.winner)],
+        }
+        for corpus, records in stores.items():
+            (directory / f"{corpus}.json").write_text(
+                json.dumps({"schema": pointers.SCHEMA_ID, "corpus": corpus, "pointers": records}),
+                encoding="utf-8",
+            )
+
+    def test_merge_json_stdout(self):
+        expected = {"qb": [], "dse": [self.winner]}
+        for corpora in (pointers.CORPORA, ("qb",), ("dse",)):
+            with self.subTest(corpora=corpora):
+                argv = ["merge"] + (["--corpus", corpora[0]] if len(corpora) == 1 else [])
+                with mock.patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                    self.assertEqual(pointers.main(argv), 0)
+                self.assertEqual(json.loads(stdout.getvalue()), {c: expected[c] for c in corpora})
+
+    def test_coverage_text_report(self):
+        items = [{"id": "q1", "type": "mc", "in_scope": True}]
+        expected = {
+            "qb": "[qb] in-scope items with an answer pointer\n"
+                  "  mc       0/1       0.0%  verified=0 derived=0 inferred=0\n"
+                  "  all      0/1       0.0%  verified=0 derived=0 inferred=0\n",
+            "dse": "[dse] in-scope items with an answer pointer\n"
+                   "  mc       1/1     100.0%  verified=1 derived=0 inferred=0\n"
+                   "  all      1/1     100.0%  verified=1 derived=0 inferred=0\n",
+        }
+        for corpora in (pointers.CORPORA, ("qb",), ("dse",)):
+            with self.subTest(corpora=corpora):
+                argv = ["coverage"] + (["--corpus", corpora[0]] if len(corpora) == 1 else [])
+                with mock.patch.object(pointers, "load_items", return_value=items) as load_items:
+                    with mock.patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                        self.assertEqual(pointers.main(argv), 0)
+                self.assertEqual(stdout.getvalue(), "".join(expected[c] for c in corpora))
+                self.assertEqual(load_items.call_args_list, [mock.call(c) for c in corpora])
+
+    def test_removed_options_are_rejected_before_execution(self):
+        for argv in (
+            ["merge", "--out", str(pointers.POINTERS_DIR / "merged.json")],
+            ["coverage", "--json"],
+            ["coverage", "--min-pct", "50"],
+        ):
+            with self.subTest(argv=argv):
+                with mock.patch.object(pointers, "merge_all") as merge_all:
+                    with mock.patch("sys.stderr", new_callable=io.StringIO):
+                        with self.assertRaises(SystemExit) as raised:
+                            pointers.main(argv)
+                self.assertEqual(raised.exception.code, 2)
+                merge_all.assert_not_called()
+        self.assertFalse((pointers.POINTERS_DIR / "merged.json").exists())
 
 
 class StagedStoreTests(unittest.TestCase):

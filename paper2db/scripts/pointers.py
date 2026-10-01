@@ -11,9 +11,9 @@ Item universes come from the tracked staging indexes under `qb-web-ui-staging/`:
        dse-lq/index.json     (id prefixed, e.g. dse-lq-2012-q1)
 
 Commands:
-  pointers.py merge [--corpus qb|dse] [--out FILE]   resolved pointer per item as JSON
-  pointers.py coverage [--json] [--min-pct N]        per corpus/type counts by tier
-  pointers.py check                                  CI resolver; exit 1 on any problem
+  pointers.py merge [--corpus qb|dse]      resolved pointer per item as JSON
+  pointers.py coverage [--corpus qb|dse]   per corpus/type counts by tier
+  pointers.py check [--corpus qb|dse]      CI resolver; exit 1 on any problem
 """
 from __future__ import annotations
 
@@ -139,8 +139,7 @@ def merge(pointers: list[dict]) -> dict[str, dict]:
     """Resolve to one pointer per item_id: highest tier wins.
 
     Identical targets at the top tier collapse; different targets there raise PointerError.
-    The resolved pointer is a copy with `alternates`, the count of lower-tier or duplicate
-    pointers it superseded.
+    The resolved pointer is a copy of the winning pointer.
     """
     by_item: dict[str, list[dict]] = {}
     for pointer in pointers:
@@ -153,7 +152,7 @@ def merge(pointers: list[dict]) -> dict[str, dict]:
         if len({_target_key(p) for p in winners}) > 1:
             tier = winners[0]["tier"]
             raise PointerError(f"{item_id}: {len(winners)} conflicting {tier} pointers with different targets")
-        resolved[item_id] = {**winners[0], "alternates": len(candidates) - 1}
+        resolved[item_id] = dict(winners[0])
     return resolved
 
 
@@ -262,10 +261,7 @@ def _selected(corpus: str | None) -> tuple[str, ...]:
 def cmd_merge(args: argparse.Namespace) -> int:
     out = {corpus: list(resolved.values()) for corpus, resolved in merge_all(_selected(args.corpus)).items()}
     text = json.dumps(out, indent=2, ensure_ascii=False) + "\n"
-    if args.out:
-        Path(args.out).write_text(text, encoding="utf-8")
-    else:
-        sys.stdout.write(text)
+    sys.stdout.write(text)
     return 0
 
 
@@ -273,19 +269,11 @@ def cmd_coverage(args: argparse.Namespace) -> int:
     report = {}
     for corpus, resolved in merge_all(_selected(args.corpus)).items():
         report[corpus] = coverage(load_items(corpus), resolved)
-    if args.json:
-        print(json.dumps(report, indent=2))
-    else:
-        for corpus, rows in report.items():
-            print(f"[{corpus}] in-scope items with an answer pointer")
-            for typ, row in rows.items():
-                tiers = " ".join(f"{t}={n}" for t, n in row["tiers"].items())
-                print(f"  {typ:<4} {row['covered']:>5}/{row['total']:<5} {row['pct']:>5}%  {tiers}")
-    if args.min_pct is not None:
-        low = [c for c, rows in report.items() if rows["all"]["pct"] < args.min_pct]
-        if low:
-            print(f"coverage below {args.min_pct}%: {', '.join(low)}", file=sys.stderr)
-            return 1
+    for corpus, rows in report.items():
+        print(f"[{corpus}] in-scope items with an answer pointer")
+        for typ, row in rows.items():
+            tiers = " ".join(f"{t}={n}" for t, n in row["tiers"].items())
+            print(f"  {typ:<4} {row['covered']:>5}/{row['total']:<5} {row['pct']:>5}%  {tiers}")
     return 0
 
 
@@ -310,11 +298,6 @@ def main(argv: list[str] | None = None) -> int:
         p = sub.add_parser(name, help=helptext)
         p.add_argument("--corpus", choices=CORPORA, default=None)
         p.set_defaults(fn=fn)
-        if name == "merge":
-            p.add_argument("--out", default=None)
-        if name == "coverage":
-            p.add_argument("--json", action="store_true")
-            p.add_argument("--min-pct", type=float, default=None, help="exit 1 if any corpus is below this percent")
     args = parser.parse_args(argv)
     try:
         return args.fn(args)
