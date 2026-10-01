@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>26.3 Radiation safety</title>
   <link rel="stylesheet" href="../css/notes.css">
+<link rel="stylesheet" href="../css/p2n.css">
   <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="../index.html">Book 5 · Ch.2<small>26.3 Radiation safety</small></a>
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Decay and uses</small></a>
     <nav>
       <a href="index.html">Map</a>
       <a href="26-1.html">26.1</a>
@@ -23,7 +24,7 @@
     <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
     <p class="kicker">26.3</p>
     <h1>Radiation safety</h1>
-    <p class="lede">Why ionizing radiation harms living tissue, how the harm is measured (dose, in sieverts, is not the same as activity, in becquerels), what typical doses look like, and the handling rules that keep dose low. Most exam marks here are for giving a <em>reason</em> with each precaution.</p>
+    <p class="lede">Dose measures harm; activity measures decay.</p>
 
     <section class="idea" id="hazard">
       <header>
@@ -48,7 +49,7 @@
         <li>Higher activity does not automatically mean more harm. The harm depends also on the type of radiation, whether the source is inside or outside the body, how far away it is, how long the exposure lasts, and what shielding is between.</li>
       </ul>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A source emits both α and γ radiation. Which radiation is the greater hazard (i) if the source is swallowed, (ii) if the source is held against the skin?</p>
         <div class="choices">
           <button type="button" data-choice="A">(i) α, (ii) α</button>
@@ -62,7 +63,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Sample X has a higher activity than sample Y. Does X necessarily cause more biological harm to a person nearby?</p>
         <div class="choices">
           <button type="button" data-choice="A">Yes: harm is proportional to activity.</button>
@@ -76,7 +77,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Radon gas is a greater hazard to the lungs than to any other organ because</p>
         <div class="choices">
           <button type="button" data-choice="A">it emits γ radiation, which is absorbed mainly by lung tissue.</button>
@@ -93,7 +94,7 @@
 
     <section class="idea" id="dose">
       <header>
-        <h2><span class="sec-num">B</span>Activity is emitted; dose is absorbed</h2>
+        <h2><span class="sec-num">B</span>Activity out, dose absorbed</h2>
       </header>
       <figure class="fig">
         <div class="visual play stage" id="dose-vis" data-autoplay data-scene="dose">
@@ -101,7 +102,8 @@
           <span class="hud-label" data-hud="act">activity · emitted · Bq</span>
           <span class="hud-label" data-hud="dose">dose · absorbed · Sv</span>
         </div>
-        <figcaption><b>Fig. 26.22 to 26.24</b> The source's activity (Bq) counts decays per second. The dose (Sv) measures the biological effect of the energy the body actually absorbs, which depends on distance, time, shielding, radiation type and which organs are hit.</figcaption>
+        <figcaption><b>Fig. 26.22 to 26.24</b> The source's activity (Bq) counts decays per second.</figcaption>
+<details class="fig-more"><summary>More</summary><p>The source's activity (Bq) counts decays per second. The dose (Sv) measures the biological effect of the energy the body actually absorbs, which depends on distance, time, shielding, radiation type and which organs are hit.</p></details>
       </figure>
       <div class="def">
         <span class="tag">Definitions</span>
@@ -151,7 +153,7 @@
       </ul>
       
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Background in Hong Kong is about 2.4 mSv per year. A chest X-ray gives about 0.02 mSv and smoking 10 cigarettes a day gives about 18 mSv per year. In one year Sam smokes 5 cigarettes a day and has three chest X-rays. His total effective dose for the year is about</p>
         <div class="choices">
           <button type="button" data-choice="A">2.46 mSv</button>
@@ -165,7 +167,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Which of the following statements is/are correct?</p>
         <ol class="stem-list">
           <li>The biological effect of radiation depends only on the energy absorbed, not on the type of radiation or the organ.</li>
@@ -220,7 +222,7 @@
         </ol>
       </div>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>When performing an experiment with a radioactive source, can the radiation dose received be reduced by</p>
         <ol class="stem-list">
           <li>planning the experiment so that the handling time is shorter?</li>
@@ -239,7 +241,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A school stores a γ source in a box. Which box material gives the best protection, and why?</p>
         <div class="choices">
           <button type="button" data-choice="A">Wood, because it is a good electrical insulator.</button>
@@ -253,9 +255,9 @@
         </div>
       </div>
       <div class="check" data-check="sa">
-        <h3>Write it out</h3>
+        <h3>Write it</h3>
         <p>A technician has to move a small γ source from its store to a demonstration bench and back. State four precautions the technician should take and give the reason for each. <span class="marks">(4 marks)</span></p>
-        <button type="button" data-reveal>Show model answer</button>
+        <button type="button" data-reveal>Show answer</button>
         <div class="model" hidden>
           <ol>
             <li>Carry the source in its lead container and take it out only at the bench: shielding, and minimum time exposed.</li>
@@ -271,7 +273,7 @@
     <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../_local/dse/mc/26/combined.pdf" data-quiz-section-pdf="../_local/dse/mc/26/26.3.pdf">
       <header>
         <span class="sec-num">MC</span>
-        <h2 id="mc-quiz-heading">Check the learning objectives</h2>
+        <h2 id="mc-quiz-heading">Check the goals</h2>
       </header>
       <div class="quiz-slides">
         <article class="quiz-slide is-current" id="dse-mc-2026-32">
