@@ -65,6 +65,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `qb/` | Local QB DOCX source tree, if supplied (gitignored; working manifest at `qb/source-manifest.json` if built) |
 | `qb-pdf/` | Converted QB PDFs, OCR, item JSON, crops, conversion log and quality report (generated, gitignored) |
 | `schemas/qb-item.v1.json` | `paper2db.qb-item.v1` item contract (legacy) |
+| `schemas/dse-item.v1.json` | `paper2db.dse-item.v1` DSE past-paper item contract (`dse-items` stage) |
 | `schemas/qb-item.v2.json` | `paper2db.qb-item.v2` item contract (corpus-agnostic, with `scope` and `source_manifest`) |
 | `schemas/answer-pointer.v1.json` | `paper2db.answer-pointer.v1` store contract for answer pointers |
 | `metadata/pointers/{qb,dse}.json` | Tracked answer-pointer stores (empty until pointers are added) |
@@ -94,11 +95,12 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 8. **lq-performance** - candidate-performance notes → `tests/sections/lq/candidate_performance.json` (free, local, deterministic; `scripts/extract_lq_performance.py`)
 9. **classify-lq** - same sections for LQ; same metadata replay / LLM-only-for-missing-years / keyword-fallback behavior as classify-mc. Either backend then lists every Book 5 section a radioactivity LQ tests (e.g. 2014 Q10: ch26 activity + ch25 alpha handling; 2012 Q11 keeps 25+26+27), primary = latest section. Both backends OCR the whole page stack (cache keyed by PNG size under `tests/sections/lq/ocr_cache/`)
 10. **section-pdfs** - per-section A4 `combined.pdf` (+ LQ `answers.pdf` / `performance.pdf`); an LQ appears in every section it is listed under, not only its primary
-11. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
-12. **qb-pdf** - verify `metadata/qb/source-manifest.json` (sha256 per DOCX, plus `banks.json` agreement) then convert QB DOCX files to PDF with LibreOffice; copy PDF-only sources
-13. **qb-ocr** - OCR QB PDFs with `pdftoppm` and Tesseract
-14. **qb-items** - extract `paper2db.qb-item.v2` JSON (`scope` from `banks.json`, `source_manifest` provenance) and per-item PNG crops
-15. **qb-audit** - strict QB quality gate (counts from `metadata/qb/banks.json`: 169 PDFs / 46 banks → 3847 items, 1881 in-scope) and local crop review board
+11. **dse-items** - join crops, tracked classifications, MC keys, LQ candidate performance and source pointers into `paper2db.dse-item.v1` records (`schemas/dse-item.v1.json`): `tests/sections/items/<section>.json` per section (a question appears under every section it is listed under) plus `index.json`. A record is in-scope when its primary section is in Books 2, 4 or 5 (366 MC + 104 LQ = 470); the stage fails if any record is schema-invalid or an in-scope question crop is missing. Runs on the whole corpus; `--years` does not apply
+12. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
+13. **qb-pdf** - verify `metadata/qb/source-manifest.json` (sha256 per DOCX, plus `banks.json` agreement) then convert QB DOCX files to PDF with LibreOffice; copy PDF-only sources
+14. **qb-ocr** - OCR QB PDFs with `pdftoppm` and Tesseract
+15. **qb-items** - extract `paper2db.qb-item.v2` JSON (`scope` from `banks.json`, `source_manifest` provenance) and per-item PNG crops
+16. **qb-audit** - strict QB quality gate (counts from `metadata/qb/banks.json`: 169 PDFs / 46 banks → 3847 items, 1881 in-scope) and local crop review board
 
 The QB stages skip when no QB DOCX source tree is found. They use `$P2DB_QB_ROOT` if set, otherwise `qb/` in this repository (`qb/` itself stays gitignored; the tracked census is `metadata/qb/banks.json` and the tracked manifest is `metadata/qb/source-manifest.json`). `qb-pdf` first runs `scripts/qb_manifest.py verify` (sha256 per DOCX plus `banks.json` agreement) before conversion. The QB source files and all generated QB outputs stay untracked. LibreOffice (`soffice`), `pdftoppm` and Tesseract must be on `PATH` to run these stages. Run only the QB track with `./pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit`; `--years` applies to past papers, not QB. `qb-items` emits `paper2db.qb-item.v2` (`schemas/qb-item.v2.json`, with `scope` from `banks.json` and `source_manifest` provenance; `v1` is legacy). The QB audit writes `qb-pdf/quality.json` and `.lavish/qb-review/index.html`; it checks the exact PDF and item counts from `metadata/qb/banks.json` (169 PDFs / 46 banks → 3847 items, 1881 in-scope), crops, key statuses, and conversion rendering. See `scripts/qb_quality.py` and `scripts/qb_manifest.py` for the gate definitions.
 

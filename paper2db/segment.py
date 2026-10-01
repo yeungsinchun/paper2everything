@@ -297,7 +297,7 @@ def parse_args() -> argparse.Namespace:
         "--overrides",
         type=Path,
         default=None,
-        help="MC overrides JSON: {question: [page, x, y], ...} (auto: scripts/overrides_YYYY.json)",
+        help="MC overrides JSON: {question: [page, x, y], ...} (auto: scripts/overrides_*.json)",
     )
     parser.add_argument(
         "--max-scale",
