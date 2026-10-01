@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>26.1 Rate of radioactive decay</title>
   <link rel="stylesheet" href="../css/notes.css">
+<link rel="stylesheet" href="../css/p2n.css">
   <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="../index.html">Book 5 · Ch.2<small>26.1 Rate of radioactive decay</small></a>
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Decay and uses</small></a>
     <nav>
       <a href="index.html">Map</a>
       <a href="26-1.html" aria-current="page">26.1</a>
@@ -23,11 +24,11 @@
     <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
     <p class="kicker">26.1</p>
     <h1>Rate of radioactive decay</h1>
-    <p class="lede">Decay is random for one nucleus and perfectly predictable for a large sample. This section builds the two working tools, half-life and activity, shows how to read them from real (background-contaminated) data, and then, as extension, the decay constant and the exponential law that let you solve for any time, not only whole half-lives.</p>
+    <p class="lede">Random for one nucleus, predictable for many.</p>
 
     <section class="idea" id="random">
       <header>
-        <h2><span class="sec-num">A</span>Decay is random, but a sample is predictable</h2>
+        <h2><span class="sec-num">A</span>Random decay, predictable sample</h2>
       </header>
       <figure class="fig">
         <div class="visual play stage" id="decay-vis" data-autoplay data-scene="dice">
@@ -35,7 +36,8 @@
           <span class="hud-label" data-hud="live">100 undecayed</span>
           <button type="button" class="stage-replay" data-replay="decay-vis">Replay</button>
         </div>
-        <figcaption><b>Fig. 26.1 to 26.3</b> A dice model. Each nucleus is a die; on every throw each surviving die has the same 1-in-6 chance of "decaying" and is removed. Nobody can say which dice will go on the next throw, yet about one sixth of the survivors always do.</figcaption>
+        <figcaption><b>Fig. 26.1 to 26.3</b> A dice model.</figcaption>
+<details class="fig-more"><summary>More</summary><p>A dice model. Each nucleus is a die; on every throw each surviving die has the same 1-in-6 chance of "decaying" and is removed. Nobody can say which dice will go on the next throw, yet about one sixth of the survivors always do.</p></details>
       </figure>
       <div class="def">
         <span class="tag">Random and spontaneous</span>
@@ -48,7 +50,7 @@
         <li>Evidence of randomness: repeated equal-time counts of the same source (or of background) are never identical, and cloud-chamber tracks appear at random places and moments.</li>
       </ul>
       <div class="check" data-check="mc" data-answer="D">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Radioactive decay is described as random. This means that</p>
         <div class="choices">
           <button type="button" data-choice="A">the activity of a sample depends on the number of undecayed nuclei.</button>
@@ -63,7 +65,7 @@
       </div>
       
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A sample contains a very large number of nuclei of one radionuclide. Which of the following statements is/are correct?</p>
         <ol class="stem-list">
           <li>The nuclei that have survived longest are the most likely to decay next.</li>
@@ -93,7 +95,8 @@
           <span class="hud-label" data-hud="n">N</span>
           <span class="hud-label" data-hud="t">t</span>
         </div>
-        <figcaption><b>Fig. 26.4</b> Iodine-131 (half-life 8 days). Starting with 40 billion nuclei, 20 billion remain at 8 days, 10 billion at 16 days, 5 billion at 24 days. The grey stack is the decayed nuclei, which have become daughter nuclei (xenon-131) and are still there: the two stacks always total 40 billion.</figcaption>
+        <figcaption><b>Fig. 26.4</b> Iodine-131 (half-life 8 days).</figcaption>
+<details class="fig-more"><summary>More</summary><p>Iodine-131 (half-life 8 days). Starting with 40 billion nuclei, 20 billion remain at 8 days, 10 billion at 16 days, 5 billion at 24 days. The grey stack is the decayed nuclei, which have become daughter nuclei (xenon-131) and are still there: the two stacks always total 40 billion.</p></details>
       </figure>
       <div class="def">
         <span class="tag">Definition</span>
@@ -126,7 +129,7 @@
         <p class="note">Common slips: giving 6.25 g for "decayed", or 75 g (two half-lives) for "decayed in 12 days".</p>
       </div>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Which of the following statements about the half-life of a radioactive source is/are correct?</p>
         <ol class="stem-list">
           <li>It is the time for the activity of the source to fall to half its value.</li>
@@ -145,7 +148,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A source contains only radioactive nuclide X, which decays to stable Y. After one half-life of X, which of the following is/are correct?</p>
         <ol class="stem-list">
           <li>The number of X nuclei is about half the initial number.</li>
@@ -164,7 +167,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A pure sample of a radionuclide decays to a stable daughter. After 2 years the sample is 2% parent and 98% daughter by number. What was its composition after 1 year?</p>
         <div class="choices">
           <button type="button" data-choice="A">25% parent, 75% daughter</button>
@@ -195,7 +198,8 @@
             <span class="hud-label" data-hud="a">A</span>
           </div>
         </div>
-        <figcaption><b>Fig. 26.5 and 26.6</b> Left: fewer undecayed nuclei means fewer decays per second. Right: the activity of iodine-131 against time has exactly the same shape, and the same half-life, as the graph of \( N \).</figcaption>
+        <figcaption><b>Fig. 26.5 and 26.6</b> Left: fewer undecayed nuclei means fewer decays per second.</figcaption>
+<details class="fig-more"><summary>More</summary><p>Left: fewer undecayed nuclei means fewer decays per second. Right: the activity of iodine-131 against time has exactly the same shape, and the same half-life, as the graph of \( N \).</p></details>
       </figure>
       <div class="def">
         <span class="tag">Definition</span>
@@ -219,7 +223,7 @@
       </div>
       
       <div class="check" data-check="mc" data-answer="A">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Half of a powdered radioactive sample is removed. For the half that remains, which of the following are halved compared with the original sample?</p>
         <ol class="stem-list">
           <li>the activity</li>
@@ -238,7 +242,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="D">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>On which of the following does the activity of a radioactive source depend?</p>
         <ol class="stem-list">
           <li>the nature of the radiation emitted</li>
@@ -257,7 +261,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Two samples P and Q are of the same radionuclide. P has twice as many undecayed nuclei as Q. Which of the following is correct?</p>
         <div class="choices">
           <button type="button" data-choice="A">P has twice the half-life of Q.</button>
@@ -283,7 +287,8 @@
           <span class="hud-label" data-hud="bg">background</span>
           <button type="button" class="stage-replay" data-replay="countbg-vis">Replay</button>
         </div>
-        <figcaption><b>Example 26.1</b> The recorded count rate from a source falls but flattens out at about 40 counts per minute instead of zero. The flat part is background, which the GM tube counts whether or not a source is present.</figcaption>
+        <figcaption><b>Example 26.1</b> Count rate flattens at the background level.</figcaption>
+<details class="fig-more"><summary>More</summary><p>The recorded count rate from a source falls but flattens out at about 40 counts per minute instead of zero. The flat part is background, which the GM tube counts whether or not a source is present.</p></details>
       </figure>
       <div class="def">
         <span class="tag">Corrected count rate</span>
@@ -319,7 +324,7 @@
       </div>
       
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A GM counter records 140 min<sup>-1</sup> when a source is first placed near it. After a long time the reading settles at 20 min<sup>-1</sup>. At what recorded count rate should you read the graph to find one half-life?</p>
         <div class="choices">
           <button type="button" data-choice="A">70 min<sup>-1</sup></button>
@@ -333,7 +338,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Counts per minute from a source are recorded every minute, with background about 100 min<sup>-1</sup>: 900, 417, 225, 150, 113, 92, 102. Which explanation of the reading of 92 is best?</p>
         <div class="choices">
           <button type="button" data-choice="A">The source has become negative in activity.</button>
@@ -368,7 +373,7 @@
       
       
       <div class="check" data-check="mc" data-answer="D">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Initially a sample contains 4 times as many nuclei of X (half-life \( t \)) as of Y (half-life \( 2t \)). After how long are the numbers of X and Y nuclei equal?</p>
         <div class="choices">
           <button type="button" data-choice="A">\( t \)</button>
@@ -385,7 +390,7 @@
 
     <section class="idea" id="constant">
       <header>
-        <h2><span class="sec-num">F</span>The decay constant and the exponential law <span class="lo-ext">extension</span></h2>
+        <h2><span class="sec-num">F</span>Decay constant, exponential law <span class="lo-ext">extension</span></h2>
       </header>
       <div class="def">
         <span class="tag">Definition</span>
@@ -426,7 +431,7 @@
         </ol>
       </div>
       <div class="check" data-check="mc" data-answer="A">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>Which statement about the decay constant of a radionuclide is <b>incorrect</b>?</p>
         <div class="choices">
           <button type="button" data-choice="A">It is the rate of decay of a sample of the nuclide.</button>
@@ -440,7 +445,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A radionuclide has decay constant \( 1.02 \times 10^{-5} \) s<sup>-1</sup>. The time for the number of undecayed nuclei to decrease <em>by</em> one third is about</p>
         <div class="choices">
           <button type="button" data-choice="A">\( 1.08 \times 10^{5} \) s</button>
@@ -454,7 +459,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="C">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>For a certain source, a graph of \( \ln A \) against \( t \) is a straight line through \( (0, 6.0) \) and \( (4.0 \text{ h}, 2.0) \). Which of the following is correct?</p>
         <div class="choices">
           <button type="button" data-choice="A">The half-life is 4.0 h.</button>
@@ -468,7 +473,7 @@
         </div>
       </div>
       <div class="check" data-check="mc" data-answer="B">
-        <h3>Concept check</h3>
+        <h3>Quick check</h3>
         <p>A nuclide has decay constant \( 0.05 \) s<sup>-1</sup>. The probability that a particular undecayed nucleus decays within the next 10 s is</p>
         <div class="choices">
           <button type="button" data-choice="A">0.50</button>
@@ -482,9 +487,9 @@
         </div>
       </div>
       <div class="check" data-check="sa">
-        <h3>Write it out</h3>
+        <h3>Write it</h3>
         <p>A 0.040 mg sample of iron-60 (molar mass 59.9 g) has an activity of 3400 Bq. (a) Find the number of iron-60 nuclei. (b) Find the decay constant. (c) Find the half-life in seconds, and comment on why iron-60 is found in samples of lunar soil that formed millions of years ago. (\( N_A = 6.02 \times 10^{23} \) mol<sup>-1</sup>.) <span class="marks">(5 marks)</span></p>
-        <button type="button" data-reveal>Show model answer</button>
+        <button type="button" data-reveal>Show answer</button>
         <div class="model" hidden>
           <ol>
             <li>(a) \( N = \dfrac{0.040 \times 10^{-3}}{59.9} \times 6.02 \times 10^{23} = 4.02 \times 10^{17} \).</li>
@@ -500,7 +505,7 @@
     <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../_local/dse/mc/26/combined.pdf" data-quiz-section-pdf="../_local/dse/mc/26/26.1.pdf">
       <header>
         <span class="sec-num">MC</span>
-        <h2 id="mc-quiz-heading">Check the learning objectives</h2>
+        <h2 id="mc-quiz-heading">Check the goals</h2>
       </header>
       <div class="quiz-slides">
         <article class="quiz-slide is-current" id="dse-mc-2020-30">
@@ -682,7 +687,7 @@
         </article>
       
 <article class="quiz-slide" hidden id="dse-lq-2024-13">
-          <h3>Radon: decay constant and atoms from activity</h3>
+          <h3>Radon: atoms from activity</h3>
           <figure class="dse-paper">
             <figcaption>2024/13 LQ</figcaption>
             <img src="../_local/dse/lq/26/2024-q13.png" alt="HKDSE 2024/13 LQ">

@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>27.1 Nuclear fission and fusion</title>
 <link rel="stylesheet" href="../css/notes.css">
+<link rel="stylesheet" href="../css/p2n.css">
 <link rel="stylesheet" href="css/notes.css">
 <link rel="stylesheet" href="../vendor/katex/katex.min.css">
 </head>
 <body>
 <header class="topbar">
-<a class="brand" href="../index.html">Book 5 · Ch.3<small>27.1 Nuclear fission and fusion</small></a>
+<a class="brand" href="../../index.html">paper<i>2</i>notes<small>Nuclear energy</small></a>
 <nav>
 <a href="index.html">Map</a>
 <a href="27-1.html" aria-current="page">27.1</a>
@@ -21,10 +22,10 @@
 <main>
 <p class="kicker">27.1</p>
 <h1>Nuclear fission and fusion</h1>
-<p class="lede">A heavy nucleus splits, light nuclei join — both release energy because the products weigh less than the reactants. The released neutrons can trigger more fission, which is how a chain reaction is sustained in a reactor but loses control in a bomb, and why fusion needs stellar temperatures.</p>
+<p class="lede">Splitting or joining nuclei releases energy.</p>
 
 <section class="lo-block" aria-labelledby="lo-heading">
-<h2 id="lo-heading">Learning objectives</h2>
+<h2 id="lo-heading">Goals</h2>
 <p class="lo-stem">Students should be able to:</p>
 <ul class="lo-list">
 <li><p>realise the release of energy in nuclear fission and fusion</p></li>
@@ -35,7 +36,7 @@
 
 <section class="idea" id="fission">
 <header>
-<h2><span class="sec-num">A</span>Nuclear fission: a heavy nucleus splits</h2>
+<h2><span class="sec-num">A</span>Fission: a heavy nucleus splits</h2>
 </header>
 <figure class="fig">
 <div class="visual play stage" id="fission-vis" data-autoplay data-scene="fission">
@@ -45,7 +46,8 @@
 <span class="hud-label" data-hud="energy">energy out</span>
 <button type="button" class="stage-replay" data-replay="fission-vis">Replay</button>
 </div>
-<figcaption><b>Fig. 27.1</b> A slow neutron captured by uranium-235 splits it into barium-141, krypton-92 and three neutrons. Most of the released energy appears as kinetic energy of the two fragments; a little appears as kinetic energy of the neutrons and as gamma rays.</figcaption>
+<figcaption><b>Fig. 27.1</b> A slow neutron splits U-235 into two fragments.</figcaption>
+<details class="fig-more"><summary>More</summary><p>A slow neutron captured by uranium-235 splits it into barium-141, krypton-92 and three neutrons. Most of the released energy appears as kinetic energy of the two fragments; a little appears as kinetic energy of the neutrons and as gamma rays.</p></details>
 </figure>
 <div class="def">
 <span class="tag">Definition</span>
@@ -75,7 +77,8 @@
 <span class="hud-label" data-hud="live">live U-235</span>
 <button type="button" class="stage-replay" data-replay="chain-vis">Replay</button>
 </div>
-<figcaption><b>Fig. 27.2</b> Each fission emits 2–3 neutrons. If on average at least one of them causes another fission, the reaction sustains. If fewer, it dies out.</figcaption>
+<figcaption><b>Fig. 27.2</b> Each fission emits 2–3 neutrons.</figcaption>
+<details class="fig-more"><summary>More</summary><p>Each fission emits 2–3 neutrons. If on average at least one of them causes another fission, the reaction sustains. If fewer, it dies out.</p></details>
 </figure>
 <div class="row">
 <button type="button" data-chain="sub" aria-pressed="false">Dies out (subcritical)</button>
@@ -97,7 +100,7 @@
 <p>Dominoes in a pyramid fall like a chain, but spacing matters: pack them too far apart and the fall stops. U-235 must be sufficiently concentrated so that a neutron meets another nucleus before it leaves the lump.</p>
 </div>
 <div class="check" data-check="mc" data-answer="C">
-<h3>Concept check</h3>
+<h3>Quick check</h3>
 <p>Which of the following must be true for a fission chain reaction to sustain?</p>
 <div class="choices">
 <button type="button" data-choice="A">Every fission must emit exactly one neutron.</button>
@@ -133,7 +136,8 @@
 <span class="hud-label" data-hud="rods">control rods in</span>
 <span class="hud-label" data-hud="power">fission rate low</span>
 </div>
-<figcaption><b>Fig. 27.4 &amp; Enrichment: the pressurized water reactor.</b> The reactor vessel holds the fuel rods. A pressurized water circuit carries heat to the boiler and also moderates (slows) neutrons — only slow neutrons trigger U-235 fission.</figcaption>
+<figcaption><b>Fig. 27.4 &amp; Enrichment: the pressurized water reactor.</b> The reactor vessel holds the fuel rods.</figcaption>
+<details class="fig-more"><summary>More</summary><p>The reactor vessel holds the fuel rods. A pressurized water circuit carries heat to the boiler and also moderates (slows) neutrons — only slow neutrons trigger U-235 fission.</p></details>
 </figure>
 <div class="row">
 <button type="button" data-rods="in" aria-pressed="true">Rods in</button>
@@ -161,7 +165,7 @@
 </tbody>
 </table>
 <div class="check" data-check="mc" data-answer="C">
-<h3>Concept check</h3>
+<h3>Quick check</h3>
 <p>Which statement about a fission reactor is correct?</p>
 <div class="choices">
 <button type="button" data-choice="A">The reactor contains &gt;90% U-235.</button>
@@ -188,7 +192,8 @@
 <span class="hud-label" data-hud="energy">repulsion pushes apart</span>
 <button type="button" class="stage-replay" data-replay="fusion-vis">Replay</button>
 </div>
-<figcaption><b>Fig. 27.5 &amp; 27.6</b> Hydrogen-2 (deuteron, D, \( {}^{2}_{1}\mathrm{H}\)) and hydrogen-3 (triton, T, \( {}^{3}_{1}\mathrm{H}\)) must be brought close enough for the short-range strong force to fuse them. Their positive charges repel, so they need very high kinetic energy.</figcaption>
+<figcaption><b>Fig. 27.5 &amp; 27.6</b> Hot nuclei overcome repulsion and fuse.</figcaption>
+<details class="fig-more"><summary>More</summary><p>Hydrogen-2 (deuteron, D, \( {}^{2}_{1}\mathrm{H}\)) and hydrogen-3 (triton, T, \( {}^{3}_{1}\mathrm{H}\)) must be brought close enough for the short-range strong force to fuse them. Their positive charges repel, so they need very high kinetic energy.</p></details>
 </figure>
 <div class="def">
 <span class="tag">Definition</span>
@@ -201,7 +206,7 @@
 <li>On Earth the D–T reaction is achieved briefly in a <b>fusion (hydrogen) bomb</b>: a small fission bomb provides the extreme temperature to ignite fusion. The fusion itself is uncontrollable and about 1000 times more destructive than the fission trigger.</li>
 </ul>
 <div class="check" data-check="tf">
-<h3>Concept check</h3>
+<h3>Quick check</h3>
 <div class="tf-item" data-answer="false">
 <p>(a) Energy is released only when heavy nuclei split, not when light nuclei fuse.</p>
 <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
@@ -225,14 +230,14 @@
 
 <section class="idea" id="sun-bomb">
 <header>
-<h2><span class="sec-num">E</span>The Sun, the hydrogen bomb and the fusion reactor</h2>
+<h2><span class="sec-num">E</span>Sun, H-bomb, fusion reactor</h2>
 </header>
 <p><b>The Sun</b> is a natural fusion reactor. Deep in its core, at about \(1.5 \times 10^{7}\) K, millions of tonnes of light nuclei fuse every second. The energy appears first as kinetic energy and gamma photons, then works its way out as the sunlight and warmth we feel. About 74% of the Sun's mass is hydrogen and 25% helium; over billions of years the hydrogen fraction slowly falls and the helium fraction rises as fusion proceeds.</p>
 <ul class="points">
 <li>Why fusion hardly occurs on Earth at ordinary temperatures: nuclei at room temperature have far too little kinetic energy to overcome the Coulomb repulsion. Only in the extreme heat of a star, or briefly in an explosion, do collisions succeed.</li>
 <li>Hydrogen bomb: the heat to ignite D–T fusion is supplied by a small <b>fission primary</b>. Once ignited, the secondary fusion fuel (often lithium deuteride) fuses uncontrollably. Energy per kilogram of D+T fuel is about 5 times that per kilogram of U-235 — hence a single fusion stage is vastly more destructive.</li>
 </ul>
-<h3>Fusion reactor — why it is hard</h3>
+<h3>Why fusion is hard</h3>
 <p>A practical fusion power plant would be attractive: fuel (deuterium from seawater) is cheap and almost unlimited, the waste product helium is non-toxic and non-radioactive, and there is no long-lived fission waste. Two challenges have prevented a commercial plant so far:</p>
 <ul class="points">
 <li><b>Heating the fuel under control</b> to fusion temperature and keeping it hot long enough for the reaction to give net energy.</li>
@@ -244,7 +249,7 @@
 <p>Enrico Fermi bombarded uranium with neutrons in 1934 and thought he had made an element heavier than uranium. Chemist Otto Hahn and physicist Lise Meitner repeated the work; in 1938 Hahn showed the products were actually lighter elements, and Meitner correctly interpreted the reaction as fission. Hahn received the 1944 Nobel Prize in Chemistry alone; many believe Meitner should have shared it.</p>
 </div>
 <div class="check" data-check="mc" data-answer="B">
-<h3>Concept check</h3>
+<h3>Quick check</h3>
 <p>Which of the following generates energy by nuclear fusion?</p>
 <div class="choices">
 <button type="button" data-choice="A">A fission bomb</button>
@@ -258,7 +263,7 @@
 </div>
 </div>
 <div class="check" data-check="mc" data-answer="D">
-<h3>Concept check</h3>
+<h3>Quick check</h3>
 <p>Which is <em>not</em> an advantage of fusion power over fission?</p>
 <div class="choices">
 <button type="button" data-choice="A">Fuel is readily available from seawater.</button>
@@ -275,7 +280,7 @@
 
 <section class="idea" id="debate">
 <header>
-<h2><span class="sec-num">F</span>Nuclear power — for and against</h2>
+<h2><span class="sec-num">F</span>Power: for and against</h2>
 </header>
 <p>In 2013 about 73% of France's electricity and about 20% of the world's was nuclear; France ran 58 reactors, the US 104, China 20 (<b>Fig. 27.11</b>). The textbook frames the debate as a set of testable facts versus values that society must weigh.</p>
 <table class="notes">
@@ -298,7 +303,7 @@
 <p><b>Fukushima (2011, Japan):</b> chain reaction had already stopped after the earthquake, but <b>decay heat</b> from the fuel overheated the reactors when cooling and pools were damaged by the tsunami. Three reactors melted down, food contaminated 320 km away, 20 km forbidden zone, cleanup still decades long. A plant at ~3% enrichment cannot explode like a bomb — the enrichment is far too low.</p>
 </div>
 <div class="check" data-check="mc" data-answer="B">
-<h3>Concept check</h3>
+<h3>Quick check</h3>
 <p>Which of the following is/are disadvantages of fission power listed in the textbook?</p>
 <ol class="stem-list">
 <li>It must be heated to \(10^{7}\) K before fission can start.</li>
@@ -317,7 +322,7 @@
 </div>
 </div>
 <div class="check" data-check="mc" data-answer="C">
-<h3>Concept check</h3>
+<h3>Quick check</h3>
 <p>Which statement about fission is correct?</p>
 <div class="choices">
 <button type="button" data-choice="A">U-235 nuclei are never split in fission.</button>
@@ -335,11 +340,11 @@
 <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
 <header>
 <span class="sec-num">MC</span>
-<h2 id="mc-quiz-heading">Check the learning objectives</h2>
+<h2 id="mc-quiz-heading">Check the goals</h2>
 </header>
 <div class="quiz-slides">
 <article class="quiz-slide is-current" id="dse-mc-2018-31">
-<h3>Which reactions can sustain a chain?</h3>
+<h3>Which reactions sustain chains?</h3>
 <p>Check whether the products include neutrons that could trigger further U-235 fission — fusion or α-decay products cannot.</p>
 <figure class="dse-paper">
 <figcaption>2018/31 MC</figcaption>
@@ -369,7 +374,7 @@
 </figure>
 </article>
 <article class="quiz-slide" hidden id="dse-mc-pp-36">
-<h3>Fusion type and energy from mass defect</h3>
+<h3>Fusion type and energy</h3>
 <figure class="dse-paper">
 <figcaption>PP/36 MC</figcaption>
 <img src="../_local/dse/mc/27/pp_q36.png" alt="HKDSE PP/36 MC">
@@ -390,14 +395,14 @@
 </header>
 <div class="quiz-slides">
 <article class="quiz-slide is-current" id="dse-lq-2019-10">
-<h3>Fission, chain reaction and the Sun</h3>
+<h3>Fission, chains and the Sun</h3>
 <figure class="dse-paper">
 <figcaption>2019/10 LQ</figcaption>
 <img src="../_local/dse/lq/27/2019-q10.png" alt="HKDSE 2019/10 LQ">
 </figure>
 </article>
 <article class="quiz-slide" hidden id="dse-lq-2022-10">
-<h3>Fission and fusion in the power debate</h3>
+<h3>Fission, fusion and power</h3>
 <figure class="dse-paper">
 <figcaption>2022/10 LQ</figcaption>
 <img src="../_local/dse/lq/27/2022-q10.png" alt="HKDSE 2022/10 LQ">
