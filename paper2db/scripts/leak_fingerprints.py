@@ -11,7 +11,7 @@ Per item it stores:
   w     salted hashes of every word 8-gram of the worked solution / marking
   nums  salted hashes of the item's "significant numbers" (numset)
 
-8-grams that occur in 3 or more different items are boilerplate ("which of the
+8-grams that are mostly numbers (OCR rulers, tables) are skipped. 8-grams that occur in 3 or more different items are boilerplate ("which of the
 following statements is correct about ...") and are dropped so they cannot
 cause false positives.
 
@@ -44,6 +44,7 @@ NGRAM = 8
 GRAM_HEX = 12  # 48 bits per 8-gram
 NUM_HEX = 8  # 32 bits per number
 BOILERPLATE_MIN_ITEMS = 3
+MIN_WORDS_PER_GRAM = 4  # non-numeric tokens required in an 8-gram
 MIN_NUMSET = 4  # items with fewer significant numbers get no numset
 
 TOKEN_RE = re.compile(r"[0-9a-z]+(?:\.[0-9]+)?", re.ASCII)
@@ -84,10 +85,13 @@ def digest(value, hex_len):
 
 
 def ngram_hashes(toks):
-    return {
-        digest(" ".join(toks[i : i + NGRAM]), GRAM_HEX)
-        for i in range(len(toks) - NGRAM + 1)
-    }
+    """Hashes of word 8-grams; grams that are mostly numbers (OCR rulers, tables) are skipped."""
+    out = set()
+    for i in range(len(toks) - NGRAM + 1):
+        gram = toks[i : i + NGRAM]
+        if sum(1 for t in gram if not NUMBER_RE.fullmatch(t)) >= MIN_WORDS_PER_GRAM:
+            out.add(digest(" ".join(gram), GRAM_HEX))
+    return out
 
 
 def question_text(item):
