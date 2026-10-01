@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Injects a small unobtrusive footer showing the deployed commit (first 6 chars)
-// into every HTML file under paper2notes/notes. Idempotent: updates existing
+// and its subject line (commit name) into every HTML file under paper2notes/notes. Idempotent: updates existing
 // footer or inserts before </body>.
 //
 // Usage:
@@ -8,8 +8,11 @@
 //   node paper2notes/scripts/inject-commit-footer.mjs --commit 7d5562f --root paper2notes/notes
 //   GIT_COMMIT=abc123 node paper2notes/scripts/inject-commit-footer.mjs
 //   GITHUB_SHA=abc123 node paper2notes/scripts/inject-commit-footer.mjs
+//   node paper2notes/scripts/inject-commit-footer.mjs --commit abc123 --subject "fix: thing"
 //
 // Resolves commit from (in order): --commit arg, $GIT_COMMIT, $DEPLOY_COMMIT, $GITHUB_SHA, `git rev-parse HEAD`.
+// Resolves subject from (in order): --subject arg, $GIT_SUBJECT, $DEPLOY_SUBJECT, `git log -1 --format=%s <commit>`
+// (empty subject => footer shows the commit ID only). The subject is HTML-escaped.
 
 import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
@@ -24,6 +27,7 @@ function parseArgs() {
   const args = process.argv.slice(2);
   let commit = null;
   let root = null;
+  let subject = null;
   let check = false;
   for (let i = 0; i < args.length; i++) {
     const a = args[i];
@@ -31,13 +35,15 @@ function parseArgs() {
     else if (a.startsWith("--commit=")) commit = a.slice("--commit=".length);
     else if (a === "--root" && i + 1 < args.length) root = args[++i];
     else if (a.startsWith("--root=")) root = a.slice("--root=".length);
+    else if (a === "--subject" && i + 1 < args.length) subject = args[++i];
+    else if (a.startsWith("--subject=")) subject = a.slice("--subject=".length);
     else if (a === "--check") check = true;
     else if (a === "--help" || a === "-h") {
-      console.log("Usage: inject-commit-footer.mjs [--commit <sha>] [--root <dir>] [--check]");
+      console.log("Usage: inject-commit-footer.mjs [--commit <sha>] [--subject <text>] [--root <dir>] [--check]");
       process.exit(0);
     }
   }
-  return { commit, root, check };
+  return { commit, subject, root, check };
 }
 
 function resolveCommit(explicit) {
@@ -83,27 +89,54 @@ function walkHtml(dir, out = []) {
   return out;
 }
 
-function buildFooter(short) {
-  // keep inline style for unobtrusive, no external css dependency
-  // uses monospace for commit, muted color, small size, subtle top border
-  return `<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="${short}">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">${short}</code></footer>`;
+function escapeHtml(text) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
-function injectIntoFile(file, short, checkMode) {
+function resolveSubject(explicit, sha) {
+  let subject = explicit;
+  if (subject == null) {
+    for (const env of ["GIT_SUBJECT", "DEPLOY_SUBJECT"]) {
+      if (process.env[env] != null) {
+        subject = process.env[env];
+        break;
+      }
+    }
+  }
+  if (subject == null) {
+    const rev = /^[0-9a-f]{6,40}$/i.test(sha) ? sha : "HEAD";
+    try {
+      subject = execSync(`git log -1 --format=%s ${rev}`, { cwd: repoRoot, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+    } catch {
+      subject = "";
+    }
+  }
+  // single line, collapsed whitespace
+  return subject.replace(/\s+/g, " ").trim();
+}
+
+const footerRe = /<footer class="deploy-commit-footer"[\s\S]*?<\/footer>/g;
+
+function buildFooter(short, subject) {
+  // keep inline style for unobtrusive, no external css dependency
+  // uses monospace for commit, muted color, small size, subtle top border
+  const subjectHtml = subject ? ` <span class="deploy-commit-subject">${escapeHtml(subject)}</span>` : "";
+  return `<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="${short}">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">${short}</code>${subjectHtml}</footer>`;
+}
+
+function injectIntoFile(file, short, subject, checkMode) {
   let content = readFileSync(file, "utf8");
-  const footer = buildFooter(short);
+  const footer = buildFooter(short, subject);
   const marker = "deploy-commit-footer";
 
-  // If footer already exists, update its commit
+  // If footer already exists, replace it wholesale (function replacer: no `$` expansion)
   if (content.includes(marker)) {
-    // replace data-commit and code content
-    let next = content
-      // update data-commit="..."
-      .replace(/data-commit="[^"]*"/g, `data-commit="${short}"`)
-      // update inner code: deployed commit: <code...>xxxx</code>
-      .replace(/deployed commit:\s*<code[^>]*>[^<]*<\/code>/gi, `deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">${short}</code>`);
-    // also handle case where footer uses plain text without code tag
-    next = next.replace(/deployed commit:\s*[0-9a-f]{6,40}/gi, `deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">${short}</code>`);
+    const next = content.replace(footerRe, () => footer);
     if (next !== content) {
       if (checkMode) return { changed: true, reason: "update" };
       writeFileSync(file, next, "utf8");
@@ -121,7 +154,7 @@ function injectIntoFile(file, short, checkMode) {
     writeFileSync(file, content, "utf8");
     return { changed: true, reason: "appended" };
   }
-  const injected = content.replace(bodyCloseRe, `${footer}\n</body>`);
+  const injected = content.replace(bodyCloseRe, () => `${footer}\n</body>`);
   if (injected !== content) {
     if (checkMode) return { changed: true, reason: "inject" };
     writeFileSync(file, injected, "utf8");
@@ -131,10 +164,11 @@ function injectIntoFile(file, short, checkMode) {
 }
 
 function main() {
-  const { commit: explicit, root, check } = parseArgs();
+  const { commit: explicit, subject: explicitSubject, root, check } = parseArgs();
   const notesDir = root ? resolve(root) : defaultNotesDir;
   const sha = resolveCommit(explicit);
   const short = shortCommit(sha);
+  const subject = resolveSubject(explicitSubject, sha);
   const files = walkHtml(notesDir);
 
   if (!files.length) {
@@ -146,7 +180,7 @@ function main() {
   let updated = 0;
   let injected = 0;
   for (const f of files) {
-    const res = injectIntoFile(f, short, check);
+    const res = injectIntoFile(f, short, subject, check);
     if (res.changed) {
       changed++;
       if (res.reason === "updated" || res.reason === "update") updated++;
@@ -157,14 +191,14 @@ function main() {
 
   if (check) {
     if (changed > 0) {
-      console.error(`inject-commit-footer --check: ${changed} file(s) need injection/update (short=${short})`);
+      console.error(`inject-commit-footer --check: ${changed} file(s) need injection/update (short=${short} subject=${JSON.stringify(subject)})`);
       process.exit(1);
     } else {
-      console.log(`inject-commit-footer --check: OK (${files.length} files, short=${short})`);
+      console.log(`inject-commit-footer --check: OK (${files.length} files, short=${short} subject=${JSON.stringify(subject)})`);
       process.exit(0);
     }
   } else {
-    console.log(`inject-commit-footer: done short=${short} files=${files.length} changed=${changed} (updated=${updated} injected=${injected})`);
+    console.log(`inject-commit-footer: done short=${short} subject=${JSON.stringify(subject)} files=${files.length} changed=${changed} (updated=${updated} injected=${injected})`);
   }
 }
 

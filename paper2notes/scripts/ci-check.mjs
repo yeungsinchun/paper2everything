@@ -7,7 +7,7 @@
 // can be resolved on disk without a browser, plus lavish notes-refactor boards
 // (before/after side-by-side and readable prose — enforced only on boards
 // carrying the notes-refactor marker; see paper2notes/.agents/skills/lavish-notes-review/SKILL.md),
-// plus the deploy-commit footer (muted `deployed commit: <6-char>` per HTML).
+// plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
