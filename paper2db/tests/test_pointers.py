@@ -44,6 +44,14 @@ class ValidateTests(unittest.TestCase):
             with self.subTest(pointer=pointer):
                 self.assertTrue(pointers.validate_pointer(pointer, "p"))
 
+    def test_rejects_non_string_tiers(self):
+        for tier in ([], {}, None, True, 1, 1.5):
+            with self.subTest(tier=tier):
+                self.assertEqual(
+                    pointers.validate_pointer({**ptr("a"), "tier": tier}, "p"),
+                    ["p: tier must be one of ['derived', 'inferred', 'verified']"],
+                )
+
     def test_store_corpus_mismatch(self):
         store = {"schema": pointers.SCHEMA_ID, "corpus": "dse", "pointers": []}
         self.assertTrue(pointers.validate_store(store, "qb", "qb.json"))
@@ -150,6 +158,23 @@ class CommandTests(unittest.TestCase):
                 self.assertEqual(stdout.getvalue(), "".join(expected[c] for c in corpora))
                 self.assertEqual(load_items.call_args_list, [mock.call(c) for c in corpora])
 
+    def test_malformed_tiers_fail_cleanly_in_all_commands(self):
+        for corpus in pointers.CORPORA:
+            for tier in ([], {}):
+                store = {"schema": pointers.SCHEMA_ID, "corpus": corpus,
+                         "pointers": [{**ptr("q1"), "tier": tier}]}
+                pointers.store_path(corpus).write_text(json.dumps(store), encoding="utf-8")
+                for command in ("merge", "coverage", "check"):
+                    with self.subTest(corpus=corpus, tier=tier, command=command):
+                        with mock.patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                            with mock.patch("sys.stderr", new_callable=io.StringIO) as stderr:
+                                self.assertEqual(pointers.main([command, "--corpus", corpus]), 1)
+                        self.assertEqual(stdout.getvalue(), "")
+                        self.assertIn(
+                            f"{corpus}.json pointers[0]: tier must be one of",
+                            stderr.getvalue(),
+                        )
+
     def test_removed_options_are_rejected_before_execution(self):
         for argv in (
             ["merge", "--out", str(pointers.POINTERS_DIR / "merged.json")],
@@ -186,6 +211,26 @@ class CheckTests(unittest.TestCase):
             store.write_text(json.dumps({"schema": pointers.SCHEMA_ID, "corpus": corpus, "pointers": plist}), encoding="utf-8")
             with mock.patch.object(pointers, "POINTERS_DIR", Path(tmp)):
                 return pointers.check((corpus,))
+
+    def test_malformed_tiers_do_not_abort_other_records_or_corpora(self):
+        stores = {
+            "qb": [{**ptr("a"), "tier": []}, {**ptr("b"), "tier": {}, "kind": "video"}],
+            "dse": [ptr("dse-mc-1999-1", path="tests/a.png")],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            for corpus, records in stores.items():
+                (Path(tmp) / f"{corpus}.json").write_text(
+                    json.dumps({"schema": pointers.SCHEMA_ID, "corpus": corpus, "pointers": records}),
+                    encoding="utf-8",
+                )
+            with mock.patch.object(pointers, "POINTERS_DIR", Path(tmp)):
+                problems = pointers.check()
+        self.assertEqual(problems, [
+            "qb.json pointers[0]: tier must be one of ['derived', 'inferred', 'verified']",
+            "qb.json pointers[1]: tier must be one of ['derived', 'inferred', 'verified']",
+            "qb.json pointers[1]: kind must be one of ['crop', 'page', 'pdf']",
+            "dse.json pointers[0] (dse-mc-1999-1): item_id not in dse staging index",
+        ])
 
     def test_unknown_item_and_missing_target(self):
         problems = self.run_check("dse", [ptr("dse-mc-1999-1", path="qb-web-ui-staging/nope.png")])

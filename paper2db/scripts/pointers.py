@@ -63,7 +63,7 @@ def validate_pointer(pointer: object, where: str) -> list[str]:
     for key in ("item_id", "source"):
         if not isinstance(pointer.get(key), str) or not pointer[key]:
             problems.append(f"{where}: {key} must be a non-empty string")
-    if pointer.get("tier") not in TIERS:
+    if not isinstance(pointer.get("tier"), str) or pointer["tier"] not in TIERS:
         problems.append(f"{where}: tier must be one of {sorted(TIERS)}")
     if pointer.get("kind") not in KINDS:
         problems.append(f"{where}: kind must be one of {list(KINDS)}")
