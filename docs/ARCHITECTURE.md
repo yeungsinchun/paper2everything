@@ -232,12 +232,15 @@ no path filter.
 | Workflow | Trigger | Does |
 |---|---|---|
 | `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolution (links through `_local/` skipped), lavish notes-refactor boards (before/after side-by-side at 1280 + 390 and readable-measure contract — see `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` and `docs/lavish-notes-boards.md`), `deploy-commit-footer` (`deployed commit: <6-char>` per `paper2notes/notes/**/*.html`; see `paper2notes/deploy/cloudrun/README.md`), and the leak check (`paper2notes/scripts/leak-check.mjs`, L1–L4 against the tracked fingerprints); then `node --test paper2notes/scripts/leak-check.test.mjs` and `python3 paper2db/scripts/leak_fingerprints.py --check` |
+| `.github/workflows/ci-pointers.yml` | PR / push to main touching `paper2db/metadata/pointers/**`, `paper2db/schemas/answer-pointer.v1.json`, `paper2db/scripts/pointers.py`, `paper2db/tests/test_pointers.py`, `paper2db/qb-web-ui-staging/**`, `paper2db/metadata/qb/banks.json`, itself | `python3 scripts/pointers.py check`, then `coverage` and `python3 -m unittest tests.test_pointers`: answer-pointer store and resolver (`paper2db/README.md` answer pointers) |
+| `.github/workflows/ci-paper2db.yml` | PR / push to main touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items record join and answer-pointer tests |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
 | `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
-Not run in CI: the paper2db pipeline or its `unittest` suite, the Book 5
-Puppeteer interactive tests (`notes.interactives.test.mjs`, hardcoded macOS
-Chrome path), and `sync-dse.sh`. The nested
+Not run in CI: the paper2db pipeline itself and most of its `unittest`
+suite (only `test_dse_items` and `test_pointers` run, in `ci-paper2db` and
+`ci-pointers`), the Book 5 Puppeteer interactive tests (`notes.interactives.test.mjs`,
+hardcoded macOS Chrome path), and `sync-dse.sh`. The nested
 `paper2notes/.github/workflows/{ci,deploy}.yml` and
 `paper2mock/.github/workflows/compile-mocks.yml` are copies GitHub never runs.
 

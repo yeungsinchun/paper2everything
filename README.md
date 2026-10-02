@@ -131,6 +131,7 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 |---|---|---|
 | `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, the leak generator, or its staging inputs | Notes and leak checks (`ci-check.mjs`, `leak-check.test.mjs`, `leak_fingerprints.py --check`); scope in [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci) |
 | [`ci-pointers`](.github/workflows/ci-pointers.yml) | PR and push to `main`; path filters in the workflow | Answer-pointer checks; see [paper2db usage](paper2db/README.md#answer-pointers) |
+| [`ci-paper2db`](.github/workflows/ci-paper2db.yml) | PR and push to `main` touching `paper2db/**` or itself | `python -m unittest tests.test_dse_items tests.test_pointers` (dse-items records and answer-pointer join) |
 | `compile-mocks` | PR touching `paper2mock/**`; every push to `main` | LaTeX build of all 20 mock documents; `main` pushes release two zips |
 | `deploy-notes` | push to `main` touching `paper2notes/notes/` or `paper2notes/deploy/cloudrun/`; manual | `paper2notes/deploy/cloudrun/deploy.sh` to Cloud Run (`asia-east2`) via Workload Identity Federation |
 
