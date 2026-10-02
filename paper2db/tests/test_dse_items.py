@@ -68,10 +68,11 @@ class TestDseItems(unittest.TestCase):
         (sections / "mc" / "answer_keys.json").write_text(
             json.dumps({"2012": {"1": {"Correct Option": "B", "Correct percentage": 61}, "2": {"deleted": True}}})
         )
-        performance = root / "classified" / "lq" / "candidate_performance.json"
-        performance.parent.mkdir(parents=True)
+        performance = sections / "lq" / "candidate_performance.json"
         performance.write_text(json.dumps({"2012": {"1": "Good."}}))
-        (sections / "lq" / "candidate_performance.json").write_text(json.dumps({"2012": {"1": "Stale."}}))
+        stale = root / "classified" / "lq" / "candidate_performance.json"
+        stale.parent.mkdir(parents=True)
+        stale.write_text(json.dumps({"2012": {"1": "Stale."}}))
         pointer_path = meta / "pointers" / "dse.json"
         pointer_path.parent.mkdir()
         self.winner = {
@@ -288,7 +289,7 @@ class TestDseItems(unittest.TestCase):
         dse_items.LQ_PERFORMANCE.unlink()
         with self.assertRaises(SystemExit) as raised:
             dse_items.build_records()
-        self.assertIn("classified/lq/candidate_performance.json", str(raised.exception))
+        self.assertIn("tests/sections/lq/candidate_performance.json", str(raised.exception))
 
     def test_pointer_conflicts_fail_without_writing_outputs(self) -> None:
         data = json.loads(dse_items.ANSWER_POINTERS.read_text())

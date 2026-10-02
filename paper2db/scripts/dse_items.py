@@ -8,7 +8,7 @@ Reads (all under the paper2db root):
   tests/reconstructed/lq/<year>/ans/qN.png    LQ answer crops    (lq-answers)
   tests/reconstructed/lq/<year>/starts.json   LQ page ranges
   tests/sections/mc/answer_keys.json          MC keys + correct-% (keys)
-  classified/lq/candidate_performance.json   LQ notes          (lq-performance)
+  tests/sections/lq/candidate_performance.json  LQ notes         (lq-performance)
   metadata/pointers/dse.json                 answer-pointer store
 
 Writes `paper2db.dse-item.v1` records (schemas/dse-item.v1.json):
@@ -42,7 +42,7 @@ RECON = ROOT / "tests" / "reconstructed"
 MC_CLASSIFICATIONS = ROOT / "metadata" / "mc" / "llm_classifications.json"
 LQ_CLASSIFICATIONS = ROOT / "metadata" / "lq" / "llm_classifications.json"
 ANSWER_KEYS = ROOT / "tests" / "sections" / "mc" / "answer_keys.json"
-LQ_PERFORMANCE = ROOT / "classified" / "lq" / "candidate_performance.json"
+LQ_PERFORMANCE = ROOT / "tests" / "sections" / "lq" / "candidate_performance.json"
 ANSWER_POINTERS = ROOT / "metadata" / "pointers" / "dse.json"
 
 IN_SCOPE_BOOKS = ("02_", "04_", "05_")

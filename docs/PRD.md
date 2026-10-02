@@ -471,7 +471,7 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|
 | `paper2db/paper/**` source PDFs | `paper2db/intermediate/`, `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
-| `paper2db/metadata/*/llm_classifications.json`, `metadata/qb/{banks,source-manifest}.json` | `paper2db/output/`, `paper2db/classified/` (mostly legacy; `lq/candidate_performance.json` is current), `.lavish/` boards |
+| `paper2db/metadata/*/llm_classifications.json`, `metadata/qb/{banks,source-manifest}.json` | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
 | `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json`, `tests/reconstructed/lq/*/starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
 | `paper2notes/notes/` including the `dse/` snapshot (82 files) and `_source/` | `.audit/` harness output |
