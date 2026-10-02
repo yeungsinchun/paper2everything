@@ -372,7 +372,7 @@ def stage_keys(*, force: bool) -> None:
     )
 
 
-def stage_classify_mc(years: list[str] | None, *, force: bool, yes: bool, reclassify: bool = False) -> None:
+def stage_classify_mc(years: list[str] | None, *, force: bool, yes: bool) -> None:
     classified = ROOT / "tests" / "sections" / "mc" / "classification.csv"
     if classified.is_file() and not force and not years:
         print("skip classify-mc: classification.csv exists (use --force or --years)")
@@ -380,11 +380,7 @@ def stage_classify_mc(years: list[str] | None, *, force: bool, yes: bool, reclas
         year_args: list[str] = []
         if years:
             year_args = ["--years", *years]
-        if reclassify:
-            year_args.append("--reclassify")
-            print("=== classify-mc: LLM reclassify (explicit) ===")
-        else:
-            print("=== classify-mc: replay metadata (LLM only for missing years, keyword fallback on 403) ===")
+        print("=== classify-mc: replay metadata (LLM only for missing years, keyword fallback on 403) ===")
         run_script("classify_mc_llm.py", *year_args)
     uncertain = ROOT / "tests" / "sections" / "mc" / "uncertain.csv"
     count = 0
@@ -443,7 +439,7 @@ def ensure_lq_performance(years: list[str] | None = None) -> None:
         stage_lq_performance(missing)
 
 
-def stage_classify_lq(years: list[str] | None, *, force: bool, reclassify: bool = False) -> None:
+def stage_classify_lq(years: list[str] | None, *, force: bool) -> None:
     classified = ROOT / "tests" / "sections" / "lq" / "classification.csv"
     if classified.is_file() and not force and not years:
         print("skip classify-lq: classification.csv exists (use --force or --years)")
@@ -452,11 +448,7 @@ def stage_classify_lq(years: list[str] | None, *, force: bool, reclassify: bool 
     year_args: list[str] = []
     if years:
         year_args = ["--years", *years]
-    if reclassify:
-        year_args.append("--reclassify")
-        print("=== classify-lq: LLM reclassify (explicit) ===")
-    else:
-        print("=== classify-lq: replay metadata (LLM only for missing years, keyword fallback on 403) ===")
+    print("=== classify-lq: replay metadata (LLM only for missing years, keyword fallback on 403) ===")
     run_script("classify_lq_llm.py", *year_args)
 
 
@@ -605,11 +597,6 @@ def parse_args() -> argparse.Namespace:
         help="Omit the lavish HTML rebuild stage",
     )
     parser.add_argument(
-        "--reclassify",
-        action="store_true",
-        help="Force LLM re-classification even when metadata covers the year (otherwise replay metadata)",
-    )
-    parser.add_argument(
         "--list-stages",
         action="store_true",
         help="Print stage names and exit",
@@ -647,11 +634,11 @@ def main() -> None:
         elif stage == "keys":
             stage_keys(force=args.force)
         elif stage == "classify-mc":
-            stage_classify_mc(years, force=args.force, yes=args.yes, reclassify=args.reclassify)
+            stage_classify_mc(years, force=args.force, yes=args.yes)
         elif stage == "lq-performance":
             stage_lq_performance(years)
         elif stage == "classify-lq":
-            stage_classify_lq(years, force=args.force, reclassify=args.reclassify)
+            stage_classify_lq(years, force=args.force)
         elif stage == "section-pdfs":
             stage_section_pdfs()
         elif stage == "qb-pdf":

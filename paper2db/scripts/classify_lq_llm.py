@@ -8,7 +8,7 @@ Reads crops from tests/reconstructed/lq/<year>/qN.png, writes nested LQ outputs 
   tests/sections/lq/<book>/<section>/ year-qN.png (+ optional answer copy)
 
 Top-level tests/sections/lq_classification.csv|json come from classify_lq_keywords.py.
-Replay: by default reuses metadata/lq/llm_classifications.json (free deterministic) and only calls LLM for years missing from metadata or under --reclassify. Keyword fallback on HTTP 403 / LLM errors.
+Replay: by default reuses metadata/lq/llm_classifications.json (free deterministic) and only calls LLM for years missing from metadata. Keyword fallback on HTTP 403 / LLM errors.
 Any LLM failure aborts before write_outputs so nested outputs stay unchanged — unless fallback succeeds.
 
 Env: same as classify_mc_llm.py (LLM_API_KEY / OPENAI_API_KEY / TOGETHER_API_KEY).
@@ -67,8 +67,6 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--from-json", type=Path, default=None)
     p.add_argument("--limit", type=int, default=None)
     p.add_argument("--sleep", type=float, default=0.2)
-    p.add_argument("--reclassify", action="store_true",
-                   help="Force LLM re-classification even when metadata covers the year")
     return p.parse_args()
 
 
@@ -123,13 +121,6 @@ def finalize_sections(record: dict, raw_sections: object, reason: str) -> tuple[
     return keyword_classifier.apply_book5_listings(
         str(record.get("Statement") or ""), sections, reason
     )
-
-
-def _is_403(exc: BaseException) -> bool:
-    if isinstance(exc, urllib.error.HTTPError) and exc.code == 403:
-        return True
-    msg = str(exc).lower()
-    return "403" in msg or "forbidden" in msg
 
 
 def classify_one(record: dict) -> dict:
@@ -354,8 +345,7 @@ def main() -> None:
         return
 
     metadata = _load_metadata()
-    # Replay by default if metadata exists and not reclassify
-    if not args.reclassify and metadata:
+    if metadata:
         rows: list[dict] = []
         missing: list[dict] = []
         for rec in records:
@@ -402,32 +392,27 @@ def main() -> None:
             write_outputs(rows, touched_years, touched_keys)
             return
 
-    # Reclassify or no metadata: LLM for all (with fallback)
-    if args.reclassify:
-        print(f"Reclassify: LLM for {len(records)} questions")
-    else:
-        key, base, model = llm_config()
-        if not key:
-            # No key and no metadata: keyword fallback for all
-            print("No LLM key and no metadata — keyword fallback for all")
-            rows = []
-            for rec in records:
-                result = keyword_fallback_lq(rec)
-                sections, reason = finalize_sections(rec, result["sections"], result["reason"])
-                rows.append(
-                    {
-                        "Year": rec["Year"],
-                        "Question": rec["Question"],
-                        "Primary": sections[0],
-                        "AllSections": ";".join(str(s) for s in sections),
-                        "Reason": reason,
-                        "PNG": rec["PNG"],
-                        "AnswerPNG": rec["AnswerPNG"],
-                    }
-                )
-            write_outputs(rows, touched_years, touched_keys)
-            return
-        print(f"LLM {model} @ {base} ({len(records)} questions)")
+    key, base, model = llm_config()
+    if not key:
+        print("No LLM key and no metadata — keyword fallback for all")
+        rows = []
+        for rec in records:
+            result = keyword_fallback_lq(rec)
+            sections, reason = finalize_sections(rec, result["sections"], result["reason"])
+            rows.append(
+                {
+                    "Year": rec["Year"],
+                    "Question": rec["Question"],
+                    "Primary": sections[0],
+                    "AllSections": ";".join(str(s) for s in sections),
+                    "Reason": reason,
+                    "PNG": rec["PNG"],
+                    "AnswerPNG": rec["AnswerPNG"],
+                }
+            )
+        write_outputs(rows, touched_years, touched_keys)
+        return
+    print(f"LLM {model} @ {base} ({len(records)} questions)")
 
     rows = []
     failures: list[str] = []

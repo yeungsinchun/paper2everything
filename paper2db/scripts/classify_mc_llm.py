@@ -4,7 +4,7 @@
 
 Pipeline:
   1. Reuse / refresh OCR from tests/reconstructed/mc/ PNGs (tesseract cache under tests/sections/mc/ocr_cache)
-  2. Replay tracked metadata (metadata/mc/llm_classifications.json) by default — free, deterministic — only calling LLM for years missing from metadata or under --reclassify
+  2. Replay tracked metadata (metadata/mc/llm_classifications.json) by default — free, deterministic — only calling LLM for years missing from metadata
   3. Write tests/sections/mc/<book>/<section>/ PNG copies plus:
        tests/sections/mc/classification.csv|json
        tests/sections/mc/uncertain.csv
@@ -27,7 +27,6 @@ Env:
 
 You can also apply a precomputed JSON of LLM decisions:
   python scripts/classify_mc_llm.py --from-json metadata/mc/llm_classifications.json
-  python scripts/classify_mc_llm.py --reclassify --years 2025
 """
 
 from __future__ import annotations
@@ -183,8 +182,6 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--sleep", type=float, default=0.15)
     p.add_argument("--rebuild-pdfs", action="store_true",
                    help="Also run combine_section_pdfs.py after writing folders")
-    p.add_argument("--reclassify", action="store_true",
-                   help="Force LLM re-classification even when metadata covers the year (otherwise replay metadata)")
     return p.parse_args()
 
 
@@ -664,7 +661,7 @@ def main() -> None:
     if args.from_json:
         new_decisions = json.loads(args.from_json.read_text())
         print(f"Loaded {len(new_decisions)} LLM decisions from {args.from_json}")
-    elif not args.reclassify and existing_decisions:
+    elif existing_decisions:
         # Replay mode: reuse metadata, only LLM for missing years
         by_key = {row_key(d): d for d in existing_decisions}
         new_decisions = []
@@ -696,12 +693,8 @@ def main() -> None:
         else:
             print(f"Replay: all {len(work_records)} from metadata (no LLM call)")
     else:
-        if args.reclassify:
-            print(f"Reclassify: LLM for {len(work_records)} questions...")
-        else:
-            print(f"LLM-classifying {len(work_records)} questions...")
-            if not existing_decisions:
-                print("  (no metadata found — will call LLM and fallback to keywords if needed)")
+        print(f"LLM-classifying {len(work_records)} questions...")
+        print("  (no metadata found — will call LLM and fallback to keywords if needed)")
         new_decisions = []
         for i, record in enumerate(work_records, 1):
             dec = _classify_with_fallback(record)
