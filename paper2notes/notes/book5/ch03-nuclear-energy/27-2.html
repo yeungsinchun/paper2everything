@@ -39,7 +39,7 @@
 <header>
 <h2><span class="sec-num">A</span>The missing mass becomes energy</h2>
 </header>
-<figure class="fig">
+<figure class="fig" id="missing-mass-fig-1">
 <div class="visual play stage" id="balance-vis" data-autoplay data-scene="balance">
 <canvas class="scene-canvas" width="960" height="420" aria-label="Balance: reactants heavier than products, missing mass arrow to energy"></canvas>
 <span class="hud-label" data-hud="before">before: heavier</span>
@@ -49,35 +49,35 @@
 <figcaption><b>Fig. 27.14</b> Weigh the nuclei before and after: the total mass after is smaller.</figcaption>
 <details class="fig-more"><summary>More</summary><p>Weigh the nuclei before and after: the total mass after is smaller. The difference — the <b>mass defect</b> \( \Delta m\) — did not disappear; it became energy.</p></details>
 </figure>
-<div class="def">
+<div class="def" id="missing-mass-def-1">
 <span class="tag">Mass–energy relation</span>
 <p>In Einstein's special relativity, mass and energy are equivalent. Mass can be converted into energy according to</p>
-<div class="eq">\[ E = \Delta m\, c^{2} \]</div>
+<div class="eq" id="missing-mass-eq-1">\[ E = \Delta m\, c^{2} \]</div>
 <p style="margin:.25rem 0 0">where \(E\) is the energy released, \(\Delta m\) is the mass defect (loss in mass) and \(c = 3 \times 10^{8}\ \mathrm{m\,s^{-1}}\) is the speed of light in vacuum.</p>
 </div>
 <ul class="points">
 <li>Because \(c^{2} \approx 9 \times 10^{16}\), even a tiny mass defect is a huge energy. For 1 g,</li>
 </ul>
-<div class="eq">\[ E = (0.001)(3 \times 10^{8})^{2} = 9 \times 10^{13}\ \mathrm{J} \]</div>
+<div class="eq" id="missing-mass-eq-2">\[ E = (0.001)(3 \times 10^{8})^{2} = 9 \times 10^{13}\ \mathrm{J} \]</div>
 <ul class="points">
 <li>The “loss’’ happens in <b>both</b> fission and fusion. Splitting heavy nuclei and joining light ones both move toward more tightly bound nuclei (see binding-energy curve below); both end lighter.</li>
 <li>The kinetic energy of the fragments plus gamma rays carries the released energy. In a reactor it becomes heat.</li>
 </ul>
-<div class="check" data-check="tf">
+<div class="check" id="missing-mass-check-1" data-check="tf">
 <h3>Quick check</h3>
-<div class="tf-item" data-answer="false">
+<div class="tf-item" id="missing-mass-tf-item-1" data-answer="false">
 <p>(a) In nuclear fission the total mass of the products is larger than that of the reactants.</p>
 <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
 <p class="feedback"></p>
 <div class="explain" hidden><p>False. Products are lighter; the missing mass is the energy you count with \(E=\Delta m c^{2}\).</p></div>
 </div>
-<div class="tf-item" data-answer="false">
+<div class="tf-item" id="missing-mass-tf-item-2" data-answer="false">
 <p>(b) In nuclear fission energy is released due to rapid collisions between nuclei.</p>
 <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
 <p class="feedback"></p>
 <div class="explain" hidden><p>False. Energy comes from the mass defect, not from “smashing’’ as a mechanical collision. Slow neutrons trigger fission without rapid collisions.</p></div>
 </div>
-<div class="tf-item" data-answer="true">
+<div class="tf-item" id="missing-mass-tf-item-3" data-answer="true">
 <p>(c) Energy can be converted into matter.</p>
 <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
 <p class="feedback"></p>
@@ -91,7 +91,7 @@
 <h2><span class="sec-num">B</span>Small units: eV and u</h2>
 </header>
 <p>The joule and kilogram are far too large for nuclei. Two smaller units are used on the atomic scale.</p>
-<table class="notes">
+<table class="notes" id="units-notes-1">
 <thead><tr><th>Unit</th><th>Definition</th><th>In SI</th></tr></thead>
 <tbody>
 <tr><th>Electronvolt (eV)</th><td>Energy gained by one electron crossing 1 V. \(1\ \mathrm{eV} = e \times 1\ \mathrm{V}\)</td><td>\(1\ \mathrm{eV} = 1.60 \times 10^{-19}\ \mathrm{J}\). Often MeV = \(10^{6}\) eV.</td></tr>
@@ -99,14 +99,14 @@
 </tbody>
 </table>
 <p>Because \(E = \Delta m c^{2}\), the two can be interchanged:</p>
-<div class="eq">\[ 1\ \mathrm{u}\, c^{2} = (1.661 \times 10^{-27})(2.998 \times 10^{8})^{2} = 1.492 \times 10^{-10}\ \mathrm{J} = 931\ \mathrm{MeV} \]</div>
-<div class="eq">\[ 1\ \mathrm{u} \equiv 931\ \mathrm{MeV} \qquad | \qquad 1\ \mathrm{MeV}=1.60 \times 10^{-13}\ \mathrm{J} \]</div>
+<div class="eq" id="units-eq-1">\[ 1\ \mathrm{u}\, c^{2} = (1.661 \times 10^{-27})(2.998 \times 10^{8})^{2} = 1.492 \times 10^{-10}\ \mathrm{J} = 931\ \mathrm{MeV} \]</div>
+<div class="eq" id="units-eq-2">\[ 1\ \mathrm{u} \equiv 931\ \mathrm{MeV} \qquad | \qquad 1\ \mathrm{MeV}=1.60 \times 10^{-13}\ \mathrm{J} \]</div>
 <ul class="points">
 <li>On a calculation, keep masses in <b>u</b> until the final step, then multiply by 931 to get MeV; to get joules, multiply MeV by \(1.60 \times 10^{-13}\). Or convert u to kg first (\(\times 1.661 \times 10^{-27}\)) and use \(c^{2}\).</li>
 <li>Typical masses: proton 1.007276 u, neutron 1.008665 u, He-4 nucleus 4.001506 u, electron 0.000549 u. The syllabus gives these where needed; do not memorize.</li>
 <li>Watch the particle: the table gives <b>nuclear</b> masses in some problems, <b>atomic</b> masses in others (the latter includes the electrons). The difference cancels only if both sides include the same number of electrons.</li>
 </ul>
-<div class="worked">
+<div class="worked" id="units-worked-1">
 <span class="tag">Worked example</span>
 <p>Mass equivalent of 1000 MeV? (Given \(c = 3.00 \times 10^{8}\ \mathrm{m\,s^{-1}}\), \(1\ \mathrm{u}=931\) MeV.)</p>
 <ol class="steps">
@@ -114,7 +114,7 @@
 <li>Or directly: \(m = E/c^{2} = (1000 \times 10^{6} \times 1.60 \times 10^{-19})/(9 \times 10^{16}) = 1.78 \times 10^{-27}\ \mathrm{kg}\).</li>
 </ol>
 </div>
-<div class="check" data-check="mc" data-answer="C">
+<div class="check" id="units-check-1" data-check="mc" data-answer="C">
 <h3>Quick check</h3>
 <p>The masses of a helium-4 nucleus, a proton and a neutron are 4.001506 u, 1.007276 u and 1.008665 u. How much mass is converted to energy when two protons and two neutrons fuse into one He-4 nucleus?</p>
 <div class="choices">
@@ -134,12 +134,12 @@
 <header>
 <h2><span class="sec-num">C</span>Energy of any reaction</h2>
 </header>
-<div class="def">
+<div class="def" id="working-def-1">
 <span class="tag">Method</span>
 <p>1. Add the masses before. 2. Add the masses after. 3. Subtract → defect \(\Delta m\) (in u). 4. Energy = \(\Delta m \times 931\) MeV; × \(1.60 \times 10^{-13}\) → J. Watch nucleon number: balance \(A\) to find an unknown neutron count.</p>
 </div>
 
-<div class="worked">
+<div class="worked" id="working-worked-1">
 <span class="tag">Worked example — fusion (Example 27.3)</span>
 <p>\( {}^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \rightarrow {}^{4}_{2}\mathrm{He} + {}^{1}_{0}\mathrm{n}\). Given masses: D 2.0136 u, T 3.0155 u, He-4 4.0015 u, neutron 1.0087 u. (a) Why high T? (b) Energy in MeV. (c) 5 g of equal D+T — reactions and total J.</p>
 <ol class="steps">
@@ -149,7 +149,7 @@
 </ol>
 </div>
 
-<div class="worked">
+<div class="worked" id="working-worked-2">
 <span class="tag">Worked example — fission (Example 27.4)</span>
 <p>\( {}^{235}_{92}\mathrm{U} + {}^{1}_{0}\mathrm{n} \rightarrow {}^{148}_{57}\mathrm{La} + {}^{85}_{35}\mathrm{Br} + x\,{}^{1}_{0}\mathrm{n} + 166.37\ \mathrm{MeV}\). Masses: U-235 234.9934 u, La-148 147.9009 u, Br-85 84.8964 u.</p>
 <ol class="steps">
@@ -160,7 +160,7 @@
 <p class="note">Compare: single fission 166 MeV > single fusion 17.6 MeV, but per kilogram fusion gives more — the textbook ratio is about 5:1, because the light reactants pack more reactions per gram.</p>
 </div>
 
-<div class="worked">
+<div class="worked" id="working-worked-3">
 <span class="tag">Worked example — coal vs uranium (Example 27.2)</span>
 <p>0.08% of a U-235 nucleus's mass becomes energy. (a) Energy from 1 kg complete fission. (b) Coal needed for same energy (1 kg coal = \(2.8 \times 10^{7}\) J).</p>
 <ol class="steps">
@@ -169,7 +169,7 @@
 </ol>
 </div>
 
-<div class="check" data-check="mc" data-answer="C">
+<div class="check" id="working-check-1" data-check="mc" data-answer="C">
 <h3>Quick check</h3>
 <p>A nucleus of mass \(m_{1}\) reacts with two nuclei of mass \(m_{2}\) to form three nuclei each of mass \(m_{3}\). The energy given out is</p>
 <div class="choices">
@@ -184,7 +184,7 @@
 </div>
 </div>
 
-<div class="check" data-check="mc" data-answer="B">
+<div class="check" id="working-check-2" data-check="mc" data-answer="B">
 <h3>Quick check</h3>
 <p>A proton mass is 1.007276 u. If it were completely converted to energy, which is correct?</p>
 <div class="choices">
@@ -204,7 +204,7 @@
 <header>
 <h2><span class="sec-num">D</span>The RTG: α-decay power</h2>
 </header>
-<figure class="fig">
+<figure class="fig" id="rtg-fig-1">
 <div class="visual play stage" id="rtg-vis" data-autoplay data-scene="rtg">
 <canvas class="scene-canvas" width="960" height="360" aria-label="Power versus time falling exponentially with 87.7 year half-life"></canvas>
 <span class="hud-label" data-hud="p">P = 300 W</span>
@@ -213,7 +213,7 @@
 <figcaption><b>Fig. Example 27.5 &amp; Ch.10 Voyage: the radioisotope thermoelectric generator.</b> α energy becomes heat, then electricity.</figcaption>
 <details class="fig-more"><summary>More</summary><p>Pu-238 α-decays; the kinetic energy of the α particle becomes heat, then electricity. Because activity falls with half-life \(87.74\) y, the power does too.</p></details>
 </figure>
-<div class="worked">
+<div class="worked" id="rtg-worked-1">
 <span class="tag">Worked example — RTG (Example 27.5)</span>
 <p>\( {}^{238}_{94}\mathrm{Pu} \rightarrow {}^{234}_{92}\mathrm{U} + {}^{4}_{2}\mathrm{He}\). Masses: Pu-238 237.9980 u, U-234 233.9905 u, α 4.0015 u.</p>
 <ol class="steps">
@@ -228,7 +228,7 @@
 <li>Voyager 1 (launched with \(3.2 \times 10^{24}\) Pu-238 atoms, half-life 87.74 y) is the textbook Ch.10 case: launch power \(\sim 470\) W thermal, \(\sim 150\) W electric; after 36 y the remaining power is \((1/2)^{36/87.74} \approx 75\)% of launch — exactly the exponential fall shown above.</li>
 <li>Handling: α is stopped by the metal casing, so external dose is negligible — a worker can hold the sealed generator with bare hands. Internally it would be lethal, which is why it is sealed.</li>
 </ul>
-<div class="check" data-check="mc" data-answer="B">
+<div class="check" id="rtg-check-1" data-check="mc" data-answer="B">
 <h3>Quick check</h3>
 <p>A plutonium RTG delivers 300 W electrical at 10% conversion. The energy per α-decay is \(8.9 \times 10^{-13}\) J. Its activity is about</p>
 <div class="choices">
@@ -249,7 +249,7 @@
 <h2><span class="sec-num">E</span>Binding energy, both ways</h2>
 </header>
 <p>The textbook explains both fission and fusion with one curve: the average binding energy per nucleon \(B/A\) against mass number \(A\).</p>
-<figure class="fig">
+<figure class="fig" id="binding-fig-1">
 <div class="visual svg-fig" id="binding-vis">
 <svg viewBox="0 0 640 360" role="img" aria-labelledby="binding-title" style="width:100%;height:auto;background:#fff;border:1px solid var(--rule)">
 <title id="binding-title">Average binding energy per nucleon versus mass number, peak at iron-56, fission to the right and fusion to the left both move toward the peak</title>
@@ -273,11 +273,11 @@
 <li><b>Light side</b> (< Fe): fusion of light nuclei → higher \(B/A\) → mass defect. D+T → He-4 climbs steeply up the curve, so energy per nucleon is larger than for fission (≈4 MeV per nucleon fused vs ≈0.9 MeV per nucleon split) — hence fusion wins <b>per kilogram</b> even though one fission gives more MeV than one fusion.</li>
 <li>Nuclei heavier than Pb-208 (\(A=208\)) are unstable (half-lives finite) and can α-decay toward the peak.</li>
 </ul>
-<div class="tip">
+<div class="tip" id="binding-tip-1">
 <span class="tag">Geothermal snapshot (not examinable)</span>
 <p>About half of Earth's internal heat is from radioactive decay (mainly U, Th, K-40) in the core and mantle. Hot springs and geothermal power stations are literally decay heat arriving at the surface.</p>
 </div>
-<div class="check" data-check="mc" data-answer="B">
+<div class="check" id="binding-check-1" data-check="mc" data-answer="B">
 <h3>Quick check</h3>
 <p>Heavier nuclei beyond iron tend to undergo fission, lighter nuclei below iron tend to undergo fusion. Why?</p>
 <div class="choices">
@@ -293,7 +293,7 @@
 </div>
 </section>
 
-<section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+<section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
 <header>
 <span class="sec-num">MC</span>
 <h2 id="mc-quiz-heading">Check the goals</h2>
@@ -364,7 +364,7 @@
 </div>
 </section>
 
-<section class="section-dse lo-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+<section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
 <header>
 <span class="sec-num">LQ</span>
 <h2 id="lq-quiz-heading">Long questions</h2>
