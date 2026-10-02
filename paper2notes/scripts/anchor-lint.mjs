@@ -1,8 +1,8 @@
 // Anchor lint for paper2notes: stable, semantic ids on answer-bearing blocks.
 //
 // Rules (run from ci-check.mjs; also runnable standalone):
-//   1. required ids   - answer-bearing blocks (REQUIRED_SELECTORS) on pages
-//                       listed in anchors/config.json `enforce` must carry an id.
+//   1. required ids   - answer-bearing blocks (REQUIRED_SELECTORS) on every
+//                       page must carry an id.
 //   2. unique ids     - no id may repeat within one HTML page (all pages).
 //   3. no positional  - ids must not be a generic kind plus counter ("eq-3",
 //                       "block7") or bare digits ("42"); a semantic token such
@@ -101,7 +101,7 @@ export function requiredKind(el) {
 }
 
 // Lint one page. Returns { errors, ids } where ids is the set of ids present.
-export function lintPage(html, { label, enforceRequired }) {
+export function lintPage(html, { label }) {
   const errors = [];
   const ids = new Set();
   const seenAt = new Map();
@@ -119,7 +119,7 @@ export function lintPage(html, { label, enforceRequired }) {
       } else if (isPositionalId(id)) {
         errors.push(`${label}:${el.line}: positional id "${id}" — name the block by what it teaches (e.g. "missing-mass-eq-1")`);
       }
-    } else if (enforceRequired) {
+    } else {
       const kind = requiredKind(el);
       if (kind) errors.push(`${label}:${el.line}: <${el.tag}> ${kind} block has no id`);
     }
@@ -153,23 +153,6 @@ function isPlainObject(v) {
   return v !== null && typeof v === "object" && !Array.isArray(v);
 }
 
-export function loadConfig(anchorsDir, errors) {
-  const path = join(anchorsDir, "config.json");
-  if (!existsSync(path)) return { enforce: [] };
-  const cfg = readJson(path, errors, "anchors/config.json");
-  if (!cfg) return { enforce: [] };
-  if (!Array.isArray(cfg.enforce) || !cfg.enforce.every((p) => typeof p === "string" && p && !p.startsWith("/") && !p.split("/").includes(".."))) {
-    errors.push(`anchors/config.json: "enforce" must be an array of notes/-relative path prefixes`);
-    return { enforce: [] };
-  }
-  return { enforce: cfg.enforce.map((p) => p.replace(/\/+$/, "")) };
-}
-
-function isEnforced(page, enforce) {
-  return enforce.some((p) => page === p || page.startsWith(`${p}/`));
-}
-
-// moves: [{page, from, to}] -> Map(page -> Map(from -> to))
 export function loadMoves(anchorsDir, errors) {
   const path = join(anchorsDir, "moves.json");
   const byPage = new Map();
@@ -292,7 +275,6 @@ export function lintAnchors({ repoRoot = defaultRepoRoot, writeLock = false } = 
   const notesDir = join(repoRoot, "notes");
   if (!existsSync(notesDir)) return { errors, lock: null };
   const anchorsDir = join(repoRoot, "anchors");
-  const config = loadConfig(anchorsDir, errors);
   const moves = loadMoves(anchorsDir, errors);
   const lock = loadLock(anchorsDir, errors);
 
@@ -301,16 +283,9 @@ export function lintAnchors({ repoRoot = defaultRepoRoot, writeLock = false } = 
     const page = relative(notesDir, file).split(sep).join("/");
     const { errors: pageErrors, ids } = lintPage(readFileSync(file, "utf8"), {
       label: `notes/${page}`,
-      enforceRequired: isEnforced(page, config.enforce),
     });
     errors.push(...pageErrors);
     pages.set(page, ids);
-  }
-
-  for (const prefix of config.enforce) {
-    if (![...pages.keys()].some((p) => isEnforced(p, [prefix]))) {
-      errors.push(`anchors/config.json: enforce entry "${prefix}" matches no HTML page under notes/`);
-    }
   }
 
   for (const [page, pageMoves] of moves) {

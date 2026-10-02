@@ -44,7 +44,7 @@ test("parseElements ignores comments, scripts and '>' inside attribute values", 
 });
 
 test("duplicate ids on one page are reported with both lines", () => {
-  const { errors } = lintPage(page(`<div id="a-one"></div>\n<div id='a-one'></div>`), { label: "p", enforceRequired: false });
+  const { errors } = lintPage(page(`<div id="a-one"></div>\n<div id='a-one'></div>`), { label: "p" });
   assert.equal(errors.length, 1);
   assert.match(errors[0], /duplicate id "a-one".*first at line 1/);
 });
@@ -63,24 +63,40 @@ test("positional ids fail everywhere", () => {
   assert.match(errors[0], /positional id "eq-3"/);
 });
 
-test("required ids are enforced only on pages listed in config.enforce", () => {
+test("required ids are enforced on every page without configuration", () => {
   const html = page(`<div class="check" data-answer="B"></div><figure class="fig"></figure><table class="notes"></table>`);
-  assert.deepEqual(run({ "paper2notes/notes/book/a.html": html }), []);
   const errors = run({
+    "paper2notes/notes/a.html": html,
     "paper2notes/notes/book/a.html": html,
-    "paper2notes/notes/other/b.html": html,
-    "paper2notes/anchors/config.json": { enforce: ["book"] },
+    "paper2notes/notes/other/nested/b.html": html,
   });
-  assert.equal(errors.length, 3);
-  assert.ok(errors.every((e) => e.startsWith("notes/book/a.html:") && / has no id$/.test(e)));
+  assert.equal(errors.length, 9);
+  for (const path of ["a.html", "book/a.html", "other/nested/b.html"]) {
+    assert.equal(errors.filter((e) => e.startsWith(`notes/${path}:`) && / has no id$/.test(e)).length, 3);
+  }
 });
 
-test("enforce entry that matches no page is an error", () => {
-  const errors = run({
-    "paper2notes/notes/a.html": page(""),
-    "paper2notes/anchors/config.json": { enforce: ["book9"] },
-  });
-  assert.match(errors.join("\n"), /enforce entry "book9" matches no HTML page/);
+test("every answer-bearing selector requires a non-empty id", () => {
+  const blocks = [
+    ["div", 'class="check"'],
+    ["div", 'class="def"'],
+    ["div", 'class="eq"'],
+    ["div", 'class="worked"'],
+    ["figure", 'class="fig"'],
+    ["table", 'class="notes"'],
+    ["section", 'class="idea"'],
+    ["section", 'class="lo-quiz"'],
+    ["div", 'class="tf-item"'],
+    ["div", 'data-answer="B"'],
+  ];
+  for (const [tag, attrs] of blocks) {
+    for (const idAttr of ["", 'id=""']) {
+      const { errors } = lintPage(page(`<${tag} ${attrs} ${idAttr}></${tag}>`), { label: "p" });
+      assert.equal(errors.length, 1, `${tag} ${attrs} ${idAttr}`);
+      assert.match(errors[0], / has no id$/);
+    }
+    assert.deepEqual(lintPage(page(`<${tag} ${attrs} id="semantic-name"></${tag}>`), { label: "p" }).errors, []);
+  }
 });
 
 test("locked id that disappears needs a move; a recorded move passes", () => {
@@ -111,18 +127,16 @@ test("moves chain through intermediate ids, but dead ends, cycles and stale entr
   assert.match(missingPage.join("\n"), /page "nope.html" does not exist/);
 });
 
-test("malformed moves/lock/config report instead of throwing", () => {
+test("malformed moves/lock report instead of throwing", () => {
   const errors = run({
     "paper2notes/notes/a.html": page(""),
     "paper2notes/anchors/moves.json": { moves: [{ page: "a.html", from: "same-id", to: "same-id" }, { page: "a.html" }] },
     "paper2notes/anchors/ids.lock.json": "{not json",
-    "paper2notes/anchors/config.json": { enforce: ["../x"] },
   });
   const text = errors.join("\n");
   assert.match(text, /identical/);
   assert.match(text, /needs non-empty string/);
   assert.match(text, /ids\.lock\.json: invalid JSON/);
-  assert.match(text, /"enforce" must be an array/);
 });
 
 test("pointer stores are validated per file against answer-pointer v1", () => {
