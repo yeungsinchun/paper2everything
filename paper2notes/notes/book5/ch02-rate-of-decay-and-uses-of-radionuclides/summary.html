@@ -30,15 +30,15 @@
         <h2><span class="sec-num">1</span>Formula sheet</h2>
       </header>
       <div class="formula-sheet">
-        <div id="formulas-eq-1" class="eq">\[ N = N_0 \left(\tfrac{1}{2}\right)^{n}, \qquad A = A_0 \left(\tfrac{1}{2}\right)^{n}, \qquad n = \frac{t}{T_{1/2}} \]</div>
-        <div id="formulas-eq-2" class="eq">\[ A \propto N, \qquad 1\ \text{Bq} = 1\ \text{decay per second} \]</div>
-        <div id="formulas-eq-3" class="eq">\[ \text{corrected count rate} = \text{recorded} - \text{background} \]</div>
-        <div id="formulas-eq-4" class="eq">\[ A = kN, \qquad k = \frac{\ln 2}{T_{1/2}} \quad \text{(extension)} \]</div>
-        <div id="formulas-eq-5" class="eq">\[ N = N_0 e^{-kt}, \qquad t = \frac{1}{k}\ln\frac{N_0}{N} \quad \text{(extension)} \]</div>
-        <div id="formulas-eq-6" class="eq">\[ N = \frac{m}{M} N_A, \qquad \ln A = \ln A_0 - kt \quad \text{(extension)} \]</div>
-        <div id="formulas-eq-7" class="eq">\[ H\ \text{(equivalent dose)} = D \times W_{\text{radiation}}, \qquad E\ \text{(effective dose)} = H \times W_{\text{tissue}} \]</div>
+        <div class="eq" id="formulas-eq-1">\[ N = N_0 \left(\tfrac{1}{2}\right)^{n}, \qquad A = A_0 \left(\tfrac{1}{2}\right)^{n}, \qquad n = \frac{t}{T_{1/2}} \]</div>
+        <div class="eq" id="formulas-eq-2">\[ A \propto N, \qquad 1\ \text{Bq} = 1\ \text{decay per second} \]</div>
+        <div class="eq" id="formulas-eq-3">\[ \text{corrected count rate} = \text{recorded} - \text{background} \]</div>
+        <div class="eq" id="formulas-eq-4">\[ A = kN, \qquad k = \frac{\ln 2}{T_{1/2}} \quad \text{(extension)} \]</div>
+        <div class="eq" id="formulas-eq-5">\[ N = N_0 e^{-kt}, \qquad t = \frac{1}{k}\ln\frac{N_0}{N} \quad \text{(extension)} \]</div>
+        <div class="eq" id="formulas-eq-6">\[ N = \frac{m}{M} N_A, \qquad \ln A = \ln A_0 - kt \quad \text{(extension)} \]</div>
+        <div class="eq" id="formulas-eq-7">\[ H\ \text{(equivalent dose)} = D \times W_{\text{radiation}}, \qquad E\ \text{(effective dose)} = H \times W_{\text{tissue}} \]</div>
       </div>
-      <table id="formulas-notes-1" class="notes">
+      <table class="notes" id="formulas-notes-1">
         <thead><tr><th>Quantity</th><th>After one half-life</th><th>When half the sample is removed</th></tr></thead>
         <tbody>
           <tr><td>Undecayed nuclei \( N \)</td><td>halves</td><td>halves</td></tr>
@@ -53,7 +53,7 @@
       <header>
         <h2><span class="sec-num">2</span>Uses at a glance</h2>
       </header>
-      <table id="uses-notes-1" class="notes">
+      <table class="notes" id="uses-notes-1">
         <thead><tr><th>Use</th><th>Radiation</th><th>Half-life</th><th>Property exploited</th></tr></thead>
         <tbody>
           <tr><td>Medical tracer</td><td>γ (leaves the body, weakly ionizing)</td><td>hours to days</td><td>penetrating power, chemistry of the carrier</td></tr>
@@ -74,7 +74,7 @@
       <header>
         <h2><span class="sec-num">3</span>Dose</h2>
       </header>
-      <table id="dose-notes-1" class="notes">
+      <table class="notes" id="dose-notes-1">
         <thead><tr><th></th><th>Measures</th><th>Unit</th><th>Depends on</th></tr></thead>
         <tbody>
           <tr><td>Activity</td><td>decays per second in the source</td><td>Bq</td><td>number of undecayed nuclei, half-life</td></tr>
@@ -138,7 +138,7 @@
       <header>
         <h2><span class="sec-num">5</span>Last checks</h2>
       </header>
-      <div id="last-checks-check-1" class="check" data-check="mc" data-answer="D">
+      <div class="check" id="last-checks-check-1" data-check="mc" data-answer="D">
         <h3>Quick check</h3>
         <p>Source X falls from 100 Bq to 50 Bq in 60 s. Source Y falls from 100 Bq to 25 Bq in 30 s. The ratio of half-lives \( T_X : T_Y \) is</p>
         <div class="choices">
@@ -152,7 +152,7 @@
           <p>\( T_X = 60 \) s directly. For Y, 100 to 25 is <em>two</em> half-lives in 30 s, so \( T_Y = 15 \) s. Ratio 4 : 1, <b>D</b>. <b>C</b> is the trap of treating 100 to 25 as one half-life.</p>
         </div>
       </div>
-      <div id="last-checks-check-2" class="check" data-check="mc" data-answer="A">
+      <div class="check" id="last-checks-check-2" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>Match each application to the property of the radionuclide it mainly relies on: thickness gauge, smoke detector, carbon-14 dating.</p>
         <div class="choices">
@@ -166,7 +166,7 @@
           <p>A gauge relies on the radiation being <em>partly</em> absorbed (penetrating power). A smoke detector relies on α ionizing the air. Dating relies on the half-life never changing. <b>A</b>. <b>B</b> swaps the first two; <b>D</b> forgets that the gauge count is about penetration.</p>
         </div>
       </div>
-      <div id="last-checks-check-3" class="check" data-check="mc" data-answer="C">
+      <div class="check" id="last-checks-check-3" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>A sample contains two radionuclides P (half-life 1 h) and Q (half-life 2 h) and has total activity \( 6.0 \times 10^{6} \) Bq. Four hours later the total activity is \( 6.0 \times 10^{5} \) Bq. The initial activity of P was</p>
         <div class="choices">
@@ -180,7 +180,7 @@
           <p>In 4 h, P has 4 half-lives (factor 1/16) and Q has 2 (factor 1/4). With \( A_Q = 6.0 \times 10^{6} - A_P \): \( A_P/16 + (6.0 \times 10^{6} - A_P)/4 = 6.0 \times 10^{5} \). Multiply by 16: \( A_P + 4(6.0 \times 10^{6}) - 4A_P = 9.6 \times 10^{6} \), so \( 3A_P = 1.44 \times 10^{7} \), \( A_P = 4.8 \times 10^{6} \) Bq: <b>C</b>. <b>A</b> is the answer for Q.</p>
         </div>
       </div>
-      <div id="last-checks-check-4" class="check" data-check="mc" data-answer="B">
+      <div class="check" id="last-checks-check-4" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Two samples P and Q of different radionuclides are found to have the same corrected count rate at \( t = 10 \) min. P's count rate falls more steeply than Q's. Which of the following is correct at \( t = 10 \) min?</p>
         <div class="choices">

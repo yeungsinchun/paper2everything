@@ -30,7 +30,7 @@
       <header>
         <h2><span class="sec-num">A</span>Structure of the atom</h2>
       </header>
-      <figure id="atom-fig-1" class="fig">
+      <figure class="fig" id="atom-fig-1">
         <div class="visual play stage" id="atom-vis" data-scene="atom">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Atom with electrons on shells and a tiny nucleus"></canvas>
           <span class="hud-label" data-hud="atom-scale">atom ~ 10⁻¹⁰ m</span>
@@ -49,7 +49,7 @@
         <span><i class="swatch n"></i>neutron</span>
         <span><i class="swatch e"></i>electron</span>
       </div>
-      <table id="atom-notes-1" class="notes" aria-label="Table 25.1">
+      <table class="notes" id="atom-notes-1" aria-label="Table 25.1">
         <thead><tr><th>Particle</th><th>Where</th><th>Relative mass</th><th>Relative charge</th></tr></thead>
         <tbody>
           <tr><td>proton</td><td>nucleus</td><td>1</td><td>+1</td></tr>
@@ -57,7 +57,7 @@
           <tr><td>electron</td><td>shells around the nucleus</td><td>≈ 1/1840 (negligible)</td><td>−1</td></tr>
         </tbody>
       </table>
-      <div id="atom-def-1" class="def">
+      <div class="def" id="atom-def-1">
         <span class="tag">Definitions</span>
         <p>Protons and neutrons are together called <b>nucleons</b>. The <b>atomic number</b> \( Z \) is the number of protons in the nucleus. The <b>mass number</b> \( A \) is the total number of nucleons, so the number of neutrons is \( N = A - Z \). A neutral atom has \( Z \) electrons, equal to its number of protons.</p>
       </div>
@@ -65,15 +65,15 @@
         <li>Almost all the mass is in the nucleus (nucleons are about 1840 times heavier than electrons) but almost all the volume is empty space: the atom is about \( 10^{-10}\ \mathrm{m} \) across, the nucleus \( 10^{-15} \) to \( 10^{-14}\ \mathrm{m} \). A nucleus in an atom is like a grain of sand in a football stadium.</li>
         <li>The element is fixed by \( Z \) alone: every nucleus with 6 protons is carbon, whatever its number of neutrons.</li>
       </ul>
-      <div id="atom-check-1" class="check" data-check="tf">
+      <div class="check" id="atom-check-1" data-check="tf">
         <h3>Quick check</h3>
-        <div id="atom-tf-item-1" class="tf-item" data-answer="true">
+        <div class="tf-item" id="atom-tf-item-1" data-answer="true">
           <p>(a) The volume of an atom is mostly empty space.</p>
           <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
           <p class="feedback"></p>
           <div class="explain" hidden><p>The nucleus is about \( 10^{4} \) times smaller across than the atom, so it occupies about \( 10^{-12} \) of the atom's volume; the electrons are point-like. Almost everything in between is empty.</p></div>
         </div>
-        <div id="atom-tf-item-2" class="tf-item" data-answer="false">
+        <div class="tf-item" id="atom-tf-item-2" data-answer="false">
           <p>(b) Because the nucleus is so tiny, it holds only a small proportion of the atom's mass.</p>
           <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
           <p class="feedback"></p>
@@ -86,7 +86,7 @@
       <header>
         <h2><span class="sec-num">B</span>Nuclide notation and isotopes</h2>
       </header>
-      <figure id="notation-fig-1" class="fig">
+      <figure class="fig" id="notation-fig-1">
         <div class="pane-pair">
           <div class="visual play stage" id="nuclide-vis" data-scene="nuclide">
             <canvas class="scene-canvas" width="480" height="360" aria-label="Nuclide with nucleons and electron shells"></canvas>
@@ -112,7 +112,7 @@
       </div>
       <p class="caption" id="nuclide-counts"></p>
       <p class="caption" id="iso-label">¹H  protium  N = 0  ·  Z = 1</p>
-      <div id="notation-def-1" class="def">
+      <div class="def" id="notation-def-1">
         <span class="tag">Definitions</span>
         <p>A <b>nuclide</b> is a species of nucleus with a definite \( Z \) and \( A \), written \( {}^{A}_{Z}\mathrm{X} \): mass number on top, atomic number below, e.g. \( {}^{12}_{6}\mathrm{C} \) or \( {}^{238}_{92}\mathrm{U} \). <b>Isotopes</b> are nuclides of the same element (same \( Z \), same number of protons) with different numbers of neutrons (different \( A \)).</p>
       </div>
@@ -120,7 +120,7 @@
         <li>Isotopes of an element have the same chemical properties (same electrons) and slightly different physical properties (different mass). Natural carbon is about 99% \( {}^{12}\mathrm{C} \), 1% \( {}^{13}\mathrm{C} \) and a trace of \( {}^{14}\mathrm{C} \); only \( {}^{14}\mathrm{C} \) is radioactive. \( {}^{2}\mathrm{H} \) is called deuterium and \( {}^{3}\mathrm{H} \) tritium.</li>
         <li>Some isotopes of every element are unstable. Nuclei with \( Z > 83 \) (heavier than bismuth) are all unstable: the strong nuclear force that binds nucleons acts only over a very short range, and in a large nucleus the electrical repulsion between the many protons wins.</li>
       </ul>
-      <div id="notation-worked-1" class="worked">
+      <div class="worked" id="notation-worked-1">
         <span class="tag">Worked example</span>
         <p>Three nuclides are \( {}^{14}_{6}\mathrm{P} \), \( {}^{12}_{6}\mathrm{Q} \) and \( {}^{14}_{7}\mathrm{R} \). (a) How many elements are present? (b) Which nuclide has the fewest neutrons? (c) Which neutral atoms have the fewest electrons?</p>
         <ol class="steps">
@@ -130,7 +130,7 @@
         </ol>
       </div>
       
-      <div id="notation-check-1" class="check" data-check="mc" data-answer="C">
+      <div class="check" id="notation-check-1" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>Consider the nuclides \( {}^{40}_{18}\mathrm{Ar} \), \( {}^{40}_{19}\mathrm{K} \), \( {}^{40}_{20}\mathrm{Ca} \) and \( {}^{42}_{20}\mathrm{Ca} \). Which of the following statements is/are correct?</p>
         <ol class="stem-list">
@@ -155,11 +155,11 @@
       <header>
         <h2><span class="sec-num">C</span>Three ways to shed energy</h2>
       </header>
-      <div id="decay-anim-def-1" class="def">
+      <div class="def" id="decay-anim-def-1">
         <span class="tag">Vocabulary</span>
         <p>An unstable nuclide (a <b>radionuclide</b> or <b>radioisotope</b>) gets rid of excess energy by emitting radiation; this is <b>radioactive decay</b>. The original nucleus is the <b>parent</b>, the nucleus left behind is the <b>daughter</b>. When the daughter is a different element (different \( Z \)) the change is a <b>transmutation</b>. Decay is spontaneous and random: nothing outside the nucleus (heat, pressure, chemical bonding) starts, stops, speeds or slows it.</p>
       </div>
-      <figure id="decay-anim-fig-1" class="fig">
+      <figure class="fig" id="decay-anim-fig-1">
         <div class="row tabs" role="tablist" aria-label="Choose a decay to animate">
           <button type="button" data-decay="a" aria-pressed="true">α decay of ²⁰⁸Po</button>
           <button type="button" data-decay="b">β decay of ⁶⁰Co</button>
@@ -170,25 +170,25 @@
           <span class="hud-label" data-hud="parent">²⁰⁸₈₄Po</span>
           <span class="hud-label" data-hud="ejectile">²⁰⁴₈₂Pb + ⁴₂He</span>
           <span class="hud-label" style="left:72%;top:78%">A − 4 · Z − 2</span>
-          <div id="decay-anim-eq-1" class="eq">\[ {}^{A}_{Z}\mathrm{X} \rightarrow {}^{A-4}_{Z-2}\mathrm{Y} + {}^{4}_{2}\mathrm{He} \]</div>
+          <div class="eq" id="decay-anim-eq-1">\[ {}^{A}_{Z}\mathrm{X} \rightarrow {}^{A-4}_{Z-2}\mathrm{Y} + {}^{4}_{2}\mathrm{He} \]</div>
         </div>
         <div class="visual play stage" id="decay-b" data-decay-panel="b" hidden data-scene="decay-b">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Beta electron leaves the cobalt-60 nucleus"></canvas>
           <span class="hud-label" data-hud="parent">⁶⁰₂₇Co</span>
           <span class="hud-label" data-hud="ejectile">⁶⁰₂₈Ni + ⁰₋₁e</span>
           <span class="hud-label" style="left:72%;top:78%">n → p + e⁻ inside the nucleus</span>
-          <div id="decay-anim-eq-2" class="eq">\[ {}^{A}_{Z}\mathrm{X} \rightarrow {}^{A}_{Z+1}\mathrm{Y} + {}^{0}_{-1}e \]</div>
+          <div class="eq" id="decay-anim-eq-2">\[ {}^{A}_{Z}\mathrm{X} \rightarrow {}^{A}_{Z+1}\mathrm{Y} + {}^{0}_{-1}e \]</div>
         </div>
         <div class="visual play stage" id="decay-g" data-decay-panel="g" hidden data-scene="decay-g">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Gamma pulse leaves excited nickel-60"></canvas>
           <span class="hud-label" data-hud="parent">⁶⁰₂₈Ni*</span>
           <span class="hud-label" data-hud="ejectile">⁶⁰₂₈Ni + γ</span>
           <span class="hud-label" style="left:72%;top:78%">not a transmutation · A, Z unchanged</span>
-          <div id="decay-anim-eq-3" class="eq">\[ {}^{A}_{Z}\mathrm{X}^{*} \rightarrow {}^{A}_{Z}\mathrm{X} + \gamma \]</div>
+          <div class="eq" id="decay-anim-eq-3">\[ {}^{A}_{Z}\mathrm{X}^{*} \rightarrow {}^{A}_{Z}\mathrm{X} + \gamma \]</div>
         </div>
         <figcaption><b>Fig. 25.14 to 25.17</b> The three decays. Choose one above; each animation loops.</figcaption>
       </figure>
-      <table id="decay-anim-notes-1" class="notes">
+      <table class="notes" id="decay-anim-notes-1">
         <thead><tr><th>Decay</th><th>What leaves</th><th>What happens inside the nucleus</th><th>Change in \( A \)</th><th>Change in \( Z \)</th><th>Change in \( N \)</th></tr></thead>
         <tbody>
           <tr><td><b>α</b></td><td>A helium nucleus \( {}^{4}_{2}\mathrm{He} \): 2 protons + 2 neutrons</td><td>A tightly bound group of four nucleons is ejected</td><td>−4</td><td>−2</td><td>−2</td></tr>
@@ -201,17 +201,17 @@
         <li><b>Consequences.</b> Any α or β decay produces a different element, so it is always a transmutation. γ emission changes neither \( A \) nor \( Z \); the nuclide only loses energy. That is why a source such as Ra-226 or Am-241 is listed as emitting "α and γ": the γ follows the α from the excited daughter.</li>
         <li><b>Answer format.</b> If asked "state the kind of radiation", write "α particle" or "β particle", not "α decay". In β decay the particle emitted is an electron; no neutron is emitted.</li>
       </ul>
-      <div id="decay-anim-worked-1" class="worked">
+      <div class="worked" id="decay-anim-worked-1">
         <span class="tag">Worked example</span>
         <p>Write the equation for (a) the α decay of radium-226 (\( Z = 88 \)) to radon, and (b) the β decay of carbon-14 (\( Z = 6 \)) to nitrogen.</p>
         <ol class="steps">
           <li>(a) Put the parent on the left, the daughter and the particle on the right; balance top and bottom: \( 226 = A + 4 \) gives \( A = 222 \); \( 88 = Z + 2 \) gives \( Z = 86 \).
-            <div id="decay-anim-eq-4" class="eq">\[ {}^{226}_{88}\mathrm{Ra} \rightarrow {}^{222}_{86}\mathrm{Rn} + {}^{4}_{2}\mathrm{He} \]</div></li>
+            <div class="eq" id="decay-anim-eq-4">\[ {}^{226}_{88}\mathrm{Ra} \rightarrow {}^{222}_{86}\mathrm{Rn} + {}^{4}_{2}\mathrm{He} \]</div></li>
           <li>(b) The electron has \( A = 0 \), \( Z = -1 \): \( 14 = A + 0 \) gives \( A = 14 \); \( 6 = Z + (-1) \) gives \( Z = 7 \).
-            <div id="decay-anim-eq-5" class="eq">\[ {}^{14}_{6}\mathrm{C} \rightarrow {}^{14}_{7}\mathrm{N} + {}^{0}_{-1}e \]</div></li>
+            <div class="eq" id="decay-anim-eq-5">\[ {}^{14}_{6}\mathrm{C} \rightarrow {}^{14}_{7}\mathrm{N} + {}^{0}_{-1}e \]</div></li>
         </ol>
       </div>
-      <div id="decay-anim-check-1" class="check" data-check="mc" data-answer="B">
+      <div class="check" id="decay-anim-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Which equation correctly represents the β decay of lead-214, \( {}^{214}_{82}\mathrm{Pb} \)?</p>
         <div class="choices">
@@ -225,7 +225,7 @@
           <p><b>B</b>: the electron is emitted (right-hand side) and the totals balance: \( 214 = 214 + 0 \), \( 82 = 83 + (-1) \). <b>A</b> puts the electron on the left as if it were absorbed. <b>C</b> lowers \( A \), but an electron has zero mass number. <b>D</b> lowers \( Z \), forgetting that the electron's charge is −1, so the daughter must have one <em>more</em> proton.</p>
         </div>
       </div>
-      <div id="decay-anim-check-2" class="check" data-check="mc" data-answer="C">
+      <div class="check" id="decay-anim-check-2" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>A nuclide R undergoes β decay, and the daughter then emits a γ ray. Which of the following statements is/are correct?</p>
         <ol class="stem-list">
@@ -244,13 +244,13 @@
           <p>(1) is what β decay is: a neutron becomes a proton plus an electron, so \( Z \) rises by 1, \( N \) falls by 1 and \( A \) is unchanged. (3) is right: a γ ray carries away energy only. (2) is the common misconception; the electron is created inside the nucleus at the moment of decay. Answer <b>C</b>.</p>
         </div>
       </div>
-      <div id="decay-anim-check-3" class="check" data-check="sa">
+      <div class="check" id="decay-anim-check-3" data-check="sa">
         <h3>Write it</h3>
         <p>Thorium-234 (\( Z = 90 \)) undergoes β decay to protactinium (Pa), which then undergoes β decay to uranium (U). Write the two decay equations. <span class="marks">(2 marks)</span></p>
         <button type="button" data-reveal>Show answer</button>
         <div class="model" hidden>
-          <div id="decay-anim-eq-6" class="eq">\[ {}^{234}_{90}\mathrm{Th} \rightarrow {}^{234}_{91}\mathrm{Pa} + {}^{0}_{-1}e \]</div>
-          <div id="decay-anim-eq-7" class="eq">\[ {}^{234}_{91}\mathrm{Pa} \rightarrow {}^{234}_{92}\mathrm{U} + {}^{0}_{-1}e \]</div>
+          <div class="eq" id="decay-anim-eq-6">\[ {}^{234}_{90}\mathrm{Th} \rightarrow {}^{234}_{91}\mathrm{Pa} + {}^{0}_{-1}e \]</div>
+          <div class="eq" id="decay-anim-eq-7">\[ {}^{234}_{91}\mathrm{Pa} \rightarrow {}^{234}_{92}\mathrm{U} + {}^{0}_{-1}e \]</div>
           <p class="note">One mark for each equation with both numbers correct on every symbol. Check each line: top row 234 = 234 + 0 twice; bottom row 90 = 91 − 1 and 91 = 92 − 1.</p>
         </div>
       </div>
@@ -261,7 +261,7 @@
         <h2><span class="sec-num">D</span>Decay series</h2>
       </header>
       <p>The daughter of a decay is often itself unstable and decays again. The chain continues until a stable nuclide is reached. Uranium-238 goes through 14 decays (8 α and 6 β) before ending at stable lead-206: \( {}^{238}\mathrm{U} \xrightarrow{\alpha} {}^{234}\mathrm{Th} \xrightarrow{\beta} {}^{234}\mathrm{Pa} \xrightarrow{\beta} {}^{234}\mathrm{U} \xrightarrow{\alpha} \cdots \rightarrow {}^{206}\mathrm{Pb} \). Members of a series with the same \( Z \) are isotopes of one another.</p>
-      <figure id="series-fig-1" class="fig">
+      <figure class="fig" id="series-fig-1">
         <div class="visual">
           <svg viewBox="0 0 640 250" role="img" aria-label="Decay series plots">
             <g id="series-az">
@@ -294,7 +294,7 @@
         <button type="button" id="series-reset">Reset to U-238</button>
       </div>
       <p class="caption" id="series-readout"></p>
-      <table id="series-notes-1" class="notes">
+      <table class="notes" id="series-notes-1">
         <thead><tr><th>Decay</th><th>On an \( A \)-\( Z \) chart</th><th>On an \( N \)-\( Z \) chart</th></tr></thead>
         <tbody>
           <tr><td>α</td><td>down 4, left 2</td><td>down 2, left 2 (diagonal)</td></tr>
@@ -305,7 +305,7 @@
       <div class="worked" id="pu239">
         <span class="tag">Worked example: counting α and β</span>
         <p>Plutonium-239 decays through a series to lead-207. How many α and how many β decays are involved?</p>
-        <div id="series-eq-1" class="eq">\[ {}^{239}_{94}\mathrm{Pu} \rightarrow {}^{207}_{82}\mathrm{Pb} \]</div>
+        <div class="eq" id="series-eq-1">\[ {}^{239}_{94}\mathrm{Pu} \rightarrow {}^{207}_{82}\mathrm{Pb} \]</div>
         <ol class="steps">
           <li>Only α changes \( A \), by 4 each time: \(\Delta A = 239 - 207 = 32\) → n<sub>α</sub> = 32 / 4 = 8</li>
           <li>Those 8 α alone would take \( Z \) to \( 94 - 2 \times 8 = 78 \).</li>
@@ -313,11 +313,11 @@
         </ol>
         <p>Write it in exam form as two equations: \( 4n_{\alpha} = \Delta A \) and \( 2n_{\alpha} - n_{\beta} = \Delta Z \).</p>
       </div>
-      <aside id="series-tip-1" class="tip">
+      <aside class="tip" id="series-tip-1">
         <span class="tag">Exam tip: which nuclides can belong to a series?</span>
         <p>Because only α changes \( A \), and by 4 each time, every member of a series has a mass number that differs from the parent's by a multiple of 4. A candidate with the wrong \( A \) can be ruled out immediately. Then check \( Z \): after \( n_{\alpha} \) alphas and \( n_{\beta} \) betas, \( Z = Z_0 - 2n_{\alpha} + n_{\beta} \) with \( n_{\beta} \geq 0 \). Also: "state the end product of the Ra-226 series from Pb-206, Pb-207, Pb-208" is answered by \( 226 - 206 = 20 \), a multiple of 4.</p>
       </aside>
-      <div id="series-check-1" class="check" data-check="mc" data-answer="B">
+      <div class="check" id="series-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Neptunium-237, \( {}^{237}_{93}\mathrm{Np} \), decays through a series to stable bismuth-209, \( {}^{209}_{83}\mathrm{Bi} \). The numbers of α and β decays are</p>
         <div class="choices">
@@ -333,7 +333,7 @@
       </div>
       
       
-      <div id="series-check-2" class="check" data-check="mc" data-answer="B">
+      <div class="check" id="series-check-2" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Uranium-238, \( {}^{238}_{92}\mathrm{U} \), decays by a series of α and β decays. Which of the following nuclides <strong>cannot</strong> be a member of its series?</p>
         <div class="choices">
@@ -354,7 +354,7 @@
       <header>
         <h2><span class="sec-num">E</span>Lab sources and safety</h2>
       </header>
-      <figure id="lab-fig-1" class="fig">
+      <figure class="fig" id="lab-fig-1">
         <div class="visual play stage" id="lab-vis" data-scene="sealed">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Sealed source: metal capsule, mesh window, material inside"></canvas>
           <span class="hud-label" data-hud="case">metal case</span>
@@ -368,7 +368,7 @@
         <li>Schools may use only weak <b>sealed sources</b> like this one. Radioactive material that is not enclosed (rock samples, radon gas) is an <b>open source</b>.</li>
         <li>Radiation from the source cannot make the room, the bench or the student radioactive (see irradiation vs contamination in Section F). The danger is the dose of ionizing radiation absorbed while the source is out.</li>
       </ul>
-      <table id="lab-notes-1" class="notes" aria-label="Table 25.3">
+      <table class="notes" id="lab-notes-1" aria-label="Table 25.3">
         <thead><tr><th>Common school source</th><th>Radiation emitted</th></tr></thead>
         <tbody>
           <tr><td>Radium-226</td><td>α, β and γ (β and much of the γ come from daughters in its series)</td></tr>
@@ -377,7 +377,7 @@
           <tr><td>Cobalt-60</td><td>β and γ (the β from Co-60, the γ from the excited Ni-60 daughter); used as a γ source behind an absorber</td></tr>
         </tbody>
       </table>
-      <table id="lab-notes-2" class="notes">
+      <table class="notes" id="lab-notes-2">
         <thead><tr><th>Precaution</th><th>Reason</th></tr></thead>
         <tbody>
           <tr><td>Handle only with long forceps or tongs; never touch with fingers</td><td>Distance: the radiation intensity falls off with distance from the source, and α and β have short ranges in air</td></tr>
@@ -387,11 +387,11 @@
           <tr><td>Wash hands after the experiment; never eat or drink in the laboratory</td><td>Removes any contamination; prevents radioactive material entering the body, where α is most damaging</td></tr>
         </tbody>
       </table>
-      <div id="lab-def-1" class="def">
+      <div class="def" id="lab-def-1">
         <span class="tag">Inside vs outside the body</span>
         <p><b>Outside</b> the body γ is the most dangerous: it penetrates to internal organs, while α is stopped by a few centimetres of air or the dead outer layer of skin. <b>Inside</b> the body (breathed in or swallowed) α is the most dangerous: it is the strongest ionizer and dumps all its energy into the surrounding cells. This reversal is why radon gas is a hazard (Section F) and why α is never used as a medical tracer (Chapter 26).</p>
       </div>
-      <div id="lab-check-1" class="check" data-check="mc" data-answer="C">
+      <div class="check" id="lab-check-1" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>A teacher takes a sealed γ source out of its box for a demonstration. Which of the following precautions is/are justified by the reason given?</p>
         <ol class="stem-list">
@@ -410,7 +410,7 @@
           <p>(1) and (3) are the two principles that appear in every marking scheme: distance and time. (2) fails on the reason: γ passes through wood almost unhindered; the box must be lead-lined. Answer <b>C</b>.</p>
         </div>
       </div>
-      <div id="lab-check-2" class="check" data-check="mc" data-answer="B">
+      <div class="check" id="lab-check-2" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>A source emits α and γ radiation. Which type of radiation is the more dangerous (i) if the source is accidentally swallowed, and (ii) if the sealed source is held in the hand?</p>
         <div class="choices">
@@ -431,13 +431,13 @@
         <h2><span class="sec-num">F</span>Background radiation</h2>
       </header>
       <p>A detector registers ionizing radiation even with no source in the room. This <b>background radiation</b> comes mostly from natural sources and reaches everyone, everywhere, all the time. In Hong Kong a GM counter typically reads about 1 count per second from background; the average annual dose is about 2.4 mSv, which is far too low to cause any apparent harm.</p>
-      <figure id="background-fig-1" class="fig">
+      <figure class="fig" id="background-fig-1">
         <div class="visual pie">
           <div class="visual play stage" id="pie-vis" data-scene="pie">
             <canvas class="scene-canvas" width="480" height="420" aria-label="Background pie"></canvas>
             <span class="hud-label" data-hud="art">20%</span>
           </div>
-          <table id="background-notes-1" class="notes">
+          <table class="notes" id="background-notes-1">
             <thead><tr><th>Source</th><th>Share</th></tr></thead>
             <tbody>
               <tr><td>Radon gas (natural)</td><td>42%</td></tr>
@@ -451,7 +451,7 @@
         <figcaption><b>Fig. 25.21</b> Where background radiation comes from.</figcaption>
 <details class="fig-more"><summary>More</summary><p>Where background radiation comes from. About 80% is natural; radon is the largest single contributor.</p></details>
       </figure>
-      <table id="background-notes-2" class="notes">
+      <table class="notes" id="background-notes-2">
         <thead><tr><th>Source</th><th>What it is and what affects it</th></tr></thead>
         <tbody>
           <tr><td><b>Radon</b></td><td>A colourless, odourless radioactive gas produced in the U-238 decay series in rocks and soil. It seeps out of the ground and out of granite and concrete building materials and collects in poorly ventilated rooms. Being a gas it is inhaled, and it and its daughters emit α inside the lungs. The remedy is <b>ventilation</b> (open windows), not sealing the room or wearing a dust mask.</td></tr>
@@ -461,12 +461,12 @@
           <tr><td><b>Artificial</b></td><td>Medical X-rays and radiotherapy (by far the largest artificial share), industrial sources, consumer products such as smoke detectors, fallout from past nuclear weapon tests, and any leakage from nuclear power stations. Note that leakage counts as artificial background.</td></tr>
         </tbody>
       </table>
-      <div id="background-def-1" class="def">
+      <div class="def" id="background-def-1">
         <span class="tag">Irradiation vs contamination</span>
         <p>An object that has been <b>irradiated</b> has only absorbed the energy of the radiation; it does <em>not</em> become radioactive. A patient after an X-ray, luggage after a security scan, or a wrapped film that has darkened under a source are irradiated, not radioactive. An object is <b>contaminated</b> when radioactive material itself gets onto or into it; it then goes on emitting radiation until the material is removed or decays. Washing hands after handling a source removes possible contamination.</p>
       </div>
       
-      <div id="background-check-1" class="check" data-check="mc" data-answer="B">
+      <div class="check" id="background-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>With no source nearby, a GM counter reads about 30 counts per minute. A student then holds a mobile phone that is making a call next to the tube. Which statement is correct?</p>
         <div class="choices">
@@ -480,7 +480,7 @@
           <p><b>B</b>. A GM tube counts ionizing events; microwaves cannot ionize argon atoms, so the phone is invisible to it. The stated 30 counts per minute is already a normal non-zero <em>average</em> background reading; an individual very short count can still be zero by chance. <b>C</b> confuses "radiation" with "ionizing radiation". <b>D</b> has no mechanism.</p>
         </div>
       </div>
-      <div id="background-check-2" class="check" data-check="mc" data-answer="C">
+      <div class="check" id="background-check-2" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>A GM counter shows a higher background count inside a cave than in the open air outside it. Which source is <strong>least</strong> likely to be responsible for the increase?</p>
         <div class="choices">
@@ -494,21 +494,21 @@
           <p><b>C</b>. The rock above a cave shields it from cosmic rays, so the cosmic contribution is <em>lower</em> underground, not higher. Rock, soil and trapped radon all raise the count. The reverse question, "why is background higher on a mountain top?", has the answer cosmic rays: less atmosphere above to absorb them.</p>
         </div>
       </div>
-      <div id="background-check-3" class="check" data-check="tf">
+      <div class="check" id="background-check-3" data-check="tf">
         <h3>Quick check</h3>
-        <div id="background-tf-item-1" class="tf-item" data-answer="false">
+        <div class="tf-item" id="background-tf-item-1" data-answer="false">
           <p>(a) After a chest X-ray a patient is slightly radioactive for a few hours.</p>
           <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
           <p class="feedback"></p>
           <div class="explain" hidden><p>The patient was irradiated: the X-rays deposited energy and left. No radioactive material was put into the body, so nothing goes on emitting. Contamination requires the radioactive substance itself.</p></div>
         </div>
-        <div id="background-tf-item-2" class="tf-item" data-answer="false">
+        <div class="tf-item" id="background-tf-item-2" data-answer="false">
           <p>(b) The best way to reduce the radon level in a flat is to keep the windows closed so that no radon can enter from outside.</p>
           <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
           <p class="feedback"></p>
           <div class="explain" hidden><p>Radon comes from the building materials and the ground beneath the flat, and a closed room lets it accumulate. Ventilation dilutes it with outside air, where the level is low.</p></div>
         </div>
-        <div id="background-tf-item-3" class="tf-item" data-answer="true">
+        <div class="tf-item" id="background-tf-item-3" data-answer="true">
           <p>(c) Background radiation varies from place to place.</p>
           <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
           <p class="feedback"></p>
