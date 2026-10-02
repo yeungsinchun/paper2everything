@@ -309,21 +309,21 @@
       ],
       "crop": "crops/2025-q8.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q8-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of electromagnetic induction via rotating coils in a magnetic field. The overall performance was satisfactory. About a third drew a waveform with correct shape, period and phase in (a). Part (b) was well answered, although some wrongly applied *B* = μ₀*I* / (2π*r*) to determine the magnetic flux.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: magnetic field",
       "page_from": 10,
       "page_to": 10,
       "png": "output/lq/2025/q8.png",
-      "answer_png": "output/lq/2025/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q8.png"
     }
   ]
 }

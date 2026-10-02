@@ -281,21 +281,21 @@
       ],
       "crop": "crops/2025-q6.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q6-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' knowledge of geometrical optics, focusing on the properties of lenses and practical adjustments. Candidates performed well. Part (a) was well answered, though a few incorrectly described the image as erect. About two thirds answered (b)(i) and (ii) correctly. Over 70% found the focal length using the lens formula, despite errors in the ray diagrams. Part (c) was poorly answered, revealing their limited understandings of the relationship between image and object distances. Slightly under half answered (d) correctly.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: lens, magnification",
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2025/q6.png",
-      "answer_png": "output/lq/2025/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q6.png"
     }
   ]
 }

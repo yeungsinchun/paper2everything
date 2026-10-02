@@ -85,21 +85,21 @@
       ],
       "crop": "crops/2025-q5.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q5-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question assessed candidates' understanding of experimental design and force analysis during a collision. The performance was poor. While most recognised the action-reaction pair between *A* and *B*, many failed to draw the force-time graphs correctly.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: collision",
       "page_from": 5,
       "page_to": 5,
       "png": "output/lq/2025/q5.png",
-      "answer_png": "output/lq/2025/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q5.png"
     }
   ]
 }

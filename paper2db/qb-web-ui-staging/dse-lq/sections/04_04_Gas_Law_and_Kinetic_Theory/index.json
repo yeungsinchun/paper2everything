@@ -343,21 +343,21 @@
       ],
       "crop": "crops/2025-q9.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q9-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question assessed candidates' application of the ideal gas law. The overall performance was good. Some candidates confused the number of moles with the number of molecules when applying the equation.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: ideal gas, number of molecules, mole",
       "page_from": 11,
       "page_to": 11,
       "png": "output/lq/2025/q9.png",
-      "answer_png": "output/lq/2025/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q9.png"
     },
     {
       "id": "2026-q9",

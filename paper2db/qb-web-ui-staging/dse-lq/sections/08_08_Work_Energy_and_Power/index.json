@@ -151,21 +151,21 @@
       ],
       "crop": "crops/2025-q11.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q11-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of the efficiency of energy conversion and the power loss in long-distance transmission of electricity. Candidates' performance was satisfactory. Part (a) was well answered, with a very high proportion obtaining the correct answer in (a)(i), and about two thirds completing the calculations in (a)(ii) and (iii). A small number made errors with prefixes of the units. Part (b)(i) was well answered. In (b)(ii), just under half determined the power loss correctly. The performance in (b)(iii) was poor. Some omitted the use of a transformer, while others failed to explain the benefit of high-voltage transmission.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: efficiency, power",
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2025/q11.png",
-      "answer_png": "output/lq/2025/ans/q11.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q11.png"
     },
     {
       "id": "2026-q4",

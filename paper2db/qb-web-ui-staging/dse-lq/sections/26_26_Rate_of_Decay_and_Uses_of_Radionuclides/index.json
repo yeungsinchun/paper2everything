@@ -283,21 +283,21 @@
       ],
       "crop": "crops/2025-q12.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q12-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question required candidates to apply the principles of radioactive decay and their understandings of the motion of ions in a magnetic field. The overall performance was satisfactory. In (a)(i), about two thirds wrote a correct equation, although some mistakenly argued that a neutron is emitted during the decay. Around 80% found the decay constant in (a)(ii). Performance in (a)(iii) was also satisfactory, though some confused the count rate of the ancient wood sample with that of the fresh wood. About two thirds correctly stated the meaning of isotopes in (b)(i), and about half sketched the correct path in (b)(ii). The performance in (b)(iii) was poor. Many did not mention that the magnetic force is perpendicular to the velocity.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: half-life, activity, decay constant",
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2025/q12.png",
-      "answer_png": "output/lq/2025/ans/q12.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q12.png"
     },
     {
       "id": "2026-q12",

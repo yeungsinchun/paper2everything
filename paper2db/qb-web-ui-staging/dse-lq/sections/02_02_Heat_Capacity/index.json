@@ -329,7 +329,7 @@
       "page_from": 0,
       "page_to": 0,
       "png": "output/lq/2025/q1.png",
-      "answer_png": "output/lq/2025/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q1.png"
     },
     {
       "id": "2026-q1",

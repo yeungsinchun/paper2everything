@@ -611,7 +611,7 @@
       "page_from": 1,
       "page_to": 1,
       "png": "output/lq/2025/q2.png",
-      "answer_png": "output/lq/2025/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q2.png"
     },
     {
       "id": "2025-q7",
@@ -629,21 +629,21 @@
       ],
       "crop": "crops/2025-q7.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q7-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question examined candidates' understanding of circuit behaviour and interpretation of experimental data. The overall performance was good. Most answered (a) correctly. In (b), a high percentage calculated the total resistance accurately, though some only noted the difference (0.3 Ω) without explaining its cause.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: resistance, circuit",
       "page_from": 8,
       "page_to": 9,
       "png": "output/lq/2025/q7.png",
-      "answer_png": "output/lq/2025/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q7.png"
     },
     {
       "id": "2026-q8",

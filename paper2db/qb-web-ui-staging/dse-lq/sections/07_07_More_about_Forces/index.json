@@ -87,21 +87,21 @@
       ],
       "crop": "crops/2025-q10.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q10-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of stationary wave and its application to musical instruments. Candidates performed poorly. In (a)(i), about a third labelled some antinodes and nodes, only a third labelled all correctly. Part (a)(ii) was well answered, although a small number seemingly did not understand the concept of 'phase'. Only about a third answered (a)(iii) correctly. In (a)(iv), many failed to determine the wavelength of the next stationary wave pattern. Nearly half drew the correct pattern in (b)(i). In (b)(ii), only a very small number realised that sound quality depends on the superposition of harmonics. The performance in (b)(iii) was poor. Many did not compare appropriate wave characteristics and some mismatched terms like 'stationary' and 'longitudinal'.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: stationary wave; dual with S7 (significant earlier part)",
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2025/q10.png",
-      "answer_png": "output/lq/2025/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q10.png"
     }
   ]
 }
