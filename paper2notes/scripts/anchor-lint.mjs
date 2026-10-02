@@ -233,34 +233,40 @@ function lintPointerFile(doc, label) {
   const errors = [];
   const bad = (msg) => errors.push(`${label}: ${msg}`);
   if (!isPlainObject(doc)) return [`${label}: expected a JSON object`];
+  for (const key of Object.keys(doc)) {
+    if (!["schema", "corpus", "pointers"].includes(key)) bad(`unknown key "${key}"`);
+  }
   if (doc.schema !== "paper2db.answer-pointer.v1") bad(`"schema" must be "paper2db.answer-pointer.v1"`);
   if (!["qb", "dse"].includes(doc.corpus)) bad(`"corpus" must be "qb" or "dse"`);
   if (!Array.isArray(doc.pointers)) {
     bad(`"pointers" must be an array`);
     return errors;
   }
-  const seen = new Set();
   doc.pointers.forEach((p, i) => {
     const at = `pointers[${i}]`;
     if (!isPlainObject(p)) return bad(`${at} must be an object`);
-    if (typeof p.item_id !== "string" || !p.item_id) bad(`${at}.item_id must be a non-empty string`);
-    else {
-      const key = `${p.item_id}\0${p.tier}`;
-      if (seen.has(key)) bad(`${at}: duplicate ${p.tier} pointer for item "${p.item_id}"`);
-      seen.add(key);
+    for (const key of Object.keys(p)) {
+      if (!["item_id", "tier", "kind", "target", "source", "note"].includes(key)) bad(`${at}: unknown key "${key}"`);
     }
+    if (typeof p.item_id !== "string" || !p.item_id) bad(`${at}.item_id must be a non-empty string`);
     if (!POINTER_TIERS.includes(p.tier)) bad(`${at}.tier must be one of ${POINTER_TIERS.join("|")}`);
     if (!POINTER_KINDS.includes(p.kind)) bad(`${at}.kind must be one of ${POINTER_KINDS.join("|")}`);
     if (typeof p.source !== "string" || !p.source) bad(`${at}.source must be a non-empty string`);
+    if ("note" in p && typeof p.note !== "string") bad(`${at}.note must be a string`);
     const t = p.target;
-    if (!isPlainObject(t) || typeof t.path !== "string" || !t.path) return bad(`${at}.target.path must be a non-empty string`);
-    if (t.path.includes("\\") || t.path.startsWith("/") || t.path.split("/").includes("..")) {
+    if (!isPlainObject(t)) return bad(`${at}.target must be an object`);
+    for (const key of Object.keys(t)) {
+      if (!["path", "page", "bbox"].includes(key)) bad(`${at}.target: unknown key "${key}"`);
+    }
+    if (typeof t.path !== "string" || !t.path) {
+      bad(`${at}.target.path must be a non-empty string`);
+    } else if (t.path.includes("\\") || t.path.startsWith("/") || t.path.split("/").includes("..")) {
       bad(`${at}.target.path "${t.path}" must be relative to paper2db/ with forward slashes and no ".." segments`);
     }
-    if ((p.kind === "page" || p.kind === "pdf") && !(Number.isInteger(t.page) && t.page >= 1)) {
-      bad(`${at}.target.page must be an integer >= 1 for kind "${p.kind}"`);
+    if ("page" in t && !(Number.isInteger(t.page) && t.page >= 1)) {
+      bad(`${at}.target.page must be an integer >= 1`);
     }
-    if (t.bbox !== undefined) {
+    if ("bbox" in t) {
       const b = t.bbox;
       const ok = Array.isArray(b) && b.length === 4 && b.every((n) => typeof n === "number" && n >= 0 && n <= 1) && b[0] < b[2] && b[1] < b[3];
       if (!ok) bad(`${at}.target.bbox must be [x0,y0,x1,y1] within 0..1 with x0<x1 and y0<y1`);
@@ -273,17 +279,11 @@ function lintPointerFile(doc, label) {
 function lintPointers(pointersDir, repoRootRel, errors) {
   if (!existsSync(pointersDir)) return;
   const names = readdirSync(pointersDir).filter((n) => n.endsWith(".json")).sort();
-  const corpora = new Set();
   for (const name of names) {
     const label = join(repoRootRel, name).split(sep).join("/");
     const doc = readJson(join(pointersDir, name), errors, label);
     if (!doc) continue;
     errors.push(...lintPointerFile(doc, label));
-    if (isPlainObject(doc) && typeof doc.corpus === "string") {
-      if (corpora.has(doc.corpus)) errors.push(`${label}: corpus "${doc.corpus}" is also declared by another pointers file`);
-      corpora.add(doc.corpus);
-      if (name !== `${doc.corpus}.json`) errors.push(`${label}: file name must be "${doc.corpus}.json" to match its corpus`);
-    }
   }
 }
 

@@ -125,7 +125,7 @@ test("malformed moves/lock/config report instead of throwing", () => {
   assert.match(text, /"enforce" must be an array/);
 });
 
-test("pointer files are validated against answer-pointer v1", () => {
+test("pointer stores are validated per file against answer-pointer v1", () => {
   const good = {
     schema: "paper2db.answer-pointer.v1",
     corpus: "dse",
@@ -134,18 +134,52 @@ test("pointer files are validated against answer-pointer v1", () => {
   const notes = { "paper2notes/notes/a.html": page("") };
   assert.deepEqual(run({ ...notes, "paper2db/metadata/pointers/dse.json": good }), []);
 
+  // Filenames and corpora are not part of the per-file shape contract.
+  const other = structuredClone(good);
+  other.pointers[0].item_id = "dse-mc-2021-1";
+  assert.deepEqual(run({
+    ...notes,
+    "paper2db/metadata/pointers/dse-2020.json": good,
+    "paper2db/metadata/pointers/dse-2021.json": other,
+  }), []);
+
   const bad = structuredClone(good);
-  bad.pointers.push({ item_id: "dse-mc-2020-1", tier: "verified", kind: "page", target: { path: "../etc/x", bbox: [0.6, 0, 0.5, 1] }, source: "" });
-  const text = run({ ...notes, "paper2db/metadata/pointers/dse.json": bad, "paper2db/metadata/pointers/qb.json": { schema: "nope", corpus: "dse", pointers: {} } }).join("\n");
-  assert.match(text, /duplicate verified pointer/);
+  bad.pointers.push({ item_id: "dse-mc-2020-1", tier: "verified", kind: "page", target: { path: "../etc/x", page: 0, bbox: [0.6, 0, 0.5, 1] }, source: "" });
+  const text = run({ ...notes, "paper2db/metadata/pointers/dse-2020.json": bad, "paper2db/metadata/pointers/dse-2021.json": { schema: "nope", corpus: "dse", pointers: {} } }).join("\n");
   assert.match(text, /no "\.\." segments|no "\.\."/);
   assert.match(text, /target\.page must be an integer/);
   assert.match(text, /bbox must be/);
   assert.match(text, /source must be a non-empty string/);
   assert.match(text, /"schema" must be/);
   assert.match(text, /"pointers" must be an array/);
-  assert.match(text, /file name must be "dse\.json"/);
-  assert.match(text, /also declared by another pointers file/);
+  assert.doesNotMatch(text, /duplicate verified pointer/);
+  assert.doesNotMatch(text, /file name must be/);
+  assert.doesNotMatch(text, /also declared by another pointers file/);
+});
+
+test("pointer shape validation matches answer-pointer v1: optional page, unknown keys, string note, duplicates", () => {
+  const notes = { "paper2notes/notes/a.html": page("") };
+  const minimal = {
+    schema: "paper2db.answer-pointer.v1",
+    corpus: "qb",
+    pointers: [
+      { item_id: "x", tier: "verified", kind: "pdf", target: { path: "paper/ans/x.pdf" }, source: "s" },
+      { item_id: "x", tier: "verified", kind: "pdf", target: { path: "paper/ans/x.pdf" }, source: "s" },
+      { item_id: "y", tier: "inferred", kind: "crop", target: { path: "a.png" }, source: "s", note: "why" },
+    ],
+  };
+  assert.deepEqual(run({ ...notes, "paper2db/metadata/pointers/anything.json": minimal }), []);
+
+  const invalid = {
+    schema: "paper2db.answer-pointer.v1",
+    corpus: "qb",
+    storeExtra: true,
+    pointers: [{ item_id: "x", tier: "verified", kind: "pdf", target: { path: "p.pdf", targetExtra: 1 }, source: "s", note: 5 }],
+  };
+  const text = run({ ...notes, "paper2db/metadata/pointers/qb.json": invalid }).join("\n");
+  assert.match(text, /unknown key "storeExtra"/);
+  assert.match(text, /\.note must be a string/);
+  assert.match(text, /\.target: unknown key "targetExtra"/);
 });
 
 test("missing pointers dir and _local/_source/vendor pages are skipped", () => {
