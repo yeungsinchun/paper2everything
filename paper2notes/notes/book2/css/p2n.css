@@ -611,3 +611,259 @@ table.notes tbody th { background: var(--paper); }
 figure.fig .fig-more { align-self: stretch; }
 
 h1 .katex, h2 .katex, h3 .katex { font-size: 1em; }
+
+/* ---------- learning primitives (F02/F03/F05): definitions, formula key,
+   comparison cards, live readouts and the scene motion toolbar.
+   One meaning = one colour: quantities use the figure palette tokens
+   (--fig-distance cyan, --fig-displacement violet), never ad-hoc route colours.
+   Contract:
+     .p2n-defs > .p2n-def[data-quantity] > dt + dd
+     .p2n-formula > p + dl.p2n-formula-key
+     .p2n-compare > .p2n-compare-card[data-quantity]
+     .p2n-readouts > .p2n-readout[data-quantity] > .p2n-swatch + b + .p2n-num
+     .scene-toolbar[data-toolbar-for] > button[data-motion="toggle"] +
+       input[data-motion="scrub"] + output[data-motion="output"]
+   Cards grow naturally: no fixed heights, no clipping, no horizontal panning. */
+
+.p2n-defs {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-4);
+  padding: 0;
+}
+
+.p2n-def {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-4);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+
+.p2n-def > dt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font: 600 var(--text-lg)/1.2 var(--font-display);
+  color: var(--ink);
+}
+
+.p2n-def > dt::before {
+  content: "";
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: var(--p2n-quantity, var(--ink-3));
+}
+
+.p2n-def > dd {
+  margin: 0;
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.p2n-def > dd > ul {
+  margin: 0;
+  padding-left: 1.2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-3);
+  list-style: disc;
+}
+
+.p2n-def > dd > ul > li { font-weight: 700; color: var(--ink); }
+
+.p2n-def[data-quantity="distance"],
+.p2n-compare-card[data-quantity="distance"],
+.p2n-readout[data-quantity="distance"] { --p2n-quantity: var(--fig-distance); }
+
+.p2n-def[data-quantity="displacement"],
+.p2n-compare-card[data-quantity="displacement"],
+.p2n-readout[data-quantity="displacement"] { --p2n-quantity: var(--fig-displacement); }
+
+.p2n-def[data-quantity="scalar"] { --p2n-quantity: var(--ink-3); }
+.p2n-def[data-quantity="vector"] { --p2n-quantity: var(--fig-displacement); }
+
+.p2n-qicon {
+  flex: none;
+  width: 2.4rem;
+  height: 1.3rem;
+  color: var(--ink-3);
+}
+.p2n-qicon > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+.p2n-formula {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-4);
+  padding: var(--space-4);
+  border: var(--border-w) solid var(--line);
+  border-left: 6px solid var(--p2n-quantity, var(--fig-displacement));
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+.p2n-formula[data-quantity="displacement"] { --p2n-quantity: var(--fig-displacement); }
+.p2n-formula > p {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.3;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.p2n-formula .p2n-formula-key {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-2) var(--space-3);
+  margin: 0;
+}
+.p2n-formula .p2n-formula-key > dt {
+  font: 700 var(--text-sm)/1.4 var(--font-mono);
+  color: var(--p2n-quantity, var(--fig-displacement));
+  white-space: nowrap;
+}
+.p2n-formula .p2n-formula-key > dd {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.p2n-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0 0 var(--space-4);
+}
+.p2n-compare-card {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-4);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+.p2n-compare-card > header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.p2n-compare-card > header::before {
+  content: "";
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: var(--p2n-quantity, var(--ink-3));
+}
+.p2n-compare-card > header > h3 { font: 600 var(--text-lg)/1.15 var(--font-display); }
+.p2n-compare-row { display: grid; gap: 2px; min-width: 0; }
+.p2n-compare-row > b {
+  font: 700 var(--text-xs)/1.3 var(--font-body);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.p2n-compare-row > span { font-weight: 600; color: var(--ink); }
+
+.p2n-readouts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2);
+}
+.p2n-readout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--card);
+}
+.p2n-readout > b {
+  font: 700 var(--text-xs)/1.3 var(--font-body);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.p2n-readout .p2n-swatch {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: var(--p2n-quantity, var(--ink-3));
+}
+.p2n-readout .p2n-num {
+  margin-left: auto;
+  font: 700 var(--text-md)/1.2 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.stage .hud-label[data-quantity="distance"] { color: var(--fig-distance); }
+.stage .hud-label[data-quantity="displacement"] { color: var(--fig-displacement); }
+
+.fig-frame {
+  display: grid;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: var(--content-w);
+  margin-inline: auto;
+  min-width: 0;
+}
+
+.fig-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  width: 100%;
+}
+.fig-pair > figure.fig { margin: 0; min-width: 0; }
+
+.scene-toolbar {
+  display: grid;
+  grid-template-columns: auto minmax(4rem, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+.scene-toolbar > button { min-height: var(--hit); min-width: 5.4rem; }
+.scene-toolbar > input[type="range"] { width: 100%; min-width: 0; min-height: var(--hit); }
+.scene-toolbar > output {
+  min-width: 3.4rem;
+  color: var(--ink-2);
+  font: 700 var(--text-sm)/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .p2n-compare { grid-template-columns: 1fr; }
+  .fig-pair { grid-template-columns: 1fr; }
+}
+
+/* Readout rows sit above the scene; in a side-by-side figure pair they stack so
+   the numbers never wrap inside a narrow pane. */
+.fig-pair .p2n-readouts { grid-template-columns: 1fr; }
+
+@media (max-width: 560px) {
+  .p2n-readouts { grid-template-columns: 1fr; }
+  .scene-toolbar { grid-template-columns: minmax(0, 1fr) auto; }
+  .scene-toolbar > button { grid-column: 1 / -1; }
+}
+
+@media (max-width: 420px) {
+  .p2n-formula .p2n-formula-key { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+  .p2n-formula .p2n-formula-key > dd { margin-bottom: var(--space-2); }
+}

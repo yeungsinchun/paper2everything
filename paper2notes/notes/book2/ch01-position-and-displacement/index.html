@@ -45,74 +45,135 @@
     <section class="idea" id="distance-vs-displacement">
       <header><h2><span class="sec-num">A</span>Distance vs displacement</h2></header>
       <figure class="fig">
-        <div class="visual stage focus-stage" id="trench-vis" data-scene="trench">
-          <canvas class="scene-canvas" width="960" height="420" aria-label="Mouse trench A to B to C, distance 1000 m but displacement diagonal"></canvas>
-          <span class="hud-label metric" data-hud="dist">Distance travelled: 0 m</span>
-          <span class="hud-label metric" data-hud="disp">Displacement: 0 m</span>
-          <span class="hud-label" data-hud="A">A</span><span class="hud-label" data-hud="B">B</span><span class="hud-label" data-hud="C">C</span>
-          <span class="trench-dot" aria-hidden="true"></span>
+        <div class="fig-frame">
+          <div class="p2n-readouts" role="group" aria-label="Live readouts for the mouse trench">
+            <p class="p2n-readout" data-readout="distance" data-quantity="distance"><span class="p2n-swatch" aria-hidden="true"></span><b>Distance travelled</b><span class="p2n-num">0 m</span></p>
+            <p class="p2n-readout" data-readout="displacement" data-quantity="displacement"><span class="p2n-swatch" aria-hidden="true"></span><b>Displacement</b><span class="p2n-num">0 m</span></p>
+          </div>
+          <div class="visual stage focus-stage" id="trench-vis" data-scene="trench">
+            <canvas class="scene-canvas" width="960" height="420" aria-label="Mouse walks 500 m east then 500 m north: the 1000 m path is drawn as a cyan dashed line A to B to C, and the 707 m straight-line displacement is a violet arrow from A to C"></canvas>
+            <span class="hud-label" data-hud="A">A</span>
+            <span class="hud-label" data-hud="B">B</span>
+            <span class="hud-label" data-hud="C">C</span>
+            <span class="hud-label" data-hud="leg-east" data-quantity="distance">500 m east</span>
+            <span class="hud-label" data-hud="leg-north" data-quantity="distance">500 m north</span>
+            <span class="hud-label" data-hud="diag" data-quantity="displacement">displacement</span>
+            <span class="hud-label" data-hud="mouse">mouse</span>
+          </div>
         </div>
-        <figcaption><b>Fig 1.1</b> Path 1000 m; displacement 707 m NE.</figcaption>
-        <details class="fig-more"><summary>More</summary><p>The mouse goes 500 m east then 500 m north. Distance travelled \( = 1000\ \text{m} \) (scalar). Displacement \( = \vec{AC} \) from start to finish — magnitude \( 707\ \text{m} \) NE, direction matters.</p></details>
+        <figcaption><b>Fig 1.1</b> Path 1000 m; straight-line displacement 707 m north-east.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Givens: the mouse starts at A, walks 500 m due east to B, then 500 m due north to C at a steady \( 1.6\ \text{m s}^{-1} \). The path is 1000 m; the straight-line change of position is 707 m at 45° north of east. The trip takes 625 s, so average velocity \( 707/625 = 1.13\ \text{m s}^{-1} \) NE is smaller than the average speed \( 1.6\ \text{m s}^{-1} \).</p></details>
       </figure>
-      <div class="def"><span class="tag">Definition</span><p><b>Distance</b> is the length of the path (scalar, no direction). <b>Displacement</b> \( \Delta\vec s = \vec s_{\text{final}} - \vec s_{\text{initial}} \) is the vector from start to finish. Same distance can give different displacements.</p></div>
-      <table class="notes">
-        <thead><tr><th></th><th>Distance</th><th>Displacement</th></tr></thead>
-        <tbody>
-          <tr><th>What it is</th><td>Path length</td><td>Change in position (vector)</td></tr>
-          <tr><th>Sign</th><td>\( \ge 0 \) always</td><td>Sign is direction (e.g. + east)</td></tr>
-          <tr><th>Relation</th><td colspan="2">\( |\vec s| \le \text{distance} \); equal only for straight without reversal</td></tr>
-        </tbody>
-      </table>
+      <dl class="p2n-defs">
+        <div class="p2n-def" data-quantity="distance">
+          <dt>Distance</dt>
+          <dd>Whole path length: 500 m + 500 m = 1000 m on this trip.</dd>
+          <dd>Scalar — magnitude only, so it is never negative.</dd>
+        </div>
+        <div class="p2n-def" data-quantity="displacement">
+          <dt>Displacement</dt>
+          <dd>Straight arrow from start to finish: 707 m north-east.</dd>
+          <dd>Vector — magnitude and direction both matter.</dd>
+        </div>
+      </dl>
+      <aside class="p2n-formula" data-quantity="displacement" aria-label="Displacement formula and key">
+        <p>\( \Delta\vec s \;=\; \vec s_{\text{final}} - \vec s_{\text{initial}} \)</p>
+        <dl class="p2n-formula-key">
+          <dt>\( \Delta\vec s \)</dt><dd>displacement in metres, east and north positive</dd>
+          <dt>\( \vec s_{\text{final}} \)</dt><dd>position of the finish, C</dd>
+          <dt>\( \vec s_{\text{initial}} \)</dt><dd>position of the start, A</dd>
+        </dl>
+      </aside>
+      <div class="p2n-compare" role="group" aria-label="Distance and displacement compared">
+        <section class="p2n-compare-card" data-quantity="distance">
+          <header><h3>Distance</h3></header>
+          <p class="p2n-compare-row"><b>What it is</b><span>Length of the whole path</span></p>
+          <p class="p2n-compare-row"><b>Sign</b><span>Always \( \ge 0 \)</span></p>
+          <p class="p2n-compare-row"><b>This trip</b><span>1000 m</span></p>
+        </section>
+        <section class="p2n-compare-card" data-quantity="displacement">
+          <header><h3>Displacement</h3></header>
+          <p class="p2n-compare-row"><b>What it is</b><span>Start → finish arrow</span></p>
+          <p class="p2n-compare-row"><b>Sign</b><span>Sign carries the direction</span></p>
+          <p class="p2n-compare-row"><b>This trip</b><span>707 m north-east</span></p>
+        </section>
+      </div>
       <div class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
-        <p>The mouse’s average speed is \( 1.6\ \text{m s}^{-1} \). Which statement is correct about the trip A→B→C (500 m + 500 m)?</p>
+        <p>Which arrow is the displacement for this trip?</p>
         <div class="choices">
-          <button type="button" data-choice="A">Displacement is 1000 m north-east</button>
-          <button type="button" data-choice="B">Displacement magnitude is about \( 707\ \text{m} \), less than distance</button>
-          <button type="button" data-choice="C">Average velocity magnitude equals average speed</button>
-          <button type="button" data-choice="D">Displacement is a scalar</button>
+          <button type="button" data-choice="A">The 1000 m route A → B → C</button>
+          <button type="button" data-choice="B">The 707 m straight arrow A → C</button>
+          <button type="button" data-choice="C">The 500 m leg B → C</button>
+          <button type="button" data-choice="D">There is none: the trip stops at C</button>
         </div>
         <p class="feedback"></p>
-        <div class="explain" hidden><p>Distance 1000 m, time \( 1000/1.6 = 625\ \text{s} \). Displacement is the diagonal \( \sqrt{500^2+500^2}=707\ \text{m} \). Velocity \( 707/625 =1.13\ \text{m s}^{-1} \) along AC, smaller than speed. Displacement is a vector.</p></div>
+        <button type="button" data-reveal>Show answer</button>
+        <div class="model" hidden><p>Distance is the path: \( 500 + 500 = 1000\ \text{m} \). Displacement is the straight arrow from A to C: \( |\Delta\vec s| = \sqrt{500^2+500^2} = 707\ \text{m} \) at \( 45^\circ \) north of east. Average speed \( = 1000/625 = 1.6\ \text{m s}^{-1} \); average velocity \( = 707/625 = 1.13\ \text{m s}^{-1} \) NE.</p></div>
       </div>
     </section>
 
     <section class="idea" id="scalars-vectors">
       <header><h2><span class="sec-num">B</span>Scalars and vectors</h2></header>
-      <figure class="fig">
-        <div class="pane-pair">
-          <div class="visual stage" id="vector-add-vis" data-scene="vector-add">
-            <canvas class="scene-canvas" width="480" height="360" aria-label="Tip-to-tail vector addition"></canvas>
-            <span class="hud-label" data-hud="res">resultant</span>
+      <div class="fig-pair">
+        <figure class="fig">
+          <div class="fig-frame">
+            <div class="visual stage" id="vector-add-vis" data-scene="vector-add">
+              <canvas class="scene-canvas" width="480" height="360" aria-label="Tip-to-tail: vector a runs east from the start to the junction, vector b runs north from the junction to the finish, and the violet resultant a + b joins start to finish"></canvas>
+              <span class="hud-label" data-hud="start">start</span>
+              <span class="hud-label" data-hud="junction">junction</span>
+              <span class="hud-label" data-hud="finish">finish</span>
+              <span class="hud-label" data-hud="leg-a" data-quantity="displacement">a</span>
+              <span class="hud-label" data-hud="leg-b" data-quantity="displacement">b</span>
+              <span class="hud-label" data-hud="resultant" data-quantity="displacement">a + b</span>
+            </div>
           </div>
-          <div class="visual stage" id="peter-vis" data-scene="peter">
-            <canvas class="scene-canvas" width="480" height="360" aria-label="Peter O to P red then green back, same time different velocity"></canvas>
-            <span class="hud-label" data-hud="red">red path</span><span class="hud-label" data-hud="green">green return</span>
+          <figcaption><b>Fig 1.2a</b> Tip-to-tail: tail of b at the tip of a.</figcaption>
+        </figure>
+        <figure class="fig">
+          <div class="fig-frame">
+            <div class="p2n-readouts" role="group" aria-label="Live readouts for the return trip">
+              <p class="p2n-readout" data-readout="distance" data-quantity="distance"><span class="p2n-swatch" aria-hidden="true"></span><b>Distance travelled</b><span class="p2n-num">0 m</span></p>
+              <p class="p2n-readout" data-readout="displacement" data-quantity="displacement"><span class="p2n-swatch" aria-hidden="true"></span><b>Displacement</b><span class="p2n-num">0 m</span></p>
+            </div>
+            <div class="visual stage" id="peter-vis" data-scene="peter">
+              <canvas class="scene-canvas" width="480" height="360" aria-label="Peter walks O to P along the upper dashed cyan arc, then straight back to O along the lower arc; the violet displacement arrow from O grows to P and shrinks back to zero at O"></canvas>
+              <span class="hud-label" data-hud="origin">O</span>
+              <span class="hud-label" data-hud="far">P</span>
+              <span class="hud-label" data-hud="out" data-quantity="distance">out</span>
+              <span class="hud-label" data-hud="back" data-quantity="distance">back</span>
+              <span class="hud-label" data-hud="displacement-label" data-quantity="displacement">displacement</span>
+              <span class="hud-label" data-hud="walker">Peter</span>
+            </div>
           </div>
+          <figcaption><b>Fig 1.2b</b> Out and back: displacement returns to zero.</figcaption>
+        </figure>
+      </div>
+      <details class="fig-more"><summary>More</summary><p>Left: adding vectors tip-to-tail — b starts where a ends, and the resultant a + b runs from the shared start to the final tip; the order does not matter. Right: O and P are 20 m apart; Peter walks out and straight back at a steady speed, the same time each way. Each arc is 62.8 m, so the whole trip is about 126 m of distance, yet he finishes where he started: displacement is zero, and so is his average velocity.</p></details>
+      <dl class="p2n-defs">
+        <div class="p2n-def" data-quantity="scalar">
+          <dt>Scalar<span class="p2n-qicon" aria-hidden="true"><svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 7v10M42 7v10M6 12h36M18 9v6M30 9v6"/></svg></span></dt>
+          <dd>Magnitude only — no direction.</dd>
+          <dd><ul><li>distance</li><li>speed</li><li>mass</li><li>energy</li><li>time</li></ul></dd>
         </div>
-        <figcaption><b>Fig 1.2</b> Left: tip-to-tail. Right: same distance, opposite displacement.</figcaption>
-        <details class="fig-more"><summary>More</summary><p>Left: add vectors tip-to-tail (or parallelogram) — the resultant joins start to finish. Right: Peter takes same time each way on a circular O–P route; same distance but opposite displacement → different average velocity.</p></details>
-      </figure>
-      <table class="notes">
-        <thead><tr><th>Scalar (magnitude only)</th><th>Vector (magnitude + direction)</th></tr></thead>
-        <tbody>
-          <tr><td>distance, speed, mass, energy, time</td><td>displacement, velocity, acceleration, force</td></tr>
-          <tr><td colspan="2">A vector is drawn as an arrow: length = magnitude, direction = direction. Add by putting tail to tip.</td></tr>
-        </tbody>
-      </table>
-      <div class="check" data-check="tf">
+        <div class="p2n-def" data-quantity="vector">
+          <dt>Vector<span class="p2n-qicon" aria-hidden="true"><svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20 36 5M36 5l-8 1 4 7"/><path d="M6 20h34" stroke-dasharray="3 4"/><path d="M24 20a18 18 0 0 0-3-6"/></svg></span></dt>
+          <dd>Magnitude and direction — drawn as an arrow.</dd>
+          <dd><ul><li>displacement</li><li>velocity</li><li>acceleration</li><li>force</li></ul></dd>
+        </div>
+      </dl>
+      <div class="check" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
-        <div class="tf-item" data-answer="false">
-          <p>Peter’s average speed equals the magnitude of his average velocity for the O→P→O loop.</p>
-          <button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button>
-          <p class="feedback"></p><div class="explain" hidden><p>False — loop displacement zero, so average velocity zero, but speed is distance/time &gt;0. Scalar vs vector.</p></div>
+        <p>For the out-and-back trip: which quantity is zero?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Distance travelled</button>
+          <button type="button" data-choice="B">Average speed</button>
+          <button type="button" data-choice="C">Displacement</button>
+          <button type="button" data-choice="D">Time taken</button>
         </div>
-        <div class="tf-item" data-answer="true">
-          <p>Shirley and Simon’s resultant is found by tip-to-tail.</p>
-          <button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button>
-          <p class="feedback"></p><div class="explain" hidden><p>True — vectors add head-to-tail; the order does not matter.</p></div>
-        </div>
+        <p class="feedback"></p>
+        <button type="button" data-reveal>Show answer</button>
+        <div class="model" hidden><p>He finishes at the start, so \( \Delta\vec s = \vec s_O - \vec s_O = 0 \) and the average velocity is zero too. Distance is not zero: \( 2 \times 62.8 = 126\ \text{m} \), so average speed \( = 126/t > 0 \). Same distance, opposite displacements on the two legs.</p></div>
       </div>
     </section>
 
@@ -191,6 +252,7 @@
   <script src="../vendor/katex/auto-render.min.js"></script>
   <script src="../js/math.js"></script>
   <script src="../js/checks.js"></script>
+  <script src="../js/scene-motion.js"></script>
   <script src="js/lib/three.min.js"></script>
   <script src="js/diagrams3d.js"></script>
 <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="bb3835">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">bb3835</code> <span class="deploy-commit-subject">fix(skills): clarify gh --attach as preferred, drag-drop as fallback for video and crop (#66)</span></footer>
