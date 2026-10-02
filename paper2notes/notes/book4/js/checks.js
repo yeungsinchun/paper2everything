@@ -1,4 +1,4 @@
-/* Concept checks shared by every Book 5 page.
+/* Concept checks shared by every Book 4 page.
    Markup contract:
    - .check[data-check="mc"][data-answer="B"] > .choices > button[data-choice] ; .feedback ; .explain[hidden]
    - .check[data-check="tf"] > .tf-item[data-answer="true|false"] > button[data-tf] ; .feedback ; .explain[hidden]

@@ -489,6 +489,85 @@
     });
   }
 
+  /* Ch.6 summary: drag the coil angle. The coil is drawn edge on, so the torque
+     arm is the horizontal separation of the two sides: it is longest when the
+     coil plane lies along B and vanishes when the normal points along B. The
+     force on each side is unchanged; only the arm changes. */
+  function initMotorAngle() {
+    var demo = document.querySelector("[data-coil-demo]");
+    var slider = document.getElementById("coil-angle");
+    if (!demo || !slider) return;
+    var readout = document.getElementById("coil-readout");
+    var line = $("[data-coil-line]", demo);
+    var out = $("[data-coil-out]", demo);
+    var into = $("[data-coil-in]", demo);
+    var fUp = $("[data-coil-f-up]", demo);
+    var fDown = $("[data-coil-f-down]", demo);
+    var fUpLbl = $("[data-coil-f-up-lbl]", demo);
+    var fDownLbl = $("[data-coil-f-down-lbl]", demo);
+    var normal = $("[data-coil-normal]", demo);
+    var normalLbl = $("[data-coil-normal-lbl]", demo);
+    var arc = $("[data-coil-arc]", demo);
+    var angleText = $("[data-coil-angle-text]", demo);
+    var coilLbl = $("[data-coil-coil-lbl]", demo);
+    if (!line || !out || !into || !fUp || !fDown || !normal || !arc || !angleText) return;
+    var cx = 240, cy = 120, r = 62, fn = 40, nn = 58;
+
+    function round(n) {
+      return Math.round(n * 100) / 100;
+    }
+
+    function render() {
+      var phi = Number(slider.value) || 0;
+      var rad = phi * Math.PI / 180;
+      var dx = Math.sin(rad), dy = -Math.cos(rad);
+      var px = round(cx + r * dx), py = round(cy + r * dy);
+      var mx = round(cx - r * dx), my = round(cy - r * dy);
+      var nx = Math.cos(rad), ny = Math.sin(rad);
+      var nLen = 58;
+
+      line.setAttribute("x1", px); line.setAttribute("y1", py);
+      line.setAttribute("x2", mx); line.setAttribute("y2", my);
+      out.setAttribute("transform", "translate(" + px + "," + py + ")");
+      into.setAttribute("transform", "translate(" + mx + "," + my + ")");
+
+      fUp.setAttribute("x1", px); fUp.setAttribute("y1", py);
+      fUp.setAttribute("x2", px); fUp.setAttribute("y2", round(py - fn));
+      fDown.setAttribute("x1", mx); fDown.setAttribute("y1", my);
+      fDown.setAttribute("x2", mx); fDown.setAttribute("y2", round(my + fn));
+      if (fUpLbl) { fUpLbl.setAttribute("x", round(px + 10)); fUpLbl.setAttribute("y", round(py - 6)); }
+      if (fDownLbl) { fDownLbl.setAttribute("x", round(mx - 10)); fDownLbl.setAttribute("y", round(my + 18)); }
+
+      var tx = round(cx + nLen * nx), ty = round(cy + nLen * ny);
+      normal.setAttribute("x2", tx); normal.setAttribute("y2", ty);
+      if (normalLbl) {
+        normalLbl.setAttribute("x", round(cx + (nLen + 14) * nx + 6));
+        normalLbl.setAttribute("y", round(cy + (nLen + 14) * ny - 6));
+      }
+
+      arc.setAttribute("d", "M " + (cx + 34) + " " + cy +
+        " A 34 34 0 0 1 " + round(cx + 34 * nx) + " " + round(cy + 34 * ny));
+      var ax = round(cx + 30 * Math.cos(rad / 2));
+      var ay = round(cy + 30 * Math.sin(rad / 2) - (phi < 15 ? 14 : 0));
+      angleText.setAttribute("x", ax);
+      angleText.setAttribute("y", ay);
+      angleText.textContent = "φ";
+      if (coilLbl) {
+        coilLbl.setAttribute("x", round(cx - 16 * nx));
+        coilLbl.setAttribute("y", round(cy - 16 * ny + 5));
+      }
+
+      var frac = Math.sin(rad);
+      var tauText = "τ = " + (phi === 0 ? "0" : phi === 90 ? "NBIA (largest)" : frac.toFixed(2) + " NBIA");
+      var full = "φ = " + phi + "° · " + tauText;
+      if (readout) readout.textContent = full;
+      slider.setAttribute("aria-valuetext", full);
+    }
+
+    slider.addEventListener("input", render);
+    render();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initReplays();
     initImaging();
@@ -503,5 +582,6 @@
     initFlow();
     initFields();
     initBadge();
+    initMotorAngle();
   });
 })();

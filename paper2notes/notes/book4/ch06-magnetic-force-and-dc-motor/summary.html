@@ -21,65 +21,245 @@
     <p class="kicker">Ch.6 summary</p>
     <h1>Motor recap</h1>
 
-    <section class="idea">
-      <h2>Formula sheet</h2>
-      <div class="formula-sheet">
-      <p class="eq">\(F = B I l \sin\theta\) — wire</p>
-      <p class="eq">\(F = B Q v \sin\theta\) — moving charge</p>
-      <p class="eq">Fleming left-hand: Field, Current, Motion</p>
-      <p class="eq">Coil torque \(\tau = N B I A \sin\phi\); commutator keeps same sense</p>
+    <section class="idea" id="formula-sheet">
+      <header>
+        <h2><span class="sec-num">1</span>Formulas and conditions</h2>
+      </header>
+      <div class="formula-cards">
+        <article class="formula-card">
+          <h3>Force on a wire</h3>
+          <p class="eq" id="wire-force-eq">\(F = B I l \sin\theta\)</p>
+          <dl class="terms">
+            <div><dt class="t-force">F</dt><dd>force <span class="u">N</span></dd></div>
+            <div><dt class="t-field">B</dt><dd>flux density <span class="u">T</span></dd></div>
+            <div><dt class="t-flow">I</dt><dd>current <span class="u">A</span></dd></div>
+            <div><dt>l</dt><dd>length in the field <span class="u">m</span></dd></div>
+            <div><dt>θ</dt><dd>B to the wire</dd></div>
+          </dl>
+          <p class="when">Zero when the wire is parallel to B.</p>
+        </article>
+
+        <article class="formula-card">
+          <h3>Force on a moving charge</h3>
+          <p class="eq" id="charge-force-eq">\(F = B Q v \sin\theta\)</p>
+          <dl class="terms">
+            <div><dt class="t-force">F</dt><dd>force <span class="u">N</span></dd></div>
+            <div><dt>Q</dt><dd>charge <span class="u">C</span></dd></div>
+            <div><dt class="t-flow">v</dt><dd>speed <span class="u">m s⁻¹</span></dd></div>
+            <div><dt>θ</dt><dd>B to v</dd></div>
+          </dl>
+          <p class="when">Zero when v is parallel to B; F ⟂ v, so no work.</p>
+        </article>
+
+        <article class="formula-card">
+          <h3>Direction rule</h3>
+          <p class="eq" id="force-direction-eq">first finger <b>B</b> · second finger <b>I</b> · thumb <b>F</b></p>
+          <dl class="terms">
+            <div><dt class="t-field">B</dt><dd>flux density <span class="u">T</span></dd></div>
+            <div><dt class="t-flow">I</dt><dd>conventional current <span class="u">A</span></dd></div>
+            <div><dt class="t-force">F</dt><dd>motion or force <span class="u">N</span></dd></div>
+            <div><dt>⟂</dt><dd>B, I and F are mutually perpendicular</dd></div>
+          </dl>
+          <p class="when">Conventional current; reverse for an electron.</p>
+        </article>
+
+        <article class="formula-card">
+          <h3>Torque on a coil</h3>
+          <p class="eq" id="coil-torque-eq">\(\tau = N B I A \sin\phi\)</p>
+          <dl class="terms">
+            <div><dt>τ</dt><dd>torque <span class="u">N m</span></dd></div>
+            <div><dt>N</dt><dd>turns</dd></div>
+            <div><dt>A</dt><dd>coil area <span class="u">m²</span></dd></div>
+            <div><dt class="t-field">B</dt><dd>flux density <span class="u">T</span></dd></div>
+            <div><dt>φ</dt><dd>B to the coil normal</dd></div>
+          </dl>
+          <p class="when">Largest when the plane is parallel to B; zero when the normal is along B.</p>
+          <p class="when">Split-ring commutator reverses I each half-turn: a d.c. motor.</p>
+        </article>
       </div>
     </section>
 
-    <section class="idea">
-      <h2>Common mistakes</h2>
+    <section class="idea" id="common-mistakes">
+      <header>
+        <h2><span class="sec-num">2</span>Common mistakes</h2>
+      </header>
       <div class="trap-grid">
-      <div class="trap">
-        <h3>F direction sign</h3>
-        <p>Electron: force opposite to LHR (conventional current opposite v).</p>
-      </div>
-      <div class="trap">
-        <h3>Motor vs generator</h3>
-        <p>Motor converts electrical→mechanical; generator mechanical→electrical; commutator vs slip ring swap.</p>
-      </div>
+        <aside class="trap">
+          <h3>Force is not along v</h3>
+          <p>The magnetic force is perpendicular to B and to the current or velocity.</p>
+          <div class="trap-pair">
+            <div class="no"><span class="mark" aria-hidden="true">✗</span><span class="text">F points along v and speeds the charge up.</span></div>
+            <div class="yes"><span class="mark" aria-hidden="true">✓</span><span class="text">F ⟂ v: direction changes, speed does not.</span></div>
+          </div>
+        </aside>
+
+        <aside class="trap">
+          <h3>Electron flips the rule</h3>
+          <p>The left-hand rule is drawn for conventional current, not for the electron.</p>
+          <div class="trap-pair">
+            <div class="no"><span class="mark" aria-hidden="true">✗</span><span class="text">Electron: force follows the rule as drawn.</span></div>
+            <div class="yes"><span class="mark" aria-hidden="true">✓</span><span class="text">Electron: I is opposite v, so F reverses.</span></div>
+          </div>
+        </aside>
+
+        <aside class="trap">
+          <h3>Angle from the normal</h3>
+          <p>For the coil, φ is measured from the coil normal, not from the plane.</p>
+          <div class="trap-pair">
+            <div class="no"><span class="mark" aria-hidden="true">✗</span><span class="text">Plane parallel to B: φ = 0, torque zero.</span></div>
+            <div class="yes"><span class="mark" aria-hidden="true">✓</span><span class="text">Plane parallel to B: φ = 90°, torque largest.</span></div>
+          </div>
+        </aside>
+
+        <aside class="trap">
+          <h3>Half-turn reversal</h3>
+          <p>The split ring swaps the coil current every half-turn, so the couple keeps one sense.</p>
+          <div class="trap-pair">
+            <div class="no"><span class="mark" aria-hidden="true">✗</span><span class="text">A coil spins steadily with no commutator.</span></div>
+            <div class="yes"><span class="mark" aria-hidden="true">✓</span><span class="text">Without it the coil stalls at φ = 0.</span></div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="idea">
-      <h2>Visual comparison</h2>
-      <figure class="fig">
-        <div class="visual play stage" data-scene="summary-ch06-magnetic-force-and-dc-motor" data-autoplay>
-          <canvas class="scene-canvas" width="960" height="360" aria-label="Summary visual for Magnetic Force and the DC Motor"></canvas>
+    <section class="idea" id="visual-comparison">
+      <header>
+        <h2><span class="sec-num">3</span>One field, three objects</h2>
+      </header>
+      <div class="compare-grid" role="list">
+        <div class="compare-card" role="listitem">
+          <h3>Wire</h3>
+          <dl>
+            <div><dt>Angle</dt><dd>B to the wire</dd></div>
+            <div><dt>Direction</dt><dd>Fleming's left hand, conventional I</dd></div>
+            <div><dt>Zero</dt><dd>wire along B</dd></div>
+          </dl>
         </div>
+        <div class="compare-card" role="listitem">
+          <h3>Charge</h3>
+          <dl>
+            <div><dt>Angle</dt><dd>B to v</dd></div>
+            <div><dt>Direction</dt><dd>rule for + charge; opposite for an electron</dd></div>
+            <div><dt>Zero</dt><dd>v along B</dd></div>
+          </dl>
+        </div>
+        <div class="compare-card" role="listitem">
+          <h3>Coil</h3>
+          <dl>
+            <div><dt>Angle</dt><dd>B to the coil normal</dd></div>
+            <div><dt>Direction</dt><dd>the two sides form a couple; the split ring flips I each half-turn</dd></div>
+            <div><dt>Zero</dt><dd>normal along B; largest when the plane is parallel to B</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <figure class="fig" id="coil-angle-fig">
+        <div class="coil-demo" data-coil-demo>
+          <svg viewBox="0 0 480 240" role="img" aria-label="Coil in a magnetic field: the torque is largest when the coil plane is parallel to B and zero when the coil normal points along B">
+            <defs>
+              <marker id="r5-ar-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--fig-field)"></path>
+              </marker>
+              <marker id="r5-ar-f" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--fig-force)"></path>
+              </marker>
+              <marker id="r5-ar-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--ink)"></path>
+              </marker>
+            </defs>
+
+            <line class="coil-b" x1="30" y1="60" x2="126" y2="60" marker-end="url(#r5-ar-b)"></line>
+            <line class="coil-b" x1="30" y1="120" x2="150" y2="120" marker-end="url(#r5-ar-b)"></line>
+            <line class="coil-b" x1="30" y1="180" x2="126" y2="180" marker-end="url(#r5-ar-b)"></line>
+            <text class="coil-lbl coil-lbl-b" x="30" y="50">B</text>
+
+            <line class="coil-line" data-coil-line x1="302" y1="120" x2="178" y2="120" stroke-linecap="round"></line>
+
+            <g data-coil-out transform="translate(302,120)">
+              <circle r="6.5" style="fill:#fff;stroke:var(--ink)" stroke-width="2"></circle>
+              <circle r="2.4" style="fill:var(--fig-velocity)"></circle>
+            </g>
+            <g data-coil-in transform="translate(178,120)">
+              <circle r="6.5" style="fill:#fff;stroke:var(--ink)" stroke-width="2"></circle>
+              <path d="M -3.2 -3.2 L 3.2 3.2 M -3.2 3.2 L 3.2 -3.2" style="stroke:var(--fig-velocity)" stroke-width="2" stroke-linecap="round"></path>
+            </g>
+
+            <line class="coil-force" data-coil-f-up x1="302" y1="120" x2="302" y2="80" marker-end="url(#r5-ar-f)"></line>
+            <line class="coil-force" data-coil-f-down x1="178" y1="120" x2="178" y2="160" marker-end="url(#r5-ar-f)"></line>
+            <text class="coil-lbl coil-lbl-f" data-coil-f-up-lbl x="312" y="88">F</text>
+            <text class="coil-lbl coil-lbl-f" data-coil-f-down-lbl x="168" y="152" text-anchor="end">F</text>
+
+            <line class="coil-normal" data-coil-normal x1="240" y1="120" x2="240" y2="178" stroke-dasharray="6 4" marker-end="url(#r5-ar-n)"></line>
+            <text class="coil-lbl" data-coil-normal-lbl x="246" y="186" text-anchor="middle">n</text>
+
+            <path class="coil-arc" data-coil-arc d="M 274 120 A 34 34 0 0 1 240 154" fill="none"></path>
+            <text class="coil-lbl coil-lbl-phi" data-coil-angle-text x="261" y="141" text-anchor="middle">φ</text>
+            <text class="coil-lbl" data-coil-coil-lbl x="240" y="102" text-anchor="middle">coil</text>
+          </svg>
+          <div class="coil-control">
+            <label for="coil-angle">Angle φ from the normal</label>
+            <input type="range" id="coil-angle" min="0" max="90" step="5" value="90">
+            <output id="coil-readout" for="coil-angle">φ = 90° · τ = NBIA (largest)</output>
+          </div>
+          <p class="coil-legend"><span aria-hidden="true">⊙</span> current out of the page · <span aria-hidden="true">⊗</span> current into the page · <span aria-hidden="true">—</span> coil, N turns · <span aria-hidden="true">- -</span> coil normal</p>
+        </div>
+        <figcaption>Torque is largest when the coil plane is parallel to B.</figcaption>
       </figure>
-      <table class="notes">
-        <thead><tr><th>Quantity</th><th>Expression</th><th>When it applies</th></tr></thead>
-        <tbody>
-          <tr><th>Definition</th><td>See formula sheet above</td><td>Always: definitions are not the special case.</td></tr>
-          <tr><th>Special case</th><td>Linear / uniform limit (Ohm, uniform E/B, ideal transformer)</td><td>Only when the conditions (constant T, large plates, long solenoid, ideal core) hold.</td></tr>
-        </tbody>
-      </table>
     </section>
 
-    <div class="check" data-check="mc" data-answer="B">
+    <div class="check" id="recap-electron-check" data-check="mc" data-answer="B">
       <h3>Quick check</h3>
-      <p>Which statement best fits this chapter's theme?</p>
+      <p>Where is the force on the electron?</p>
+      <figure class="check-fig">
+        <svg viewBox="0 0 480 160" role="img" aria-label="Electron moving to the right in a magnetic field pointing into the page">
+          <defs>
+            <marker id="r5-ar-v" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--fig-velocity)"></path>
+            </marker>
+          </defs>
+          <g class="coil-cross">
+            <line x1="66" y1="39" x2="74" y2="51"></line><line x1="66" y1="51" x2="74" y2="39"></line>
+            <line x1="146" y1="39" x2="154" y2="51"></line><line x1="146" y1="51" x2="154" y2="39"></line>
+            <line x1="226" y1="39" x2="234" y2="51"></line><line x1="226" y1="51" x2="234" y2="39"></line>
+            <line x1="306" y1="39" x2="314" y2="51"></line><line x1="306" y1="51" x2="314" y2="39"></line>
+            <line x1="386" y1="39" x2="394" y2="51"></line><line x1="386" y1="51" x2="394" y2="39"></line>
+            <line x1="66" y1="119" x2="74" y2="131"></line><line x1="66" y1="131" x2="74" y2="119"></line>
+            <line x1="146" y1="119" x2="154" y2="131"></line><line x1="146" y1="131" x2="154" y2="119"></line>
+            <line x1="226" y1="119" x2="234" y2="131"></line><line x1="226" y1="131" x2="234" y2="119"></line>
+            <line x1="306" y1="119" x2="314" y2="131"></line><line x1="306" y1="131" x2="314" y2="119"></line>
+            <line x1="386" y1="119" x2="394" y2="131"></line><line x1="386" y1="131" x2="394" y2="119"></line>
+          </g>
+          <text class="coil-lbl coil-lbl-b" x="60" y="26">B into the page</text>
+          <circle cx="170" cy="85" r="7" style="fill:var(--ink)"></circle>
+          <text class="coil-lbl" x="144" y="92">e⁻</text>
+          <line class="coil-v" x1="188" y1="85" x2="320" y2="85" marker-end="url(#r5-ar-v)"></line>
+          <text class="coil-lbl coil-lbl-i" x="246" y="74">v</text>
+        </svg>
+      </figure>
       <div class="choices">
-        <button type="button" data-choice="A">All fields are uniform everywhere.</button>
-        <button type="button" data-choice="B">Quantitative relations have conditions; definitions are general.</button>
-        <button type="button" data-choice="C">Higher voltage always means more power regardless of load.</button>
-        <button type="button" data-choice="D">Lenz's law predicts magnitude, not direction.</button>
+        <button type="button" data-choice="A">Up</button>
+        <button type="button" data-choice="B">Down</button>
+        <button type="button" data-choice="C">Into the page</button>
+        <button type="button" data-choice="D">Zero</button>
       </div>
       <p class="feedback"></p>
-      <div class="explain" hidden><p><b>B</b>. Definitions (R=V/I, E=F/q, Φ=BAcosθ) hold generally; laws like Ohm, uniform E=V/d, ideal transformer are conditional. A confuses uniform vs non-uniform; C ignores R load; D swaps Lenz (direction) with Faraday (magnitude).</p></div>
+      <div class="explain" hidden><p><b>B</b>. Conventional current is opposite v, so the rule gives force down; the same rule puts a positive charge up. F is perpendicular to B, ruling out C, and to v, ruling out D.</p></div>
+    </div>
+
+    <div class="check" id="recap-coil-check" data-check="sa">
+      <h3>Write it</h3>
+      <p>Write the torque relation and the angle it uses.</p>
+      <button type="button" data-reveal>Show answer</button>
+      <div class="model" hidden>
+        <p>\(\tau = N B I A \sin\phi\), where \(\phi\) is between B and the coil normal. \(\tau = 0\) when the normal is along B, and largest when the coil plane is parallel to B (\(\phi = 90°\)).</p>
+        <p>The split-ring commutator reverses the coil current every half-turn, so the couple keeps one sense and the coil keeps turning: a d.c. motor.</p>
+      </div>
     </div>
   </main>
   <script src="../vendor/katex/katex.min.js"></script>
   <script src="../vendor/katex/auto-render.min.js"></script>
   <script src="../js/math.js"></script>
   <script src="../js/checks.js"></script>
-  <script src="js/lib/three.min.js"></script>
-  <script src="../js/diagrams3d.js"></script>
   <script src="js/notes.js"></script>
 <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="bb3835">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">bb3835</code> <span class="deploy-commit-subject">fix(skills): clarify gh --attach as preferred, drag-drop as fallback for video and crop (#66)</span></footer>
 </body>

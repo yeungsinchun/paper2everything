@@ -805,6 +805,83 @@ button[data-reveal] { margin-top: var(--space-2); }
   .def-row { grid-template-columns: 1fr; gap: 2px; }
 }
 
+/* ---------- recap: formula cards, trap pairs, comparison, coil figure ---------- */
+
+.formula-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-3); margin: var(--space-3) 0 0; }
+
+.formula-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--card);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.formula-card h3 { margin: 0; font-size: var(--text-md); }
+.formula-card .eq { margin: 0; padding: 0; background: none; border: 0; border-radius: 0; font-size: var(--text-lg); }
+.formula-card .eq .katex-display { margin: var(--space-1) 0; text-align: left; }
+.formula-card .eq .katex-display > .katex { text-align: left; }
+
+.formula-card .terms {
+  display: grid;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  padding: var(--space-2) 0 0;
+  border-top: var(--border-w) dashed var(--line-soft);
+}
+
+.formula-card .terms > div { display: grid; grid-template-columns: 1.6em 1fr; gap: var(--space-2); align-items: baseline; }
+.formula-card .terms dt { font: italic 600 17px/1.2 "KaTeX_Main", "Times New Roman", serif; color: var(--ink); }
+.formula-card .terms dd { margin: 0; font-size: var(--text-sm); font-weight: 600; color: var(--ink-2); }
+.formula-card .terms .u { margin-left: var(--space-1); font: 500 12px/1 var(--font-mono); color: var(--ink-3); }
+.formula-card .terms dt.t-force { color: var(--fig-force); }
+.formula-card .terms dt.t-field { color: var(--fig-field); }
+.formula-card .terms dt.t-flow { color: var(--fig-velocity); }
+
+.formula-card .when { margin: 0; font-size: var(--text-sm); font-weight: 600; color: var(--text-muted); }
+
+.trap .trap-pair { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
+.trap .trap-pair > div { display: flex; align-items: flex-start; gap: var(--space-2); padding: 8px 10px; border-radius: var(--radius-md); background: var(--card); }
+.trap .trap-pair .mark { font: 700 var(--text-sm)/1.4 var(--font-body); }
+.trap .trap-pair .text { font-size: var(--text-sm); font-weight: 700; }
+.trap .trap-pair .no { color: var(--nudge-edge); }
+.trap .trap-pair .no .text { text-decoration: line-through; text-decoration-thickness: 2px; }
+.trap .trap-pair .yes { color: var(--ok-edge); }
+
+.compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--space-3); margin: var(--space-3) 0 var(--space-4); }
+.compare-card { padding: var(--space-4); background: var(--card); border: var(--border-w) solid var(--line); border-radius: var(--radius-lg); }
+.compare-card h3 { margin: 0 0 var(--space-2); font-size: var(--text-md); }
+.compare-card dl { display: grid; gap: var(--space-2); margin: 0; }
+.compare-card dl > div { display: grid; gap: 2px; }
+.compare-card dt { font: 700 var(--text-xs)/1.3 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
+.compare-card dd { margin: 0; font-size: var(--text-sm); font-weight: 600; color: var(--ink-2); }
+
+.coil-demo { padding: var(--space-3) var(--space-4) var(--space-4); background: var(--fig-bg); border: var(--border-w) solid var(--line); border-radius: var(--radius-lg); }
+.coil-demo svg { display: block; width: 100%; height: auto; }
+.coil-b { stroke: var(--fig-field); stroke-width: 2.5; }
+.coil-cross line { stroke: var(--fig-field); stroke-width: 2; }
+.coil-line { stroke: var(--ink); stroke-width: 4; }
+.coil-force { stroke: var(--fig-force); stroke-width: 3; }
+.coil-normal { stroke: var(--ink); stroke-width: 2; }
+.coil-arc { stroke: var(--fig-guide); stroke-width: 2; }
+.coil-v { stroke: var(--fig-velocity); stroke-width: 3; }
+.coil-lbl { font: 700 15px/1 var(--font-body); fill: var(--ink); }
+.coil-lbl-b { fill: var(--fig-field); }
+.coil-lbl-f { fill: var(--fig-force); }
+.coil-lbl-i { fill: var(--fig-velocity); }
+.coil-lbl-phi { font-family: "KaTeX_Main", "Times New Roman", serif; font-style: italic; font-weight: 600; font-size: 17px; }
+
+.coil-control { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-3); }
+.coil-control label { font-size: var(--text-sm); font-weight: 700; color: var(--ink-2); }
+.coil-control input[type="range"] { flex: 1 1 180px; min-height: var(--hit); }
+.coil-control output { padding: 6px var(--space-3); border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); background: var(--card); font: 500 var(--text-sm)/1.3 var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink); }
+
+.coil-legend { margin: var(--space-3) 0 0; font-size: var(--text-sm); font-weight: 600; color: var(--text-muted); }
+.check-fig { margin: var(--space-2) 0 var(--space-3); }
+.check-fig svg { display: block; width: 100%; height: auto; }
+
 /* ---------- layout helpers ---------- */
 
 .pie { display: grid; grid-template-columns: minmax(220px, 260px) 1fr; gap: var(--space-4); align-items: start; }
