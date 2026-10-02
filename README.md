@@ -26,7 +26,8 @@ paper2everything/
 ├── paper2notes/
 │   ├── notes/                   the site: landing, book2/, book4/, book5/, qb/, dse/ snapshot
 │   │   └── _source/<book-ch>/   intake (ocr.md, outline.md, problems.md, images/, INDEX.md)
-│   ├── scripts/                 ci-check.mjs, leak-check.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
+│   ├── scripts/                 ci-check.mjs, leak-check.mjs, anchor-lint.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
+│   ├── anchors/                 ids.lock.json, moves.json (anchor-id rules; see anchors/README.md)
 │   └── deploy/cloudrun/         Dockerfile, nginx.conf, deploy.sh, provision.sh
 ├── paper2db/
 │   ├── pipeline                 entry point: 12 past-paper stages + 4 QB stages (`--list-stages`)
@@ -129,7 +130,7 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, the leak generator, or its staging inputs | Notes and leak checks (`ci-check.mjs`, `leak-check.test.mjs`, `leak_fingerprints.py --check`); scope in [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci) |
+| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/anchors/**`, `paper2db/metadata/pointers/**`, the leak generator, or its staging inputs | Notes, leak checks (`ci-check.mjs`, `leak-check.test.mjs`, `leak_fingerprints.py --check`), and anchor checks (`anchor-lint.test.mjs`, `ci-check.mjs`: required/unique/non-positional ids, `moves.json` renames, answer-pointer shape — see [anchors README](paper2notes/anchors/README.md)); scope in [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci) |
 | [`ci-pointers`](.github/workflows/ci-pointers.yml) | PR and push to `main`; path filters in the workflow | Answer-pointer checks; see [paper2db usage](paper2db/README.md#answer-pointers) |
 | [`ci-paper2db`](.github/workflows/ci-paper2db.yml) | PR and push to `main` touching `paper2db/**` or itself | `python -m unittest tests.test_dse_items tests.test_pointers` (dse-items records and answer-pointer join) |
 | `compile-mocks` | PR touching `paper2mock/**`; every push to `main` | LaTeX build of all 20 mock documents; `main` pushes release two zips |
