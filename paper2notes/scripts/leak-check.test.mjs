@@ -5,7 +5,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadFingerprints, numset, runLeakCheck, tokens } from "./leak-check.mjs";
+import { checkBlocks, DEFAULT_BASELINE, loadFingerprints, numset, runLeakCheck, tokens } from "./leak-check.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const bank = JSON.parse(readFileSync(resolve(here, "../notes/qb/data/qb_book5.json"), "utf8")).items;
@@ -23,8 +23,59 @@ function page(body, head = "") {
 }
 const levels = (file) => runLeakCheck({ files: [file] }).errors.map((e) => e.split(" ")[0]);
 
-test("baseline: current notes pass", () => {
-  assert.deepEqual(runLeakCheck().errors, []);
+test("baseline: current notes pass with no stale content allowances", () => {
+  const result = runLeakCheck();
+  assert.deepEqual(result.errors, []);
+  assert.deepEqual(result.stale, []);
+  assert.equal(result.baselined, readJson(DEFAULT_BASELINE).allowed.length);
+});
+
+test("baselined pages reject an appended stem and numeric reword", () => {
+  const stem = bank.find((item) => item.id === "PHY15011101").stem.text;
+  for (const [path, body, level, id] of [
+    ["book5/ch01-radiation-and-radioactivity/25-1.html", stem, "L1", "PHY15011101"],
+    ["book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html", "Device uses isotope 241; lifetime 432 years; service interval 100 years; retirement fraction 80 percent.", "L2.2", "PHY15023108"],
+  ]) {
+    const file = resolve(here, "../notes", path);
+    const original = readFileSync(file, "utf8");
+    try {
+      writeFileSync(file, original.replace(/<\/body>/i, `<p>${body}</p></body>`));
+      const result = runLeakCheck();
+      assert.ok(result.errors.some((error) => error.startsWith(`${level} `) && error.includes(`item ${id}:`)), result.errors.join("\n"));
+      assert.ok(result.stale.some((key) => key.startsWith(`${level}|notes/${path}|${id}|`)));
+    } finally {
+      writeFileSync(file, original);
+    }
+  }
+});
+
+test("content evidence changes for additional copies across all levels", () => {
+  const stem = bank.find((item) => item.id === "PHY15011101").stem.text;
+  const answer = bank.find((item) => item.answer?.worked && fp.items.find((row) => row.id === item.id)?.w.length >= 2);
+  for (const [block, level, id] of [
+    [stem, "L1", "PHY15011101"],
+    ["241 432 100 80", "L2.2", "PHY15023108"],
+    [answer.answer.worked, "L3", answer.id],
+    ["See PHY15011101 for practice.", "L4", "PHY15011101"],
+  ]) {
+    const find = (blocks) => checkBlocks(blocks, fp).find((finding) => finding.level === level && finding.item === id);
+    const original = find([block]);
+    assert.ok(original, `${level} ${id}`);
+    assert.equal(find([block, "Unrelated prose."]).contentHash, original.contentHash);
+    assert.notEqual(find([block, block]).contentHash, original.contentHash);
+  }
+  const first = checkBlocks(["241 432 100 80"], fp).find((finding) => finding.level === "L2.2" && finding.item === "PHY15023108");
+  const reword = checkBlocks(["Given 241 then 432 then 100 then 80."], fp).find((finding) => finding.level === "L2.2" && finding.item === "PHY15023108");
+  assert.notEqual(first.contentHash, reword.contentHash);
+});
+
+test("CLI cannot authorize leaks or overwrite the baseline", () => {
+  const before = readFileSync(DEFAULT_BASELINE);
+  const file = page("<p>See PHY15011101 for practice.</p>");
+  const result = spawnSync(process.execPath, [join(here, "leak-check.mjs"), "--update-baseline", file], { encoding: "utf8" });
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /unknown option: --update-baseline/);
+  assert.deepEqual(readFileSync(DEFAULT_BASELINE), before);
 });
 
 test("stem paste fails L1", () => {

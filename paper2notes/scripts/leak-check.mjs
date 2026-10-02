@@ -14,8 +14,7 @@
 //
 // Baseline: the notes already embed some bank items on purpose (worked examples,
 // practice checks). Those existing findings are pinned in scripts/leak/baseline.json
-// as "LEVEL|path|item" keys and do not fail; anything not in the baseline does.
-// Regenerate it with --update-baseline only when a new embed is intentional.
+// as "LEVEL|path|item|contentHash" keys and do not fail; new matched content does.
 //
 // Deck exemptions: pages under notes/qb/ and notes/dse/ (the item bank and past
 // paper decks), `_source/` and `_local/` trees, and any page that declares
@@ -23,13 +22,12 @@
 //
 // normalize/tokens/numset MUST stay equivalent to leak_fingerprints.py.
 //
-// Usage: node paper2notes/scripts/leak-check.mjs [--verbose]
-//          [--update-baseline] [file...]
+// Usage: node paper2notes/scripts/leak-check.mjs [--verbose] [file...]
 //   no files: scans every non-exempt HTML under notes/ against the baseline.
 //   explicit HTML files are checked with no baseline.
 
 import { createHash } from "node:crypto";
-import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gunzipSync } from "node:zlib";
@@ -153,11 +151,14 @@ function isExemptPath(file) {
 
 /**
  * Check a list of text blocks.
- * Returns findings [{level, item, detail, severity}].
+ * Returns findings [{level, item, detail, severity, contentHash}].
  */
 export function checkBlocks(blocks, fp) {
   const findings = [];
-  const add = (level, item, detail, severity = "error") => findings.push({ level, item, detail, severity });
+  const add = (level, item, detail, evidence, severity = "error") => findings.push({
+    level, item, detail, severity,
+    contentHash: createHash("sha256").update(JSON.stringify(evidence.sort())).digest("hex"),
+  });
 
   const text = blocks.join("\n");
   const toks = tokens(text);
@@ -168,14 +169,17 @@ export function checkBlocks(blocks, fp) {
   for (let i = 0; i + fp.ngram <= toks.length; i++) {
     const h = fp.gramHash(toks, i);
     for (const [index, hits] of [[fp.gramIndex, gramHits], [fp.wordIndex, wordHits]]) {
-      for (const idx of index.get(h) ?? []) hits.set(idx, (hits.get(idx) ?? 0) + 1);
+      for (const idx of index.get(h) ?? []) {
+        if (!hits.has(idx)) hits.set(idx, []);
+        hits.get(idx).push(h);
+      }
     }
   }
-  for (const [idx, n] of gramHits) {
-    if (n >= MIN_GRAM_HITS) add("L1", fp.items[idx].id, `${n} verbatim 8-grams of the question text`);
+  for (const [idx, evidence] of gramHits) {
+    if (evidence.length >= MIN_GRAM_HITS) add("L1", fp.items[idx].id, `${evidence.length} verbatim 8-grams of the question text`, evidence);
   }
-  for (const [idx, n] of wordHits) {
-    if (n >= MIN_GRAM_HITS) add("L3", fp.items[idx].id, `${n} verbatim 8-grams of the worked solution`);
+  for (const [idx, evidence] of wordHits) {
+    if (evidence.length >= MIN_GRAM_HITS) add("L3", fp.items[idx].id, `${evidence.length} verbatim 8-grams of the worked solution`, evidence);
   }
 
   // L2: numeric set inside a single block.
@@ -188,17 +192,23 @@ export function checkBlocks(blocks, fp) {
       let shared = 0;
       for (const h of set) if (hashes.has(h)) shared++;
       const ratio = shared / set.size;
-      if (ratio >= PARTIAL_NUMSET && ratio > (l2.get(idx)?.ratio ?? 0)) l2.set(idx, { ratio, shared, size: set.size });
+      if (ratio < PARTIAL_NUMSET) return;
+      const best = l2.get(idx);
+      const evidence = tokens(block).join(" ");
+      if (ratio > (best?.ratio ?? 0)) l2.set(idx, { ratio, shared, size: set.size, evidence: [evidence] });
+      else if (ratio === best?.ratio) best.evidence.push(evidence);
     });
   }
-  for (const [idx, { ratio, shared, size }] of l2) {
-    if (ratio === 1) add("L2.2", fp.items[idx].id, `one block reproduces the item's full numeric set (${size} numbers)`);
-    else if (size >= 4) add("L2.1", fp.items[idx].id, `one block holds ${shared}/${size} of the item's numbers`, "warn");
+  for (const [idx, { ratio, shared, size, evidence }] of l2) {
+    if (ratio === 1) add("L2.2", fp.items[idx].id, `one block reproduces the item's full numeric set (${size} numbers)`, evidence);
+    else if (size >= 4) add("L2.1", fp.items[idx].id, `one block holds ${shared}/${size} of the item's numbers`, evidence, "warn");
   }
 
   // L4: item id cited.
   fp.idPatterns.forEach((re, idx) => {
-    if (re.test(text)) add("L4", fp.items[idx].id, "protected item id cited outside a deck");
+    if (!re.test(text)) return;
+    const evidence = blocks.filter((block) => re.test(block)).map((block) => tokens(block).join(" "));
+    if (evidence.length) add("L4", fp.items[idx].id, "protected item id cited outside a deck", evidence);
   });
 
   return findings;
@@ -224,25 +234,25 @@ function walkHtml(dir, out = []) {
 }
 
 function findingKey(f, file) {
-  return `${f.level}|${relative(paper2notesRoot, file).split(sep).join("/")}|${f.item}`;
+  return `${f.level}|${relative(paper2notesRoot, file).split(sep).join("/")}|${f.item}|${f.contentHash}`;
 }
 
-function loadBaseline(path) {
-  return existsSync(path) ? new Set(JSON.parse(readFileSync(path, "utf8")).allowed) : new Set();
+function loadBaseline() {
+  return existsSync(DEFAULT_BASELINE) ? new Set(JSON.parse(readFileSync(DEFAULT_BASELINE, "utf8")).allowed) : new Set();
 }
 
 /**
  * Scan files (default: all notes HTML, filtered through the baseline).
  * Returns {scanned, errors, warnings, baselined, stale, keys}.
  */
-export function runLeakCheck({ files, baseline = DEFAULT_BASELINE } = {}) {
+export function runLeakCheck({ files } = {}) {
   if (!existsSync(DEFAULT_FINGERPRINTS)) {
     return { scanned: 0, errors: [`leak fingerprints missing: ${relative(process.cwd(), DEFAULT_FINGERPRINTS)} (run paper2db/scripts/leak_fingerprints.py)`], warnings: [], baselined: 0, stale: [], keys: [] };
   }
   const fp = loadFingerprints();
   const explicit = Boolean(files?.length);
   const targets = explicit ? files : existsSync(notesDir) ? walkHtml(notesDir) : [];
-  const allowed = explicit ? new Set() : loadBaseline(baseline);
+  const allowed = explicit ? new Set() : loadBaseline();
   const errors = [];
   const warnings = [];
   const seen = new Set();
@@ -269,24 +279,16 @@ export function runLeakCheck({ files, baseline = DEFAULT_BASELINE } = {}) {
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   let verbose = false;
-  let update = false;
   const files = [];
   for (const arg of args) {
     if (arg === "--verbose") verbose = true;
-    else if (arg === "--update-baseline") update = true;
     else if (arg.startsWith("-")) throw new Error(`leak-check: unknown option: ${arg}`);
     else files.push(resolve(arg));
   }
-  const result = runLeakCheck({ files, baseline: update ? join(__dirname, "leak", "__none__") : DEFAULT_BASELINE });
-  if (update) {
-    const allowed = [...new Set([...result.keys])].sort();
-    writeFileSync(DEFAULT_BASELINE, `${JSON.stringify({ note: "Existing embeds pinned by leak-check.mjs; LEVEL|path|item.", allowed }, null, 2)}\n`);
-    console.log(`leak-check: baseline updated (${allowed.length} findings)`);
-    process.exit(0);
-  }
+  const result = runLeakCheck({ files });
   if (verbose) for (const w of result.warnings) console.warn(`warn: ${w}`);
   else if (result.warnings.length) console.warn(`leak-check: ${result.warnings.length} L2.1 warning(s) (use --verbose)`);
-  if (result.stale.length) console.warn(`leak-check: ${result.stale.length} baseline entr${result.stale.length === 1 ? "y" : "ies"} no longer occur; run --update-baseline to prune`);
+  if (result.stale.length) console.warn(`leak-check: ${result.stale.length} baseline entr${result.stale.length === 1 ? "y" : "ies"} no longer occur`);
   if (result.errors.length > 0) {
     console.error(`leak-check: ${result.errors.length} leak(s) in ${result.scanned} file(s):\n`);
     for (const e of result.errors) console.error(`  - ${e}`);
