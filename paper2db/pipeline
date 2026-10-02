@@ -509,9 +509,9 @@ def stage_qb_audit() -> None:
     run_script("qb_quality.py", "--strict")
 
 
-def stage_dse_items() -> None:
-    print("=== dse-items: join crops/classifications/keys/performance -> tests/sections/items ===")
-    run_script("dse_items.py")
+def stage_dse_items(years: list[str] | None) -> None:
+    print("=== dse-items: join crops/classifications/keys/performance/pointers -> tests/sections/items ===")
+    run_script("dse_items.py", *(["--years", *years] if years else []))
 
 
 def stage_lavish() -> None:
@@ -640,7 +640,7 @@ def main() -> None:
         elif stage == "section-pdfs":
             stage_section_pdfs()
         elif stage == "dse-items":
-            stage_dse_items()
+            stage_dse_items(years)
         elif stage == "qb-pdf":
             stage_qb_pdf(force=args.force)
         elif stage == "qb-ocr":

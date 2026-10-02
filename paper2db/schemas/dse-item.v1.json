@@ -4,10 +4,10 @@
   "description": "One HKDSE Physics past-paper question record (Paper 1A MC or Paper 1B LQ) joining its crop, section classification, marking-scheme key, candidate performance and source pointers. Paths are relative to the paper2db root.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "id", "paper", "year", "question", "scope", "sections", "classification", "marks", "images", "answer", "performance", "sources", "warnings"],
+  "required": ["schema", "id", "paper", "year", "question", "scope", "sections", "classification", "marks", "images", "answer", "answer_pointer", "performance", "sources", "warnings"],
   "properties": {
     "schema": {"type": "string", "const": "paper2db.dse-item.v1"},
-    "id": {"type": "string", "pattern": "^dse-(mc|lq)-[0-9a-z]+-[0-9]+$", "description": "e.g. dse-mc-2012-1, dse-lq-pp-3"},
+    "id": {"type": "string", "pattern": "^dse-(mc-[0-9a-z]+-[0-9]+|lq-[0-9a-z]+-q[0-9]+)$", "description": "e.g. dse-mc-2012-1, dse-lq-pp-q3"},
     "paper": {"type": "string", "enum": ["mc", "lq"], "description": "mc = Paper 1A, lq = Paper 1B"},
     "year": {"type": "string", "pattern": "^(20[0-9]{2}|pp|sap)$", "description": "Exam year, or pp / sap for the practice and sample papers"},
     "question": {"type": "integer", "minimum": 1},
@@ -51,6 +51,10 @@
         "percentage": {"type": ["integer", "null"], "minimum": 0, "maximum": 100, "description": "Percentage of candidates choosing the correct option"},
         "deleted": {"type": "boolean", "description": "Question was deleted from the marking scheme"}
       }
+    },
+    "answer_pointer": {
+      "oneOf": [{"$ref": "answer-pointer.v1.json#/definitions/pointer"}, {"type": "null"}],
+      "description": "Resolved metadata/pointers/dse.json pointer (verified > derived > inferred), or null when absent"
     },
     "performance": {
       "type": "object",

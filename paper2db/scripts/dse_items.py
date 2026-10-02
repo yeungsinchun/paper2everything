@@ -8,8 +8,8 @@ Reads (all under the paper2db root):
   tests/reconstructed/lq/<year>/ans/qN.png    LQ answer crops    (lq-answers)
   tests/reconstructed/lq/<year>/starts.json   LQ page ranges
   tests/sections/mc/answer_keys.json          MC keys + correct-% (keys)
-  tests/sections/lq/candidate_performance.json LQ notes          (lq-performance;
-                                              falls back to classified/lq/, where that stage writes)
+  classified/lq/candidate_performance.json   LQ notes          (lq-performance)
+  metadata/pointers/dse.json                 answer-pointer store
 
 Writes `paper2db.dse-item.v1` records (schemas/dse-item.v1.json):
   tests/sections/items/<section folder>.json  full records listed under that section
@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from classify_mc_llm import SECTIONS  # noqa: E402  (shared 27-section taxonomy)
+import pointers  # noqa: E402
 
 SCHEMA_ID = "paper2db.dse-item.v1"
 SCHEMA_PATH = ROOT / "schemas" / "dse-item.v1.json"
@@ -41,9 +42,8 @@ RECON = ROOT / "tests" / "reconstructed"
 MC_CLASSIFICATIONS = ROOT / "metadata" / "mc" / "llm_classifications.json"
 LQ_CLASSIFICATIONS = ROOT / "metadata" / "lq" / "llm_classifications.json"
 ANSWER_KEYS = ROOT / "tests" / "sections" / "mc" / "answer_keys.json"
-LQ_PERFORMANCE = ROOT / "tests" / "sections" / "lq" / "candidate_performance.json"
-# extract_lq_performance.py (the lq-performance stage) still writes here
-LQ_PERFORMANCE_LEGACY = ROOT / "classified" / "lq" / "candidate_performance.json"
+LQ_PERFORMANCE = ROOT / "classified" / "lq" / "candidate_performance.json"
+ANSWER_POINTERS = ROOT / "metadata" / "pointers" / "dse.json"
 
 IN_SCOPE_BOOKS = ("02_", "04_", "05_")
 SECTION_BY_NUM = {
@@ -148,11 +148,13 @@ def mc_answer(key: dict[str, Any] | None) -> tuple[dict[str, Any], list[str]]:
     )
 
 
-def build_mc_records(keys: dict[str, Any]) -> list[dict[str, Any]]:
+def build_mc_records(keys: dict[str, Any], years: list[str] | None) -> list[dict[str, Any]]:
     entries = json.loads(MC_CLASSIFICATIONS.read_text(encoding="utf-8"))
     records: list[dict[str, Any]] = []
     for entry in entries:
         year = str(entry["Year"])
+        if years and year not in years:
+            continue
         question = int(entry["Question"])
         sections = sections_for([int(n) for n in entry["sections"]])
         image = image_ref(RECON / "mc" / year / f"q{question}.png")
@@ -191,7 +193,7 @@ def build_mc_records(keys: dict[str, Any]) -> list[dict[str, Any]]:
     return records
 
 
-def build_lq_records(performance: dict[str, Any]) -> list[dict[str, Any]]:
+def build_lq_records(performance: dict[str, Any], years: list[str] | None) -> list[dict[str, Any]]:
     entries = json.loads(LQ_CLASSIFICATIONS.read_text(encoding="utf-8"))
     pages: dict[str, dict[int, dict[str, int]]] = {}
     records: list[dict[str, Any]] = []
@@ -200,6 +202,8 @@ def build_lq_records(performance: dict[str, Any]) -> list[dict[str, Any]]:
         if not match:
             raise SystemExit(f"Unexpected LQ classification key {key!r}")
         year, question = match.group(1), int(match.group(2))
+        if years and year not in years:
+            continue
         sections = sections_for([int(n) for n in entry["sections"]])
         year_dir = RECON / "lq" / year
         image = image_ref(year_dir / f"q{question}.png")
@@ -217,7 +221,7 @@ def build_lq_records(performance: dict[str, Any]) -> list[dict[str, Any]]:
         records.append(
             {
                 "schema": SCHEMA_ID,
-                "id": f"dse-lq-{year}-{question}",
+                "id": f"dse-lq-{year}-q{question}",
                 "paper": "lq",
                 "year": year,
                 "question": question,
@@ -277,7 +281,9 @@ def validate(value: Any, schema: dict[str, Any], root: dict[str, Any], path: str
     if "$ref" in schema:
         ref = schema["$ref"]
         if not ref.startswith("#/"):
-            raise ValueError(f"unsupported $ref {ref!r}")
+            filename, fragment = ref.split("#", 1)
+            external = json.loads((SCHEMA_PATH.parent / filename).read_text(encoding="utf-8"))
+            return validate(value, {"$ref": f"#{fragment}"}, external, path)
         target: Any = root
         for part in ref[2:].split("/"):
             target = target[part]
@@ -298,8 +304,11 @@ def validate(value: Any, schema: dict[str, Any], root: dict[str, Any], path: str
         errors.append(f"{path}: expected {schema['const']!r}, got {value!r}")
     if "enum" in schema and value not in schema["enum"]:
         errors.append(f"{path}: {value!r} not in {schema['enum']}")
-    if isinstance(value, str) and "pattern" in schema and not re.search(schema["pattern"], value):
-        errors.append(f"{path}: {value!r} does not match {schema['pattern']}")
+    if isinstance(value, str):
+        if "pattern" in schema and not re.search(schema["pattern"], value):
+            errors.append(f"{path}: {value!r} does not match {schema['pattern']}")
+        if "minLength" in schema and len(value) < schema["minLength"]:
+            errors.append(f"{path}: shorter than {schema['minLength']} characters")
     if isinstance(value, (int, float)) and not isinstance(value, bool):
         if "minimum" in schema and value < schema["minimum"]:
             errors.append(f"{path}: {value} < minimum {schema['minimum']}")
@@ -320,6 +329,8 @@ def validate(value: Any, schema: dict[str, Any], root: dict[str, Any], path: str
     if isinstance(value, list):
         if "minItems" in schema and len(value) < schema["minItems"]:
             errors.append(f"{path}: fewer than {schema['minItems']} items")
+        if "maxItems" in schema and len(value) > schema["maxItems"]:
+            errors.append(f"{path}: more than {schema['maxItems']} items")
         if "items" in schema:
             for index, item in enumerate(value):
                 errors.extend(validate(item, schema["items"], root, f"{path}[{index}]"))
@@ -335,6 +346,11 @@ def validate_records(records: list[dict[str, Any]]) -> list[str]:
     errors: list[str] = []
     for record in records:
         errors.extend(f"{record.get('id')}: {msg}" for msg in validate(record, schema, schema))
+        pointer = record.get("answer_pointer")
+        if pointer is not None:
+            errors.extend(pointers.validate_pointer(pointer, f"{record.get('id')}.answer_pointer"))
+            if isinstance(pointer, dict) and pointer.get("item_id") != record.get("id"):
+                errors.append(f"{record.get('id')}: answer_pointer.item_id does not match record id")
     return errors
 
 
@@ -373,10 +389,19 @@ def index_row(record: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def write_outputs(records: list[dict[str, Any]], out_dir: Path) -> None:
+def write_outputs(records: list[dict[str, Any]], years: list[str] | None = None) -> None:
+    out_dir = ITEMS_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
-    for stale in out_dir.glob("*.json"):
-        stale.unlink()
+    if years:
+        retained: dict[str, dict[str, Any]] = {}
+        for info in SECTION_BY_NUM.values():
+            path = out_dir / f"{info['folder']}.json"
+            if path.is_file():
+                for record in json.loads(path.read_text(encoding="utf-8")):
+                    if record["year"] not in years:
+                        retained[record["id"]] = record
+        records = list(retained.values()) + records
+    records.sort(key=record_sort_key)
 
     def dump(path: Path, data: Any) -> None:
         path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -390,8 +415,11 @@ def write_outputs(records: list[dict[str, Any]], out_dir: Path) -> None:
     for num in sorted(SECTION_BY_NUM):
         info = SECTION_BY_NUM[num]
         listed = by_section.get(num, [])
+        path = out_dir / f"{info['folder']}.json"
         if listed:
-            dump(out_dir / f"{info['folder']}.json", listed)
+            dump(path, listed)
+        elif path.is_file():
+            path.unlink()
         section_rows.append(
             {
                 **info,
@@ -423,21 +451,26 @@ def write_outputs(records: list[dict[str, Any]], out_dir: Path) -> None:
     )
 
 
-def build_records() -> list[dict[str, Any]]:
+def build_records(years: list[str] | None = None) -> list[dict[str, Any]]:
     keys = load_json(ANSWER_KEYS, "MC answer keys", "keys")
-    performance_path = LQ_PERFORMANCE if LQ_PERFORMANCE.is_file() else LQ_PERFORMANCE_LEGACY
-    performance = load_json(performance_path, "LQ candidate performance", "lq-performance")
-    records = build_mc_records(keys) + build_lq_records(performance)
+    performance = load_json(LQ_PERFORMANCE, "LQ candidate performance", "lq-performance")
+    records = build_mc_records(keys, years) + build_lq_records(performance, years)
+    resolved = pointers.merge(pointers.load_store("dse", ANSWER_POINTERS))
+    records = pointers.join_items(records, resolved)
     records.sort(key=record_sort_key)
     return records
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--output", type=Path, default=ITEMS_DIR, help="Output directory (default: tests/sections/items)")
+    parser.add_argument("--years", nargs="+", help="Update only these year labels, preserving other years")
     args = parser.parse_args(argv)
 
-    records = build_records()
+    try:
+        records = build_records(args.years)
+    except pointers.PointerError as exc:
+        print(f"Invalid answer pointers: {exc}", file=sys.stderr)
+        return 1
     errors = validate_records(records)
     if errors:
         print("Schema violations:", file=sys.stderr)
@@ -451,9 +484,9 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  {record_id}", file=sys.stderr)
         return 1
 
-    write_outputs(records, args.output)
+    write_outputs(records, args.years)
     in_scope = sum(1 for r in records if r["scope"] == "in-scope")
-    print(f"dse-items: {len(records)} records ({in_scope} in-scope) -> {args.output}")
+    print(f"dse-items: {len(records)} records ({in_scope} in-scope) -> {ITEMS_DIR}")
     return 0
 
 
