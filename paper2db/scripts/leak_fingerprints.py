@@ -29,6 +29,7 @@ import json
 import re
 import sys
 import unicodedata
+import zlib
 from collections import defaultdict
 from pathlib import Path
 
@@ -202,10 +203,17 @@ def build():
     }
 
 
+def canonical_bytes(doc):
+    return json.dumps(doc, sort_keys=True, separators=(",", ":")).encode("utf-8")
+
+
 def encode(doc):
-    raw = json.dumps(doc, sort_keys=True, separators=(",", ":")).encode("utf-8")
-    # mtime=0 keeps the gzip bytes reproducible.
-    return gzip.compress(raw, compresslevel=9, mtime=0)
+    # mtime=0 keeps the gzip payload reproducible, but the OS byte in the gzip
+    # header varies with the Python/zlib build (255 on 3.13+, 19 on older
+    # zlib). --check therefore compares the decompressed canonical payload
+    # instead of the compressed bytes so the same corpus is never reported
+    # stale on another platform.
+    return gzip.compress(canonical_bytes(doc), compresslevel=9, mtime=0)
 
 
 def main():
@@ -213,16 +221,22 @@ def main():
     ap.add_argument("--check", action="store_true", help="exit 1 if the committed file is stale")
     args = ap.parse_args()
 
-    blob = encode(build())
+    doc = build()
     if args.check:
-        if not OUT.exists() or OUT.read_bytes() != blob:
+        actual = None
+        if OUT.exists():
+            try:
+                actual = gzip.decompress(OUT.read_bytes())
+            except (OSError, EOFError, zlib.error):
+                actual = None
+        if actual != canonical_bytes(doc):
             print(f"{OUT.relative_to(REPO)} is stale; run {Path(__file__).relative_to(REPO)}", file=sys.stderr)
             return 1
         print("leak fingerprints up to date")
         return 0
+    blob = encode(doc)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_bytes(blob)
-    doc = json.loads(gzip.decompress(blob))
     print(f"wrote {OUT.relative_to(REPO)}: {len(doc['items'])} items, {len(blob)} bytes")
     return 0
 
