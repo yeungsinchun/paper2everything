@@ -8,7 +8,7 @@
  * - Cache keyed by item, image, bundle, mapping, prompt, code, model, pi version, and sample count
  * - Prompts are versioned via sha256
  * - Supports --bank, --all, --dse-section <25.1|all>, --items <id,id>, --page <page>,
- *   --regress, --fixture, --concurrency, --map-concurrency
+ *   --regress, --fixture, --concurrency
  * - Output root is .audit/ or P2E_AUDIT_ROOT; banks map in parallel
  * - Non-passing results carry pointer_candidates (DOM-id anchors in the notes)
  *
@@ -25,7 +25,7 @@ import { fileURLToPath } from "node:url";
 import { pagesForBank, cumulativePagesForBank, sectionPagesForBank, sectionIdForPage, pageMatches, allBanks } from "./bank-pages.mjs";
 import { repoRoot, auditDirs, resolveImagePath, qbItemsCandidates, parseList } from "./paths.mjs";
 import { loadDseSection } from "./dse.mjs";
-import { mapBank } from "./map.mjs";
+import { mapBank, inventorySha } from "./map.mjs";
 import { pointerCandidates } from "./pointers.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -46,7 +46,7 @@ function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
 function parseArgs(argv) {
   const dirs = auditDirs();
   const out = {
-    all: false, bank: null, fixture: null, concurrency: 8, mapConcurrency: 4, regress: false, outDir: dirs.results,
+    all: false, bank: null, fixture: null, concurrency: 8, regress: false, outDir: dirs.results,
     bundleOut: dirs.bundles,
     cacheDir: dirs.cache,
     mappingDir: dirs.mapping,
@@ -60,7 +60,6 @@ function parseArgs(argv) {
     else if (a === "--bank" && argv[i+1]) out.bank = argv[++i];
     else if (a === "--fixture" && argv[i+1]) out.fixture = path.resolve(argv[++i]);
     else if (a === "--concurrency" && argv[i+1]) out.concurrency = parseInt(argv[++i], 10);
-    else if (a === "--map-concurrency" && argv[i+1]) out.mapConcurrency = parseInt(argv[++i], 10);
     else if (a === "--items" && argv[i+1]) out.itemIds = parseList(argv[++i]);
     else if (a === "--page" && argv[i+1]) out.page = argv[++i];
     else if (a === "--dse-section" && argv[i+1]) out.dseSection = argv[++i];
@@ -290,7 +289,7 @@ async function main() {
   if (opts.dseSection) {
     ensureDir(opts.inventoryDir);
     for (const d of loadDseSection(repoRoot, opts.dseSection)) {
-      if (d.missing.length) console.warn(`DSE ${d.bank}: ${d.missing.length} deck image(s) missing, skipped`);
+      if (d.missing.length) console.warn(`DSE ${d.bank}: ${d.missing.length} deck slide image(s) missing — items marked missing_evidence and counted by coverage`);
       fs.writeFileSync(path.join(opts.inventoryDir, `${d.bank}.json`), JSON.stringify({ bank: d.bank, items: d.items }, null, 2), "utf8");
       targets.push({ bank: d.bank, parentBank: d.parent_bank, items: d.items });
     }
@@ -304,12 +303,12 @@ async function main() {
     }
   }
 
-  // --items / --page narrow what is audited.
+  // Validate --items against the full inventory; narrowing to the selected ids
+  // happens after mapping so the mapping file keeps every item of the bank.
   if (opts.itemIds) {
     const known = new Set(targets.flatMap(t => t.items.map(i => i.id)));
     const unknown = opts.itemIds.filter(id => !known.has(id));
     if (unknown.length) throw new Error(`Unknown item id(s): ${unknown.join(", ")}`);
-    for (const t of targets) t.items = t.items.filter(i => opts.itemIds.includes(i.id));
   }
   const banks = targets.map(t => t.bank);
   console.log(`Run harness: banks=${banks.join(",")} concurrency=${opts.concurrency} k=${opts.k} regress=${opts.regress}`);
@@ -318,32 +317,38 @@ async function main() {
   // Build bundles once per parent bank
   for (const parent of new Set(targets.map(t => t.parentBank))) await buildBundleForBank(parent, opts.bundleOut);
 
-  // Build mappings in parallel across banks (items inside a bank are parallel too)
-  const mapLimit = pLimit(Math.max(1, opts.mapConcurrency));
-  await Promise.all(targets.map(t => mapLimit(async () => {
+  // Build mappings: one pool bounds the pi calls of every bank and every bank
+  // keeps its full inventory in the file; select only controls which mappings
+  // are re-made. Bank coroutines do no pi calls themselves, so they run
+  // directly instead of consuming pool slots.
+  const mapLimit = pLimit(Math.max(1, opts.concurrency));
+  await Promise.all(targets.map(async t => {
     console.log(`Mapping ${t.bank}...`);
     try {
       await mapBank({
         bank: t.bank, parentBank: t.parentBank, itemsList: t.items,
-        inventorySha: sha256Hex(JSON.stringify(t.items)),
-        select: { ids: opts.itemIds, page: null },
+        inventorySha: inventorySha(t.items),
+        select: { ids: opts.itemIds, page: opts.page },
         outDir: opts.mappingDir, bundleDir: path.join(opts.bundleOut, t.parentBank),
-        force: opts.regress, concurrency: opts.mapConcurrency,
+        force: opts.regress, limit: mapLimit,
       });
     } catch (e) { throw new Error(`map ${t.bank} failed: ${String(e.message || e).slice(0, 500)}`); }
-  })));
+  }));
 
-  // --page keeps the items mapped to that page
-  if (opts.page) {
+  // --items / --page narrow what is solved, after mapping.
+  if (opts.itemIds || opts.page) {
     for (const t of targets) {
-      const mapping = JSON.parse(fs.readFileSync(path.join(opts.mappingDir, `${t.bank}.json`), "utf8"));
-      const sectionPages = sectionPagesForBank(repoRoot, t.parentBank);
-      const pagesById = new Map(sectionPages.map(pg => [sectionIdForPage(t.parentBank, pg), pg]));
-      t.items = t.items.filter(item => {
-        const m = mapping.mappings.find(x => x.id === item.id);
-        const pg = m?.section && pagesById.get(m.section);
-        return pg && pageMatches(repoRoot, t.parentBank, pg, opts.page);
-      });
+      if (opts.itemIds) t.items = t.items.filter(i => opts.itemIds.includes(i.id));
+      if (opts.page) {
+        const mapping = JSON.parse(fs.readFileSync(path.join(opts.mappingDir, `${t.bank}.json`), "utf8"));
+        const sectionPages = sectionPagesForBank(repoRoot, t.parentBank);
+        const pagesById = new Map(sectionPages.map(pg => [sectionIdForPage(t.parentBank, pg), pg]));
+        t.items = t.items.filter(item => {
+          const m = mapping.mappings.find(x => x.id === item.id);
+          const pg = m?.section && pagesById.get(m.section);
+          return pg && pageMatches(repoRoot, t.parentBank, pg, opts.page);
+        });
+      }
     }
   }
 
@@ -367,6 +372,11 @@ async function main() {
         backoff.failures = 0;
       }
       try {
+        if (item.missing_evidence) {
+          console.warn(`Skipping ${item.id}: DSE deck evidence missing (stem image not found); coverage reports it as must-fix`);
+          completed++;
+          return null;
+        }
         const res = await processItem(item, bank, { ...opts, bundleDir });
         completed++;
         if (res.result.verdict === "error") failed++;

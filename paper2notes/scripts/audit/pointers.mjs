@@ -28,6 +28,23 @@ export function domIds(html) {
 }
 
 /**
+ * Parse a notes.md anchor heading such as `§book2/ch02.A #quiz`, `§25-1.lo
+ * #lo-heading` or `Fig spectrum #spectrum`. Returns { page, sec, id } where
+ * page is the chapter-qualified page identity (sectionIdForPath) or null for
+ * headings that carry no page qualifier.
+ */
+export function parseAnchorHeading(bracket) {
+  const b = String(bracket).trim();
+  let m = b.match(/^§([^#]+?)\.([^.\s#]+)\s+#(\S+)$/);
+  if (m) return { page: m[1].trim(), sec: m[2].trim(), id: m[3] };
+  m = b.match(/^§([^#]+?)\s+#(\S+)$/);
+  if (m) return { page: m[1].trim(), sec: null, id: m[2] };
+  m = b.match(/#(\S+)$/);
+  if (m) return { page: null, sec: null, id: m[1] };
+  return { page: null, sec: null, id: null };
+}
+
+/**
  * @param {object} p
  * @param {string} p.bank @param {string[]} p.sectionPages pages of the bank's chapter
  * @param {object|null} p.mapped mapping entry {section, secondary, confidence}

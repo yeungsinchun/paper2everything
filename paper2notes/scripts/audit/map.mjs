@@ -48,11 +48,10 @@ function readPrompt(p) {
   return fs.readFileSync(path.join(__dirname, "prompts", p), "utf8");
 }
 function parseArgs(argv) {
-  const out = { itemsFile: null, itemIds: null, page: null, bank: null, all: false, dseSection: null, outDir: auditDirs().mapping, bundleDir: null, fixture: null, force: false, concurrency: 4 };
+  const out = { itemIds: null, page: null, bank: null, all: false, dseSection: null, outDir: auditDirs().mapping, bundleDir: null, fixture: null, force: false, concurrency: 4 };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
-    if (a === "--items-file" && argv[i + 1]) out.itemsFile = path.resolve(argv[++i]);
-    else if (a === "--items" && argv[i + 1]) out.itemIds = parseList(argv[++i]);
+    if (a === "--items" && argv[i + 1]) out.itemIds = parseList(argv[++i]);
     else if (a === "--page" && argv[i + 1]) out.page = argv[++i];
     else if (a === "--bank" && argv[i + 1]) out.bank = argv[++i];
     else if (a === "--all") out.all = true;
@@ -159,12 +158,19 @@ function piVersionOf() {
   try { return spawnSync(process.env.PI_BIN || "pi", ["--version"], { encoding: "utf8" }).stdout.trim(); } catch { return "unknown"; }
 }
 
+/** One shared inventory hash so run.mjs and standalone map persist the same inputs_sha. */
+export function inventorySha(items) {
+  return crypto.createHash("sha256").update(JSON.stringify(items)).digest("hex");
+}
+
 /**
- * Map the items of one bank. `itemsList` is the full inventory; `select`
- * ({ ids, page }) restricts which items are (re)mapped this call.
- * QB banks use pi; DSE deck banks map to their own section page.
+ * Map the items of one bank. `itemsList` is the full inventory and the file
+ * always keeps one entry per item; `select` ({ ids, page }) only controls
+ * which existing mappings are re-made this call (items without a stored
+ * mapping are still mapped). QB banks use pi; DSE deck banks map to their own
+ * section page. `limit` is the p-limit shared by all banks of this entry point.
  */
-export async function mapBank({ bank, parentBank = bank, itemsList, inventorySha, select = {}, outDir, bundleDir, force = false, concurrency = 4 }) {
+export async function mapBank({ bank, parentBank = bank, itemsList, inventorySha, select = {}, outDir, bundleDir, force = false, limit }) {
   fs.mkdirSync(outDir, { recursive: true });
   const sectionPages = sectionPagesForBank(repoRoot, parentBank);
   const sectionInfos = collectSectionInfo(parentBank, sectionPages);
@@ -190,20 +196,28 @@ export async function mapBank({ bank, parentBank = bank, itemsList, inventorySha
 
   const selected = item => {
     if (select.ids && !select.ids.includes(item.id)) return false;
-    if (select.page && dse && !pageMatches(repoRoot, parentBank, path.resolve(repoRoot, item.dse.page), select.page)) return false;
-    return true;
+    if (!select.page) return true;
+    if (dse) {
+      const deckPage = item.dse?.page ? path.resolve(repoRoot, item.dse.page) : null;
+      return !!deckPage && pageMatches(repoRoot, parentBank, deckPage, select.page);
+    }
+    // QB items: derive the page from the stored mapping; unmapped items are selectable
+    if (!previous.has(item.id)) return true;
+    const prevSec = previous.get(item.id)?.section;
+    if (!prevSec) return true;
+    const pg = sectionPages.find(p => sectionIdForPage(parentBank, p) === prevSec);
+    return !!pg && pageMatches(repoRoot, parentBank, pg, select.page);
   };
-  const limit = pLimit(concurrency);
+  const pool = limit || pLimit(8);
   let reused = 0;
-  const mappings = (await Promise.all(itemsList.map(item => limit(async () => {
+  const mappings = (await Promise.all(itemsList.map(item => pool(async () => {
     const prev = previous.get(item.id);
     if (prev && (!force || !selected(item))) { reused++; return prev; }
-    if (!selected(item)) return null;
     if (dse) return { id: item.id, section: item.dse.section, confidence: 1, secondary: [], method: "deck" };
     const res = await callPi(item, sectionInfos, bundleNotes);
     const valid = sectionInfos.some(info => info.section === res.section);
     return { id: item.id, section: valid ? res.section : null, confidence: valid ? (res.confidence ?? 0) : 0, secondary: res.secondary || [], raw: res._raw ? res._raw.slice(0, 200) : undefined, method: valid ? "pi" : "unmapped" };
-  })))).filter(Boolean);
+  }))));
 
   const payload = {
     bank,
@@ -220,7 +234,7 @@ export async function mapBank({ bank, parentBank = bank, itemsList, inventorySha
 
 function loadItemFile(file) {
   const data = JSON.parse(fs.readFileSync(file, "utf8"));
-  return { data, list: data.items || (Array.isArray(data) ? data : []), sha: crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex") };
+  return { data, list: data.items || (Array.isArray(data) ? data : []) };
 }
 
 async function main() {
@@ -228,11 +242,10 @@ async function main() {
   const select = { ids: opts.itemIds, page: opts.page };
   const jobs = [];
   if (opts.dseSection) {
-    for (const d of loadDseSection(repoRoot, opts.dseSection)) jobs.push({ bank: d.bank, parentBank: d.parent_bank, itemsList: d.items, inventorySha: crypto.createHash("sha256").update(JSON.stringify(d.items)).digest("hex") });
+    for (const d of loadDseSection(repoRoot, opts.dseSection)) jobs.push({ bank: d.bank, parentBank: d.parent_bank, itemsList: d.items, inventorySha: inventorySha(d.items) });
   } else {
     let files = [];
-    if (opts.itemsFile) files = [{ bank: opts.bank, file: opts.itemsFile }];
-    else if (opts.all || opts.bank) {
+    if (opts.all || opts.bank) {
       for (const bank of opts.all ? allBanks() : [opts.bank]) {
         const candidates = qbItemsCandidates(bank);
         if (opts.fixture) candidates.unshift(opts.fixture);
@@ -246,15 +259,16 @@ async function main() {
       files = fs.readdirSync(dir).filter(f => f.endsWith(".json")).map(f => ({ bank: null, file: path.join(dir, f) }));
     }
     for (const { bank, file } of files) {
-      const { data, list, sha } = loadItemFile(file);
+      const { data, list } = loadItemFile(file);
       const bankName = bank || data.bank || path.basename(file, ".json");
       if (data.bank && data.bank !== bankName) throw new Error(`Item bank ${data.bank} does not match ${bankName}`);
-      jobs.push({ bank: bankName, itemsList: list, inventorySha: sha });
+      jobs.push({ bank: bankName, itemsList: list, inventorySha: inventorySha(list) });
     }
   }
   if (!jobs.length) throw new Error("No item files found");
-  // Banks map in parallel; each bank's items are bounded by --concurrency.
-  await Promise.all(jobs.map(job => mapBank({ ...job, select, outDir: opts.outDir, bundleDir: opts.bundleDir, force: opts.force, concurrency: opts.concurrency })));
+  // One pool bounds all banks together; each bank reuses it.
+  const limit = pLimit(opts.concurrency);
+  await Promise.all(jobs.map(job => mapBank({ ...job, select, outDir: opts.outDir, bundleDir: opts.bundleDir, force: opts.force, limit })));
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

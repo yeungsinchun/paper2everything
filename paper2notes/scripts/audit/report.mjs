@@ -44,7 +44,11 @@ function completenessFor(items) {
   const failures = core.filter(x => !["pass", "pass-leaked", "cross-ref"].includes(x.verdict));
   const concepts = new Map();
   for (const x of failures) for (const concept of new Set(x.missing_concepts || [])) concepts.set(concept, (concepts.get(concept) || 0) + 1);
-  const mustFix = failures.filter(x => (x.marks >= 4 && x.section && x.section !== "unknown") || (x.missing_concepts || []).some(c => concepts.get(c) >= 2));
+  const dseLq = x => x.bank && x.bank.startsWith("DSE_") && x.type === "lq";
+  const mustFix = [
+    ...items.filter(x => x.missing_evidence),
+    ...failures.filter(x => !x.missing_evidence && (dseLq(x) || (x.marks >= 4 && x.section && x.section !== "unknown") || (x.missing_concepts || []).some(c => concepts.get(c) >= 2))),
+  ];
   const complete = total > 0 && items.every(x => x.inventory_present && x.result_present && x.part) && coreRate >= 0.95 && mustFix.length === 0;
   return { total, core: core.length, byVerdict, passed, corePassed, coreRate, mustFix: mustFix.map(x => x.id), complete };
 }
@@ -75,7 +79,7 @@ function main() {
     const items = inventory.map(item => {
       const result = results.get(item.id);
       const missing_concepts = result ? [...new Set(Object.values(result.tiers || {}).flatMap(t => (t.samples || []).flatMap(sample => [...(sample.answer?.missing || []).map(m => m.concept), ...(sample.judge?.marking || []).filter(m => m.verdict === "lost-knowledge").map(m => m.concept)].filter(Boolean))))] : [];
-      return { ...result, id: item.id, bank, part: item.part, marks: item.marks, inventory_present: true, result_present: !!result, verdict: result?.verdict || "missing", missing_concepts };
+      return { ...result, id: item.id, bank, part: item.part, marks: item.marks, type: item.type, missing_evidence: item.missing_evidence === true, inventory_present: true, result_present: !!result, verdict: result?.verdict || "missing", missing_concepts };
     });
     for (const [id, result] of results) if (!inventory.some(item => item.id === id)) items.push({ ...result, id, bank, inventory_present: false, result_present: true, verdict: "unmatched" });
     const stats = completenessFor(items);

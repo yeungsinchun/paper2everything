@@ -27,6 +27,18 @@ function resolveDseImage(repoRoot, pageDir, src) {
   return null;
 }
 
+/** Tracked marking-scheme crop for a deck slide (`dse-lq-2017-10` -> notes/qb/crops/dse-lq/2017-q10-ans.webp). */
+function trackedAnswerCrop(repoRoot, slide) {
+  const m = String(slide).match(/^dse-lq-(.+)$/);
+  if (!m) return null;
+  const base = m[1].replace(/^(\d{4}|pp|sap)-(\d+)$/, "$1-q$2");
+  for (const ext of ["webp", "png"]) {
+    const p = path.join(repoRoot, "notes/qb/crops/dse-lq", `${base}-ans.${ext}`);
+    if (fs.existsSync(p)) return path.relative(repoRoot, p);
+  }
+  return null;
+}
+
 /** Parse the decks of one page. Returns { items, missing }. */
 export function dseItemsForPage(repoRoot, bank, page) {
   const html = fs.readFileSync(page, "utf8");
@@ -45,7 +57,8 @@ export function dseItemsForPage(repoRoot, bank, page) {
       const src = (s[2].match(/<img[^>]*src="([^"]+)"/i) || [])[1];
       const caption = ((s[2].match(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/i) || [])[1] || "").replace(/<[^>]+>/g, "").trim();
       const image = src ? resolveDseImage(repoRoot, path.dirname(page), src) : null;
-      if (!image) { missing.push({ slide, src: src || null }); continue; }
+      const answer = trackedAnswerCrop(repoRoot, slide);
+      if (!image) missing.push({ slide, src: src || null });
       items.push({
         id: `${dseBank}:${slide.replace(/^dse-/, "")}`,
         bank: dseBank,
@@ -54,8 +67,9 @@ export function dseItemsForPage(repoRoot, bank, page) {
         marks: kind === "lq" ? null : 1,
         part: "core",
         stem: { text: "" },
-        images: { stem: [image], answer: [] },
-        dse: { section, kind, slide, caption, page: path.relative(repoRoot, page) },
+        images: { stem: image ? [image] : [], answer: answer ? [answer] : [] },
+        dse: { section, kind, slide, caption, page: path.relative(repoRoot, page), ...(src ? { src } : {}) },
+        ...(image ? {} : { missing_evidence: true }),
       });
     }
   }

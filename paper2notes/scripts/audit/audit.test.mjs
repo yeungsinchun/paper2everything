@@ -7,9 +7,10 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { repoRoot, auditRoot } from "./paths.mjs";
 import { allBanks, pagesForBank, sectionPagesForBank, sectionIdForPage, cumulativePagesForBank, bankForSection } from "./bank-pages.mjs";
-import { loadDseSection } from "./dse.mjs";
+import { loadDseSection, dseItemsForPage } from "./dse.mjs";
 import { extractFigures, stripDseBlocks } from "./bundle.mjs";
-import { pointerCandidates, ideaAnchors } from "./pointers.mjs";
+import { pointerCandidates, ideaAnchors, parseAnchorHeading } from "./pointers.mjs";
+import { deterministicQuoteCheck } from "./judge.mjs";
 import { verify } from "./verify.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -44,7 +45,76 @@ test("DSE loader turns deck slides into items with resolved images", () => {
   assert.equal(d.parent_bank, "QB_501");
   assert.ok(d.items.length > 0);
   assert.match(d.items[0].id, /^DSE_25-1:(mc|lq)-/);
-  for (const item of d.items) assert.ok(fs.existsSync(item.images.stem[0]));
+  for (const item of d.items.filter(i => i.images.stem.length)) assert.ok(fs.existsSync(item.images.stem[0]));
+  // LQ items carry the tracked marking-scheme crops when they exist
+  const lqWithCrop = d.items.find(i => i.type === "lq" && i.images.answer.length);
+  assert.ok(lqWithCrop, "expected at least one LQ item with a tracked answer crop");
+  assert.ok(fs.existsSync(path.join(repoRoot, lqWithCrop.images.answer[0])));
+});
+
+test("DSE loader emits one item per slide and marks missing evidence", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "audit-dse-"));
+  try {
+    const pageDir = path.join(root, "notes/book5/ch01-x/9-1.html");
+    fs.mkdirSync(path.dirname(pageDir), { recursive: true });
+    fs.mkdirSync(path.join(root, "notes/book5/_local/dse/mc/9"), { recursive: true });
+    fs.writeFileSync(path.join(root, "notes/book5/_local/dse/mc/9/a.png"), "png");
+    fs.writeFileSync(pageDir, `<section class="section-dse" data-quiz="mc">
+<article class="quiz-slide" id="dse-mc-1"><figure class="dse-paper"><img src="../_local/dse/mc/9/a.png"></figure></article>
+<article class="quiz-slide" id="dse-mc-2"><figure class="dse-paper"><img src="../_local/dse/mc/9/missing.png"></figure></article>
+</section>`);
+    const { items, missing } = dseItemsForPage(root, "QB_501", pageDir);
+    assert.equal(items.length, 2);
+    assert.equal(missing.length, 1);
+    const bad = items.find(i => i.id === "DSE_9-1:mc-2");
+    assert.equal(bad.missing_evidence, true);
+    assert.equal(bad.images.stem.length, 0);
+    assert.equal(items.find(i => i.id === "DSE_9-1:mc-1").images.stem.length, 1);
+  } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
+test("quote check resolves anchors per page and supports the LO anchor", () => {
+  const notesMd = [
+    "### [§book2/ch02.A #quiz]",
+    "average velocity is displacement divided by time",
+    "",
+    "### [§book2/ch03.A #quiz]",
+    "momentum is mass times velocity",
+    "",
+    "### Learning objectives [§25-1.lo #lo-heading]",
+    "describe how X-rays are produced by fast electrons",
+  ].join("\n");
+  const ok = deterministicQuoteCheck({ steps: [
+    { source: "notes:book2/ch02#quiz", quote: "average velocity is displacement divided by time" },
+    { source: "notes:25-1.lo#lo-heading", quote: "describe how X-rays are produced by fast electrons" },
+    { source: "notes:25-1#lo-heading", quote: "describe how X-rays are produced" },
+  ]}, notesMd);
+  assert.equal(ok.length, 0);
+  // same bare id on another page must not satisfy a page-qualified citation
+  const wrongPage = deterministicQuoteCheck({ steps: [
+    { source: "notes:book2/ch02#quiz", quote: "momentum is mass times velocity" },
+  ]}, notesMd);
+  assert.equal(wrongPage.length, 1);
+  // a bare id that exists on several pages is ambiguous, not silently last-wins
+  const ambiguous = deterministicQuoteCheck({ steps: [
+    { source: "notes:quiz", quote: "average velocity is displacement divided by time" },
+  ]}, notesMd);
+  assert.equal(ambiguous.length, 1);
+  // the old synthetic #lo token is not a DOM id and must not resolve
+  const lo = deterministicQuoteCheck({ steps: [
+    { source: "notes:25-1#lo", quote: "describe how X-rays are produced" },
+  ]}, notesMd);
+  assert.equal(lo.length, 1);
+});
+
+test("anchor headings carry a page qualifier and the LO anchor is a real DOM id", () => {
+  const idea = parseAnchorHeading("§book2/ch02.A #quiz");
+  assert.equal(idea.page, "book2/ch02");
+  assert.equal(idea.sec, "A");
+  assert.equal(idea.id, "quiz");
+  const lo = parseAnchorHeading("§25-1.lo #lo-heading");
+  assert.equal(lo.page, "25-1");
+  assert.equal(lo.id, "lo-heading");
 });
 
 test("bundle strips DSE decks and takes anchors only from DOM ids", () => {
@@ -75,12 +145,14 @@ test("verify flags a pointer that is not a DOM id", () => {
     const results = path.join(root, "results");
     fs.mkdirSync(path.join(results, "QB_501"), { recursive: true });
     const page = "notes/book5/ch01-radiation-and-radioactivity/25-1.html";
-    const write = (id, anchor) => fs.writeFileSync(path.join(results, "QB_501", `${id}.json`), JSON.stringify({ id, bank: "QB_501", section: "25-1", verdict: "gap", pointer_candidates: [{ page, anchor }] }));
+    const write = (id, anchor, pageArg = page) => fs.writeFileSync(path.join(results, "QB_501", `${id}.json`), JSON.stringify({ id, bank: "QB_501", section: "25-1", verdict: "gap", pointer_candidates: [{ page: pageArg, anchor }] }));
     write("good", ideaAnchors(fs.readFileSync(path.join(repoRoot, page), "utf8"))[0].anchor);
     write("bad", "made-up-heading");
+    write("nopage", "made-up-heading", "");
     const res = verify({ results, bundles: path.join(root, "b"), mapping: path.join(root, "m") });
-    assert.equal(res.errors.length, 1);
-    assert.match(res.errors[0].msg, /made-up-heading/);
+    assert.equal(res.errors.length, 2);
+    assert.ok(res.errors.some(e => /made-up-heading/.test(e.msg)));
+    assert.ok(res.errors.some(e => /page missing/.test(e.msg)));
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
 
@@ -104,7 +176,10 @@ EOT
     const result = JSON.parse(fs.readFileSync(path.join(root, "results/DSE_25-1", `${id}.json`), "utf8"));
     assert.equal(result.section, "25-1");
     assert.ok(result.pointer_candidates.length > 0);
-    const v = spawnSync(process.execPath, [path.join(here, "audit.mjs"), "verify", "--strict"], { env, encoding: "utf8" });
+    // the mapping file keeps every deck item, not just the selected one
+    const mapping = JSON.parse(fs.readFileSync(path.join(root, "mapping/DSE_25-1.json"), "utf8"));
+    assert.equal(mapping.mappings.length, d.items.length);
+    const v = spawnSync(process.execPath, [path.join(here, "audit.mjs"), "verify"], { env, encoding: "utf8" });
     assert.equal(v.status, 0, v.stdout + v.stderr);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });

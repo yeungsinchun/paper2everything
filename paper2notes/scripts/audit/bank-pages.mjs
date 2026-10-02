@@ -42,11 +42,27 @@ export function sectionPagesForBank(repoRoot, bank) {
   return pagesForBank(repoRoot, bank).filter(p => path.basename(p) !== "summary.html");
 }
 
-/** Section id used in mappings/results: `25-1` for section pages, `book2/ch02` for chapter-index pages. */
+/** Section id used in mappings/results: `25-1` for section pages, `book2/ch02` for chapter-index pages, `book5/ch01-summary` for summaries. */
 export function sectionIdForPage(bank, page) {
-  const spec = bankSpec(bank);
-  if (books[spec.book]?.layout === "chapter-index") return `${spec.book}/${spec.chapter}`;
-  return path.basename(page, ".html");
+  return sectionIdForPath(page);
+}
+
+/**
+ * Page identity derived from the page path alone, so bundle.mjs (which has no
+ * bank) and verify.mjs agree with every sectionIdForPage consumer. Summary and
+ * chapter-index pages get chapter-qualified ids so ids repeated across pages
+ * (e.g. `quiz`, `traps`) never collide in a cumulative bundle.
+ */
+export function sectionIdForPath(page) {
+  const m = String(page).match(/notes\/(book\d+)\/(ch\d+[^/]*)\/([^/]+\.html)$/);
+  if (!m) return path.basename(String(page), ".html");
+  const book = m[1];
+  const chapter = (m[2].match(/^ch\d+/) || [])[0] || m[2];
+  const file = m[3];
+  if (books[book]?.layout === "chapter-index") return `${book}/${chapter}`;
+  const base = path.basename(file, ".html");
+  if (base === "summary") return `${book}/${chapter}-summary`;
+  return base;
 }
 
 export function cumulativePagesForBank(repoRoot, bank) {

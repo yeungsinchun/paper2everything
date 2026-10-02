@@ -25,6 +25,7 @@ import { createServer } from "node:net";
 import http from "node:http";
 import { fileURLToPath } from "node:url";
 import { auditDirs } from "./paths.mjs";
+import { sectionIdForPath } from "./bank-pages.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
@@ -484,12 +485,16 @@ async function main() {
 
     mdParts.push(`## Page: ${rel} [${book}:${base}]`);
     mdParts.push("");
+    const pageId = sectionIdForPath(pagePath);
 
-    // LO block
+    // LO block: anchor is the id named by the section's aria-labelledby, resolved
+    // inside the section; emit no LO token when the section has no such id.
     const loBlock = extractLoBlock(html);
-    if (loBlock) {
+    const loLabelledBy = loBlock ? (loBlock.match(/aria-labelledby="([^"]+)"/) || [])[1] : null;
+    const loAnchor = loLabelledBy && loBlock.includes(`id="${loLabelledBy}"`);
+    if (loBlock && loAnchor) {
       const loText = htmlToText(loBlock);
-      mdParts.push(`### Learning objectives [${base} #lo]`);
+      mdParts.push(`### Learning objectives [§${pageId}.lo #${loLabelledBy}]`);
       mdParts.push(loText);
       mdParts.push("");
     }
@@ -498,9 +503,8 @@ async function main() {
     const ideas = extractIdeaBlocks(html);
     for (const idea of ideas) {
       const secNum = idea.secNum;
-      const anchor = `${base}.${secNum} #${idea.id}`;
-      // Stable anchor format per plan: [§25-1.B #knockout]
-      const mdAnchor = `[§${base}.${secNum} #${idea.id}]`;
+      // Stable anchor format per plan: [§25-1.B #knockout], page-qualified
+      const mdAnchor = `[§${pageId}.${secNum} #${idea.id}]`;
       mdParts.push(`### ${mdAnchor} ${stripTags(idea.heading)}`);
       mdParts.push("");
       // Extract scope: text without figures for reading order, then figures
@@ -539,7 +543,7 @@ async function main() {
       // Now emit figures that sit inside this idea (page-level extraction keeps file keys stable)
       const ideaFigData = pageFigs.filter(f => idea.html.includes(f.html));
       for (const fig of ideaFigData) {
-        if (fig.anchor) mdParts.push(`#### [Fig ${fig.anchor} #${fig.anchor}]`);
+        if (fig.anchor) mdParts.push(`#### [§${pageId}.${secNum} #${fig.anchor}]`);
         else mdParts.push(`#### Figure (no DOM id; cite #${idea.id})`);
         if (fig.caption) mdParts.push(fig.caption);
         if (fig.huds.length) mdParts.push(`HUD: ${fig.huds.join(", ")}`);
