@@ -135,7 +135,7 @@
       </div>
       <div class="formula-sheet">
         <div id="halflife-eq-1" class="eq" role="math" aria-label="Nuclei remaining after n half-lives">\[ N = N_0 \left(\tfrac{1}{2}\right)^{n} \]</div>
-        <div class="eq" role="math" aria-label="Number of half-lives elapsed">\[ n = \frac{t}{T_{1/2}} \]</div>
+        <div id="halflife-eq-2" class="eq" role="math" aria-label="Number of half-lives elapsed">\[ n = \frac{t}{T_{1/2}} \]</div>
       </div>
       <ul class="points">
         <li>Half-life is a property of the nuclide, not the sample: 1 g and 1 μg of iodine-131 both have \( T_{1/2} = 8 \) d. Heating, cooling or dissolving the sample does not change it.</li>
@@ -166,7 +166,7 @@
           <p class="note">Common slips: giving 6.25 g for "decayed", or 75 g (two half-lives) for "decayed in 12 days".</p>
         </div>
       </details>
-      <div class="check" data-check="mc" data-answer="A">
+      <div id="halflife-check-1" class="check" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>Iodine-131 starts with 40 billion parent nuclei. After 16 days:</p>
         <div class="choices">
@@ -180,7 +180,7 @@
           <p>16 days is 2 half-lives, so the parent falls to \( 40/4 = 10 \) billion. The daughter is whatever has left the parent: \( 40 - 10 = 30 \) billion. The two always total 40 billion. Answer <b>A</b>.</p>
         </div>
       </div>
-      <div id="halflife-check-1" class="check" data-check="mc" data-answer="B">
+      <div id="halflife-check-2" class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Which statements about half-life are correct?</p>
         <ol class="stem-list">
@@ -199,7 +199,7 @@
           <p>(3) is the definition and (1) follows because \( A \propto N \). (2) is the standard misconception: after one half-life the source is still radioactive with half its nuclei left. Answer <b>B</b>.</p>
         </div>
       </div>
-      <div id="halflife-check-2" class="check" data-check="mc" data-answer="C">
+      <div id="halflife-check-3" class="check" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>After one half-life of X, which is correct?</p>
         <ol class="stem-list">
@@ -218,7 +218,7 @@
           <p>(1) and (3) are the definition of half-life applied to \( N \) and \( A \). (2) is a trap: the source started with <em>no</em> Y, so there is no "initial value" to double. After one half-life the Y nuclei equal the X nuclei. Answer <b>C</b>.</p>
         </div>
       </div>
-      <div id="halflife-check-3" class="check" data-check="mc" data-answer="C">
+      <div id="halflife-check-4" class="check" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>After 2 years: 2% parent, 98% daughter. What was the mixture after 1 year?</p>
         <div class="choices">
@@ -589,7 +589,7 @@
       </div>
     </section>
 
-    <section class="section-dse lo-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../_local/dse/mc/26/combined.pdf" data-quiz-section-pdf="../_local/dse/mc/26/26.1.pdf">
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../_local/dse/mc/26/combined.pdf" data-quiz-section-pdf="../_local/dse/mc/26/26.1.pdf">
       <header>
         <span class="sec-num">MC</span>
         <h2 id="mc-quiz-heading">Check the goals</h2>
@@ -719,7 +719,7 @@
       </div>
     </section>
 
-    <section class="section-dse lo-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../_local/dse/lq/26/combined.pdf" data-quiz-section-pdf="../_local/dse/lq/26/26.1.pdf">
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../_local/dse/lq/26/combined.pdf" data-quiz-section-pdf="../_local/dse/lq/26/26.1.pdf">
       <header>
         <span class="sec-num">LQ</span>
         <h2 id="lq-quiz-heading">Long questions</h2>
