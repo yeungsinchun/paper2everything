@@ -8,4 +8,4 @@ Rules are enforced by `scripts/anchor-lint.mjs` (called from `scripts/ci-check.m
 
 Always on, for every deployed page: ids unique per page, and never positional (`eq-3`, `block7`, `42`) — name the block by what it teaches (`missing-mass-eq-1`).
 
-`paper2db/metadata/pointers/*.json` (when present) are validated against `paper2db.answer-pointer.v1`.
+`paper2db/metadata/pointers/*.json` (when present) are validated against `paper2db.answer-pointer.v1`, independently of filenames and other files' corpora.
