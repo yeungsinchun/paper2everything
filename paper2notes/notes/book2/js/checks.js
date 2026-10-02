@@ -1,9 +1,13 @@
-/* Concept checks shared by every Book 5 page.
+/* Concept checks shared by every Book 2 page.
    Markup contract:
    - .check[data-check="mc"][data-answer="B"] > .choices > button[data-choice] ; .feedback ; .explain[hidden]
    - .check[data-check="tf"] > .tf-item[data-answer="true|false"] > button[data-tf] ; .feedback ; .explain[hidden]
-   - .check[data-check="sa"] > button[data-reveal] ; .model[hidden]
-   After the student answers, the explanation is shown so every check teaches the reasoning. */
+   - .check > button[data-reveal] ; .model[hidden] (or .explain[hidden]) — full reasoning stays
+     behind an explicit Show answer toggle, whatever the check type; it can be a
+     retryable multiple-choice check and still keep its complete working hidden.
+   After the student answers correctly, the short `.explain` line (when present) is shown so
+   every check teaches the reasoning; a wrong pick is an amber nudge and the rest of the
+   options stay live until one is right. */
 (function () {
   "use strict";
 
@@ -85,17 +89,20 @@
     });
   }
 
-  function initSa() {
-    $all("[data-check='sa']").forEach(function (box) {
+  function initReveals() {
+    $all(".check").forEach(function (box) {
       var btn = $("button[data-reveal]", box);
-      var model = $(".model", box);
-      if (!btn || !model) return;
+      var target = $(".model, .explain", box);
+      if (!btn || !target || btn.getAttribute("data-reveal-wired")) return;
+      btn.setAttribute("data-reveal-wired", "true");
       btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-controls", target.id || (target.id = "reveal-" + Math.random().toString(36).slice(2, 8)));
+      btn.setAttribute("data-label-show", btn.textContent.trim() || "Show answer");
       btn.addEventListener("click", function () {
-        var open = model.hidden;
-        model.hidden = !open;
+        var open = target.hidden;
+        target.hidden = !open;
         btn.setAttribute("aria-expanded", open ? "true" : "false");
-        btn.textContent = open ? "Hide answer" : "Show answer";
+        btn.textContent = open ? "Hide answer" : btn.getAttribute("data-label-show");
       });
     });
   }
@@ -407,7 +414,7 @@
     numberChecks();
     initMc();
     initTf();
-    initSa();
+    initReveals();
     initQuizDecks();
   }
 
