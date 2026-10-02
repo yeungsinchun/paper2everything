@@ -26,34 +26,136 @@
         <h2><span class="sec-num">A</span>Household circuit</h2>
       </header>
       <figure class="fig">
-        <div class="visual play stage" data-scene="house-wiring" data-autoplay>
-          <canvas class="scene-canvas" width="960" height="360" aria-label="Household circuit"></canvas>
-          <span class="hud-label" data-hud="a">Household ci</span>
+        <div class="visual svg-fig" id="wiring-figure" data-circuit="wiring" data-state="normal" data-phase="0" data-progress="0">
+          <svg class="circuit-svg" viewBox="0 0 640 440" role="img" aria-labelledby="wiring-fig-title wiring-fig-desc">
+            <title id="wiring-fig-title">Household circuit: live, neutral and earth</title>
+            <desc id="wiring-fig-desc">Two appliances in parallel. Live (brown) and neutral (blue) feed each branch. Earth (green and yellow) bonds the metal case of the heater to the supply. A fault button shows a live-to-case fault that flows to earth and opens the fuse.</desc>
+            <defs>
+              <marker id="w-arrow-fault" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#d9822b"/></marker>
+            </defs>
+
+            <g data-part="supply">
+              <rect class="supply-box" x="24" y="64" width="96" height="366" rx="18"/>
+              <text class="fig-label" x="72" y="232" text-anchor="middle">220 V</text>
+              <text class="fig-label" x="72" y="254" text-anchor="middle">a.c.</text>
+              <text class="fig-small" x="102" y="146" text-anchor="middle">L</text>
+              <text class="fig-small" x="102" y="366" text-anchor="middle">N</text>
+              <text class="fig-small" x="102" y="421" text-anchor="middle">E</text>
+            </g>
+            <circle class="terminal" cx="120" cy="140" r="4"/>
+            <circle class="terminal" cx="120" cy="360" r="4"/>
+            <circle class="terminal" cx="120" cy="415" r="4"/>
+
+            <path class="wire wire-live" data-part="live" d="M120 140H156"/>
+            <path class="wire wire-live" d="M184 140H590"/>
+            <g data-part="fuse">
+              <g data-part="fuse-closed">
+                <path class="wire wire-live" d="M156 140H184"/>
+                <rect class="fuse-body" x="155" y="131" width="30" height="18" rx="6"/>
+              </g>
+              <g data-part="fuse-open">
+                <path class="wire wire-live" d="M156 140H167"/>
+                <path class="wire wire-live" d="M173 140H184"/>
+                <text class="fig-small fault-text" x="170" y="166" text-anchor="middle">open</text>
+              </g>
+            </g>
+            <text class="fig-small" x="170" y="118" text-anchor="middle">main fuse</text>
+            <text class="fig-label wire-live-text" x="320" y="130">live</text>
+
+            <path class="wire wire-neutral" data-part="neutral" d="M120 360H535"/>
+            <text class="fig-label wire-neutral-text" x="200" y="350">neutral</text>
+
+            <g data-part="earth">
+              <path class="wire wire-earth" data-part="earth-base" d="M120 415H560"/>
+              <path class="wire-earth-stripe" d="M120 415H560"/>
+              <path class="wire wire-earth" data-part="earth-bond" d="M560 340V415"/>
+              <path class="wire-earth-stripe" d="M560 340V415"/>
+            </g>
+            <text class="fig-label wire-earth-text" x="200" y="405">earth</text>
+
+            <g data-part="fault">
+              <rect class="fault-case" data-part="fault-case" x="399" y="239" width="182" height="102" rx="19"/>
+              <path class="fault-flow" data-part="fault-flow" d="M560 340V415H120"/>
+              <polyline class="fault-strike" data-part="fault-strike" points="470,255 452,244 458,262 434,250 410,241"/>
+              <path class="fault-arrow" data-part="fault-arrow" d="M520 388H360" marker-end="url(#w-arrow-fault)"/>
+              <text class="fig-small fault-text" data-part="case-live" x="490" y="232" text-anchor="start">case live</text>
+              <text class="fig-small safe-text" data-part="case-safe" x="490" y="232" text-anchor="start">0 V · safe</text>
+              <text class="fig-small fault-text" data-part="fault-label" x="420" y="405">fault current</text>
+            </g>
+
+            <g class="branch branch-lamp" data-part="branch-lamp">
+              <path class="wire wire-live" d="M330 140V190"/>
+              <rect class="switch-box" x="319" y="190" width="22" height="30" rx="7"/>
+              <text class="fig-small" x="330" y="210" text-anchor="middle">S</text>
+              <path class="wire wire-live" d="M330 220V244"/>
+              <circle class="load-circle" cx="330" cy="260" r="16"/>
+              <path class="lamp-cross" d="M320 250L340 270M340 250L320 270"/>
+              <path class="wire wire-neutral" d="M330 276V360"/>
+              <text class="fig-small" x="304" y="256" text-anchor="end">lamp</text>
+              <text class="fig-small" x="304" y="272" text-anchor="end">60 W</text>
+            </g>
+
+            <g class="branch branch-heater" data-part="branch-heater">
+              <path class="wire wire-live" d="M470 140V190"/>
+              <rect class="switch-box" x="459" y="190" width="22" height="30" rx="7"/>
+              <text class="fig-small" x="470" y="210" text-anchor="middle">S</text>
+              <path class="wire wire-live" d="M470 220V240"/>
+              <rect class="case-box" data-part="case" x="400" y="240" width="180" height="100" rx="18"/>
+              <path class="wire wire-live" d="M470 240V270"/>
+              <rect class="element" x="430" y="270" width="120" height="40" rx="8"/>
+              <text class="fig-small" x="490" y="295" text-anchor="middle">2 kW</text>
+              <path class="wire wire-neutral" d="M535 310V360"/>
+              <text class="fig-small" x="490" y="330" text-anchor="middle">metal case</text>
+            </g>
+          </svg>
         </div>
-        <figcaption><b>Fig. 22.2</b> Live and neutral loop back; earth goes to the case.</figcaption>
+        <figcaption><b>Fig. 22.2</b> Live and neutral feed each branch; earth bonds the metal case.</figcaption>
       </figure>
+      <div class="row" role="group" aria-label="Circuit state">
+        <span class="row-label">State</span>
+        <button type="button" data-circuit-state="normal" aria-pressed="true">Normal</button>
+        <button type="button" data-circuit-state="fault" aria-pressed="false">Fault</button>
+        <span class="sep" aria-hidden="true"></span>
+        <button type="button" data-circuit-replay>Replay</button>
+        <button type="button" data-circuit-pause aria-pressed="false">Pause</button>
+      </div>
+      <p class="circuit-status" id="wiring-status" aria-live="polite">Parallel branches: 220 V each; earth bonds the metal case.</p>
+      <div class="legend wire-legend">
+        <span><span class="wire-key wire-live" aria-hidden="true"></span>Live · brown</span>
+        <span><span class="wire-key wire-neutral" aria-hidden="true"></span>Neutral · blue</span>
+        <span><span class="wire-key wire-earth" aria-hidden="true"></span>Earth · green/yellow</span>
+        <span class="wire-legend-note">Cable colours identify conductors, not quantities.</span>
+      </div>
       <div class="def">
         <span class="tag">Key idea</span>
-        <p>Sockets in parallel: each gets full mains V, can be switched independently; wiring live (brown) carries 220 V, neutral (blue) near 0, earth (green/yellow) safety to case. Parallel: one appliance failure doesn't kill others; series would share V incorrectly.</p>
+        <dl class="def-rows">
+          <div class="def-row">
+            <dt>Live <span class="wire-chip wire-live" aria-hidden="true"></span></dt>
+            <dd>Brown. Carries the 220 V; switches and fuses go here.</dd>
+          </div>
+          <div class="def-row">
+            <dt>Neutral <span class="wire-chip wire-neutral" aria-hidden="true"></span></dt>
+            <dd>Blue. Completes the circuit back to the supply, near 0 V.</dd>
+          </div>
+          <div class="def-row">
+            <dt>Earth <span class="wire-chip wire-earth" aria-hidden="true"></span></dt>
+            <dd>Green/yellow. Bonded to a metal case as a safety path.</dd>
+          </div>
+        </dl>
+        <p class="def-note">Sockets are wired in parallel: every branch gets the full 220 V and can be switched on its own.</p>
       </div>
-      <table class="notes">
-        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
-        <tbody>
-          <tr><th>Parallel vs series</th><td>Parallel: V same, I adds, independent. Series would dim/overvolt.</td></tr>
-        </tbody>
-      </table>
       <div class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
-        <p>Why domestic sockets are NOT in series?</p>
+        <p>Why are sockets wired in parallel, not in series?</p>
         <div class="choices">
-          <button type="button" data-choice="A">Parallel uses less wire</button>
-          <button type="button" data-choice="B">Series would give each socket less than mains V and all off if one fails</button>
+          <button type="button" data-choice="A">Parallel uses less cable</button>
+          <button type="button" data-choice="B">Each branch gets the full 220 V and its own switch</button>
           <button type="button" data-choice="C">Parallel is cheaper</button>
           <button type="button" data-choice="D">Series is safer</button>
         </div>
         <p class="feedback"></p>
         <div class="explain" hidden>
-          <p>Series divides V and fails together. Parallel gives each full V and independent control.</p>
+          <p>Parallel gives every branch the full 220 V and independent switching; one branch fault does not stop the others.</p>
         </div>
       </div>
     </section>
@@ -63,34 +165,124 @@
         <h2><span class="sec-num">B</span>Fuse and cable choice</h2>
       </header>
       <figure class="fig">
-        <div class="visual play stage" data-scene="fuse-choice" data-autoplay>
-          <canvas class="scene-canvas" width="960" height="360" aria-label="Fuse and cable choice"></canvas>
-          <span class="hud-label" data-hud="a">Fuse and cab</span>
+        <div class="visual svg-fig" id="fuse-figure" data-circuit="fuse" data-step="1">
+          <svg class="circuit-svg" viewBox="0 0 640 440" role="img" aria-labelledby="fuse-fig-title fuse-fig-desc">
+            <title id="fuse-fig-title">Fuse and cable choice for a 2 kW load</title>
+            <desc id="fuse-fig-desc">A single live, neutral and earth circuit. The 13 A fuse sits on the live wire, the cable must be rated at or above the fuse, and earth bonds the metal case. Three steps highlight the working current, the fuse and the cable.</desc>
+
+            <g data-part="supply">
+              <rect class="supply-box" x="24" y="64" width="96" height="366" rx="18"/>
+              <text class="fig-label" x="72" y="232" text-anchor="middle">220 V</text>
+              <text class="fig-label" x="72" y="254" text-anchor="middle">a.c.</text>
+              <text class="fig-small" x="102" y="146" text-anchor="middle">L</text>
+              <text class="fig-small" x="102" y="366" text-anchor="middle">N</text>
+              <text class="fig-small" x="102" y="421" text-anchor="middle">E</text>
+            </g>
+            <circle class="terminal" cx="120" cy="140" r="4"/>
+            <circle class="terminal" cx="120" cy="360" r="4"/>
+            <circle class="terminal" cx="120" cy="415" r="4"/>
+
+            <path class="wire wire-live" data-part="live" d="M120 140H156"/>
+            <g data-part="fuse">
+              <path class="wire wire-live" d="M156 140H184"/>
+              <rect class="fuse-body" x="155" y="131" width="30" height="18" rx="6"/>
+            </g>
+            <text class="fig-small" x="170" y="118" text-anchor="middle">13 A fuse</text>
+            <path class="wire wire-live" d="M184 140H470"/>
+            <text class="fig-label wire-live-text" x="320" y="130">live</text>
+
+            <path class="wire wire-neutral" data-part="neutral" d="M120 360H535"/>
+            <text class="fig-label wire-neutral-text" x="200" y="350">neutral</text>
+
+            <g data-part="earth">
+              <path class="wire wire-earth" data-part="earth-base" d="M120 415H560"/>
+              <path class="wire-earth-stripe" d="M120 415H560"/>
+              <path class="wire wire-earth" data-part="earth-bond" d="M560 340V415"/>
+              <path class="wire-earth-stripe" d="M560 340V415"/>
+            </g>
+            <text class="fig-label wire-earth-text" x="200" y="405">earth</text>
+
+            <path class="wire wire-live" d="M470 140V240"/>
+            <rect class="case-box" data-part="case" x="400" y="240" width="180" height="100" rx="18"/>
+            <path class="wire wire-live" d="M470 240V270"/>
+            <rect class="element" x="430" y="270" width="120" height="40" rx="8"/>
+            <text class="fig-small" x="490" y="295" text-anchor="middle">2 kW</text>
+            <path class="wire wire-neutral" d="M535 310V360"/>
+            <text class="fig-small" x="490" y="330" text-anchor="middle">metal case</text>
+
+            <g data-part="cable">
+              <path class="cable-bracket" d="M184 168V178H470V168"/>
+              <text class="fig-small" x="327" y="198" text-anchor="middle">cable rated ≥ 13 A</text>
+            </g>
+            <g data-part="working-current">
+              <rect class="readout-box" x="238" y="242" width="142" height="58" rx="12"/>
+              <text class="fig-mono" x="252" y="266">P = 2.0 kW</text>
+              <text class="fig-mono" x="252" y="288">I = P/V ≈ 9.1 A</text>
+            </g>
+          </svg>
         </div>
-        <figcaption><b>Fig. 22.2</b> Fuse: just above working \(I\), below the cable limit.</figcaption>
+        <figcaption><b>Fig. 22.2</b> Working current picks the fuse; the cable must outlast it.</figcaption>
       </figure>
+      <div class="steps-3" role="group" aria-label="Fuse choice steps">
+        <button type="button" class="step-card" data-fuse-step="1" aria-pressed="true">
+          <span class="step-num">1</span>
+          <span class="step-title">Working current</span>
+          <span class="step-value">I = 2000 / 220 ≈ 9.1 A</span>
+        </button>
+        <button type="button" class="step-card" data-fuse-step="2" aria-pressed="false">
+          <span class="step-num">2</span>
+          <span class="step-title">Fuse</span>
+          <span class="step-value">next standard above 9.1 A → 13 A</span>
+        </button>
+        <button type="button" class="step-card" data-fuse-step="3" aria-pressed="false">
+          <span class="step-num">3</span>
+          <span class="step-title">Cable</span>
+          <span class="step-value">rated ≥ 13 A</span>
+        </button>
+      </div>
+      <p class="circuit-status" id="fuse-step-readout" aria-live="polite">Working current: what the load draws at 220 V.</p>
       <div class="def">
         <span class="tag">Key idea</span>
-        <p>Operating current \(I = P/V_{rated}\). Fuse chosen: rating > operating I (so normal not blown) but < cable safe max, and as low as practical. Fuses/MCB on live, not neutral, so fault breaks high potential; double-insulated appliances may omit earth. Cable cross-section sets max continuous I.</p>
+        <dl class="def-rows">
+          <div class="def-row">
+            <dt>Working current</dt>
+            <dd>\(I = P/V\) at the rated 220 V.</dd>
+          </div>
+          <div class="def-row">
+            <dt>Fuse</dt>
+            <dd>The lowest standard rating above the working current.</dd>
+          </div>
+          <div class="def-row">
+            <dt>Cable</dt>
+            <dd>Rated at or above the fuse, so it outlasts the fuse.</dd>
+          </div>
+        </dl>
+        <p class="def-note">Simplified classroom model: standard fuses 3 A, 5 A and 13 A; fuses and switches go on the live wire.</p>
       </div>
-      <table class="notes">
-        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
-        <tbody>
-          <tr><th>Example</th><td>1 kW at 220 V → ~4.5 A → choose 5 A fuse, not 13 A; cable 6 A rating okay.</td></tr>
-        </tbody>
-      </table>
       <div class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>A 2 kW heater at 220 V should use</p>
         <div class="choices">
           <button type="button" data-choice="A">3 A fuse on neutral</button>
-          <button type="button" data-choice="B">13 A fuse on live, cable rated ≥10 A</button>
-          <button type="button" data-choice="C">Any fuse on earth</button>
+          <button type="button" data-choice="B">13 A fuse on live; cable rated ≥ 13 A</button>
+          <button type="button" data-choice="C">A fuse on the earth wire</button>
           <button type="button" data-choice="D">3 A fuse on live</button>
         </div>
         <p class="feedback"></p>
         <div class="explain" hidden>
-          <p>I≈9.1 A → 13 A fuse on live reasonable; neutral/earth fuses don't break live fault. 3 A would blow immediately.</p>
+          <p>I = 2000/220 ≈ 9.1 A. 3 A would blow; the lowest standard rating above 9.1 A is 13 A, so the cable must be rated ≥ 13 A. Fuses go on live, never neutral or earth.</p>
+        </div>
+      </div>
+      <div class="check" data-check="sa">
+        <h3>Write it out</h3>
+        <p>A 1.5 kW kettle at 220 V — choose the fuse and cable.</p>
+        <button type="button" data-reveal>Show answer</button>
+        <div class="model" hidden>
+          <ol>
+            <li>Working current: \(I = P/V = 1500/220 \approx 6.8\ \text{A}\).</li>
+            <li>Fuse: the lowest standard rating above 6.8 A is 13 A (5 A is too small).</li>
+            <li>Cable: rated ≥ 13 A, so it outlasts the fuse.</li>
+          </ol>
         </div>
       </div>
     </section>
@@ -150,9 +342,8 @@
   <script src="../vendor/katex/auto-render.min.js"></script>
   <script src="../js/math.js"></script>
   <script src="../js/checks.js"></script>
-  <script src="js/lib/three.min.js"></script>
-  <script src="../js/diagrams3d.js"></script>
   <script src="js/notes.js"></script>
+  <script src="js/circuit.js"></script>
 <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="bb3835">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">bb3835</code> <span class="deploy-commit-subject">fix(skills): clarify gh --attach as preferred, drag-drop as fallback for video and crop (#66)</span></footer>
 </body>
 </html>
