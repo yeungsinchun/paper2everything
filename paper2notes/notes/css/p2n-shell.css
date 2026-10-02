@@ -1,5 +1,5 @@
 /* Paper2Notes design system: tokens + site shell (topbar, book cards, footer).
-   Source of truth: "Paper2Notes Design System/" (tokens/*.css, components/components.css). Keep in sync. */
+   Source of truth: "paper2notes/Paper2Notes Design System/" (tokens/*.css, components/components.css). Keep in sync. */
 :root{
 /* brand: teal (kept from the original notes, brightened) */
 --teal-50:#E8F4F1;--teal-100:#CFE8E2;--teal-300:#6FBFB0;--teal-500:#1F9585;--teal-600:#137568;--teal-700:#0F5C54;--teal-900:#0A3F3A;

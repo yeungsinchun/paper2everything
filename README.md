@@ -14,7 +14,7 @@ Goals, users, UI rules and data contracts are in the [PRD](docs/PRD.md).
 | `paper2db/` | Past-paper (MC, LQ) and question-bank (QB) pipeline, classified by syllabus section | Python 3, PyMuPDF, Pillow, tesseract, optional LLM API | [`paper2db/README.md`](paper2db/README.md), [`paper2db/AGENTS.md`](paper2db/AGENTS.md) |
 | `paper2mock/` | F.1 maths mock papers and marking schemes, 10 sets | LaTeX (LuaLaTeX via latexmk) | [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) |
 | `docs/` | PRD, architecture map, board notes, screenshots | Markdown | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
-| `Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML/CSS/JS | its own `readme.md` |
+| `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML/CSS/JS | its own `readme.md` |
 | `data/` | Working notes only (`p2e-book2-ch01-usability-mistakes.md`) | Markdown | none |
 
 ## Repository layout

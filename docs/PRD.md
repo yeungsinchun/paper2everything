@@ -140,7 +140,7 @@ Each chapter is produced from `notes/_source/<book-ch>/` holding `ocr.md`, `outl
 
 ## 6. UI requirements
 
-Reference implementation: `paper2notes/notes/book5/css/notes.css` (tokens, `.def`, `.stage`, `table.notes`, quiz, breakpoints) and `paper2notes/notes/qb/index.html` (900px breakpoint). The `Paper2Notes Design System/` folder at the repo root is a separate design-system proposal (friendlier, phone-first revamp); where it differs from this section, treat this section as the contract for the current site and the design system as a direction to reconcile (section 13).
+Reference implementation: `paper2notes/notes/book5/css/notes.css` (tokens, `.def`, `.stage`, `table.notes`, quiz, breakpoints) and `paper2notes/notes/qb/index.html` (900px breakpoint). The `paper2notes/Paper2Notes Design System/` folder is a separate design-system proposal (friendlier, phone-first revamp); where it differs from this section, treat this section as the contract for the current site and the design system as a direction to reconcile (section 13).
 
 ### 6.1 Viewports and layout
 
@@ -464,7 +464,7 @@ One repository, three subprojects, no dependency cycle (paper2notes reads paper2
 | `paper2mock/` | `f1/test1/<1..10>/{question-paper,marking-scheme}/` | LuaLaTeX via latexmk |
 | `.github/workflows/` | `ci-notes`, `compile-mocks`, `deploy-notes` | GitHub Actions |
 | `docs/` | `ARCHITECTURE.md`, this PRD, board notes, screenshots | Markdown |
-| `Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML, CSS, JS |
+| `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML, CSS, JS |
 | `data/` | Working notes (`p2e-book2-ch01-usability-mistakes.md`) | Markdown |
 
 | Tracked (edit and commit) | Generated or local (never `git add`) |
@@ -532,4 +532,4 @@ Only the three workflows under `.github/workflows/` run; nested copies under `pa
 - **Lint:** add mechanical-rule lint to `ci-check.mjs` (every `data-hud` has a position rule, no `<br>` in prose, no fixed narrow prose widths)?
 - **Phone quiz navigation:** sticky bottom bar, or inline under the item?
 - **Dark mode:** out of scope, or a required token pass?
-- **Design system:** how far does the `Paper2Notes Design System/` revamp (friendlier, phone-first, gamified, wrong answers shown as nudges rather than red) replace the tokens and rules in section 6, and which of the two owns the contract?
+- **Design system:** how far does the `paper2notes/Paper2Notes Design System/` revamp (friendlier, phone-first, gamified, wrong answers shown as nudges rather than red) replace the tokens and rules in section 6, and which of the two owns the contract?
