@@ -12,15 +12,19 @@ A visual version of the same map is in the Lavish board at
 
 ## One-paragraph summary
 
-Three subprojects share one git repository but only one code-level dependency
-connects them: **paper2notes reads paper2db's generated DSE crops**. In local
-development the read is `paper2notes/scripts/sync-dse.sh` into gitignored
-`_local/` folders; in production it is a curated snapshot at
-`paper2notes/notes/dse/` (82 files, `mc`/`lq`) staged into the image by the
-`Dockerfile` (since 361de93). **paper2mock is fully independent**. The graph
-has no cycle. The remaining weak point is that single edge: it is still an
-undeclared filesystem-layout contract that CI never checks, even though the
-image now carries crops.
+Three subprojects share one git repository and two code-level dependencies
+connect them. **paper2notes reads paper2db's generated DSE crops**: in local
+development via `paper2notes/scripts/sync-dse.sh` into gitignored `_local/`
+folders, in production via the curated snapshot at `paper2notes/notes/dse/`
+(82 files, `mc`/`lq`) staged into the image by the `Dockerfile` (since 361de93).
+The reverse edge is the leak guard: `paper2db/scripts/leak_fingerprints.py`
+reads paper2notes' committed publication mirrors (`paper2notes/notes/qb/data/`)
+and writes the tracked `paper2notes/scripts/leak/fingerprints.v1.json.gz` that
+`paper2notes/scripts/leak-check.mjs` consumes. **paper2mock is fully
+independent**. The two edges run in opposite directions, so paper2notes and
+paper2db are now mutually dependent. The crop edge remains an undeclared
+filesystem-layout contract that CI never checks; only the leak edge has a CI
+drift check (`python3 paper2db/scripts/leak_fingerprints.py --check`).
 
 ## Components
 
@@ -31,7 +35,9 @@ image now carries crops.
 | `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book2/`, `/book4/`, `/book5/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` (82 files) staged to `_local/dse/` by `Dockerfile` |
 | `paper2notes/scripts/sync-dse.sh` | Bash (+ inline Python for placeholders) | run by hand from the repo root | `paper2notes/notes/_local/dse/` and `paper2notes/notes/book{2,4,5}/_local/dse/` (local dev) |
-| `paper2notes/scripts/ci-check.mjs` | Node | `ci-notes` workflow | pass/fail (structure, relative links, lavish boards, and `deploy-commit-footer` per HTML) |
+| `paper2notes/scripts/ci-check.mjs` | Node | `ci-notes` workflow | pass/fail (structure, relative links, lavish boards, `deploy-commit-footer` per HTML, and the leak check) |
+| `paper2notes/scripts/leak-check.mjs` | Node | imported by `ci-check.mjs`; `node --test` in `ci-notes` | L1–L4 protected-text findings, minus `scripts/leak/baseline.json` allowances; level definitions in the script header |
+| `paper2db/scripts/leak_fingerprints.py` | Python 3 | `ci-notes` (`--check`) | writes the tracked `paper2notes/scripts/leak/fingerprints.v1.json.gz` (salted 8-grams + numsets) from `qb-web-ui-staging/` and `paper2notes/notes/qb/data/` |
 | `paper2notes/deploy/cloudrun/` | Docker, nginx, gcloud | `deploy.sh` (inject `deploy-commit-footer` + build/push/roll out), `provision.sh` (one-time GCP setup), `Dockerfile` `ARG GIT_COMMIT` fallback | Cloud Run service `paper2notes` in `asia-east2` (every deployed HTML carries muted `deployed commit: <6-char>` footer; see `paper2notes/deploy/cloudrun/README.md`) |
 | `paper2mock/f1/test1/<1..10>/{question-paper,marking-scheme}/` | LuaLaTeX via latexmk | `compile-mocks` workflow | 20 PDFs, released as two zips per push to `main` |
 
@@ -58,6 +64,7 @@ flowchart LR
     QB["qb/ QB DOCX<br/><b>gitignored</b>"]
     QBPDF["qb-pdf/<br/><b>gitignored</b>"]
     QBSH(["scripts/convert-qb-to-pdf.sh"])
+    GEN(["scripts/leak_fingerprints.py<br/>salted 8-grams + numsets"])
   end
 
   subgraph NOTES["paper2notes"]
@@ -69,6 +76,8 @@ flowchart LR
     LOCAL["notes/_local/dse/{mc,lq}/&lt;NN&gt;/<br/><b>gitignored</b>, local sync output"]
     BOOKLOCAL["notes/book{2,4,5}/_local/dse/<br/>3 mirrors, <b>gitignored</b>"]
     HTML["notes/ index.html · book2 · book4 · book5<br/>HTML, CSS, vendored JS<br/><b>tracked</b>"]
+    LEAK["scripts/leak/fingerprints.v1.json.gz · baseline.json<br/><b>tracked</b>"]
+    LCK(["scripts/leak-check.mjs"])
     CICHECK(["scripts/ci-check.mjs"])
   end
 
@@ -107,7 +116,10 @@ flowchart LR
   SECT -. "problem selection" .-> SRC
   SRC -. "authoring" .-> HTML
 
+  HTML -. "notes/qb/data mirrors" .-> GEN
+  GEN -- "writes" --> LEAK --> LCK
   HTML --> CICHECK
+  LCK --> CICHECK
   HTML --> DOCKER --> IMG --> RUN
 
   TEX -- "compile-mocks (latexmk, LuaLaTeX)" --> PDFS
@@ -119,11 +131,14 @@ flowchart LR
 |---|---|---|
 | paper2notes → paper2db | **Build-time data** (filesystem read of generated crops) | `paper2notes/scripts/sync-dse.sh` (`P2DB="$ROOT/../paper2db"`) |
 | paper2notes → paper2db | Authoring provenance (docs only, agent-driven) | `paper2notes/notes/_source/*/problems.md` cite `paper2db/qb-pdf/` and `paper2db/classified/mc/` |
-| paper2db → paper2notes | None in code; one comment | `paper2db/scripts/convert-qb-to-pdf.sh` header mentions the paper2notes intake contract |
+| paper2db → paper2notes | **Build-time code** (reads published mirrors, writes tracked fingerprints) | `paper2db/scripts/leak_fingerprints.py` (`DATA_DIR = paper2notes/notes/qb/data`, `OUT = paper2notes/scripts/leak/fingerprints.v1.json.gz`); consumed by `paper2notes/scripts/leak-check.mjs` |
+| paper2db → paper2notes | Comment only (not code) | `paper2db/scripts/convert-qb-to-pdf.sh` header mentions the paper2notes intake contract |
 | paper2mock ↔ anything | None | `paper2mock/` reads and writes only its own tree |
 | Cloud Run → paper2notes | Deploy input | `paper2notes/deploy/cloudrun/Dockerfile` copies `paper2notes/notes/` |
 
-There is no dependency cycle. paper2db does not know paper2notes exists.
+The crop edge runs paper2notes → paper2db while the leak edge runs paper2db →
+paper2notes, so the two subprojects are mutually dependent; the leak drift
+check in `ci-notes` is the only cross-edge a workflow verifies.
 
 ## Tracked versus generated data
 
@@ -138,6 +153,7 @@ There is no dependency cycle. paper2db does not know paper2notes exists.
 | `paper2db/qb/`, `paper2db/qb-pdf/` | gitignored | The documented "canonical" QB DOCX source is not in git. |
 | `paper2notes/notes/**` (HTML, CSS, JS, vendored libs) | tracked | The site. |
 | `paper2notes/notes/dse/**` (82 files, `mc`/`lq`) | tracked | Curated DSE publication snapshot; staged to `_local/dse/` in `Dockerfile` (since 361de93). |
+| `paper2notes/scripts/leak/fingerprints.v1.json.gz`, `scripts/leak/baseline.json` | tracked | Leak-guard data: salted 8-grams and numsets generated by `paper2db/scripts/leak_fingerprints.py` (`--check` in CI), plus the hand-pinned baseline allowances read by `leak-check.mjs`. |
 | `paper2notes/notes/_source/**` (~24 MB) | tracked | OCR intake for authoring. Excluded from the image. |
 | `paper2notes/notes/_local/`, `notes/**/_local/` | gitignored | Local sync output; in the image populated at build time from `notes/dse/` via `RUN cp -r`. `**/_local/` still excluded from context. |
 | `paper2notes/.lavish/**` (~3.8 MB PNG + HTML), `b2_home.png`, `hello_test.png` | tracked | Review evidence and stray screenshots, checked in. |
@@ -212,7 +228,7 @@ no path filter.
 
 | Workflow | Trigger | Does |
 |---|---|---|
-| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolution (links through `_local/` skipped), lavish notes-refactor boards (before/after side-by-side at 1280 + 390 and readable-measure contract — see `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` and `docs/lavish-notes-boards.md`), and `deploy-commit-footer` (`deployed commit: <6-char>` per `paper2notes/notes/**/*.html`; see `paper2notes/deploy/cloudrun/README.md`) |
+| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolution (links through `_local/` skipped), lavish notes-refactor boards (before/after side-by-side at 1280 + 390 and readable-measure contract — see `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` and `docs/lavish-notes-boards.md`), `deploy-commit-footer` (`deployed commit: <6-char>` per `paper2notes/notes/**/*.html`; see `paper2notes/deploy/cloudrun/README.md`), and the leak check (`paper2notes/scripts/leak-check.mjs`, L1–L4 against the tracked fingerprints); then `node --test paper2notes/scripts/leak-check.test.mjs` and `python3 paper2db/scripts/leak_fingerprints.py --check` |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
 | `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
@@ -332,8 +348,10 @@ not show provenance. `paper2notes/README.md` now points to `../docs/ARCHITECTURE
 
 ### What is sound
 
-- The dependency graph is acyclic and one-directional; paper2db has no
-  knowledge of paper2notes, and paper2mock is isolated.
+- paper2mock is isolated, and the two paper2notes ↔ paper2db edges are
+  derived from tracked inputs: the production crops are a committed snapshot,
+  and the leak fingerprints are guarded by a CI drift check
+  (`leak_fingerprints.py --check`).
 - DSE crops now ship to production via the committed `notes/dse/` snapshot
   staged into the image, so decks render without a local `sync-dse.sh`.
 - Paid LLM classification results are tracked as inputs, so rebuilding does not
