@@ -335,7 +335,7 @@ Run at **1280x800** and **390x844**, top of page plus the affected section, wait
 - [ ] Reduced motion and no-WebGL render a readable static state.
 - [ ] Topbar highlights exactly the current chapter, no duplicate chapter link; prev/next links work.
 - [ ] Before/after screenshots at both sizes in the PR body; video for motion changes, both sizes unless provably invisible at one.
-- [ ] `node paper2notes/scripts/ci-check.mjs` passes, including `deploy-commit-footer`.
+- [ ] `node paper2notes/scripts/ci-check.mjs` passes, including `deploy-commit-footer` and anchor ids.
 
 ## 7. Data products
 
@@ -482,7 +482,7 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, nested workflow path, or itself | Node 20, `node paper2notes/scripts/ci-check.mjs` (includes the leak check), `node --test paper2notes/scripts/leak-check.test.mjs`, `python3 paper2db/scripts/leak_fingerprints.py --check` |
+| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, `paper2notes/anchors/**`, `paper2db/metadata/pointers/**`, nested workflow path, or itself | Node 20, `node --test paper2notes/scripts/anchor-lint.test.mjs` then `node paper2notes/scripts/ci-check.mjs` (includes the leak check and the anchor/pointer checks), `node --test paper2notes/scripts/leak-check.test.mjs`, `python3 paper2db/scripts/leak_fingerprints.py --check` |
 | `ci-pointers` | PR and push to `main`; path filters in the workflow | `python3 scripts/pointers.py check`, `coverage` and `python3 -m unittest tests.test_pointers` |
 | `ci-paper2db` | PR and push to `main` touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items records and answer-pointer join |
 | `compile-mocks` | PR touching `paper2mock/**` or itself; every push to `main` | Matrix LaTeX build of 20 documents; artifacts per PR; release on `main` |
@@ -490,7 +490,7 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 
 Only the workflows under `.github/workflows/` run; nested copies under `paper2notes/` and `paper2mock/` never do.
 
-**`ci-check.mjs`** (a no-op skip if `notes/` is absent) checks: Book 5, 2, 4 structure; relative `href`/`src` links resolve on disk (links via `_local/` skipped through `isKnownLocalOnly`); site region consistency; Lavish notes-refactor boards (before/after at 1280 and 390 widths and the readable-measure contract); `deploy-commit-footer` on every deployed HTML (excluding `_source`, `_local`): `<footer class="deploy-commit-footer" data-commit="<6-char>">deployed commit: <code>…</code></footer>`; and the leak check (`scripts/leak-check.mjs`, L1–L4 protected-text findings against the tracked fingerprints, minus the pinned allowances in `scripts/leak/baseline.json`; level definitions in the script header). Not in CI: the Book 5 Puppeteer interactive tests (hard-coded macOS Chrome path), the DSE-quiz test (needs local scans), `sync-dse.sh`, the paper2db pipeline and the rest of its suite (`ci-paper2db` runs only `test_dse_items` and `test_pointers`), the audit harness.
+**`ci-check.mjs`** (a no-op skip if `notes/` is absent) checks: Book 5, 2, 4 structure; relative `href`/`src` links resolve on disk (links via `_local/` skipped through `isKnownLocalOnly`); site region consistency; Lavish notes-refactor boards (before/after at 1280 and 390 widths and the readable-measure contract); `deploy-commit-footer` on every deployed HTML (excluding `_source`, `_local`): `<footer class="deploy-commit-footer" data-commit="<6-char>">deployed commit: <code>…</code></footer>`; the leak check (`scripts/leak-check.mjs`, L1–L4 protected-text findings against the tracked fingerprints, minus the pinned allowances in `scripts/leak/baseline.json`; level definitions in the script header); and the anchor checks (required, unique, non-positional ids, `anchors/moves.json` renames, and `paper2db/metadata/pointers/*.json` shape — see `paper2notes/anchors/README.md`). Not in CI: the Book 5 Puppeteer interactive tests (hard-coded macOS Chrome path), the DSE-quiz test (needs local scans), `sync-dse.sh`, the paper2db pipeline and the rest of its suite (`ci-paper2db` runs only `test_dse_items` and `test_pointers`), the audit harness.
 
 **Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/`, `**/_local/`, `*.test.mjs`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
 
@@ -501,7 +501,7 @@ Only the workflows under `.github/workflows/` run; nested copies under `paper2no
 ## 11. Success criteria and acceptance
 
 1. Every DSE question in a covered year is reachable from at least one section bank; unclassified or low-confidence items are surfaced by audit output, not dropped.
-2. Every chapter page passes `ci-check.mjs` (structure, relative links, commit footer, leak check).
+2. Every chapter page passes `ci-check.mjs` (structure, relative links, commit footer, leak check, anchor ids).
 3. Interactive checks give correct feedback for every authored problem.
 4. The pipeline rebuilds all generated artifacts from tracked inputs on a clean checkout.
 5. `./paper2db/pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit` passes the section 7.2 gate with counts from `banks.json`; `qb-web-ui-staging/qb/manifest.json` reports 3,847 items and 46 banks and lists every missing crop.
