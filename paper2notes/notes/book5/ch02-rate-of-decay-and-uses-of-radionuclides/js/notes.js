@@ -102,8 +102,98 @@
     });
   }
 
+  function sceneFor(el) {
+    var name = el && el.getAttribute("data-scene");
+    return name && window.NotesScenes ? window.NotesScenes[name] : null;
+  }
+
+  function setPauseLabel(btn, paused) {
+    var label = paused ? "Play" : "Pause";
+    if (btn.textContent !== label) btn.textContent = label;
+    var pressed = paused ? "true" : "false";
+    if (btn.getAttribute("aria-pressed") !== pressed) btn.setAttribute("aria-pressed", pressed);
+    var aria = paused ? "Play animation" : "Pause animation";
+    if (btn.getAttribute("aria-label") !== aria) btn.setAttribute("aria-label", aria);
+  }
+
+  function initPause() {
+    $all("[data-pause]").forEach(function (btn) {
+      var target = document.getElementById(btn.getAttribute("data-pause"));
+      var scene = sceneFor(target);
+      if (!scene || typeof scene.pause !== "function" || typeof scene.play !== "function") return;
+      btn.addEventListener("click", function () {
+        var paused = btn.getAttribute("aria-pressed") === "true";
+        if (paused) scene.play();
+        else scene.pause();
+        setPauseLabel(btn, !paused);
+      });
+      if (target) {
+        target.addEventListener("notes-scene-tick", function (ev) {
+          setPauseLabel(btn, !ev.detail.playing);
+        });
+      }
+      setPauseLabel(btn, false);
+    });
+  }
+
+  /* One time model drives the slider, the preset buttons and the readout row;
+     the scene's notes-scene-tick keeps the slider honest while the finite clip
+     plays. Manual use pauses the clip so the selected value stays put. */
+  function initTimeSelect(opts) {
+    var host = document.getElementById(opts.host);
+    var slider = document.getElementById(opts.slider);
+    var out = document.getElementById(opts.out);
+    if (!host || !slider || !out) return;
+    var scene = sceneFor(host);
+    if (!scene || typeof scene.setT !== "function") return;
+    var buttons = $all("[" + opts.attr + "]");
+
+    function setPressed(v) {
+      buttons.forEach(function (b) {
+        b.setAttribute("aria-pressed", b.getAttribute(opts.attr) === v ? "true" : "false");
+      });
+    }
+
+    function apply(value) {
+      var v = Number(value);
+      scene.setT(v);
+      var shown = String(Math.round(v));
+      if (slider.value !== shown) slider.value = shown;
+      var label = Math.round(v) + " " + opts.unit;
+      if (out.textContent !== label) out.textContent = label;
+      setPressed(shown);
+    }
+
+    slider.addEventListener("input", function () { apply(slider.value); });
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        slider.value = btn.getAttribute(opts.attr);
+        apply(slider.value);
+      });
+    });
+    host.addEventListener("notes-scene-tick", function (ev) {
+      var shown = String(Math.round(ev.detail.t));
+      if (slider.value !== shown) slider.value = shown;
+      var label = shown + " " + opts.unit;
+      if (out.textContent !== label) out.textContent = label;
+      setPressed(shown);
+    });
+    apply(slider.value);
+  }
+
+  function initHalfLife() {
+    initTimeSelect({ host: "halfn-vis", slider: "half-time", out: "half-time-out", unit: "d", attr: "data-half-set" });
+  }
+
+  function initCountbg() {
+    initTimeSelect({ host: "countbg-vis", slider: "bg-time", out: "bg-time-out", unit: "h", attr: "data-bg-set" });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initReplays();
+    initPause();
+    initHalfLife();
+    initCountbg();
     initPipeline();
     initThickness();
     initSmoke();

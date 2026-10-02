@@ -167,8 +167,34 @@
   function placeHud(el, canvas, camera, world) {
     if (!el) return;
     var p = projectXY(camera, canvas, world);
+    /* Keep a label inside the frame: a clamped pill is readable, a clipped one
+       is a defect (26.1 background read the label half outside the box). */
+    var width = canvas.clientWidth || canvas.width || 0;
+    if (width > 0) {
+      var half = (el.offsetWidth || 0) / 2 + 6;
+      var min = half;
+      var max = width - half;
+      if (max < min) min = max = width / 2;
+      p.x = Math.max(min, Math.min(max, p.x));
+    }
     el.style.left = p.x + "px";
     el.style.top = p.y + "px";
+  }
+
+  /* A scene keeps a synchronized DOM readout row inside its <figure> honest:
+     [data-out="n"] etc. The row and the canvas always show one model. */
+  function modelOut(host, key) {
+    if (!host || !host.closest) return null;
+    var fig = host.closest("figure");
+    return fig ? fig.querySelector('[data-out="' + key + '"]') : null;
+  }
+
+  function setText(el, text) {
+    if (el && el.textContent !== text) el.textContent = text;
+  }
+
+  function reducedMotion() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }
 
   function hudXY(el) {
@@ -317,66 +343,135 @@
     };
   }
 
+  /* Half-life (26.1 §B): one finite 24-day run of iodine-131. The parent bar
+     halves on every 8-day mark while the daughter bar grows; the two always
+     fill the same 40-billion frame. The slider/buttons drive t directly. */
   function halfN(host) {
     if (!THREE) return;
     var canvas = host.querySelector("canvas");
     var gfx = stage(canvas, { halfW: 6.4, halfH: 3.5 });
-    var hudN = host.querySelector('[data-hud="n"]');
+    var hudSum = host.querySelector('[data-hud="sum"]');
     var hudT = host.querySelector('[data-hud="t"]');
-    axes(gfx.scene, -5.2, -2.4, 5.4, 2.8);
+    var hudT8 = host.querySelector('[data-hud="t8"]');
+    var hudT16 = host.querySelector('[data-hud="t16"]');
+    var hudT24 = host.querySelector('[data-hud="t24"]');
+    var outN = modelOut(host, "n");
+    var outD = modelOut(host, "d");
+    var outSum = modelOut(host, "sum");
+    var N0 = 40;
+    var HALF = 8;
+    var SPAN = 24;
+    var DURATION = 12000;
+    var X0 = -5.2;
+    var XW = 9.8;
+    var Y0 = -2.4;
+    var YW = 4.8;
+    var BAR_X = 0.85;
+    function xOf(t) { return X0 + t * (XW / SPAN); }
+    function yOf(n) { return Y0 + n * (YW / N0); }
+    axes(gfx.scene, X0, Y0, 4.6, 2.8);
     var pts = [];
     var s;
     for (s = 0; s <= 48; s += 1) {
-      var t = s / 48 * 24;
-      var n = 40 * Math.pow(0.5, t / 8);
-      pts.push(new THREE.Vector3(-5.2 + t * (10.2 / 24), -2.4 + n * (4.8 / 40), 0));
+      var tt = s / 48 * SPAN;
+      pts.push(new THREE.Vector3(xOf(tt), yOf(N0 * Math.pow(0.5, tt / HALF)), 0));
     }
     curveLine(gfx.scene, pts, 0x1f7a45);
+    [HALF, 2 * HALF, SPAN].forEach(function (d) {
+      var xg = xOf(d);
+      curveLine(gfx.scene, [
+        new THREE.Vector3(xg, Y0, -0.2), new THREE.Vector3(xg, 2.0, -0.2)
+      ], 0xe6e0d2);
+      var tick = box(0.06, 0.2, 0.06, 0x5b6573);
+      tick.position.set(xg, Y0 + 0.1, 0);
+      gfx.scene.add(tick);
+    });
     var marker = ball(0.14, 0x0e5f56);
     gfx.scene.add(marker);
     var remain = box(0.7, 1, 0.7, 0xc47a12);
     var decayed = box(0.7, 1, 0.7, 0x8aa39c);
     gfx.scene.add(remain, decayed);
-    var tDays = 0;
+    var totalFrame = new THREE.LineSegments(
+      new THREE.EdgesGeometry(new THREE.BoxGeometry(0.78, 4.4, 0.78)),
+      new THREE.LineBasicMaterial({ color: 0xb9b2a1 })
+    );
+    gfx.scene.add(totalFrame);
+    var playing = !reducedMotion();
+    var t0 = performance.now();
+    var tDays = playing ? 0 : SPAN;
+
     function place(t) {
-      tDays = t;
-      var nLive = 40 * Math.pow(0.5, t / 8);
-      var nDead = 40 - nLive;
-      var x = -5.2 + t * (10.2 / 24);
-      var y = -2.4 + nLive * (4.8 / 40);
+      tDays = clamp01(t / SPAN) * SPAN;
+      var nLive = N0 * Math.pow(0.5, tDays / HALF);
+      var nDead = N0 - nLive;
+      var x = xOf(tDays);
+      var y = yOf(nLive);
       marker.position.set(x, y, 0.2);
-      var liveH = Math.max(0.12, nLive * (4.4 / 40));
-      var deadH = nDead * (4.4 / 40);
+      var liveH = Math.max(0.04, nLive * (4.4 / N0));
+      var deadH = nDead * (4.4 / N0);
       remain.scale.set(1, liveH, 1);
-      remain.position.set(x + 0.85, -2.4 + liveH / 2, 0);
+      remain.position.set(x + BAR_X, Y0 + liveH / 2, 0);
       decayed.visible = nDead > 0;
       decayed.scale.set(1, deadH, 1);
-      decayed.position.set(x + 0.85, -2.4 + liveH + deadH / 2, 0);
-      placeHud(hudN, canvas, gfx.camera, marker.position.clone().add(new THREE.Vector3(0, 0.35, 0)));
-      placeHud(hudT, canvas, gfx.camera, new THREE.Vector3(x, -2.7, 0));
-      if (hudN) hudN.textContent = "N = " + nLive.toFixed(1) + " billion";
-      if (hudT) hudT.textContent = t.toFixed(0) + " d";
+      decayed.position.set(x + BAR_X, Y0 + liveH + deadH / 2, 0);
+      totalFrame.position.set(x + BAR_X, Y0 + 2.2, 0);
+      setText(hudT, "t = " + tDays.toFixed(0) + " d");
+      setText(outN, "N = " + nLive.toFixed(1) + " billion");
+      setText(outD, "D = " + nDead.toFixed(1) + " billion");
+      setText(outSum, "N + D = " + N0.toFixed(1) + " billion");
+      placeHud(hudSum, canvas, gfx.camera, new THREE.Vector3(-5.1, 3.05, 0));
+      placeHud(hudT, canvas, gfx.camera, new THREE.Vector3(4.6, 3.05, 0));
+      placeHud(hudT8, canvas, gfx.camera, new THREE.Vector3(xOf(HALF), -2.78, 0));
+      placeHud(hudT16, canvas, gfx.camera, new THREE.Vector3(xOf(2 * HALF), -2.78, 0));
+      placeHud(hudT24, canvas, gfx.camera, new THREE.Vector3(xOf(SPAN), -2.78, 0));
+      host.dispatchEvent(new CustomEvent("notes-scene-tick", { detail: { t: tDays, playing: playing } }));
     }
-    var t0 = performance.now();
+    function replay() {
+      playing = true;
+      t0 = performance.now();
+      place(0);
+    }
+    function pause() {
+      playing = false;
+      place(tDays);
+    }
+    function play() {
+      if (tDays >= SPAN) tDays = 0;
+      t0 = performance.now() - (tDays / SPAN) * DURATION;
+      playing = true;
+      place(tDays);
+    }
+    host.addEventListener("notes-replay", replay);
+    place(tDays);
     function frame(now) {
-      var u = ((now - t0) / 9000) % 1;
-      place(u * 24);
+      if (playing) {
+        tDays = Math.min(SPAN, (now - t0) / DURATION * SPAN);
+        if (tDays >= SPAN) playing = false;
+      }
+      place(tDays);
       gfx.renderer.render(gfx.scene, gfx.camera);
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
     scenes.halfN = {
-      setT: function (t) { place(t); },
+      setT: function (t) { playing = false; place(t); },
+      replay: replay,
+      pause: pause,
+      play: play,
       snapshot: function () {
-        var nLive = 40 * Math.pow(0.5, tDays / 8);
+        var nLive = N0 * Math.pow(0.5, tDays / HALF);
         return {
           tDays: tDays,
           remaining: nLive,
-          decayed: 40 - nLive,
-          total: 40,
-          conserved: Math.abs(nLive + (40 - nLive) - 40) < 1e-9,
+          decayed: N0 - nLive,
+          total: N0,
+          conserved: Math.abs(nLive + (N0 - nLive) - N0) < 1e-9,
           deadVisible: decayed.visible,
-          deadHeight: decayed.scale.y
+          deadHeight: decayed.scale.y,
+          playing: playing,
+          halfLifeDays: HALF,
+          spanDays: SPAN,
+          liveHeight: remain.scale.y
         };
       },
       orbitBy: function (dx, dy) { gfx.orbit.nudge(dx, dy); }
@@ -479,68 +574,124 @@
     };
   }
 
+  /* Background correction (26.1 §D): one finite 80-hour run. The recorded
+     curve flattens on the 40 min-1 background floor; the amber 440 min-1 line
+     marks the one-half-life read. The slider/buttons drive t directly. */
   function countbg(host) {
     if (!THREE) return;
     var canvas = host.querySelector("canvas");
     var gfx = stage(canvas, { halfW: 6.4, halfH: 3.5 });
-    var hudR = host.querySelector('[data-hud="rec"]');
-    var hudB = host.querySelector('[data-hud="bg"]');
-    axes(gfx.scene, -5.2, -2.4, 5.4, 2.8);
-    var bgY = -2.4 + 40 * (4.8 / 840);
-    var bgLine = box(10.2, 0.03, 0.03, 0x5b6573);
-    bgLine.position.set(0.1, bgY, 0);
+    var hudRec = host.querySelector('[data-hud="rec"]');
+    var hudBg = host.querySelector('[data-hud="bg"]');
+    var hudTarget = host.querySelector('[data-hud="target"]');
+    var hudTh = host.querySelector('[data-hud="th"]');
+    var outRec = modelOut(host, "rec");
+    var outBg = modelOut(host, "bg");
+    var outCorr = modelOut(host, "corr");
+    var BG = 40;
+    var START = 840;
+    var HALF = 10;
+    var SPAN = 80;
+    var DURATION = 16000;
+    var X0 = -5.2;
+    var XW = 10.2;
+    var Y0 = -2.4;
+    var YW = 4.8;
+    function xOf(t) { return X0 + t * (XW / SPAN); }
+    function yOf(rate) { return Y0 + rate * (YW / START); }
+    axes(gfx.scene, X0, Y0, 5.4, 2.8);
+    var bgY = yOf(BG);
+    var bgLine = box(XW, 0.03, 0.03, 0x5b6573);
+    bgLine.position.set(X0 + XW / 2, bgY, 0);
     gfx.scene.add(bgLine);
+    var targetY = yOf((START - BG) / 2 + BG);
+    var targetLine = box(XW, 0.03, 0.03, 0xc9a227);
+    targetLine.position.set(X0 + XW / 2, targetY, 0);
+    gfx.scene.add(targetLine);
+    var targetDot = ball(0.11, 0xc9a227);
+    targetDot.position.set(xOf(HALF), targetY, 0.15);
+    gfx.scene.add(targetDot);
+    gfx.scene.add(curveLine(gfx.scene, [
+      new THREE.Vector3(xOf(HALF), Y0, -0.15), new THREE.Vector3(xOf(HALF), targetY, -0.15)
+    ], 0xe6e0d2));
     var pts = [];
     var s;
     for (s = 0; s <= 60; s += 1) {
-      var t = s / 60 * 80;
-      var corr = 800 * Math.pow(0.5, t / 10);
-      var rec = corr + 40;
-      pts.push(new THREE.Vector3(-5.2 + t * (10.2 / 80), -2.4 + rec * (4.8 / 840), 0));
+      var tt = s / 60 * SPAN;
+      var corr = (START - BG) * Math.pow(0.5, tt / HALF);
+      pts.push(new THREE.Vector3(xOf(tt), yOf(corr + BG), 0));
     }
     curveLine(gfx.scene, pts, 0x1f7a45);
     var marker = ball(0.12, 0x0e5f56);
     gfx.scene.add(marker);
-    var tH = 0;
-    var playing = false;
-    var t0 = 0;
-    function reset() {
+    var playing = !reducedMotion();
+    var t0 = performance.now();
+    var tH = playing ? 0 : HALF;
+
+    function place(h) {
+      tH = clamp01(h / SPAN) * SPAN;
+      var corr = (START - BG) * Math.pow(0.5, tH / HALF);
+      var rec = corr + BG;
+      var x = xOf(tH);
+      var y = yOf(rec);
+      marker.position.set(x, y, 0.2);
+      setText(hudRec, "recorded " + rec.toFixed(0) + " min⁻¹");
+      setText(outRec, "recorded = " + rec.toFixed(0) + " min⁻¹");
+      setText(outBg, "background = " + BG.toFixed(0) + " min⁻¹");
+      setText(outCorr, "corrected = " + corr.toFixed(0) + " min⁻¹");
+      placeHud(hudRec, canvas, gfx.camera, new THREE.Vector3(x + 0.35, y + 0.32, 0));
+      placeHud(hudBg, canvas, gfx.camera, new THREE.Vector3(X0 + 0.6, bgY + 0.34, 0));
+      placeHud(hudTarget, canvas, gfx.camera, new THREE.Vector3(-1.0, targetY + 0.28, 0));
+      placeHud(hudTh, canvas, gfx.camera, new THREE.Vector3(xOf(HALF), -2.78, 0));
+      host.dispatchEvent(new CustomEvent("notes-scene-tick", { detail: { t: tH, playing: playing } }));
+    }
+    function replay() {
       playing = true;
       t0 = performance.now();
-      tH = 0;
+      place(0);
     }
-    host.addEventListener("notes-replay", reset);
-    reset();
+    function pause() {
+      playing = false;
+      place(tH);
+    }
+    function play() {
+      if (tH >= SPAN) tH = 0;
+      t0 = performance.now() - (tH / SPAN) * DURATION;
+      playing = true;
+      place(tH);
+    }
+    host.addEventListener("notes-replay", replay);
+    place(tH);
     function frame(now) {
       if (playing) {
-        tH = Math.min(80, (now - t0) / 40);
-        if (tH >= 80) playing = false;
+        tH = Math.min(SPAN, (now - t0) / DURATION * SPAN);
+        if (tH >= SPAN) playing = false;
       }
-      var corr = 800 * Math.pow(0.5, tH / 10);
-      var rec = corr + 40;
-      var x = -5.2 + tH * (10.2 / 80);
-      var y = -2.4 + rec * (4.8 / 840);
-      marker.position.set(x, y, 0.2);
-      placeHud(hudR, canvas, gfx.camera, marker.position.clone().add(new THREE.Vector3(0.15, 0.35, 0)));
-      placeHud(hudB, canvas, gfx.camera, new THREE.Vector3(4.2, bgY, 0));
-      if (hudR) hudR.textContent = "recorded " + rec.toFixed(0) + " min⁻¹";
-      if (hudB) hudB.textContent = "background 40 min⁻¹";
+      place(tH);
       gfx.renderer.render(gfx.scene, gfx.camera);
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
     scenes.countbg = {
+      setT: function (h) { playing = false; place(h); },
+      replay: replay,
+      pause: pause,
+      play: play,
       snapshot: function () {
-        var corr = 800 * Math.pow(0.5, tH / 10);
+        var corr = (START - BG) * Math.pow(0.5, tH / HALF);
         return {
-          background: 40,
-          recorded: corr + 40,
+          background: BG,
+          recorded: corr + BG,
           corrected: corr,
           tH: tH,
-          floor: Math.abs((corr + 40) - 40) < 30 || tH > 40
+          playing: playing,
+          halfLifeH: HALF,
+          spanH: SPAN,
+          targetRecorded: (START - BG) / 2 + BG,
+          targetAtH: HALF,
+          floor: Math.abs(corr) < 30 || tH > 40
         };
-      },
-      replay: reset
+      }
     };
   }
 

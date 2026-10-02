@@ -91,46 +91,98 @@
       </header>
       <figure class="fig">
         <div class="visual play stage" id="halfn-vis" data-autoplay data-scene="halfN">
-          <canvas class="scene-canvas" width="960" height="420" aria-label="Iodine-131: number of undecayed nuclei against time, with remaining and decayed stacks"></canvas>
-          <span class="hud-label" data-hud="n">N</span>
-          <span class="hud-label" data-hud="t">t</span>
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Iodine-131 against time: the orange parent stack halves every 8 days while the grey daughter stack grows, and the two always fill the same 40-billion frame"></canvas>
+          <span class="hud-label" data-hud="sum">N + D = 40.0 billion</span>
+          <span class="hud-label metric" data-hud="t">t = 0 d</span>
+          <span class="hud-label" data-hud="t8">8 d</span>
+          <span class="hud-label" data-hud="t16">16 d</span>
+          <span class="hud-label" data-hud="t24">24 d</span>
+          <div class="stage-controls">
+            <button type="button" class="stage-replay" data-replay="halfn-vis">Replay</button>
+            <button type="button" class="stage-pause" data-pause="halfn-vis" aria-pressed="false">Pause</button>
+          </div>
         </div>
-        <figcaption><b>Fig. 26.4</b> Iodine-131 (half-life 8 days).</figcaption>
-<details class="fig-more"><summary>More</summary><p>Iodine-131 (half-life 8 days). Starting with 40 billion nuclei, 20 billion remain at 8 days, 10 billion at 16 days, 5 billion at 24 days. The grey stack is the decayed nuclei, which have become daughter nuclei (xenon-131) and are still there: the two stacks always total 40 billion.</p></details>
+        <figcaption><b>Fig. 26.4</b> Iodine-131: parent halves, daughter grows, total 40 billion.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Starting with 40 billion parent nuclei, 20 billion remain at 8 days, 10 billion at 16 days and 5 billion at 24 days. The grey stack is the stable daughter xenon-131: those nuclei stay in the sample, so parent + daughter always fills the 40-billion frame. Orange = parent, grey = daughter.</p></details>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="half-time">Time</label>
+            <input id="half-time" type="range" min="0" max="24" step="1" value="0" aria-label="Time in days, 0 to 24">
+            <output class="readout" id="half-time-out" for="half-time">0 d</output>
+            <button type="button" data-half-set="0" aria-pressed="true">0 d</button>
+            <button type="button" data-half-set="8">8 d</button>
+            <button type="button" data-half-set="16">16 d</button>
+            <button type="button" data-half-set="24">24 d</button>
+          </div>
+          <div class="row sim-readout" aria-live="polite" aria-label="Parent and daughter nuclei at the selected time">
+            <span class="readout" data-out="n">N = 40.0 billion</span>
+            <span class="readout" data-out="d">D = 0.0 billion</span>
+            <span class="readout" data-out="sum">N + D = 40.0 billion</span>
+          </div>
+        </div>
       </figure>
+      <aside class="quick-digest" aria-label="Half-life in short">
+        <h2>In short</h2>
+        <div>
+          <p><b>N halves</b><span>every one half-life</span></p>
+          <p><b>\( N + D = N_0 \)</b><span>daughter keeps the total</span></p>
+          <p><b>\( n = t / T_{1/2} \)</b><span>any fraction allowed</span></p>
+        </div>
+      </aside>
       <div class="def">
         <span class="tag">Definition</span>
-        <p>The <b>half-life</b> \( T_{1/2} \) of a radionuclide is the time taken for the number of undecayed nuclei in a sample to fall to half its initial value. Equivalently, it is the time for the activity to fall to half. After \( n \) half-lives,</p>
-        <div class="eq">\[ N = N_0 \left(\tfrac{1}{2}\right)^{n}, \qquad n = \frac{t}{T_{1/2}} \]</div>
+        <p>The <b>half-life</b> \( T_{1/2} \) is the time for the number of undecayed nuclei to fall to half its initial value — equivalently, the time for the activity to halve.</p>
+      </div>
+      <div class="formula-sheet">
+        <div class="eq" role="math" aria-label="Nuclei remaining after n half-lives">\[ N = N_0 \left(\tfrac{1}{2}\right)^{n} \]</div>
+        <div class="eq" role="math" aria-label="Number of half-lives elapsed">\[ n = \frac{t}{T_{1/2}} \]</div>
       </div>
       <ul class="points">
-        <li>Half-life is a property of the nuclide, not of the sample. A gram and a microgram of iodine-131 both have \( T_{1/2} = 8 \) d. Heating, cooling, dissolving or splitting the sample does not change it.</li>
-        <li>Half-life is not "how long the source lasts". After one half-life half the nuclei are still undecayed; after two, a quarter; the number approaches zero but a sample is never "finished" at any particular moment.</li>
-        <li>The <em>decayed</em> nuclei do not disappear. They become the daughter nuclide, so the total number of nuclei (and, very nearly, the mass) stays constant while the sample becomes progressively more daughter and less parent.</li>
-        <li>Half-lives range over more than twenty powers of ten:</li>
+        <li>Half-life is a property of the nuclide, not the sample: 1 g and 1 μg of iodine-131 both have \( T_{1/2} = 8 \) d. Heating, cooling or dissolving the sample does not change it.</li>
+        <li>The sample is never "finished": after one half-life half remains, after two a quarter — the number approaches zero but never reaches it at a known moment.</li>
       </ul>
-      <table class="notes" aria-label="Table 26.3">
-        <thead><tr><th>Radionuclide</th><th>Half-life</th><th>Radionuclide</th><th>Half-life</th></tr></thead>
-        <tbody>
-          <tr><td>polonium-215</td><td>0.0018 s</td><td>iodine-131</td><td>8 d</td></tr>
-          <tr><td>radon-220</td><td>52 s</td><td>strontium-90</td><td>28.8 y</td></tr>
-          <tr><td>bismuth-213</td><td>45.6 min</td><td>carbon-14</td><td>5730 y (often rounded to 5700 y)</td></tr>
-          <tr><td>sodium-24</td><td>15 h</td><td>uranium-238</td><td>\( 4.47 \times 10^{9} \) y</td></tr>
-        </tbody>
-      </table>
-      <div class="worked">
-        <span class="tag">Worked example</span>
-        <p>A sample of a radionuclide with half-life 3 days has mass 100 g. (a) What mass of the nuclide remains after 12 days? (b) What mass has decayed? (c) What was the mass 6 days before the start?</p>
-        <ol class="steps">
-          <li>(a) \( n = 12/3 = 4 \) half-lives. Remaining \( = 100 \times (1/2)^4 = 6.25 \) g.</li>
-          <li>(b) Decayed \( = 100 - 6.25 = 93.75 \) g. (It is still in the sample, as daughter nuclide.)</li>
-          <li>(c) Going backwards two half-lives doubles twice: \( 100 \times 2^2 = 400 \) g.</li>
-        </ol>
-        <p class="note">Common slips: giving 6.25 g for "decayed", or 75 g (two half-lives) for "decayed in 12 days".</p>
+      <p>Half-lives range from 0.0018 s (polonium-215) to \( 4.47 \times 10^{9} \) y (uranium-238) — more than twenty powers of ten apart.</p>
+      <details class="learn-more">
+        <summary>Common half-lives</summary>
+        <table class="notes" aria-label="Table 26.3">
+          <thead><tr><th>Radionuclide</th><th>Half-life</th><th>Radionuclide</th><th>Half-life</th></tr></thead>
+          <tbody>
+            <tr><td>polonium-215</td><td>0.0018 s</td><td>iodine-131</td><td>8 d</td></tr>
+            <tr><td>radon-220</td><td>52 s</td><td>strontium-90</td><td>28.8 y</td></tr>
+            <tr><td>bismuth-213</td><td>45.6 min</td><td>carbon-14</td><td>5730 y</td></tr>
+            <tr><td>sodium-24</td><td>15 h</td><td>uranium-238</td><td>\( 4.47 \times 10^{9} \) y</td></tr>
+          </tbody>
+        </table>
+      </details>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked">
+          <p>A sample of a radionuclide with half-life 3 days has mass 100 g. (a) What mass of the nuclide remains after 12 days? (b) What mass has decayed? (c) What was the mass 6 days before the start?</p>
+          <ol class="steps">
+            <li>(a) \( n = 12/3 = 4 \) half-lives. Remaining \( = 100 \times (1/2)^4 = 6.25 \) g.</li>
+            <li>(b) Decayed \( = 100 - 6.25 = 93.75 \) g. (It is still in the sample, as daughter nuclide.)</li>
+            <li>(c) Going backwards two half-lives doubles twice: \( 100 \times 2^2 = 400 \) g.</li>
+          </ol>
+          <p class="note">Common slips: giving 6.25 g for "decayed", or 75 g (two half-lives) for "decayed in 12 days".</p>
+        </div>
+      </details>
+      <div class="check" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Iodine-131 starts with 40 billion parent nuclei. After 16 days:</p>
+        <div class="choices">
+          <button type="button" data-choice="A">10 billion parent, 30 billion daughter</button>
+          <button type="button" data-choice="B">10 billion parent, 10 billion daughter</button>
+          <button type="button" data-choice="C">20 billion parent, 20 billion daughter</button>
+          <button type="button" data-choice="D">5 billion parent, 35 billion daughter</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>16 days is 2 half-lives, so the parent falls to \( 40/4 = 10 \) billion. The daughter is whatever has left the parent: \( 40 - 10 = 30 \) billion. The two always total 40 billion. Answer <b>A</b>.</p>
+        </div>
       </div>
       <div class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
-        <p>Which of the following statements about the half-life of a radioactive source is/are correct?</p>
+        <p>Which statements about half-life are correct?</p>
         <ol class="stem-list">
           <li>It is the time for the activity of the source to fall to half its value.</li>
           <li>It is the time the source remains radioactive.</li>
@@ -149,7 +201,7 @@
       </div>
       <div class="check" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
-        <p>A source contains only radioactive nuclide X, which decays to stable Y. After one half-life of X, which of the following is/are correct?</p>
+        <p>After one half-life of X, which is correct?</p>
         <ol class="stem-list">
           <li>The number of X nuclei is about half the initial number.</li>
           <li>The number of Y nuclei is about twice its initial value.</li>
@@ -168,7 +220,7 @@
       </div>
       <div class="check" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
-        <p>A pure sample of a radionuclide decays to a stable daughter. After 2 years the sample is 2% parent and 98% daughter by number. What was its composition after 1 year?</p>
+        <p>After 2 years: 2% parent, 98% daughter. What was the mixture after 1 year?</p>
         <div class="choices">
           <button type="button" data-choice="A">25% parent, 75% daughter</button>
           <button type="button" data-choice="B">51% parent, 49% daughter</button>
@@ -278,59 +330,92 @@
 
     <section class="idea" id="background">
       <header>
-        <h2><span class="sec-num">D</span>Reading half-life from real data</h2>
+        <h2><span class="sec-num">D</span>Half-life from real data</h2>
       </header>
       <figure class="fig">
         <div class="visual play stage" id="countbg-vis" data-autoplay data-scene="countbg">
-          <canvas class="scene-canvas" width="960" height="420" aria-label="Recorded count rate falls toward a background floor"></canvas>
-          <span class="hud-label" data-hud="rec">recorded</span>
-          <span class="hud-label" data-hud="bg">background</span>
-          <button type="button" class="stage-replay" data-replay="countbg-vis">Replay</button>
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Recorded count rate against time: the curve falls to the 40 per minute background floor; the one half-life reading is 440 per minute at 10 hours"></canvas>
+          <span class="hud-label metric" data-hud="rec">recorded 840 min⁻¹</span>
+          <span class="hud-label" data-hud="target">440 min⁻¹ target</span>
+          <span class="hud-label" data-hud="bg">background 40 min⁻¹</span>
+          <span class="hud-label" data-hud="th">10 h</span>
+          <div class="stage-controls">
+            <button type="button" class="stage-replay" data-replay="countbg-vis">Replay</button>
+            <button type="button" class="stage-pause" data-pause="countbg-vis" aria-pressed="false">Pause</button>
+          </div>
         </div>
-        <figcaption><b>Example 26.1</b> Count rate flattens at the background level.</figcaption>
-<details class="fig-more"><summary>More</summary><p>The recorded count rate from a source falls but flattens out at about 40 counts per minute instead of zero. The flat part is background, which the GM tube counts whether or not a source is present.</p></details>
+        <figcaption><b>Example 26.1</b> Recorded rate flattens at background; corrected rate halves.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>The recorded curve falls but flattens at about 40 min⁻¹ — the background the GM tube counts with no source present. Subtract that background and the corrected curve halves at 10 h: read one half-life where the recorded curve passes 440 min⁻¹.</p></details>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="bg-time">Time</label>
+            <input id="bg-time" type="range" min="0" max="80" step="5" value="0" aria-label="Time in hours, 0 to 80">
+            <output class="readout" id="bg-time-out" for="bg-time">0 h</output>
+            <button type="button" data-bg-set="0" aria-pressed="true">0 h</button>
+            <button type="button" data-bg-set="10">10 h</button>
+            <button type="button" data-bg-set="40">40 h</button>
+            <button type="button" data-bg-set="80">80 h</button>
+          </div>
+          <div class="row sim-readout" aria-live="polite" aria-label="Count rates at the selected time">
+            <span class="readout" data-out="rec">recorded = 840 min⁻¹</span>
+            <span class="readout" data-out="bg">background = 40 min⁻¹</span>
+            <span class="readout" data-out="corr">corrected = 800 min⁻¹</span>
+          </div>
+        </div>
       </figure>
       <div class="def">
         <span class="tag">Corrected count rate</span>
-        <p>Background radiation (cosmic rays, rocks and soil, building materials, food and drink, radon in the air) gives a GM tube a small, roughly steady count rate even with no source nearby. The <b>corrected count rate</b> is the recorded count rate minus the background count rate, and it is the quantity proportional to the activity of the source.</p>
-        <div class="eq">\[ \text{corrected count rate} = \text{recorded count rate} - \text{background count rate} \]</div>
+        <p>Background radiation (cosmic rays, rocks and soil, building materials, food and drink, radon) gives a GM tube a small, roughly steady count even with no source. The <b>corrected count rate</b> is recorded − background, and it is proportional to the source activity.</p>
       </div>
-      <div class="worked">
-        <span class="tag">Worked example</span>
-        <p>In Example 26.1 the recorded count rate starts at 840 min<sup>-1</sup> and flattens at about 40 min<sup>-1</sup>. Find the half-life.</p>
-        <ol class="steps">
-          <li>Background \( \approx 40 \) min<sup>-1</sup> (the level the graph flattens to). Corrected initial rate \( = 840 - 40 = 800 \) min<sup>-1</sup>.</li>
-          <li>After one half-life the corrected rate is 400 min<sup>-1</sup>, so the <em>recorded</em> rate is \( 400 + 40 = 440 \) min<sup>-1</sup>.</li>
-          <li>Read the time at which the recorded curve passes 440 min<sup>-1</sup>: 10 h. So \( T_{1/2} = 10 \) h.</li>
-        </ol>
-        <p class="note">Reading the time to fall from 840 to 420 on the uncorrected curve gives a half-life that is too long. Always halve the corrected value, then add background back before reading the graph.</p>
+      <div class="eq eq-stack" aria-label="Corrected count rate formula">
+        <p>corrected = recorded − background</p>
+        <p>400 = 440 − 40 <span class="eg">(at 10 h)</span></p>
       </div>
+      <aside class="quick-digest" aria-label="Background in short">
+        <h2>In short</h2>
+        <div>
+          <p><b>Subtract background</b><span>recorded − background</span></p>
+          <p><b>Halve corrected</b><span>then add background back</span></p>
+          <p><b>440 min⁻¹</b><span>recorded target at 10 h</span></p>
+        </div>
+      </aside>
       <ul class="points">
-        <li><b>Why the curve flattens.</b> The corrected count rate approaches zero but never quite reaches it (each half-life only halves what is left). Long before that, the source's contribution has fallen below the background, so the recorded rate levels off at the background value.</li>
-        <li><b>From a table.</b> Subtract background from every reading, then find the half-life from the corrected column (or plot it and read the graph). A single corrected reading can come out slightly negative or below background because both source and background counts fluctuate randomly; treat it as "about zero".</li>
-        <li><b>Each reading more than half the previous</b> in equal time steps does not mean a long half-life; it is the signature of an uncorrected background. Subtract it and check again.</li>
-        <li><b>Scatter.</b> Points that do not lie exactly on a smooth curve are expected: decay is random. Draw the best smooth curve through them.</li>
-        <li><b>A second run with a weaker source</b> of the same nuclide starts lower but has the same half-life and flattens at the same background level.</li>
-        <li>Reduce background error by counting for longer and by measuring background for a long time before and after the experiment.</li>
+        <li><b>Why the curve flattens.</b> The corrected rate approaches zero but never quite reaches it; long before that it falls below background, so the recorded rate levels off at the background value.</li>
+        <li><b>Noise.</b> Decay is random, so repeated counts vary. A corrected reading can come out slightly below background — treat it as "about zero", never as negative activity.</li>
+        <li><b>Uncorrected trap.</b> Readings that each fall by less than half in equal time steps are the signature of background left in. Subtract it and check again.</li>
+        <li><b>A weaker source</b> of the same nuclide starts lower, has the same half-life and flattens at the same background floor.</li>
       </ul>
-      <div class="worked">
-        <span class="tag">Worked example</span>
-        <p>A GM counter near a source reads 1000 min<sup>-1</sup>. Two half-lives later it reads 400 min<sup>-1</sup>. (a) Find the background count rate. (b) What will it read after a further half-life?</p>
-        <ol class="steps">
-          <li>(a) Let background be \( b \). Corrected start \( = 1000 - b \). After two half-lives corrected \( = (1000 - b)/4 \), so recorded \( = (1000 - b)/4 + b = 400 \). Then \( 1000 - b + 4b = 1600 \), \( b = 200 \) min<sup>-1</sup>.</li>
-          <li>(b) Corrected after three half-lives \( = 800/8 = 100 \); recorded \( = 100 + 200 = 300 \) min<sup>-1</sup>.</li>
-        </ol>
-        <p class="note">Dividing 1000 by 4 and comparing with 400 "proves" nothing: the mismatch <em>is</em> the background.</p>
-      </div>
-      
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked">
+          <p>In Example 26.1 the recorded count rate starts at 840 min<sup>-1</sup> and flattens at about 40 min<sup>-1</sup>. Find the half-life.</p>
+          <ol class="steps">
+            <li>Background \( \approx 40 \) min<sup>-1</sup> (the level the graph flattens to). Corrected initial rate \( = 840 - 40 = 800 \) min<sup>-1</sup>.</li>
+            <li>After one half-life the corrected rate is 400 min<sup>-1</sup>, so the <em>recorded</em> rate is \( 400 + 40 = 440 \) min<sup>-1</sup>.</li>
+            <li>Read the time at which the recorded curve passes 440 min<sup>-1</sup>: 10 h. So \( T_{1/2} = 10 \) h.</li>
+          </ol>
+          <p class="note">Reading the time to fall from 840 to 420 on the uncorrected curve gives a half-life that is too long. Always halve the corrected value, then add background back before reading the graph. Reduce background error by counting for longer and by measuring background before and after the experiment.</p>
+        </div>
+      </details>
+      <details class="worked-more">
+        <summary>Find the background</summary>
+        <div class="worked">
+          <p>A GM counter near a source reads 1000 min<sup>-1</sup>. Two half-lives later it reads 400 min<sup>-1</sup>. (a) Find the background count rate. (b) What will it read after a further half-life?</p>
+          <ol class="steps">
+            <li>(a) Let background be \( b \). Corrected start \( = 1000 - b \). After two half-lives corrected \( = (1000 - b)/4 \), so recorded \( = (1000 - b)/4 + b = 400 \). Then \( 1000 - b + 4b = 1600 \), \( b = 200 \) min<sup>-1</sup>.</li>
+            <li>(b) Corrected after three half-lives \( = 800/8 = 100 \); recorded \( = 100 + 200 = 300 \) min<sup>-1</sup>.</li>
+          </ol>
+          <p class="note">Dividing 1000 by 4 and comparing with 400 "proves" nothing: the mismatch <em>is</em> the background.</p>
+        </div>
+      </details>
       <div class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
-        <p>A GM counter records 140 min<sup>-1</sup> when a source is first placed near it. After a long time the reading settles at 20 min<sup>-1</sup>. At what recorded count rate should you read the graph to find one half-life?</p>
+        <p>Initial reading 140 min⁻¹; long-time floor 20 min⁻¹. One half-life is read at:</p>
         <div class="choices">
-          <button type="button" data-choice="A">70 min<sup>-1</sup></button>
-          <button type="button" data-choice="B">80 min<sup>-1</sup></button>
-          <button type="button" data-choice="C">60 min<sup>-1</sup></button>
-          <button type="button" data-choice="D">10 min<sup>-1</sup></button>
+          <button type="button" data-choice="A">70 min⁻¹</button>
+          <button type="button" data-choice="B">80 min⁻¹</button>
+          <button type="button" data-choice="C">60 min⁻¹</button>
+          <button type="button" data-choice="D">10 min⁻¹</button>
         </div>
         <p class="feedback"></p>
         <div class="explain" hidden>
@@ -339,7 +424,9 @@
       </div>
       <div class="check" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
-        <p>Counts per minute from a source are recorded every minute, with background about 100 min<sup>-1</sup>: 900, 417, 225, 150, 113, 92, 102. Which explanation of the reading of 92 is best?</p>
+        <p>Minute-by-minute counts, background about 100 min⁻¹:</p>
+        <p class="data-line">900 · 417 · 225 · 150 · 113 · 92 · 102</p>
+        <p>Best explanation of the 92?</p>
         <div class="choices">
           <button type="button" data-choice="A">The source has become negative in activity.</button>
           <button type="button" data-choice="B">The source now contributes almost nothing and the background itself fluctuates randomly.</button>
