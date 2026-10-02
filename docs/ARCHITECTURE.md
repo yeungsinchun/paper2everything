@@ -30,7 +30,7 @@ drift check (`python3 paper2db/scripts/leak_fingerprints.py --check`).
 
 | Component | Language / runtime | Entry point | Output |
 |---|---|---|---|
-| `paper2db/` | Python 3 (PyMuPDF, Pillow, OCR, optional LLM API) | `./paper2db/pipeline` (11 stages, `--list-stages`) | MC/LQ crops per year and per syllabus section, section PDFs, answer keys, audit JSON, review HTML |
+| `paper2db/` | Python 3 (PyMuPDF, Pillow, OCR, optional LLM API) | `./paper2db/pipeline` (12 stages, `--list-stages`) | MC/LQ crops per year and per syllabus section, section PDFs, answer keys, `dse-item.v1` records, audit JSON, review HTML |
 | `paper2db/scripts/convert-qb-to-pdf.sh` | Bash + LibreOffice | run by hand | `paper2db/qb-pdf/` PDFs from `paper2db/qb/` DOCX |
 | `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book2/`, `/book4/`, `/book5/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` (82 files) staged to `_local/dse/` by `Dockerfile` |
@@ -53,9 +53,9 @@ flowchart LR
   subgraph DB["paper2db"]
     direction TB
     PAPER["paper/{mc,lq,ans,performance}/<br/>HKDSE PDFs + performance.md<br/><b>tracked</b> (~283 MB)"]
-    HAND["scripts/overrides_YYYY.json<br/>scripts/answer_key_overrides.json<br/>scripts/lq_answer_pages.json<br/>tests/reconstructed/lq/*/starts.json<br/><b>tracked, hand-tuned</b>"]
+    HAND["scripts/overrides_*.json<br/>scripts/answer_key_overrides.json<br/>scripts/lq_answer_pages.json<br/>tests/reconstructed/lq/*/starts.json<br/><b>tracked, hand-tuned</b>"]
     META["metadata/{mc,lq}/llm_classifications.json<br/><b>tracked</b> (paid LLM decisions)"]
-    PIPE(["./pipeline<br/>mc-anchors → mc-split → lq-pages → lq-crops → lq-answers<br/>→ keys → classify-mc → lq-performance → classify-lq<br/>→ section-pdfs → lavish"])
+    PIPE(["./pipeline<br/>mc-anchors → mc-split → lq-pages → lq-crops → lq-answers<br/>→ keys → classify-mc → lq-performance → classify-lq<br/>→ section-pdfs → dse-items → lavish"])
     INTER["intermediate/mc/&lt;year&gt;/<br/><b>gitignored</b>"]
     RECON["tests/reconstructed/{mc,lq}/&lt;year&gt;/<br/><b>gitignored</b> (except starts.json)"]
     SECT["tests/sections/{mc,lq}/&lt;NN_Book&gt;/&lt;NN_Section&gt;/<br/>YYYY_qN.png · YYYY-qN.png · combined.pdf<br/><b>gitignored</b>"]
@@ -172,7 +172,9 @@ LLM backend only for years missing from that metadata, and falls back to the
 keyword classifiers when no API key is set or the LLM call errors. `section-pdfs` writes
 `tests/sections/{mc,lq}/<NN_Book>/<NN_Section>/` with PNG crops named
 `YYYY_qN.png` (MC) or `YYYY-qN.png` / `YYYY-qN-ans.png` (LQ) and a
-`combined.pdf`. The section taxonomy is the `SECTIONS` list in
+`combined.pdf`. `dse-items` then joins crops, classifications, MC keys, LQ
+candidate performance and answer pointers into `paper2db.dse-item.v1` records
+under `tests/sections/items/`. The section taxonomy is the `SECTIONS` list in
 `paper2db/scripts/classify_mc_llm.py` (imported by the LQ classifiers) and a
 second copy in `paper2db/scripts/classify_mc_sections.py`.
 

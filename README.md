@@ -29,7 +29,7 @@ paper2everything/
 │   ├── scripts/                 ci-check.mjs, leak-check.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
 │   └── deploy/cloudrun/         Dockerfile, nginx.conf, deploy.sh, provision.sh
 ├── paper2db/
-│   ├── pipeline                 entry point: 11 past-paper stages + 4 QB stages (`--list-stages`)
+│   ├── pipeline                 entry point: 12 past-paper stages + 4 QB stages (`--list-stages`)
 │   ├── paper/{mc,lq,ans,performance}/   source PDFs and notes
 │   ├── scripts/                 stage scripts, overrides_*.json, QB converters
 │   ├── metadata/                reviewed pipeline inputs (see paper2db/README.md)

@@ -345,19 +345,19 @@ Source PDFs live in `paper/{mc,lq,ans,performance}/`.
 
 - **MC (Paper 1A):** `mc-anchors` (blue dots, human review of `intermediate/mc/<year>/anchor.pdf`), `mc-split` (per-question `qN.png`), `keys` (answer letters and correct-% into `tests/sections/mc/answer_keys.json`, patched by `scripts/answer_key_overrides.json`), `classify-mc`.
 - **LQ (Paper 1B):** `lq-pages`, `lq-crops` (whole exam-page stack per question, `page_from` to `page_to` from `starts.json`; no within-page crop; trailing data and formula sheets excluded), `lq-answers` (marking-scheme crops), `lq-performance` (candidate-performance notes from `paper/performance/*.md`), `classify-lq`.
-- **Both:** `section-pdfs` (per-section A4 `combined.pdf`, plus LQ `answers.pdf` and `performance.pdf`), then `lavish` (quality audit and review HTML).
+- **Both:** `section-pdfs` (per-section A4 `combined.pdf`, plus LQ `answers.pdf` and `performance.pdf`), then `dse-items` (join crops, classifications, MC keys, LQ candidate performance and answer pointers into `paper2db.dse-item.v1` records under `tests/sections/items/`), then `lavish` (quality audit and review HTML).
 
 **Classification.** 27 syllabus sections across Books 1 to 5 (Heat and Gases, Force and Motion, Wave Motion, Ray Optics, Electricity and Magnetism, Radioactivity and Nuclear Energy). Each paper type has an LLM backend (`classify_*_llm.py`, needs `LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`, optional `LLM_BASE_URL`, `LLM_MODEL`) and a keyword fallback (`classify_mc_sections.py`, `classify_lq_keywords.py`). An LQ can belong to several sections; `apply_book5_listings()` lists every Book 5 section a radioactivity LQ tests, and section PDFs include non-primary listings. Decisions are tracked because they are paid and nondeterministic: `metadata/mc/llm_classifications.json` (573 MC items across 2012 to 2026 plus `pp` and `sap`) and `metadata/lq/llm_classifications.json`. `classify-mc` and `classify-lq` replay those decisions by default and call the LLM only for years missing from the metadata; a precomputed JSON can still be applied explicitly with `--from-json`.
 
-**Hand-tuned tracked inputs:** `scripts/overrides_<year>.json` (MC anchor overrides for 2012, 2015, 2016, 2018, 2019, 2020 and `sap`), `scripts/answer_key_overrides.json`, `scripts/lq_answer_pages.json` (hand-verified marking-scheme page map used when OCR orientation or label detection fails), `tests/reconstructed/lq/<year>/starts.json`. Quality bar: at most 5% of questions need manual tuning; `scripts/quality_audit.py --strict` writes `tests/sections/quality_audit.json` counting missing crops, missing classified copies, uncertain flags, tiny crops, incomplete years and override-tuned questions.
+**Hand-tuned tracked inputs:** `scripts/overrides_*.json` (MC anchor overrides for 2012, 2015, 2016, 2018, 2019, 2020 and the sample paper `sap`), `scripts/answer_key_overrides.json`, `scripts/lq_answer_pages.json` (hand-verified marking-scheme page map used when OCR orientation or label detection fails), `tests/reconstructed/lq/<year>/starts.json`. Quality bar: at most 5% of questions need manual tuning; `scripts/quality_audit.py --strict` writes `tests/sections/quality_audit.json` counting missing crops, missing classified copies, uncertain flags, tiny crops, incomplete years and override-tuned questions.
 
-**Output.** `section-pdfs` writes `paper2db/tests/sections/{mc,lq}/<NN_Book>/<NN_Section>/` with PNG crops (`YYYY_qN.png` for MC; `YYYY-qN.png` and `YYYY-qN-ans.png` for LQ) and `combined.pdf`, plus CSVs, `answer_keys.json`, `quality_audit.json`, `candidate_performance.json`. Everything is reproducible from `paper/` with `./pipeline --force --yes`.
+**Output.** `section-pdfs` writes `paper2db/tests/sections/{mc,lq}/<NN_Book>/<NN_Section>/` with PNG crops (`YYYY_qN.png` for MC; `YYYY-qN.png` and `YYYY-qN-ans.png` for LQ) and `combined.pdf`, plus CSVs, `answer_keys.json`, `quality_audit.json`. Everything is reproducible from `paper/` with `./pipeline --force --yes`.
 
 ### 7.2 Question bank (QB)
 
 169 DOCX files, 46 banks, 3,847 items, of which 1,881 are in scope (Books 2, 4, 5: `QB_201` to `QB_210`, `QB_401` to `QB_408`, `QB_501` to `QB_503`, 21 banks). `metadata/qb/banks.json` is the source of truth for counts.
 
-Four stages (pipeline stages 12 to 15) run when a DOCX tree exists (`$P2DB_QB_ROOT`, else `paper2db/qb/`): `qb-pdf` (LibreOffice, via `qb_manifest.py verify` and `qb_convert.py`), `qb-ocr` (`pdftoppm` and Tesseract), `qb-items` (`qb_items.py` to `qb-pdf/items/<bank>.json` and `crops/`), `qb-audit` (`qb_quality.py` to `qb-pdf/quality.json` and `.lavish/qb-review/index.html`). Run only this track with `./pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit`; `--years` does not apply. Requires `soffice`, `pdftoppm`, `tesseract`.
+Four stages (pipeline stages 13 to 16) run when a DOCX tree exists (`$P2DB_QB_ROOT`, else `paper2db/qb/`): `qb-pdf` (LibreOffice, via `qb_manifest.py verify` and `qb_convert.py`), `qb-ocr` (`pdftoppm` and Tesseract), `qb-items` (`qb_items.py` to `qb-pdf/items/<bank>.json` and `crops/`), `qb-audit` (`qb_quality.py` to `qb-pdf/quality.json` and `.lavish/qb-review/index.html`). Run only this track with `./pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit`; `--years` does not apply. Requires `soffice`, `pdftoppm`, `tesseract`.
 
 Tracked inputs: `metadata/qb/banks.json` (census, validated by `scripts/qb_banks.py`) and `metadata/qb/source-manifest.json` (sha256 per DOCX, checked before conversion). DOCX, PDFs, OCR text, crops and review board are never committed.
 
@@ -434,7 +434,7 @@ CLI: `node paper2notes/scripts/audit/run.mjs [--bank QB_501 | --all] [--fixture 
 
 Entry point `./paper2db/pipeline` (`--list-stages` prints all). Setup: Python venv, `pip install -r paper2db/requirements.txt`, `tesseract` on `PATH`.
 
-Stages in order: past paper `mc-anchors`, `mc-split`, `lq-pages`, `lq-crops`, `lq-answers`, `keys`, `classify-mc`, `lq-performance`, `classify-lq`, `section-pdfs`, `lavish` (11 stages); QB `qb-pdf`, `qb-ocr`, `qb-items`, `qb-audit` (4 stages, run when a QB DOCX tree exists).
+Stages in order: past paper `mc-anchors`, `mc-split`, `lq-pages`, `lq-crops`, `lq-answers`, `keys`, `classify-mc`, `lq-performance`, `classify-lq`, `section-pdfs`, `dse-items`, `lavish` (12 stages); QB `qb-pdf`, `qb-ocr`, `qb-items`, `qb-audit` (4 stages, run when a QB DOCX tree exists).
 
 | Flag | Effect |
 |---|---|
@@ -471,7 +471,7 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|
 | `paper2db/paper/**` source PDFs | `paper2db/intermediate/`, `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
-| `paper2db/metadata/*/llm_classifications.json`, `metadata/qb/{banks,source-manifest}.json` | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
+| `paper2db/metadata/*/llm_classifications.json`, `metadata/qb/{banks,source-manifest}.json` | `paper2db/output/`, `paper2db/classified/` (mostly legacy; `lq/candidate_performance.json` is current), `.lavish/` boards |
 | `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json`, `tests/reconstructed/lq/*/starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
 | `paper2notes/notes/` including the `dse/` snapshot (82 files) and `_source/` | `.audit/` harness output |

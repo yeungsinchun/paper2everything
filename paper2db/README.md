@@ -43,7 +43,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 ./pipeline --years 2025 --force --yes   # one past-paper year; QB stages still process the QB corpus
 ```
 
-`tests/sections/` is the generated curriculum-section bank (PNG copies, CSVs, section PDFs, `quality_audit.json`, OCR caches, `candidate_performance.json`) - named alongside `tests/reconstructed/` since both are pipeline output trees under `tests/`, not fixtures. The only files under `tests/reconstructed/` that git tracks are durable inputs: `tests/reconstructed/lq/<year>/starts.json` (LQ page ranges, preserved by normal `lq-pages` runs). Everything under `tests/sections/` is reproducible from `paper/` with `./pipeline`, so never `git add` crops, section PDFs or `.lavish/` HTML.
+`tests/sections/` is the generated curriculum-section bank (PNG copies, CSVs, section PDFs, `quality_audit.json`, OCR caches, `items/`) - named alongside `tests/reconstructed/` since both are pipeline output trees under `tests/`, not fixtures. The only files under `tests/reconstructed/` that git tracks are durable inputs: `tests/reconstructed/lq/<year>/starts.json` (LQ page ranges, preserved by normal `lq-pages` runs). Everything under `tests/sections/` is reproducible from `paper/` with `./pipeline`, so never `git add` crops, section PDFs or `.lavish/` HTML.
 
 `metadata/{mc,lq}/llm_classifications.json` holds the classification decisions themselves (which section(s) each question belongs to, and why) - the one output that costs paid, nondeterministic LLM calls to reproduce, so it stays tracked and is replayed by default (or applied explicitly with `--from-json`) even when nothing else in `tests/sections/` is rebuilt.
 
@@ -61,7 +61,8 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `tests/reconstructed/mc/` | `combined.pdf` (every year's MC paper) + `<year>/` MC question PNGs with a per-year `combined.pdf` |
 | `tests/reconstructed/lq/` | `combined.pdf` (every year's LQ questions) + `<year>/` LQ pages, `qN.png`, `ans/qN.png`, per-year `combined.pdf` |
 | `tests/sections/mc/` | Section folders, CSVs, `answer_keys.json`, section PDFs (generated) |
-| `tests/sections/lq/` | Same for long questions, + `candidate_performance.json` (generated) |
+| `tests/sections/lq/` | Same for long questions (generated) |
+| `tests/sections/items/` | `paper2db.dse-item.v1` records: `<section>.json` + `index.json` (`dse-items` stage, generated) |
 | `qb/` | Local QB DOCX source tree, if supplied (gitignored; working manifest at `qb/source-manifest.json` if built) |
 | `qb-pdf/` | Converted QB PDFs, OCR, item JSON, crops, conversion log and quality report (generated, gitignored) |
 | `schemas/qb-item.v1.json` | `paper2db.qb-item.v1` item contract (legacy) |
@@ -132,7 +133,7 @@ The suite runs against fixtures (`tests/fixtures/lq_ocr/`, temp trees) and cover
 
 ## Quality bar
 
-Target: **≤5%** of questions need human manual tuning, including every entry in `scripts/overrides_YYYY.json`.
+Target: **≤5%** of questions need human manual tuning, including every entry in `scripts/overrides_*.json`.
 
 ```bash
 ./pipeline --only lavish
@@ -146,7 +147,7 @@ Captain review surface: `.lavish/pipeline-review/index.html` (step-by-step inter
 
 ## Quality checklist (minimal human work)
 
-1. **Anchors** - every blue dot beside the question number with a clear gap (not on options or diagrams). Wrong anchors poison every later step. Use `scripts/overrides_YYYY.json` for hard pages (each counts toward the 5% budget).
+1. **Anchors** - every blue dot beside the question number with a clear gap (not on options or diagrams). Wrong anchors poison every later step. Use `scripts/overrides_*.json` for hard pages (each counts toward the 5% budget).
 2. **Uncertain MC** - skim `tests/sections/mc/uncertain.csv` and spot-check a few section folders.
 3. **LQ pages** - skim `tests/reconstructed/lq/<year>/combined.pdf` if a question's page range looks wrong (`starts.json`). The last question should stop before any trailing data/formulae sheet or blank "do not write" insert.
 4. Trust the section review PDFs under `tests/sections/*/.../combined.pdf` rather than browsing PNG lists. Those PDFs are portrait A4 with year and question labels.
