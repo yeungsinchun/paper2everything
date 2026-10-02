@@ -31,26 +31,10 @@ paper2db/qb-pdf/
 !paper2db/qb-web-ui-staging/
 !paper2db/qb-web-ui-staging/**
 /new_qb/
-paper2db/output/*
-!paper2db/output/lq/
-paper2db/output/lq/*
-!paper2db/output/lq/*/
-paper2db/output/lq/*/*
-!paper2db/output/lq/*/starts.json
-paper2db/reconstructed/*
-!paper2db/reconstructed/lq/
-paper2db/reconstructed/lq/*
-!paper2db/reconstructed/lq/*/
-paper2db/reconstructed/lq/*/*
-!paper2db/reconstructed/lq/*/starts.json
-paper2db/classified/*
-!paper2db/classified/mc/
-paper2db/classified/mc/*
-!paper2db/classified/mc/llm_classifications.json
-!paper2db/classified/lq/
-paper2db/classified/lq/*
-!paper2db/classified/lq/llm_classifications.json
-!paper2db/classified/lq/candidate_performance.json
+# Legacy pre-move trees; paper2db/.gitignore ignores these wholesale too.
+paper2db/output/
+paper2db/reconstructed/
+paper2db/classified/
 # paper2notes audit harness (QB crops — never commit)
 paper2notes/.audit/
 paper2notes/.audit-cache/

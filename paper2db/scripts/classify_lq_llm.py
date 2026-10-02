@@ -7,9 +7,9 @@ Reads crops from tests/reconstructed/lq/<year>/qN.png, writes nested LQ outputs 
   tests/sections/lq/classification.csv
   tests/sections/lq/<book>/<section>/ year-qN.png (+ optional answer copy)
 
-Top-level tests/sections/lq_classification.csv|json come from classify_lq_keywords.py.
+Writes the top-level tests/sections/lq_classification.csv|json split contract (same shape as classify_lq_keywords.py).
 Replay: by default reuses metadata/lq/llm_classifications.json (free deterministic) and only calls LLM for years missing from metadata. Keyword fallback on HTTP 403 / LLM errors.
-Any LLM failure aborts before write_outputs so nested outputs stay unchanged — unless fallback succeeds.
+LLM failures fall back to keywords without aborting; a malformed replayed decision aborts before write_outputs so nested outputs stay unchanged.
 
 Env: same as classify_mc_llm.py (LLM_API_KEY / OPENAI_API_KEY / TOGETHER_API_KEY).
 """

@@ -23,7 +23,7 @@ That command builds the past-paper banks from `paper/`, then runs the QB questio
 ./pipeline --list-stages
 ```
 
-Optional LLM for MC and LQ classification (better than keywords when available):
+MC and LQ classification **replays the tracked decisions** in `metadata/{mc,lq}/llm_classifications.json` by default (free and deterministic) and only calls the LLM for years missing from that metadata. Set an API key to classify those missing years:
 
 ```bash
 export LLM_API_KEY=...           # or OPENAI_API_KEY / TOGETHER_API_KEY
@@ -32,7 +32,7 @@ export LLM_MODEL=meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
 ./pipeline --from classify-mc --force
 ```
 
-When no API key is set, both MC and LQ use the keyword classifiers.
+When no API key is set, missing years fall back to the keyword classifiers (`scripts/classify_mc_sections.py`, `scripts/classify_lq_keywords.py`); HTTP 403 and other LLM errors also fall back instead of aborting.
 
 ## Regenerating `tests/reconstructed/` and `tests/sections/`
 
@@ -45,7 +45,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 
 `tests/sections/` is the generated curriculum-section bank (PNG copies, CSVs, section PDFs, `quality_audit.json`, OCR caches, `candidate_performance.json`) - named alongside `tests/reconstructed/` since both are pipeline output trees under `tests/`, not fixtures. The only files under `tests/reconstructed/` that git tracks are durable inputs: `tests/reconstructed/lq/<year>/starts.json` (LQ page ranges, preserved by normal `lq-pages` runs). Everything under `tests/sections/` is reproducible from `paper/` with `./pipeline`, so never `git add` crops, section PDFs or `.lavish/` HTML.
 
-`metadata/{mc,lq}/llm_classifications.json` holds the classification decisions themselves (which section(s) each question belongs to, and why) - the one output that costs paid, nondeterministic LLM calls to reproduce, so it stays tracked and is replayable with `--from-json` even when nothing else in `tests/sections/` is rebuilt.
+`metadata/{mc,lq}/llm_classifications.json` holds the classification decisions themselves (which section(s) each question belongs to, and why) - the one output that costs paid, nondeterministic LLM calls to reproduce, so it stays tracked and is replayed by default (or applied explicitly with `--from-json`) even when nothing else in `tests/sections/` is rebuilt.
 
 `metadata/qb/banks.json` (46 banks, 169 DOCX → 3847 items, 1881 in-scope) and `metadata/qb/source-manifest.json` (sha256 per DOCX) are the tracked QB census and manifest, validated before conversion by `scripts/qb_banks.py` and `scripts/qb_manifest.py verify`.
 
@@ -90,9 +90,9 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `combined.pdf` of those stacks from the source paper (no cover, no within-page crop; trailing data/formulae sheets excluded); then joins every year into `tests/reconstructed/lq/combined.pdf`
 5. **lq-answers** - marking-scheme answer crops under `ans/`
 6. **keys** - MC keys + correct-% → `tests/sections/mc/answer_keys.json`
-7. **classify-mc** - 27 syllabus sections (LLM if keyed, else keywords)
+7. **classify-mc** - 27 syllabus sections; replays `metadata/mc/llm_classifications.json`, calls the LLM only for years missing from it, keyword fallback on error
 8. **lq-performance** - candidate-performance notes → `tests/sections/lq/candidate_performance.json` (free, local, deterministic; `scripts/extract_lq_performance.py`)
-9. **classify-lq** - same sections for LQ (LLM if keyed, else keywords). Either backend then lists every Book 5 section a radioactivity LQ tests (e.g. 2014 Q10: ch26 activity + ch25 alpha handling; 2012 Q11 keeps 25+26+27), primary = latest section. Both backends OCR the whole page stack (cache keyed by PNG size under `tests/sections/lq/ocr_cache/`)
+9. **classify-lq** - same sections for LQ; same metadata replay / LLM-only-for-missing-years / keyword-fallback behavior as classify-mc. Either backend then lists every Book 5 section a radioactivity LQ tests (e.g. 2014 Q10: ch26 activity + ch25 alpha handling; 2012 Q11 keeps 25+26+27), primary = latest section. Both backends OCR the whole page stack (cache keyed by PNG size under `tests/sections/lq/ocr_cache/`)
 10. **section-pdfs** - per-section A4 `combined.pdf` (+ LQ `answers.pdf` / `performance.pdf`); an LQ appears in every section it is listed under, not only its primary
 11. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
 12. **qb-pdf** - verify `metadata/qb/source-manifest.json` (sha256 per DOCX, plus `banks.json` agreement) then convert QB DOCX files to PDF with LibreOffice; copy PDF-only sources
