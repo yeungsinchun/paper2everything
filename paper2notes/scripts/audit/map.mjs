@@ -22,16 +22,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
-import { spawnSync } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
 import { sectionPagesForBank, sectionIdForPage, pageMatches, allBanks } from "./bank-pages.mjs";
 import { repoRoot, auditDirs, resolveImagePath, qbItemsCandidates, parseList } from "./paths.mjs";
 import { loadDseSection, isDseBank } from "./dse.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const execFileAsync = promisify(execFile);
 function pLimit(concurrency) {
   let active = 0;
   const queue = [];
@@ -142,16 +139,37 @@ ${bundleNotes ? bundleNotes.slice(0, 8000) : "(no bundle)"}
   // To support both file and string, we pass the prompt content directly
   args.push(fs.readFileSync(promptFile, "utf8"));
 
-  // Execute pi
+  // Execute pi with stdin disconnected: pi blocks forever when its stdin is a
+  // pipe (execFile deadlocks on the real binary and on any stdin-reading
+  // shim), so spawn with stdin ignored and collect the output streams.
   let result;
-  try { result = await execFileAsync(piBin, args, { encoding: "utf8", timeout: 120000, maxBuffer: 10 * 1024 * 1024 }); }
-  catch (error) { result = error; }
+  try { result = await runPi(piBin, args); }
+  catch (error) { result = { stdout: "", stderr: String((error && error.message) || error) }; }
   fs.rmSync(tmpDir, { recursive: true, force: true });
   const out = (result.stdout || "") + (result.stderr || "");
   const parsed = extractJsonBlock(out);
   if (parsed && parsed.section) return parsed;
 
   return { section: null, confidence: 0, secondary: [], _raw: out.slice(0, 500) };
+}
+
+/**
+ * Run pi and collect stdout/stderr. stdin is ignored: pi never exits when its
+ * stdin is a pipe, so execFile (which hands the child a pipe stdin and waits
+ * for it to close) hung on the real binary; spawn resolves on process close.
+ * Kills the child after 120s like the previous sync invocation did.
+ */
+export function runPi(piBin, args, timeoutMs = 120000) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(piBin, args, { stdio: ["ignore", "pipe", "pipe"] });
+    let stdout = "";
+    let stderr = "";
+    child.stdout.on("data", d => { stdout += d; });
+    child.stderr.on("data", d => { stderr += d; });
+    const timer = setTimeout(() => child.kill("SIGTERM"), timeoutMs);
+    child.on("error", e => { clearTimeout(timer); reject(e); });
+    child.on("close", () => { clearTimeout(timer); resolve({ stdout, stderr }); });
+  });
 }
 
 function piVersionOf() {

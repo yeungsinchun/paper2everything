@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 import { repoRoot, auditRoot } from "./paths.mjs";
 import { allBanks, pagesForBank, sectionPagesForBank, sectionIdForPage, cumulativePagesForBank, bankForSection } from "./bank-pages.mjs";
 import { loadDseSection, dseItemsForPage } from "./dse.mjs";
+import { runPi } from "./map.mjs";
 import { extractFigures, stripDseBlocks } from "./bundle.mjs";
 import { pointerCandidates, ideaAnchors, parseAnchorHeading } from "./pointers.mjs";
 import { deterministicQuoteCheck } from "./judge.mjs";
@@ -154,6 +155,31 @@ test("verify flags a pointer that is not a DOM id", () => {
     assert.ok(res.errors.some(e => /made-up-heading/.test(e.msg)));
     assert.ok(res.errors.some(e => /page missing/.test(e.msg)));
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
+test("map pi call completes when the pi binary blocks on stdin (execFile regression)", async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "audit-pi-"));
+  try {
+    // The real pi binary reads stdin forever, so execFile's pipe stdin deadlocks
+    // (execFile waits for the stdin pipe to close); this shim reproduces that.
+    const fake = path.join(root, "pi");
+    fs.writeFileSync(fake, `#!/bin/sh\ncat >/dev/null || true\necho '{"section":"25-1","confidence":0.9}'\n`, { mode: 0o755 });
+    const res = await runPi(fake, ["-p", "--mode", "text", "hello"]);
+    assert.match(res.stdout, /"section":"25-1","confidence":0\.9/);
+  } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
+const piBin = process.env.PI_BIN || "pi";
+const piAvailable = (() => {
+  try { return spawnSync(piBin, ["--version"], { encoding: "utf8" }).status === 0; } catch { return false; }
+})();
+
+test("real long-running pi -p completes through the map runner", { skip: !piAvailable, timeout: 120000 }, async () => {
+  const res = await runPi(piBin, ["-p", "--model", "meta/muse-spark-1.2-contributor", "--thinking", "high", "--no-tools", "--no-extensions", "--no-skills", "--no-context-files", "--no-prompt-templates", "--no-themes", "--no-session", "--mode", "text", "say hello"]);
+  // The model is not provisioned here; pi exits 1 with a message. The regression
+  // was that the process never exited at all, so completion with any output is
+  // the assertion (execFile returned empty output only after the 120s timeout).
+  assert.ok((res.stdout + res.stderr).length > 0);
 });
 
 test("run --dse-section end to end with a fake pi, then verify", { skip: !chrome, timeout: 600000 }, () => {
