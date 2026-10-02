@@ -6,6 +6,42 @@
 
 #id-flow { width: 100%; height: auto; }
 
+/* ---------- R3 reference: GM counter and absorber decision graph ---------- */
+
+/* Every meaningful control in these two units is a 44px target. */
+#gm .row button,
+#gm .stage .stage-replay,
+#identify .row button { min-height: var(--hit); }
+
+/* Paused is a visible state; the label carries the action. */
+#gm-pause[data-paused="true"] { background: var(--teal-50); border-color: var(--teal-300); }
+
+/* The live region announces user changes and summary values only; the
+   readouts themselves stay quiet so no count tick is spoken. */
+.sr-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Decision-graph nodes are real buttons: hover tint and a visible focus ring. */
+#id-flow .node { cursor: pointer; }
+#id-flow .node:hover rect,
+#id-flow .node:hover ellipse { stroke: var(--teal-500); }
+#id-flow .node:focus { outline: none; }
+#id-flow .node:focus-visible { outline: 3px solid var(--teal-300); outline-offset: 3px; }
+#id-flow .node:focus-visible rect,
+#id-flow .node:focus-visible ellipse {
+  stroke: var(--teal-600);
+  stroke-width: 3;
+}
+
 /* Fig. 25.7: match the tissue and film without changing other stages. */
 #imaging-vis .hud-label {
   padding: 0.2rem 0.45rem;

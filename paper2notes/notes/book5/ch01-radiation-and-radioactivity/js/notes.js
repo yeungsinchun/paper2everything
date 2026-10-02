@@ -199,39 +199,76 @@
     var display = $("#gm-rate");
     var bgEl = $("#gm-bg");
     var corr = $("#gm-corr");
+    var statusEl = $("#gm-status");
+    var pauseBtn = $("#gm-pause");
     if (!display) return;
     var bg = 1;
     var extra = 0;
     var gridOn = true;
     var picked = 0;
     var needGridOff = false;
+    var paused = false;
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     function applyExtra() {
       extra = gridOn && needGridOff ? 0 : picked;
     }
-    function tick() {
-      var shown = Math.max(0, jitter(bg + extra));
+    function shows() {
+      var recorded = Number(display.textContent) || 0;
+      var corrected = corr ? Number(corr.textContent) || 0 : 0;
+      return "recorded " + recorded + (recorded === 1 ? " count" : " counts") +
+        " per second, corrected " + corrected + " per second.";
+    }
+    function announce(text) {
+      if (!statusEl) return;
+      statusEl.textContent = text ? text + " " + shows() : shows();
+    }
+    /* Every tick redraws the numbers only; the live region stays quiet, so a
+       screen reader hears user changes and the summary, never the count. */
+    function render() {
+      var value = paused ? bg + extra : jitter(bg + extra);
+      var shown = Math.max(0, Math.round(value));
       display.textContent = String(shown);
       if (corr) corr.textContent = String(Math.max(0, shown - bg));
     }
-    setInterval(tick, 700);
-    tick();
-    $("#gm-bg-btn") && $("#gm-bg-btn").addEventListener("click", function () {
-      picked = 0;
-      needGridOff = false;
-      applyExtra();
-    });
-    $all("[data-gm-src]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        picked = Number(btn.getAttribute("data-gm-src"));
-        needGridOff = btn.getAttribute("data-need-grid") === "off";
-        applyExtra();
+    function setPaused(next, announceState) {
+      paused = next;
+      if (pauseBtn) {
+        pauseBtn.textContent = paused ? "Play" : "Pause";
+        pauseBtn.setAttribute("aria-label", paused ? "Resume the simulated readings" : "Pause the simulated readings");
+        if (paused) pauseBtn.setAttribute("data-paused", "true");
+        else pauseBtn.removeAttribute("data-paused");
+      }
+      if (announceState) announce(paused ? "Readings paused." : "Readings running.");
+    }
+    function selectSource(btn) {
+      picked = Number(btn.getAttribute("data-gm-src")) || 0;
+      needGridOff = btn.getAttribute("data-need-grid") === "off";
+      $all("[data-gm-src]").forEach(function (b) {
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
       });
+      applyExtra();
+      render();
+      announce((btn.getAttribute("data-gm-name") || "Source") + " selected.");
+    }
+    setPaused(reduced, false);
+    applyExtra();
+    render();
+    setInterval(function () {
+      if (!paused && !document.hidden) render();
+    }, 700);
+    $all("[data-gm-src]").forEach(function (btn) {
+      btn.addEventListener("click", function () { selectSource(btn); });
     });
+    pauseBtn && pauseBtn.addEventListener("click", function () { setPaused(!paused, true); });
     $("#gm-grid") && $("#gm-grid").addEventListener("click", function () {
       gridOn = !gridOn;
       this.setAttribute("aria-pressed", gridOn ? "true" : "false");
-      this.textContent = gridOn ? "plastic grid on (blocks α)" : "plastic grid off (α can enter)";
+      this.setAttribute("aria-label", gridOn
+        ? "Plastic grid over the window: blocks alpha"
+        : "Plastic grid removed: alpha can enter");
       applyExtra();
+      render();
+      announce(gridOn ? "Grid on." : "Grid off.");
     });
     if (bgEl) bgEl.textContent = "Hong Kong typical background ≈ 1 count s⁻¹";
   }
@@ -389,6 +426,10 @@
         if (idx < i) n.classList.add("done");
         if (idx === i) n.classList.add("active");
       });
+      $all(".node", svg).forEach(function (n) {
+        if (n.classList.contains("active")) n.setAttribute("aria-current", "step");
+        else n.removeAttribute("aria-current");
+      });
       $all(".edge", svg).forEach(function (e) {
         var branch = e.getAttribute("data-side");
         var need = Number(e.getAttribute("data-until"));
@@ -422,33 +463,41 @@
       i = 0;
       show();
     });
-    $all(".node", svg).forEach(function (n) {
-      n.addEventListener("click", function () {
-        var raw = n.getAttribute("data-step");
-        if (raw === "alpha") {
-          hasAlpha = true;
-          hasBeta = null;
-          i = 1;
-          show();
-          return;
-        }
-        var idx = Number(raw);
-        if (idx === 0) {
-          hasAlpha = null;
-          hasBeta = null;
-        } else if (idx === 1) {
-          hasBeta = null;
-        } else if (idx === 2) {
-          if (hasAlpha === null) hasAlpha = false;
-          hasBeta = null;
-        } else if (idx === 3) {
-          hasBeta = true;
-          if (hasAlpha === null) hasAlpha = false;
-        } else if (idx === 4) {
-          if (hasBeta === null && hasAlpha !== true) hasBeta = false;
-        }
-        i = idx;
+    function activate(n) {
+      var raw = n.getAttribute("data-step");
+      if (raw === "alpha") {
+        hasAlpha = true;
+        hasBeta = null;
+        i = 1;
         show();
+        return;
+      }
+      var idx = Number(raw);
+      if (idx === 0) {
+        hasAlpha = null;
+        hasBeta = null;
+      } else if (idx === 1) {
+        hasBeta = null;
+      } else if (idx === 2) {
+        if (hasAlpha === null) hasAlpha = false;
+        hasBeta = null;
+      } else if (idx === 3) {
+        hasBeta = true;
+        if (hasAlpha === null) hasAlpha = false;
+      } else if (idx === 4) {
+        if (hasBeta === null && hasAlpha !== true) hasBeta = false;
+      }
+      i = idx;
+      show();
+    }
+
+    $all(".node", svg).forEach(function (n) {
+      n.addEventListener("click", function () { activate(n); });
+      n.addEventListener("keydown", function (ev) {
+        if (ev.key === "Enter" || ev.key === " " || ev.key === "Spacebar") {
+          ev.preventDefault();
+          activate(n);
+        }
       });
     });
     show();
