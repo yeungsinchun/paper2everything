@@ -393,10 +393,7 @@ def keyword_fallback_mc(record: dict) -> dict:
         sections = [sec for sec, _ in scored][:2]
         if not sections:
             sections = [5]
-        reason = "keyword fallback"
-        if scored and len(scored) > 0:
-            # Use top keyword hit as reason hint
-            reason = f"keyword fallback: S{sections[0]}"
+        reason = f"keyword fallback: S{sections[0]}" if scored else "keyword fallback"
         return {
             "Year": record["Year"],
             "Question": record["Question"],
@@ -596,10 +593,7 @@ def _classify_with_fallback(record: dict) -> dict:
         return keyword_fallback_mc(record)
     try:
         return classify_one_llm(record)
-    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError, KeyError, json.JSONDecodeError, SystemExit) as exc:
-        # Use keyword fallback on any LLM error, especially 403
-        if isinstance(exc, SystemExit) and "LLM_API_KEY" in str(exc):
-            return keyword_fallback_mc(record)
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError, KeyError, json.JSONDecodeError, SystemExit):
         return keyword_fallback_mc(record)
 
 

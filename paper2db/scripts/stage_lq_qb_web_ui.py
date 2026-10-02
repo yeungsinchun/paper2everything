@@ -5,13 +5,13 @@ Generates paper2db/qb-web-ui-staging/dse-lq/ with:
   - crops/ : 170 whole-page LQ PNGs (plus answer crops where available)
   - candidate_performance.json with missing flags
   - manifest.json / index.json with per-question metadata and missing flags
-  - sections/ per-section indexes (optional, for parity with classified)
+  - sections/ per-section indexes (optional, for parity with tests/sections)
   - README.md
 
 Source of truth:
-  - output/lq/<year>/qN.png (whole-page stacks) and ans/qN.png
-  - classified/lq/classification.csv (170 rows, primary/all sections)
-  - classified/lq/candidate_performance.json (144 notes)
+  - tests/reconstructed/lq/<year>/qN.png (whole-page stacks) and ans/qN.png
+  - tests/sections/lq/classification.csv (170 rows, primary/all sections)
+  - tests/sections/lq/candidate_performance.json (144 notes)
   - metadata/lq/llm_classifications.json (reason, fallback)
   - tests/reconstructed/lq/<year>/starts.json (page_from/page_to)
 
@@ -27,8 +27,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_LQ = ROOT / "output" / "lq"
-CLASSIFIED_LQ = ROOT / "classified" / "lq"
+CLASSIFIED_LQ = ROOT / "tests" / "sections" / "lq"
 METADATA_LQ = ROOT / "metadata" / "lq" / "llm_classifications.json"
 RECON_LQ = ROOT / "tests" / "reconstructed" / "lq"
 STAGING = ROOT / "qb-web-ui-staging" / "dse-lq"
@@ -98,26 +97,21 @@ def load_candidate_performance():
     p = CLASSIFIED_LQ / "candidate_performance.json"
     if p.is_file():
         return json.loads(p.read_text(encoding="utf-8"))
-    # fallback tests/sections
-    p2 = ROOT / "tests" / "sections" / "lq" / "candidate_performance.json"
-    if p2.is_file():
-        return json.loads(p2.read_text(encoding="utf-8"))
     return {}
 
 def load_starts(year: str):
-    for base in [RECON_LQ, OUTPUT_LQ]:
-        sp = base / year / "starts.json"
-        if sp.is_file():
-            try:
-                data = json.loads(sp.read_text(encoding="utf-8"))
-                # build map q -> page range
-                m = {}
-                for q in data.get("questions", []):
-                    m[int(q["q"])] = {"page_from": int(q["page_from"]), "page_to": int(q["page_to"]), "y": q.get("y")}
-                return m
-            except Exception:
-                continue
-    return {}
+    sp = RECON_LQ / year / "starts.json"
+    if not sp.is_file():
+        return {}
+    try:
+        data = json.loads(sp.read_text(encoding="utf-8"))
+        # build map q -> page range
+        m = {}
+        for q in data.get("questions", []):
+            m[int(q["q"])] = {"page_from": int(q["page_from"]), "page_to": int(q["page_to"]), "y": q.get("y")}
+        return m
+    except Exception:
+        return {}
 
 def ensure_dirs():
     STAGING.mkdir(parents=True, exist_ok=True)
@@ -160,7 +154,6 @@ def stage():
 
         # resolve crop
         src_candidates = [
-            OUTPUT_LQ / year / f"q{q}.png",
             RECON_LQ / year / f"q{q}.png",
             CLASSIFIED_LQ / SECTION_BY_NUM[primary][0] / SECTION_BY_NUM[primary][1] / f"{year}-q{q}.png",
         ]
@@ -183,7 +176,6 @@ def stage():
 
         # answer crop
         ans_candidates = [
-            OUTPUT_LQ / year / "ans" / f"q{q}.png",
             RECON_LQ / year / "ans" / f"q{q}.png",
             CLASSIFIED_LQ / SECTION_BY_NUM[primary][0] / SECTION_BY_NUM[primary][1] / f"{year}-q{q}-ans.png",
         ]
@@ -254,8 +246,8 @@ def stage():
             "reason": reason,
             "page_from": page_from,
             "page_to": page_to,
-            "png": r.get("PNG") or f"output/lq/{year}/q{q}.png",
-            "answer_png": r.get("AnswerPNG") or f"output/lq/{year}/ans/q{q}.png",
+            "png": r.get("PNG") or f"tests/reconstructed/lq/{year}/q{q}.png",
+            "answer_png": r.get("AnswerPNG") or f"tests/reconstructed/lq/{year}/ans/q{q}.png",
         }
         items.append(item)
 
@@ -358,8 +350,8 @@ def stage():
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "source": {
             "pipeline": "paper2db/pipeline lq-pages -> lq-crops -> lq-answers -> lq-performance -> classify-lq -> section-pdfs",
-            "output_lq": "output/lq/<year>/qN.png (whole-page stacks)",
-            "classified_lq": "classified/lq/<book>/<section>/",
+            "output_lq": "tests/reconstructed/lq/<year>/qN.png (whole-page stacks)",
+            "classified_lq": "tests/sections/lq/<book>/<section>/",
             "reconstructed": "tests/reconstructed/lq/<year>/",
         },
         "counts": {

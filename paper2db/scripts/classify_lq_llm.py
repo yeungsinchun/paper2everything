@@ -154,9 +154,7 @@ def _classify_with_fallback(record: dict) -> dict:
         return keyword_fallback_lq(record)
     try:
         return classify_one(record)
-    except (urllib.error.URLError, urllib.error.HTTPError, ValueError, KeyError, SystemExit, json.JSONDecodeError) as exc:
-        if isinstance(exc, SystemExit) and "LLM_API_KEY" in str(exc):
-            return keyword_fallback_lq(record)
+    except (urllib.error.URLError, urllib.error.HTTPError, ValueError, KeyError, SystemExit, json.JSONDecodeError):
         return keyword_fallback_lq(record)
 
 
