@@ -21,7 +21,7 @@
     <h1>Gravitation</h1>
     <p class="lede">Every mass pulls every other mass.</p>
 
-    <section id="ch--lo-1" class="lo-block" aria-labelledby="lo-heading">
+    <section class="lo-block" id="ch--lo-1" aria-labelledby="lo-heading">
       <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
@@ -34,7 +34,7 @@
 
     <section class="idea" id="universal">
       <header><h2><span class="sec-num">A</span>Universal gravitation \( F=GMm/r^2 \)</h2></header>
-      <figure id="universal--fig-1" class="fig">
+      <figure class="fig" id="universal--fig-1">
         <div class="visual stage" id="gravity-vis" data-scene="gravity">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Earth Sun pull, inverse square, field weakens with height"></canvas>
           <span class="hud-label" data-hud="FG">\( F=GMm/r^2 \)</span><span class="hud-label" data-hud="field">\( g=GM/r^2 \)</span>
@@ -43,11 +43,11 @@
         <figcaption><b>Fig 10.1</b> Force falls as \( 1/r^2 \); field is weaker at height.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Every pair of masses attracts along the line joining them with \( 1/r^2 \). At height \( h \), field \( g' = GM/(R+h)^2 \) is weaker than at surface \( g=GM/R^2 \).</p></details>
       </figure>
-      <div id="universal--def-1" class="def"><span class="tag">Newton’s law</span><p>\[ F = \frac{GMm}{r^2} \qquad G = 6.67\times10^{-11}\ \text{N m}^2\text{kg}^{-2} \] \( r \) is centre-to-centre distance. \( F \) is the same on both bodies (Newton III).</p></div>
-      <table id="universal--table-1" class="notes"><thead><tr><th>Ask</th><th>Use</th></tr></thead>
+      <div class="def" id="universal--def-1"><span class="tag">Newton’s law</span><p>\[ F = \frac{GMm}{r^2} \qquad G = 6.67\times10^{-11}\ \text{N m}^2\text{kg}^{-2} \] \( r \) is centre-to-centre distance. \( F \) is the same on both bodies (Newton III).</p></div>
+      <table class="notes" id="universal--table-1"><thead><tr><th>Ask</th><th>Use</th></tr></thead>
         <tbody><tr><td>Weight at surface</td><td>\( W = mg = GMm/R^2 \) → \( g=GM/R^2 \)</td></tr><tr><td>Field at height \( h \)</td><td>\( g' = GM/(R+h)^2 = g \cdot R^2/(R+h)^2 \)</td></tr><tr><td>Days in year if \( r→r/2 \)</td><td>Kepler: \( T^2 \propto r^3 \) → \( T' = T/ (2\sqrt2) ≈129 \) d</td></tr></tbody>
       </table>
-      <div id="universal--check-1" class="check" data-check="mc" data-answer="A">
+      <div class="check" id="universal--check-1" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>Earth–Sun distance became half (circular orbit). New year?</p>
         <div class="choices">
@@ -56,13 +56,13 @@
           <button type="button" data-choice="C">365 days</button>
           <button type="button" data-choice="D">730 days</button>
         </div>
-        <p class="feedback"></p><div id="universal--explain-1" class="explain" hidden><p>Gravity = centripetal: \( GMm/r^2 = m\omega^2 r \), \( \omega=2\pi/T \), so \( T^2 = 4\pi^2 r^3/(GM) \). Halve \( r \) → \( T^2 \) × \( 1/8 \) → \( T \) × \( 1/(2\sqrt2) \) ≈0.3535 → 129 d.</p></div>
+        <p class="feedback"></p><div class="explain" id="universal--explain-1" hidden><p>Gravity = centripetal: \( GMm/r^2 = m\omega^2 r \), \( \omega=2\pi/T \), so \( T^2 = 4\pi^2 r^3/(GM) \). Halve \( r \) → \( T^2 \) × \( 1/8 \) → \( T \) × \( 1/(2\sqrt2) \) ≈0.3535 → 129 d.</p></div>
       </div>
     </section>
 
     <section class="idea" id="orbits">
       <header><h2><span class="sec-num">B</span>Orbits and field strength</h2></header>
-      <figure id="orbits--fig-1" class="fig">
+      <figure class="fig" id="orbits--fig-1">
         <div class="visual stage" id="orbit-vis" data-scene="orbit">
           <canvas class="scene-canvas" width="960" height="420" aria-label="GPS satellite orbit, angular speed, debris"></canvas>
           <span class="hud-label" data-hud="v">\( v=\sqrt{GM/r} \)</span><span class="hud-label" data-hud="debris">debris also orbits</span>
@@ -71,15 +71,15 @@
         <figcaption><b>Fig 10.2</b> Higher orbit → slower: \( v=\sqrt{GM/r} \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Circular orbit speed \( v = \sqrt{GM/r} \) — higher orbit means slower. GPS is one such orbit; debris stays in similar orbits until drag lowers them. Angular speed \( \omega = v/r \).</p></details>
       </figure>
-      <div id="orbits--def-1" class="def"><span class="tag">Orbit condition</span><p>\[ \frac{GMm}{r^2} = \frac{mv^2}{r} \quad\Rightarrow\quad v = \sqrt{\frac{GM}{r}} \qquad \omega = \frac{v}{r} \] Measured Earth orbit (\( r=1.496×10^{11} \) m, \( T=365.3 \) d) estimates Earth’s \( M_{\text{sun}} \) etc.</p></div>
-      <div id="orbits--check-1" class="check" data-check="sa" data-answer="orbit"><h3>Quick check</h3><p>Estimate Earth’s angular speed around Sun (take \( T=365.3 \) d).</p><button type="button" data-reveal>Reveal</button><div id="orbits--model-1" class="model" hidden><p>\( \omega =2\pi/T =2\pi/(365.3×86400)≈1.99×10^{-7}\ \text{rad s}^{-1} \). Then \( g_{\text{field}} \) vs height or \( M \) from \( v^2 r = GM \).</p></div></div>
+      <div class="def" id="orbits--def-1"><span class="tag">Orbit condition</span><p>\[ \frac{GMm}{r^2} = \frac{mv^2}{r} \quad\Rightarrow\quad v = \sqrt{\frac{GM}{r}} \qquad \omega = \frac{v}{r} \] Measured Earth orbit (\( r=1.496×10^{11} \) m, \( T=365.3 \) d) estimates Earth’s \( M_{\text{sun}} \) etc.</p></div>
+      <div class="check" id="orbits--check-1" data-check="sa" data-answer="orbit"><h3>Quick check</h3><p>Estimate Earth’s angular speed around Sun (take \( T=365.3 \) d).</p><button type="button" data-reveal>Reveal</button><div class="model" id="orbits--model-1" hidden><p>\( \omega =2\pi/T =2\pi/(365.3×86400)≈1.99×10^{-7}\ \text{rad s}^{-1} \). Then \( g_{\text{field}} \) vs height or \( M \) from \( v^2 r = GM \).</p></div></div>
     </section>
 
 
     
     <section class="idea" id="kepler">
       <header><h2><span class="sec-num">C</span>Kepler’s third law, field</h2></header>
-      <figure id="kepler--fig-1" class="fig">
+      <figure class="fig" id="kepler--fig-1">
         <div class="visual stage" id="kepler-vis" data-scene="kepler">
           <canvas class="scene-canvas" width="960" height="320" aria-label="T squared vs r cubed, field vs height"></canvas>
           <span class="hud-label" data-hud="Kepler">\( T^2 \propto r^3 \)</span><span class="hud-label" data-hud="field">\( g' = g R^2/(R+h)^2 \)</span>
@@ -89,7 +89,7 @@
         <figcaption><b>Fig 10.3</b> \( T^2 \propto r^3 \); at \( h=2R \), field is \( g/9 \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Gravity → centripetal gives \( T^2 = (4\pi^2/GM) r^3 \). Field at \( h=2R \) is \( g/9 \); at GPS orbit (~20 000 km) it is about \( 0.6\ \text{m s}^{-2} \) not 9.81.</p></details>
       </figure>
-      <div id="kepler--check-1" class="check" data-check="mc" data-answer="B">
+      <div class="check" id="kepler--check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Field at 1 Earth radius height (\( h=R \)) vs surface?</p>
         <div class="choices">
@@ -98,14 +98,14 @@
           <button type="button" data-choice="C">\( 9.81/2 \)</button>
           <button type="button" data-choice="D">Zero</button>
         </div>
-        <p class="feedback"></p><div id="kepler--explain-1" class="explain" hidden><p>B — \( g' = GM/(2R)^2 = g/4 \).</p></div>
+        <p class="feedback"></p><div class="explain" id="kepler--explain-1" hidden><p>B — \( g' = GM/(2R)^2 = g/4 \).</p></div>
       </div>
     </section>
 
     
     <section class="idea" id="debris">
       <header><h2><span class="sec-num">D</span>Space debris</h2></header>
-      <figure id="debris--fig-1" class="fig">
+      <figure class="fig" id="debris--fig-1">
         <div class="visual stage" id="debris-vis" data-scene="debris">
           <canvas class="scene-canvas" width="960" height="280" aria-label="Debris around Earth, orbits crowded"></canvas>
           <span class="hud-label" data-hud="crowd">LEO crowded</span>
@@ -114,17 +114,17 @@
         <figcaption><b>Fig 10.4</b> Satellites and debris share orbits; drag lowers low ones.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Space around Earth is crowded — useful satellites plus debris share similar orbits (\( v=\sqrt{GM/r} \)). Drag at low heights slowly decays them; higher stays for centuries.</p></details>
       </figure>
-      <div id="debris--check-1" class="check" data-check="sa" data-answer="debris"><h3>Quick check</h3><p>Why does low debris fall faster?</p><button type="button" data-reveal>Reveal</button><div id="debris--model-1" class="model" hidden><p>Air drag (most at LEO) removes energy; radius shrinks → hotter but still loses.</p></div></div>
+      <div class="check" id="debris--check-1" data-check="sa" data-answer="debris"><h3>Quick check</h3><p>Why does low debris fall faster?</p><button type="button" data-reveal>Reveal</button><div class="model" id="debris--model-1" hidden><p>Air drag (most at LEO) removes energy; radius shrinks → hotter but still loses.</p></div></div>
     </section>
 
     <section class="idea" id="quiz">
       <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <div id="quiz--check-1" class="check" data-check="sa">
+        <div class="check" id="quiz--check-1" data-check="sa">
           <h3>2014 MC Q12</h3>
           <p>A satellite orbits at height equal to Earth’s radius. If surface gravitational acceleration is g, what is its orbital acceleration?</p>
           <button type="button" data-reveal>Show answer</button>
-          <div id="quiz--model-1" class="model" hidden><p>Its distance from Earth’s centre is 2R. Inverse square gravity gives GM/(2R)² = g/4.</p></div>
+          <div class="model" id="quiz--model-1" hidden><p>Its distance from Earth’s centre is 2R. Inverse square gravity gives GM/(2R)² = g/4.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/12/combined.pdf" download>Export PDF for this section</a></p>
       </div>

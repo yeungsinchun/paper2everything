@@ -21,7 +21,7 @@
     <h1>Work, energy and power</h1>
     <p class="lede">Energy moves; it is never lost.</p>
 
-    <section id="ch--lo-1" class="lo-block" aria-labelledby="lo-heading">
+    <section class="lo-block" id="ch--lo-1" aria-labelledby="lo-heading">
       <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
@@ -36,7 +36,7 @@
 
     <section class="idea" id="work">
       <header><h2><span class="sec-num">A</span>Work \( W=Fs\cos\theta \)</h2></header>
-      <figure id="work--fig-1" class="fig">
+      <figure class="fig" id="work--fig-1">
         <div class="visual stage" id="work-vis" data-scene="work">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Chair 200 kg up 20° cable, work by tension and weight, power"></canvas>
           <span class="hud-label" data-hud="W">\( W = Fs\cos\theta \)</span><span class="hud-label" data-hud="200kg">200 kg</span>
@@ -45,11 +45,11 @@
         <figcaption><b>Fig 6.1</b> Only the component along \( s \) does work.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Chair hauled at constant velocity 5 m s\(^{-1}\) up a 20° cable (resistive 96 N). Tension does positive work, weight does negative; net \( W \) = ΔKE (=0 at constant v). Only the component along \( s \) counts.</p></details>
       </figure>
-      <div id="work--def-1" class="def"><span class="tag">Work</span><p>\( W = Fs\cos\theta \) (J = N·m). \( \theta \) is between \( \vec F \) and \( \vec s \). Positive if force helps motion, negative if it opposes. Net work = change in kinetic energy.</p></div>
-      <table id="work--table-1" class="notes"><thead><tr><th>Case</th><th>\( \theta \)</th><th>\( W \)</th></tr></thead>
+      <div class="def" id="work--def-1"><span class="tag">Work</span><p>\( W = Fs\cos\theta \) (J = N·m). \( \theta \) is between \( \vec F \) and \( \vec s \). Positive if force helps motion, negative if it opposes. Net work = change in kinetic energy.</p></div>
+      <table class="notes" id="work--table-1"><thead><tr><th>Case</th><th>\( \theta \)</th><th>\( W \)</th></tr></thead>
         <tbody><tr><td>Force along \( s \)</td><td>\( 0^\circ \)</td><td>\( +Fs \)</td></tr><tr><td>Force ⊥ \( s \) (e.g. normal)</td><td>\( 90^\circ \)</td><td>0</td></tr><tr><td>Force opposite \( s \)</td><td>\( 180^\circ \)</td><td>\( -Fs \)</td></tr></tbody>
       </table>
-      <div id="work--check-1" class="check" data-check="mc" data-answer="C">
+      <div class="check" id="work--check-1" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>Chair 200 kg at constant 5 m s\(^{-1}\) up 20°, drag 96 N. Power of motor?</p>
         <div class="choices">
@@ -58,13 +58,13 @@
           <button type="button" data-choice="C">About \( 3.8\times10^3\ \text{W} \) (component of weight + drag times \( v \))</button>
           <button type="button" data-choice="D">0 W</button>
         </div>
-        <p class="feedback"></p><div id="work--explain-1" class="explain" hidden><p>Need \( F_{\text{cable}} = mg\sin20^\circ + 96 \approx 200·9.81·0.342+96≈767\ \text{N} \). \( P=Fv≈3835\ \text{W} \). At constant v the work goes into PE and heat, not KE.</p></div>
+        <p class="feedback"></p><div class="explain" id="work--explain-1" hidden><p>Need \( F_{\text{cable}} = mg\sin20^\circ + 96 \approx 200·9.81·0.342+96≈767\ \text{N} \). \( P=Fv≈3835\ \text{W} \). At constant v the work goes into PE and heat, not KE.</p></div>
       </div>
     </section>
 
     <section class="idea" id="energy">
       <header><h2><span class="sec-num">B</span>Energy and conservation</h2></header>
-      <figure id="energy--fig-1" class="fig">
+      <figure class="fig" id="energy--fig-1">
         <div class="visual stage" id="energy-vis" data-scene="energy">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Energy bars: PE falls as KE rises, total constant without loss, loss as heat"></canvas>
           <span class="hud-label" data-hud="PE">\( mgh \)</span><span class="hud-label" data-hud="KE">\( \tfrac12 mv^2 \)</span>
@@ -73,8 +73,8 @@
         <figcaption><b>Fig 6.2</b> Height ↔ speed: PE and KE swap.</figcaption>
         <details class="fig-more"><summary>More</summary><p>PE depends on height relative to a reference; KE on speed. On a frictionless slope the bars swap height. With water resistance (diver) the total drops — energy is not “lost”, it is transferred (heat, sound).</p></details>
       </figure>
-      <div id="energy--def-1" class="def"><span class="tag">Energies</span><p>\[ \text{PE}=mgh \quad (\text{relative}) \qquad \text{KE}=\tfrac12 mv^2 \qquad E_{\text{mech}}=\text{PE}+\text{KE} \] Closed isolated system: \( E_{\text{total}} \) constant — PE↔KE with some loss to heat.</p></div>
-      <table id="energy--table-1" class="notes">
+      <div class="def" id="energy--def-1"><span class="tag">Energies</span><p>\[ \text{PE}=mgh \quad (\text{relative}) \qquad \text{KE}=\tfrac12 mv^2 \qquad E_{\text{mech}}=\text{PE}+\text{KE} \] Closed isolated system: \( E_{\text{total}} \) constant — PE↔KE with some loss to heat.</p></div>
+      <table class="notes" id="energy--table-1">
         <thead><tr><th>Situation</th><th>Use</th></tr></thead>
         <tbody>
           <tr><td>Drop from rest, no drag</td><td>\( mgh = \tfrac12 mv^2 \)</td></tr>
@@ -82,7 +82,7 @@
           <tr><td>Worker 75 kg lifted 3.5 m at 0.2 m s\(^{-1}\)</td><td>\( \Delta\text{PE}=mgh=2572\ \text{J} \) uniform → no ΔKE</td></tr>
         </tbody>
       </table>
-      <div id="energy--check-1" class="check" data-check="mc" data-answer="A">
+      <div class="check" id="energy--check-1" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>Diver 60 kg from 3 m, water 1500 N. How deep does he go (no air drag)?</p>
         <div class="choices">
@@ -91,25 +91,25 @@
           <button type="button" data-choice="C">2.18 m</button>
           <button type="button" data-choice="D">2.8 m</button>
         </div>
-        <p class="feedback"></p><div id="energy--explain-1" class="explain" hidden><p>Energy over total fall \( 3+d \): \( mg(3+d)=1500 d \) → \( 588(3+d)=1500 d \) → \( 1764=912 d \) → \( d≈1.94 \) m.</p></div>
+        <p class="feedback"></p><div class="explain" id="energy--explain-1" hidden><p>Energy over total fall \( 3+d \): \( mg(3+d)=1500 d \) → \( 588(3+d)=1500 d \) → \( 1764=912 d \) → \( d≈1.94 \) m.</p></div>
       </div>
     </section>
 
     <section class="idea" id="power">
       <header><h2><span class="sec-num">C</span>Power \( P=W/t=Fv \)</h2></header>
-      <figure id="power--fig-1" class="fig">
+      <figure class="fig" id="power--fig-1">
         <div class="visual stage" id="power-vis" data-scene="power"><canvas class="scene-canvas" width="960" height="280" aria-label="Power as rate, P=Fv at constant speed"></canvas><span class="hud-label" data-hud="P">\( P = \dfrac{W}{t} \)</span><span class="power-dot" aria-hidden="true"></span></div>
         <figcaption><b>Fig 6.3</b> At constant speed, \( P=Fv \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>At constant speed \( v \) along the force, \( P=Fv \). Pumped storage recovers the \( mgh \) later via \( P \).</p></details>
       </figure>
-      <div id="power--check-1" class="check" data-check="sa" data-answer="power"><h3>Quick check</h3><p>A motor raises the chair at 5 m s\(^{-1}\) with tension ~767 N. Its power?</p><button type="button" data-reveal>Reveal</button><div id="power--model-1" class="model" hidden><p>\( P=Fv≈767×5≈3835\ \text{W} \). Power is the rate, not the total work.</p></div></div>
+      <div class="check" id="power--check-1" data-check="sa" data-answer="power"><h3>Quick check</h3><p>A motor raises the chair at 5 m s\(^{-1}\) with tension ~767 N. Its power?</p><button type="button" data-reveal>Reveal</button><div class="model" id="power--model-1" hidden><p>\( P=Fv≈767×5≈3835\ \text{W} \). Power is the rate, not the total work.</p></div></div>
     </section>
 
 
     
     <section class="idea" id="pumped">
       <header><h2><span class="sec-num">D</span>Pumped storage</h2></header>
-      <figure id="pumped--fig-1" class="fig">
+      <figure class="fig" id="pumped--fig-1">
         <div class="visual stage" id="pumped-vis" data-scene="pumped">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Pumped storage: water up then down through turbine"></canvas>
           <span class="hud-label" data-hud="store">store \( mgh \)</span><span class="hud-label" data-hud="gen">generate \( P \)</span>
@@ -118,13 +118,13 @@
         <figcaption><b>Fig 6.4</b> Night: pump up, store \( mgh \). Day: turbine.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Pumped storage: night electricity pumps water up (store \( mgh \)); day water falls through turbine (recover \( mgh \)→ electrical, some → heat). Closed system total \( E \) still conserved.</p></details>
       </figure>
-      <div id="pumped--check-1" class="check" data-check="sa" data-answer="pumped"><h3>Quick check</h3><p>Why is “energy lost” not lost?</p><button type="button" data-reveal>Reveal</button><div id="pumped--model-1" class="model" hidden><p>It became heat/sound, not mechanical — total \( E \) same, useful \( E \) less. That is “with consideration of energy loss” in the syllabus.</p></div></div>
+      <div class="check" id="pumped--check-1" data-check="sa" data-answer="pumped"><h3>Quick check</h3><p>Why is “energy lost” not lost?</p><button type="button" data-reveal>Reveal</button><div class="model" id="pumped--model-1" hidden><p>It became heat/sound, not mechanical — total \( E \) same, useful \( E \) less. That is “with consideration of energy loss” in the syllabus.</p></div></div>
     </section>
 
     
     <section class="idea" id="hill">
       <header><h2><span class="sec-num">E</span>Roller track energy</h2></header>
-      <figure id="hill--fig-1" class="fig">
+      <figure class="fig" id="hill--fig-1">
         <div class="visual stage" id="roller-vis" data-scene="roller">
           <canvas class="scene-canvas" width="960" height="280" aria-label="Roller coasts, PE to KE and back, loss as heat"></canvas>
           <span class="hud-label" data-hud="PE">max PE at top</span><span class="hud-label" data-hud="KE">max KE at bottom</span>
@@ -132,20 +132,20 @@
         <figcaption><b>Fig 6.5</b> Top all PE, bottom all KE; friction → heat.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Without loss, \( mgh + \tfrac12 mv^2 \) constant — top is all PE, bottom all KE. With friction, the peak after is lower; the missing is heat.</p></details>
       </figure>
-      <div id="hill--check-1" class="check" data-check="tf">
+      <div class="check" id="hill--check-1" data-check="tf">
         <h3>Quick check</h3>
-        <div id="hill--tf-1" class="tf-item" data-answer="false"><p>PE has an absolute zero independent of reference.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div id="hill--explain-1" class="explain" hidden><p>False — \( mgh \) is relative; only differences matter.</p></div></div>
+        <div class="tf-item" id="hill--tf-1" data-answer="false"><p>PE has an absolute zero independent of reference.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" id="hill--explain-1" hidden><p>False — \( mgh \) is relative; only differences matter.</p></div></div>
       </div>
     </section>
 
     <section class="idea" id="quiz">
       <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <div id="quiz--check-1" class="check" data-check="sa">
+        <div class="check" id="quiz--check-1" data-check="sa">
           <h3>2012 MC Q9</h3>
           <p>A motor raises a 0.5 kg object vertically by 2.5 m in 1.5 s at constant speed. Estimate its output power using g = 9.8 m s⁻².</p>
           <button type="button" data-reveal>Show answer</button>
-          <div id="quiz--model-1" class="model" hidden><p>P = mgh/t = 0.5 × 9.8 × 2.5 / 1.5 ≈ 8.2 W.</p></div>
+          <div class="model" id="quiz--model-1" hidden><p>P = mgh/t = 0.5 × 9.8 × 2.5 / 1.5 ≈ 8.2 W.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/08/combined.pdf" download>Export PDF for this section</a></p>
       </div>

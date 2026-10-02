@@ -21,7 +21,7 @@
     <h1>Projectile motion</h1>
     <p class="lede">Two independent motions, one shared time.</p>
 
-    <section id="ch--lo-1" class="lo-block" aria-labelledby="lo-heading">
+    <section class="lo-block" id="ch--lo-1" aria-labelledby="lo-heading">
       <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
@@ -34,7 +34,7 @@
 
     <section class="idea" id="trajectory">
       <header><h2><span class="sec-num">A</span>Path and the two directions</h2></header>
-      <figure id="trajectory--fig-1" class="fig">
+      <figure class="fig" id="trajectory--fig-1">
         <div class="visual stage" id="proj-vis" data-scene="projectile">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Projectile parabola, split into horizontal uniform and vertical accelerated"></canvas>
           <span class="hud-label" data-hud="vx">\( v_x \) constant</span><span class="hud-label" data-hud="vy">\( v_y = u_y - gt \)</span><span class="hud-label" data-hud="parabola">parabola</span>
@@ -43,8 +43,8 @@
         <figcaption><b>Fig 8.1</b> Horizontal constant; vertical \( a=g \). Same time.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Parabola without air. Horizontal: \( v_x = u\cos\theta \) constant (no force). Vertical: \( a=g \) downward, \( y = u_y t - \tfrac12 gt^2 \). The time is the same for both — that is the link.</p></details>
       </figure>
-      <div id="trajectory--def-1" class="def"><span class="tag">Independence</span><p>\[ x = (u\cos\theta) t \qquad y = (u\sin\theta) t - \tfrac12 gt^2 \qquad v_x = u\cos\theta,\; v_y = u\sin\theta - gt \] Only weight acts (vertical). Horizontal and vertical are independent but share \( t \).</p></div>
-      <div id="trajectory--check-1" class="check" data-check="mc" data-answer="B">
+      <div class="def" id="trajectory--def-1"><span class="tag">Independence</span><p>\[ x = (u\cos\theta) t \qquad y = (u\sin\theta) t - \tfrac12 gt^2 \qquad v_x = u\cos\theta,\; v_y = u\sin\theta - gt \] Only weight acts (vertical). Horizontal and vertical are independent but share \( t \).</p></div>
+      <div class="check" id="trajectory--check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Baseball thrown 40° above horizontal, horizontal component 12 m s\(^{-1}\). Initial speed?</p>
         <div class="choices">
@@ -53,13 +53,13 @@
           <button type="button" data-choice="C">9.20 m s\(^{-1}\)</button>
           <button type="button" data-choice="D">12 m s\(^{-1}\)</button>
         </div>
-        <p class="feedback"></p><div id="trajectory--explain-1" class="explain" hidden><p>\( v_x = v\cos40^\circ =12 \) → \( v =12/\cos40≈15.7 \) m s\(^{-1}\).</p></div>
+        <p class="feedback"></p><div class="explain" id="trajectory--explain-1" hidden><p>\( v_x = v\cos40^\circ =12 \) → \( v =12/\cos40≈15.7 \) m s\(^{-1}\).</p></div>
       </div>
     </section>
 
     <section class="idea" id="projectile-examples">
       <header><h2><span class="sec-num">B</span>Bomber and horizontal launch</h2></header>
-      <figure id="projectile-examples--fig-1" class="fig">
+      <figure class="fig" id="projectile-examples--fig-1">
         <div class="visual stage" id="bomber-vis" data-scene="bomber">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Bomber 500 m 150 m s-1 over 30 m tower to target"></canvas>
           <span class="hud-label" data-hud="bomber">500 m</span><span class="hud-label" data-hud="tower">30 m tower</span><span class="hud-label" data-hud="target">target</span>
@@ -68,14 +68,14 @@
         <figcaption><b>Fig 8.2</b> Launch height sets time: \( t=\sqrt{2h/g} \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Bomber at 500 m, 150 m s\(^{-1}\), tower 30 m high 80 m before target. Does a bomb aimed at the target clear the tower? Use \( t = x/v_x \) and \( y \) from vertical. A ball launched horizontally 0.5 m s\(^{-1}\) from 6 m: time \( = \sqrt{2·6/g}=1.11 \) s, independent of \( v_x \).</p></details>
       </figure>
-      <div id="projectile-examples--check-1" class="check" data-check="sa" data-answer="bomber"><h3>Quick check</h3><p>A ball launched horizontally at 0.5 m s\(^{-1}\) from 6 m above ground. How does \( v_x \) affect time of flight?</p><button type="button" data-reveal>Reveal</button><div id="projectile-examples--model-1" class="model" hidden><p>Not at all — vertical \( t = \sqrt{2h/g} \) uses only height and \( g \). Horizontal determines range \( x=v_x t \).</p></div></div>
+      <div class="check" id="projectile-examples--check-1" data-check="sa" data-answer="bomber"><h3>Quick check</h3><p>A ball launched horizontally at 0.5 m s\(^{-1}\) from 6 m above ground. How does \( v_x \) affect time of flight?</p><button type="button" data-reveal>Reveal</button><div class="model" id="projectile-examples--model-1" hidden><p>Not at all — vertical \( t = \sqrt{2h/g} \) uses only height and \( g \). Horizontal determines range \( x=v_x t \).</p></div></div>
     </section>
 
 
     
     <section class="idea" id="range">
       <header><h2><span class="sec-num">C</span>Range and optimal angle</h2></header>
-      <figure id="range--fig-1" class="fig">
+      <figure class="fig" id="range--fig-1">
         <div class="visual stage" id="range-vis" data-scene="range">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Projectile range vs angle, 45 degrees max without air"></canvas>
           <span class="hud-label" data-hud="45">\( 45^\circ \) max range (no air)</span>
@@ -84,13 +84,13 @@
         <figcaption><b>Fig 8.3</b> Level ground: \( R=u^2\sin2\theta/g \), max at \( 45^\circ \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Range \( R = (u^2\sin2\theta)/g \) (level ground, no air) → max at \( 45^\circ \). With a height difference (bomber at 500 m), the optimum shifts and the tower clearance check matters.</p></details>
       </figure>
-      <div id="range--check-1" class="check" data-check="sa" data-answer="range"><h3>Quick check</h3><p>Why does the Javelin RQ mention air and rule changes?</p><button type="button" data-reveal>Reveal</button><div id="range--model-1" class="model" hidden><p>Real javelin has drag/lift; shape matters. Rules shifted to reduce range by moving C.G. Experimentally the \( 45^\circ \) ideal is only for vacuum point mass.</p></div></div>
+      <div class="check" id="range--check-1" data-check="sa" data-answer="range"><h3>Quick check</h3><p>Why does the Javelin RQ mention air and rule changes?</p><button type="button" data-reveal>Reveal</button><div class="model" id="range--model-1" hidden><p>Real javelin has drag/lift; shape matters. Rules shifted to reduce range by moving C.G. Experimentally the \( 45^\circ \) ideal is only for vacuum point mass.</p></div></div>
     </section>
 
     
     <section class="idea" id="baseball">
       <header><h2><span class="sec-num">D</span>Baseball optimum</h2></header>
-      <figure id="baseball--fig-1" class="fig">
+      <figure class="fig" id="baseball--fig-1">
         <div class="visual stage" id="baseball-vis" data-scene="baseball">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Baseball 40 degrees, components 12 vs 10"></canvas>
           <span class="hud-label" data-hud="40deg">\( 40^\circ \), \( v_x=12 \) → \( v≈15.7 \)</span>
@@ -98,17 +98,17 @@
         <figcaption><b>Fig 8.4</b> Vertical part sets time aloft; horizontal sets range.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Same as the check: \( v_x = v\cos\theta \). The 40° and 12 gives \( v=15.7 \). The vertical component decides the time aloft; the horizontal decides the range.</p></details>
       </figure>
-      <div class="table"><table id="baseball--table-1" class="notes"><thead><tr><th>Know</th><th>Find</th></tr></thead><tbody><tr><td>\( u, \theta \)</td><td>Split first: \( u_x = u\cos\theta, u_y=u\sin\theta \)</td></tr><tr><td>Range</td><td>\( R = u_x T \), \( T =2u_y/g \) (level)</td></tr></tbody></table></div>
+      <div class="table"><table class="notes" id="baseball--table-1"><thead><tr><th>Know</th><th>Find</th></tr></thead><tbody><tr><td>\( u, \theta \)</td><td>Split first: \( u_x = u\cos\theta, u_y=u\sin\theta \)</td></tr><tr><td>Range</td><td>\( R = u_x T \), \( T =2u_y/g \) (level)</td></tr></tbody></table></div>
     </section>
 
     <section class="idea" id="quiz">
       <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <div id="quiz--check-1" class="check" data-check="sa">
+        <div class="check" id="quiz--check-1" data-check="sa">
           <h3>2012 MC Q12</h3>
           <p>A bomber flies horizontally at 200 m s⁻¹, 1 km above ground. Neglecting air resistance, how far before a target should it release a bomb? Use g = 9.8 m s⁻².</p>
           <button type="button" data-reveal>Show answer</button>
-          <div id="quiz--model-1" class="model" hidden><p>Time to fall is √(2h/g) ≈ 14.3 s; horizontal distance is vt ≈ 2.86 km.</p></div>
+          <div class="model" id="quiz--model-1" hidden><p>Time to fall is √(2h/g) ≈ 14.3 s; horizontal distance is vt ≈ 2.86 km.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/10/combined.pdf" download>Export PDF for this section</a></p>
       </div>
