@@ -21,7 +21,7 @@
     <h1>Forces and Newton I</h1>
     <p class="lede">No net force, no change in motion.</p>
 
-    <section class="lo-block" aria-labelledby="lo-heading">
+    <section class="lo-block" id="ch--lo-1" aria-labelledby="lo-heading">
       <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
@@ -36,7 +36,7 @@
 
     <section class="idea" id="vector-forces">
       <header><h2><span class="sec-num">A</span>Adding and splitting forces</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="vector-forces--fig-1">
         <div class="visual play stage" id="add-vis" data-scene="force-add">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Forces 1 N and 3 N left, 5 N and 2 N right, sum to 3 N right"></canvas>
           <span class="hud-label" data-hud="net">\( F_{\text{net}} = 3\ \text{N} \)</span>
@@ -45,8 +45,8 @@
         <figcaption><b>Fig 3.1</b> Net force \( = +5+2-1-3 = +3\ \text{N} \) to the right.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Four horizontal forces: \( 5\ \text{N} \) and \( 2\ \text{N} \) right, \( 1\ \text{N} \) and \( 3\ \text{N} \) left → \( F_{\text{net}} = +5+2-1-3 = +3\ \text{N} \) (3 N right). Resolve any \( F \) into \( F_x=F\cos\theta,\ F_y=F\sin\theta \) for sum by components.</p></details>
       </figure>
-      <div class="def"><span class="tag">Net force</span><p>\( \vec F_{\text{net}} = \sum \vec F_i \) (vector sum). Graphical: triangle/parallelogram; algebraic: add \( x \) and \( y \) components separately. A zero net force is not zero motion — it is zero acceleration.</p></div>
-      <div class="check" data-check="mc" data-answer="C">
+      <div class="def" id="vector-forces--def-1"><span class="tag">Net force</span><p>\( \vec F_{\text{net}} = \sum \vec F_i \) (vector sum). Graphical: triangle/parallelogram; algebraic: add \( x \) and \( y \) components separately. A zero net force is not zero motion — it is zero acceleration.</p></div>
+      <div class="check" id="vector-forces--check-1" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>Forces \( 1\ \text{N} \) and \( 3\ \text{N} \) left, \( 5\ \text{N} \) and \( 2\ \text{N} \) right (right = +). Net?</p>
         <div class="choices">
@@ -55,13 +55,13 @@
           <button type="button" data-choice="C">\( 3\ \text{N} \)</button>
           <button type="button" data-choice="D">\( 11\ \text{N} \)</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>Left is negative: \( -1-3=-4\ \text{N} \); right is positive: \( +5+2=+7\ \text{N} \). \( F_{\text{net}}=-4+7=+3\ \text{N} \), i.e. 3 N to the right.</p></div>
+        <p class="feedback"></p><div class="explain" id="vector-forces--explain-1" hidden><p>Left is negative: \( -1-3=-4\ \text{N} \); right is positive: \( +5+2=+7\ \text{N} \). \( F_{\text{net}}=-4+7=+3\ \text{N} \), i.e. 3 N to the right.</p></div>
       </div>
     </section>
 
     <section class="idea" id="newton1-friction">
       <header><h2><span class="sec-num">B</span>Inertia and friction</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="newton1-friction--fig-1">
         <div class="visual play stage" id="inertia-vis" data-scene="inertia">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Block on rough surface, friction opposes motion, inertia keeps moving without push"></canvas>
           <span class="hud-label" data-hud="friction">\( f \) opposes motion</span>
@@ -70,8 +70,8 @@
         <figcaption><b>Fig 3.2</b> No net push → velocity stays the same.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Without a net push, a block keeps its velocity (Newton I). Friction opposes the motion or its tendency, growing to \( f_s \le \mu_s N \) then sliding with \( f_k = \mu_k N \). “Thinking distance + braking distance” is inertia + \( ma \) to stop.</p></details>
       </figure>
-      <div class="def"><span class="tag">Newton I</span><p>If \( \vec F_{\text{net}}=0 \) then \( \vec v \) does not change (at rest stays at rest, moving stays uniform). <b>Inertia</b> measures resistance to change — larger mass means larger inertia. Friction never helps motion; it opposes it.</p></div>
-      <div class="check" data-check="mc" data-answer="C">
+      <div class="def" id="newton1-friction--def-1"><span class="tag">Newton I</span><p>If \( \vec F_{\text{net}}=0 \) then \( \vec v \) does not change (at rest stays at rest, moving stays uniform). <b>Inertia</b> measures resistance to change — larger mass means larger inertia. Friction never helps motion; it opposes it.</p></div>
+      <div class="check" id="newton1-friction--check-1" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>Which explains stopping distance after seeing danger?</p>
         <div class="choices">
@@ -80,7 +80,7 @@
           <button type="button" data-choice="C">Thinking (reaction, uniform) + braking (\( a=F/m \)) — inertia keeps moving while you react</button>
           <button type="button" data-choice="D">Friction helps stop thinking distance</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>C — during reaction time you still move at speed \( v \) (Newton I), then kinetic friction does \( F=ma \) to decelerate.</p></div>
+        <p class="feedback"></p><div class="explain" id="newton1-friction--explain-1" hidden><p>C — during reaction time you still move at speed \( v \) (Newton I), then kinetic friction does \( F=ma \) to decelerate.</p></div>
       </div>
     </section>
 
@@ -88,7 +88,7 @@
     
     <section class="idea" id="resolution">
       <header><h2><span class="sec-num">C</span>Resolving into components</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="resolution--fig-1">
         <div class="visual play stage" id="resolve-vis" data-scene="resolve">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Force resolved into x y components"></canvas>
           <span class="hud-label" data-hud="Fx">\( F_x = F\cos\theta \)</span>
@@ -97,8 +97,8 @@
         <figcaption><b>Fig 3.3</b> \( F_x=F\cos\theta,\ F_y=F\sin\theta \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Any force splits cleanly into perpendicular components: adjacent side \( = F\cos\theta \), opposite \( =F\sin\theta \). Add components separately to get the net.</p></details>
       </figure>
-      <div class="def"><span class="tag">Resolution</span><p>\[ F_x = F\cos\theta \qquad F_y = F\sin\theta \] Choose axes that make the add easy — often one along the slope.</p></div>
-      <div class="check" data-check="mc" data-answer="A">
+      <div class="def" id="resolution--def-1"><span class="tag">Resolution</span><p>\[ F_x = F\cos\theta \qquad F_y = F\sin\theta \] Choose axes that make the add easy — often one along the slope.</p></div>
+      <div class="check" id="resolution--check-1" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>A force \( 10\ \text{N} \) at \( 30^\circ \) to the horizontal. \( F_x \)?</p>
         <div class="choices">
@@ -107,14 +107,14 @@
           <button type="button" data-choice="C">\( 10\ \text{N} \)</button>
           <button type="button" data-choice="D">\( 0\ \text{N} \)</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>A — \( 10\cos30=8.66 \), \( F_y=5 \).</p></div>
+        <p class="feedback"></p><div class="explain" id="resolution--explain-1" hidden><p>A — \( 10\cos30=8.66 \), \( F_y=5 \).</p></div>
       </div>
     </section>
 
     
     <section class="idea" id="friction-detail">
       <header><h2><span class="sec-num">D</span>Static vs kinetic friction</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="friction-detail--fig-1">
         <div class="visual play stage" id="friction2-vis" data-scene="friction">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Static holds, kinetic slides, friction vs applied force"></canvas>
           <span class="hud-label" data-hud="static">static \( f_s \le \mu_s N \)</span>
@@ -123,20 +123,20 @@
         <figcaption><b>Fig 3.4</b> Static friction holds up to \( \mu_s N \), then slips.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Pull gently: static friction matches you and holds. Pass \( \mu_s N \): it slips and kinetic \( \mu_k N \) (usually smaller) takes over. The block on a slope will slide only if component \( mg\sin\theta > f_s \) max.</p></details>
       </figure>
-      <div class="check" data-check="tf">
+      <div class="check" id="friction-detail--check-1" data-check="tf">
         <h3>Quick check</h3>
-        <div class="tf-item" data-answer="true"><p>Friction always opposes the motion, not causes it.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" hidden><p>True — it opposes sliding/tendency; it can’t initiate motion alone.</p></div></div>
+        <div class="tf-item" id="friction-detail--tf-1" data-answer="true"><p>Friction always opposes the motion, not causes it.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" id="friction-detail--explain-1" hidden><p>True — it opposes sliding/tendency; it can’t initiate motion alone.</p></div></div>
       </div>
     </section>
 
     <section class="idea" id="quiz">
       <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <div class="check" data-check="sa">
+        <div class="check" id="quiz--check-1" data-check="sa">
           <h3>2012 MC Q5</h3>
           <p>Two forces of fixed magnitude act at one point. How does their resultant change as the angle between them increases from 0° to 180°?</p>
           <button type="button" data-reveal>Show answer</button>
-          <div class="model" hidden><p>It decreases from F₁ + F₂ to |F₁ − F₂|, since R² = F₁² + F₂² + 2F₁F₂ cos θ.</p></div>
+          <div class="model" id="quiz--model-1" hidden><p>It decreases from F₁ + F₂ to |F₁ − F₂|, since R² = F₁² + F₂² + 2F₁F₂ cos θ.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/06/combined.pdf" download>Export PDF for this section</a></p>
       </div>

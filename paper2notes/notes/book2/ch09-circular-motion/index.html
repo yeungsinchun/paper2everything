@@ -21,7 +21,7 @@
     <h1>Uniform circular motion</h1>
     <p class="lede">Constant speed, changing direction.</p>
 
-    <section class="lo-block" aria-labelledby="lo-heading">
+    <section class="lo-block" id="ch--lo-1" aria-labelledby="lo-heading">
       <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
@@ -34,7 +34,7 @@
 
     <section class="idea" id="angular">
       <header><h2><span class="sec-num">A</span>Angular velocity and \( a=v^2/r \)</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="angular--fig-1">
         <div class="visual stage" id="circular-vis" data-scene="circular">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Uniform circular motion, velocity tangent, acceleration to centre"></canvas>
           <span class="hud-label" data-hud="w">\( \omega \)</span><span class="hud-label" data-hud="a">\( a=v^2/r \) → centre</span>
@@ -43,11 +43,11 @@
         <figcaption><b>Fig 9.1</b> Uniform speed still accelerates: \( a=v^2/r \) toward centre.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Uniform speed still accelerates: direction changes. \( \omega = \Delta\theta/\Delta t \) (rad s\(^{-1}\)), \( v = \omega r \), \( a = v^2/r = \omega^2 r \) toward centre. The net force points the same way.</p></details>
       </figure>
-      <div class="def"><span class="tag">Uniform circular motion</span><p>\[ \omega = \frac{\Delta\theta}{\Delta t} \qquad v = \omega r \qquad a = \frac{v^2}{r} = \omega^2 r \quad (\text{toward centre}) \] “Uniform” means speed uniform — velocity and acceleration are not.</p></div>
-      <table class="notes"><thead><tr><th>Quantity</th><th>Unit</th><th>Direction</th></tr></thead>
+      <div class="def" id="angular--def-1"><span class="tag">Uniform circular motion</span><p>\[ \omega = \frac{\Delta\theta}{\Delta t} \qquad v = \omega r \qquad a = \frac{v^2}{r} = \omega^2 r \quad (\text{toward centre}) \] “Uniform” means speed uniform — velocity and acceleration are not.</p></div>
+      <table class="notes" id="angular--table-1"><thead><tr><th>Quantity</th><th>Unit</th><th>Direction</th></tr></thead>
         <tbody><tr><td>\( \omega \)</td><td>rad s\(^{-1}\)</td><td>perpendicular to plane (right-hand rule, but speed matters here)</td></tr><tr><td>\( v \)</td><td>m s\(^{-1}\)</td><td>tangent</td></tr><tr><td>\( a, F \)</td><td>m s\(^{-2}\), N</td><td>toward centre (centripetal)</td></tr></tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="C">
+      <div class="check" id="angular--check-1" data-check="mc" data-answer="C">
         <h3>Quick check</h3>
         <p>Washing drum r=0.25 m, 700 rev min\(^{-1}\). Angular speed and centripetal \( a \)?</p>
         <div class="choices">
@@ -56,13 +56,13 @@
           <button type="button" data-choice="C">\( 73.3\ \text{rad s}^{-1},\ \approx 1340\ \text{m s}^{-2} \) (≈137\( g \))</button>
           <button type="button" data-choice="D">\( 700\ \text{rad s}^{-1},\ 122500\ \text{m s}^{-2} \)</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>\( 700/60=11.67 \) rev s\(^{-1}\) → \( \omega=2\pi×11.67≈73.3 \). \( a=\omega^2 r≈1343 \). G-value \( =a/g≈137 \).</p></div>
+        <p class="feedback"></p><div class="explain" id="angular--explain-1" hidden><p>\( 700/60=11.67 \) rev s\(^{-1}\) → \( \omega=2\pi×11.67≈73.3 \). \( a=\omega^2 r≈1343 \). G-value \( =a/g≈137 \).</p></div>
       </div>
     </section>
 
     <section class="idea" id="centripetal-force">
       <header><h2><span class="sec-num">B</span>What supplies centripetal force</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="centripetal-force--fig-1">
         <div class="visual stage" id="bung-vis" data-scene="bung">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Rubber bung 50 g whirled, string through hole with paper clip, tension supplies centripetal"></canvas>
           <span class="hud-label" data-hud="T">\( T = m\omega^2 r \)</span><span class="hud-label" data-hud="clip">paper clip equilibrates weight</span>
@@ -71,14 +71,14 @@
         <figcaption><b>Fig 9.2</b> Tension supplies \( m\omega^2 r \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Bung (50 g) at 2 rev s\(^{-1}\), paper clip holds position — tension \( T \) supplies \( m\omega^2 r \) horizontally while balancing weight of clip vertically. Two balls X/Y through a hole: \( m_X \omega^2 r = m_Y g \) for that radius.</p></details>
       </figure>
-      <div class="check" data-check="sa" data-answer="centripetal"><h3>Quick check</h3><p>Why is “centrifugal force” not a real force on the bung in the lab frame?</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>In the inertial frame the only horizontal force on the bung is tension toward the centre — that is the net force that causes the centripetal acceleration. “Centrifugal” is the sensation in the rotating frame, not a new force from another body.</p></div></div>
+      <div class="check" id="centripetal-force--check-1" data-check="sa" data-answer="centripetal"><h3>Quick check</h3><p>Why is “centrifugal force” not a real force on the bung in the lab frame?</p><button type="button" data-reveal>Reveal</button><div class="model" id="centripetal-force--model-1" hidden><p>In the inertial frame the only horizontal force on the bung is tension toward the centre — that is the net force that causes the centripetal acceleration. “Centrifugal” is the sensation in the rotating frame, not a new force from another body.</p></div></div>
     </section>
 
 
     
     <section class="idea" id="orbit-type">
       <header><h2><span class="sec-num">C</span>G-value and the washing machine</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="orbit-type--fig-1">
         <div class="visual stage" id="gvalue-vis" data-scene="gvalue">
           <canvas class="scene-canvas" width="960" height="320" aria-label="G-value vs speed, washing machine 137g"></canvas>
           <span class="hud-label" data-hud="G">G = \( a/g \)</span><span class="hud-label" data-hud="137">137 g at 700 rpm</span>
@@ -87,17 +87,17 @@
         <figcaption><b>Fig 9.3</b> G-value = centripetal \( a \) in units of \( g \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>G-value is the centripetal \( a \) in \( g \)’s. Racing car \( G≈1.5 \), drum \( ≈137 \) — that is why water is flung out through holes (in the drum frame it feels pushed out; in lab frame it tries to go straight and is forced in).</p></details>
       </figure>
-      <div class="check" data-check="tf">
+      <div class="check" id="orbit-type--check-1" data-check="tf">
         <h3>Quick check</h3>
-        <div class="tf-item" data-answer="true"><p>Doubling speed at same radius quadruples the required centripetal force.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" hidden><p>True — \( F=mv^2/r \).</p></div></div>
-        <div class="tf-item" data-answer="false"><p>Centripetal force is a new type of force like weight.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" hidden><p>False — it is the role played by tension/gravity/normal etc., not a new kind.</p></div></div>
+        <div class="tf-item" id="orbit-type--tf-1" data-answer="true"><p>Doubling speed at same radius quadruples the required centripetal force.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" id="orbit-type--explain-1" hidden><p>True — \( F=mv^2/r \).</p></div></div>
+        <div class="tf-item" id="orbit-type--tf-2" data-answer="false"><p>Centripetal force is a new type of force like weight.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" id="orbit-type--explain-2" hidden><p>False — it is the role played by tension/gravity/normal etc., not a new kind.</p></div></div>
       </div>
     </section>
 
     
     <section class="idea" id="hole">
       <header><h2><span class="sec-num">D</span>String through a hole</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="hole--fig-1">
         <div class="visual stage" id="hole-vis" data-scene="hole">
           <canvas class="scene-canvas" width="960" height="320" aria-label="X 1kg circles, Y 16N hangs, balance at radius r"></canvas>
           <span class="hud-label" data-hud="X">X 1 kg · \( m\omega^2 r \)</span><span class="hud-label" data-hud="Y">Y 16 N</span>
@@ -106,7 +106,7 @@
         <figcaption><b>Fig 9.4</b> Steady when \( T=m_X\omega^2 r=W_Y \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Horizontal X circles, vertical Y hangs steady when tension \( T = m_X\omega^2 r = W_Y \). Change \( \omega \) or \( r \): one will slide.</p></details>
       </figure>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="hole--check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>If \( \omega \) doubles at same \( r \), what happens to required \( T \)?</p>
         <div class="choices">
@@ -115,18 +115,18 @@
           <button type="button" data-choice="C">Halves</button>
           <button type="button" data-choice="D">Unchanged</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>B — \( \omega^2 \).</p></div>
+        <p class="feedback"></p><div class="explain" id="hole--explain-1" hidden><p>B — \( \omega^2 \).</p></div>
       </div>
     </section>
 
     <section class="idea" id="quiz">
       <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <div class="check" data-check="sa">
+        <div class="check" id="quiz--check-1" data-check="sa">
           <h3>2016 MC Q13</h3>
           <p>Two points are fixed on one uniformly rotating platform at radii r and r/2. What is the ratio of their centripetal accelerations?</p>
           <button type="button" data-reveal>Show answer</button>
-          <div class="model" hidden><p>They share angular speed ω, and a = ω²r. The ratio is 2:1.</p></div>
+          <div class="model" id="quiz--model-1" hidden><p>They share angular speed ω, and a = ω²r. The ratio is 2:1.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/11/combined.pdf" download>Export PDF for this section</a></p>
       </div>

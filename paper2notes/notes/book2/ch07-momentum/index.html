@@ -21,7 +21,7 @@
     <h1>Momentum and collisions</h1>
     <p class="lede">Momentum is conserved when no net external force acts.</p>
 
-    <section class="lo-block" aria-labelledby="lo-heading">
+    <section class="lo-block" id="ch--lo-1" aria-labelledby="lo-heading">
       <h2 id="lo-heading">Goals</h2>
       <p class="lo-stem">Students should be able to:</p>
       <ul class="lo-list">
@@ -35,7 +35,7 @@
 
     <section class="idea" id="momentum-def">
       <header><h2><span class="sec-num">A</span>Momentum \( p=mv \) and impulse</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="momentum-def--fig-1">
         <div class="visual stage" id="hose-vis" data-scene="hose">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Hose water 20 cm/s 100 cm2 hitting wall, momentum change gives force"></canvas>
           <span class="hud-label" data-hud="p">\( p=mv \)</span><span class="hud-label" data-hud="F">\( F=\Delta p/\Delta t \)</span>
@@ -44,8 +44,8 @@
         <figcaption><b>Fig 7.1</b> Water hose: \( F=\dot m v = 0.4\ \text{N} \) on the wall.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Hose ejects water \( v=0.20\ \text{m s}^{-1} \) through \( 100\ \text{cm}^2=0.01\ \text{m}^2 \). Mass rate \( = \rho A v =1000·0.01·0.20=2\ \text{kg s}^{-1} \). On wall, normal speed →0 → \( F= \dot m v =2×0.20=0.4\ \text{N} \) — the rate of momentum change.</p></details>
       </figure>
-      <div class="def"><span class="tag">Impulse</span><p>\( \vec p = m\vec v \) (vector). \( \vec F_{\text{net}} = \dfrac{\Delta\vec p}{\Delta t} \) (Newton II form). Impulse \( = \vec F\Delta t = \Delta\vec p \). For the same \( \Delta p \), longer \( \Delta t \) means smaller \( F \) — helmets, airbags, bending knees.</p></div>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="def" id="momentum-def--def-1"><span class="tag">Impulse</span><p>\( \vec p = m\vec v \) (vector). \( \vec F_{\text{net}} = \dfrac{\Delta\vec p}{\Delta t} \) (Newton II form). Impulse \( = \vec F\Delta t = \Delta\vec p \). For the same \( \Delta p \), longer \( \Delta t \) means smaller \( F \) — helmets, airbags, bending knees.</p></div>
+      <div class="check" id="momentum-def--check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Water \( \rho=1000\ \text{kg m}^{-3} \) at \( 20\ \text{cm s}^{-1} \) through \( 100\ \text{cm}^2 \) hits wall and stops normal to wall. Force on wall?</p>
         <div class="choices">
@@ -54,13 +54,13 @@
           <button type="button" data-choice="C">4 N</button>
           <button type="button" data-choice="D">40 N</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>\( \dot m = \rho A v =1000×0.01×0.20=2\ \text{kg s}^{-1} \). \( F = \dot m \Delta v =2×0.20=0.4\ \text{N} \). Force = mass rate × change in velocity.</p></div>
+        <p class="feedback"></p><div class="explain" id="momentum-def--explain-1" hidden><p>\( \dot m = \rho A v =1000×0.01×0.20=2\ \text{kg s}^{-1} \). \( F = \dot m \Delta v =2×0.20=0.4\ \text{N} \). Force = mass rate × change in velocity.</p></div>
       </div>
     </section>
 
     <section class="idea" id="conservation">
       <header><h2><span class="sec-num">B</span>Conservation and collisions</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="conservation--fig-1">
         <div class="visual stage" id="collision-vis" data-scene="collision">
           <canvas class="scene-canvas" width="960" height="420" aria-label="Trolleys A 5.5 kg 2 m/s and B 7 kg 1.5 m/s head-on stick together"></canvas>
           <span class="hud-label" data-hud="before">before</span><span class="hud-label" data-hud="after">after: stick</span>
@@ -69,14 +69,14 @@
         <figcaption><b>Fig 7.2</b> Total \( p \) before = after; stuck \( v'\approx0.04\ \text{m s}^{-1} \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Total \( p \) before = after (isolated). A (5.5 kg, 2 m/s right) + B (7 kg, 1.5 m/s left): \( 11 -10.5 =0.5 = (12.5)v' \) → \( v'≈0.04 \) m/s right (stick). Elastic would also conserve KE; inelastic not.</p></details>
       </figure>
-      <div class="def"><span class="tag">Conservation</span><p>Isolated system (no external net force or little over short impulse): \( \sum \vec p_{\text{before}} = \sum \vec p_{\text{after}} \). Follows from Newton III — internal forces cancel. Ball thrown up with air drag returns with less momentum magnitude because drag was external.</p></div>
-      <table class="notes"><thead><tr><th>Collision</th><th>Momentum</th><th>Kinetic energy</th></tr></thead>
+      <div class="def" id="conservation--def-1"><span class="tag">Conservation</span><p>Isolated system (no external net force or little over short impulse): \( \sum \vec p_{\text{before}} = \sum \vec p_{\text{after}} \). Follows from Newton III — internal forces cancel. Ball thrown up with air drag returns with less momentum magnitude because drag was external.</p></div>
+      <table class="notes" id="conservation--table-1"><thead><tr><th>Collision</th><th>Momentum</th><th>Kinetic energy</th></tr></thead>
         <tbody><tr><td>Elastic</td><td>conserved</td><td>conserved</td></tr><tr><td>Inelastic (stick)</td><td>conserved</td><td>some → heat/sound/deformation</td></tr></tbody>
       </table>
-      <div class="check" data-check="tf">
+      <div class="check" id="conservation--check-1" data-check="tf">
         <h3>Quick check</h3>
-        <div class="tf-item" data-answer="true"><p>In a head-on stick collision of opposite directions, the heavier slower trolley can reverse the lighter faster one.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" hidden><p>True if its momentum magnitude is larger — sign matters.</p></div></div>
-        <div class="tf-item" data-answer="false"><p>Air resistance is an internal force for the ball.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" hidden><p>False — air is external to the ball, so it removes momentum from the ball system.</p></div></div>
+        <div class="tf-item" id="conservation--tf-1" data-answer="true"><p>In a head-on stick collision of opposite directions, the heavier slower trolley can reverse the lighter faster one.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" id="conservation--explain-1" hidden><p>True if its momentum magnitude is larger — sign matters.</p></div></div>
+        <div class="tf-item" id="conservation--tf-2" data-answer="false"><p>Air resistance is an internal force for the ball.</p><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button><p class="feedback"></p><div class="explain" id="conservation--explain-2" hidden><p>False — air is external to the ball, so it removes momentum from the ball system.</p></div></div>
       </div>
     </section>
 
@@ -84,7 +84,7 @@
     
     <section class="idea" id="safety">
       <header><h2><span class="sec-num">C</span>Safety: time spreads the force</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="safety--fig-1">
         <div class="visual stage" id="safety-vis" data-scene="safety">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Airbag lengthens time, reduces force"></canvas>
           <span class="hud-label" data-hud="long">long \( \Delta t \) → small \( F \)</span>
@@ -92,7 +92,7 @@
         <figcaption><b>Fig 7.3</b> Longer \( \Delta t \) → smaller \( F=\Delta p/\Delta t \).</figcaption>
         <details class="fig-more"><summary>More</summary><p>Same \( \Delta p \) but longer \( \Delta t \) (airbag, helmet, bending knees, sandbag) → smaller \( F = \Delta p/\Delta t \). That is the sports RQ and the cushion in the Ch.2 jump example.</p></details>
       </figure>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="safety--check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Which reduces injury for same fall \( \Delta p \)?</p>
         <div class="choices">
@@ -101,14 +101,14 @@
           <button type="button" data-choice="C">Larger mass</button>
           <button type="button" data-choice="D">Higher speed</button>
         </div>
-        <p class="feedback"></p><div class="explain" hidden><p>B — \( F=\Delta p/\Delta t \); spread the impulse.</p></div>
+        <p class="feedback"></p><div class="explain" id="safety--explain-1" hidden><p>B — \( F=\Delta p/\Delta t \); spread the impulse.</p></div>
       </div>
     </section>
 
     
     <section class="idea" id="ball-bounce">
       <header><h2><span class="sec-num">D</span>Throw up with air drag</h2></header>
-      <figure class="fig">
+      <figure class="fig" id="ball-bounce--fig-1">
         <div class="visual stage" id="throw-vis" data-scene="throw">
           <canvas class="scene-canvas" width="960" height="320" aria-label="Ball thrown up, returns with less momentum due to air"></canvas>
           <span class="hud-label" data-hud="up">up: drag down</span><span class="hud-label" data-hud="down">down: drag up</span>
@@ -117,17 +117,17 @@
         <figcaption><b>Fig 7.4</b> Return momentum is smaller: drag took some.</figcaption>
         <details class="fig-more"><summary>More</summary><p>Up, weight+drag both down → large loss. Down, drag up reduces net. On return to same height, momentum magnitude is smaller and direction reversed; total momentum of ball+air is conserved.</p></details>
       </figure>
-      <div class="check" data-check="sa" data-answer="throw"><h3>Quick check</h3><p>Why is return momentum smaller?</p><button type="button" data-reveal>Reveal</button><div class="model" hidden><p>Air was an external impulse on the ball; it carried momentum away.</p></div></div>
+      <div class="check" id="ball-bounce--check-1" data-check="sa" data-answer="throw"><h3>Quick check</h3><p>Why is return momentum smaller?</p><button type="button" data-reveal>Reveal</button><div class="model" id="ball-bounce--model-1" hidden><p>Air was an external impulse on the ball; it carried momentum away.</p></div></div>
     </section>
 
     <section class="idea" id="quiz">
       <header><h2><span class="sec-num">Q</span>DSE practice</h2></header>
       <div class="quiz" data-quiz>
-        <div class="check" data-check="sa">
+        <div class="check" id="quiz--check-1" data-check="sa">
           <h3>2014 MC Q7</h3>
           <p>A 2 kg sphere moving at 6 m s⁻¹ collides head-on with a stationary 1 kg sphere. What total momentum must their final velocities preserve?</p>
           <button type="button" data-reveal>Show answer</button>
-          <div class="model" hidden><p>The total initial momentum is 2 × 6 = 12 kg m s⁻¹ in the first sphere’s original direction.</p></div>
+          <div class="model" id="quiz--model-1" hidden><p>The total initial momentum is 2 × 6 = 12 kg m s⁻¹ in the first sphere’s original direction.</p></div>
         </div>
         <p><a class="quiz-export" href="../_local/dse/mc/09/combined.pdf" download>Export PDF for this section</a></p>
       </div>
