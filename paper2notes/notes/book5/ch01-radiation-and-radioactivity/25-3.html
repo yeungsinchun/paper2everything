@@ -244,51 +244,59 @@
 
     <section class="idea" id="gm">
       <header>
-        <h2><span class="sec-num">E</span>GM counter and count rate</h2>
+        <h2><span class="sec-num">E</span>Counting with a GM counter</h2>
       </header>
       <figure class="fig">
         <div class="visual play stage" id="gm-vis" data-autoplay data-scene="gm">
-          <canvas class="scene-canvas" width="960" height="420" aria-label="Argon atom in a GM tube loses an electron toward the anode wire"></canvas>
-          <span class="hud-label" data-hud="window">thin window</span>
-          <span class="hud-label" data-hud="wire">+ wire</span>
-          <span class="hud-label" data-hud="case">− case · argon</span>
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Cut-away of a GM tube: radiation enters the mica window, ionizes an argon atom, the electron avalanche reaches the anode wire and the scaler records a pulse"></canvas>
+          <span class="hud-label" data-hud="radiation">radiation</span>
+          <span class="hud-label" data-hud="window">mica window</span>
+          <span class="hud-label" data-hud="wire">anode + wire</span>
+          <span class="hud-label" data-hud="case">cathode − case · argon</span>
+          <span class="hud-label" data-hud="argon">argon atom</span>
+          <span class="hud-label" data-hud="electron">electron</span>
+          <span class="hud-label metric" data-hud="pulse" hidden>pulse</span>
+          <button type="button" class="stage-replay" data-replay="gm-vis">Replay</button>
         </div>
-        <figcaption><b>Fig. 25.30</b> Inside a GM tube.</figcaption>
-<details class="fig-more"><summary>More</summary><p>Inside a GM tube. Radiation enters through the thin mica window and ionizes an argon atom; the electron is pulled to the central wire and the positive ion to the case, giving one pulse of current.</p></details>
+        <figcaption><b>Fig. 25.30</b> Inside a GM tube: ion-pair, avalanche, pulse.</figcaption>
+<details class="fig-more"><summary>More</summary><p>The tube holds argon at low pressure. A high voltage keeps the central wire positive (the anode) and the metal case negative (the cathode); one end is a thin mica window. Radiation enters through the window and ionizes argon atoms into ion-pairs. The electrons accelerate to the wire and the positive ions drift to the case; each arriving electron frees more electrons on the way, so one ion-pair grows into a short avalanche and the tube gives one pulse of current. The scaler counts the pulses (total count); the ratemeter shows counts per second or per minute, the <b>count rate</b>.</p></details>
       </figure>
-      <div class="worked">
-        <span class="tag">How a GM counter works, step by step</span>
+      <div class="worked gm-steps">
+        <span class="tag">How a GM counter works</span>
         <ol class="steps">
-          <li>The tube contains argon at low pressure. A high voltage is kept between the central wire (positive, the anode) and the metal case (negative, the cathode). One end is a thin mica window.</li>
-          <li>Radiation enters through the window and ionizes argon atoms, producing ion-pairs.</li>
-          <li>The electrons are accelerated to the wire and the positive ions to the case; on the way they ionize more atoms, so a brief pulse of current flows through the tube.</li>
-          <li>Each pulse is counted by the attached scaler (total count) or ratemeter (counts per second or per minute, the <b>count rate</b>).</li>
+          <li><b>Ion-pair.</b> Radiation ionizes an argon atom at the window.</li>
+          <li><b>Avalanche.</b> The electron accelerates to the wire, freeing more electrons.</li>
+          <li><b>Pulse.</b> The scaler counts one pulse; count rate is pulses per second.</li>
         </ol>
       </div>
       <figure class="fig sim">
         <div class="row">
-          <span class="row-label">Simulated ratemeter</span>
-          <span class="readout" id="gm-rate">0</span>
-          <span>count s⁻¹</span>
-          <span>corrected: <span class="readout" id="gm-corr">0</span> count s⁻¹</span>
+          <span class="tag">Simulated</span>
+          <span class="row-label">Ratemeter</span>
+          <span>recorded <span class="readout" id="gm-rate">0</span> count s⁻¹</span>
+          <span>corrected <span class="readout" id="gm-corr">0</span> count s⁻¹</span>
+          <button type="button" id="gm-pause" aria-label="Pause the simulated readings">Pause</button>
         </div>
         <p class="caption" id="gm-bg"></p>
-        <div class="row">
-          <button type="button" id="gm-bg-btn">no source (background only)</button>
-          <button type="button" data-gm-src="40">β or γ source nearby</button>
-          <button type="button" data-gm-src="20" data-need-grid="off">α source nearby</button>
-          <button type="button" id="gm-grid" aria-pressed="true">plastic grid on (blocks α)</button>
+        <div class="row" role="group" aria-label="Simulated source and grid">
+          <span class="row-label">Source</span>
+          <button type="button" id="gm-bg-btn" data-gm-src="0" data-gm-name="Background only" aria-pressed="true" aria-label="No source: background only">Background</button>
+          <button type="button" data-gm-src="40" data-gm-name="Beta or gamma source" aria-pressed="false" aria-label="Beta or gamma source nearby">β or γ</button>
+          <button type="button" data-gm-src="20" data-gm-name="Alpha source" data-need-grid="off" aria-pressed="false" aria-label="Alpha source nearby">α</button>
+          <button type="button" id="gm-grid" aria-pressed="true" aria-label="Plastic grid over the window: blocks alpha">Grid</button>
         </div>
-        <figcaption>A simulated reading. Notice that it fluctuates from second to second even with no source, and that an α source registers only when the protective plastic grid over the window is removed.</figcaption>
+        <p class="sr-status" id="gm-status" role="status"></p>
+        <figcaption>Simulated readings: background always registers; α needs the grid off.</figcaption>
       </figure>
-      <div class="eq">\[ \text{corrected count rate} = \text{recorded count rate} - \text{background count rate} \]</div>
+      <div class="eq">\[ \text{corrected} = \text{recorded} - \text{background} \]</div>
+      <p class="caption">All three in count s⁻¹.</p>
       <ul class="points">
-        <li><b>Always measure the background first</b>, with the source locked away, because every reading includes it. Decay is random, so readings fluctuate; take several readings and average them.</li>
-        <li>Background has a <b>non-zero average count rate</b>. A very short count can still be zero by chance, but repeated readings in Hong Kong typically average about 1 count per second (30 to 60 counts per minute).</li>
-        <li>Because it counts ion-pairs, the tube detects α and β more efficiently than γ, which usually passes straight through without ionizing anything. To detect α the plastic grid must be removed and the source placed within about 1.5 cm of the window; β and γ sources are placed about 5 cm away.</li>
-        <li>A GM counter is faster and more precise than film, but on its own it cannot tell which type of radiation it is counting.</li>
-        <li>The corrected count rate is proportional to the activity of the source (Chapter 26) but much smaller than it: the source radiates in all directions and the tube catches only the small fraction that enters its window, and some of that is absorbed on the way.</li>
+        <li><b>Measure the background first</b>, with the source locked away. Repeat readings and average them.</li>
+        <li>Background is never zero: Hong Kong averages about 1 count s⁻¹.</li>
+        <li>It detects α and β better than γ, which usually passes straight through.</li>
+        <li>On its own it cannot tell which type of radiation it is counting.</li>
       </ul>
+      <details class="fig-more"><summary>More</summary><p>Every reading includes the background from radon, rocks, cosmic rays and the body, so a non-zero reading is normal; a very short count can still be zero by chance, and repeated readings in Hong Kong typically average 30 to 60 counts per minute. Decay is random, so readings fluctuate; take several readings and average them. To detect α, remove the plastic grid and place the source within about 1.5 cm of the window; β and γ sources are placed about 5 cm away. A GM counter is faster and more precise than film. The corrected count rate is proportional to the activity of the source (Chapter 26) but much smaller than it: the source radiates in all directions, the tube catches only the small fraction that enters its window, and some of that is absorbed on the way.</p></details>
       <div class="check" data-check="mc" data-answer="D">
         <h3>Quick check</h3>
         <p>With no radioactive source in the laboratory, a GM counter gives readings of 46, 58, 41, 55 and 50 counts per 100 s in five successive trials. Which of the following statements is/are correct?</p>
@@ -392,13 +400,13 @@
 
     <section class="idea" id="identify">
       <header>
-        <h2><span class="sec-num">G</span>Identifying radiation from absorbers</h2>
+        <h2><span class="sec-num">G</span>Identify the radiation</h2>
       </header>
-      <p>The standard test: place the source in front of a GM tube and insert, in turn, a sheet of paper, about 5 mm of aluminium and about 25 mm of lead. Each absorber stops one more type. Compare each reading with the one before it and with the background.</p>
+      <p class="caption">Paper, 5 mm Al, 25 mm Pb: each drop names a radiation type.</p>
       <figure class="fig">
         <div class="flow">
           <div>
-            <svg id="id-flow" viewBox="0 0 520 600" role="img" aria-label="Decision graph for identifying radiation">
+            <svg id="id-flow" viewBox="0 0 520 600" role="group" aria-label="Decision graph for identifying radiation">
               <defs>
                 <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
                   <path d="M0,0 L8,4 L0,8 z" fill="#6b7380"/>
@@ -407,69 +415,69 @@
                   <path d="M0,0 L8,4 L0,8 z" fill="#0e5f56"/>
                 </marker>
               </defs>
-              <path class="edge" data-until="1" d="M260 48 L260 68"/>
+              <path class="edge" data-until="1" d="M260 50 L260 68"/>
               <path class="edge" data-side="alpha" data-until="1" d="M170 114 L80 114 L80 156"/>
               <path class="edge" data-side="no-alpha" data-until="2" d="M350 114 L430 114 L430 156"/>
               <path class="edge" data-side="alpha" data-until="2" d="M140 178 L350 178"/>
               <path class="edge" data-side="beta" data-until="3" d="M430 206 L430 226"/>
               <path class="edge" data-side="beta" data-until="4" d="M430 270 L430 300 L260 300 L260 328"/>
               <path class="edge" data-side="no-beta" d="M350 206 L220 206 L220 328"/>
-              <path class="edge" data-until="5" d="M260 378 L260 398"/>
-              <path class="edge" data-until="6" d="M260 438 L120 438 L120 468"/>
-              <path class="edge" data-until="6" d="M260 438 L400 438 L400 468"/>
+              <path class="edge" data-until="5" d="M260 378 L260 396"/>
+              <path class="edge" data-until="6" d="M260 442 L120 442 L120 468"/>
+              <path class="edge" data-until="6" d="M260 442 L400 442 L400 468"/>
               <text class="edge-label" x="92" y="106">yes → α</text>
               <text class="edge-label" x="372" y="106">no</text>
               <text class="edge-label" x="448" y="220">yes → β</text>
               <text class="edge-label" x="228" y="198">no β</text>
-              <g class="node" data-step="0">
-                <ellipse cx="260" cy="28" rx="100" ry="20"/>
+              <g class="node" data-step="0" role="button" tabindex="0" focusable="true" aria-label="Start: unknown source in front of the GM tube">
+                <ellipse cx="260" cy="28" rx="100" ry="22"/>
                 <text x="260" y="32" text-anchor="middle" font-size="13">unknown source</text>
               </g>
-              <g class="node" data-step="1">
+              <g class="node" data-step="1" role="button" tabindex="0" focusable="true" aria-label="Paper test: did the count drop?">
                 <rect x="170" y="68" width="180" height="46" rx="6"/>
                 <text x="260" y="88" text-anchor="middle" font-size="13">paper?</text>
                 <text x="260" y="104" text-anchor="middle" font-size="11">count drop?</text>
               </g>
-              <g class="node" data-step="alpha">
+              <g class="node" data-step="alpha" role="button" tabindex="0" focusable="true" aria-label="Alpha present">
                 <rect x="20" y="156" width="120" height="44" rx="6"/>
                 <text x="80" y="182" text-anchor="middle" font-size="13">α present</text>
               </g>
-              <g class="node" data-step="2">
+              <g class="node" data-step="2" role="button" tabindex="0" focusable="true" aria-label="5 mm aluminium test: did the count drop against paper?">
                 <rect x="350" y="156" width="160" height="50" rx="6"/>
                 <text x="430" y="178" text-anchor="middle" font-size="13">5 mm Al?</text>
                 <text x="430" y="194" text-anchor="middle" font-size="11">drop vs paper?</text>
               </g>
-              <g class="node" data-step="3">
+              <g class="node" data-step="3" role="button" tabindex="0" focusable="true" aria-label="Beta present">
                 <rect x="370" y="226" width="120" height="44" rx="6"/>
                 <text x="430" y="252" text-anchor="middle" font-size="13">β present</text>
               </g>
-              <g class="node" data-step="4">
+              <g class="node" data-step="4" role="button" tabindex="0" focusable="true" aria-label="25 mm lead test: still above background?">
                 <rect x="185" y="328" width="150" height="50" rx="6"/>
                 <text x="260" y="350" text-anchor="middle" font-size="12">25 mm Pb</text>
                 <text x="260" y="366" text-anchor="middle" font-size="11">still &gt; background?</text>
               </g>
-              <g class="node" data-step="5">
-                <rect x="185" y="398" width="150" height="40" rx="6"/>
+              <g class="node" data-step="5" role="button" tabindex="0" focusable="true" aria-label="Gamma present">
+                <rect x="185" y="396" width="150" height="46" rx="6"/>
                 <text x="260" y="422" text-anchor="middle" font-size="13">γ present</text>
               </g>
-              <g class="node" data-step="6">
+              <g class="node" data-step="6" role="button" tabindex="0" focusable="true" aria-label="Confirm with electric or magnetic deflection: alpha and beta opposite, gamma straight">
                 <rect x="40" y="468" width="160" height="50" rx="6"/>
                 <text x="120" y="488" text-anchor="middle" font-size="12">E / B deflection</text>
                 <text x="120" y="504" text-anchor="middle" font-size="11">α / β opposite; γ straight</text>
               </g>
-              <g class="node" data-step="6">
+              <g class="node" data-step="6" role="button" tabindex="0" focusable="true" aria-label="Confirm with cloud chamber tracks: thick, thin or faint">
                 <rect x="320" y="468" width="160" height="50" rx="6"/>
                 <text x="400" y="488" text-anchor="middle" font-size="12">cloud tracks</text>
                 <text x="400" y="504" text-anchor="middle" font-size="11">thick / thin / faint</text>
               </g>
             </svg>
             <div class="row">
-              <button type="button" id="flow-next">Step through Example 25.6</button>
+              <button type="button" id="flow-next" aria-label="Next step in the decision path">Next</button>
               <button type="button" id="flow-reset">Reset</button>
             </div>
           </div>
           <div>
-            <p class="caption" id="flow-talk"></p>
+            <p class="caption" id="flow-talk" role="status"></p>
             <table class="notes">
               <caption>Example 25.6 readings, counts per minute (background ≈ 61)</caption>
               <thead><tr><th>Absorber</th><th>Reading</th></tr></thead>
@@ -482,22 +490,22 @@
             </table>
           </div>
         </div>
-        <figcaption>The decision path. Step through the textbook example, or click a node to explore the other branches.</figcaption>
+        <figcaption>Decision path for Example 25.6.</figcaption>
       </figure>
-      <div class="worked">
-        <span class="tag">How to write the answer: observation, reasoning, conclusion</span>
-        <p>For Example 25.6, one line per absorber:</p>
+      <div class="worked flow-answer">
+        <span class="tag">Observation → reasoning → conclusion</span>
         <ol class="steps">
-          <li><b>Paper:</b> no significant change (700 → 700). Paper stops α. So the source emits no α.</li>
-          <li><b>5 mm aluminium:</b> large drop (700 → 315). Aluminium stops β (and would stop α). So the source emits β.</li>
-          <li><b>25 mm lead:</b> further drop (315 → 190) but still well above background (61). Lead only partly absorbs γ. So the source emits γ.</li>
-          <li><b>Conclusion:</b> β and γ, no α.</li>
+          <li><b>Paper 700 → 700</b> · no drop → no α</li>
+          <li><b>5 mm Al 700 → 315</b> · large drop → β present</li>
+          <li><b>25 mm Pb 315 → 190</b> · still above background → γ present</li>
+          <li><b>Conclusion</b> · β and γ, no α</li>
         </ol>
+        <details class="fig-more"><summary>More</summary><p><b>Full written answer.</b> Paper: no significant change (700 → 700). Paper stops α, so the source emits no α. 5 mm aluminium: large drop (700 → 315). Aluminium stops β (and would stop α), so the source emits β. 25 mm lead: further drop (315 → 190) but still well above background (61). Lead only partly absorbs γ, so the source emits γ. Conclusion: β and γ, no α.</p></details>
       </div>
-      <aside class="tip">
-        <span class="tag">The hard cases</span>
+      <details class="tip fig-more">
+        <summary>Hard cases</summary>
         <p><b>No paper step.</b> 5 mm Al stops <em>both</em> α and β, so a drop at aluminium without a paper reading means "α or β or both", not "β". <b>Lead only.</b> A drop from air to 5 mm Pb proves nothing about which of α or β is present; a <em>further</em> drop from 5 mm to 15 mm Pb proves γ, and the background must be below the final reading. <b>Background not given.</b> If the reading keeps roughly halving as the lead thickens (say 90 → 46 from 25 to 50 mm), it has not reached a flat floor, so γ is still being absorbed and is present. <b>Proving "X only".</b> You need <em>no</em> significant drop at the other steps <em>and</em> a final reading at background. <b>Repeated readings</b> in a table (e.g. 210, 227; 224, 215) differ by randomness; a change only counts if it is well outside that scatter.</p>
-      </aside>
+      </details>
       
       
       <div class="check" data-check="mc" data-answer="C">

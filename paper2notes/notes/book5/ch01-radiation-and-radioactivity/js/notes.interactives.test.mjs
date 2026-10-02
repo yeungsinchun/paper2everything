@@ -559,8 +559,12 @@ chromeTest("25.3 GM extra recomputes when the plastic grid toggles", async () =>
   near(blocked, 1, 8);
 
   await cdp.evaluate(`document.querySelector('#gm-grid').click()`);
-  const gridOff = await cdp.evaluate("document.querySelector('#gm-grid').textContent");
-  assert.match(gridOff, /grid off/);
+  const gridOff = await cdp.evaluate(`(function () {
+    var btn = document.querySelector('#gm-grid');
+    return { pressed: btn.getAttribute('aria-pressed'), label: btn.getAttribute('aria-label') };
+  })()`);
+  assert.equal(gridOff.pressed, "false");
+  assert.match(gridOff.label, /removed/i);
   await new Promise((r) => setTimeout(r, 800));
   const admitted = await cdp.evaluate("parseInt(document.querySelector('#gm-rate').textContent, 10)");
   near(admitted, 21, 8);
@@ -572,6 +576,176 @@ chromeTest("25.3 GM extra recomputes when the plastic grid toggles", async () =>
 
   if (evidenceDir) {
     await cdp.screenshot(path.join(evidenceDir, "25-3-gm-grid-blocks-alpha.png"), "#gm");
+  }
+});
+
+chromeTest("25.3 GM counter is finite, pausable, and announces calm summaries", async () => {
+  await cdp.goto(pageUrl("25-3.html"));
+
+  const chrome = await cdp.evaluate(`(function () {
+    var host = document.getElementById("gm-vis");
+    return {
+      labels: Array.from(host.querySelectorAll(".hud-label")).map(function (el) { return el.getAttribute("data-hud"); }),
+      replay: !!host.querySelector("[data-replay='gm-vis']"),
+      readoutLive: !!document.querySelector("#gm-rate").closest("[aria-live]"),
+      correctedLive: !!document.querySelector("#gm-corr").closest("[aria-live]"),
+      statusRole: document.querySelector("#gm-status").getAttribute("role")
+    };
+  })()`);
+  assert.deepEqual(chrome.labels, ["radiation", "window", "wire", "case", "argon", "electron", "pulse"]);
+  assert.equal(chrome.replay, true, "the finite clip keeps its Replay button");
+  assert.equal(chrome.readoutLive, false, "the tick must not be a live region");
+  assert.equal(chrome.correctedLive, false);
+  assert.equal(chrome.statusRole, "status");
+
+  const start = await cdp.evaluate(`(function () {
+    window.NotesScenes.gm.replay();
+    return window.NotesScenes.gm.snapshot();
+  })()`);
+  assert.ok(start.electronY > 0.45, "electron leaves the argon atom, y=" + start.electronY);
+  await new Promise((r) => setTimeout(r, 2700));
+  const terminal = await cdp.evaluate("window.NotesScenes.gm.snapshot()");
+  assert.equal(terminal.finished, true, "the GM clip must settle instead of looping");
+  assert.equal(terminal.t, terminal.duration);
+  assert.equal(terminal.phase, "pulse");
+  assert.equal(terminal.argonLabel, "argon ion +", "the positive ion is named in the figure");
+  assert.ok(terminal.secondaryVisible >= 3, "avalanche shows secondary ion-pairs, n=" + terminal.secondaryVisible);
+  assert.ok(terminal.secondaryCollected >= 3, "avalanche electrons reach the wire, n=" + terminal.secondaryCollected);
+  assert.equal(terminal.electronVisible, true);
+  assert.ok(Math.abs(terminal.electronX - terminal.homeX) < 0.08, "electron stays radial");
+  assert.equal(terminal.pulseVisible, true, "the terminal frame holds the labelled pulse");
+  await new Promise((r) => setTimeout(r, 1200));
+  const held = await cdp.evaluate("window.NotesScenes.gm.snapshot()");
+  assert.equal(held.t, terminal.t, "the terminal frame is stable, no flicker");
+
+  const controls = await cdp.evaluate(`(function () {
+    var q = function (s) { return document.querySelector(s); };
+    var pressed = function () {
+      return Array.from(document.querySelectorAll("[data-gm-src]")).map(function (b) { return b.getAttribute("aria-pressed"); });
+    };
+    var initial = pressed();
+    q("#gm-pause").click();
+    var paused = {
+      paused: q("#gm-pause").getAttribute("data-paused"),
+      text: q("#gm-pause").textContent,
+      status: q("#gm-status").textContent,
+      rate: parseInt(q("#gm-rate").textContent, 10)
+    };
+    return { initial: initial, paused: paused };
+  })()`);
+  assert.deepEqual(controls.initial, ["true", "false", "false"], "background is the pressed default source");
+  assert.equal(controls.paused.paused, "true");
+  assert.equal(controls.paused.text, "Play");
+  assert.match(controls.paused.status, /paused/i);
+  await new Promise((r) => setTimeout(r, 1500));
+  const frozen = await cdp.evaluate("parseInt(document.querySelector('#gm-rate').textContent, 10)");
+  assert.equal(frozen, controls.paused.rate, "paused readings do not drift");
+
+  const selected = await cdp.evaluate(`(function () {
+    document.querySelector('[data-gm-src="40"]').click();
+    return {
+      pressed: Array.from(document.querySelectorAll("[data-gm-src]")).map(function (b) { return b.getAttribute("aria-pressed"); }),
+      rate: parseInt(document.querySelector("#gm-rate").textContent, 10),
+      corrected: parseInt(document.querySelector("#gm-corr").textContent, 10),
+      status: document.querySelector("#gm-status").textContent
+    };
+  })()`);
+  assert.deepEqual(selected.pressed, ["false", "true", "false"]);
+  assert.equal(selected.rate, 41, "a paused source change shows the exact simulated mean");
+  assert.equal(selected.corrected, 40);
+  assert.match(selected.status, /Beta or gamma source selected/);
+  assert.match(selected.status, /recorded 41 counts per second/);
+
+  const resumed = await cdp.evaluate(`(function () {
+    document.querySelector("#gm-pause").click();
+    return {
+      paused: document.querySelector("#gm-pause").getAttribute("data-paused"),
+      text: document.querySelector("#gm-pause").textContent,
+      status: document.querySelector("#gm-status").textContent
+    };
+  })()`);
+  assert.equal(resumed.paused, null);
+  assert.equal(resumed.text, "Pause");
+  assert.match(resumed.status, /running/i);
+
+  /* Phone resize: the settled labels must follow their anchors onto the 390px canvas. */
+  await cdp.send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
+  try {
+    const phone = await cdp.evaluate(`new Promise(function (resolve) {
+      requestAnimationFrame(function () {
+        setTimeout(function () {
+          var stage = document.getElementById("gm-vis");
+          var canvasRect = stage.querySelector("canvas").getBoundingClientRect();
+          var labels = Array.from(stage.querySelectorAll(".hud-label")).filter(function (el) {
+            return !el.hidden && el.style.visibility !== "hidden";
+          }).map(function (el) {
+            var r = el.getBoundingClientRect();
+            return {
+              hud: el.getAttribute("data-hud"),
+              inCanvas: r.left >= canvasRect.left - 1 && r.right <= canvasRect.right + 1 &&
+                r.top >= canvasRect.top - 1 && r.bottom <= canvasRect.bottom + 1
+            };
+          });
+          resolve({ labels: labels, bodyScroll: document.body.scrollWidth, innerW: window.innerWidth });
+        }, 260);
+      });
+    })`);
+    assert.ok(phone.labels.length >= 5, "phone terminal frame keeps its visible labels, n=" + phone.labels.length);
+    phone.labels.forEach(function (label) {
+      assert.equal(label.inCanvas, true, label.hud + " label must stay on the phone canvas");
+    });
+    assert.ok(phone.bodyScroll <= phone.innerW, "no phone page overflow: " + phone.bodyScroll + " > " + phone.innerW);
+    if (evidenceDir) {
+      await cdp.screenshot(path.join(evidenceDir, "25-3-gm-phone-labels.png"), "#gm");
+    }
+  } finally {
+    await cdp.send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 900, deviceScaleFactor: 2, mobile: false });
+  }
+
+  if (evidenceDir) {
+    await cdp.evaluate("document.querySelector('#gm-pause').click()");
+    await cdp.screenshot(path.join(evidenceDir, "25-3-gm-paused-simulation.png"), "#gm");
+  }
+});
+
+chromeTest("25.3 GM readings hold still under reduced motion", async () => {
+  await cdp.send("Emulation.setEmulatedMedia", {
+    features: [{ name: "prefers-reduced-motion", value: "reduce" }],
+  });
+  try {
+    await cdp.goto(pageUrl("25-3.html"));
+    const start = await cdp.evaluate(`(function () {
+      var q = function (s) { return document.querySelector(s); };
+      return {
+        pause: q("#gm-pause").getAttribute("data-paused"),
+        pauseText: q("#gm-pause").textContent,
+        rate: parseInt(q("#gm-rate").textContent, 10),
+        corrected: parseInt(q("#gm-corr").textContent, 10)
+      };
+    })()`);
+    assert.equal(start.pause, "true", "reduced motion starts paused");
+    assert.equal(start.pauseText, "Play");
+    assert.equal(start.rate, 1, "reduced motion shows the mean background");
+    assert.equal(start.corrected, 0);
+    await new Promise((r) => setTimeout(r, 1600));
+    const later = await cdp.evaluate("parseInt(document.querySelector('#gm-rate').textContent, 10)");
+    assert.equal(later, start.rate, "reduced motion holds a static reading");
+    const picked = await cdp.evaluate(`(function () {
+      document.querySelector('[data-gm-src="40"]').click();
+      return {
+        rate: parseInt(document.querySelector("#gm-rate").textContent, 10),
+        corrected: parseInt(document.querySelector("#gm-corr").textContent, 10)
+      };
+    })()`);
+    assert.equal(picked.rate, 41);
+    assert.equal(picked.corrected, 40);
+    const scene = await cdp.evaluate("window.NotesScenes.gm.snapshot()");
+    assert.equal(scene.finished, true, "the tube story stays on its terminal still");
+    if (evidenceDir) {
+      await cdp.screenshot(path.join(evidenceDir, "25-3-gm-reduced-motion-still.png"), "#gm");
+    }
+  } finally {
+    await cdp.send("Emulation.setEmulatedMedia", { features: [] });
   }
 });
 
@@ -736,6 +910,201 @@ chromeTest("25.3 identification graph keeps taken yes/no edges", async () => {
     await cdp.evaluate("document.querySelector('#id-flow .node[data-step=\"4\"]').dispatchEvent(new Event('click'))");
     await cdp.screenshot(path.join(evidenceDir, "25-3-flow-no-beta-to-pb.png"), "#identify");
   }
+});
+
+chromeTest("25.3 identification graph is keyboard operable with a polite status", async () => {
+  await cdp.goto(pageUrl("25-3.html"));
+
+  const nodes = await cdp.evaluate(`(function () {
+    return Array.from(document.querySelectorAll("#id-flow .node")).map(function (n) {
+      return {
+        step: n.getAttribute("data-step"),
+        role: n.getAttribute("role"),
+        tab: n.getAttribute("tabindex"),
+        shape: !!n.querySelector("rect, ellipse"),
+        label: (n.getAttribute("aria-label") || "").trim()
+      };
+    });
+  })()`);
+  assert.equal(nodes.length, 9, "all nine decision nodes are present, n=" + nodes.length);
+  nodes.forEach(function (n) {
+    assert.equal(n.role, "button", "node " + n.step + " needs role=button");
+    assert.equal(n.tab, "0", "node " + n.step + " must be tabbable");
+    assert.equal(n.shape, true, "node " + n.step + " must keep its drawn shape");
+    assert.ok(n.label.length > 3, "node " + n.step + " needs an accessible name");
+  });
+
+  const status = await cdp.evaluate(`(function () {
+    var el = document.querySelector("#flow-talk");
+    return {
+      role: el.getAttribute("role"),
+      next: document.querySelector("#flow-next").textContent.trim(),
+      nextLabel: document.querySelector("#flow-next").getAttribute("aria-label"),
+      reset: document.querySelector("#flow-reset").textContent.trim()
+    };
+  })()`);
+  assert.equal(status.role, "status", "step/reset updates announce politely");
+  assert.equal(status.next, "Next");
+  assert.match(status.nextLabel, /step/i);
+  assert.equal(status.reset, "Reset");
+
+  /* Enter on a focused node activates it and shows the keyboard focus ring. */
+  await cdp.evaluate(`document.querySelector('#id-flow .node[data-step="2"]').focus()`);
+  await cdp.send("Input.dispatchKeyEvent", { type: "keyDown", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 });
+  await cdp.send("Input.dispatchKeyEvent", { type: "keyUp", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 });
+  await new Promise((r) => setTimeout(r, 120));
+  const afterEnter = await cdp.evaluate(`(function () {
+    var n = document.querySelector('#id-flow .node[data-step="2"]');
+    return {
+      current: n.getAttribute("aria-current"),
+      active: n.classList.contains("active"),
+      focusVisible: n.matches(":focus-visible"),
+      stroke: getComputedStyle(n.querySelector("rect")).strokeWidth,
+      talk: document.querySelector("#flow-talk").textContent
+    };
+  })()`);
+  assert.equal(afterEnter.active, true);
+  assert.equal(afterEnter.current, "step");
+  assert.equal(afterEnter.focusVisible, true, "keyboard focus must show the focus style");
+  assert.equal(afterEnter.stroke, "3px");
+  assert.match(afterEnter.talk, /5 mm Al/);
+
+  /* Space activates the alpha branch the same way. */
+  await cdp.evaluate(`document.querySelector('#id-flow .node[data-step="alpha"]').focus()`);
+  await cdp.send("Input.dispatchKeyEvent", { type: "keyDown", key: " ", code: "Space", windowsVirtualKeyCode: 32, nativeVirtualKeyCode: 32 });
+  await cdp.send("Input.dispatchKeyEvent", { type: "keyUp", key: " ", code: "Space", windowsVirtualKeyCode: 32, nativeVirtualKeyCode: 32 });
+  await new Promise((r) => setTimeout(r, 120));
+  const afterSpace = await cdp.evaluate(`(function () {
+    var n = document.querySelector('#id-flow .node[data-step="alpha"]');
+    return { current: n.getAttribute("aria-current"), active: n.classList.contains("active"), talk: document.querySelector("#flow-talk").textContent };
+  })()`);
+  assert.equal(afterSpace.active, true);
+  assert.equal(afterSpace.current, "step");
+  assert.match(afterSpace.talk, /α is present/);
+
+  /* The stepper and Reset drive the same state and keep exactly one current node. */
+  await cdp.evaluate("document.querySelector('#flow-reset').click()");
+  const reset = await cdp.evaluate(`(function () {
+    return {
+      current: document.querySelectorAll('#id-flow .node[aria-current="step"]').length,
+      talk: document.querySelector("#flow-talk").textContent
+    };
+  })()`);
+  assert.equal(reset.current, 1);
+  assert.match(reset.talk, /Unknown source/);
+  await cdp.evaluate("document.querySelector('#flow-next').click()");
+  const stepped = await cdp.evaluate(`(function () {
+    var n = document.querySelector('#id-flow .node[data-step="1"]');
+    return { active: n.classList.contains("active"), current: n.getAttribute("aria-current"), talk: document.querySelector("#flow-talk").textContent };
+  })()`);
+  assert.equal(stepped.active, true);
+  assert.equal(stepped.current, "step");
+  assert.match(stepped.talk, /Insert paper|no α/);
+
+  if (evidenceDir) {
+    await cdp.evaluate(`document.querySelector('#id-flow .node[data-step="alpha"]').focus()`);
+    await cdp.evaluate("document.querySelector('#flow-reset').click()");
+    await cdp.screenshot(path.join(evidenceDir, "25-3-flow-keyboard-focus.png"), "#identify");
+  }
+});
+
+chromeTest("25.3 checks nudge without locking, then reveal the reasoning", async () => {
+  await cdp.goto(pageUrl("25-3.html"));
+
+  const mc = await cdp.evaluate(`(function () {
+    var box = document.querySelector("#gm .check[data-check='mc']");
+    var explain = box.querySelector(".explain");
+    var before = { hidden: explain.hidden, feedback: box.querySelector(".feedback").textContent };
+    box.querySelector('[data-choice="A"]').click();
+    var wrong = {
+      feedback: box.querySelector(".feedback").textContent,
+      marked: box.querySelector('[data-choice="A"]').classList.contains("wrong"),
+      disabled: box.querySelector('[data-choice="A"]').disabled,
+      liveOptions: Array.from(box.querySelectorAll("[data-choice]")).filter(function (b) { return !b.disabled; }).length
+    };
+    box.querySelector('[data-choice="D"]').click();
+    var right = {
+      feedback: box.querySelector(".feedback").textContent,
+      ok: box.querySelector(".feedback").classList.contains("ok"),
+      correct: box.querySelector('[data-choice="D"]').classList.contains("correct"),
+      explainShown: !explain.hidden && explain.textContent.length > 60
+    };
+    return { before: before, wrong: wrong, right: right };
+  })()`);
+  assert.equal(mc.before.hidden, true, "reasoning stays hidden until the student answers");
+  assert.equal(mc.before.feedback, "");
+  assert.match(mc.wrong.feedback, /Not quite\. Try another\./);
+  assert.equal(mc.wrong.marked, true);
+  assert.equal(mc.wrong.disabled, true);
+  assert.ok(mc.wrong.liveOptions >= 3, "a wrong pick keeps the other options live for a retry");
+  assert.equal(mc.right.feedback, "Right.");
+  assert.equal(mc.right.ok, true);
+  assert.equal(mc.right.correct, true);
+  assert.equal(mc.right.explainShown, true, "the reasoning is revealed after the right answer");
+
+  const reveal = await cdp.evaluate(`(function () {
+    var box = document.querySelector("#identify .check[data-check='sa']");
+    var btn = box.querySelector("button[data-reveal]");
+    var model = box.querySelector(".model");
+    var before = { hidden: model.hidden, expanded: btn.getAttribute("aria-expanded"), text: btn.textContent.trim() };
+    btn.click();
+    var open = { hidden: model.hidden, expanded: btn.getAttribute("aria-expanded"), text: btn.textContent.trim() };
+    btn.click();
+    var closed = { hidden: model.hidden, expanded: btn.getAttribute("aria-expanded"), text: btn.textContent.trim() };
+    return { before: before, open: open, closed: closed };
+  })()`);
+  assert.equal(reveal.before.hidden, true);
+  assert.equal(reveal.before.expanded, "false");
+  assert.equal(reveal.before.text, "Show answer");
+  assert.equal(reveal.open.hidden, false);
+  assert.equal(reveal.open.expanded, "true");
+  assert.equal(reveal.open.text, "Hide answer");
+  assert.equal(reveal.closed.hidden, true);
+  assert.equal(reveal.closed.expanded, "false");
+});
+
+chromeTest("25.3 DSE deck keeps slide order and Prev/Next wrap-around", async () => {
+  await cdp.goto(pageUrl("25-3.html"));
+
+  const start = await cdp.evaluate(`(function () {
+    var mc = document.querySelector('[data-quiz="mc"]');
+    var current = mc.querySelector(".quiz-slide.is-current");
+    return {
+      total: mc.querySelectorAll(".quiz-slide").length,
+      id: current && current.id,
+      status: mc.querySelector(".quiz-status").textContent
+    };
+  })()`);
+  assert.ok(start.total >= 8, "the 25.3 MC deck keeps every source slide, n=" + start.total);
+  assert.match(start.status, /^1 of \d+$/);
+  assert.ok(start.id, "one slide is current on load");
+
+  const next = await cdp.evaluate(`(function () {
+    var mc = document.querySelector('[data-quiz="mc"]');
+    mc.querySelector("[data-quiz-next]").click();
+    var current = mc.querySelector(".quiz-slide.is-current");
+    return { id: current.id, status: mc.querySelector(".quiz-status").textContent, shown: mc.querySelectorAll(".quiz-slide.is-current").length };
+  })()`);
+  assert.match(next.status, /^2 of \d+$/);
+  assert.equal(next.shown, 1, "exactly one slide shows at a time");
+  assert.notEqual(next.id, start.id, "Next advances to another paper");
+
+  const prev = await cdp.evaluate(`(function () {
+    var mc = document.querySelector('[data-quiz="mc"]');
+    mc.querySelector("[data-quiz-prev]").click();
+    var current = mc.querySelector(".quiz-slide.is-current");
+    return { id: current.id, status: mc.querySelector(".quiz-status").textContent };
+  })()`);
+  assert.equal(prev.id, start.id, "Prev returns to the first paper");
+  assert.match(prev.status, /^1 of /);
+
+  const wrap = await cdp.evaluate(`(function () {
+    var mc = document.querySelector('[data-quiz="mc"]');
+    mc.querySelector("[data-quiz-prev]").click();
+    return { status: mc.querySelector(".quiz-status").textContent, id: mc.querySelector(".quiz-slide.is-current").id };
+  })()`);
+  assert.equal(wrap.status, start.total + " of " + start.total, "Prev from the first paper wraps to the last");
+  assert.notEqual(wrap.id, start.id);
 });
 
 chromeTest("25.1 knockout ejects the bound electron already on the atom", async () => {

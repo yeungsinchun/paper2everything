@@ -1449,15 +1449,22 @@
     scenes.current = { replay: restart, setKind: setKind, snapshot: snapshot };
   }
 
+  /* Fig. 25.30: one finite story in three phases - radiation enters, the
+     ion-pair grows into an avalanche, the tube gives one pulse - then a
+     stable terminal frame. No infinite loop; Replay starts it again. */
   function gm(host) {
     if (!THREE) return;
     var canvas = host.querySelector("canvas");
     var gfx = stage(canvas, { halfW: 4.8, halfH: 2.4 });
     gfx.camera.position.set(0.6, 0.5, 12);
     gfx.camera.lookAt(0, 0, 0);
+    var hudRadiation = host.querySelector('[data-hud="radiation"]');
     var hudWin = host.querySelector('[data-hud="window"]');
     var hudWire = host.querySelector('[data-hud="wire"]');
     var hudCase = host.querySelector('[data-hud="case"]');
+    var hudArgon = host.querySelector('[data-hud="argon"]');
+    var hudElectron = host.querySelector('[data-hud="electron"]');
+    var hudPulse = host.querySelector('[data-hud="pulse"]');
     var wall = new THREE.Mesh(
       new THREE.CylinderGeometry(1.15, 1.15, 6.4, 48, 1, true),
       new THREE.MeshStandardMaterial({
@@ -1489,48 +1496,176 @@
     windowDisk.position.set(-3.2, 0, 0);
     var rim = new THREE.Mesh(new THREE.TorusGeometry(1.08, 0.08, 8, 28), metal(0x6b7380));
     rim.position.set(-3.2, 0, 0);
-    var argon = ball(0.22, 0xe0a04a);
-    var argonHome = new THREE.Vector3(-1.6, 0.72, 0);
-    argon.position.copy(argonHome);
-    var electron = ball(0.12, 0x2a62a8);
-    electron.position.copy(argonHome);
-    gfx.scene.add(wall, wire, windowDisk, rim, argon, electron);
+    var ATOM_COLOR = 0xe0a04a;
+    var ION_COLOR = 0xd35400;
+    var ELECTRON_COLOR = 0x2a62a8;
+    var WIRE_COLOR = 0xc0392b;
+    var PULSE_COLOR = 0xf5b83d;
+    var ARGON_X = -1.6;
+    var ARGON_Y = 0.72;
+    var WIRE_Y = 0.05;
+    var CASE_Y = 1.0;
+    var DURATION = 2.4;
+    var argon = ball(0.22, ATOM_COLOR);
+    argon.position.set(ARGON_X, ARGON_Y, 0);
+    var electron = ball(0.12, ELECTRON_COLOR);
+    electron.position.copy(argon.position);
+    var alpha = ball(0.1, 0xc9a227);
+    alpha.position.set(-4.55, ARGON_Y, 0.05);
+    var secondaries = [
+      { x: -1.95, y0: 0.55, t0: 0.9 },
+      { x: -1.6, y0: 0.42, t0: 1.0 },
+      { x: -1.25, y0: 0.5, t0: 1.05 },
+      { x: -0.95, y0: 0.38, t0: 1.15 }
+    ].map(function (s) {
+      s.electron = ball(0.08, ELECTRON_COLOR);
+      s.ion = ball(0.1, ION_COLOR);
+      s.electron.visible = false;
+      s.ion.visible = false;
+      s.electron.position.set(s.x, s.y0, 0.03);
+      s.ion.position.set(s.x, s.y0, 0.02);
+      gfx.scene.add(s.electron, s.ion);
+      return s;
+    });
+    var pulseRing = new THREE.Mesh(
+      new THREE.TorusGeometry(0.06, 0.045, 8, 40),
+      new THREE.MeshBasicMaterial({ color: 0x1f9585, transparent: true, opacity: 0 })
+    );
+    pulseRing.position.set(-1.6, WIRE_Y, 0.08);
+    pulseRing.visible = false;
+    var pulseHalo = new THREE.Mesh(
+      new THREE.CircleGeometry(0.14, 24),
+      new THREE.MeshBasicMaterial({ color: PULSE_COLOR, transparent: true, opacity: 0 })
+    );
+    pulseHalo.position.copy(pulseRing.position);
+    pulseHalo.visible = false;
+    gfx.scene.add(wall, wire, windowDisk, rim, argon, electron, alpha, pulseRing, pulseHalo);
     var winAnchor = new THREE.Vector3(-3.2, 1.35, 0);
-    var wireAnchor = new THREE.Vector3(0.4, 0.42, 0);
+    var wireAnchor = new THREE.Vector3(0.9, 0.42, 0);
     var caseAnchor = new THREE.Vector3(2.1, -1.25, 0);
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var t0 = performance.now();
-    function restart() {
-      t0 = performance.now();
-      apply(0);
-    }
-    function apply(t) {
-      var fly = smoothstep(t / 1.05);
-      electron.material.opacity = 1;
-      electron.position.set(argonHome.x, lerp(argonHome.y, 0.08, fly), 0);
-      argon.position.set(argonHome.x, lerp(argonHome.y, 0.98, fly), 0);
-      argon.material.color.setHex(fly > 0.08 ? 0xd35400 : 0xe0a04a);
-      placeHud(hudWin, canvas, gfx.camera, winAnchor);
-      placeHud(hudWire, canvas, gfx.camera, wireAnchor);
-      placeHud(hudCase, canvas, gfx.camera, caseAnchor);
+    var lastT = 0;
+    var finished = true;
+    function render() {
       gfx.renderer.render(gfx.scene, gfx.camera);
     }
+    /* HUD offsets are given in canvas pixels so the labels keep the same
+       clearance from the apparatus at 720px and at 390px. */
+    function hudOffset(world, dxPx, dyPx) {
+      var w = canvas.clientWidth || canvas.width || 1;
+      var h = canvas.clientHeight || canvas.height || 1;
+      var aspect = w / Math.max(h, 1);
+      var halfH = aspect >= 2 ? 2.4 : 4.8 / aspect;
+      return world.clone().add(new THREE.Vector3(dxPx * 9.6 / w, -dyPx * 2 * halfH / h, 0));
+    }
+    function apply(t) {
+      lastT = t;
+      var enter = smoothstep(t / 0.5);
+      var hit = t >= 0.5;
+      var fly = smoothstep((t - 0.55) / 0.75);
+      var pulse = clamp01((t - 1.5) / 0.5);
+      alpha.position.set(lerp(-4.55, ARGON_X - 0.18, enter), ARGON_Y, 0.05);
+      alpha.material.opacity = hit ? clamp01(1 - (t - 0.5) / 0.35) : 1;
+      alpha.visible = alpha.material.opacity > 0.02;
+      argon.position.set(ARGON_X, lerp(ARGON_Y, CASE_Y, hit ? smoothstep((t - 0.5) / 0.9) : 0), 0);
+      argon.material.color.setHex(hit ? ION_COLOR : ATOM_COLOR);
+      electron.visible = t >= 0.55;
+      electron.position.set(ARGON_X, lerp(ARGON_Y, WIRE_Y, fly), 0.04);
+      secondaries.forEach(function (s) {
+        var drift = smoothstep((t - s.t0) / 0.5);
+        s.electron.visible = t >= s.t0;
+        s.electron.position.set(s.x, lerp(s.y0, WIRE_Y, drift), 0.03);
+        s.ion.visible = t >= s.t0;
+        s.ion.position.set(s.x, lerp(s.y0, CASE_Y, smoothstep((t - s.t0) / 0.9)), 0.02);
+      });
+      wire.material.color.setHex(pulse > 0 && pulse < 1 ? PULSE_COLOR : WIRE_COLOR);
+      pulseRing.visible = t >= 1.5;
+      pulseRing.scale.setScalar(0.4 + pulse * 4.2);
+      pulseRing.material.opacity = pulse < 1 ? (1 - pulse) * 0.9 : 0.35;
+      pulseHalo.visible = t >= 1.5;
+      pulseHalo.scale.setScalar(0.8 + pulse * 2.2);
+      pulseHalo.material.opacity = pulse < 1 ? (1 - pulse) * 0.8 : 0.5;
+      placeHud(hudWin, canvas, gfx.camera, hudOffset(winAnchor, 0, -14));
+      placeHud(hudWire, canvas, gfx.camera, hudOffset(wireAnchor, 0, -14));
+      placeHud(hudCase, canvas, gfx.camera, caseAnchor);
+      placeHud(hudRadiation, canvas, gfx.camera, hudOffset(alpha.position, 0, 14));
+      if (hudRadiation) hudRadiation.style.visibility = alpha.visible && alpha.position.x > -3.4 ? "visible" : "hidden";
+      placeHud(hudArgon, canvas, gfx.camera, hudOffset(argon.position, 30, -40));
+      if (hudArgon) hudArgon.textContent = hit ? "argon ion +" : "argon atom";
+      placeHud(hudElectron, canvas, gfx.camera, hudOffset(electron.position, 0, 16));
+      if (hudElectron) hudElectron.style.visibility = electron.visible && t < 1.5 ? "visible" : "hidden";
+      if (hudPulse) {
+        hudPulse.hidden = t < 1.5;
+        placeHud(hudPulse, canvas, gfx.camera, hudOffset(new THREE.Vector3(ARGON_X, WIRE_Y, 0), 0, 20));
+      }
+    }
     function frame(now) {
-      var t = ((now - t0) / 1000) % 1.4;
+      if (finished) return;
+      var t = reduced ? DURATION : (now - t0) / 1000;
+      if (t >= DURATION) {
+        apply(DURATION);
+        render();
+        finished = true;
+        return;
+      }
       apply(t);
+      render();
       requestAnimationFrame(frame);
+    }
+    function restart() {
+      t0 = performance.now();
+      finished = false;
+      apply(0);
+      render();
+      if (reduced) {
+        apply(DURATION);
+        render();
+        finished = true;
+        return;
+      }
+      requestAnimationFrame(frame);
+    }
+    function seek(sec) {
+      finished = true;
+      apply(Math.max(0, Math.min(DURATION, sec)));
+      render();
     }
     function snapshot() {
       return {
-        electronX: electron.position.x,
-        electronY: electron.position.y,
+        t: lastT,
+        duration: DURATION,
+        finished: finished,
+        phase: lastT < 0.5 ? "enter" : lastT < 1.5 ? "avalanche" : "pulse",
+        argonLabel: hudArgon ? hudArgon.textContent : "",
         argonX: argon.position.x,
         argonY: argon.position.y,
-        homeX: argonHome.x
+        electronX: electron.position.x,
+        electronY: electron.position.y,
+        homeX: ARGON_X,
+        electronVisible: electron.visible,
+        secondaryVisible: secondaries.filter(function (s) { return s.ion.visible; }).length,
+        secondaryCollected: secondaries.filter(function (s) { return s.electron.position.y < 0.1; }).length,
+        pulseVisible: pulseRing.visible,
+        pulseScale: pulseRing.scale.x,
+        hud: { argon: hudXY(hudArgon), electron: hudXY(hudElectron), pulse: hudXY(hudPulse) }
       };
     }
     hostReplay(host, restart);
-    requestAnimationFrame(frame);
-    scenes.gm = { replay: restart, snapshot: snapshot };
+    window.addEventListener("resize", function () {
+      apply(lastT);
+      render();
+    });
+    if (typeof ResizeObserver === "function") {
+      new ResizeObserver(function () {
+        apply(lastT);
+        render();
+      }).observe(canvas);
+    }
+    if (!host.hasAttribute("data-autoplay") && !host.classList.contains("play")) {
+      seek(reduced ? DURATION : 0);
+    }
+    scenes.gm = { replay: restart, seek: seek, snapshot: snapshot };
   }
 
   function efield(host) {
