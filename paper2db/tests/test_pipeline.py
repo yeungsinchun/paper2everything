@@ -75,7 +75,7 @@ class TestPipelineHelpers(unittest.TestCase):
         )
         self.assertEqual(
             self.pipe.select_stages(args),
-            ["keys", "classify-mc", "classify-lq"],
+            ["keys", "classify-mc", "lq-performance", "classify-lq"],
         )
 
     def test_keys_stage_uses_paper_ans_only(self) -> None:
@@ -133,7 +133,7 @@ class TestPipelineHelpers(unittest.TestCase):
                     pipe.stage_mc_split(["2099"], force=True)
             self.assertIn("Run mc-anchors first", str(raised.exception))
 
-    def test_classify_lq_uses_llm_when_keyed(self) -> None:
+    def test_classify_lq_uses_replay_classifier(self) -> None:
         pipe = self.pipe
         calls: list[str] = []
 
@@ -143,10 +143,9 @@ class TestPipelineHelpers(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
             with mock.patch.object(pipe, "ROOT", tmp_path):
-                with mock.patch.object(pipe, "has_llm_key", return_value=True):
-                    with mock.patch.object(pipe, "run_script", side_effect=fake_run):
-                        with mock.patch.dict("os.environ", {}, clear=False):
-                            pipe.stage_classify_lq(None, force=True)
+                with mock.patch.object(pipe, "run_script", side_effect=fake_run):
+                    with mock.patch.dict("os.environ", {}, clear=False):
+                        pipe.stage_classify_lq(None, force=True)
         self.assertEqual(calls, ["classify_lq_llm.py"])
 
     def test_lq_crops_ready_rejects_y_crop_and_missing_pages(self) -> None:
@@ -155,7 +154,7 @@ class TestPipelineHelpers(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
-            year_dir = tmp_path / "output" / "lq" / "2099"
+            year_dir = tmp_path / "tests" / "reconstructed" / "lq" / "2099"
             pages = year_dir / "pages"
             pages.mkdir(parents=True)
             Image.new("RGB", (100, 200), (255, 255, 255)).save(pages / "page000.png")
@@ -186,7 +185,7 @@ class TestPipelineHelpers(unittest.TestCase):
             paper = tmp_path / "paper" / "lq"
             paper.mkdir(parents=True)
             (paper / "2099p1b.pdf").write_bytes(b"%PDF-1.4")
-            year_dir = tmp_path / "output" / "lq" / "2099"
+            year_dir = tmp_path / "tests" / "reconstructed" / "lq" / "2099"
             year_dir.mkdir(parents=True)
             starts = year_dir / "starts.json"
             original = '{"questions":[],"pages":1}\n'
@@ -216,9 +215,11 @@ class TestAnswerKeyDefaults(unittest.TestCase):
         with mock.patch.object(sys, "argv", ["extract_answer_keys.py"]):
             args = eak.parse_args()
         self.assertEqual(args.answers, ROOT / "paper" / "ans")
-        self.assertEqual(args.output, ROOT / "classified" / "mc" / "answer_keys.json")
+        self.assertEqual(
+            args.output, ROOT / "tests" / "sections" / "mc" / "answer_keys.json"
+        )
 
-    def test_combine_section_pdfs_uses_classified_keys(self) -> None:
+    def test_combine_section_pdfs_uses_section_keys(self) -> None:
         sys.path.insert(0, str(ROOT / "scripts"))
         import combine_section_pdfs as csp
 
@@ -226,7 +227,7 @@ class TestAnswerKeyDefaults(unittest.TestCase):
             args = csp.parse_args()
         self.assertEqual(
             args.keys.resolve(),
-            (ROOT / "classified" / "mc" / "answer_keys.json").resolve(),
+            (ROOT / "tests" / "sections" / "mc" / "answer_keys.json").resolve(),
         )
 
 

@@ -167,8 +167,9 @@ check in `ci-notes` is the only cross-edge a workflow verifies.
 `./paper2db/pipeline` reads `paper/{mc,lq,ans}/*.pdf` and
 `paper/performance/*.md`, plus the tracked hand-tuned inputs, and runs the
 stages listed in the diagram. Classification (`classify-mc`, `classify-lq`)
-either reuses the tracked `metadata/*/llm_classifications.json` or calls the LLM
-backend and rewrites it. `section-pdfs` writes
+replays the tracked `metadata/*/llm_classifications.json` by default, calls the
+LLM backend only for years missing from that metadata, and falls back to the
+keyword classifiers when no API key is set or the LLM call errors. `section-pdfs` writes
 `tests/sections/{mc,lq}/<NN_Book>/<NN_Section>/` with PNG crops named
 `YYYY_qN.png` (MC) or `YYYY-qN.png` / `YYYY-qN-ans.png` (LQ) and a
 `combined.pdf`. The section taxonomy is the `SECTIONS` list in

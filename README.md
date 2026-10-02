@@ -52,7 +52,7 @@ paper2everything/
 | `python3 -m http.server` | notes preview | no build step |
 | TeX Live with LuaLaTeX and latexmk | paper2mock | compile check |
 | Docker, gcloud | Cloud Run deploy | maintainers only |
-| LLM API key (`LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`) | better MC and LQ classification | optional; keyword classifiers are the fallback |
+| LLM API key (`LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`) | classifying years missing from tracked metadata | optional; tracked metadata is replayed first, keyword classifiers are the fallback |
 
 ## Quick start
 

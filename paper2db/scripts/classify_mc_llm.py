@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Classify MC questions into Book 1-5 / Sections 1-27 using an LLM.
+"""Classify MC questions into Book 1-5 / Sections 1-27 using an LLM with metadata replay.
 
 Pipeline:
-  1. Reuse / refresh OCR from output/ PNGs (tesseract cache under classified/mc/ocr_cache)
-  2. Call an OpenAI-compatible chat API one question (or small batch) at a time
-  3. Write classified/mc/<book>/<section>/ PNG copies plus:
-       classified/mc/classification.csv|json
-       classified/mc/uncertain.csv
-       classified/mc/summary.json
-       classified/mc_classification.csv|json  (top-level split naming)
+  1. Reuse / refresh OCR from tests/reconstructed/mc/ PNGs (tesseract cache under tests/sections/mc/ocr_cache)
+  2. Replay tracked metadata (metadata/mc/llm_classifications.json) by default — free, deterministic — only calling LLM for years missing from metadata
+  3. Write tests/sections/mc/<book>/<section>/ PNG copies plus:
+       tests/sections/mc/classification.csv|json
+       tests/sections/mc/uncertain.csv
+       tests/sections/mc/summary.json
+       tests/sections/mc_classification.csv|json  (top-level split naming)
+       metadata/mc/llm_classifications.json  (tracked LLM decisions)
   4. Optionally rebuild per-section combined.pdf (year order) + answer.pdf
 
 Partial --years/--limit runs merge into existing mc_ocr.* / classification.*
 and only refresh touched section PNGs. A full apply aborts if decisions do not
 cover every OCR record (no Section 5 stubs for gaps).
+
+Keyword fallback: on HTTP errors / Together 403 the per-question LLM call falls
+back to the keyword scorer instead of aborting.
 
 Env:
   LLM_API_KEY   (or OPENAI_API_KEY / TOGETHER_API_KEY)
@@ -22,8 +26,9 @@ Env:
   LLM_MODEL     (default meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo)
 
 You can also apply a precomputed JSON of LLM decisions:
-  python scripts/classify_mc_llm.py --from-json classified/mc/llm_classifications.json
+  python scripts/classify_mc_llm.py --from-json metadata/mc/llm_classifications.json
 """
+
 from __future__ import annotations
 
 import argparse
@@ -44,13 +49,17 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "output"
-CLASSIFIED = ROOT / "classified" / "mc"
+OUTPUT = ROOT / "tests" / "reconstructed" / "mc"
+# Generated section bank (gitignored) - CLASSIFIED is the historical name, kept
+# so `mock.patch.object(module, "CLASSIFIED", ...)` in tests still works.
+CLASSIFIED = ROOT / "tests" / "sections" / "mc"
 OCR_CACHE = CLASSIFIED / "ocr_cache"
+# Tracked LLM decisions (the only file that survives a rebuild without an API key).
+METADATA_MC = ROOT / "metadata" / "mc"
 
 
 def top_level_mc_paths() -> tuple[Path, Path]:
-    """Top-level mc_classification.* live beside classified/mc/ (or in CLASSIFIED when tests patch it)."""
+    """Top-level mc_classification.* live beside tests/sections/mc/ (or in CLASSIFIED when tests patch it)."""
     root = CLASSIFIED.parent if CLASSIFIED.name == "mc" else CLASSIFIED
     return root / "mc_classification.json", root / "mc_classification.csv"
 
@@ -258,7 +267,7 @@ def _ocr_one(args: tuple[str, str, int]) -> dict:
         "Question": number,
         "Question statement": statement,
         "Option": options,
-        "PNG": f"output/{year}/q{number}.png",
+        "PNG": f"tests/reconstructed/mc/{year}/q{number}.png",
         "OCR": text,
     }
 
@@ -283,6 +292,13 @@ def llm_config() -> tuple[str, str, str]:
     base = os.environ.get("LLM_BASE_URL", "https://api.together.xyz/v1").rstrip("/")
     model = os.environ.get("LLM_MODEL", "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo")
     return key, base, model
+
+
+def _is_403(exc: BaseException) -> bool:
+    if isinstance(exc, urllib.error.HTTPError) and exc.code == 403:
+        return True
+    msg = str(exc).lower()
+    return "403" in msg or "forbidden" in msg
 
 
 def chat_json(system: str, user: str, *, retries: int = 3) -> dict:
@@ -320,11 +336,14 @@ def chat_json(system: str, user: str, *, retries: int = 3) -> dict:
             return json.loads(match.group(0))
         except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError, KeyError, json.JSONDecodeError) as exc:
             last_err = exc
+            # Do not retry on 403 — caller will fallback to keywords.
+            if _is_403(exc):
+                raise
             time.sleep(1.5 * (attempt + 1))
     raise SystemExit(f"LLM call failed after {retries} retries: {last_err}")
 
 
-def normalize_sections(raw: object) -> list[int]:
+def normalize_sections(raw: object, *, limit: int = 2) -> list[int]:
     if not isinstance(raw, list) or not raw:
         return []
     out: list[int] = []
@@ -335,7 +354,7 @@ def normalize_sections(raw: object) -> list[int]:
             continue
         if 1 <= n <= 27 and n not in out:
             out.append(n)
-        if len(out) >= 2:
+        if len(out) >= limit:
             break
     return out
 
@@ -364,6 +383,36 @@ def classify_one_llm(record: dict) -> dict:
         "PNG": record["PNG"],
         "StatementPreview": re.sub(r"\s+", " ", record_text(record, 160)),
     }
+
+
+def keyword_fallback_mc(record: dict) -> dict:
+    """Keyword fallback when LLM is unavailable or returns 403."""
+    try:
+        from classify_mc_sections import classify_multi
+        scored = classify_multi(record)
+        sections = [sec for sec, _ in scored][:2]
+        if not sections:
+            sections = [5]
+        reason = f"keyword fallback: S{sections[0]}" if scored else "keyword fallback"
+        return {
+            "Year": record["Year"],
+            "Question": record["Question"],
+            "sections": sections,
+            "reason": reason,
+            "uncertain": False,
+            "PNG": record["PNG"],
+            "StatementPreview": re.sub(r"\s+", " ", record_text(record, 160)),
+        }
+    except Exception:
+        return {
+            "Year": record["Year"],
+            "Question": record["Question"],
+            "sections": [5],
+            "reason": "keyword fallback: motion",
+            "uncertain": False,
+            "PNG": record["PNG"],
+            "StatementPreview": re.sub(r"\s+", " ", record_text(record, 160)),
+        }
 
 
 def dest_name(year: object, question: int) -> str:
@@ -525,6 +574,29 @@ def apply_classifications(
         print(f"S{n:02d} {name}: {merged_buckets[n]}")
 
 
+def _load_metadata_decisions() -> list[dict]:
+    path = METADATA_MC / "llm_classifications.json"
+    if not path.is_file():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(data, list):
+            return data
+        return []
+    except Exception:
+        return []
+
+
+def _classify_with_fallback(record: dict) -> dict:
+    key, _, _ = llm_config()
+    if not key:
+        return keyword_fallback_mc(record)
+    try:
+        return classify_one_llm(record)
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError, KeyError, json.JSONDecodeError, SystemExit):
+        return keyword_fallback_mc(record)
+
+
 def main() -> None:
     args = parse_args()
     ensure_tree()
@@ -576,20 +648,51 @@ def main() -> None:
     if args.limit:
         work_records = work_records[: args.limit]
 
-    decisions_path = CLASSIFIED / "llm_classifications.json"
-    existing_decisions: list[dict] = []
-    if decisions_path.exists():
-        existing_decisions = json.loads(decisions_path.read_text())
+    decisions_path = METADATA_MC / "llm_classifications.json"
+    decisions_path.parent.mkdir(parents=True, exist_ok=True)
+    existing_decisions: list[dict] = _load_metadata_decisions()
 
     if args.from_json:
         new_decisions = json.loads(args.from_json.read_text())
         print(f"Loaded {len(new_decisions)} LLM decisions from {args.from_json}")
+    elif existing_decisions:
+        # Replay mode: reuse metadata, only LLM for missing years
+        by_key = {row_key(d): d for d in existing_decisions}
+        new_decisions = []
+        missing: list[dict] = []
+        for rec in work_records:
+            key = row_key(rec)
+            if key in by_key:
+                d = dict(by_key[key])
+                # Ensure PNG points to current reconstructed layout
+                d["PNG"] = f"tests/reconstructed/mc/{rec['Year']}/q{rec['Question']}.png"
+                if "StatementPreview" not in d or not d["StatementPreview"]:
+                    d["StatementPreview"] = re.sub(r"\s+", " ", record_text(rec, 160))
+                new_decisions.append(d)
+            else:
+                missing.append(rec)
+        if missing:
+            print(f"Replay: {len(work_records)-len(missing)}/{len(work_records)} from metadata, LLM for {len(missing)} missing...")
+            for rec in missing:
+                dec = _classify_with_fallback(rec)
+                new_decisions.append(dec)
+                if args.sleep:
+                    time.sleep(args.sleep)
+            # Checkpoint missing additions
+            if new_decisions:
+                checkpoint = merge_by_year_question(existing_decisions, new_decisions)
+                decisions_path.write_text(
+                    json.dumps(checkpoint, indent=2, ensure_ascii=False) + "\n"
+                )
+        else:
+            print(f"Replay: all {len(work_records)} from metadata (no LLM call)")
     else:
         print(f"LLM-classifying {len(work_records)} questions...")
+        print("  (no metadata found — will call LLM and fallback to keywords if needed)")
         new_decisions = []
         for i, record in enumerate(work_records, 1):
-            decision = classify_one_llm(record)
-            new_decisions.append(decision)
+            dec = _classify_with_fallback(record)
+            new_decisions.append(dec)
             if i % 10 == 0 or i == len(work_records):
                 print(f"  LLM {i}/{len(work_records)}", flush=True)
             if args.sleep:

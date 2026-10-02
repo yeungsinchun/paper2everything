@@ -50,17 +50,22 @@ class TestGitignoreGenerated(unittest.TestCase):
             "classified/lq/01_Heat/1_Temperature/questions.pdf",
             "classified/mc_classification.json",
             "classified/quality_audit.json",
+            "tests/reconstructed/mc/2024/q1.png",
+            "tests/reconstructed/mc/combined.pdf",
+            "tests/sections/mc/answer_keys.json",
+            "tests/sections/mc/01_Heat/1_Temperature/combined.pdf",
+            "tests/sections/lq/classification.csv",
+            "tests/sections/mc_classification.json",
+            "tests/sections/lq_classification.json",
             ".lavish/lq-classified-review/index.html",
         ):
             self.assertTrue(self._ignored(path), f"{path} should be gitignored")
 
     def test_hand_tuned_inputs_not_ignored(self) -> None:
         for path in (
-            "output/lq/2024/starts.json",
-            "reconstructed/lq/2024/starts.json",
-            "classified/mc/llm_classifications.json",
-            "classified/lq/llm_classifications.json",
-            "classified/lq/candidate_performance.json",
+            "tests/reconstructed/lq/2024/starts.json",
+            "metadata/mc/llm_classifications.json",
+            "metadata/lq/llm_classifications.json",
             "scripts/overrides_2018.json",
         ):
             self.assertFalse(self._ignored(path), f"{path} should not be gitignored")
@@ -70,13 +75,13 @@ class TestClassificationSplitArtifacts(unittest.TestCase):
     """Shipped public classification contracts after the rename split."""
 
     def test_ambiguous_top_level_names_absent(self) -> None:
-        self.assertFalse((ROOT / "classified" / "classification.csv").exists())
-        self.assertFalse((ROOT / "classified" / "classification.json").exists())
+        self.assertFalse((ROOT / "tests" / "sections" / "classification.csv").exists())
+        self.assertFalse((ROOT / "tests" / "sections" / "classification.json").exists())
 
     def test_mc_classification_list_contract(self) -> None:
-        path = ROOT / "classified" / "mc_classification.json"
+        path = ROOT / "tests" / "sections" / "mc_classification.json"
         if not path.is_file():
-            self.skipTest("classified/ not built (run ./pipeline)")
+            self.skipTest("tests/sections/ not built (run ./pipeline)")
         rows = json.loads(path.read_text(encoding="utf-8"))
         self.assertIsInstance(rows, list)
         self.assertGreater(len(rows), 100)
@@ -89,14 +94,14 @@ class TestClassificationSplitArtifacts(unittest.TestCase):
             "PNG",
         }
         self.assertTrue(required.issubset(rows[0].keys()))
-        with (ROOT / "classified" / "mc_classification.csv").open(encoding="utf-8") as fh:
+        with (ROOT / "tests" / "sections" / "mc_classification.csv").open(encoding="utf-8") as fh:
             csv_rows = list(csv.DictReader(fh))
         self.assertEqual(len(csv_rows), len(rows))
 
     def test_lq_classification_list_contract(self) -> None:
-        path = ROOT / "classified" / "lq_classification.json"
+        path = ROOT / "tests" / "sections" / "lq_classification.json"
         if not path.is_file():
-            self.skipTest("classified/ not built (run ./pipeline)")
+            self.skipTest("tests/sections/ not built (run ./pipeline)")
         rows = json.loads(path.read_text(encoding="utf-8"))
         self.assertIsInstance(rows, list)
         self.assertGreater(len(rows), 50)
@@ -109,7 +114,7 @@ class TestClassificationSplitArtifacts(unittest.TestCase):
             "AnswerPNG",
         }
         self.assertTrue(required.issubset(rows[0].keys()))
-        nested = ROOT / "classified" / "lq" / "classification.csv"
+        nested = ROOT / "tests" / "sections" / "lq" / "classification.csv"
         self.assertTrue(nested.is_file())
         with nested.open(encoding="utf-8") as fh:
             nested_rows = list(csv.DictReader(fh))
@@ -468,55 +473,149 @@ class TestMcSectionsYearsMerge(unittest.TestCase):
             self.assertEqual(kept_png.read_bytes(), b"KEEP-2013-SECTIONS")
 
 
-class TestLqLlmAbortOnPartialFailure(unittest.TestCase):
-    """LLM failures must not clear-and-replace nested LQ outputs."""
+class TestLqLlmFailureHandling(unittest.TestCase):
+    """LLM failures fall back to keywords; unresolvable fallback aborts the write."""
 
-    def test_write_outputs_not_called_when_one_fails(self) -> None:
-        import classify_lq_llm as lq
-
-        records = [
+    @staticmethod
+    def _records() -> list[dict]:
+        return [
             {
                 "Year": "2012",
                 "Question": 1,
                 "Statement": "ok",
-                "PNG": "output/lq/2012/q1.png",
-                "AnswerPNG": "output/lq/2012/ans/q1.png",
+                "PNG": "tests/reconstructed/lq/2012/q1.png",
+                "AnswerPNG": "tests/reconstructed/lq/2012/ans/q1.png",
             },
             {
                 "Year": "2012",
                 "Question": 2,
                 "Statement": "bad",
-                "PNG": "output/lq/2012/q2.png",
-                "AnswerPNG": "output/lq/2012/ans/q2.png",
+                "PNG": "tests/reconstructed/lq/2012/q2.png",
+                "AnswerPNG": "tests/reconstructed/lq/2012/ans/q2.png",
             },
         ]
 
-        def fake_classify(rec: dict) -> dict:
-            if int(rec["Question"]) == 2:
-                raise ValueError("boom")
-            return {"sections": [5], "reason": "ok"}
+    @staticmethod
+    def _fake_classify(rec: dict) -> dict:
+        if int(rec["Question"]) == 2:
+            raise ValueError("boom")
+        return {"sections": [5], "reason": "ok"}
 
-        with (
-            mock.patch.object(lq, "collect_jobs", return_value=[
-                ("2012", Path("x"), 1),
-                ("2012", Path("y"), 2),
-            ]),
-            mock.patch.object(lq, "_ocr_one", side_effect=records),
-            mock.patch.object(lq, "classify_one", side_effect=fake_classify),
-            mock.patch.object(lq, "llm_config", return_value=("k", "http://x", "m")),
-            mock.patch.object(lq, "write_outputs") as write_outputs,
-            mock.patch.object(
-                lq,
-                "parse_args",
-                return_value=argparse.Namespace(
-                    years=None, workers=1, from_json=None, limit=None, sleep=0
+    def test_llm_failure_falls_back_to_keywords_and_writes(self) -> None:
+        import classify_lq_llm as lq
+
+        with tempfile.TemporaryDirectory() as tmp:
+            metadata = Path(tmp) / "metadata" / "lq"
+            with (
+                mock.patch.object(lq, "collect_jobs", return_value=[
+                    ("2012", Path("x"), 1),
+                    ("2012", Path("y"), 2),
+                ]),
+                mock.patch.object(lq, "_ocr_one", side_effect=self._records()),
+                mock.patch.object(lq, "classify_one", side_effect=self._fake_classify),
+                mock.patch.object(
+                    lq,
+                    "keyword_fallback_lq",
+                    return_value={"sections": [8], "reason": "keyword fallback"},
+                ) as fallback,
+                mock.patch.object(lq, "llm_config", return_value=("k", "http://x", "m")),
+                mock.patch.object(lq, "METADATA_LQ", metadata),
+                mock.patch.object(lq, "write_outputs") as write_outputs,
+                mock.patch.object(
+                    lq,
+                    "parse_args",
+                    return_value=argparse.Namespace(
+                        years=None, workers=1, from_json=None, limit=None, sleep=0
+                    ),
                 ),
-            ),
-        ):
-            with self.assertRaises(SystemExit) as ctx:
+            ):
                 lq.main()
-        self.assertIn("Aborting write", str(ctx.exception))
-        write_outputs.assert_not_called()
+            fallback.assert_called_once()
+            write_outputs.assert_called_once()
+            rows = write_outputs.call_args.args[0]
+            by_question = {int(r["Question"]): r for r in rows}
+            self.assertEqual(by_question[1]["AllSections"], "5")
+            self.assertEqual(by_question[2]["AllSections"], "8")
+            self.assertEqual(by_question[2]["Reason"], "keyword fallback")
+
+    def test_unresolvable_fallback_aborts_without_writing(self) -> None:
+        import classify_lq_llm as lq
+
+        with tempfile.TemporaryDirectory() as tmp:
+            metadata = Path(tmp) / "metadata" / "lq"
+            with (
+                mock.patch.object(lq, "collect_jobs", return_value=[
+                    ("2012", Path("x"), 1),
+                    ("2012", Path("y"), 2),
+                ]),
+                mock.patch.object(lq, "_ocr_one", side_effect=self._records()),
+                mock.patch.object(lq, "classify_one", side_effect=self._fake_classify),
+                mock.patch.object(
+                    lq,
+                    "keyword_fallback_lq",
+                    return_value={"sections": [5], "reason": "keyword fallback"},
+                ),
+                mock.patch.object(lq, "finalize_sections", side_effect=ValueError("bad")),
+                mock.patch.object(lq, "llm_config", return_value=("k", "http://x", "m")),
+                mock.patch.object(lq, "METADATA_LQ", metadata),
+                mock.patch.object(lq, "write_outputs") as write_outputs,
+                mock.patch.object(
+                    lq,
+                    "parse_args",
+                    return_value=argparse.Namespace(
+                        years=None, workers=1, from_json=None, limit=None, sleep=0
+                    ),
+                ),
+            ):
+                with self.assertRaises(SystemExit) as ctx:
+                    lq.main()
+            self.assertIn("Aborting write", str(ctx.exception))
+            write_outputs.assert_not_called()
+
+
+class TestLqLlmTopLevelContract(unittest.TestCase):
+    """classify_lq_llm emits the shipped top-level LQ split like the MC path."""
+
+    def test_write_outputs_emits_top_level_lists(self) -> None:
+        import classify_lq_llm as lq
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            classified_lq = root / "tests" / "sections" / "lq"
+            metadata_lq = root / "metadata" / "lq"
+            classified_lq.mkdir(parents=True)
+            metadata_lq.mkdir(parents=True)
+            rows = [
+                {
+                    "Year": "2024",
+                    "Question": 1,
+                    "Primary": 5,
+                    "AllSections": "5",
+                    "Reason": "motion",
+                    "PNG": "tests/reconstructed/lq/2024/q1.png",
+                    "AnswerPNG": "tests/reconstructed/lq/2024/ans/q1.png",
+                },
+            ]
+            with (
+                mock.patch.object(lq, "CLASSIFIED_LQ", classified_lq),
+                mock.patch.object(lq, "METADATA_LQ", metadata_lq),
+            ):
+                lq.write_outputs(rows)
+
+            top_json = root / "tests" / "sections" / "lq_classification.json"
+            top_csv = root / "tests" / "sections" / "lq_classification.csv"
+            self.assertTrue(top_json.is_file())
+            self.assertTrue(top_csv.is_file())
+            payload = json.loads(top_json.read_text(encoding="utf-8"))
+            self.assertIsInstance(payload, list)
+            self.assertEqual(payload[0]["PrimarySection"], 5)
+            self.assertEqual(payload[0]["PrimaryName"], lq.SECTION_BY_NUM[5][2])
+            self.assertEqual(payload[0]["AnswerPNG"], "tests/reconstructed/lq/2024/ans/q1.png")
+            self.assertEqual(payload[0]["CandidatePerformance"], "")
+            with top_csv.open(encoding="utf-8") as fh:
+                csv_rows = list(csv.DictReader(fh))
+            self.assertEqual(len(csv_rows), 1)
+            self.assertEqual(csv_rows[0]["PrimarySection"], "5")
 
 
 class TestLqKeywordsYearsMerge(unittest.TestCase):
@@ -527,11 +626,13 @@ class TestLqKeywordsYearsMerge(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            output_lq = root / "output" / "lq"
-            classified_lq = root / "classified" / "lq"
-            classified = root / "classified"
-            classified.mkdir()
+            output_lq = root / "tests" / "reconstructed" / "lq"
+            classified_lq = root / "tests" / "sections" / "lq"
+            sections = root / "tests" / "sections"
+            metadata_lq = root / "metadata" / "lq"
+            sections.mkdir(parents=True)
             classified_lq.mkdir(parents=True)
+            metadata_lq.mkdir(parents=True)
 
             from PIL import Image
 
@@ -553,8 +654,8 @@ class TestLqKeywordsYearsMerge(unittest.TestCase):
                     "Primary": "5",
                     "AllSections": "5",
                     "Reason": "old-2013",
-                    "PNG": "output/lq/2013/q1.png",
-                    "AnswerPNG": "output/lq/2013/ans/q1.png",
+                    "PNG": "tests/reconstructed/lq/2013/q1.png",
+                    "AnswerPNG": "tests/reconstructed/lq/2013/ans/q1.png",
                 },
                 {
                     "Year": "2024",
@@ -562,15 +663,15 @@ class TestLqKeywordsYearsMerge(unittest.TestCase):
                     "Primary": "8",
                     "AllSections": "8",
                     "Reason": "old-2024",
-                    "PNG": "output/lq/2024/q1.png",
-                    "AnswerPNG": "output/lq/2024/ans/q1.png",
+                    "PNG": "tests/reconstructed/lq/2024/q1.png",
+                    "AnswerPNG": "tests/reconstructed/lq/2024/ans/q1.png",
                 },
             ]
             with (classified_lq / "classification.csv").open("w", newline="", encoding="utf-8") as fh:
                 writer = csv.DictWriter(fh, fieldnames=kw.NESTED_CSV_FIELDS)
                 writer.writeheader()
                 writer.writerows(existing_rows)
-            (classified_lq / "llm_classifications.json").write_text(
+            (metadata_lq / "llm_classifications.json").write_text(
                 json.dumps(
                     {
                         "2013-q1": {"sections": [5], "reason": "old-2013"},
@@ -581,22 +682,13 @@ class TestLqKeywordsYearsMerge(unittest.TestCase):
                 + "\n",
                 encoding="utf-8",
             )
-            detailed = kw.build_detailed_rows(
-                [
-                    {**r, "Primary": int(r["Primary"]), "Question": int(r["Question"])}
-                    for r in existing_rows
-                ],
-                {},
-            )
-            (classified / "lq_classification.json").write_text(
-                json.dumps(detailed, indent=2) + "\n", encoding="utf-8"
-            )
 
             with (
                 mock.patch.object(kw, "ROOT", root),
                 mock.patch.object(kw, "OUTPUT_LQ", output_lq),
                 mock.patch.object(kw, "CLASSIFIED_LQ", classified_lq),
                 mock.patch.object(kw, "OCR_CACHE", classified_lq / "ocr_cache"),
+                mock.patch.object(kw, "METADATA_LQ", metadata_lq),
                 mock.patch.object(
                     kw,
                     "parse_args",
@@ -614,8 +706,14 @@ class TestLqKeywordsYearsMerge(unittest.TestCase):
             self.assertEqual(by_year["2013"]["Reason"], "old-2013")
             self.assertEqual(by_year["2024"]["Reason"], "new-2024")
 
-            top = json.loads((classified / "lq_classification.json").read_text())
+            top = json.loads((sections / "lq_classification.json").read_text())
             self.assertEqual(len(top), 2)
+
+            saved_decisions = json.loads(
+                (metadata_lq / "llm_classifications.json").read_text()
+            )
+            self.assertEqual(saved_decisions["2013-q1"]["reason"], "old-2013")
+            self.assertEqual(saved_decisions["2024-q1"]["reason"], "new-2024")
 
             book5, folder5, _ = kw.SECTION_BY_NUM[5]
             kept = classified_lq / book5 / folder5 / "2013-q1.png"
@@ -632,7 +730,7 @@ class TestLqPerformanceYearsMerge(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             perf_dir = root / "paper" / "performance"
-            out = root / "classified" / "lq" / "candidate_performance.json"
+            out = root / "tests" / "sections" / "lq" / "candidate_performance.json"
             perf_dir.mkdir(parents=True)
             out.parent.mkdir(parents=True)
 

@@ -9,26 +9,9 @@ __pycache__/
 # the hand-tuned inputs re-included below stay tracked. output/ and
 # reconstructed/ are pre-move trees; stale local copies stay ignored.
 # metadata/ (LLM classification decisions) is entirely tracked, not gitignored.
-output/*
-!output/lq/
-output/lq/*
-!output/lq/*/
-output/lq/*/*
-!output/lq/*/starts.json
-/reconstructed/*
-!reconstructed/lq/
-reconstructed/lq/*
-!reconstructed/lq/*/
-reconstructed/lq/*/*
-!reconstructed/lq/*/starts.json
-classified/*
-!classified/mc/
-classified/mc/*
-!classified/mc/llm_classifications.json
-!classified/lq/
-classified/lq/*
-!classified/lq/llm_classifications.json
-!classified/lq/candidate_performance.json
+output/
+/reconstructed/
+/classified/
 intermediate/
 tests/reconstructed/*
 !tests/reconstructed/lq/

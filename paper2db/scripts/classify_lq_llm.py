@@ -1,32 +1,31 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Classify LQ (Paper 1B) questions into the same 27 sections as MC.
+"""Classify LQ (Paper 1B) questions into the same 27 sections as MC with metadata replay.
 
-Reads crops from output/lq/<year>/qN.png, writes nested LQ outputs only:
-  classified/lq/llm_classifications.json
-  classified/lq/classification.csv
-  classified/lq/<book>/<section>/ year-qN.png (+ optional answer copy)
+Reads crops from tests/reconstructed/lq/<year>/qN.png, writes nested LQ outputs only:
+  metadata/lq/llm_classifications.json
+  tests/sections/lq/classification.csv
+  tests/sections/lq/<book>/<section>/ year-qN.png (+ optional answer copy)
 
-Top-level classified/lq_classification.csv|json come from classify_lq_keywords.py.
-Any LLM failure aborts before write_outputs so nested outputs stay unchanged.
+Writes the top-level tests/sections/lq_classification.csv|json split contract (same shape as classify_lq_keywords.py).
+Replay: by default reuses metadata/lq/llm_classifications.json (free deterministic) and only calls LLM for years missing from metadata. Keyword fallback on HTTP 403 / LLM errors.
+LLM failures fall back to keywords without aborting; a malformed replayed decision aborts before write_outputs so nested outputs stay unchanged.
 
 Env: same as classify_mc_llm.py (LLM_API_KEY / OPENAI_API_KEY / TOGETHER_API_KEY).
 """
+
 from __future__ import annotations
 
 import argparse
 import csv
-import io
 import json
 import re
 import shutil
-import subprocess
 import time
 import urllib.error
 from pathlib import Path
 
-from PIL import Image
-
+import classify_lq_keywords as keyword_classifier
 from classify_mc_llm import (
     SECTION_BY_NUM,
     SECTIONS,
@@ -37,14 +36,17 @@ from classify_mc_llm import (
     year_key,
 )
 
+LQ_SECTION_LIMIT = 3
+
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_LQ = ROOT / "output" / "lq"
-CLASSIFIED_LQ = ROOT / "classified" / "lq"
+OUTPUT_LQ = ROOT / "tests" / "reconstructed" / "lq"
+CLASSIFIED_LQ = ROOT / "tests" / "sections" / "lq"
 OCR_CACHE = CLASSIFIED_LQ / "ocr_cache"
+METADATA_LQ = ROOT / "metadata" / "lq"
 
 YEAR_ORDER = [
     "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020",
-    "2021", "2022", "2023", "pp",
+    "2021", "2022", "2023", "2024", "2025", "2026", "pp",
 ]
 
 SYSTEM_PROMPT = MC_SYSTEM.replace(
@@ -71,6 +73,7 @@ def parse_args() -> argparse.Namespace:
 def ensure_tree() -> None:
     CLASSIFIED_LQ.mkdir(parents=True, exist_ok=True)
     OCR_CACHE.mkdir(parents=True, exist_ok=True)
+    METADATA_LQ.mkdir(parents=True, exist_ok=True)
     for _n, book, folder, _name in SECTIONS:
         (CLASSIFIED_LQ / book / folder).mkdir(parents=True, exist_ok=True)
 
@@ -89,33 +92,11 @@ def collect_jobs(years: list[str] | None) -> list[tuple[str, Path, int]]:
     return jobs
 
 
-def ocr_png(path: Path, cache_path: Path) -> str:
-    if cache_path.exists():
-        return cache_path.read_text(encoding="utf-8")
-    # LQ crops are tall; OCR a top band first (stem), fall back to full if thin.
-    image = Image.open(path).convert("RGB")
-    w, h = image.size
-    band_h = min(h, max(900, int(h * 0.45)))
-    crop = image.crop((0, 0, w, band_h))
-    buf = io.BytesIO()
-    crop.save(buf, format="PNG")
-    result = subprocess.run(
-        ["tesseract", "stdin", "stdout", "--psm", "6"],
-        input=buf.getvalue(),
-        stdout=subprocess.PIPE,
-        stderr=subprocess.DEVNULL,
-        check=False,
-    )
-    text = result.stdout.decode("utf-8", errors="ignore")
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(text, encoding="utf-8")
-    return text
-
-
 def _ocr_one(args: tuple[str, str, int]) -> dict:
     year, png_path, number = args
-    cache = OCR_CACHE / str(year) / f"q{number}.txt"
-    text = ocr_png(Path(png_path), cache)
+    png = Path(png_path)
+    cache = keyword_classifier.ocr_cache_path(png, str(year), number)
+    text = keyword_classifier.ocr_png(png, cache)
     # Drop dotted-line OCR noise.
     lines = []
     for line in text.splitlines():
@@ -127,10 +108,19 @@ def _ocr_one(args: tuple[str, str, int]) -> dict:
     return {
         "Year": year,
         "Question": number,
-        "Statement": cleaned[:2500],
-        "PNG": f"output/lq/{year}/q{number}.png",
-        "AnswerPNG": f"output/lq/{year}/ans/q{number}.png",
+        "Statement": cleaned,
+        "PNG": f"tests/reconstructed/lq/{year}/q{number}.png",
+        "AnswerPNG": f"tests/reconstructed/lq/{year}/ans/q{number}.png",
     }
+
+
+def finalize_sections(record: dict, raw_sections: object, reason: str) -> tuple[list[int], str]:
+    sections = normalize_sections(raw_sections, limit=LQ_SECTION_LIMIT)
+    if not sections:
+        raise ValueError(f"bad sections in {raw_sections!r}")
+    return keyword_classifier.apply_book5_listings(
+        str(record.get("Statement") or ""), sections, reason
+    )
 
 
 def classify_one(record: dict) -> dict:
@@ -140,23 +130,87 @@ def classify_one(record: dict) -> dict:
         'JSON only: {"sections":[<primary>, ...], "reason":"<one short sentence>"}'
     )
     parsed = chat_json(SYSTEM_PROMPT, user)
-    sections = normalize_sections(parsed.get("sections"))
-    if not sections:
-        raise ValueError(f"bad sections in {parsed!r}")
+    reason = str(parsed.get("reason") or "").strip()[:240]
+    sections, reason = finalize_sections(record, parsed.get("sections"), reason)
     return {
         "sections": sections,
-        "reason": str(parsed.get("reason") or "").strip()[:240],
+        "reason": reason,
     }
 
 
-def write_outputs(rows: list[dict]) -> None:
+def keyword_fallback_lq(record: dict) -> dict:
+    try:
+        text = str(record.get("Statement") or "")
+        sections, reason = keyword_classifier.classify_text(text)
+        # classify_text already includes Book5 listings
+        return {"sections": sections, "reason": reason}
+    except Exception:
+        return {"sections": [5], "reason": "keyword fallback: motion"}
+
+
+def _classify_with_fallback(record: dict) -> dict:
+    key, _, _ = llm_config()
+    if not key:
+        return keyword_fallback_lq(record)
+    try:
+        return classify_one(record)
+    except (urllib.error.URLError, urllib.error.HTTPError, ValueError, KeyError, SystemExit, json.JSONDecodeError):
+        return keyword_fallback_lq(record)
+
+
+def write_outputs(
+    rows: list[dict],
+    touched_years: set[str] | None = None,
+    touched_keys: set[tuple[str, int]] | None = None,
+) -> None:
     # Clear previous section copies (keep ocr_cache / json).
     for _n, book, folder, _name in SECTIONS:
         folder_path = CLASSIFIED_LQ / book / folder
         for old in folder_path.glob("*.png"):
-            old.unlink()
+            match = re.fullmatch(r"(.+)-q(\d+)(?:-ans)?\.png", old.name)
+            old_key = (match.group(1), int(match.group(2))) if match else None
+            if (
+                touched_keys is not None
+                and old_key in touched_keys
+                or touched_keys is None
+                and (touched_years is None or old.name.split("-q", 1)[0] in touched_years)
+            ):
+                old.unlink()
 
     csv_path = CLASSIFIED_LQ / "classification.csv"
+    decisions_path = METADATA_LQ / "llm_classifications.json"
+    new_rows = rows
+    new_decisions = {
+        f"{r['Year']}-q{r['Question']}": {
+            "sections": [int(x) for x in r["AllSections"].split(";") if x],
+            "reason": r["Reason"],
+        }
+        for r in new_rows
+    }
+    existing_decisions: dict = {}
+    if decisions_path.is_file():
+        try:
+            existing_decisions = json.loads(decisions_path.read_text(encoding="utf-8"))
+        except Exception:
+            existing_decisions = {}
+    partial = touched_years is not None or touched_keys is not None
+    if partial and csv_path.is_file():
+        with csv_path.open(encoding="utf-8") as fh:
+            existing_rows = list(csv.DictReader(fh))
+        if touched_keys is not None:
+            rows = keyword_classifier.merge_nested_rows(existing_rows, new_rows)
+            decisions = {**existing_decisions, **new_decisions}
+        else:
+            rows, decisions = keyword_classifier.replace_touched_years(
+                existing_rows,
+                existing_decisions,
+                new_rows,
+                new_decisions,
+                touched_years,
+            )
+    else:
+        decisions = {**existing_decisions, **new_decisions}
+
     with csv_path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(
             fh,
@@ -173,7 +227,7 @@ def write_outputs(rows: list[dict]) -> None:
         writer.writeheader()
         for row in rows:
             writer.writerow(row)
-            primary = int(row["Primary"])
+        for row in new_rows:
             for sec in [int(x) for x in row["AllSections"].split(";") if x]:
                 book, folder, _name = SECTION_BY_NUM[sec]
                 dest = CLASSIFIED_LQ / book / folder / f"{row['Year']}-q{row['Question']}.png"
@@ -190,18 +244,44 @@ def write_outputs(rows: list[dict]) -> None:
                     )
                     shutil.copy2(ans_src, ans_dest)
 
-    decisions = {
-        f"{r['Year']}-q{r['Question']}": {
-            "sections": [int(x) for x in r["AllSections"].split(";") if x],
-            "reason": r["Reason"],
-        }
-        for r in rows
-    }
-    (CLASSIFIED_LQ / "llm_classifications.json").write_text(
+    decisions_path.write_text(
         json.dumps(decisions, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+    perf: dict = {}
+    perf_path = CLASSIFIED_LQ / "candidate_performance.json"
+    if perf_path.is_file():
+        perf = json.loads(perf_path.read_text(encoding="utf-8"))
+    detailed = keyword_classifier.build_detailed_rows(rows, perf)
+    top_json, top_csv = top_level_lq_paths()
+    top_json.write_text(
+        json.dumps(detailed, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    with top_csv.open("w", newline="", encoding="utf-8") as fh:
+        writer = csv.DictWriter(fh, fieldnames=keyword_classifier.TOP_CSV_FIELDS)
+        writer.writeheader()
+        writer.writerows(detailed)
     print(f"Wrote {csv_path} ({len(rows)} rows)")
+    print(f"Wrote {top_json}")
+
+
+def top_level_lq_paths() -> tuple[Path, Path]:
+    root = CLASSIFIED_LQ.parent
+    return root / "lq_classification.json", root / "lq_classification.csv"
+
+
+def _load_metadata() -> dict:
+    path = METADATA_LQ / "llm_classifications.json"
+    if not path.is_file():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(data, dict):
+            return data
+        return {}
+    except Exception:
+        return {}
 
 
 def main() -> None:
@@ -221,43 +301,121 @@ def main() -> None:
         if i % 20 == 0 or i == len(jobs):
             print(f"  ocr {i}/{len(jobs)}")
     records.sort(key=lambda r: (year_key(str(r["Year"])), int(r["Question"])))
+    touched_years = set(args.years) if args.years and args.limit is None else None
+    touched_keys = (
+        {(str(record["Year"]), int(record["Question"])) for record in records}
+        if args.limit is not None
+        else None
+    )
 
+    # --from-json explicit path
     if args.from_json:
         decisions = json.loads(args.from_json.read_text(encoding="utf-8"))
         rows = []
         for rec in records:
             key = f"{rec['Year']}-q{rec['Question']}"
             d = decisions[key]
-            sections = [int(x) for x in d["sections"]]
+            sections, reason = finalize_sections(rec, d["sections"], d.get("reason", ""))
             rows.append(
                 {
                     "Year": rec["Year"],
                     "Question": rec["Question"],
                     "Primary": sections[0],
                     "AllSections": ";".join(str(s) for s in sections),
-                    "Reason": d.get("reason", ""),
+                    "Reason": reason,
                     "PNG": rec["PNG"],
                     "AnswerPNG": rec["AnswerPNG"],
                 }
             )
-        write_outputs(rows)
+        write_outputs(rows, touched_years, touched_keys)
         return
+
+    metadata = _load_metadata()
+    if metadata:
+        rows: list[dict] = []
+        missing: list[dict] = []
+        for rec in records:
+            key = f"{rec['Year']}-q{rec['Question']}"
+            if key in metadata:
+                d = metadata[key]
+                sections, reason = finalize_sections(rec, d.get("sections"), d.get("reason", ""))
+                rows.append(
+                    {
+                        "Year": rec["Year"],
+                        "Question": rec["Question"],
+                        "Primary": sections[0],
+                        "AllSections": ";".join(str(s) for s in sections),
+                        "Reason": reason,
+                        "PNG": rec["PNG"],
+                        "AnswerPNG": rec["AnswerPNG"],
+                    }
+                )
+            else:
+                missing.append(rec)
+        if missing:
+            print(f"Replay: {len(rows)}/{len(records)} from metadata, LLM for {len(missing)} missing...")
+            for rec in missing:
+                result = _classify_with_fallback(rec)
+                sections, reason = finalize_sections(rec, result["sections"], result["reason"])
+                rows.append(
+                    {
+                        "Year": rec["Year"],
+                        "Question": rec["Question"],
+                        "Primary": sections[0],
+                        "AllSections": ";".join(str(s) for s in sections),
+                        "Reason": reason,
+                        "PNG": rec["PNG"],
+                        "AnswerPNG": rec["AnswerPNG"],
+                    }
+                )
+                time.sleep(args.sleep)
+            rows.sort(key=lambda r: (year_key(str(r["Year"])), int(r["Question"])))
+            write_outputs(rows, touched_years, touched_keys)
+            return
+        else:
+            print(f"Replay: all {len(records)} from metadata (no LLM call)")
+            rows.sort(key=lambda r: (year_key(str(r["Year"])), int(r["Question"])))
+            write_outputs(rows, touched_years, touched_keys)
+            return
 
     key, base, model = llm_config()
     if not key:
-        raise SystemExit("Set LLM_API_KEY (or OPENAI_API_KEY / TOGETHER_API_KEY)")
+        print("No LLM key and no metadata — keyword fallback for all")
+        rows = []
+        for rec in records:
+            result = keyword_fallback_lq(rec)
+            sections, reason = finalize_sections(rec, result["sections"], result["reason"])
+            rows.append(
+                {
+                    "Year": rec["Year"],
+                    "Question": rec["Question"],
+                    "Primary": sections[0],
+                    "AllSections": ";".join(str(s) for s in sections),
+                    "Reason": reason,
+                    "PNG": rec["PNG"],
+                    "AnswerPNG": rec["AnswerPNG"],
+                }
+            )
+        write_outputs(rows, touched_years, touched_keys)
+        return
     print(f"LLM {model} @ {base} ({len(records)} questions)")
 
-    rows: list[dict] = []
+    rows = []
     failures: list[str] = []
     for i, rec in enumerate(records, 1):
         try:
             result = classify_one(rec)
         except (urllib.error.URLError, urllib.error.HTTPError, ValueError, KeyError) as exc:
-            label = f"{rec['Year']} Q{rec['Question']}"
-            print(f"  FAIL {label}: {exc}")
-            failures.append(label)
-            continue
+            # Fallback on HTTP errors including 403
+            print(f"  FALLBACK {rec['Year']} Q{rec['Question']}: {exc}")
+            result = keyword_fallback_lq(rec)
+            try:
+                sections, reason = finalize_sections(rec, result["sections"], result["reason"])
+                result = {"sections": sections, "reason": reason}
+            except Exception as e2:
+                print(f"  FAIL {rec['Year']} Q{rec['Question']}: {e2}")
+                failures.append(f"{rec['Year']} Q{rec['Question']}")
+                continue
         sections = result["sections"]
         rows.append(
             {
@@ -279,7 +437,7 @@ def main() -> None:
             f"Aborting write: {len(failures)} LLM failure(s) "
             f"({len(rows)}/{len(records)} succeeded); nested LQ outputs unchanged"
         )
-    write_outputs(rows)
+    write_outputs(rows, touched_years, touched_keys)
 
 
 if __name__ == "__main__":
