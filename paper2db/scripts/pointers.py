@@ -35,7 +35,8 @@ CORPORA = ("qb", "dse")
 # Higher rank wins on merge.
 TIERS = {"verified": 3, "derived": 2, "inferred": 1}
 KINDS = ("crop", "page", "pdf")
-# Pointer targets under these roots are pipeline output (gitignored): syntax-checked only.
+# Skip target existence checks for local/generated artifacts and source-paper roots;
+# CI must resolve stores without requiring those artifacts on disk.
 GENERATED_ROOTS = ("tests/", "intermediate/", "qb-pdf/", "qb/", "paper/")
 POINTER_KEYS = {"item_id", "tier", "kind", "target", "source", "note"}
 TARGET_KEYS = {"path", "page", "bbox"}
@@ -227,7 +228,7 @@ def coverage(items: list[dict], resolved: dict[str, dict]) -> dict:
 
 
 def check(corpora: tuple[str, ...] = CORPORA) -> list[str]:
-    """CI resolver: every pointer must be valid, resolve to a known item and an existing target."""
+    """Validate records, item IDs and merge conflicts; check targets outside GENERATED_ROOTS."""
     problems: list[str] = []
     for corpus in corpora:
         try:

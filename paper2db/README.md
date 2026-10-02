@@ -107,11 +107,13 @@ The QB stages skip when no QB DOCX source tree is found. They use `$P2DB_QB_ROOT
 
 ```bash
 python3 scripts/pointers.py coverage             # in-scope items with a pointer, by type and tier
-python3 scripts/pointers.py merge --corpus dse   # resolved pointer per item
-python3 scripts/pointers.py check                # CI resolver: schema, known item, target exists
+python3 scripts/pointers.py merge --corpus dse   # resolved pointers as JSON on stdout
+python3 scripts/pointers.py check                # CI resolver (target exceptions below)
 ```
 
-`check` runs in `.github/workflows/ci-pointers.yml`; it needs only the standard library. Targets under generated roots (`tests/`, `intermediate/`, `qb-pdf/`, `qb/`, `paper/`) are syntax-checked only since those trees are gitignored.
+All three commands default to both corpora; `--corpus qb` or `--corpus dse` selects one. The Python API `join_items(load_items(corpus), merge(load_store(corpus)))` returns item copies with `answer_pointer` set to the resolved pointer or `None`; it does not rewrite the staged indexes.
+
+`check` runs in [ci-pointers](../.github/workflows/ci-pointers.yml); it needs only the standard library. It validates records, known item IDs and merge conflicts, and checks that targets exist unless their paths fall under `GENERATED_ROOTS` in `scripts/pointers.py`. Those roots include local/generated artifacts and source papers; target existence is deliberately not checked there.
 
 ## Tests
 
