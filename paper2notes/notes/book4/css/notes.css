@@ -699,6 +699,112 @@ button[data-reveal] { margin-top: var(--space-2); }
 .formula-sheet .eq .katex-display { margin: var(--space-1) 0; text-align: left; }
 .formula-sheet .eq .katex-display > .katex { text-align: left; }
 
+/* ---------- domestic circuit figures (22.2) ----------
+   Wire colours follow the physical cable code (brown live, blue neutral,
+   green/yellow earth). They are deliberately separate from the --fig-*
+   quantity palette, so cable identification never reads as a quantity key. */
+
+:root {
+  --wire-live: #7c4a21;
+  --wire-neutral: #2456a6;
+  --wire-earth: #2e7d46;
+  --wire-earth-stripe: #f0c419;
+}
+
+.circuit-svg { display: block; width: 100%; height: auto; }
+.circuit-svg .fig-label { font: 700 18px var(--font-body); fill: var(--ink); }
+.circuit-svg .fig-small { font: 600 15px var(--font-body); fill: var(--ink-3); }
+.circuit-svg .fig-mono { font: 500 16px var(--font-mono); fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.circuit-svg .wire { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.circuit-svg .wire-live { stroke: var(--wire-live); }
+.circuit-svg .wire-neutral { stroke: var(--wire-neutral); }
+.circuit-svg .wire-earth { stroke: var(--wire-earth); stroke-width: 5; }
+.circuit-svg .wire-earth-stripe { fill: none; stroke: var(--wire-earth-stripe); stroke-width: 2.4; stroke-dasharray: 7 9; }
+.circuit-svg .wire-live-text { fill: var(--wire-live); }
+.circuit-svg .wire-neutral-text { fill: var(--wire-neutral); }
+.circuit-svg .wire-earth-text { fill: var(--wire-earth); }
+.circuit-svg .terminal { fill: var(--ink-2); }
+.circuit-svg .supply-box { fill: var(--surface-sunk); stroke: var(--line); stroke-width: 2.5; }
+.circuit-svg .fuse-body { fill: var(--card); stroke: var(--wire-live); stroke-width: 3.5; }
+.circuit-svg .switch-box { fill: var(--card); stroke: var(--wire-live); stroke-width: 3; }
+.circuit-svg .load-circle { fill: var(--card); stroke: var(--ink); stroke-width: 3; }
+.circuit-svg .lamp-cross { fill: none; stroke: var(--ink); stroke-width: 3; }
+.circuit-svg .case-box { fill: none; stroke: var(--ink-2); stroke-width: 4; }
+.circuit-svg .element { fill: var(--sun-100); stroke: var(--ink-2); stroke-width: 3; }
+.circuit-svg .cable-bracket { fill: none; stroke: var(--fig-guide); stroke-width: 2.5; }
+.circuit-svg .readout-box { fill: var(--card); stroke: var(--line); stroke-width: 2.5; }
+.circuit-svg .fault-case { fill: none; stroke: var(--nudge); stroke-width: 5; stroke-dasharray: 12 9; }
+.circuit-svg .fault-flow { fill: none; stroke: var(--nudge); stroke-width: 5; stroke-dasharray: 12 9; }
+.circuit-svg .fault-strike { fill: none; stroke: var(--nudge); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.circuit-svg .fault-arrow { fill: none; stroke: var(--nudge); stroke-width: 3.5; }
+.circuit-svg .fault-text { fill: var(--nudge-edge); }
+.circuit-svg .safe-text { fill: var(--ok-edge); }
+
+/* fault sequence: hidden by default, revealed by the figure's data-phase */
+.circuit-svg [data-part="fuse-open"] { display: none; }
+.circuit-svg [data-part="fault-flow"],
+.circuit-svg [data-part="fault-case"],
+.circuit-svg [data-part="fault-strike"],
+.circuit-svg [data-part="fault-arrow"],
+.circuit-svg [data-part="case-live"],
+.circuit-svg [data-part="case-safe"],
+.circuit-svg [data-part="fault-label"] { opacity: 0; }
+
+#wiring-figure[data-phase="1"] [data-part="fault-flow"],
+#wiring-figure[data-phase="1"] [data-part="fault-case"],
+#wiring-figure[data-phase="1"] [data-part="fault-strike"],
+#wiring-figure[data-phase="1"] [data-part="fault-arrow"],
+#wiring-figure[data-phase="1"] [data-part="case-live"],
+#wiring-figure[data-phase="1"] [data-part="fault-label"] { opacity: 1; }
+#wiring-figure[data-phase="2"] [data-part="fuse-open"],
+#wiring-figure[data-phase="3"] [data-part="fuse-open"] { display: inline; }
+#wiring-figure[data-phase="2"] [data-part="fuse-closed"],
+#wiring-figure[data-phase="3"] [data-part="fuse-closed"] { display: none; }
+#wiring-figure[data-phase="2"] [data-part="fault-case"],
+#wiring-figure[data-phase="2"] [data-part="fault-flow"],
+#wiring-figure[data-phase="3"] [data-part="fault-case"],
+#wiring-figure[data-phase="3"] [data-part="fault-flow"] { opacity: 0.5; }
+#wiring-figure[data-phase="2"] [data-part="case-safe"],
+#wiring-figure[data-phase="3"] [data-part="case-safe"] { opacity: 1; }
+#wiring-figure[data-phase="2"] .branch,
+#wiring-figure[data-phase="3"] .branch { opacity: 0.3; }
+
+/* fuse-choice steps highlight their part of the figure (state is instant so
+   the highlight is deterministic for tests and reduced-motion alike) */
+#fuse-figure[data-step="1"] [data-part="working-current"],
+#fuse-figure[data-step="2"] [data-part="fuse"],
+#fuse-figure[data-step="3"] [data-part="cable"] { filter: drop-shadow(0 0 6px rgba(19, 117, 104, 0.55)); }
+#fuse-figure[data-step="2"] [data-part="fuse"] .fuse-body { stroke-width: 5.5; }
+#fuse-figure[data-step="3"] [data-part="cable"] .cable-bracket { stroke: var(--teal-600); stroke-width: 4; }
+
+.steps-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin: var(--space-4) 0 0; }
+.step-card { display: grid; gap: 3px; align-content: start; min-height: var(--hit); padding: var(--space-3); text-align: left; }
+.step-card .step-num { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--surface-sunk); color: var(--ink-2); font: 700 12px/1 var(--font-mono); }
+.step-card[aria-pressed="true"] .step-num { background: #fff; color: var(--teal-700); }
+.step-card .step-title { font: 700 12px/1.2 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
+.step-card .step-value { font: 500 13px/1.4 var(--font-mono); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.step-card[aria-pressed="true"] .step-title { color: rgba(255, 255, 255, 0.82); }
+.step-card[aria-pressed="true"] .step-value { color: #fff; }
+
+.def-rows { display: grid; gap: var(--space-2); margin: 0; }
+.def-row { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: var(--space-3); align-items: baseline; }
+.def-row dt { font: 700 var(--text-sm)/1.4 var(--font-display); }
+.def-row dd { margin: 0; color: var(--ink-2); font-size: var(--text-sm); }
+.def-note { margin: var(--space-3) 0 0; padding-top: var(--space-3); border-top: var(--border-w) dashed var(--line-soft); font-size: var(--text-sm); font-weight: 600; }
+
+.wire-chip { display: inline-block; width: 18px; height: 8px; margin-left: 6px; border-radius: 4px; vertical-align: 1px; }
+.wire-key { display: inline-block; width: 22px; height: 9px; margin-right: 7px; border-radius: 3px; vertical-align: -1px; }
+.wire-chip.wire-live, .wire-key.wire-live { background: var(--wire-live); }
+.wire-chip.wire-neutral, .wire-key.wire-neutral { background: var(--wire-neutral); }
+.wire-chip.wire-earth, .wire-key.wire-earth { background: repeating-linear-gradient(90deg, var(--wire-earth) 0 5px, var(--wire-earth-stripe) 5px 10px); }
+.wire-legend-note { color: var(--ink-3); font-weight: 600; }
+.circuit-status { margin: var(--space-3) 0 0; font-size: var(--text-sm); font-weight: 600; color: var(--ink-2); }
+
+@media (max-width: 760px) {
+  .steps-3 { grid-template-columns: 1fr; }
+  .def-row { grid-template-columns: 1fr; gap: 2px; }
+}
+
 /* ---------- layout helpers ---------- */
 
 .pie { display: grid; grid-template-columns: minmax(220px, 260px) 1fr; gap: var(--space-4); align-items: start; }

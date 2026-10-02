@@ -35,18 +35,21 @@
       $all("button[data-choice]", box).forEach(function (btn) {
         btn.addEventListener("click", function () {
           var pick = btn.getAttribute("data-choice");
-          $all("button[data-choice]", box).forEach(function (b) {
-            b.classList.remove("correct", "wrong");
-            b.disabled = true;
-          });
           if (pick === answer) {
+            $all("button[data-choice]", box).forEach(function (b) {
+              b.classList.remove("wrong");
+              b.disabled = true;
+            });
             btn.classList.add("correct");
-            setFeedback(out, true, "Right. Nice.");
+            setFeedback(out, true, "Right.");
           } else {
+            /* wrong answers are a nudge: wobble, dim this option, keep the rest live */
+            btn.classList.remove("wrong");
+            void btn.offsetWidth;
             btn.classList.add("wrong");
-            var right = $("button[data-choice='" + answer + "']", box);
-            if (right) right.classList.add("correct");
-            setFeedback(out, false, "Not quite. It's " + answer + ".");
+            btn.disabled = true;
+            setFeedback(out, false, "Not quite. Try another.");
+            return;
           }
           var ex = $(":scope > .explain", box);
           if (ex) ex.hidden = false;
@@ -63,15 +66,17 @@
         $all("button[data-tf]", item).forEach(function (btn) {
           btn.addEventListener("click", function () {
             var pick = btn.getAttribute("data-tf") === "true";
-            $all("button[data-tf]", item).forEach(function (b) {
-              b.disabled = true;
-            });
             if (pick === answer) {
+              $all("button[data-tf]", item).forEach(function (b) {
+                b.disabled = true;
+              });
               btn.classList.add("correct");
-              setFeedback(out, true, "Right. Nice.");
+              setFeedback(out, true, "Right.");
             } else {
               btn.classList.add("wrong");
-              setFeedback(out, false, "Not quite. It's " + (answer ? "true" : "false") + ".");
+              btn.disabled = true;
+              setFeedback(out, false, "Not quite. Try the other.");
+              return;
             }
             reveal(item);
           });
@@ -96,10 +101,13 @@
   }
 
   function numberChecks() {
+    var n = 0;
     $all(".check").forEach(function (box) {
       var h = $("h3", box);
       if (!h || h.getAttribute("data-numbered")) return;
-      h.textContent = box.getAttribute("data-check") === "sa" ? "Write it out" : "Quick check";
+      n += 1;
+      var label = box.getAttribute("data-check") === "sa" ? "Write it" : "Quick check";
+      h.textContent = label + " " + n;
       h.removeAttribute("data-src");
       h.setAttribute("data-numbered", "true");
     });
