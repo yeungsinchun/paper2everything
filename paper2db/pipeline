@@ -393,7 +393,7 @@ def stage_classify_mc(years: list[str] | None, *, force: bool, yes: bool) -> Non
 
 
 def lq_performance_path() -> Path:
-    return ROOT / "tests" / "sections" / "lq" / "candidate_performance.json"
+    return ROOT / "classified" / "lq" / "candidate_performance.json"
 
 
 def stage_lq_performance(years: list[str] | None) -> None:
