@@ -210,6 +210,34 @@ class TestDseItems(unittest.TestCase):
             "dse-mc-pp-1", "dse-mc-sap-1", "dse-lq-pp-q1", "dse-lq-sap-q1",
         })
 
+    def test_emitted_source_pdf_paths_resolve_for_all_year_labels(self) -> None:
+        self.add_year("pp")
+        self.add_year("sap")
+        expected = {
+            ("mc", "2012"): "paper/mc/2012p1a.pdf",
+            ("lq", "2012"): "paper/lq/2012p1b.pdf",
+            ("mc", "pp"): "paper/mc/ppp1a.pdf",
+            ("lq", "pp"): "paper/lq/ppp1b.pdf",
+            ("mc", "sap"): "paper/mc/sapp1a.pdf",
+            ("lq", "sap"): "paper/lq/sapp1b.pdf",
+        }
+        for relative in expected.values():
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b"%PDF-1.4\n")
+        for args in ([], ["--years", "pp", "sap"]):
+            with self.subTest(args=args):
+                self.assertEqual(dse_items.main(args), 0)
+                records = {}
+                for path in dse_items.ITEMS_DIR.glob("*.json"):
+                    if path.name != "index.json":
+                        records.update({r["id"]: r for r in json.loads(path.read_text())})
+                self.assertEqual(len(records), 7)
+                for record in records.values():
+                    source = record["sources"]["paper_pdf"]
+                    self.assertEqual(source, expected[(record["paper"], record["year"])])
+                    self.assertTrue((self.root / source).is_file())
+
     def test_partial_run_preserves_other_years_and_removes_stale_memberships(self) -> None:
         self.add_year("2025")
         self.assertEqual(dse_items.main([]), 0)

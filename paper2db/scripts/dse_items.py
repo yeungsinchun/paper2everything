@@ -85,8 +85,7 @@ def year_sort_key(year: str) -> tuple[int, str]:
 def paper_pdf(paper: str, year: str) -> str:
     """Source exam PDF, following the pipeline's year-label convention."""
     suffix = "p1a" if paper == "mc" else "p1b"
-    stem = {"pp": "ppp", "sap": "sapp"}.get(year, year)
-    return f"paper/{paper}/{stem}{suffix}.pdf"
+    return f"paper/{paper}/{year}{suffix}.pdf"
 
 
 def answer_pdf(year: str) -> str | None:
