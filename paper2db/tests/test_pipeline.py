@@ -75,7 +75,7 @@ class TestPipelineHelpers(unittest.TestCase):
         )
         self.assertEqual(
             self.pipe.select_stages(args),
-            ["keys", "classify-mc", "classify-lq"],
+            ["keys", "classify-mc", "lq-performance", "classify-lq"],
         )
 
     def test_keys_stage_uses_paper_ans_only(self) -> None:
@@ -133,7 +133,7 @@ class TestPipelineHelpers(unittest.TestCase):
                     pipe.stage_mc_split(["2099"], force=True)
             self.assertIn("Run mc-anchors first", str(raised.exception))
 
-    def test_classify_lq_uses_llm_when_keyed(self) -> None:
+    def test_classify_lq_uses_replay_classifier(self) -> None:
         pipe = self.pipe
         calls: list[str] = []
 
@@ -143,10 +143,9 @@ class TestPipelineHelpers(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
             with mock.patch.object(pipe, "ROOT", tmp_path):
-                with mock.patch.object(pipe, "has_llm_key", return_value=True):
-                    with mock.patch.object(pipe, "run_script", side_effect=fake_run):
-                        with mock.patch.dict("os.environ", {}, clear=False):
-                            pipe.stage_classify_lq(None, force=True)
+                with mock.patch.object(pipe, "run_script", side_effect=fake_run):
+                    with mock.patch.dict("os.environ", {}, clear=False):
+                        pipe.stage_classify_lq(None, force=True)
         self.assertEqual(calls, ["classify_lq_llm.py"])
 
     def test_lq_crops_ready_rejects_y_crop_and_missing_pages(self) -> None:

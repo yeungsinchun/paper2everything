@@ -248,7 +248,27 @@ def write_outputs(
         json.dumps(decisions, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+    perf: dict = {}
+    perf_path = CLASSIFIED_LQ / "candidate_performance.json"
+    if perf_path.is_file():
+        perf = json.loads(perf_path.read_text(encoding="utf-8"))
+    detailed = keyword_classifier.build_detailed_rows(rows, perf)
+    top_json, top_csv = top_level_lq_paths()
+    top_json.write_text(
+        json.dumps(detailed, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    with top_csv.open("w", newline="", encoding="utf-8") as fh:
+        writer = csv.DictWriter(fh, fieldnames=keyword_classifier.TOP_CSV_FIELDS)
+        writer.writeheader()
+        writer.writerows(detailed)
     print(f"Wrote {csv_path} ({len(rows)} rows)")
+    print(f"Wrote {top_json}")
+
+
+def top_level_lq_paths() -> tuple[Path, Path]:
+    root = CLASSIFIED_LQ.parent
+    return root / "lq_classification.json", root / "lq_classification.csv"
 
 
 def _load_metadata() -> dict:

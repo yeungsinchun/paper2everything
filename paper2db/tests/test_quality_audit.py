@@ -154,8 +154,9 @@ class TestPipelineLavishWiring(unittest.TestCase):
         def fake_run(script_name: str, *args: str) -> None:
             calls.append(script_name)
 
-        with mock.patch.object(pipe, "run_script", side_effect=fake_run):
-            pipe.stage_lavish()
+        with mock.patch.object(pipe, "ensure_lq_performance"):
+            with mock.patch.object(pipe, "run_script", side_effect=fake_run):
+                pipe.stage_lavish()
         self.assertEqual(
             calls,
             [

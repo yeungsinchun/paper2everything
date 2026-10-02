@@ -573,6 +573,51 @@ class TestLqLlmFailureHandling(unittest.TestCase):
             write_outputs.assert_not_called()
 
 
+class TestLqLlmTopLevelContract(unittest.TestCase):
+    """classify_lq_llm emits the shipped top-level LQ split like the MC path."""
+
+    def test_write_outputs_emits_top_level_lists(self) -> None:
+        import classify_lq_llm as lq
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            classified_lq = root / "tests" / "sections" / "lq"
+            metadata_lq = root / "metadata" / "lq"
+            classified_lq.mkdir(parents=True)
+            metadata_lq.mkdir(parents=True)
+            rows = [
+                {
+                    "Year": "2024",
+                    "Question": 1,
+                    "Primary": 5,
+                    "AllSections": "5",
+                    "Reason": "motion",
+                    "PNG": "tests/reconstructed/lq/2024/q1.png",
+                    "AnswerPNG": "tests/reconstructed/lq/2024/ans/q1.png",
+                },
+            ]
+            with (
+                mock.patch.object(lq, "CLASSIFIED_LQ", classified_lq),
+                mock.patch.object(lq, "METADATA_LQ", metadata_lq),
+            ):
+                lq.write_outputs(rows)
+
+            top_json = root / "tests" / "sections" / "lq_classification.json"
+            top_csv = root / "tests" / "sections" / "lq_classification.csv"
+            self.assertTrue(top_json.is_file())
+            self.assertTrue(top_csv.is_file())
+            payload = json.loads(top_json.read_text(encoding="utf-8"))
+            self.assertIsInstance(payload, list)
+            self.assertEqual(payload[0]["PrimarySection"], 5)
+            self.assertEqual(payload[0]["PrimaryName"], lq.SECTION_BY_NUM[5][2])
+            self.assertEqual(payload[0]["AnswerPNG"], "tests/reconstructed/lq/2024/ans/q1.png")
+            self.assertEqual(payload[0]["CandidatePerformance"], "")
+            with top_csv.open(encoding="utf-8") as fh:
+                csv_rows = list(csv.DictReader(fh))
+            self.assertEqual(len(csv_rows), 1)
+            self.assertEqual(csv_rows[0]["PrimarySection"], "5")
+
+
 class TestLqKeywordsYearsMerge(unittest.TestCase):
     """--years must merge into existing split LQ outputs."""
 

@@ -220,14 +220,6 @@ def pause(message: str, *, yes: bool) -> None:
         )
 
 
-def has_llm_key() -> bool:
-    return bool(
-        os.environ.get("LLM_API_KEY")
-        or os.environ.get("OPENAI_API_KEY")
-        or os.environ.get("TOGETHER_API_KEY")
-    )
-
-
 def stage_mc_anchors(years: list[str] | None, *, force: bool, yes: bool) -> list[str]:
     papers = discover_mc_papers(years)
     if not papers:
