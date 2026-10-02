@@ -7,7 +7,7 @@ Failure definitions (count toward the captain's <=5% manual-tuning budget):
   uncertain          - MC Uncertain=yes (needs human skim)
   tiny_crop          - crop width/height below usable threshold
   few_year_crops     - year folder has far fewer crops than a full paper
-  override_tuned     - scripts/overrides_YYYY.json entry (human anchor tuning)
+  override_tuned     - scripts/overrides_*.json entry (human anchor tuning)
 
 Not counted as failures (documented separately):
   missing_answer_png - LQ answer crop absent (often no ans PDF for that year)

@@ -43,7 +43,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 ./pipeline --years 2025 --force --yes   # one past-paper year; QB stages still process the QB corpus
 ```
 
-`tests/sections/` is the generated curriculum-section bank (PNG copies, CSVs, section PDFs, `quality_audit.json`, OCR caches, `candidate_performance.json`) - named alongside `tests/reconstructed/` since both are pipeline output trees under `tests/`, not fixtures. The only files under `tests/reconstructed/` that git tracks are durable inputs: `tests/reconstructed/lq/<year>/starts.json` (LQ page ranges, preserved by normal `lq-pages` runs). Everything under `tests/sections/` is reproducible from `paper/` with `./pipeline`, so never `git add` crops, section PDFs or `.lavish/` HTML.
+`tests/sections/` is the generated curriculum-section bank (PNG copies, CSVs, section PDFs, `quality_audit.json`, OCR caches, `items/`) - named alongside `tests/reconstructed/` since both are pipeline output trees under `tests/`, not fixtures. The only files under `tests/reconstructed/` that git tracks are durable inputs: `tests/reconstructed/lq/<year>/starts.json` (LQ page ranges, preserved by normal `lq-pages` runs). Everything under `tests/sections/` is reproducible from `paper/` with `./pipeline`, so never `git add` crops, section PDFs or `.lavish/` HTML.
 
 `metadata/{mc,lq}/llm_classifications.json` holds the classification decisions themselves (which section(s) each question belongs to, and why) - the one output that costs paid, nondeterministic LLM calls to reproduce, so it stays tracked and is replayed by default (or applied explicitly with `--from-json`) even when nothing else in `tests/sections/` is rebuilt.
 
@@ -61,10 +61,12 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `tests/reconstructed/mc/` | `combined.pdf` (every year's MC paper) + `<year>/` MC question PNGs with a per-year `combined.pdf` |
 | `tests/reconstructed/lq/` | `combined.pdf` (every year's LQ questions) + `<year>/` LQ pages, `qN.png`, `ans/qN.png`, per-year `combined.pdf` |
 | `tests/sections/mc/` | Section folders, CSVs, `answer_keys.json`, section PDFs (generated) |
-| `tests/sections/lq/` | Same for long questions, + `candidate_performance.json` (generated) |
+| `tests/sections/lq/` | Same for long questions (generated) |
+| `tests/sections/items/` | `paper2db.dse-item.v1` records: `<section>.json` + `index.json` (`dse-items` stage, generated) |
 | `qb/` | Local QB DOCX source tree, if supplied (gitignored; working manifest at `qb/source-manifest.json` if built) |
 | `qb-pdf/` | Converted QB PDFs, OCR, item JSON, crops, conversion log and quality report (generated, gitignored) |
 | `schemas/qb-item.v1.json` | `paper2db.qb-item.v1` item contract (legacy) |
+| `schemas/dse-item.v1.json` | `paper2db.dse-item.v1` DSE past-paper item contract (`dse-items` stage) |
 | `schemas/qb-item.v2.json` | `paper2db.qb-item.v2` item contract (corpus-agnostic, with `scope` and `source_manifest`) |
 | `schemas/answer-pointer.v1.json` | `paper2db.answer-pointer.v1` store contract for answer pointers |
 | `metadata/pointers/{qb,dse}.json` | Tracked answer-pointer stores (empty until pointers are added) |
@@ -94,11 +96,12 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 8. **lq-performance** - candidate-performance notes → `tests/sections/lq/candidate_performance.json` (free, local, deterministic; `scripts/extract_lq_performance.py`)
 9. **classify-lq** - same sections for LQ; same metadata replay / LLM-only-for-missing-years / keyword-fallback behavior as classify-mc. Either backend then lists every Book 5 section a radioactivity LQ tests (e.g. 2014 Q10: ch26 activity + ch25 alpha handling; 2012 Q11 keeps 25+26+27), primary = latest section. Both backends OCR the whole page stack (cache keyed by PNG size under `tests/sections/lq/ocr_cache/`)
 10. **section-pdfs** - per-section A4 `combined.pdf` (+ LQ `answers.pdf` / `performance.pdf`); an LQ appears in every section it is listed under, not only its primary
-11. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
-12. **qb-pdf** - verify `metadata/qb/source-manifest.json` (sha256 per DOCX, plus `banks.json` agreement) then convert QB DOCX files to PDF with LibreOffice; copy PDF-only sources
-13. **qb-ocr** - OCR QB PDFs with `pdftoppm` and Tesseract
-14. **qb-items** - extract `paper2db.qb-item.v2` JSON (`scope` from `banks.json`, `source_manifest` provenance) and per-item PNG crops
-15. **qb-audit** - strict QB quality gate (counts from `metadata/qb/banks.json`: 169 PDFs / 46 banks → 3847 items, 1881 in-scope) and local crop review board
+11. **dse-items** - join crops, tracked classifications, MC keys, LQ candidate performance and tier-resolved answer pointers from `metadata/pointers/dse.json` into `paper2db.dse-item.v1` records (`schemas/dse-item.v1.json`): `tests/sections/items/<section>.json` per section (a question appears under every section it is listed under) plus `index.json`. A record is in-scope when its primary section is in Books 2, 4 or 5 (366 MC + 104 LQ = 470); the stage fails if any record is schema-invalid or an in-scope question crop is missing. Without `--years`, rebuilds the whole corpus. With `--years`, processes and validates only selected years, replaces their section records and index entries, and preserves other years without requiring their crops
+12. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
+13. **qb-pdf** - verify `metadata/qb/source-manifest.json` (sha256 per DOCX, plus `banks.json` agreement) then convert QB DOCX files to PDF with LibreOffice; copy PDF-only sources
+14. **qb-ocr** - OCR QB PDFs with `pdftoppm` and Tesseract
+15. **qb-items** - extract `paper2db.qb-item.v2` JSON (`scope` from `banks.json`, `source_manifest` provenance) and per-item PNG crops
+16. **qb-audit** - strict QB quality gate (counts from `metadata/qb/banks.json`: 169 PDFs / 46 banks → 3847 items, 1881 in-scope) and local crop review board
 
 The QB stages skip when no QB DOCX source tree is found. They use `$P2DB_QB_ROOT` if set, otherwise `qb/` in this repository (`qb/` itself stays gitignored; the tracked census is `metadata/qb/banks.json` and the tracked manifest is `metadata/qb/source-manifest.json`). `qb-pdf` first runs `scripts/qb_manifest.py verify` (sha256 per DOCX plus `banks.json` agreement) before conversion. The QB source files and all generated QB outputs stay untracked. LibreOffice (`soffice`), `pdftoppm` and Tesseract must be on `PATH` to run these stages. Run only the QB track with `./pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit`; `--years` applies to past papers, not QB. `qb-items` emits `paper2db.qb-item.v2` (`schemas/qb-item.v2.json`, with `scope` from `banks.json` and `source_manifest` provenance; `v1` is legacy). The QB audit writes `qb-pdf/quality.json` and `.lavish/qb-review/index.html`; it checks the exact PDF and item counts from `metadata/qb/banks.json` (169 PDFs / 46 banks → 3847 items, 1881 in-scope), crops, key statuses, and conversion rendering. See `scripts/qb_quality.py` and `scripts/qb_manifest.py` for the gate definitions.
 
@@ -130,7 +133,7 @@ The suite runs against fixtures (`tests/fixtures/lq_ocr/`, temp trees) and cover
 
 ## Quality bar
 
-Target: **≤5%** of questions need human manual tuning, including every entry in `scripts/overrides_YYYY.json`.
+Target: **≤5%** of questions need human manual tuning, including every entry in `scripts/overrides_*.json`.
 
 ```bash
 ./pipeline --only lavish
@@ -144,7 +147,7 @@ Captain review surface: `.lavish/pipeline-review/index.html` (step-by-step inter
 
 ## Quality checklist (minimal human work)
 
-1. **Anchors** - every blue dot beside the question number with a clear gap (not on options or diagrams). Wrong anchors poison every later step. Use `scripts/overrides_YYYY.json` for hard pages (each counts toward the 5% budget).
+1. **Anchors** - every blue dot beside the question number with a clear gap (not on options or diagrams). Wrong anchors poison every later step. Use `scripts/overrides_*.json` for hard pages (each counts toward the 5% budget).
 2. **Uncertain MC** - skim `tests/sections/mc/uncertain.csv` and spot-check a few section folders.
 3. **LQ pages** - skim `tests/reconstructed/lq/<year>/combined.pdf` if a question's page range looks wrong (`starts.json`). The last question should stop before any trailing data/formulae sheet or blank "do not write" insert.
 4. Trust the section review PDFs under `tests/sections/*/.../combined.pdf` rather than browsing PNG lists. Those PDFs are portrait A4 with year and question labels.

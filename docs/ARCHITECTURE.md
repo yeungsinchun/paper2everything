@@ -30,7 +30,7 @@ drift check (`python3 paper2db/scripts/leak_fingerprints.py --check`).
 
 | Component | Language / runtime | Entry point | Output |
 |---|---|---|---|
-| `paper2db/` | Python 3 (PyMuPDF, Pillow, OCR, optional LLM API) | `./paper2db/pipeline` (11 stages, `--list-stages`) | MC/LQ crops per year and per syllabus section, section PDFs, answer keys, audit JSON, review HTML |
+| `paper2db/` | Python 3 (PyMuPDF, Pillow, OCR, optional LLM API) | `./paper2db/pipeline` (12 stages, `--list-stages`) | MC/LQ crops per year and per syllabus section, section PDFs, answer keys, `dse-item.v1` records, audit JSON, review HTML |
 | `paper2db/scripts/convert-qb-to-pdf.sh` | Bash + LibreOffice | run by hand | `paper2db/qb-pdf/` PDFs from `paper2db/qb/` DOCX |
 | `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book2/`, `/book4/`, `/book5/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` (82 files) staged to `_local/dse/` by `Dockerfile` |
@@ -53,9 +53,9 @@ flowchart LR
   subgraph DB["paper2db"]
     direction TB
     PAPER["paper/{mc,lq,ans,performance}/<br/>HKDSE PDFs + performance.md<br/><b>tracked</b> (~283 MB)"]
-    HAND["scripts/overrides_YYYY.json<br/>scripts/answer_key_overrides.json<br/>scripts/lq_answer_pages.json<br/>tests/reconstructed/lq/*/starts.json<br/><b>tracked, hand-tuned</b>"]
+    HAND["scripts/overrides_*.json<br/>scripts/answer_key_overrides.json<br/>scripts/lq_answer_pages.json<br/>tests/reconstructed/lq/*/starts.json<br/><b>tracked, hand-tuned</b>"]
     META["metadata/{mc,lq}/llm_classifications.json<br/><b>tracked</b> (paid LLM decisions)"]
-    PIPE(["./pipeline<br/>mc-anchors → mc-split → lq-pages → lq-crops → lq-answers<br/>→ keys → classify-mc → lq-performance → classify-lq<br/>→ section-pdfs → lavish"])
+    PIPE(["./pipeline<br/>mc-anchors → mc-split → lq-pages → lq-crops → lq-answers<br/>→ keys → classify-mc → lq-performance → classify-lq<br/>→ section-pdfs → dse-items → lavish"])
     INTER["intermediate/mc/&lt;year&gt;/<br/><b>gitignored</b>"]
     RECON["tests/reconstructed/{mc,lq}/&lt;year&gt;/<br/><b>gitignored</b> (except starts.json)"]
     SECT["tests/sections/{mc,lq}/&lt;NN_Book&gt;/&lt;NN_Section&gt;/<br/>YYYY_qN.png · YYYY-qN.png · combined.pdf<br/><b>gitignored</b>"]
@@ -172,7 +172,9 @@ LLM backend only for years missing from that metadata, and falls back to the
 keyword classifiers when no API key is set or the LLM call errors. `section-pdfs` writes
 `tests/sections/{mc,lq}/<NN_Book>/<NN_Section>/` with PNG crops named
 `YYYY_qN.png` (MC) or `YYYY-qN.png` / `YYYY-qN-ans.png` (LQ) and a
-`combined.pdf`. The section taxonomy is the `SECTIONS` list in
+`combined.pdf`. `dse-items` then joins crops, classifications, MC keys, LQ
+candidate performance and answer pointers into `paper2db.dse-item.v1` records
+under `tests/sections/items/`. The section taxonomy is the `SECTIONS` list in
 `paper2db/scripts/classify_mc_llm.py` (imported by the LQ classifiers) and a
 second copy in `paper2db/scripts/classify_mc_sections.py`.
 
@@ -230,12 +232,15 @@ no path filter.
 | Workflow | Trigger | Does |
 |---|---|---|
 | `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, `paper2notes/.github/workflows/**`, itself | `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolution (links through `_local/` skipped), lavish notes-refactor boards (before/after side-by-side at 1280 + 390 and readable-measure contract — see `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` and `docs/lavish-notes-boards.md`), `deploy-commit-footer` (`deployed commit: <6-char>` per `paper2notes/notes/**/*.html`; see `paper2notes/deploy/cloudrun/README.md`), and the leak check (`paper2notes/scripts/leak-check.mjs`, L1–L4 against the tracked fingerprints); then `node --test paper2notes/scripts/leak-check.test.mjs` and `python3 paper2db/scripts/leak_fingerprints.py --check` |
+| `.github/workflows/ci-pointers.yml` | PR / push to main touching `paper2db/metadata/pointers/**`, `paper2db/schemas/answer-pointer.v1.json`, `paper2db/scripts/pointers.py`, `paper2db/tests/test_pointers.py`, `paper2db/qb-web-ui-staging/**`, `paper2db/metadata/qb/banks.json`, itself | `python3 scripts/pointers.py check`, then `coverage` and `python3 -m unittest tests.test_pointers`: answer-pointer store and resolver (`paper2db/README.md` answer pointers) |
+| `.github/workflows/ci-paper2db.yml` | PR / push to main touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items record join and answer-pointer tests |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
 | `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
-Not run in CI: the paper2db pipeline or its `unittest` suite, the Book 5
-Puppeteer interactive tests (`notes.interactives.test.mjs`, hardcoded macOS
-Chrome path), and `sync-dse.sh`. The nested
+Not run in CI: the paper2db pipeline itself and most of its `unittest`
+suite (only `test_dse_items` and `test_pointers` run, in `ci-paper2db` and
+`ci-pointers`), the Book 5 Puppeteer interactive tests (`notes.interactives.test.mjs`,
+hardcoded macOS Chrome path), and `sync-dse.sh`. The nested
 `paper2notes/.github/workflows/{ci,deploy}.yml` and
 `paper2mock/.github/workflows/compile-mocks.yml` are copies GitHub never runs.
 

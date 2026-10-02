@@ -485,7 +485,7 @@ python scripts/quality_audit.py --strict</div>
 
     <section class="block" id="quality">
       <h2>What counts as a failure</h2>
-      <p class="lede">These events count toward the &lt;=5% manual-tuning budget, including every question listed in <code>scripts/overrides_YYYY.json</code>.</p>
+      <p class="lede">These events count toward the &lt;=5% manual-tuning budget, including every question listed in <code>scripts/overrides_*.json</code>.</p>
       <div class="two-col">
         <div class="listbox">
           <h3>Counted</h3>
