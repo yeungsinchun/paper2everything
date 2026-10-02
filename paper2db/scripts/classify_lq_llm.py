@@ -189,15 +189,16 @@ def write_outputs(
         }
         for r in new_rows
     }
-    if (touched_years is not None or touched_keys is not None) and csv_path.is_file():
+    existing_decisions: dict = {}
+    if decisions_path.is_file():
+        try:
+            existing_decisions = json.loads(decisions_path.read_text(encoding="utf-8"))
+        except Exception:
+            existing_decisions = {}
+    partial = touched_years is not None or touched_keys is not None
+    if partial and csv_path.is_file():
         with csv_path.open(encoding="utf-8") as fh:
             existing_rows = list(csv.DictReader(fh))
-        existing_decisions = {}
-        if decisions_path.is_file():
-            try:
-                existing_decisions = json.loads(decisions_path.read_text(encoding="utf-8"))
-            except Exception:
-                existing_decisions = {}
         if touched_keys is not None:
             rows = keyword_classifier.merge_nested_rows(existing_rows, new_rows)
             decisions = {**existing_decisions, **new_decisions}
@@ -210,40 +211,7 @@ def write_outputs(
                 touched_years,
             )
     else:
-        # Full rebuild: merge with any existing decisions for untouched years if partial? No, we are full.
-        # But if metadata already exists and we are replaying, we need to keep it.
-        # Here we are in write_outputs called from mains replay path where rows already includes replay; decisions already merged.
-        # For simplicity, if csv not existent, decisions = new_decisions; otherwise keep new_decisions.
-        # Check if metadata has extra entries not in rows (e.g., years not in current jobs) - keep them.
-        if decisions_path.is_file():
-            try:
-                existing_decisions = json.loads(decisions_path.read_text(encoding="utf-8"))
-                # Keep existing entries not overwritten
-                decisions = {**existing_decisions, **new_decisions}
-                # But rows should be the full desired rows; if we are doing partial replay we already handled.
-                # For full replay, rows is already complete.
-                if touched_years is None and touched_keys is None:
-                    # Full write: use new_rows as rows, decisions merged
-                    rows = new_rows
-                else:
-                    rows = new_rows  # partial case already handled above, but fallback
-            except Exception:
-                decisions = new_decisions
-        else:
-            decisions = new_decisions
-
-    # Actually if we merged above, rows may be merged; ensure we write correct rows.
-    # The merging for full case should be done by caller; here we just write rows as passed for full.
-    # To avoid double merge confusion, if caller did replay and already merged, just write passed rows.
-    # Detect: if decisions_path had extra keys, we already merged decisions; rows should be as passed.
-    # So we write rows (which is new_rows for full) and decisions merged.
-    # But if caller passed rows that is already merged (e.g., replay missing), we would want merged rows.
-    # Simpler: caller is responsible for merging; write_outputs just writes what it's given for full.
-    # For partial, merging already done. For full, we merged decisions but keep rows as new_rows.
-    # Let's adjust: if touched is None, rows = new_rows, decisions = merged.
-    if touched_years is None and touched_keys is None:
-        rows = new_rows
-        # decisions already merged above
+        decisions = {**existing_decisions, **new_decisions}
 
     with csv_path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(

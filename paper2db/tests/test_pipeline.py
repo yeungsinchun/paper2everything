@@ -155,7 +155,7 @@ class TestPipelineHelpers(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
-            year_dir = tmp_path / "output" / "lq" / "2099"
+            year_dir = tmp_path / "tests" / "reconstructed" / "lq" / "2099"
             pages = year_dir / "pages"
             pages.mkdir(parents=True)
             Image.new("RGB", (100, 200), (255, 255, 255)).save(pages / "page000.png")
@@ -186,7 +186,7 @@ class TestPipelineHelpers(unittest.TestCase):
             paper = tmp_path / "paper" / "lq"
             paper.mkdir(parents=True)
             (paper / "2099p1b.pdf").write_bytes(b"%PDF-1.4")
-            year_dir = tmp_path / "output" / "lq" / "2099"
+            year_dir = tmp_path / "tests" / "reconstructed" / "lq" / "2099"
             year_dir.mkdir(parents=True)
             starts = year_dir / "starts.json"
             original = '{"questions":[],"pages":1}\n'
@@ -216,9 +216,11 @@ class TestAnswerKeyDefaults(unittest.TestCase):
         with mock.patch.object(sys, "argv", ["extract_answer_keys.py"]):
             args = eak.parse_args()
         self.assertEqual(args.answers, ROOT / "paper" / "ans")
-        self.assertEqual(args.output, ROOT / "classified" / "mc" / "answer_keys.json")
+        self.assertEqual(
+            args.output, ROOT / "tests" / "sections" / "mc" / "answer_keys.json"
+        )
 
-    def test_combine_section_pdfs_uses_classified_keys(self) -> None:
+    def test_combine_section_pdfs_uses_section_keys(self) -> None:
         sys.path.insert(0, str(ROOT / "scripts"))
         import combine_section_pdfs as csp
 
@@ -226,7 +228,7 @@ class TestAnswerKeyDefaults(unittest.TestCase):
             args = csp.parse_args()
         self.assertEqual(
             args.keys.resolve(),
-            (ROOT / "classified" / "mc" / "answer_keys.json").resolve(),
+            (ROOT / "tests" / "sections" / "mc" / "answer_keys.json").resolve(),
         )
 
 
