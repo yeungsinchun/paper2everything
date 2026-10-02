@@ -74,6 +74,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `metadata/qb/source-manifest.json` | Tracked QB source manifest (sha256 per DOCX) — verified by `scripts/qb_manifest.py verify` |
 | `scripts/` | Stage implementations (called by `./pipeline`) |
 | `scripts/answer_key_overrides.json` | Hand-verified MC answer-key patches where OCR is unreliable |
+| `scripts/lq_answer_pages.json` | Hand-verified LQ marking-scheme page map where OCR orientation or label detection fails |
 | `segment.py` | Low-level single-PDF tool (prefer `./pipeline`) |
 | `.lavish/pipeline-review/` | Step-by-step HTML evidence for captain review |
 | `.lavish/classified-review/` | MC section bank HTML |

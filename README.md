@@ -118,7 +118,7 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 |---|---|
 | `paper2db/paper/**` source PDFs | `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
 | `paper2db/metadata/` inputs (see [authoritative inventory](paper2db/README.md#layout)) | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
-| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
+| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
 | `paper2db/tests/reconstructed/lq/*/starts.json` | `paper2notes/notes/**/_local/` |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `.audit/` harness output |
 | `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (82 files) | compiled mock PDFs (built and released by CI) |

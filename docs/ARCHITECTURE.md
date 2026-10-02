@@ -47,7 +47,7 @@ flowchart LR
   subgraph DB["paper2db"]
     direction TB
     PAPER["paper/{mc,lq,ans,performance}/<br/>HKDSE PDFs + performance.md<br/><b>tracked</b> (~283 MB)"]
-    HAND["scripts/overrides_YYYY.json<br/>scripts/answer_key_overrides.json<br/>tests/reconstructed/lq/*/starts.json<br/><b>tracked, hand-tuned</b>"]
+    HAND["scripts/overrides_YYYY.json<br/>scripts/answer_key_overrides.json<br/>scripts/lq_answer_pages.json<br/>tests/reconstructed/lq/*/starts.json<br/><b>tracked, hand-tuned</b>"]
     META["metadata/{mc,lq}/llm_classifications.json<br/><b>tracked</b> (paid LLM decisions)"]
     PIPE(["./pipeline<br/>mc-anchors → mc-split → lq-pages → lq-crops → lq-answers<br/>→ keys → classify-mc → lq-performance → classify-lq<br/>→ section-pdfs → lavish"])
     INTER["intermediate/mc/&lt;year&gt;/<br/><b>gitignored</b>"]
@@ -131,7 +131,7 @@ There is no dependency cycle. paper2db does not know paper2notes exists.
 |---|---|---|
 | `paper2db/paper/**` (77 PDFs + performance notes) | tracked | Pipeline source. Plain git, no LFS; the pack is about 282 MB. |
 | `paper2db/metadata/{mc,lq}/llm_classifications.json` | tracked | Paid, nondeterministic LLM decisions. Deliberately tracked. |
-| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json` | tracked | Hand-tuned inputs. |
+| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json` | tracked | Hand-tuned inputs. |
 | `paper2db/tests/reconstructed/lq/*/starts.json` | tracked | Hand-tuned input stored inside a generated output tree. |
 | `paper2db/intermediate/`, `tests/reconstructed/**` (rest), `tests/sections/`, `.lavish/` | gitignored | Pipeline output. `tests/sections/` is the product paper2notes consumes. |
 | `paper2db/classified/`, `paper2db/output/` | gitignored | Pre-move legacy layout. `sync-dse.sh` still reads it. |
