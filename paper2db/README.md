@@ -72,7 +72,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `metadata/lq/llm_classifications.json` | Tracked LQ classification decisions |
 | `metadata/qb/banks.json` | Tracked QB census per bank (46 banks, 169 DOCX → 3847 items, 1881 in-scope) — source of truth for counts |
 | `metadata/qb/source-manifest.json` | Tracked QB source manifest (sha256 per DOCX) — verified by `scripts/qb_manifest.py verify` |
-| `scripts/` | Stage implementations (called by `./pipeline`) |
+| `scripts/` | Stage implementations (called by `./pipeline`) plus standalone tools (`pointers.py`, `leak_fingerprints.py`) |
 | `scripts/answer_key_overrides.json` | Hand-verified MC answer-key patches where OCR is unreliable |
 | `segment.py` | Low-level single-PDF tool (prefer `./pipeline`) |
 | `.lavish/pipeline-review/` | Step-by-step HTML evidence for captain review |
@@ -114,6 +114,10 @@ python3 scripts/pointers.py check                # CI resolver (target exception
 All three commands default to both corpora; `--corpus qb` or `--corpus dse` selects one. The Python API `join_items(load_items(corpus), merge(load_store(corpus)))` returns item copies with `answer_pointer` set to the resolved pointer or `None`; it does not rewrite the staged indexes.
 
 `check` runs in [ci-pointers](../.github/workflows/ci-pointers.yml); it needs only the standard library. It validates records, known item IDs and merge conflicts, and checks that targets exist unless their paths fall under `GENERATED_ROOTS` in `scripts/pointers.py`. Those roots include local/generated artifacts and source papers; target existence is deliberately not checked there.
+
+## Leak fingerprints
+
+`scripts/leak_fingerprints.py` writes the tracked `paper2notes/scripts/leak/fingerprints.v1.json.gz` (salted 8-grams and numsets for the protected QB/DSE corpus, read from `qb-web-ui-staging/` and `paper2notes/notes/qb/data/`); `paper2notes/scripts/leak-check.mjs` consumes it and runs from `ci-check.mjs`. `python3 scripts/leak_fingerprints.py --check` fails when the committed file is stale, and the normalisation mirrors `leak-check.mjs`.
 
 ## Tests
 

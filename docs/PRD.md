@@ -455,7 +455,7 @@ Review gates (MC anchors, optional LQ crops, uncertain classifications) pause fo
 
 ## 9. Repository structure and tracked versus generated
 
-One repository, three subprojects, no dependency cycle (paper2notes reads paper2db; paper2mock is independent).
+One repository, three subprojects: paper2notes and paper2db are mutually dependent (paper2notes reads paper2db DSE crops; `paper2db/scripts/leak_fingerprints.py` reads paper2notes' published mirrors and writes its fingerprints), and paper2mock is independent. See [ARCHITECTURE dependency directions](ARCHITECTURE.md#dependency-directions-between-subprojects).
 
 | Path | Purpose | Runtime |
 |---|---|---|
@@ -474,19 +474,20 @@ One repository, three subprojects, no dependency cycle (paper2notes reads paper2
 | `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `tests/reconstructed/lq/*/starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
 | `paper2notes/notes/` including the `dse/` snapshot (82 files) and `_source/` | `.audit/` harness output |
+| `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
 | `paper2mock/**` LaTeX sources | Compiled mock PDFs (built and released by CI) |
 
 ## 10. CI, deploy and mocks
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, nested workflow path, or itself | Node 20, `node paper2notes/scripts/ci-check.mjs` |
+| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, nested workflow path, or itself | Node 20, `node paper2notes/scripts/ci-check.mjs` (includes the leak check), `node --test paper2notes/scripts/leak-check.test.mjs`, `python3 paper2db/scripts/leak_fingerprints.py --check` |
 | `compile-mocks` | PR touching `paper2mock/**` or itself; every push to `main` | Matrix LaTeX build of 20 documents; artifacts per PR; release on `main` |
 | `deploy-notes` | Push to `main` touching `paper2notes/notes/**`, `paper2notes/deploy/cloudrun/**`, `.dockerignore`, or itself; manual dispatch | Cloud Run deploy |
 
 Only the three workflows under `.github/workflows/` run; nested copies under `paper2notes/` and `paper2mock/` never do.
 
-**`ci-check.mjs`** (a no-op skip if `notes/` is absent) checks: Book 5, 2, 4 structure; relative `href`/`src` links resolve on disk (links via `_local/` skipped through `isKnownLocalOnly`); site region consistency; Lavish notes-refactor boards (before/after at 1280 and 390 widths and the readable-measure contract); and `deploy-commit-footer` on every deployed HTML (excluding `_source`, `_local`): `<footer class="deploy-commit-footer" data-commit="<6-char>">deployed commit: <code>…</code></footer>`. Not in CI: the Book 5 Puppeteer interactive tests (hard-coded macOS Chrome path), the DSE-quiz test (needs local scans), `sync-dse.sh`, the paper2db suite, the audit harness.
+**`ci-check.mjs`** (a no-op skip if `notes/` is absent) checks: Book 5, 2, 4 structure; relative `href`/`src` links resolve on disk (links via `_local/` skipped through `isKnownLocalOnly`); site region consistency; Lavish notes-refactor boards (before/after at 1280 and 390 widths and the readable-measure contract); `deploy-commit-footer` on every deployed HTML (excluding `_source`, `_local`): `<footer class="deploy-commit-footer" data-commit="<6-char>">deployed commit: <code>…</code></footer>`; and the leak check (`scripts/leak-check.mjs`, L1–L4 protected-text findings against the tracked fingerprints, minus the pinned allowances in `scripts/leak/baseline.json`; level definitions in the script header). Not in CI: the Book 5 Puppeteer interactive tests (hard-coded macOS Chrome path), the DSE-quiz test (needs local scans), `sync-dse.sh`, the paper2db suite, the audit harness.
 
 **Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/`, `**/_local/`, `*.test.mjs`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
 
@@ -497,7 +498,7 @@ Only the three workflows under `.github/workflows/` run; nested copies under `pa
 ## 11. Success criteria and acceptance
 
 1. Every DSE question in a covered year is reachable from at least one section bank; unclassified or low-confidence items are surfaced by audit output, not dropped.
-2. Every chapter page passes `ci-check.mjs` (structure, relative links, commit footer).
+2. Every chapter page passes `ci-check.mjs` (structure, relative links, commit footer, leak check).
 3. Interactive checks give correct feedback for every authored problem.
 4. The pipeline rebuilds all generated artifacts from tracked inputs on a clean checkout.
 5. `./paper2db/pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit` passes the section 7.2 gate with counts from `banks.json`; `qb-web-ui-staging/qb/manifest.json` reports 3,847 items and 46 banks and lists every missing crop.
@@ -513,7 +514,7 @@ Only the three workflows under `.github/workflows/` run; nested copies under `pa
 - **Per-book CSS copies.** Book 2, 4 and 5 each have their own `notes.css`; chapter overrides were the source of repeat bugs. Consolidate to one sheet or generate per-book copies from one source.
 - **Book 2 shape.** Book 2 is one long page per chapter; the quick-digest and anchor requirements (section 6.8) are the target and apply fully only to Book 4 and 5 style pages.
 - **Unchecked DSE contract.** Nothing verifies that notes references exist in the snapshot or agree with paper2db classification; the snapshot is synced by hand. `ci-check.mjs` skips `_local/` links.
-- **paper2db untested in CI**; the pipeline is not run in CI either.
+- **paper2db's unittest suite and pipeline are not run in CI**; the only paper2db code CI executes is `scripts/leak_fingerprints.py --check` for fingerprint drift.
 - **Interactive test coverage.** Book 5 ch. 1 to 2 have a browser test (needs Google Chrome); Book 4 and Book 5 ch. 3 have none.
 - **`compile-mocks` push-path cost.** All 20 LaTeX jobs and a release run on every push to `main`, including notes-only merges; the matrix is hand-written.
 - **Dead config.** Nested `paper2notes/.github/workflows/`, `paper2mock/.github/workflows/` and `paper2notes/.dockerignore` are unused; `ci-notes.yml` still path-filters on the nested workflow path.
