@@ -1,0 +1,35 @@
+name: ci-pointers
+on:
+  pull_request:
+    paths:
+      - "paper2db/metadata/pointers/**"
+      - "paper2db/schemas/answer-pointer.v1.json"
+      - "paper2db/scripts/pointers.py"
+      - "paper2db/tests/test_pointers.py"
+      - "paper2db/qb-web-ui-staging/**"
+      - "paper2db/metadata/qb/banks.json"
+      - ".github/workflows/ci-pointers.yml"
+  push:
+    branches: [main]
+    paths:
+      - "paper2db/metadata/pointers/**"
+      - "paper2db/schemas/answer-pointer.v1.json"
+      - "paper2db/scripts/pointers.py"
+      - "paper2db/tests/test_pointers.py"
+      - "paper2db/qb-web-ui-staging/**"
+      - "paper2db/metadata/qb/banks.json"
+      - ".github/workflows/ci-pointers.yml"
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: paper2db
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 scripts/pointers.py check
+      - run: python3 scripts/pointers.py coverage
+      - run: python3 -m unittest tests.test_pointers

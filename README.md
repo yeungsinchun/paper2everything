@@ -32,12 +32,12 @@ paper2everything/
 │   ├── pipeline                 entry point: 11 past-paper stages + 4 QB stages (`--list-stages`)
 │   ├── paper/{mc,lq,ans,performance}/   source PDFs and notes
 │   ├── scripts/                 stage scripts, overrides_*.json, QB converters
-│   ├── metadata/                reviewed classifications and QB census (tracked)
+│   ├── metadata/                reviewed pipeline inputs (see paper2db/README.md)
 │   ├── schemas/                 JSON schemas
 │   ├── qb-web-ui-staging/       staged crops and metadata for the /qb UI
 │   └── tests/                   unittest suite; pipeline output trees (mostly gitignored)
 ├── paper2mock/f1/test1/<1..10>/{question-paper,marking-scheme}/
-└── .github/workflows/           ci-notes, compile-mocks, deploy-notes
+└── .github/workflows/           see CI and deploy below
 ```
 
 ## Prerequisites
@@ -117,7 +117,7 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|
 | `paper2db/paper/**` source PDFs | `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
-| `paper2db/metadata/*/llm_classifications.json` | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
+| `paper2db/metadata/` inputs (see [authoritative inventory](paper2db/README.md#layout)) | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
 | `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
 | `paper2db/tests/reconstructed/lq/*/starts.json` | `paper2notes/notes/**/_local/` |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `.audit/` harness output |
@@ -129,6 +129,7 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 | Workflow | Trigger | What it does |
 |---|---|---|
 | `ci-notes` | PR and push to `main` touching `paper2notes/notes/**` or `paper2notes/scripts/**` | `node paper2notes/scripts/ci-check.mjs`: structure, relative links, Lavish boards, `deploy-commit-footer` on every deployed HTML |
+| [`ci-pointers`](.github/workflows/ci-pointers.yml) | PR and push to `main`; path filters in the workflow | Answer-pointer checks; see [paper2db usage](paper2db/README.md#answer-pointers) |
 | `compile-mocks` | PR touching `paper2mock/**`; every push to `main` | LaTeX build of all 20 mock documents; `main` pushes release two zips |
 | `deploy-notes` | push to `main` touching `paper2notes/notes/` or `paper2notes/deploy/cloudrun/`; manual | `paper2notes/deploy/cloudrun/deploy.sh` to Cloud Run (`asia-east2`) via Workload Identity Federation |
 
