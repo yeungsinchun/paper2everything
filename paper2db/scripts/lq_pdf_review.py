@@ -23,7 +23,10 @@ from png_pdf import append_pdf_page_a4
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_LQ = ROOT / "paper" / "lq"
-OUTPUT_LQ = ROOT / "output" / "lq"
+# ./pipeline writes LQ pages under tests/reconstructed/lq; output/lq is the legacy layout.
+OUTPUT_LQ = ROOT / "tests" / "reconstructed" / "lq"
+if not OUTPUT_LQ.is_dir():
+    OUTPUT_LQ = ROOT / "output" / "lq"
 
 
 def paper_year_label(stem: str) -> str:

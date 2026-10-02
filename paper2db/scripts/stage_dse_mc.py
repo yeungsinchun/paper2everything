@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Stage DSE MC crops (2012-2024) to qb-web-ui-staging/dse-mc for /qb UI.
+"""Stage DSE MC crops (2012-2026 + pp) to qb-web-ui-staging/dse-mc for /qb UI.
 
 Reads:
-  tests/reconstructed/mc/<year>/q*.png        (pipeline output, 435 MC items 2012-2024)
+  tests/reconstructed/mc/<year>/q*.png        (pipeline output, MC items 2012-2026 + pp)
   metadata/mc/llm_classifications.json        (573 MC classifications)
   tests/sections/mc/answer_keys.json          (MC keys + percentages, with manual overrides)
   scripts/classify_mc_llm.py SECTIONS         (27-section map)
@@ -11,7 +11,7 @@ Writes:
   qb-web-ui-staging/dse-mc/
     crops/<year>/qNN.png          (optimized palette PNG, 256 colors)
     crops/<year>/qNN.webp         (WebP quality 85)
-    index.json                    (435 items, full metadata)
+    index.json                    (all staged items, full metadata)
     sections.json                 (27 sections)
     stats.json                    (counts per year/section, missing data flags)
     manifest.json                 (file list and counts)
@@ -44,7 +44,9 @@ ANSWER_KEYS = ROOT / "tests" / "sections" / "mc" / "answer_keys.json"
 # Also fallback to older pipeline path if needed
 ALT_ANSWER_KEYS = ROOT / "classified" / "mc" / "answer_keys.json"
 
-YEARS = [str(y) for y in range(2012, 2025)]  # 2012-2024 inclusive
+# 2012-2026 plus the practice paper "pp". "sap" (sample paper) is not staged: its question
+# labels are not detectable by mc-anchors (see README).
+YEARS = [str(y) for y in range(2012, 2027)] + ["pp"]
 # SECTIONS map from classify_mc_llm.py
 try:
     sys.path.insert(0, str(ROOT / "scripts"))
@@ -155,7 +157,7 @@ def build_metadata(count, total_orig, total_png, total_webp):
     # filter to YEARS
     filtered = [e for e in classifications if str(e["Year"]) in YEARS]
     # sort by year then question
-    filtered.sort(key=lambda e: (int(e["Year"]), int(e["Question"])))
+    filtered.sort(key=lambda e: (str(e["Year"]).zfill(4), int(e["Question"])))
     items = []
     missing_answer = 0
     missing_pct = 0
@@ -200,7 +202,7 @@ def build_metadata(count, total_orig, total_png, total_webp):
                 pass
         item = {
             "id": f"dse-mc-{year}-{q}",
-            "year": int(year),
+            "year": int(year) if year.isdigit() else year,
             "question": q,
             "paper": "1A",
             "type": "mc",
@@ -227,7 +229,7 @@ def build_metadata(count, total_orig, total_png, total_webp):
                 "uncertain": bool(entry.get("uncertain")),
                 "source": "metadata/mc/llm_classifications.json",
             },
-            "sourcePdf": f"paper/mc/{year}p1a.pdf",
+            "sourcePdf": f"paper/mc/{year}p1a.pdf" if year != "pp" else "paper/mc/ppp1a.pdf",
             "warnings": []
         }
         # warnings
@@ -271,7 +273,7 @@ def build_metadata(count, total_orig, total_png, total_webp):
         "pipeline": {
             "stages": ["mc-anchors", "mc-split", "keys"],
             "source": "paper/mc/*p1a.pdf + paper/ans/*ans.pdf",
-            "classifications": "metadata/mc/llm_classifications.json (573 MC total, 435 in 2012-2024)",
+            "classifications": "metadata/mc/llm_classifications.json (573 MC total; sap not staged)",
         },
         "warningsSummary": {
             "missingAnswer": missing_answer,
@@ -304,12 +306,12 @@ def build_metadata(count, total_orig, total_png, total_webp):
     print(f"Wrote stats and manifest")
 
     # README
-    readme = f"""# DSE MC Staged Crops (2012-2024)
+    readme = f"""# DSE MC Staged Crops (2012-2026 + pp)
 
 Generated from `paper2db` pipeline stages `mc-anchors` + `mc-split` + `keys`.
 
-- **Years:** {', '.join(YEARS)} (2012-2024) — 435 MC items (36 for 2012-2013, 33 for 2014-2024)
-- **Full MC corpus:** 573 items (2012-2026+pp+sap) in `metadata/mc/llm_classifications.json`; staged slice is 435
+- **Years:** {', '.join(YEARS)} + pp — {len(items)} MC items (36 for 2012-2013 and pp, 33 otherwise)
+- **Full MC corpus:** 573 items (2012-2026+pp+sap) in `metadata/mc/llm_classifications.json`; staged slice excludes `sap` (mc-anchors cannot locate its question labels)
 - **Images:** `crops/<year>/qNN.png` (optimized palette PNG, 256 colors, ~45% of original) + `qNN.webp` (WebP q85, ~20%)
   - Original pipeline PNG total: {total_orig/1024/1024:.1f} MB
   - Optimized palette PNG: {total_png/1024/1024:.1f} MB
@@ -325,7 +327,7 @@ Generated from `paper2db` pipeline stages `mc-anchors` + `mc-split` + `keys`.
 - PNG: {len(list((STAGING/'crops').rglob('*.png')))} files (optimized)
 - WebP: {len(list((STAGING/'crops').rglob('*.webp')))} files
 - JSON metadata: 4 files (`index.json`, `sections.json`, `stats.json`, `manifest.json`)
-- Total items: {len(items)} (435)
+- Total items: {len(items)}
 
 ## Usage for /qb UI
 
@@ -336,7 +338,7 @@ Generated from `paper2db` pipeline stages `mc-anchors` + `mc-split` + `keys`.
 ## Reproduce
 
 ```bash
-./pipeline --only mc-anchors,mc-split --years 2012 2013 ... 2024 --yes --force
+./pipeline --only mc-anchors,mc-split --years 2012 2013 ... 2026 pp --yes --force
 ./pipeline --only keys --force --yes
 python3 scripts/stage_dse_mc.py
 ```

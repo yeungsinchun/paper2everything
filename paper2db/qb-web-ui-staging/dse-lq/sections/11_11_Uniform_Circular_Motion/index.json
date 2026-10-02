@@ -181,21 +181,21 @@
       ],
       "crop": "crops/2025-q4.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q4-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of circular motion. The overall performance was fair. About two thirds determined the angular speed correctly in (a). Part (b) was poorly answered, with some incorrectly naming the force as 'centripetal force'. Just under half gave a full explanation in (c), while a few omitted that the angular speed of *Q* remained constant.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: angular speed",
       "page_from": 4,
       "page_to": 4,
       "png": "output/lq/2025/q4.png",
-      "answer_png": "output/lq/2025/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q4.png"
     }
   ]
 }

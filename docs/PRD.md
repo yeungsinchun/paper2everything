@@ -349,7 +349,7 @@ Source PDFs live in `paper/{mc,lq,ans,performance}/`.
 
 **Classification.** 27 syllabus sections across Books 1 to 5 (Heat and Gases, Force and Motion, Wave Motion, Ray Optics, Electricity and Magnetism, Radioactivity and Nuclear Energy). Each paper type has an LLM backend (`classify_*_llm.py`, needs `LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`, optional `LLM_BASE_URL`, `LLM_MODEL`) and a keyword fallback (`classify_mc_sections.py`, `classify_lq_keywords.py`). An LQ can belong to several sections; `apply_book5_listings()` lists every Book 5 section a radioactivity LQ tests, and section PDFs include non-primary listings. Decisions are tracked because they are paid and nondeterministic: `metadata/mc/llm_classifications.json` (573 MC items across 2012 to 2026 plus `pp` and `sap`) and `metadata/lq/llm_classifications.json`, replayable with `--from-json`.
 
-**Hand-tuned tracked inputs:** `scripts/overrides_<year>.json` (MC anchor overrides for 2012, 2015, 2016, 2018, 2019, 2020), `scripts/answer_key_overrides.json`, `tests/reconstructed/lq/<year>/starts.json`. Quality bar: at most 5% of questions need manual tuning; `scripts/quality_audit.py --strict` writes `tests/sections/quality_audit.json` counting missing crops, missing classified copies, uncertain flags, tiny crops, incomplete years and override-tuned questions.
+**Hand-tuned tracked inputs:** `scripts/overrides_<year>.json` (MC anchor overrides for 2012, 2015, 2016, 2018, 2019, 2020), `scripts/answer_key_overrides.json`, `scripts/lq_answer_pages.json` (hand-verified marking-scheme page map used when OCR orientation or label detection fails), `tests/reconstructed/lq/<year>/starts.json`. Quality bar: at most 5% of questions need manual tuning; `scripts/quality_audit.py --strict` writes `tests/sections/quality_audit.json` counting missing crops, missing classified copies, uncertain flags, tiny crops, incomplete years and override-tuned questions.
 
 **Output.** `section-pdfs` writes `paper2db/tests/sections/{mc,lq}/<NN_Book>/<NN_Section>/` with PNG crops (`YYYY_qN.png` for MC; `YYYY-qN.png` and `YYYY-qN-ans.png` for LQ) and `combined.pdf`, plus CSVs, `answer_keys.json`, `quality_audit.json`, `candidate_performance.json`. Everything is reproducible from `paper/` with `./pipeline --force --yes`.
 
@@ -382,8 +382,9 @@ Variants of one item code merge. Answer precedence: `_ans`/`_answer`/`_yes_ans` 
 | Snapshot | Contents | Counts |
 |---|---|---|
 | `qb/` | `items/<bank>.json`, `items/index.json`, palette-optimised `crops/*.png`, `manifest.json` (per-bank counts and sizes, warnings, tool versions, missing crops) | 3,847 items, 46 banks (generated 2026-09-29) |
-| `dse-mc/` (`stage_dse_mc.py`) | `crops/<year>/qNN.png` and `.webp`, `index.json` (year, question, sections, reason, answer option and %, image paths, warnings), `sections.json`, `stats.json`, `manifest.json` | 435 items, 2012 to 2024 (36 for 2012 to 2013, 33 for 2014 to 2024); the classification file covers 573 |
-| `dse-lq/` (`stage_lq_qb_web_ui.py`) | whole-page question PNGs `YYYY-qN.png`, answer crops `YYYY-qN-ans.png`, per-section copies, `candidate_performance.json`, `manifest.json`, `index.json`, `raw/` | 170 questions; 112 with answer crops (58 missing); 144 with performance notes (26 missing) |
+| `dse-mc/` (`stage_dse_mc.py`) | `crops/<year>/qNN.png` and `.webp`, `index.json` (year, question, sections, reason, answer option and %, image paths, warnings), `sections.json`, `stats.json`, `manifest.json` | 537 items, 2012 to 2026 plus `pp` (36 for 2012, 2013 and `pp`, 33 otherwise); the classification file covers 573, and only `sap` is not staged |
+| `dse-lq/` (`stage_lq_qb_web_ui.py`) | whole-page question PNGs `YYYY-qN.png`, answer crops `YYYY-qN-ans.png`, per-section copies, `candidate_performance.json`, `manifest.json`, `index.json`, `raw/` | 170 questions; 122 with answer crops (48 missing); 144 with performance notes (26 missing) |
+| `book2-db/` (`build_book2_db.py`) | `book2.json` (every in-scope problem, one record each, MC vs LQ and by topic), `summary.json` (counts per topic, kind and source), `audit.json` (every integrity check with its failing ids) | 1,068 records: DSE 150 MC + 45 LQ, QB 502 MC + 371 written (`sq` 203, `rq` 13, `lq` 155) |
 
 Missing data is flagged per item (`warnings`, `missing_flags`), never silently dropped. MC warnings: `missing_answer`, `missing_percentage`, `uncertain_classification`, `missing_crop`. Missing performance notes are expected for 2026, `pp`, and any question whose performance markdown has no Section B note.
 
@@ -471,7 +472,7 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 |---|---|
 | `paper2db/paper/**` source PDFs | `paper2db/intermediate/`, `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
 | `paper2db/metadata/*/llm_classifications.json`, `metadata/qb/{banks,source-manifest}.json` | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
-| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `tests/reconstructed/lq/*/starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
+| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json`, `tests/reconstructed/lq/*/starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
 | `paper2notes/notes/` including the `dse/` snapshot (82 files) and `_source/` | `.audit/` harness output |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
@@ -502,7 +503,7 @@ Only the three workflows under `.github/workflows/` run; nested copies under `pa
 3. Interactive checks give correct feedback for every authored problem.
 4. The pipeline rebuilds all generated artifacts from tracked inputs on a clean checkout.
 5. `./paper2db/pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit` passes the section 7.2 gate with counts from `banks.json`; `qb-web-ui-staging/qb/manifest.json` reports 3,847 items and 46 banks and lists every missing crop.
-6. DSE staging counts reconcile (435 MC for 2012 to 2024, 170 LQ) with missing answers, notes and crops flagged per item.
+6. DSE staging counts reconcile (537 MC for 2012 to 2026 plus `pp`, 170 LQ) with missing answers, notes and crops flagged per item.
 7. A harness run on a bank yields one result per inventory item and `report.mjs` applies the section 7.4 completeness rule.
 8. Mock PDFs compile in CI and release on each push to `main`.
 9. No QB stem, crop, DOCX, full PDF or `.audit/` output is tracked in git.
@@ -519,7 +520,7 @@ Only the three workflows under `.github/workflows/` run; nested copies under `pa
 - **`compile-mocks` push-path cost.** All 20 LaTeX jobs and a release run on every push to `main`, including notes-only merges; the matrix is hand-written.
 - **Dead config.** Nested `paper2notes/.github/workflows/`, `paper2mock/.github/workflows/` and `paper2notes/.dockerignore` are unused; `ci-notes.yml` still path-filters on the nested workflow path.
 - **Harness scope.** It audits QB items only; DSE MC and LQ questions have no item record or answerability verdict. Bank ids and bank-to-chapter mapping are hard-coded to Books 2, 4, 5; the model id is hard-coded in four scripts; it is not in CI (paid LLM, `pi`, Chrome). QB items carry no section classification beyond `bank` and `chapter`, and the harness mapping is not written back to `paper2db`.
-- **DSE staging coverage.** `dse-mc` stages 435 of 573 classified MC items (2012 to 2024); 2025, 2026, `pp` and `sap` are not staged.
+- **DSE staging coverage.** `dse-mc` stages 537 of 573 classified MC items (2012 to 2026 plus `pp`); only `sap` is not staged (mc-anchors cannot locate its question labels).
 - **`/qb` UI** is described by requirements here but has no tracked automated test.
 
 ## 13. Risks and open questions

@@ -11,8 +11,8 @@
     "total_questions": 170,
     "crops_exist": 170,
     "crops_missing": 0,
-    "answers_exist": 112,
-    "answers_missing": 58,
+    "answers_exist": 122,
+    "answers_missing": 48,
     "candidate_performance_exist": 144,
     "candidate_performance_missing": 26,
     "sections_used": 26
@@ -42,16 +42,6 @@
       "2024-q11",
       "2024-q12",
       "2024-q13",
-      "2025-q10",
-      "2025-q11",
-      "2025-q12",
-      "2025-q3",
-      "2025-q4",
-      "2025-q5",
-      "2025-q6",
-      "2025-q7",
-      "2025-q8",
-      "2025-q9",
       "2026-q1",
       "2026-q10",
       "2026-q11",
@@ -4605,7 +4595,7 @@
       "page_from": 0,
       "page_to": 0,
       "png": "output/lq/2025/q1.png",
-      "answer_png": "output/lq/2025/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q1.png"
     },
     {
       "id": "2025-q2",
@@ -4637,7 +4627,7 @@
       "page_from": 1,
       "page_to": 1,
       "png": "output/lq/2025/q2.png",
-      "answer_png": "output/lq/2025/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q2.png"
     },
     {
       "id": "2025-q3",
@@ -4655,21 +4645,21 @@
       ],
       "crop": "crops/2025-q3.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q3-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question required candidates to interpret a motion graph. Candidates' performance was satisfactory. In (a), about a quarter provided a complete description of the motion. Performance in (b) was satisfactory, although some did not specify the position with reference to point *O*. Part (c) was well answered.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: velocity-time",
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2025/q3.png",
-      "answer_png": "output/lq/2025/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q3.png"
     },
     {
       "id": "2025-q4",
@@ -4687,21 +4677,21 @@
       ],
       "crop": "crops/2025-q4.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q4-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of circular motion. The overall performance was fair. About two thirds determined the angular speed correctly in (a). Part (b) was poorly answered, with some incorrectly naming the force as 'centripetal force'. Just under half gave a full explanation in (c), while a few omitted that the angular speed of *Q* remained constant.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: angular speed",
       "page_from": 4,
       "page_to": 4,
       "png": "output/lq/2025/q4.png",
-      "answer_png": "output/lq/2025/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q4.png"
     },
     {
       "id": "2025-q5",
@@ -4719,21 +4709,21 @@
       ],
       "crop": "crops/2025-q5.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q5-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question assessed candidates' understanding of experimental design and force analysis during a collision. The performance was poor. While most recognised the action-reaction pair between *A* and *B*, many failed to draw the force-time graphs correctly.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: collision",
       "page_from": 5,
       "page_to": 5,
       "png": "output/lq/2025/q5.png",
-      "answer_png": "output/lq/2025/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q5.png"
     },
     {
       "id": "2025-q6",
@@ -4751,21 +4741,21 @@
       ],
       "crop": "crops/2025-q6.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q6-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' knowledge of geometrical optics, focusing on the properties of lenses and practical adjustments. Candidates performed well. Part (a) was well answered, though a few incorrectly described the image as erect. About two thirds answered (b)(i) and (ii) correctly. Over 70% found the focal length using the lens formula, despite errors in the ray diagrams. Part (c) was poorly answered, revealing their limited understandings of the relationship between image and object distances. Slightly under half answered (d) correctly.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: lens, magnification",
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2025/q6.png",
-      "answer_png": "output/lq/2025/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q6.png"
     },
     {
       "id": "2025-q7",
@@ -4783,21 +4773,21 @@
       ],
       "crop": "crops/2025-q7.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q7-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question examined candidates' understanding of circuit behaviour and interpretation of experimental data. The overall performance was good. Most answered (a) correctly. In (b), a high percentage calculated the total resistance accurately, though some only noted the difference (0.3 Ω) without explaining its cause.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: resistance, circuit",
       "page_from": 8,
       "page_to": 9,
       "png": "output/lq/2025/q7.png",
-      "answer_png": "output/lq/2025/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q7.png"
     },
     {
       "id": "2025-q8",
@@ -4815,21 +4805,21 @@
       ],
       "crop": "crops/2025-q8.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q8-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of electromagnetic induction via rotating coils in a magnetic field. The overall performance was satisfactory. About a third drew a waveform with correct shape, period and phase in (a). Part (b) was well answered, although some wrongly applied *B* = μ₀*I* / (2π*r*) to determine the magnetic flux.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: magnetic field",
       "page_from": 10,
       "page_to": 10,
       "png": "output/lq/2025/q8.png",
-      "answer_png": "output/lq/2025/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q8.png"
     },
     {
       "id": "2025-q9",
@@ -4847,21 +4837,21 @@
       ],
       "crop": "crops/2025-q9.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q9-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question assessed candidates' application of the ideal gas law. The overall performance was good. Some candidates confused the number of moles with the number of molecules when applying the equation.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: ideal gas, number of molecules, mole",
       "page_from": 11,
       "page_to": 11,
       "png": "output/lq/2025/q9.png",
-      "answer_png": "output/lq/2025/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q9.png"
     },
     {
       "id": "2025-q10",
@@ -4881,21 +4871,21 @@
       ],
       "crop": "crops/2025-q10.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q10-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of stationary wave and its application to musical instruments. Candidates performed poorly. In (a)(i), about a third labelled some antinodes and nodes, only a third labelled all correctly. Part (a)(ii) was well answered, although a small number seemingly did not understand the concept of 'phase'. Only about a third answered (a)(iii) correctly. In (a)(iv), many failed to determine the wavelength of the next stationary wave pattern. Nearly half drew the correct pattern in (b)(i). In (b)(ii), only a very small number realised that sound quality depends on the superposition of harmonics. The performance in (b)(iii) was poor. Many did not compare appropriate wave characteristics and some mismatched terms like 'stationary' and 'longitudinal'.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: stationary wave; dual with S7 (significant earlier part)",
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2025/q10.png",
-      "answer_png": "output/lq/2025/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q10.png"
     },
     {
       "id": "2025-q11",
@@ -4913,21 +4903,21 @@
       ],
       "crop": "crops/2025-q11.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q11-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of the efficiency of energy conversion and the power loss in long-distance transmission of electricity. Candidates' performance was satisfactory. Part (a) was well answered, with a very high proportion obtaining the correct answer in (a)(i), and about two thirds completing the calculations in (a)(ii) and (iii). A small number made errors with prefixes of the units. Part (b)(i) was well answered. In (b)(ii), just under half determined the power loss correctly. The performance in (b)(iii) was poor. Some omitted the use of a transformer, while others failed to explain the benefit of high-voltage transmission.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: efficiency, power",
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2025/q11.png",
-      "answer_png": "output/lq/2025/ans/q11.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q11.png"
     },
     {
       "id": "2025-q12",
@@ -4945,21 +4935,21 @@
       ],
       "crop": "crops/2025-q12.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q12-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question required candidates to apply the principles of radioactive decay and their understandings of the motion of ions in a magnetic field. The overall performance was satisfactory. In (a)(i), about two thirds wrote a correct equation, although some mistakenly argued that a neutron is emitted during the decay. Around 80% found the decay constant in (a)(ii). Performance in (a)(iii) was also satisfactory, though some confused the count rate of the ancient wood sample with that of the fresh wood. About two thirds correctly stated the meaning of isotopes in (b)(i), and about half sketched the correct path in (b)(ii). The performance in (b)(iii) was poor. Many did not mention that the magnetic force is perpendicular to the velocity.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: half-life, activity, decay constant",
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2025/q12.png",
-      "answer_png": "output/lq/2025/ans/q12.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q12.png"
     },
     {
       "id": "2026-q1",

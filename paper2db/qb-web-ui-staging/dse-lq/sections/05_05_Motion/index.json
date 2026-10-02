@@ -215,21 +215,21 @@
       ],
       "crop": "crops/2025-q3.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2025-q3-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question required candidates to interpret a motion graph. Candidates' performance was satisfactory. In (a), about a quarter provided a complete description of the motion. Performance in (b) was satisfactory, although some did not specify the position with reference to point *O*. Part (c) was well answered.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: velocity-time",
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2025/q3.png",
-      "answer_png": "output/lq/2025/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2025/ans/q3.png"
     },
     {
       "id": "2026-q11",

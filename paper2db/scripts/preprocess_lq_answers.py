@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import csv
 import io
+import json
 import re
 import subprocess
 from pathlib import Path
@@ -527,6 +528,39 @@ def strip_answer_chrome(image: Image.Image) -> Image.Image:
     return trim_whitespace(image.crop((0, top, w, bottom)))
 
 
+def load_page_map(year: str) -> dict[int, list[int]]:
+    path = Path(__file__).with_name("lq_answer_pages.json")
+    if not path.is_file():
+        return {}
+    raw = json.loads(path.read_text(encoding="utf-8")).get(year, {})
+    return {int(q): [int(p) for p in pages] for q, pages in raw.items()}
+
+
+def process_page_map(
+    source: Path, output_dir: Path, page_map: dict[int, list[int]], scale: float
+) -> int:
+    """Crop whole marking-scheme pages per the hand-verified map (no orientation guess)."""
+    doc = fitz.open(source)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for old in output_dir.glob("q*.png"):
+        old.unlink()
+    written = 0
+    try:
+        for qn, pdf_pages in sorted(page_map.items()):
+            parts = [render_page(doc[p - 1], scale) for p in pdf_pages]
+            # Whole pages, header row kept: chrome stripping guesses where the header ends
+            # and cut (a)(i) off Q11 on a verified page.
+            combined = trim_whitespace(stitch_vertical(parts))
+            out = output_dir / f"q{qn}.png"
+            combined.save(out, format="PNG")
+            print(f"  Wrote {out.name} ({combined.width}x{combined.height}) from pdf pages {pdf_pages}")
+            written += 1
+    finally:
+        doc.close()
+    combine_pngs_to_pdf(output_dir, overwrite=True)
+    return written
+
+
 def process_answers(
     source: Path,
     output_dir: Path,
@@ -534,6 +568,10 @@ def process_answers(
     max_questions: int = 12,
     scale: float = 2.0,
 ) -> int:
+    page_map = load_page_map(output_dir.parent.name)
+    if page_map:
+        print(f"  using hand-verified page map ({len(page_map)} questions)")
+        return process_page_map(source, output_dir, page_map, scale)
     doc = fitz.open(source)
     output_dir.mkdir(parents=True, exist_ok=True)
     for old in output_dir.glob("q*.png"):

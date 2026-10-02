@@ -1,3 +1,9 @@
-# Staging for DSE MC crops - never commit full PDFs, only cropped images
+# Never commit full PDFs, only crops
 *.pdf
 *.PDF
+# Keep staging metadata and crops
+!*.json
+!*.png
+!*.webp
+!*.md
+!crops/
