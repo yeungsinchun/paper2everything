@@ -1,6 +1,7 @@
 """Book 2 DB join: invariants over the tracked staging data (no pipeline run needed)."""
 from __future__ import annotations
 
+import json
 import unittest
 
 from scripts import build_book2_db as db
@@ -39,6 +40,20 @@ class Book2DbTest(unittest.TestCase):
         for r in self.records:
             if r["source"] == "qb":
                 self.assertEqual(r["kind"], "mc" if r["subtype"] == "mc" else "lq")
+
+    def test_delivered_crop_dimensions_match_png_files(self):
+        """The generated book2.json must describe the PNGs actually committed."""
+        committed = json.loads((db.OUT / "book2.json").read_text())
+        mismatched = []
+        for r in committed:
+            for field in ("crop", "answer_crop"):
+                info = r.get(field)
+                if not info or not info.get("exists"):
+                    continue
+                size = db.png_size(db.STAGING / info["path"])
+                if size != (info["width"], info["height"]):
+                    mismatched.append((r["id"], field, (info["width"], info["height"]), size))
+        self.assertEqual(mismatched, [])
 
 
 if __name__ == "__main__":
