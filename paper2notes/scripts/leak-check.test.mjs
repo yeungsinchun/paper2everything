@@ -49,7 +49,7 @@ test("baselined pages reject an appended stem and numeric reword", () => {
   }
 });
 
-test("content evidence changes for additional copies across all levels", () => {
+test("content evidence is stable across repeated copies and unrelated blocks", () => {
   const stem = bank.find((item) => item.id === "PHY15011101").stem.text;
   const answer = bank.find((item) => item.answer?.worked && fp.items.find((row) => row.id === item.id)?.w.length >= 2);
   for (const [block, level, id] of [
@@ -62,11 +62,32 @@ test("content evidence changes for additional copies across all levels", () => {
     const original = find([block]);
     assert.ok(original, `${level} ${id}`);
     assert.equal(find([block, "Unrelated prose."]).contentHash, original.contentHash);
-    assert.notEqual(find([block, block]).contentHash, original.contentHash);
+    assert.equal(find([block, block]).contentHash, original.contentHash);
   }
   const first = checkBlocks(["241 432 100 80"], fp).find((finding) => finding.level === "L2.2" && finding.item === "PHY15023108");
   const reword = checkBlocks(["Given 241 then 432 then 100 then 80."], fp).find((finding) => finding.level === "L2.2" && finding.item === "PHY15023108");
   assert.notEqual(first.contentHash, reword.contentHash);
+});
+
+test("one repeated 8-gram is not independent evidence", () => {
+  const item = bank.find((row) => row.id === "PHY15011101");
+  const row = fp.items.find((r) => r.id === item.id);
+  const toks = tokens(item.stem.text);
+  const window = [];
+  for (let i = 0; i + fp.ngram <= toks.length; i++) if (row.g.includes(fp.gramHash(toks, i))) window.push(i);
+  const start = window[0];
+  const gram = toks.slice(start, start + fp.ngram).join(" ");
+  const repeated = tokens(`${gram} ${gram}`);
+  const distinct = new Set();
+  for (let i = 0; i + fp.ngram <= repeated.length; i++) {
+    const h = fp.gramHash(repeated, i);
+    if (row.g.includes(h)) distinct.add(h);
+  }
+  assert.equal(distinct.size, 1);
+  const findings = checkBlocks([`${gram} ${gram}`], fp).filter((finding) => finding.level === "L1" && finding.item === item.id);
+  assert.deepEqual(findings, []);
+  const verbose = checkBlocks([toks.slice(start, start + fp.ngram * 2).join(" ")], fp).filter((finding) => finding.level === "L1" && finding.item === item.id);
+  assert.ok(verbose.length);
 });
 
 test("CLI cannot authorize leaks or overwrite the baseline", () => {
@@ -99,6 +120,13 @@ test("item id cited fails L4; deck meta exempts", () => {
   const item = bank.find((x) => x.id === "PHY15011101");
   const deck = page(`<p>${item.stem.text}</p><p>PHY15011101</p>`, '<meta name="leak-check" content="deck">');
   assert.deepEqual(levels(deck), []);
+});
+
+test("L4 boundaries exclude ids inside hyphenated identifiers and ISO dates", () => {
+  assert.ok(fp.items.some((row) => row.id === "2012-10"));
+  const l4 = (text) => checkBlocks([text], fp).filter((finding) => finding.level === "L4").map((finding) => finding.item);
+  assert.deepEqual(l4("Updated 2012-10-05 and period 2012-10-2013."), []);
+  assert.ok(l4("See 2012-10 for the paper.").includes("2012-10"));
 });
 
 test("fingerprints cover all canonical and published identities", () => {

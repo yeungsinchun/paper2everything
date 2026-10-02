@@ -98,7 +98,7 @@ export function loadFingerprints() {
     numSets,
     gramHash: (toks, i) => digest(toks.slice(i, i + fp.ngram).join(" "), fp.gram_hex),
     numHash: (n) => digest(n, fp.num_hex),
-    idPatterns: fp.items.map((item) => new RegExp(`(?<![A-Za-z0-9])${escapeRe(item.id)}(?![A-Za-z0-9])`, "i")),
+    idPatterns: fp.items.map((item) => new RegExp(`(?<![A-Za-z0-9-])${escapeRe(item.id)}(?![A-Za-z0-9-])`, "i")),
   };
 }
 
@@ -157,7 +157,7 @@ export function checkBlocks(blocks, fp) {
   const findings = [];
   const add = (level, item, detail, evidence, severity = "error") => findings.push({
     level, item, detail, severity,
-    contentHash: createHash("sha256").update(JSON.stringify(evidence.sort())).digest("hex"),
+    contentHash: createHash("sha256").update(JSON.stringify([...new Set(evidence)].sort())).digest("hex"),
   });
 
   const text = blocks.join("\n");
@@ -170,16 +170,16 @@ export function checkBlocks(blocks, fp) {
     const h = fp.gramHash(toks, i);
     for (const [index, hits] of [[fp.gramIndex, gramHits], [fp.wordIndex, wordHits]]) {
       for (const idx of index.get(h) ?? []) {
-        if (!hits.has(idx)) hits.set(idx, []);
-        hits.get(idx).push(h);
+        if (!hits.has(idx)) hits.set(idx, new Set());
+        hits.get(idx).add(h);
       }
     }
   }
   for (const [idx, evidence] of gramHits) {
-    if (evidence.length >= MIN_GRAM_HITS) add("L1", fp.items[idx].id, `${evidence.length} verbatim 8-grams of the question text`, evidence);
+    if (evidence.size >= MIN_GRAM_HITS) add("L1", fp.items[idx].id, `${evidence.size} verbatim 8-grams of the question text`, [...evidence]);
   }
   for (const [idx, evidence] of wordHits) {
-    if (evidence.length >= MIN_GRAM_HITS) add("L3", fp.items[idx].id, `${evidence.length} verbatim 8-grams of the worked solution`, evidence);
+    if (evidence.size >= MIN_GRAM_HITS) add("L3", fp.items[idx].id, `${evidence.size} verbatim 8-grams of the worked solution`, [...evidence]);
   }
 
   // L2: numeric set inside a single block.
