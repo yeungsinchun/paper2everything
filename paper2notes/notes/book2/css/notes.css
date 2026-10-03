@@ -131,6 +131,11 @@ h3 { font-size: 1.08rem; }
   margin: 0 0 0.25rem;
 }
 
+.page-tools {
+  float: right;
+  margin: 0.15rem 0 0 1rem;
+}
+
 .lede {
   color: var(--muted);
   font-size: 1.02rem;
@@ -240,6 +245,18 @@ p { margin: 0.45rem 0; }
 }
 
 .quiz-export:hover { text-decoration: underline; }
+
+.quiz-export-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.quiz-export-group .quiz-export {
+  font-size: inherit;
+}
 
 .quiz-letter:focus-visible,
 .quiz-export:focus-visible,
@@ -533,7 +550,6 @@ figure.fig {
 
 /* A single animation box is framed for a 2:1 view; the wider page would leave the
    apparatus floating in empty canvas, so cap its width and centre it. */
-figure.fig > .visual.stage,
 figure.fig > .visual.play.stage {
   max-width: 720px;
   margin: 0 auto;
@@ -1176,7 +1192,8 @@ button[data-reveal] { margin-top: 0.5rem; }
 }
 
 @media print {
-  .topbar, .next { display: none; }
+  .topbar, .next, .page-tools, .section-dse, .stage-replay { display: none; }
+  main { max-width: none; padding: 0; }
   .idea { break-inside: avoid; }
 }
 
