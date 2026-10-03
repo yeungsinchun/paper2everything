@@ -154,8 +154,14 @@ test("Book 2 and Book 4 canonical stems fail L1", () => {
 });
 
 test("DSE stems and textless LQ identities are protected in both representations", () => {
-  const mc = readJson(join(staging, "dse-mc/index.json"))[0];
-  const published = readJson(resolve(here, "../notes/qb/data/dse_mc.json")).items[0];
+  // Staging and published use different id namespaces for the same MC question
+  // (dse-mc-pp-1 vs pp-1), and staging sorts pp items first, so pair by
+  // question text rather than by index: the same statement must protect both.
+  const stagingMc = readJson(join(staging, "dse-mc/index.json"));
+  const mc = stagingMc.find((row) => row.id === "dse-mc-pp-1") ?? stagingMc[0];
+  const publishedItems = readJson(resolve(here, "../notes/qb/data/dse_mc.json")).items;
+  const published = publishedItems.find((row) => row.statementPreview === mc.statementPreview);
+  assert.ok(published, "expected a published mirror of the staging MC item");
   const lq = readJson(join(staging, "dse-lq/index.json")).items[0];
   const errors = runLeakCheck({ files: [page(`<p>${mc.statementPreview}</p><p>${mc.id} ${published.id} ${lq.id}</p>`)] }).errors;
   for (const id of [mc.id, published.id]) {
