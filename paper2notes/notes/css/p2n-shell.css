@@ -98,7 +98,11 @@ a{text-decoration:none}
 .p2n-cc-t{flex:1;min-width:0}
 .p2n-cc-t .p2n-label{display:block;margin-bottom:4px;color:var(--tone,var(--teal-600))}
 .p2n-cc-t b{font:600 var(--text-lg)/1.2 var(--font-display)}
+.p2n-cc-t small{display:block;margin-top:2px;color:var(--ink-3);font-weight:600}
 .p2n-cc-go{color:var(--ink-3)}
+
+/* Chapter PDF exports on book indexes */
+.p2n-exports{display:flex;flex-wrap:wrap;gap:4px 16px;margin:0;font-weight:700;font-size:var(--text-sm)}
 
 /* Footer */
 .p2n-foot{text-align:center;padding:var(--space-5) 16px;color:var(--ink-3);font-size:var(--text-sm)}
@@ -110,3 +114,20 @@ a{text-decoration:none}
 [data-ic="radiation"]{--src:url(../assets/icons/radiation.svg)}
 [data-ic="library"]{--src:url(../assets/icons/library.svg)}
 [data-ic="chevron-right"]{--src:url(../assets/icons/chevron-right.svg)}
+/* Book 2 chapter glyphs (icon-map.json) */
+[data-ic="move-up-right"]{--src:url(../assets/icons/move-up-right.svg)}
+[data-ic="gauge"]{--src:url(../assets/icons/gauge.svg)}
+[data-ic="square-arrow-right"]{--src:url(../assets/icons/square-arrow-right.svg)}
+[data-ic="weight"]{--src:url(../assets/icons/weight.svg)}
+[data-ic="scale"]{--src:url(../assets/icons/scale.svg)}
+[data-ic="battery-charging"]{--src:url(../assets/icons/battery-charging.svg)}
+[data-ic="circle-dot-dashed"]{--src:url(../assets/icons/circle-dot-dashed.svg)}
+[data-ic="chart-spline"]{--src:url(../assets/icons/chart-spline.svg)}
+[data-ic="orbit"]{--src:url(../assets/icons/orbit.svg)}
+[data-ic="earth"]{--src:url(../assets/icons/earth.svg)}
+
+/* Book screen head: soft book tile + label/title (BookScreen pattern) */
+.p2n-book-head{display:flex;align-items:center;gap:14px}
+.p2n-book-tile{flex:none;display:grid;place-items:center;width:56px;height:56px;border-radius:18px;background:var(--soft,var(--book2-soft));color:var(--tone,var(--book2))}
+.p2n-book-head h1{font-size:var(--text-2xl)}
+@media (max-width:560px){.p2n-book-head h1{font-size:var(--text-xl)}}
