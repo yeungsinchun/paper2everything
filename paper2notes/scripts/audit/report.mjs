@@ -13,14 +13,12 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(__dirname, "../..");
-const monoRepoRoot = path.resolve(repoRoot, "..");
+import { auditDirs, inventoryCandidates } from "./paths.mjs";
 
 function parseArgs(argv) {
-  const out = { resultsDir: path.join(repoRoot, ".audit/results"), outCoverage: path.join(repoRoot, ".audit/coverage.json"), lavishDir: path.join(repoRoot, ".audit/lavish/qb-audit"), coverageOnly: false };
+  const dirs = auditDirs();
+  const out = { resultsDir: dirs.results, outCoverage: dirs.coverage, lavishDir: dirs.lavish, coverageOnly: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--results" && argv[i+1]) out.resultsDir = path.resolve(argv[++i]);
@@ -46,7 +44,11 @@ function completenessFor(items) {
   const failures = core.filter(x => !["pass", "pass-leaked", "cross-ref"].includes(x.verdict));
   const concepts = new Map();
   for (const x of failures) for (const concept of new Set(x.missing_concepts || [])) concepts.set(concept, (concepts.get(concept) || 0) + 1);
-  const mustFix = failures.filter(x => (x.marks >= 4 && x.section && x.section !== "unknown") || (x.missing_concepts || []).some(c => concepts.get(c) >= 2));
+  const dseLq = x => x.bank && x.bank.startsWith("DSE_") && x.type === "lq";
+  const mustFix = [
+    ...items.filter(x => x.missing_evidence),
+    ...failures.filter(x => !x.missing_evidence && (dseLq(x) || (x.marks >= 4 && x.section && x.section !== "unknown") || (x.missing_concepts || []).some(c => concepts.get(c) >= 2))),
+  ];
   const complete = total > 0 && items.every(x => x.inventory_present && x.result_present && x.part) && coreRate >= 0.95 && mustFix.length === 0;
   return { total, core: core.length, byVerdict, passed, corePassed, coreRate, mustFix: mustFix.map(x => x.id), complete };
 }
@@ -66,7 +68,7 @@ function main() {
   const allItems = [];
   for (const bank of banks) {
     const bankDir = path.join(resultsDir, bank);
-    const inventories = [path.join(repoRoot, "../paper2db/qb-pdf/items", `${bank}.json`), path.join(monoRepoRoot, "paper2db/qb-pdf/items", `${bank}.json`), path.join(repoRoot, `paper2db/qb-pdf/items/${bank}.json`), path.join(repoRoot, `.audit/fixtures/${bank}.json`), path.join(repoRoot, `scripts/audit/fixtures/${bank}.json`)];
+    const inventories = inventoryCandidates(bank);
     const inventoryPath = inventories.find(p => fs.existsSync(p));
     const inventory = inventoryPath ? JSON.parse(fs.readFileSync(inventoryPath, "utf8")).items || [] : [];
     const results = new Map();
@@ -77,7 +79,7 @@ function main() {
     const items = inventory.map(item => {
       const result = results.get(item.id);
       const missing_concepts = result ? [...new Set(Object.values(result.tiers || {}).flatMap(t => (t.samples || []).flatMap(sample => [...(sample.answer?.missing || []).map(m => m.concept), ...(sample.judge?.marking || []).filter(m => m.verdict === "lost-knowledge").map(m => m.concept)].filter(Boolean))))] : [];
-      return { ...result, id: item.id, bank, part: item.part, marks: item.marks, inventory_present: true, result_present: !!result, verdict: result?.verdict || "missing", missing_concepts };
+      return { ...result, id: item.id, bank, part: item.part, marks: item.marks, type: item.type, missing_evidence: item.missing_evidence === true, inventory_present: true, result_present: !!result, verdict: result?.verdict || "missing", missing_concepts };
     });
     for (const [id, result] of results) if (!inventory.some(item => item.id === id)) items.push({ ...result, id, bank, inventory_present: false, result_present: true, verdict: "unmatched" });
     const stats = completenessFor(items);
@@ -159,7 +161,7 @@ ${heatmap || '<p class="small">(no data)</p>'}
 ${allItems.slice(0,50).map(it => `<tr><td>${it.id}</td><td>${it.bank}</td><td>${it.section || ""}</td><td>${it.verdict}</td><td>${it.leaked ? "yes" : ""}</td></tr>`).join("\n") || '<tr><td colspan=5>(none)</td></tr>'}
 </tbody>
 </table>
-<p class="small">Full results: <code>.audit/results/&lt;bank&gt;/&lt;id&gt;.json</code> · Coverage: <code>.audit/coverage.json</code> · Bundles: <code>.audit/bundles/&lt;bank&gt;/</code></p>
+<p class="small">Full results: <code>results/&lt;bank&gt;/&lt;id&gt;.json</code> under the audit root (<code>.audit/</code> or <code>P2E_AUDIT_ROOT</code>) · Coverage: <code>.audit/coverage.json</code> · Bundles: <code>.audit/bundles/&lt;bank&gt;/</code></p>
 <p class="small">Completeness per plan §4.7: Complete = ≥95% of core items are pass/pass-leaked/cross-ref, and no must-fix concept remains. Must-fix = concept cited by ≥2 core items or any ≥4-mark item that maps to a syllabus LO.</p>
 </body>
 </html>

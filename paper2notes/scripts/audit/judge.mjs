@@ -18,6 +18,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { parseAnchorHeading } from "./pointers.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
@@ -50,47 +51,78 @@ function tokenSetRatio(quote, block) {
   return inter / sq.size;
 }
 
+function buildBlockIndex(notesMd) {
+  // Block keys are page-qualified (`25-1.B#knockout`, `book2/ch02.lo#lo-heading`),
+  // so ids that repeat across pages (e.g. `quiz`, `traps`) never alias each other.
+  const byKey = new Map();
+  const byId = new Map();
+  let cur = null;
+  const close = () => {
+    if (!cur) return;
+    const text = cur.lines.join("\n");
+    const page = cur.page || "?";
+    const key = cur.sec ? `${page}.${cur.sec}#${cur.id}` : `${page}#${cur.id}`;
+    byKey.set(key, text);
+    if (cur.id) {
+      if (!byId.has(cur.id)) byId.set(cur.id, new Map());
+      byId.get(cur.id).set(page, text);
+    }
+    cur = null;
+  };
+  for (const line of notesMd.split("\n")) {
+    const h = line.match(/^#{2,4}\s+[^\[\n]*\[([^\]]+)\]/);
+    if (h) {
+      close();
+      cur = { ...parseAnchorHeading(h[1]), lines: [] };
+    } else if (cur) {
+      cur.lines.push(line);
+    }
+  }
+  close();
+  return { byKey, byId };
+}
+
+function resolveAnchor(index, anchorText) {
+  const a = String(anchorText || "").trim().replace(/^§/, "");
+  if (!a) return "";
+  const hash = a.lastIndexOf("#");
+  const prefix = (hash >= 0 ? a.slice(0, hash) : "").trim();
+  const id = (hash >= 0 ? a.slice(hash + 1) : a).trim();
+  if (!id) return "";
+  if (prefix) {
+    const exact = index.byKey.get(`${prefix}#${id}`);
+    if (exact !== undefined) return exact;
+    const scoped = index.byId.get(id)?.get(prefix);
+    if (scoped !== undefined) return scoped;
+    const dot = prefix.lastIndexOf(".");
+    if (dot > 0) {
+      const loose = index.byId.get(id)?.get(prefix.slice(0, dot));
+      if (loose !== undefined) return loose;
+    }
+    return "";
+  }
+  const pages = index.byId.get(id);
+  if (!pages || pages.size !== 1) return "";
+  return [...pages.values()][0];
+}
+
 function deterministicQuoteCheck(solverOutput, notesMd) {
   const issues = [];
   const steps = solverOutput.steps || [];
-  // Build anchor -> block map from notes.md (rough: split by headings)
-  const lines = notesMd.split("\n");
-  let currentAnchor = "preamble";
-  let currentBlock = [];
-  const blocks = new Map();
-  blocks.set(currentAnchor, []);
-  for (const line of lines) {
-    const h = line.match(/^#{2,4}\s+\[([^\]]+)\]/);
-    if (h) {
-      blocks.set(currentAnchor, currentBlock.join("\n"));
-      currentAnchor = h[1].trim();
-      // normalize anchor: extract #id part
-      const hashM = currentAnchor.match(/#([^\]]+)/);
-      if (hashM) currentAnchor = hashM[1].trim();
-      else currentAnchor = currentAnchor.replace(/[^a-z0-9_-]/gi, "-");
-      currentBlock = [];
-      blocks.set(currentAnchor, "");
-    } else {
-      currentBlock.push(line);
-    }
-  }
-  blocks.set(currentAnchor, currentBlock.join("\n"));
+  const index = buildBlockIndex(notesMd);
 
   for (let i = 0; i < steps.length; i++) {
     const st = steps[i];
     const src = st.source || "";
     if (src.startsWith("notes:")) {
-      const anchorPart = src.split(":")[1] || "";
-      // anchor may be like 25-1.B#knockout or notes:25-1.B#knockout
-      let anchor = anchorPart;
-      if (anchor.includes("#")) anchor = anchor.split("#").pop();
-      anchor = anchor.trim();
+      const anchorPart = (src.split(":")[1] || "").trim();
       const quote = st.quote || "";
       if (!quote) {
         issues.push({ step: i, verdict: "unsupported", reason: "missing quote for notes source" });
         continue;
       }
-      const blockText = blocks.get(anchor) || "";
+      const blockText = resolveAnchor(index, anchorPart);
+      const anchor = anchorPart.split("#").pop() || anchorPart;
       const ratio = tokenSetRatio(quote, blockText);
       if (ratio < 0.9) {
         issues.push({ step: i, verdict: "unsupported", reason: `quote fuzzy ratio ${ratio.toFixed(2)} < 0.9`, anchor, quote: quote.slice(0, 80) });
@@ -193,6 +225,9 @@ ${priorMd.slice(0, 4000)}
     const figs = fs.readdirSync(bundleDir).filter(f => /^(fig-|dse-)/.test(f) && /\.(png|jpe?g|webp)$/i.test(f)).map(f => path.join(bundleDir, f));
     for (const f of figs) attachments.push("@" + f);
   }
+  // Question stem image (DSE deck pages carry the question only as an image)
+  const stemImg = item.images && item.images.stem && item.images.stem[0] ? resolveImagePath(item.images.stem[0]) : null;
+  if (stemImg && fs.existsSync(stemImg)) attachments.push("@" + stemImg);
   // Answer crop if exists (never shown to solver, but judge does see it)
   const ansImg = item.images && item.images.answer && item.images.answer[0] ? resolveImagePath(item.images.answer[0]) : null;
   if (ansImg && fs.existsSync(ansImg)) attachments.push("@" + ansImg);

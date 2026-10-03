@@ -1,0 +1,30 @@
+{
+  "books": {
+    "book2": { "layout": "chapter-index" },
+    "book4": { "layout": "sections" },
+    "book5": { "layout": "sections" }
+  },
+  "banks": {
+    "QB_201": { "book": "book2", "chapter": "ch01" },
+    "QB_202": { "book": "book2", "chapter": "ch02" },
+    "QB_203": { "book": "book2", "chapter": "ch03" },
+    "QB_204": { "book": "book2", "chapter": "ch04" },
+    "QB_205": { "book": "book2", "chapter": "ch05" },
+    "QB_206": { "book": "book2", "chapter": "ch06" },
+    "QB_207": { "book": "book2", "chapter": "ch07" },
+    "QB_208": { "book": "book2", "chapter": "ch08" },
+    "QB_209": { "book": "book2", "chapter": "ch09" },
+    "QB_210": { "book": "book2", "chapter": "ch10" },
+    "QB_401": { "book": "book4", "chapter": "ch01" },
+    "QB_402": { "book": "book4", "chapter": "ch02" },
+    "QB_403": { "book": "book4", "chapter": "ch03" },
+    "QB_404": { "book": "book4", "chapter": "ch04" },
+    "QB_405": { "book": "book4", "chapter": "ch05" },
+    "QB_406": { "book": "book4", "chapter": "ch06" },
+    "QB_407": { "book": "book4", "chapter": "ch07" },
+    "QB_408": { "book": "book4", "chapter": "ch08" },
+    "QB_501": { "book": "book5", "chapter": "ch01" },
+    "QB_502": { "book": "book5", "chapter": "ch02" },
+    "QB_503": { "book": "book5", "chapter": "ch03" }
+  }
+}

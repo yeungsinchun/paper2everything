@@ -392,20 +392,20 @@ Separately, `paper2notes/notes/dse/{mc,lq}/<section>/` (82 files) is the publish
 
 ### 7.4 Answerability harness (`paper2notes/scripts/audit/`)
 
-Question: for each in-scope QB item, can a student who has read **only** the relevant notes pages, plus a fixed allowlist of Force-and-Motion and maths prior knowledge, reach the marked answer? Output is a per-item verdict, a per-section coverage figure and a list of missing concepts to write into the notes.
+Question: for each in-scope QB item — and for each in-page DSE deck question, which is audited as an item rather than read as notes — can a student who has read **only** the relevant notes pages, plus a fixed allowlist of Force-and-Motion and maths prior knowledge, reach the marked answer? Output is a per-item verdict, a per-section coverage figure and a list of missing concepts to write into the notes; non-passing results carry `pointer_candidates` (DOM-id anchors where the notes could teach them).
 
-The harness is local-only. Needs Node.js, the `pi` LLM CLI (`PI_BIN` overrides), Google Chrome for figure capture, the chapter pages and `paper2db/qb-pdf/items/<bank>.json`. Outputs go to gitignored `.audit/`; they contain QB stems and crops and must never be committed or pasted into `notes/` or a PR. Item ids are safe to cite.
+The harness is local-only. Needs Node.js, the `pi` LLM CLI (`PI_BIN` overrides), Google Chrome for figure capture, the chapter pages and `paper2db/qb-pdf/items/<bank>.json`. Banks and book layouts are listed in `scripts/audit/books.json`. Outputs go to gitignored `.audit/` (override the root with `P2E_AUDIT_ROOT`); they contain QB stems and crops and must never be committed or pasted into `notes/` or a PR. Item ids are safe to cite.
 
 Stages:
 
-1. **Bundle** (`bundle.mjs`, `bank-pages.mjs`): extract student-visible content (every idea block, every figure with three frames for animated ones, the in-page DSE decks) into `notes.md` plus `fig-*.png` at DPR 2, with anchors such as `[§25-1.B #knockout]`. A bank's "B" bundle is cumulative: all earlier chapters of the same book plus its own.
-2. **Map** (`map.mjs`): one call per item maps it to a section id with `confidence` and `secondary` sections, without solving. Confidence below 0.6 falls back to all sections of the chapter.
+1. **Bundle** (`bundle.mjs`, `bank-pages.mjs`): extract student-visible content (every idea block, every figure with three frames for animated ones) into `notes.md` plus `fig-*.png` at DPR 2, with anchors such as `[§25-1.B #knockout]`, taken only from real page DOM ids and page-qualified (`[§book2/ch02.A #quiz]`, `[§25-1.lo #lo-heading]`; a figure without a DOM id gets no anchor). The `section-dse` decks are stripped: they are audited as items instead. A bank's "B" bundle is cumulative: all earlier chapters of the same book plus its own.
+2. **Map** (`map.mjs`): one call per item maps it to a section id with `confidence` and `secondary` sections, without solving; banks map in parallel under one shared concurrency pool. Confidence below 0.6 falls back to all sections of the chapter. DSE deck items need no model call: the deck page is their section. `--items id,id` and `--page 25-1` restrict which items are (re)mapped; previously mapped items of the bank are kept in the mapping file.
 3. **Solve** (`solve.mjs`): a stateless, tool-less process sees only the bundle, the PRIOR allowlist (`P-FM-01` to `18`, `P-MA-01` to `06`, `P-GIVEN`) and the stem image, never the answer. Each step cites exactly one source (`given`, `math:`, `prior:`, or `notes:<anchor>` with a verbatim quote of 25 words or fewer). Missing facts go in `missing[]`; `self_verdict` is `solved | partial | blocked`. Logarithms and exponentials are deliberately not in PRIOR, so Book 5 must teach them.
 4. **Judge** (`judge.mjs`): a deterministic quote check (token coverage at least 0.9, prior ids exist); an LLM judge that sees the key and marking scheme and returns per-step `supported | unsupported | prior-leak`, per-point `earned | lost-knowledge | lost-reasoning | lost-arithmetic`, and `cause` in `ok | knowledge-gap | reasoning-error | item-defect | key-defect`; and a leakage check (8-gram and number-tuple overlap between stem and notes).
-5. **Orchestrate** (`run.mjs`): two tiers per item, **S** (mapped section plus `summary.html`) and **B** (cumulative bank bundle), K samples per tier (default 3). A tier passes when at least `ceil(2K/3)` samples have `cause == ok`, a passing quote check, all steps supported, and a correct MC answer or all marking points earned.
+5. **Orchestrate** (`run.mjs`): two tiers per item, **S** (mapped section plus `summary.html`) and **B** (cumulative bank bundle), K samples per tier (default 3). A tier passes when at least `ceil(2K/3)` samples have `cause == ok`, a passing quote check, all steps supported, and a correct MC answer or all marking points earned. `--dse-section 25.1|all` loads the section's deck questions as `DSE_<section>` items (MC items get marks 1; LQ items carry no marks); an item whose deck image cannot be resolved is skipped with `missing_evidence` and counted as must-fix by coverage.
 6. **Report** (`report.mjs`): `.audit/coverage.json` and a local coverage board `.audit/lavish/qb-audit/index.html`.
 
-CLI: `node paper2notes/scripts/audit/run.mjs [--bank QB_501 | --all] [--fixture <file>] [--concurrency 8] [--k 3] [--regress]`, then `report.mjs` (`--coverage-only` skips the board). `--all` covers the 21 in-scope banks; the committed `fixtures/QB_501.json` is a small fixture, not a substitute for the real bank.
+CLI: `node paper2notes/scripts/audit/audit.mjs <run|map|bundle|report|verify>`; `run` takes `[--bank QB_501 | --all | --dse-section 25.1|all] [--fixture <file>] [--items id,id] [--page 25-1] [--concurrency 8] [--k 3] [--regress]`, then `report` (`--coverage-only` skips the board). `--all` covers the 21 in-scope banks; `--items` and `--page` narrow which items are solved after mapping (the mapping file keeps the full inventory). `verify` checks the local artefacts for consistency: result verdicts and sections, mappings against the bank's pages, `pointer_candidates` whose anchors are real DOM ids, and bundles free of DSE decks and of anchors that are not DOM ids. The committed `fixtures/QB_501.json` is a small fixture, not a substitute for the real bank.
 
 | Verdict | Condition |
 |---|---|
@@ -417,7 +417,7 @@ CLI: `node paper2notes/scripts/audit/run.mjs [--bank QB_501 | --all] [--fixture 
 | `defect` | any tier-S sample judged `item-defect` or `key-defect` |
 | `error` | execution failure in a tier; never cached |
 
-**Completeness rule.** A bank or section is complete when every inventory item has a result and a `part`, at least 95% of `core` items are `pass`, `pass-leaked` or `cross-ref`, and there is no must-fix failure (a failing item worth 4 or more marks that maps to a known section, or any missing concept cited by two or more failing core items). Overall completeness requires every bank complete.
+**Completeness rule.** A bank or section is complete when every inventory item has a result and a `part`, at least 95% of `core` items are `pass`, `pass-leaked` or `cross-ref`, and there is no must-fix failure: any missing-evidence item, any failing item worth 4 or more marks that maps to a known section, any failed DSE long-question item (DSE LQ items carry no marks), or any missing concept cited by two or more failing core items. Overall completeness requires every bank complete.
 
 **Reproducibility.** Results cache under `.audit/cache/` keyed on item, image and bundle sha, mapping, prompt sha, code sha, model, `pi` version and K; reused only if the key matches and the result is not `error`; `--regress` recomputes. The model is pinned in code (`meta/muse-spark-1.2-contributor`; solver thinking high, judge thinking max).
 
@@ -427,7 +427,7 @@ CLI: `node paper2notes/scripts/audit/run.mjs [--bank QB_501 | --all] [--fixture 
 |---|---|---|
 | `paper2db` QB stages | harness, `/qb` UI | `paper2db.qb-item.v2`; `qb-pdf/items/<bank>.json`, `qb-web-ui-staging/qb/items/` |
 | `paper2db` MC and LQ stages | `/qb` UI, notes DSE decks | `qb-web-ui-staging/dse-{mc,lq}/index.json`, `sections.json`; `paper2notes/notes/dse/` snapshot |
-| notes HTML | harness | anchors and `section-dse` markup read by `bundle.mjs`; page layout `notes/book*/chNN*/<n>-<n>.html` and `summary.html` read by `bank-pages.mjs` |
+| notes HTML | harness | real DOM-id anchors read by `bundle.mjs`; `section-dse` decks stripped from bundles and parsed as items (`dse.mjs`); page layout per `books.json` — `notes/book2/chNN*/index.html` (chapter-index) or `notes/book*/chNN*/<n>-<n>.html` and `summary.html` — read by `bank-pages.mjs` |
 | harness | maintainers | `.audit/coverage.json`, verdict per item id, missing concepts with LO ids |
 
 ## 8. Pipeline
@@ -521,7 +521,7 @@ Only the workflows under `.github/workflows/` run; nested copies under `paper2no
 - **Interactive test coverage.** Book 5 ch. 1 to 2 have a browser test (needs Google Chrome); Book 4 and Book 5 ch. 3 have none.
 - **`compile-mocks` push-path cost.** All 20 LaTeX jobs and a release run on every push to `main`, including notes-only merges; the matrix is hand-written.
 - **Dead config.** Nested `paper2notes/.github/workflows/`, `paper2mock/.github/workflows/` and `paper2notes/.dockerignore` are unused; `ci-notes.yml` still path-filters on the nested workflow path.
-- **Harness scope.** It audits QB items only; DSE MC and LQ questions have no item record or answerability verdict. Bank ids and bank-to-chapter mapping are hard-coded to Books 2, 4, 5; the model id is hard-coded in four scripts; it is not in CI (paid LLM, `pi`, Chrome). QB items carry no section classification beyond `bank` and `chapter`, and the harness mapping is not written back to `paper2db`.
+- **Harness scope.** Bank ids and bank-to-chapter mapping live in `scripts/audit/books.json`; the model id is hard-coded in the scripts; it is not in CI (paid LLM, `pi`, Chrome). DSE deck questions are audited only on the `--dse-section` path, and DSE LQ items have no marking scheme in the harness when no tracked answer crop exists. QB items carry no section classification beyond `bank` and `chapter`, and the harness mapping is not written back to `paper2db`.
 - **DSE staging coverage.** `dse-mc` stages 537 of 573 classified MC items (2012 to 2026 plus `pp`); only `sap` is not staged (mc-anchors cannot locate its question labels).
 - **`/qb` UI** is described by requirements here but has no tracked automated test.
 

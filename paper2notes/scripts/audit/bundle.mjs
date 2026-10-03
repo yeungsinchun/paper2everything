@@ -5,14 +5,13 @@
  * Extracts student-visible content from one or more notes HTML pages into
  * a bundle for the notes-only solver. Implements plan
  * sections 4.3–4.7 as adjusted by captain decision D4:
- *   - D4: the bundle INCLUDES the in-page DSE past-paper decks
- *         (section.section-dse), like the existing 25.1 page shows them.
- *         Where a deck's images live in gitignored _local/, handle
- *         deterministically (include what is present, record manifest).
+ *   - DSE decks (section.section-dse) are STRIPPED from the bundle: the decks
+ *     are audited as items (dse.mjs), so the solver must not read them as notes.
+ *     Only the count of stripped decks is recorded in the manifest.
+ *   - Anchors come only from DOM ids: idea `id`, figure/stage `id`.
  *
- * Gate (plan P2 detail, adjusted for D4): extracting a bundle from
- * notes/book5/.../25-1.html includes every idea block, every figure
- * (3 frames for animated ones) and the DSE decks.
+ * Gate: extracting a bundle from notes/book5/.../25-1.html includes every
+ * idea block and every figure (3 frames for animated ones), and no DSE deck.
  *
  * Copies the zero-dependency CDP pattern from notes.interactives.test.mjs
  * (node:net freePort, WebSocket, Page.captureScreenshot at DPR 2).
@@ -25,10 +24,12 @@ import { spawn, execSync } from "node:child_process";
 import { createServer } from "node:net";
 import http from "node:http";
 import { fileURLToPath } from "node:url";
+import { auditDirs } from "./paths.mjs";
+import { sectionIdForPath } from "./bank-pages.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
-const DEFAULT_OUT = path.join(repoRoot, ".audit/bundles");
+const DEFAULT_OUT = auditDirs().bundles;
 
 function sha256Hex(buf) {
   return crypto.createHash("sha256").update(buf).digest("hex");
@@ -139,17 +140,15 @@ function extractLoBlock(html) {
   const m = html.match(/<section\s+class="lo-block"[\s\S]*?<\/section>/i);
   return m ? m[0] : "";
 }
-function extractDseBlocks(html) {
-  const re = /<section\s+class="section-dse[^"]*"[\s\S]*?<\/section>/gi;
-  const blocks = [];
-  let m;
-  while ((m = re.exec(html)) !== null) blocks.push(m[0]);
-  return blocks;
+const DSE_DECK_RE = /<section\s+class="section-dse[^"]*"[\s\S]*?<\/section>/gi;
+function stripDseBlocks(html) {
+  let count = 0;
+  const stripped = html.replace(DSE_DECK_RE, () => { count++; return ""; });
+  return { html: stripped, count };
 }
 function extractFigures(html) {
-  // <figure class="fig" ...> and <figure class="dse-paper">
+  // <figure class="fig" ...> (DSE decks are stripped before extraction)
   const re = /<figure\s+class="[^"]*\bfig\b[^"]*"[^>]*>([\s\S]*?)<\/figure>/gi;
-  const dseRe = /<figure\s+class="[^"]*\bdse-paper\b[^"]*"[^>]*>([\s\S]*?)<\/figure>/gi;
   const figs = [];
   let m;
   while ((m = re.exec(html)) !== null) {
@@ -157,16 +156,10 @@ function extractFigures(html) {
     const inner = m[1];
     const isAnimated = /class="[^"]*\bvisual\b[^"]*\bplay\b/.test(full) || /data-scene=/.test(full);
     const isSvg = /class="[^"]*\bsvg-fig\b/.test(full) || /<svg\b/.test(inner);
-    // anchor: try id of parent visual, or figcaption text
-    let anchor = "";
-    const idM = full.match(/id="([^"]+)"/);
-    if (idM) anchor = idM[1];
-    else {
-      const capM = inner.match(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/i);
-      if (capM) anchor = capM[1].replace(/<[^>]+>/g, "").trim().slice(0, 30).replace(/\W+/g, "-").toLowerCase();
-      else anchor = `fig-${figs.length}`;
-    }
-    anchor = anchor.replace(/[^a-z0-9-_]/gi, "-").replace(/--+/g, "-").slice(0, 40) || `fig-${figs.length}`;
+    // anchor: DOM id only (own id, else first descendant id); null when the DOM has none
+    const idM = full.match(/\bid="([^"]+)"/);
+    const anchor = idM ? idM[1] : null;
+    const fileKey = (anchor || `fig${figs.length}`).replace(/[^a-z0-9-_]/gi, "-").replace(/--+/g, "-").slice(0, 40);
     // hud labels
     const huds = [];
     const hudRe = /<span\s+class="hud-label"[^>]*>([^<]+)<\/span>/gi;
@@ -174,20 +167,9 @@ function extractFigures(html) {
     while ((hm = hudRe.exec(inner)) !== null) huds.push(hm[1].trim());
     const captionM = inner.match(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/i);
     const caption = captionM ? stripTags(captionM[1]).trim() : "";
-    figs.push({ html: full, anchor, isAnimated, isSvg, caption, huds, kind: isAnimated ? "animated" : isSvg ? "svg" : "static" });
+    figs.push({ html: full, anchor, fileKey, isAnimated, isSvg, caption, huds, kind: isAnimated ? "animated" : isSvg ? "svg" : "static" });
   }
-  // Also count DSE figures for manifest but treat separately? Gate wants DSE included; we also want fig captures for idea figs only? Plan says one screenshot per figure; DSE figures are handled via dse assets. Add dse figures to figs list as type dse.
-  const dseFigs = [];
-  while ((m = dseRe.exec(html)) !== null) {
-    const inner = m[1];
-    const anchorM = inner.match(/id="([^"]+)"/);
-    const captionM = inner.match(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/i);
-    const caption = captionM ? stripTags(captionM[1]).trim() : "";
-    const altM = inner.match(/<img[^>]*alt="([^"]*)"/i);
-    const srcM = inner.match(/<img[^>]*src="([^"]*)"/i);
-    dseFigs.push({ html: m[0], anchor: caption.replace(/\W+/g, "-").toLowerCase() || `dse-${dseFigs.length}`, caption, alt: altM ? altM[1] : "", src: srcM ? srcM[1] : "", kind: "dse" });
-  }
-  return { ideaFigs: figs, dseFigs };
+  return { ideaFigs: figs };
 }
 function extractTables(html) {
   const re = /<table\s+class="notes"[^>]*>([\s\S]*?)<\/table>/gi;
@@ -195,28 +177,6 @@ function extractTables(html) {
   let m;
   while ((m = re.exec(html)) !== null) tables.push(m[0]);
   return tables;
-}
-function extractDseImages(html, pageDir) {
-  const imgs = [];
-  const re = /<img\s+[^>]*src="([^"]+)"[^>]*>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    const src = m[1];
-    if (!src.includes("_local/dse")) continue;
-    // Resolve relative to page dir
-    const resolved = path.resolve(pageDir, src);
-    const present = fs.existsSync(resolved);
-    let sha = null;
-    if (present) {
-      try {
-        sha = sha256File(resolved);
-      } catch {
-        sha = null;
-      }
-    }
-    imgs.push({ src, resolved: path.relative(repoRoot, resolved), present, sha256: sha });
-  }
-  return imgs;
 }
 function stripTags(s) {
   return s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
@@ -353,7 +313,7 @@ async function tryCdpScreenshots(pageUrls, serverPort, outDir, figureInfos) {
           const rect = { x: Math.min(quad[0], quad[2], quad[4], quad[6]), y: Math.min(quad[1], quad[3], quad[5], quad[7]), width: box.model.width, height: box.model.height };
           if (!rect.width || !rect.height || rect.width > 5000 || rect.height > 5000) throw new Error(`Invalid figure bounds ${i}`);
           const shot = await withTimeout(cdp.send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true, clip: { ...rect, scale: 1 } }), CAPTURE_MS, `capture ${i}`);
-          fs.writeFileSync(path.join(outDir, `fig-${fig.page}-${fig.anchor}-${frame}.png`), Buffer.from(shot.data, "base64"));
+          fs.writeFileSync(path.join(outDir, `fig-${fig.page}-${fig.fileKey}-${frame}.png`), Buffer.from(shot.data, "base64"));
         }
       }
     }
@@ -490,7 +450,7 @@ async function main() {
         const rel = path.relative(notesRoot, p).replace(/\\/g, "/");
         return `http://127.0.0.1:${serverPort}/${rel}`;
       });
-      const figureInfos = pages.map(p => extractFigures(fs.readFileSync(p, "utf8")).ideaFigs.map(fig => ({ ...fig, page: path.basename(p, ".html") })));
+      const figureInfos = pages.map(p => extractFigures(stripDseBlocks(fs.readFileSync(p, "utf8")).html).ideaFigs.map(fig => ({ ...fig, page: path.basename(p, ".html") })));
       cdpOk = await tryCdpScreenshots(pageUrls, serverPort, out, figureInfos);
     } finally {
       await closeServer(server, 2000);
@@ -500,7 +460,7 @@ async function main() {
   // Build notes.md deterministically from HTML
   let mdParts = [];
   let allFigures = []; // for manifest
-  let allDseAssets = [];
+  let dseDecksStripped = 0;
   let pageInfos = [];
 
   mdParts.push(`# Notes bundle`);
@@ -510,10 +470,12 @@ async function main() {
   mdParts.push("");
 
   for (const pagePath of pages) {
-    const html = fs.readFileSync(pagePath, "utf8");
-    const pageDir = path.dirname(pagePath);
+    const rawHtml = fs.readFileSync(pagePath, "utf8");
+    const { html, count: stripped } = stripDseBlocks(rawHtml);
+    dseDecksStripped += stripped;
+    const pageFigs = extractFigures(html).ideaFigs;
     const rel = path.relative(notesRoot, pagePath);
-    const pageSha = sha256Hex(Buffer.from(html, "utf8"));
+    const pageSha = sha256Hex(Buffer.from(rawHtml, "utf8"));
     pageInfos.push({ input: path.relative(repoRoot, pagePath), relative: rel, sha256: pageSha });
 
     // Derive section id like 25-1 from filename
@@ -523,12 +485,16 @@ async function main() {
 
     mdParts.push(`## Page: ${rel} [${book}:${base}]`);
     mdParts.push("");
+    const pageId = sectionIdForPath(pagePath);
 
-    // LO block
+    // LO block: anchor is the id named by the section's aria-labelledby, resolved
+    // inside the section; emit no LO token when the section has no such id.
     const loBlock = extractLoBlock(html);
-    if (loBlock) {
+    const loLabelledBy = loBlock ? (loBlock.match(/aria-labelledby="([^"]+)"/) || [])[1] : null;
+    const loAnchor = loLabelledBy && loBlock.includes(`id="${loLabelledBy}"`);
+    if (loBlock && loAnchor) {
       const loText = htmlToText(loBlock);
-      mdParts.push(`### Learning objectives [${base} #lo]`);
+      mdParts.push(`### Learning objectives [§${pageId}.lo #${loLabelledBy}]`);
       mdParts.push(loText);
       mdParts.push("");
     }
@@ -537,9 +503,8 @@ async function main() {
     const ideas = extractIdeaBlocks(html);
     for (const idea of ideas) {
       const secNum = idea.secNum;
-      const anchor = `${base}.${secNum} #${idea.id}`;
-      // Stable anchor format per plan: [§25-1.B #knockout]
-      const mdAnchor = `[§${base}.${secNum} #${idea.id}]`;
+      // Stable anchor format per plan: [§25-1.B #knockout], page-qualified
+      const mdAnchor = `[§${pageId}.${secNum} #${idea.id}]`;
       mdParts.push(`### ${mdAnchor} ${stripTags(idea.heading)}`);
       mdParts.push("");
       // Extract scope: text without figures for reading order, then figures
@@ -575,21 +540,16 @@ async function main() {
         mdParts.push(`HUD labels: ${huds.join(", ")}`);
         mdParts.push("");
       }
-      // Now emit figures
-      const { ideaFigs } = extractFigures(idea.html); // re-parse correctly for figures
-      // Actually we want figures that belong to this idea; use ideaFigs from this idea's html
-      const ideaFigData = (() => {
-        const { ideaFigs: figs } = extractFigures(idea.html);
-        return figs;
-      })();
+      // Now emit figures that sit inside this idea (page-level extraction keeps file keys stable)
+      const ideaFigData = pageFigs.filter(f => idea.html.includes(f.html));
       for (const fig of ideaFigData) {
-        const figAnchor = `${base} #fig-${fig.anchor}`;
-        mdParts.push(`#### [Fig ${fig.anchor} #fig-${fig.anchor}]`);
+        if (fig.anchor) mdParts.push(`#### [§${pageId}.${secNum} #${fig.anchor}]`);
+        else mdParts.push(`#### Figure (no DOM id; cite #${idea.id})`);
         if (fig.caption) mdParts.push(fig.caption);
         if (fig.huds.length) mdParts.push(`HUD: ${fig.huds.join(", ")}`);
-        mdParts.push(`Figure type: ${fig.kind} (anchor: ${fig.anchor})`);
+        mdParts.push(`Figure type: ${fig.kind}${fig.anchor ? ` (anchor: ${fig.anchor})` : ""}`);
         mdParts.push("");
-        allFigures.push({ anchor: fig.anchor, page: base, kind: fig.kind, idea: idea.id });
+        allFigures.push({ anchor: fig.anchor, fileKey: fig.fileKey, page: base, kind: fig.kind, idea: idea.id });
       }
       // Checks (concept checks) – they are revealed content, keep them
       const checkRe = /<div\s+class="check"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/gi;
@@ -607,38 +567,6 @@ async function main() {
       }
     }
 
-    // Summary-like idea blocks already covered; now DSE decks (D4: INCLUDE)
-    const dseBlocks = extractDseBlocks(html);
-    if (dseBlocks.length) {
-      mdParts.push(`### DSE past-paper decks [${base} #dse]`);
-      mdParts.push("");
-      for (const dse of dseBlocks) {
-        const dseText = htmlToText(dse);
-        if (dseText) {
-          // Truncate but keep heading
-          mdParts.push(dseText.slice(0, 2000));
-          mdParts.push("");
-        }
-        // Record assets
-        const assets = extractDseImages(dse, pageDir);
-        allDseAssets.push(...assets);
-        // For manifest: also note quiz slide count
-        const slideCount = (dse.match(/<article\s+class="quiz-slide"/gi) || []).length;
-        mdParts.push(`_DSE deck: ${slideCount} slides, ${assets.length} images_`);
-        mdParts.push("");
-        // List each asset deterministically
-        for (const a of assets) {
-          mdParts.push(`- DSE image: ${a.src} → ${a.present ? "present" : "missing (gitignored)"} ${a.sha256 ? "sha256:" + a.sha256.slice(0, 8) : ""}`);
-        }
-        if (assets.length) mdParts.push("");
-      }
-    } else {
-      // No DSE block – still record empty
-    }
-
-    // Also capture any remaining DSE images outside section-dse (edge)
-    const extraDse = extractDseImages(html, pageDir).filter((a) => !allDseAssets.some((b) => b.src === a.src));
-    allDseAssets.push(...extraDse);
   }
 
   const notesMd = mdParts.join("\n");
@@ -650,18 +578,11 @@ async function main() {
   for (const fig of allFigures) {
     const frames = fig.kind === "animated" ? ["t0", "tmid", "tend"] : ["t0"];
     for (const frame of frames) {
-      const name = `fig-${fig.page}-${fig.anchor}-${frame}.png`;
+      const name = `fig-${fig.page}-${fig.fileKey}-${frame}.png`;
       if (!fs.existsSync(path.join(out, name))) throw new Error(`Missing captured figure ${name}`);
       figFiles.push({ anchor: fig.anchor, file: name, frame, kind: fig.kind, page: fig.page });
     }
   }
-  for (const asset of allDseAssets) {
-    if (!asset.present) continue;
-    const name = `dse-${sha256Hex(asset.src).slice(0, 12)}${path.extname(asset.src)}`;
-    fs.copyFileSync(path.join(repoRoot, asset.resolved), path.join(out, name));
-    figFiles.push({ anchor: asset.src, file: name, kind: "dse", present: true });
-  }
-
   // If no figures found (edge), ensure at least we scanned correctly – don't fail gate, just record
   // Also ensure CDP pngs are counted
   const finalPngs = fs.readdirSync(out).filter((f) => f.endsWith(".png"));
@@ -676,18 +597,10 @@ async function main() {
     figures: figFiles,
     png_count: finalPngs.length,
     cdp_used: cdpOk,
-    dse: {
-      total: allDseAssets.length,
-      present: allDseAssets.filter((a) => a.present).length,
-      missing: allDseAssets.filter((a) => !a.present).length,
-      assets: allDseAssets,
-    },
-    // Deterministic explainability: record which deck assets were present
-    deck_assets_present: allDseAssets.filter((a) => a.present).map((a) => a.src),
-    deck_assets_missing: allDseAssets.filter((a) => !a.present).map((a) => a.src),
+    dse_decks_stripped: dseDecksStripped,
     byte_length: Buffer.byteLength(notesMd, "utf8"),
     token_estimate: Math.ceil(Buffer.byteLength(notesMd, "utf8") / 4) + figFiles.length * 3000, // ~3k per figure as per plan
-    includes_dse: true, // D4 override
+    includes_dse: false,
   };
   // Bundle sha is sha of notes.md + figure list (deterministic)
   const bundleSha = sha256Hex(Buffer.from(notesSha + JSON.stringify(figFiles.map(f => [f.file, sha256File(path.join(out, f.file))])), "utf8"));
@@ -696,11 +609,15 @@ async function main() {
   fs.writeFileSync(path.join(out, "manifest.json"), JSON.stringify(manifest, null, 2), "utf8");
 
   console.log(`Bundle written to ${out}`);
-  console.log(`  pages: ${pageInfos.length}, figures: ${figFiles.length} (pngs: ${finalPngs.length}), DSE assets: ${allDseAssets.length} present ${manifest.dse.present}`);
+  console.log(`  pages: ${pageInfos.length}, figures: ${figFiles.length} (pngs: ${finalPngs.length}), DSE decks stripped: ${dseDecksStripped}`);
   console.log(`  notes.md ${manifest.notes_md.bytes} bytes, token_est ${manifest.token_estimate}, bundle_sha ${bundleSha.slice(0, 12)}`);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+export { extractFigures, extractIdeaBlocks, stripDseBlocks };
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}
