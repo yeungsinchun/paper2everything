@@ -46,7 +46,7 @@
       "additionalProperties": false,
       "required": ["status", "option", "percentage", "deleted"],
       "properties": {
-        "status": {"type": "string", "enum": ["present", "missing", "deleted", "not-applicable"], "description": "not-applicable for LQ, whose answer is the marking-scheme crop"},
+        "status": {"type": "string", "enum": ["present", "missing", "deleted", "derived", "not-applicable"], "description": "derived for unanimous Muse-derived MC keys (metadata/derived_keys.json); not-applicable for LQ, whose answer is the marking-scheme crop"},
         "option": {"type": ["string", "null"], "pattern": "^[A-D]$"},
         "percentage": {"type": ["integer", "null"], "minimum": 0, "maximum": 100, "description": "Percentage of candidates choosing the correct option"},
         "deleted": {"type": "boolean", "description": "Question was deleted from the marking scheme"}

@@ -126,9 +126,12 @@ def mc_answer(key: dict[str, Any] | None) -> tuple[dict[str, Any], list[str]]:
     option = (key or {}).get("Correct Option")
     percentage = (key or {}).get("Correct percentage")
     deleted = bool((key or {}).get("deleted"))
+    derived = bool((key or {}).get("derived"))
     warnings: list[str] = []
     if deleted:
         status = "deleted"
+    elif option and derived:
+        status = "derived"
     elif option:
         status = "present"
     else:

@@ -70,9 +70,7 @@
     "dse-lq-2026-q4",
     "dse-lq-pp-q11"
   ],
-  "dse_lq_answer_missing": [
-    "dse-lq-2017-q4"
-  ],
+  "dse_lq_answer_missing": [],
   "dse_lq_no_marking_scheme": [
     "dse-lq-2026-q11",
     "dse-lq-2026-q3",
