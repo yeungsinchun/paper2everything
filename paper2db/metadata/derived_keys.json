@@ -3172,18 +3172,13 @@
             "illegible": false
           }
         ],
-        "unanimous": true,
-        "final_answers": {
-          "(a)": "3.56 x 10^5 J",
-          "(b)": "~178 s (~3.0 min)",
-          "(c)": "Supplied energy is used as latent heat to break bonds for vaporisation, not to increase kinetic energy, so temperature stays constant."
-        },
-        "worked": "(a) E = mLf + mcΔT = 0.50x3.34e5 + 0.50x4200x(90-0) = 1.67e5+1.89e5 = 3.56e5 J. (b) t = E/P = 3.56e5/2000 ≈178 s ≈3 min. (c) At boiling, heater energy increases potential energy/breaks intermolecular bonds to change liquid to vapour (latent heat of vaporization), average molecular kinetic energy hence temperature unchanged.",
+        "unanimous": false,
+        "final_answers": null,
+        "worked": "",
         "adjudication": {
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
           "runs_compared": {
             "(a)": [
               "3.56 x 10^5 J",
@@ -3200,7 +3195,14 @@
               "Heat supplied is used as latent heat of vaporization to change state, not to increase molecular kinetic energy, so temperature stays constant.",
               "Input energy becomes latent heat of vaporization for change of state, not molecular kinetic energy, so temperature stays at 90 °C."
             ]
-          }
+          },
+          "same_value": {
+            "(a)": false,
+            "(b)": false,
+            "(c)": true
+          },
+          "settled": false,
+          "reason": "the three runs do not agree on the value: (a): 3.56 x 10^5 J vs ≈3.6×10⁵ J vs ≈3.6×10^5 J; (b): ~178 s (~3.0 min) vs ≈1.8×10² s (≈3.0 min) vs ≈1.8×10^2 s (≈3.0 min)"
         }
       },
       "2": {
@@ -3253,21 +3255,13 @@
             "illegible": false
           }
         ],
-        "unanimous": true,
-        "final_answers": {
-          "1(a)": "3.56 x 10^5 J",
-          "1(b)": "~1.8 x 10^2 s (~3.0 min)",
-          "1(c)": "Temperature stays at 90°C because supplied energy becomes latent heat to break intermolecular bonds rather than raising molecular kinetic energy.",
-          "2(a)": "2.5 x 10^5 Pa",
-          "2(b)(i)": "6.21 x 10^-21 J",
-          "2(b)(ii)": "~6.1 x 10^2 m/s"
-        },
-        "worked": "1(a): E = mLf + mcΔT = 0.50x3.34e5 + 0.50x4200x(90-0) = 1.67e5+1.89e5 = 3.56e5 J. 1(b): t=E/P = 3.56e5/2000 ≈178s. 1(c): At boiling, heat goes to increase molecular potential energy / breaking bonds as latent heat of vaporisation, so average KE and temperature unchanged. 2(a): Isothermal slow compression: p1V1=p2V2 => p2=1.0e5x5.0/2.0=2.5e5 Pa. 2(b)(i): <KE>=3kT/2, T=27+273=300K => 1.5x1.38e-23x300=6.21e-21 J. 2(b)(ii): 0.5m<v^2>=3kT/2 => vrms=sqrt(3kT/m)=sqrt(3RT/M)=sqrt(3x8.31x300/0.020)≈6.1e2 m/s.",
+        "unanimous": false,
+        "final_answers": null,
+        "worked": "",
         "adjudication": {
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
           "runs_compared": {
             "1(a)": [
               "3.56 x 10^5 J",
@@ -3299,7 +3293,17 @@
               "≈6.1×10^2 m s^-1",
               "6.1e2 m/s"
             ]
-          }
+          },
+          "same_value": {
+            "1(a)": false,
+            "1(b)": true,
+            "1(c)": true,
+            "2(a)": true,
+            "2(b)(i)": false,
+            "2(b)(ii)": true
+          },
+          "settled": false,
+          "reason": "the three runs do not agree on the value: 1(a): 3.56 x 10^5 J vs ≈3.6×10^5 J vs 3.6e5 J; 2(b)(i): 6.21 x 10^-21 J vs ≈6.2×10^-21 J vs 6.21e-21 J"
         }
       },
       "3": {
@@ -3354,7 +3358,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): 10.2 N; (b)(i): 10 N; (b)(ii): The ball experiences a net external impulse from the rod, so the ball alone is not an isolated system. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "10.2 N",
@@ -3371,6 +3375,11 @@
               "The ball alone is not an isolated system as it receives an external impulse from the rod.",
               "An external impulse from the rod acts on the ball so the ball alone is not an isolated system."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)(i)": true,
+            "(b)(ii)": true
           }
         }
       },
@@ -3430,7 +3439,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): 0.55 m s^-1; (b)(i): Velocity is a vector and its direction continuously changes along the circular track, so velocity changes giving non-zero acceleration.; (b)(ii): 80 m s^-2 towards centre of circle; (b)(iii): The normal contact force exerted by the outer smooth side wall of the track on the sphere. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "0.55 m s^-1",
@@ -3452,6 +3461,12 @@
               "Normal contact force / reaction exerted by the (outer side) wall of the track on the sphere.",
               "The horizontal normal reaction from the smooth outer wall of the track."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)(i)": true,
+            "(b)(ii)": true,
+            "(b)(iii)": true
           }
         }
       },
@@ -3503,7 +3518,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (I): Keep loudspeaker output constant, vary d and measure corresponding oscilloscope amplitude A for several distances.; (II): Plot A against 1/d gives a straight line through the origin if A is inversely proportional to d. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(I)": [
               "Keep loudspeaker output constant, vary d and measure corresponding oscilloscope amplitude A for several distances.",
@@ -3515,6 +3530,10 @@
               "Plot A against 1/d and a straight line through the origin verifies that A is inversely proportional to d.",
               "Plot A in V versus 1/d in m^-1; a straight line through the origin verifies A proportional to 1/d."
             ]
+          },
+          "same_value": {
+            "(I)": true,
+            "(II)": true
           }
         }
       },
@@ -3570,7 +3589,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): The charged wallpaper induces opposite charges on the neutral wall, and the electrostatic attraction holds it.; (b): Charge remains trapped on the insulating wallpaper after removal so it can still induce attraction on re-application.; (c): Moisture provides a conducting path for charge to leak away, weakening the electrostatic attraction. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "The charged wallpaper induces opposite charges on the neutral wall, and the electrostatic attraction holds it.",
@@ -3587,6 +3606,11 @@
               "Humid air and surface moisture conduct charge away so the wallpaper loses charge and attraction weakens.",
               "In high humidity a water film/air ions provide a conductive path that lets the wallpaper charge in C leak away to earth/air, reducing the electrostatic holding force in N to near zero."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)": true,
+            "(c)": true
           }
         }
       },
@@ -3642,7 +3666,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): ≈60 W (P = V²/R_stable, R_stable ≈800 Ω); (b): Filament temperature rises by Joule heating increasing metal resistivity until heat loss balances input power so temperature and R become constant.; (c): ≈5.4×10⁻⁸ Ω·m and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "≈60 W (P = V²/R_stable, R_stable ≈800 Ω)",
@@ -3659,6 +3683,11 @@
               "~5.4×10^-8 Ω·m",
               "~5.4e-8 ohm m"
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)": true,
+            "(c)": true
           }
         }
       },
@@ -3718,7 +3747,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): 0.20 m/s (20 cm/s); (b)(i): 1.0 cm = 0.5λ; (b)(ii): Constructive interference occurs at P.; (c): The wavelength increases. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "0.20 m/s (20 cm/s)",
@@ -3740,6 +3769,12 @@
               "The wavelength increases.",
               "Wavelength increases."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)(i)": true,
+            "(b)(ii)": true,
+            "(c)": true
           }
         }
       },
@@ -3784,18 +3819,13 @@
             "illegible": false
           }
         ],
-        "unanimous": true,
-        "final_answers": {
-          "(a)": "7.1 A",
-          "(b)": "1.4 x 10^-6 Wb",
-          "(c)": "Incorrect - the search coil cannot measure the steady magnetic field of the Earth."
-        },
-        "worked": "(a) [1M] For sinusoidal a.c. Irms = I0/sqrt2, so I0 = 5 x sqrt2 = 7.07 A ~7.1 A. (b) [3M] Field of long wire B = mu0 I/(2 pi r), perpendicular to plane containing wire and coil. Max when I=I0. B0 = mu0 I0/(2 pi r) = 4pi x10^-7 x7.07/(2 pi x0.20) = 7.1 x10^-6 T. Assuming coil small so B uniform over it, max flux linkage = N B0 A = 500 x 7.07x10^-6 x 4.0x10^-4 = 1.4x10^-6 Wb. (c) [2M] Induced e.m.f. e = -N dPhi/dt. Only changing flux induces e.m.f. Wire field is a.c. giving alternating e.m.f., Earth field is essentially steady d.c. with dPhi/dt=0 giving no e.m.f., so oscilloscope shows wire field only, resultant/static field cannot be measured.",
+        "unanimous": false,
+        "final_answers": null,
+        "worked": "",
         "adjudication": {
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
           "runs_compared": {
             "(a)": [
               "7.1 A",
@@ -3812,7 +3842,14 @@
               "Incorrect – the search coil cannot measure the Earth's steady field.",
               "Incorrect - search coil only responds to changing (a.c.) flux, not the steady Earth field."
             ]
-          }
+          },
+          "same_value": {
+            "(a)": false,
+            "(b)": true,
+            "(c)": true
+          },
+          "settled": false,
+          "reason": "the three runs do not agree on the value: (a): 7.1 A vs 7.07 A vs 7.07 A peak"
         }
       },
       "10": {
@@ -3859,19 +3896,13 @@
             "illegible": false
           }
         ],
-        "unanimous": true,
-        "final_answers": {
-          "(a)": "The ray enters the glass from the sensor block, is totally internally reflected at surface A because incidence 45° exceeds the critical angle 44.0°, and reflects to the infra-red sensor.",
-          "(b)(i)": "约61° (≈61.1°)",
-          "(b)(ii)": "No total internal reflection; most of the ray refracts into the water bending away from the normal with only a weak partially reflected ray remaining in the glass.",
-          "(b)(iii)": "The intensity of the signal received by the infra-red sensor decreases."
-        },
-        "worked": "(a) 1M entry via surface B with refraction/negligible deviation due to optical contact; 1M incidence at A is 45°; 1M 45°>c=44.0° glass-air; 1M total internal reflection occurs at A, law of reflection, reflected ray travels back through B to sensor. (b)(i) For glass-air: sin c =1/n_g => n_g=1/sin44.0°. For glass-water: sin c' =n_water/n_g =n_water*sin44.0° =1.26*sin44.0°=0.875. c'=arcsin(0.875)≈61°. (b)(ii) 45°<61° so TIR impossible; incident ray splits into refracted ray into water bent away from normal since n_glass>n_water plus weak reflected ray in glass. (b)(iii) Energy leaks into raindrop/transmitted away, so reflected energy reaching sensor drops, change triggers wipers.",
+        "unanimous": false,
+        "final_answers": null,
+        "worked": "",
         "adjudication": {
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
           "runs_compared": {
             "(a)": [
               "The ray enters the glass from the sensor block, is totally internally reflected at surface A because incidence 45° exceeds the critical angle 44.0°, and reflects to the infra-red sensor.",
@@ -3893,7 +3924,15 @@
               "The intensity received by the sensor decreases significantly.",
               "The intensity of the signal received by the sensor decreases."
             ]
-          }
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)(i)": false,
+            "(b)(ii)": true,
+            "(b)(iii)": true
+          },
+          "settled": false,
+          "reason": "the three runs do not agree on the value: (b)(i): 约61° (≈61.1°) vs 61.1° vs approx 61.1 degrees"
         }
       },
       "11": {
@@ -3947,7 +3986,7 @@
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
           "settled": false,
-          "reason": "run 1 is illegible (no subparts recorded), so no 3/3 agreement exists",
+          "reason": "run 1 is illegible (no subparts recorded), so the three runs do not agree on the value",
           "runs_compared": {
             "(a)(i)": [
               "",
@@ -3979,6 +4018,14 @@
               "gravitational potential energy is converted into kinetic energy with total mechanical energy conserved.",
               "Gravitational potential energy is converted into kinetic energy with total mechanical energy conserved."
             ]
+          },
+          "same_value": {
+            "(a)(i)": false,
+            "(a)(ii)": false,
+            "(a)(iii)": false,
+            "(b)(i)": false,
+            "(b)(ii)": false,
+            "(b)(iii)": false
           }
         }
       },
@@ -4046,7 +4093,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) a(i): 213_83Bi -> 213_84Po + 0_-1e (beta- decay); 213_84Po -> 209_82Pb + 4_2He (alpha decay); a(ii): ~2.0 x 10^9 Bq assuming N0=8.0 x 10^12; a(iii): ~95% decrease; b(i): Ring measures the higher extremity dose to the hand/fingers closer to the source.; b(ii): Worn under gloves to avoid contamination of the chip by radioactive liquid.; b(iii): beta and gamma only; alpha cannot reach chip and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "a(i)": [
               "213_83Bi -> 213_84Po + 0_-1e (beta- decay); 213_84Po -> 209_82Pb + 4_2He (alpha decay)",
@@ -4078,6 +4125,14 @@
               "beta and gamma only; alpha cannot penetrate gloves/plastic to reach chip",
               "beta and gamma only; alpha is stopped by gloves + plastic enclosure"
             ]
+          },
+          "same_value": {
+            "a(i)": true,
+            "a(ii)": true,
+            "a(iii)": true,
+            "b(i)": true,
+            "b(ii)": true,
+            "b(iii)": true
           }
         }
       }
@@ -4135,7 +4190,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) *(a): Gas pressure is the average force per unit area from frequent molecular collisions with the inner surface.; *(b): 50 kPa; *(c): A p proportional to 1/V rectangular hyperbola from (0.01 m^3, 100 kPa) through (0.02 m^3, 50 kPa), decreasing concave-up and asymptotic to both axes. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "*(a)": [
               "Gas pressure is the average force per unit area from frequent molecular collisions with the inner surface.",
@@ -4152,6 +4207,11 @@
               "A decreasing rectangular hyperbola starting at 100 kPa at 0.01 m^3 passing through 50 kPa at 0.02 m^3, with p inversely proportional to V.",
               "Rectangular hyperbola of p vs V through (0.01 m3, 100 kPa), (0.02 m3, 50 kPa) and (0.03 m3, 33.3 kPa), asymptotic to both axes."
             ]
+          },
+          "same_value": {
+            "*(a)": true,
+            "*(b)": true,
+            "*(c)": true
           }
         }
       },
@@ -4193,17 +4253,13 @@
             "illegible": false
           }
         ],
-        "unanimous": true,
-        "final_answers": {
-          "(a)": "KE ≈ 5.4×10^5 J, average power ≈ 5.8×10^4 W (58 kW)",
-          "(b)": "Part of the engine's work must become gravitational potential energy, so more total work is needed for the same KE and time is longer at the same power."
-        },
-        "worked": "(a) KE = 1/2 m v^2 = 0.5×1400×27.8^2 ≈ 5.41×10^5 J. Work done by car = gain in KE. P_avg = W/t = KE/t ≈ 5.41×10^5/9.3 ≈ 5.8×10^4 W. (b) Up incline car gains KE plus GPE = mgh against gravity. Total energy required to reach 100 km/h is larger. With P = W/t unchanged, t = W/P must be larger.",
+        "unanimous": false,
+        "final_answers": null,
+        "worked": "",
         "adjudication": {
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
           "runs_compared": {
             "(a)": [
               "KE ≈ 5.4×10^5 J, average power ≈ 5.8×10^4 W (58 kW)",
@@ -4215,7 +4271,13 @@
               "Extra output energy is needed to gain gravitational potential energy on the incline, so with the same power more time is required.",
               "With the same power, extra work must be done against gravity to gain gravitational potential energy, so more time is needed to reach the same kinetic energy."
             ]
-          }
+          },
+          "same_value": {
+            "(a)": false,
+            "(b)": true
+          },
+          "settled": false,
+          "reason": "the three runs do not agree on the value: (a): KE ≈ 5.4×10^5 J, average power ≈ 5.8×10^4 W (58 kW) vs KE ≈ 5.41×10^5 J, average power ≈ 5.8×10^4 W (≈58 kW) vs KE = 5.41 x 10^5 J; P_avg = 5.8 x 10^4 W (~58 kW)"
         }
       },
       "3": {
@@ -4270,7 +4332,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): vertically downwards; (b): 50° to the horizontal; (c): 8.3 m s⁻¹ and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "vertically downwards",
@@ -4287,6 +4349,11 @@
               "≈ 8.3 m s⁻¹",
               "≈ 8.3 m s^-1 at 1.6 m height"
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)": true,
+            "(c)": true
           }
         }
       },
@@ -4334,13 +4401,16 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) 7: Rapidly turning the blades rotates the motor coil in a magnetic field to induce an emf that lights the bulb, converting kinetic/mechanical energy to electrical energy. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "7": [
               "Rapidly turning the blades rotates the motor coil in a magnetic field to induce an emf that lights the bulb, converting kinetic/mechanical energy to electrical energy.",
               "The bulb lights by electromagnetic induction, converting kinetic/mechanical energy of the blades into electrical energy (then light and heat).",
               "Turning the blades rotates the motor coil in its magnetic field to induce an emf/current lighting the bulb, converting mechanical kinetic energy to electrical energy and then to light plus heat."
             ]
+          },
+          "same_value": {
+            "7": true
           }
         }
       },
@@ -4392,7 +4462,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): Identical upright pulse displaced 0.5 m toward the wall from the t=0 position, amplitude 0.02 m, no inversion; (b): Displacement stays 0, then +0.02 m triangular pulse then 0, then -0.02 m inverted triangular pulse then 0; incident-reflected separation 0.4 s and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "Identical upright pulse displaced 0.5 m toward the wall from the t=0 position, amplitude 0.02 m, no inversion",
@@ -4404,6 +4474,10 @@
               "displacement 0 from t=0 to ~1.8s, +0.02 m peak at ~2.0s as incident passes P, then -0.02 m peak at ~2.4s as inverted reflected pulse passes P, then 0 to t=4s.",
               "displacement/m vs time/s: 0 m for t=0 s until arrival, triangular +0.02 m peak for incident pulse, return to 0 m, then triangular -0.02 m trough for fixed-end inverted reflected pulse, then 0 m; peak time ~ distance/0.5 m/s, separation of incident and reflected at P ~ 2*0.1 m/0.5 m/s = 0.4 s."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)": true
           }
         }
       },
@@ -4459,7 +4533,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): The 0.5 A imbalance gives a net alternating flux in the ring which induces an e.m.f. in coil C to energise the solenoid and open S.; (b): 0.015 T; (c): A live-neutral short leaves live and neutral currents equal so the ELCB sees no net flux, while the huge current melts the fuse. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "The 0.5 A imbalance gives a net alternating flux in the ring which induces an e.m.f. in coil C to energise the solenoid and open S.",
@@ -4476,6 +4550,11 @@
               "Live and neutral currents stay equal so the ELCB sees zero net flux and does not trip, while the very large short-circuit current blows the fuse by Joule heating.",
               "Live-neutral short gives equal huge currents in live and neutral so net flux is zero and ELCB does not trip while the fuse melts from excessive heating."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)": true,
+            "(c)": true
           }
         }
       },
@@ -4531,7 +4610,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a)(i): Loudness varies alternately between loud and soft due to constructive and destructive interference of the two coherent waves as path difference changes along BC.; (a)(ii): Cancellation at X is incomplete because the two waves arrive with unequal amplitudes due to different distances from P and Q, and/or background/reflected sound is present.; (b): 0.68 m and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)(i)": [
               "Loudness varies alternately between loud and soft due to constructive and destructive interference of the two coherent waves as path difference changes along BC.",
@@ -4548,6 +4627,11 @@
               "0.68 m",
               "0.68 m"
             ]
+          },
+          "same_value": {
+            "(a)(i)": true,
+            "(a)(ii)": true,
+            "(b)": true
           }
         }
       },
@@ -4597,7 +4681,7 @@
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
           "settled": false,
-          "reason": "subpart (a) disagrees beyond formatting: run 2 gives 400 m (AM 750 kHz R2 wavelength) while runs 1 and 3 give 3.03 m (FM 99 MHz R1), and the question asks for channel R1",
+          "reason": "the three runs do not agree on the value: (a): 3.03 m vs 400 m vs 3.03 m",
           "runs_compared": {
             "(a)": [
               "3.03 m",
@@ -4609,6 +4693,10 @@
               "Reception of channel R2 (AM, 750 kHz) is better because its much longer wavelength diffracts around the hills.",
               "Reception of channel R2, the AM lower-frequency channel, is better."
             ]
+          },
+          "same_value": {
+            "(a)": false,
+            "(b)": true
           }
         }
       },
@@ -4664,7 +4752,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): P = m c (T2-T1)/t in watts, where m is mass of water, c = 4200 J/kg°C, T1,T2 initial/final temperatures, t heating time.; (b): Useful power is smaller because part of the electrical energy is lost as heat in the magnetron/oven and to beaker/surroundings and not absorbed by water.; (c): No, increasing water mass gives a smaller temperature rise and so a larger fractional uncertainty in ΔT. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "P = m c (T2-T1)/t in watts, where m is mass of water, c = 4200 J/kg°C, T1,T2 initial/final temperatures, t heating time.",
@@ -4681,6 +4769,11 @@
               "No, larger mass gives a smaller temperature rise for the same heating time and hence a larger percentage error in the thermometer reading.",
               "No, larger mass gives smaller temperature rise and larger fractional error in temperature."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)": true,
+            "(c)": true
           }
         }
       },
@@ -4733,7 +4826,7 @@
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
           "settled": false,
-          "reason": "subpart (b) disagrees beyond formatting: run 1 gives \"≈10° to the normal in air\" while runs 2 and 3 give \"≈8.4°\" (Snell's law: sin r = (340/1500) sin 40° ≈ 8.4°)",
+          "reason": "the three runs do not agree on the value: (b): ≈10° to the normal in air vs ≈8.4° from the normal in air vs ≈8.4° from the normal in air",
           "runs_compared": {
             "(a)": [
               "≈86 m beneath sea surface",
@@ -4750,6 +4843,11 @@
               "No, total internal reflection cannot occur when sound goes from sea water to air.",
               "No, TIR cannot occur going from sea water to air because sound is faster in water than in air."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)": false,
+            "(c)": true
           }
         }
       },
@@ -4800,20 +4898,13 @@
             "illegible": false
           }
         ],
-        "unanimous": true,
-        "final_answers": {
-          "(a)(i)": "5.98×10^6 N upwards",
-          "(a)(ii)": "approx 2.6 m s^-2 upwards, with thrust up and weight down",
-          "(b)(i)": "v = sqrt(g R_E^2 / r)",
-          "(b)(ii)": "approx 7.66×10^4 s (~21.3 h) for 14 orbits",
-          "(c)": "An aircraft needs air for wing lift and oxygen for engine combustion, which is absent in space."
-        },
-        "worked": "(a)(i) [exponents inferred as 4.80x10^5 kg, 1.15x10^3 kg expelled]: exhaust momentum gain = m_gas*v_rel. By N3/conservation, impulse on rocket = same. F_avg = dp/dt = (1.15e3*2600)/0.5 = 5.98e6 N upwards. (a)(ii) Forces on rocket: thrust/upward force from gas up, weight mg down through C.G. Neglect dm: net F = F_thrust - mg. mg=4.80e5*9.81=4.71e6 N. a=(5.98e6-4.71e6)/4.80e5 ~2.65 m/s2 up. (b)(i) Circular orbit: gravity provides centripetal: GMm/r^2 = m v^2/r => v=sqrt(GM/r). At Earth's surface: mg = GMm/R_E^2 => GM = g R_E^2. Substitute => v=sqrt(g R_E^2/r). Mass m cancels. (b)(ii) [r=6.71e6 m, R_E=6.37e6 m]: v=sqrt(9.81*(6.37e6)^2/6.71e6) ~7.70e3 m/s. Period T=2πr/v=2π*6.71e6/7702 ~5475 s. 14T ~76640 s ~21.3 h. (c) Aircraft wings need airflow for lift and air-breathing engines need atmospheric oxygen; in vacuum of space neither is available, while rocket carries propellant/oxidiser and needs no lift.",
+        "unanimous": false,
+        "final_answers": null,
+        "worked": "",
         "adjudication": {
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
           "runs_compared": {
             "(a)(i)": [
               "5.98×10^6 N upwards",
@@ -4840,7 +4931,16 @@
               "No air in space so no lift and no oxygen for air-breathing engines, rocket carries own propellant/oxidizer.",
               "No air in space so aircraft gets no lift and air-breathing jet engines get no oxygen, while rocket carries own propellant/oxidizer and works by reaction."
             ]
-          }
+          },
+          "same_value": {
+            "(a)(i)": true,
+            "(a)(ii)": false,
+            "(b)(i)": true,
+            "(b)(ii)": false,
+            "(c)": true
+          },
+          "settled": false,
+          "reason": "the three runs do not agree on the value: (a)(ii): approx 2.6 m s^-2 upwards, with thrust up and weight down vs ~2.6 m s^-2 upwards; thrust up, weight mg down vs ~2.65 m s^-2 upward; forces are upward thrust ~5.98×10^6 N and downward weight mg ~4.71×10^6 N; (b)(ii): approx 7.66×10^4 s (~21.3 h) for 14 orbits vs ~7.7x10^4 s (~21 h) for 14 orbits vs ~7.66×10^4 s ≈21.3 h for 14 orbits"
         }
       },
       "13": {
@@ -4887,19 +4987,13 @@
             "illegible": false
           }
         ],
-        "unanimous": true,
-        "final_answers": {
-          "(a)": "The output (secondary) voltage is directly proportional to the input (primary) voltage.",
-          "(b)": "about 13 V",
-          "(c)": "Keep primary voltage and primary turns constant, vary the number of turns in the secondary coil and measure the output voltage.",
-          "(d)": "Efficiency = Vs Is / (Vp Ip); measure Vp, Ip in primary and Vs, Is in secondary using voltmeters and additional a.c. ammeters."
-        },
-        "worked": "(a) Graph Vs against Vp is a straight line through origin, so Vs proportional to Vp with constant turns ratio. (b) Vs/Vp ~10.0/6.0~1.67, extrapolation to Vp=8.0V gives Vs~13V. (c) 1M: fix Vp and Np; 1M: change Ns only, record Vs for each Ns, Vs proportional to Ns. (d) 1M: eff=Pout/Pin; 1M: Pin=Vp Ip, Pout=Vs Is for resistive load; 1M: read Vp,Vs on voltmeters, add a.c. ammeters in series with primary and secondary to read Ip,Is.",
+        "unanimous": false,
+        "final_answers": null,
+        "worked": "",
         "adjudication": {
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
           "runs_compared": {
             "(a)": [
               "The output (secondary) voltage is directly proportional to the input (primary) voltage.",
@@ -4921,7 +5015,15 @@
               "Efficiency = VsIs/VpIp x100% by measuring Ip and Is with a.c. ammeters in addition to Vp and Vs.",
               "Efficiency = Vs*Is / (Vp*Ip) x 100%, measured with voltmeters plus added ammeters in primary and secondary."
             ]
-          }
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)": false,
+            "(c)": true,
+            "(d)": true
+          },
+          "settled": false,
+          "reason": "the three runs do not agree on the value: (b): about 13 V vs About 13.3 V when Vp = 8.0 V vs approx 13.3 V"
         }
       },
       "12": {
@@ -4969,7 +5071,7 @@
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
           "settled": false,
-          "reason": "run 1 is illegible (no subparts recorded), so no 3/3 agreement exists",
+          "reason": "run 1 is illegible (no subparts recorded), so the three runs do not agree on the value",
           "runs_compared": {
             "(a)": [
               "",
@@ -4986,6 +5088,11 @@
               "Lithium cell is best buy with lowest cost per hour of about $1.3/h.",
               "Lithium cell is best buy with lowest cost about $1.3 per hour for lighting the bulb."
             ]
+          },
+          "same_value": {
+            "(a)": false,
+            "(b)(i)": false,
+            "(b)(ii)": false
           }
         }
       },
@@ -5045,7 +5152,7 @@
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "formatting-only: the three runs agree on value and unit",
+          "basis": "the three runs agree on the value(s) (a): Cosmic rays (or radioactive rocks/soil, radon gas, K-40 in food) - one source of background radiation.; (b)(i): x = 4; (b)(ii): ≈159 MeV per fission; (b)(iii): About 377 years are needed to decay to 200 Bq, so after 350 years activity is still above background, justifying the claim. and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "Cosmic rays (or radioactive rocks/soil, radon gas, K-40 in food) - one source of background radiation.",
@@ -5067,6 +5174,12 @@
               "Activity after 350 years is ~370 Bq still > 200 Bq background, so contamination lasts >350 years.",
               "About 377 years are needed for activity to fall to 200 Bq, so contamination lasts more than 350 years."
             ]
+          },
+          "same_value": {
+            "(a)": true,
+            "(b)(i)": true,
+            "(b)(ii)": true,
+            "(b)(iii)": true
           }
         }
       }

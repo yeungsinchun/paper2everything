@@ -78,9 +78,9 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `scripts/answer_key_overrides.json` | Hand-verified MC answer-key patches where OCR is unreliable |
 | `tests/reconstructed/lq/<year>/ans_starts.json` | Per-year marking-scheme page map for LQ answer crops (whole 1-based PDF pages per question; replaces OCR label detection) |
 | `scripts/build_ans_starts.py` | Generate `ans_starts.json` candidates from an ans PDF (human-verified before tracking) |
-| `scripts/derive_keys.py` | 3/3 unanimous Muse key-maker deriving keys for years with no ans PDF → tracked `metadata/derived_keys.json` |
-| `metadata/derived_keys.json` | Tracked derived MC options + LQ worked solutions for 2026/pp/sap (unanimous only; replayed by `keys`) |
-| `scripts/build_derived_keys_review.py` | Lavish review board for derived keys (`.lavish/derived-keys-review/`) |
+| `scripts/derive_keys.py` | 3/3 unanimous Muse key-maker deriving keys for years with no ans PDF → tracked `metadata/derived_keys.json`; LQ subparts that the three runs do not all agree on numerically stay withheld for hand adjudication on the Lavish board |
+| `metadata/derived_keys.json` | Tracked derived MC options + LQ worked solutions for 2026/pp/sap (3/3 unanimous or hand-adjudicated on the board where the three runs agree on value+unit; replayed by `keys`) |
+| `scripts/build_derived_keys_review.py` | Lavish review board for derived keys (`.lavish/derived-keys-review/`); settles LQ subparts only when all three runs parse to the same value with the same unit and records the machine-checkable `same_value` fact per subpart |
 | `segment.py` | Low-level single-PDF tool (prefer `./pipeline`) |
 | `.lavish/pipeline-review/` | Step-by-step HTML evidence for captain review |
 | `.lavish/classified-review/` | MC section bank HTML |
@@ -95,7 +95,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 3. **lq-pages** - export LQ pages + `starts.json`
 4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `combined.pdf` of those stacks from the source paper (no cover, no within-page crop; trailing data/formulae sheets excluded); then joins every year into `tests/reconstructed/lq/combined.pdf`
 5. **lq-answers** - marking-scheme answer crops under `ans/` (whole pages per `tests/reconstructed/lq/<year>/ans_starts.json`; fails loudly on coverage mismatch instead of writing partial crops)
-6. **keys** - MC keys + correct-% → `tests/sections/mc/answer_keys.json` (OCR of ans PDFs, `answer_key_overrides.json` patches, unanimous `metadata/derived_keys.json` entries for years without ans PDFs; `derive_keys.py verify` fails when a target has no recorded attempt)
+6. **keys** - MC keys + correct-% → `tests/sections/mc/answer_keys.json` (OCR of ans PDFs, `answer_key_overrides.json` patches, unanimous or board-adjudicated `metadata/derived_keys.json` entries for years without ans PDFs; `derive_keys.py verify` fails when a target has no recorded attempt)
 7. **classify-mc** - 27 syllabus sections; replays `metadata/mc/llm_classifications.json`, calls the LLM only for years missing from it, keyword fallback on error
 8. **lq-performance** - candidate-performance notes → `tests/sections/lq/candidate_performance.json` (free, local, deterministic; `scripts/extract_lq_performance.py`)
 9. **classify-lq** - same sections for LQ; same metadata replay / LLM-only-for-missing-years / keyword-fallback behavior as classify-mc. Either backend then lists every Book 5 section a radioactivity LQ tests (e.g. 2014 Q10: ch26 activity + ch25 alpha handling; 2012 Q11 keeps 25+26+27), primary = latest section. Both backends OCR the whole page stack (cache keyed by PNG size under `tests/sections/lq/ocr_cache/`)
