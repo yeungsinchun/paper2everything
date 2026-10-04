@@ -25,7 +25,7 @@
       <header>
         <h2><span class="sec-num">A</span>Household circuit</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="wiring-fig-1">
         <div class="visual svg-fig" id="wiring-figure" data-circuit="wiring" data-state="normal" data-phase="0" data-progress="0">
           <svg class="circuit-svg" viewBox="0 0 640 440" role="img" aria-labelledby="wiring-fig-title wiring-fig-desc">
             <title id="wiring-fig-title">Household circuit: live, neutral and earth</title>
@@ -126,7 +126,7 @@
         <span><span class="wire-key wire-earth" aria-hidden="true"></span>Earth · green/yellow</span>
         <span class="wire-legend-note">Cable colours identify conductors, not quantities.</span>
       </div>
-      <div class="def">
+      <div class="def" id="wiring-def-1">
         <span class="tag">Key idea</span>
         <dl class="def-rows">
           <div class="def-row">
@@ -144,7 +144,7 @@
         </dl>
         <p class="def-note">Sockets are wired in parallel: every branch gets the full 220 V and can be switched on its own.</p>
       </div>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="wiring-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Why are sockets wired in parallel, not in series?</p>
         <div class="choices">
@@ -164,7 +164,7 @@
       <header>
         <h2><span class="sec-num">B</span>Fuse and cable choice</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="fuse-fig-1">
         <div class="visual svg-fig" id="fuse-figure" data-circuit="fuse" data-step="1">
           <svg class="circuit-svg" viewBox="0 0 640 440" role="img" aria-labelledby="fuse-fig-title fuse-fig-desc">
             <title id="fuse-fig-title">Fuse and cable choice for a 2 kW load</title>
@@ -241,7 +241,7 @@
         </button>
       </div>
       <p class="circuit-status" id="fuse-step-readout" aria-live="polite">Working current: what the load draws at 220 V.</p>
-      <div class="def">
+      <div class="def" id="fuse-def-1">
         <span class="tag">Key idea</span>
         <dl class="def-rows">
           <div class="def-row">
@@ -259,7 +259,7 @@
         </dl>
         <p class="def-note">Simplified classroom model: standard fuses 3 A, 5 A and 13 A; fuses and switches go on the live wire.</p>
       </div>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="fuse-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>A 2 kW heater at 220 V should use</p>
         <div class="choices">
@@ -273,7 +273,7 @@
           <p>I = 2000/220 ≈ 9.1 A. 3 A would blow; the lowest standard rating above 9.1 A is 13 A, so the cable must be rated ≥ 13 A. Fuses go on live, never neutral or earth.</p>
         </div>
       </div>
-      <div class="check" data-check="sa">
+      <div class="check" id="fuse-check-2" data-check="sa">
         <h3>Write it out</h3>
         <p>A 1.5 kW kettle at 220 V — choose the fuse and cable.</p>
         <button type="button" data-reveal>Show answer</button>

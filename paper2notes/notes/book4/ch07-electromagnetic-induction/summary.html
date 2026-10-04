@@ -24,10 +24,10 @@
     <section class="idea" id="formula-sheet">
       <h2>Formula sheet</h2>
       <div class="formula-sheet">
-      <p class="eq">\(\Phi = B A \cos\theta\) — flux (Wb)</p>
-      <p class="eq">\(\bar\varepsilon = -N \dfrac{\Delta\Phi}{\Delta t}\) — Faraday (average)</p>
-      <p class="eq">Lenz: induced current opposes change</p>
-      <p class="eq">Generator: \(\varepsilon = N B A \omega \sin\omega t\); eddy currents braked by Lenz</p>
+      <p class="eq" id="flux-eq">\(\Phi = B A \cos\theta\) — flux (Wb)</p>
+      <p class="eq" id="faraday-average-emf-eq">\(\bar\varepsilon = -N \dfrac{\Delta\Phi}{\Delta t}\) — Faraday (average)</p>
+      <p class="eq" id="lenz-opposes-change-eq">Lenz: induced current opposes change</p>
+      <p class="eq" id="generator-emf-eq">Generator: \(\varepsilon = N B A \omega \sin\omega t\); eddy currents braked by Lenz</p>
       </div>
     </section>
 
@@ -47,12 +47,12 @@
 
     <section class="idea" id="visual-comparison">
       <h2>Visual comparison</h2>
-      <figure class="fig">
+      <figure class="fig" id="visual-comparison-fig-1">
         <div class="visual play stage" data-scene="summary-ch07-electromagnetic-induction" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Summary visual for Electromagnetic Induction"></canvas>
         </div>
       </figure>
-      <table class="notes">
+      <table class="notes" id="visual-comparison-notes-1">
         <thead><tr><th>Quantity</th><th>Expression</th><th>When it applies</th></tr></thead>
         <tbody>
           <tr><th>Definition</th><td>See formula sheet above</td><td>Always: definitions are not the special case.</td></tr>
@@ -61,7 +61,7 @@
       </table>
     </section>
 
-    <div class="check" data-check="mc" data-answer="B">
+    <div class="check" id="recap-definition-vs-law-check" data-check="mc" data-answer="B">
       <h3>Quick check</h3>
       <p>Which statement best fits this chapter's theme?</p>
       <div class="choices">

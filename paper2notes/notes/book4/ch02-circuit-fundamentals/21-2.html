@@ -25,18 +25,18 @@
       <header>
         <h2><span class="sec-num">A</span>I–V shapes</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="iv-fig-1">
         <div class="visual play stage" data-scene="iv-curves" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="I–V shapes"></canvas>
           <span class="hud-label" data-hud="a">I–V shapes</span>
         </div>
         <figcaption><b>Fig. 21.2</b> Ohmic: straight. Filament: flattens. Diode: one way.</figcaption>
       </figure>
-      <div class="def">
+      <div class="def" id="iv-def-1">
         <span class="tag">Key idea</span>
         <p>Resistance defined as \(R = V/I\) (gradient inverse). Ohm's law is the special case where \(R\) is constant (I ∝ V straight line). Filament: R rises with temperature → curve flattens. Diode: near-zero for reverse, turns on after threshold.</p>
       </div>
-      <table class="notes">
+      <table class="notes" id="iv-notes-1">
         <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
         <tbody>
           <tr><th>Ohmic</th><td>Metal at constant T: straight. Use R = slope inverse.</td></tr>
@@ -44,7 +44,7 @@
           <tr><th>Diode</th><td>Non-ohmic, not linear; resistance not meaningful in one number.</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="iv-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Which conductor obeys Ohm's law?</p>
         <div class="choices">
@@ -64,25 +64,25 @@
       <header>
         <h2><span class="sec-num">B</span>Resistivity and temperature</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="resistivity-fig-1">
         <div class="visual play stage" data-scene="resistivity" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Resistivity and temperature"></canvas>
           <span class="hud-label" data-hud="a">Resistivity </span>
         </div>
         <figcaption><b>Fig. 21.2</b> Longer, thinner wire → larger \(R\).</figcaption>
       </figure>
-      <div class="def">
+      <div class="def" id="resistivity-def-1">
         <span class="tag">Key idea</span>
         <p>For a uniform wire, \(R = \rho l/A\) with \(\rho\) resistivity (Ω m). \(\rho\) depends on material and T. Metals: ρ rises with T (lattice vibrations). Semiconductors: ρ falls sharply with T (more carriers freed).</p>
       </div>
-      <table class="notes">
+      <table class="notes" id="resistivity-notes-1">
         <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
         <tbody>
           <tr><th>Geometry</th><td>Double l → double R; double A → half R. For same volume, stretching thin raises R fast (R ∝ l^2).</td></tr>
           <tr><th>Ratio example</th><td>Two wires same length, radii r and 2r, same ρ: R1/R2 = (1/πr^2)/(1/π(2r)^2)=4.</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="A">
+      <div class="check" id="resistivity-check-1" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>Parallel wires of same material and length, radii r and 2r, carry same total current. Ratio of current in thin to thick?</p>
         <div class="choices">

@@ -24,10 +24,10 @@
     <section class="idea" id="formula-sheet">
       <h2>Formula sheet</h2>
       <div class="formula-sheet">
-      <p class="eq">\(I = \dfrac{\Delta Q}{\Delta t}\) — current</p>
-      <p class="eq">\(R = \dfrac{V}{I}\) — resistance definition</p>
-      <p class="eq">\(R = \rho \dfrac{l}{A}\) — resistivity</p>
-      <p class="eq">Ohm's law: \(I \propto V\) only when \(R\) constant</p>
+      <p class="eq" id="current-rate-eq">\(I = \dfrac{\Delta Q}{\Delta t}\) — current</p>
+      <p class="eq" id="resistance-definition-eq">\(R = \dfrac{V}{I}\) — resistance definition</p>
+      <p class="eq" id="resistivity-eq">\(R = \rho \dfrac{l}{A}\) — resistivity</p>
+      <p class="eq" id="ohm-law-eq">Ohm's law: \(I \propto V\) only when \(R\) constant</p>
       </div>
     </section>
 
@@ -47,12 +47,12 @@
 
     <section class="idea" id="visual-comparison">
       <h2>Visual comparison</h2>
-      <figure class="fig">
+      <figure class="fig" id="visual-comparison-fig-1">
         <div class="visual play stage" data-scene="summary-ch02-circuit-fundamentals" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Summary visual for Circuit Fundamentals"></canvas>
         </div>
       </figure>
-      <table class="notes">
+      <table class="notes" id="visual-comparison-notes-1">
         <thead><tr><th>Quantity</th><th>Expression</th><th>When it applies</th></tr></thead>
         <tbody>
           <tr><th>Definition</th><td>See formula sheet above</td><td>Always: definitions are not the special case.</td></tr>
@@ -61,7 +61,7 @@
       </table>
     </section>
 
-    <div class="check" data-check="mc" data-answer="B">
+    <div class="check" id="recap-definition-vs-law-check" data-check="mc" data-answer="B">
       <h3>Quick check</h3>
       <p>Which statement best fits this chapter's theme?</p>
       <div class="choices">
