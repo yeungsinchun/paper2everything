@@ -25,25 +25,25 @@
       <header>
         <h2><span class="sec-num">A</span>Ideal transformer</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="transformer-fig-1">
         <div class="visual play stage" data-scene="transformer" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Ideal transformer"></canvas>
           <span class="hud-label" data-hud="a">Ideal transf</span>
         </div>
         <figcaption><b>Fig. 24.4</b> Iron core links flux; power in = power out.</figcaption>
       </figure>
-      <div class="def">
+      <div class="def" id="transformer-def-1">
         <span class="tag">Key idea</span>
         <p>Transformer: two coils on common iron core (laminated). Alternating flux links both. Ideal: \(\dfrac{V_P}{V_S}=\dfrac{N_P}{N_S}\), \(I_P V_P \approx I_S V_S\) (power conserved), so \(I_S/I_P = N_P/N_S\) inverse. Step-up: NS>NP; step-down: NS<NP. Works only on a.c. (changing flux).</p>
       </div>
-      <table class="notes">
+      <table class="notes" id="transformer-notes-1">
         <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
         <tbody>
           <tr><th>Efficiency</th><td>Real <100%: copper (I^2R), hysteresis, eddy, flux leakage. Laminated soft iron, thick low-R wire, close coupling improve.</td></tr>
           <tr><th>Example</th><td>NS=2×NP → VS=2×VP, IS≈IP/2.</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="A">
+      <div class="check" id="transformer-check-1" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>A transformer NP=200, NS=100 steps down 220 V to?</p>
         <div class="choices">
@@ -63,25 +63,25 @@
       <header>
         <h2><span class="sec-num">B</span>Grid: why step high</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="grid-fig-1">
         <div class="visual play stage" data-scene="transmission-grid" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Grid: why step high"></canvas>
           <span class="hud-label" data-hud="a">Grid: why st</span>
         </div>
         <figcaption><b>Fig. 24.4</b> Generate → step up → transmit → step down.</figcaption>
       </figure>
-      <div class="def">
+      <div class="def" id="grid-def-1">
         <span class="tag">Key idea</span>
         <p>High-voltage transmission: power \(P = V I\), line loss \(P_{\rm loss}=I^2 R_{\rm line}\). For fixed delivered power, higher V → lower I → much lower loss. So generated (~tens kV) stepped up to ~100s kV for long lines, then stepped down near homes (~220 V).</p>
       </div>
-      <table class="notes">
+      <table class="notes" id="grid-notes-1">
         <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
         <tbody>
           <tr><th>Advantage</th><td>Higher V: same P at lower I → I^2R down. Also thinner cables possible.</td></tr>
           <tr><th>Stages</th><td>Power station → step-up → transmission → step-down → distribution → consumer.</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="grid-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Why transmit at high voltage?</p>
         <div class="choices">
