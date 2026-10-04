@@ -24,10 +24,10 @@
     <section class="idea" id="formula-sheet">
       <h2>Formula sheet</h2>
       <div class="formula-sheet">
-      <p class="eq">a.c. \(\,I = I_0\sin\omega t\); \(V_{\rm rms}=V_0/\sqrt2\) (sine)</p>
-      <p class="eq">\(P = V_{\rm rms} I_{\rm rms}\) resistive</p>
-      <p class="eq">Ideal transformer: \(\dfrac{V_P}{V_S}=\dfrac{N_P}{N_S},\ I_P V_P\approx I_S V_S\)</p>
-      <p class="eq">High \(V\) → lower \(I\) → \(I^2R\) loss ↓; grid step-up/step-down</p>
+      <p class="eq" id="ac-rms-eq">a.c. \(\,I = I_0\sin\omega t\); \(V_{\rm rms}=V_0/\sqrt2\) (sine)</p>
+      <p class="eq" id="ac-power-eq">\(P = V_{\rm rms} I_{\rm rms}\) resistive</p>
+      <p class="eq" id="transformer-ratio-eq">Ideal transformer: \(\dfrac{V_P}{V_S}=\dfrac{N_P}{N_S},\ I_P V_P\approx I_S V_S\)</p>
+      <p class="eq" id="transmission-loss-eq">High \(V\) → lower \(I\) → \(I^2R\) loss ↓; grid step-up/step-down</p>
       </div>
     </section>
 
@@ -47,12 +47,12 @@
 
     <section class="idea" id="visual-comparison">
       <h2>Visual comparison</h2>
-      <figure class="fig">
+      <figure class="fig" id="visual-comparison-fig-1">
         <div class="visual play stage" data-scene="summary-ch08-ac-transformers-and-transmission" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Summary visual for AC, Transformers and Power Transmission"></canvas>
         </div>
       </figure>
-      <table class="notes">
+      <table class="notes" id="visual-comparison-notes-1">
         <thead><tr><th>Quantity</th><th>Expression</th><th>When it applies</th></tr></thead>
         <tbody>
           <tr><th>Definition</th><td>See formula sheet above</td><td>Always: definitions are not the special case.</td></tr>
@@ -61,7 +61,7 @@
       </table>
     </section>
 
-    <div class="check" data-check="mc" data-answer="B">
+    <div class="check" id="recap-definition-vs-law-check" data-check="mc" data-answer="B">
       <h3>Quick check</h3>
       <p>Which statement best fits this chapter's theme?</p>
       <div class="choices">

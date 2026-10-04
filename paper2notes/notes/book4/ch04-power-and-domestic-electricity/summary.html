@@ -24,10 +24,10 @@
     <section class="idea" id="formula-sheet">
       <h2>Formula sheet</h2>
       <div class="formula-sheet">
-      <p class="eq">\(P = V I = I^2 R = \dfrac{V^2}{R}\)</p>
-      <p class="eq">\(E = P t,\ 1\ \mathrm{kW\,h}=3.6\ \mathrm{MJ}\)</p>
-      <p class="eq">\(I = \dfrac{P}{V_{\rm rated}}\) — operating current</p>
-      <p class="eq">Fuse: \(I_{\rm rating} > I_{\rm operating}\) but \(< I_{\rm cable\ max}\) on live</p>
+      <p class="eq" id="power-ratings-eq">\(P = V I = I^2 R = \dfrac{V^2}{R}\)</p>
+      <p class="eq" id="energy-eq">\(E = P t,\ 1\ \mathrm{kW\,h}=3.6\ \mathrm{MJ}\)</p>
+      <p class="eq" id="operating-current-eq">\(I = \dfrac{P}{V_{\rm rated}}\) — operating current</p>
+      <p class="eq" id="fuse-rating-eq">Fuse: \(I_{\rm rating} > I_{\rm operating}\) but \(< I_{\rm cable\ max}\) on live</p>
       </div>
     </section>
 
@@ -47,12 +47,12 @@
 
     <section class="idea" id="visual-comparison">
       <h2>Visual comparison</h2>
-      <figure class="fig">
+      <figure class="fig" id="visual-comparison-fig-1">
         <div class="visual play stage" data-scene="summary-ch04-power-and-domestic-electricity" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Summary visual for Power and Domestic Electricity"></canvas>
         </div>
       </figure>
-      <table class="notes">
+      <table class="notes" id="visual-comparison-notes-1">
         <thead><tr><th>Quantity</th><th>Expression</th><th>When it applies</th></tr></thead>
         <tbody>
           <tr><th>Definition</th><td>See formula sheet above</td><td>Always: definitions are not the special case.</td></tr>
@@ -61,7 +61,7 @@
       </table>
     </section>
 
-    <div class="check" data-check="mc" data-answer="B">
+    <div class="check" id="recap-definition-vs-law-check" data-check="mc" data-answer="B">
       <h3>Quick check</h3>
       <p>Which statement best fits this chapter's theme?</p>
       <div class="choices">
