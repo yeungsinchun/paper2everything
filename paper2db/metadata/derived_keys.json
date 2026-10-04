@@ -528,7 +528,21 @@
           }
         ],
         "unanimous": false,
-        "option": null
+        "option": null,
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "runs disagree on the emergent ray: options D, B, B (genuine content dissensus, not formatting)",
+          "runs_compared": {
+            "option": [
+              "D",
+              "B",
+              "B"
+            ]
+          }
+        }
       },
       "18": {
         "input": {
@@ -1487,7 +1501,21 @@
           }
         ],
         "unanimous": false,
-        "option": null
+        "option": null,
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "runs disagree on statements (1)-(3): options C, A, C (genuine content dissensus, not formatting)",
+          "runs_compared": {
+            "option": [
+              "C",
+              "A",
+              "C"
+            ]
+          }
+        }
       },
       "18": {
         "input": {
@@ -1777,7 +1805,21 @@
           }
         ],
         "unanimous": false,
-        "option": null
+        "option": null,
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "runs disagree on the electric-field direction/magnitude: options C, C, D (genuine content dissensus, not formatting)",
+          "runs_compared": {
+            "option": [
+              "C",
+              "C",
+              "D"
+            ]
+          }
+        }
       },
       "30": {
         "input": {
@@ -2243,7 +2285,21 @@
           }
         ],
         "unanimous": false,
-        "option": null
+        "option": null,
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "runs disagree on the force diagram: options C, C, D (genuine content dissensus, not formatting)",
+          "runs_compared": {
+            "option": [
+              "C",
+              "C",
+              "D"
+            ]
+          }
+        }
       },
       "7": {
         "input": {
@@ -2533,7 +2589,21 @@
           }
         ],
         "unanimous": false,
-        "option": null
+        "option": null,
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "runs disagree on the mirror clock reading: options C, A, A (genuine content dissensus, not formatting)",
+          "runs_compared": {
+            "option": [
+              "C",
+              "A",
+              "A"
+            ]
+          }
+        }
       },
       "19": {
         "input": {
@@ -3102,9 +3172,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "3.56 x 10^5 J",
+          "(b)": "~178 s (~3.0 min)",
+          "(c)": "Supplied energy is used as latent heat to break bonds for vaporisation, not to increase kinetic energy, so temperature stays constant."
+        },
+        "worked": "(a) E = mLf + mcΔT = 0.50x3.34e5 + 0.50x4200x(90-0) = 1.67e5+1.89e5 = 3.56e5 J. (b) t = E/P = 3.56e5/2000 ≈178 s ≈3 min. (c) At boiling, heater energy increases potential energy/breaks intermolecular bonds to change liquid to vapour (latent heat of vaporization), average molecular kinetic energy hence temperature unchanged.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "3.56 x 10^5 J",
+              "≈3.6×10⁵ J",
+              "≈3.6×10^5 J"
+            ],
+            "(b)": [
+              "~178 s (~3.0 min)",
+              "≈1.8×10² s (≈3.0 min)",
+              "≈1.8×10^2 s (≈3.0 min)"
+            ],
+            "(c)": [
+              "Supplied energy is used as latent heat to break bonds for vaporisation, not to increase kinetic energy, so temperature stays constant.",
+              "Heat supplied is used as latent heat of vaporization to change state, not to increase molecular kinetic energy, so temperature stays constant.",
+              "Input energy becomes latent heat of vaporization for change of state, not molecular kinetic energy, so temperature stays at 90 °C."
+            ]
+          }
+        }
       },
       "2": {
         "input": {
@@ -3156,9 +3253,54 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "1(a)": "3.56 x 10^5 J",
+          "1(b)": "~1.8 x 10^2 s (~3.0 min)",
+          "1(c)": "Temperature stays at 90°C because supplied energy becomes latent heat to break intermolecular bonds rather than raising molecular kinetic energy.",
+          "2(a)": "2.5 x 10^5 Pa",
+          "2(b)(i)": "6.21 x 10^-21 J",
+          "2(b)(ii)": "~6.1 x 10^2 m/s"
+        },
+        "worked": "1(a): E = mLf + mcΔT = 0.50x3.34e5 + 0.50x4200x(90-0) = 1.67e5+1.89e5 = 3.56e5 J. 1(b): t=E/P = 3.56e5/2000 ≈178s. 1(c): At boiling, heat goes to increase molecular potential energy / breaking bonds as latent heat of vaporisation, so average KE and temperature unchanged. 2(a): Isothermal slow compression: p1V1=p2V2 => p2=1.0e5x5.0/2.0=2.5e5 Pa. 2(b)(i): <KE>=3kT/2, T=27+273=300K => 1.5x1.38e-23x300=6.21e-21 J. 2(b)(ii): 0.5m<v^2>=3kT/2 => vrms=sqrt(3kT/m)=sqrt(3RT/M)=sqrt(3x8.31x300/0.020)≈6.1e2 m/s.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "1(a)": [
+              "3.56 x 10^5 J",
+              "≈3.6×10^5 J",
+              "3.6e5 J"
+            ],
+            "1(b)": [
+              "~1.8 x 10^2 s (~3.0 min)",
+              "≈1.8×10^2 s (~3.0 min)",
+              "1.8e2 s (~3.0 min)"
+            ],
+            "1(c)": [
+              "Temperature stays at 90°C because supplied energy becomes latent heat to break intermolecular bonds rather than raising molecular kinetic energy.",
+              "Supplied heat is used as latent heat to break intermolecular bonds rather than raise kinetic energy, so temperature stays at boiling point.",
+              "Supplied energy breaks intermolecular bonds/increases potential energy for vaporisation so kinetic energy/temperature stays constant."
+            ],
+            "2(a)": [
+              "2.5 x 10^5 Pa",
+              "2.5×10^5 Pa",
+              "2.5e5 Pa"
+            ],
+            "2(b)(i)": [
+              "6.21 x 10^-21 J",
+              "≈6.2×10^-21 J",
+              "6.21e-21 J"
+            ],
+            "2(b)(ii)": [
+              "~6.1 x 10^2 m/s",
+              "≈6.1×10^2 m s^-1",
+              "6.1e2 m/s"
+            ]
+          }
+        }
       },
       "3": {
         "input": {
@@ -3201,9 +3343,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "10.2 N",
+          "(b)(i)": "10 N",
+          "(b)(ii)": "The ball experiences a net external impulse from the rod, so the ball alone is not an isolated system."
+        },
+        "worked": "(a) For equilibrium net moment about P =0. Weight 12 N acts at centre 0.40 m from P giving clockwise moment 12x0.40. Only vertical component T sin36° of tension at Q (0.80 m from P) gives anticlockwise moment T sin36°x0.80. So T sin36°x0.80 =12x0.40 => T =6/sin36° ≈10.2 N. (b)(i) Ball initially at rest, final p=mv=0.05x1.6=0.08 kg m s-1. Average force F = change in momentum / time =0.08/0.008=10 N. (b)(ii) Conservation of momentum applies only with no net external force; the rod exerts an external force/impulse on the ball, so momentum of ball alone increases.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "10.2 N",
+              "10.2 N",
+              "10.2 N"
+            ],
+            "(b)(i)": [
+              "10 N",
+              "10 N",
+              "10 N"
+            ],
+            "(b)(ii)": [
+              "The ball experiences a net external impulse from the rod, so the ball alone is not an isolated system.",
+              "The ball alone is not an isolated system as it receives an external impulse from the rod.",
+              "An external impulse from the rod acts on the ball so the ball alone is not an isolated system."
+            ]
+          }
+        }
       },
       "4": {
         "input": {
@@ -3249,9 +3418,42 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "0.55 m s^-1",
+          "(b)(i)": "Velocity is a vector and its direction continuously changes along the circular track, so velocity changes giving non-zero acceleration.",
+          "(b)(ii)": "80 m s^-2 towards centre of circle",
+          "(b)(iii)": "The normal contact force exerted by the outer smooth side wall of the track on the sphere."
+        },
+        "worked": "(a) Smooth track: mechanical energy conserved. 1/2 m u^2 + m g h = 1/2 m v^2 where h=0.80 m, v=4.0 m/s at B/table level. 0.5 u^2 +9.81x0.80 =0.5x4.0^2 => u^2=0.304 => u~0.55 m/s. (b)(i) Speed is scalar but velocity is vector; in uniform circular motion direction of motion changes continuously, so change in velocity per unit time i.e. acceleration non-zero, directed to centre. (ii) a=v^2/r =4.0^2/0.20=80 m/s^2. (iii) Horizontal centripetal force supplied by normal reaction from the track's side (outer) smooth wall.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "0.55 m s^-1",
+              "0.55 m s^-1",
+              "u ≈ 0.55 m s⁻¹"
+            ],
+            "(b)(i)": [
+              "Velocity is a vector and its direction continuously changes along the circular track, so velocity changes giving non-zero acceleration.",
+              "Speed is constant but direction of velocity continuously changes in circular motion, so there is a change in velocity and hence non-zero centripetal acceleration.",
+              "Speed is scalar but velocity is vector, its direction changes along curved BCD so velocity changes and acceleration is non-zero toward the centre."
+            ],
+            "(b)(ii)": [
+              "80 m s^-2 towards centre of circle",
+              "80 m s^-2 towards centre",
+              "≈ 80 m s⁻² directed to centre of BCD"
+            ],
+            "(b)(iii)": [
+              "The normal contact force exerted by the outer smooth side wall of the track on the sphere.",
+              "Normal contact force / reaction exerted by the (outer side) wall of the track on the sphere.",
+              "The horizontal normal reaction from the smooth outer wall of the track."
+            ]
+          }
+        }
       },
       "6": {
         "input": {
@@ -3291,9 +3493,30 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(I)": "Keep loudspeaker output constant, vary d and measure corresponding oscilloscope amplitude A for several distances.",
+          "(II)": "Plot A against 1/d gives a straight line through the origin if A is inversely proportional to d."
+        },
+        "worked": "First principles: intensity I proportional to A^2 and I proportional to 1/d^2, so A proportional to 1/d to test. (I) 1. Keep signal generator frequency and loudspeaker volume fixed; keep microphone on axis facing loudspeaker. 2. Vary d, measure d by metre rule and measure amplitude A (half peak-to-peak) from oscilloscope. 3. Take at least 5-6 widely spaced d with repeated readings, minimise reflections/background noise. (II) 1. Calculate 1/d and plot A (y) vs 1/d (x). 2. If hypothesis A = k/d valid, graph is straight line through origin; deviation/curve or non-zero intercept invalidates it.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(I)": [
+              "Keep loudspeaker output constant, vary d and measure corresponding oscilloscope amplitude A for several distances.",
+              "Vary d and measure the corresponding oscilloscope amplitude A while keeping the loudspeaker output and oscilloscope settings unchanged.",
+              "Keep loudspeaker frequency/volume constant, vary and measure d in m by metre rule and measure trace amplitude A in V/cm from oscilloscope for each d."
+            ],
+            "(II)": [
+              "Plot A against 1/d gives a straight line through the origin if A is inversely proportional to d.",
+              "Plot A against 1/d and a straight line through the origin verifies that A is inversely proportional to d.",
+              "Plot A in V versus 1/d in m^-1; a straight line through the origin verifies A proportional to 1/d."
+            ]
+          }
+        }
       },
       "7": {
         "input": {
@@ -3336,9 +3559,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "The charged wallpaper induces opposite charges on the neutral wall, and the electrostatic attraction holds it.",
+          "(b)": "Charge remains trapped on the insulating wallpaper after removal so it can still induce attraction on re-application.",
+          "(c)": "Moisture provides a conducting path for charge to leak away, weakening the electrostatic attraction."
+        },
+        "worked": "(a) 1M wallpaper carries net static charge; 1M it polarizes/induces opposite bound charge on neutral insulator wall surface by electrostatic induction; 1M unlike-charge attraction exceeds weight to adhere. (b) 1M wallpaper is insulator so charge does not flow away on peeling, removal only overcomes physical attraction with no chemical change; 1M net charge retained for re-induction. (c) 1M humid air/water film is conducting, charge leaks/neutralizes so field and attractive force reduced.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "The charged wallpaper induces opposite charges on the neutral wall, and the electrostatic attraction holds it.",
+              "The charged wallpaper induces opposite charges on the neutral wall surface and electrostatic attraction holds it on.",
+              "The net-charged wallpaper polarizes the initially neutral insulating wall by induction, attracting opposite bound charge to the surface to give a net electrostatic attraction in N that holds it."
+            ],
+            "(b)": [
+              "Charge remains trapped on the insulating wallpaper after removal so it can still induce attraction on re-application.",
+              "Adhesion is by induction with no net charge transfer and the insulating wallpaper retains its surface charge after removal.",
+              "The charge in C remains trapped on the insulating wallpaper because peeling off involves no conduction to earth or chemical consumption, so it can induce polarization again."
+            ],
+            "(c)": [
+              "Moisture provides a conducting path for charge to leak away, weakening the electrostatic attraction.",
+              "Humid air and surface moisture conduct charge away so the wallpaper loses charge and attraction weakens.",
+              "In high humidity a water film/air ions provide a conductive path that lets the wallpaper charge in C leak away to earth/air, reducing the electrostatic holding force in N to near zero."
+            ]
+          }
+        }
       },
       "8": {
         "input": {
@@ -3381,9 +3631,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "≈60 W (P = V²/R_stable, R_stable ≈800 Ω)",
+          "(b)": "Filament temperature rises by Joule heating increasing metal resistivity until heat loss balances input power so temperature and R become constant.",
+          "(c)": "≈5.4×10⁻⁸ Ω·m"
+        },
+        "worked": "(a) After stable R=R_stable: P=V^2/R. From graph R at t>~0.2s stable ≈8e2 ohm. P=220^2/800≈60.5W => rated ~60W. (b) 1: Current gives I^2R Joule heating, filament T rises. 2: Tungsten/metal resistivity increases with T (positive temperature coefficient) so R=rho L/A rises. 3: Temperature rises until power loss to surroundings = electrical power in, thermal equilibrium, T constant => R stable. (c) At t=0 R0≈80 ohm. A=pi(d/2)^2=pi*(0.022e-3/2)^2≈3.8e-10 m2. R0=rho L/A => rho=R0 A/L≈80*3.8e-10/0.56≈5.4e-8 ohm·m.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "≈60 W (P = V²/R_stable, R_stable ≈800 Ω)",
+              "~60 W",
+              "~60 W"
+            ],
+            "(b)": [
+              "Filament temperature rises by Joule heating increasing metal resistivity until heat loss balances input power so temperature and R become constant.",
+              "Resistance rises as the filament heats up and becomes constant when thermal equilibrium is reached.",
+              "R rises with filament temperature until Joule heating balances heat loss, then R stabilises."
+            ],
+            "(c)": [
+              "≈5.4×10⁻⁸ Ω·m",
+              "~5.4×10^-8 Ω·m",
+              "~5.4e-8 ohm m"
+            ]
+          }
+        }
       },
       "5": {
         "input": {
@@ -3429,9 +3706,42 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "0.20 m/s (20 cm/s)",
+          "(b)(i)": "1.0 cm = 0.5λ",
+          "(b)(ii)": "Constructive interference occurs at P.",
+          "(c)": "The wavelength increases."
+        },
+        "worked": "(a) v=fλ=10x2.0=20 cm/s=0.20 m/s. (b)(i) From Fig S1P=4.0 cm, S2P=5.0 cm, path difference=|S2P-S1P|=1.0 cm=0.5λ. (b)(ii) S1,S2 vibrate in opposite phase i.e. phase diff pi; path diff 0.5λ gives further pi, total 2pi so waves arrive in phase at P -> constructive, maximum amplitude/antinode. (c) Deeper water -> wave speed v increases; f fixed by vibrator, λ=v/f so λ increases.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "0.20 m/s (20 cm/s)",
+              "0.20 m/s (20 cm/s)",
+              "0.20 m/s (20 cm/s)"
+            ],
+            "(b)(i)": [
+              "1.0 cm = 0.5λ",
+              "0.5λ (path difference = 1.0 cm)",
+              "1.0 cm = 0.50λ"
+            ],
+            "(b)(ii)": [
+              "Constructive interference occurs at P.",
+              "Constructive interference occurs at P.",
+              "Constructive interference occurs at P."
+            ],
+            "(c)": [
+              "The wavelength increases.",
+              "The wavelength increases.",
+              "Wavelength increases."
+            ]
+          }
+        }
       },
       "9": {
         "input": {
@@ -3474,9 +3784,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "7.1 A",
+          "(b)": "1.4 x 10^-6 Wb",
+          "(c)": "Incorrect - the search coil cannot measure the steady magnetic field of the Earth."
+        },
+        "worked": "(a) [1M] For sinusoidal a.c. Irms = I0/sqrt2, so I0 = 5 x sqrt2 = 7.07 A ~7.1 A. (b) [3M] Field of long wire B = mu0 I/(2 pi r), perpendicular to plane containing wire and coil. Max when I=I0. B0 = mu0 I0/(2 pi r) = 4pi x10^-7 x7.07/(2 pi x0.20) = 7.1 x10^-6 T. Assuming coil small so B uniform over it, max flux linkage = N B0 A = 500 x 7.07x10^-6 x 4.0x10^-4 = 1.4x10^-6 Wb. (c) [2M] Induced e.m.f. e = -N dPhi/dt. Only changing flux induces e.m.f. Wire field is a.c. giving alternating e.m.f., Earth field is essentially steady d.c. with dPhi/dt=0 giving no e.m.f., so oscilloscope shows wire field only, resultant/static field cannot be measured.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "7.1 A",
+              "7.07 A",
+              "7.07 A peak"
+            ],
+            "(b)": [
+              "1.4 x 10^-6 Wb",
+              "1.4×10⁻⁶ Wb",
+              "1.4e-6 Wb maximum flux linkage"
+            ],
+            "(c)": [
+              "Incorrect - the search coil cannot measure the steady magnetic field of the Earth.",
+              "Incorrect – the search coil cannot measure the Earth's steady field.",
+              "Incorrect - search coil only responds to changing (a.c.) flux, not the steady Earth field."
+            ]
+          }
+        }
       },
       "10": {
         "input": {
@@ -3522,9 +3859,42 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "The ray enters the glass from the sensor block, is totally internally reflected at surface A because incidence 45° exceeds the critical angle 44.0°, and reflects to the infra-red sensor.",
+          "(b)(i)": "约61° (≈61.1°)",
+          "(b)(ii)": "No total internal reflection; most of the ray refracts into the water bending away from the normal with only a weak partially reflected ray remaining in the glass.",
+          "(b)(iii)": "The intensity of the signal received by the infra-red sensor decreases."
+        },
+        "worked": "(a) 1M entry via surface B with refraction/negligible deviation due to optical contact; 1M incidence at A is 45°; 1M 45°>c=44.0° glass-air; 1M total internal reflection occurs at A, law of reflection, reflected ray travels back through B to sensor. (b)(i) For glass-air: sin c =1/n_g => n_g=1/sin44.0°. For glass-water: sin c' =n_water/n_g =n_water*sin44.0° =1.26*sin44.0°=0.875. c'=arcsin(0.875)≈61°. (b)(ii) 45°<61° so TIR impossible; incident ray splits into refracted ray into water bent away from normal since n_glass>n_water plus weak reflected ray in glass. (b)(iii) Energy leaks into raindrop/transmitted away, so reflected energy reaching sensor drops, change triggers wipers.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "The ray enters the glass from the sensor block, is totally internally reflected at surface A because incidence 45° exceeds the critical angle 44.0°, and reflects to the infra-red sensor.",
+              "The ray refracts into the glass at B, undergoes total internal reflection at A since 45° > 44.0°, then refracts out at B to the sensor.",
+              "The IR ray enters the glass from the LED via optical coupling, is totally internally reflected at the outer glass-air surface A because incidence 45° > critical 44.0°, and is then guided back down through the glass to the IR sensor."
+            ],
+            "(b)(i)": [
+              "约61° (≈61.1°)",
+              "61.1°",
+              "approx 61.1 degrees"
+            ],
+            "(b)(ii)": [
+              "No total internal reflection; most of the ray refracts into the water bending away from the normal with only a weak partially reflected ray remaining in the glass.",
+              "No total internal reflection occurs; the ray mainly refracts into water bending away from the normal with only a weak reflected ray.",
+              "Incidence 45° < critical ~61.1° so TIR is frustrated: ray refracts into the water bending away from the normal, with only a weak partially reflected ray remaining in the glass toward the sensor."
+            ],
+            "(b)(iii)": [
+              "The intensity of the signal received by the infra-red sensor decreases.",
+              "The intensity received by the sensor decreases significantly.",
+              "The intensity of the signal received by the sensor decreases."
+            ]
+          }
+        }
       },
       "11": {
         "input": {
@@ -3571,7 +3941,46 @@
         ],
         "unanimous": false,
         "final_answers": null,
-        "worked": ""
+        "worked": "",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "run 1 is illegible (no subparts recorded), so no 3/3 agreement exists",
+          "runs_compared": {
+            "(a)(i)": [
+              "",
+              "16 m",
+              "16 m"
+            ],
+            "(a)(ii)": [
+              "",
+              "displacement increases throughout, concave-up 0-2 s, straight 2-4 s, concave-down 4-5 s",
+              "s-t curve starting at 0, concave up 0-2 s to 4 m, straight line 2-4 s, concave down with decreasing positive slope 4-5 s, s always increasing"
+            ],
+            "(a)(iii)": [
+              "",
+              "3.91 N",
+              "3.9 N"
+            ],
+            "(b)(i)": [
+              "",
+              "vertically downwards",
+              "vertically downwards"
+            ],
+            "(b)(ii)": [
+              "",
+              "65.3 m",
+              "65 m"
+            ],
+            "(b)(iii)": [
+              "",
+              "gravitational potential energy is converted into kinetic energy with total mechanical energy conserved.",
+              "Gravitational potential energy is converted into kinetic energy with total mechanical energy conserved."
+            ]
+          }
+        }
       },
       "12": {
         "input": {
@@ -3623,9 +4032,54 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "a(i)": "213_83Bi -> 213_84Po + 0_-1e (beta- decay); 213_84Po -> 209_82Pb + 4_2He (alpha decay)",
+          "a(ii)": "~2.0 x 10^9 Bq assuming N0=8.0 x 10^12",
+          "a(iii)": "~95% decrease",
+          "b(i)": "Ring measures the higher extremity dose to the hand/fingers closer to the source.",
+          "b(ii)": "Worn under gloves to avoid contamination of the chip by radioactive liquid.",
+          "b(iii)": "beta and gamma only; alpha cannot reach chip"
+        },
+        "worked": "a(i) beta: A unchanged, Z+1: 83,213->84,213. alpha: A-4, Z-2: 84,213->82,209. So Bi-213 to Po-213 by beta-, Po-213 to Pb-209 by alpha. a(ii) lambda=ln2/T1/2. T1/2=46x60=2760s. A0=lambda N0=0.693/2760 x 8.0e12 ~2.0e9 Bq. a(iii) A=A0(1/2)^(t/T1/2). t/T=200/46=4.35. Remaining=(1/2)^4.35~0.049. Decrease=1-0.049~95%. b(i) hands handle source, dose to hands >> torso dose, chest badge underestimates hand dose. b(ii) outside would be contaminated by liquid, giving falsely high/persistent reading; under glove protects chip. b(iii) alpha stopped by liquid/glove/plastic enclosure/air due to short range; beta penetrates to chip and gamma penetrates.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "a(i)": [
+              "213_83Bi -> 213_84Po + 0_-1e (beta- decay); 213_84Po -> 209_82Pb + 4_2He (alpha decay)",
+              "213/83 Bi -> 213/84 Po + 0/-1 e (beta- decay); 213/84 Po -> 209/82 Pb + 4/2 He (alpha decay)",
+              "213_83Bi -> 213_84Po + 0_-1e (+ anti-neutrino) (beta- decay); 213_84Po -> 209_82Pb + 4_2He (alpha decay)"
+            ],
+            "a(ii)": [
+              "~2.0 x 10^9 Bq assuming N0=8.0 x 10^12",
+              "2.0 x 10^9 Bq, assuming N0 = 8.0 x 10^12",
+              "~2.0e9 Bq [assuming N0=8.0e12; A=lambda*N0, lambda=ln2/2760s]"
+            ],
+            "a(iii)": [
+              "~95% decrease",
+              "95% decrease",
+              "~95% decrease (activity falls to ~5% of initial)"
+            ],
+            "b(i)": [
+              "Ring measures the higher extremity dose to the hand/fingers closer to the source.",
+              "Measures the higher extremity dose to the hands/fingers closest to the source, which a chest badge underestimates.",
+              "The hands/fingers are closest to the source and receive the highest dose, so a finger ring measures the extremity dose which a chest badge would underestimate."
+            ],
+            "b(ii)": [
+              "Worn under gloves to avoid contamination of the chip by radioactive liquid.",
+              "Worn under gloves to prevent contamination of the ring/chip by the radioactive liquid giving a false high reading.",
+              "Wear under gloves to avoid contaminating the ring/chip with radioactive liquid and to measure the dose actually received by the skin."
+            ],
+            "b(iii)": [
+              "beta and gamma only; alpha cannot reach chip",
+              "beta and gamma only; alpha cannot penetrate gloves/plastic to reach chip",
+              "beta and gamma only; alpha is stopped by gloves + plastic enclosure"
+            ]
+          }
+        }
       }
     },
     "pp": {
@@ -3670,9 +4124,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "*(a)": "Gas pressure is the average force per unit area from frequent molecular collisions with the inner surface.",
+          "*(b)": "50 kPa",
+          "*(c)": "A p proportional to 1/V rectangular hyperbola from (0.01 m^3, 100 kPa) through (0.02 m^3, 50 kPa), decreasing concave-up and asymptotic to both axes."
+        },
+        "worked": "(a) [1] molecules in continuous random motion collide with inner wall; [1] each collision changes molecule momentum so wall exerts force on molecule and by Newton 3rd molecule exerts opposite force on wall, sum over many collisions / area = pressure. (b) T constant => Boyle's law pV=constant. p1V1=p2V2 => p2=100kPa x 0.01/0.02 =50 kPa. (c) pV=C => p=C/V: decreasing curve, steep at small V, flattening at large V, not cutting axes.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "*(a)": [
+              "Gas pressure is the average force per unit area from frequent molecular collisions with the inner surface.",
+              "Gas molecules in continuous random motion collide with and rebound from the inner surface, exerting force, with pressure equal to total force per unit area.",
+              "Gas molecules in continuous random motion collide with the inner surface and rebound, exerting an average force per unit area which is the gas pressure."
+            ],
+            "*(b)": [
+              "50 kPa",
+              "50 kPa",
+              "50 kPa"
+            ],
+            "*(c)": [
+              "A p proportional to 1/V rectangular hyperbola from (0.01 m^3, 100 kPa) through (0.02 m^3, 50 kPa), decreasing concave-up and asymptotic to both axes.",
+              "A decreasing rectangular hyperbola starting at 100 kPa at 0.01 m^3 passing through 50 kPa at 0.02 m^3, with p inversely proportional to V.",
+              "Rectangular hyperbola of p vs V through (0.01 m3, 100 kPa), (0.02 m3, 50 kPa) and (0.03 m3, 33.3 kPa), asymptotic to both axes."
+            ]
+          }
+        }
       },
       "2": {
         "input": {
@@ -3712,9 +4193,30 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "KE ≈ 5.4×10^5 J, average power ≈ 5.8×10^4 W (58 kW)",
+          "(b)": "Part of the engine's work must become gravitational potential energy, so more total work is needed for the same KE and time is longer at the same power."
+        },
+        "worked": "(a) KE = 1/2 m v^2 = 0.5×1400×27.8^2 ≈ 5.41×10^5 J. Work done by car = gain in KE. P_avg = W/t = KE/t ≈ 5.41×10^5/9.3 ≈ 5.8×10^4 W. (b) Up incline car gains KE plus GPE = mgh against gravity. Total energy required to reach 100 km/h is larger. With P = W/t unchanged, t = W/P must be larger.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "KE ≈ 5.4×10^5 J, average power ≈ 5.8×10^4 W (58 kW)",
+              "KE ≈ 5.41×10^5 J, average power ≈ 5.8×10^4 W (≈58 kW)",
+              "KE = 5.41 x 10^5 J; P_avg = 5.8 x 10^4 W (~58 kW)"
+            ],
+            "(b)": [
+              "Part of the engine's work must become gravitational potential energy, so more total work is needed for the same KE and time is longer at the same power.",
+              "Extra output energy is needed to gain gravitational potential energy on the incline, so with the same power more time is required.",
+              "With the same power, extra work must be done against gravity to gain gravitational potential energy, so more time is needed to reach the same kinetic energy."
+            ]
+          }
+        }
       },
       "3": {
         "input": {
@@ -3757,9 +4259,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "vertically downwards",
+          "(b)": "50° to the horizontal",
+          "(c)": "8.3 m s⁻¹"
+        },
+        "worked": "(a) Only force is weight, so acceleration = g vertically downwards at all points including C. (b) ux=u cosθ, uy=u sinθ. Vertical: y=uy t-1/2 g t^2. Range: y=0 => T(uy-1/2 g T)=0 => T=2uy/g=2u sinθ/g. Horizontal: no acceleration, R=ux T =u cosθ*2u sinθ/g =u^2 2sinθcosθ/g =u^2 sin2θ/g. Same R with same u requires sin2θ'=sin2θ. With θ=40°, sin80°=sin(180°-80°), so 2θ'=100° => θ'=50° (=90°-θ). (c) At C y=1.6m: vx=ux=10cos40°=7.66 m/s. vy^2=(u sinθ)^2-2gy=(10sin40°)^2-2*9.81*1.6≈9.93 => vy≈3.15 m/s. Speed v=sqrt(vx^2+vy^2)≈sqrt(58.7+9.9)≈8.3 m/s.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "vertically downwards",
+              "Acceleration is vertically downwards with magnitude g",
+              "Acceleration is vertically downwards with magnitude g = 9.81 m s^-2"
+            ],
+            "(b)": [
+              "50° to the horizontal",
+              "R = u^2 sin2θ/g, another angle is 50° to the horizontal",
+              "Range R = u^2 sin2θ / g ≈ 10.0 m; other angle θ = 50° gives same R with u = 10 m s^-1"
+            ],
+            "(c)": [
+              "8.3 m s⁻¹",
+              "≈ 8.3 m s⁻¹",
+              "≈ 8.3 m s^-1 at 1.6 m height"
+            ]
+          }
+        }
       },
       "7": {
         "input": {
@@ -3796,9 +4325,24 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "7": "Rapidly turning the blades rotates the motor coil in a magnetic field to induce an emf that lights the bulb, converting kinetic/mechanical energy to electrical energy."
+        },
+        "worked": "Motor contains a coil/armature in magnetic field of permanent magnets. Turning blades rotates coil so it cuts flux lines / flux linkage changes with time. By Faraday's law of electromagnetic induction an alternating emf is induced across terminals, driving induced current through bulb so it lights; faster turning gives larger rate of change and larger emf. Energy conversion: mechanical work / kinetic energy of blades -> electrical energy -> light + heat in bulb.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "7": [
+              "Rapidly turning the blades rotates the motor coil in a magnetic field to induce an emf that lights the bulb, converting kinetic/mechanical energy to electrical energy.",
+              "The bulb lights by electromagnetic induction, converting kinetic/mechanical energy of the blades into electrical energy (then light and heat).",
+              "Turning the blades rotates the motor coil in its magnetic field to induce an emf/current lighting the bulb, converting mechanical kinetic energy to electrical energy and then to light plus heat."
+            ]
+          }
+        }
       },
       "4": {
         "input": {
@@ -3838,9 +4382,30 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "Identical upright pulse displaced 0.5 m toward the wall from the t=0 position, amplitude 0.02 m, no inversion",
+          "(b)": "Displacement stays 0, then +0.02 m triangular pulse then 0, then -0.02 m inverted triangular pulse then 0; incident-reflected separation 0.4 s"
+        },
+        "worked": "v=0.5 m/s. (a) dx=v*dt=0.5*1=0.5 m to wall. Before reaching fixed end no distortion/inversion, same height/width. So midpoint between t=0 and t=2 positions. (b) Fixed end reflects with pi phase change: inverted. Point P at d=0.1 m from wall sees incident outward +0.02 m pulse first, then reflected inverted -0.02 m pulse after round-trip dt=2d/v=0.2/0.5=0.4 s. Zero before/after/between if pulses separated. Max +0.02 m then max -0.02 m.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "Identical upright pulse displaced 0.5 m toward the wall from the t=0 position, amplitude 0.02 m, no inversion",
+              "Same upright pulse shape amplitude ~0.02 m displaced v*1s = 0.5 m towards wall from t=0 position, midway between t=0 and t=2 positions.",
+              "Same upright (un-inverted) pulse of height 0.02 m, shifted v*t = 0.5 m/s*1 s = 0.5 m toward the wall from the t=0 s position, i.e. midway between the t=0 s and t=2 s positions."
+            ],
+            "(b)": [
+              "Displacement stays 0, then +0.02 m triangular pulse then 0, then -0.02 m inverted triangular pulse then 0; incident-reflected separation 0.4 s",
+              "displacement 0 from t=0 to ~1.8s, +0.02 m peak at ~2.0s as incident passes P, then -0.02 m peak at ~2.4s as inverted reflected pulse passes P, then 0 to t=4s.",
+              "displacement/m vs time/s: 0 m for t=0 s until arrival, triangular +0.02 m peak for incident pulse, return to 0 m, then triangular -0.02 m trough for fixed-end inverted reflected pulse, then 0 m; peak time ~ distance/0.5 m/s, separation of incident and reflected at P ~ 2*0.1 m/0.5 m/s = 0.4 s."
+            ]
+          }
+        }
       },
       "8": {
         "input": {
@@ -3883,9 +4448,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "The 0.5 A imbalance gives a net alternating flux in the ring which induces an e.m.f. in coil C to energise the solenoid and open S.",
+          "(b)": "0.015 T",
+          "(c)": "A live-neutral short leaves live and neutral currents equal so the ELCB sees no net flux, while the huge current melts the fuse."
+        },
+        "worked": "(a) Mains is a.c. Normally current in live = current in neutral in magnitude but opposite in direction through ring, so magnetic fields cancel -> zero net flux in iron ring -> no induced e.m.f. in C. With 0.5 A leaking load to Earth, return via Earth not neutral, net current threading ring = 0.5 A a.c. -> net alternating flux in ring -> Faraday induction of e.m.f./current in 100-turn coil C -> solenoid energised pulls relay to open S, which stays open until manual reset. (b) By Ampere: net enclosed I = 0.5 A. B_air = mu0*I/(2*pi*r). r=0.01 m. B_air =4pi*1e-7*0.5/(2*pi*0.01)=1.0e-5 T. In soft iron x1500: B =1500*1.0e-5 =1.5e-2 T =0.015 T alternating, linking coil C. Area 0.8cm2 not needed for B. (c) Live-neutral short: huge current flows from live to neutral, but both wires still carry same current opposite through ring -> net enclosed zero -> no alternating flux -> no induction in C -> ELCB does not operate. Same huge current passes through fuse -> I^2R Joule heating melts fuse wire -> open circuit.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "The 0.5 A imbalance gives a net alternating flux in the ring which induces an e.m.f. in coil C to energise the solenoid and open S.",
+              "The 0.5 A live-neutral imbalance leaves a net alternating magnetic flux in the iron ring which induces an e.m.f. in coil C to drive the solenoid and open S.",
+              "Unbalanced AC leakage produces net alternating flux in the ring which induces emf in coil C to power the solenoid and open S."
+            ],
+            "(b)": [
+              "0.015 T",
+              "1.5x10^-2 T (0.015 T) alternating in the ring",
+              "1.5e-2 T (15 mT)"
+            ],
+            "(c)": [
+              "A live-neutral short leaves live and neutral currents equal so the ELCB sees no net flux, while the huge current melts the fuse.",
+              "Live and neutral currents stay equal so the ELCB sees zero net flux and does not trip, while the very large short-circuit current blows the fuse by Joule heating.",
+              "Live-neutral short gives equal huge currents in live and neutral so net flux is zero and ELCB does not trip while the fuse melts from excessive heating."
+            ]
+          }
+        }
       },
       "6": {
         "input": {
@@ -3928,9 +4520,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)(i)": "Loudness varies alternately between loud and soft due to constructive and destructive interference of the two coherent waves as path difference changes along BC.",
+          "(a)(ii)": "Cancellation at X is incomplete because the two waves arrive with unequal amplitudes due to different distances from P and Q, and/or background/reflected sound is present.",
+          "(b)": "0.68 m"
+        },
+        "worked": "(a)(i): P and Q driven by same generator give coherent sound waves of same f. They superpose at microphone. Path difference PD=|PB-QB| varies with position along BC. Where PD=nλ constructive interference gives large resultant amplitude=loud; where PD=(n+1/2)λ destructive gives small amplitude=soft, hence alternating loudness. (a)(ii): Ideal destructive would give zero. Non-zero because amplitudes from P and Q at X are not equal due to different propagation distances so cannot cancel fully; also background noise / reflections picked up. (b): Y is a loud position = constructive maximum. Adjacent to central max, Y is 1st order n=1, so QY-PY=nλ=λ. λ=5.78-5.10=0.68 m.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)(i)": [
+              "Loudness varies alternately between loud and soft due to constructive and destructive interference of the two coherent waves as path difference changes along BC.",
+              "Coherent waves from P and Q superpose along BC with position-dependent path difference giving alternating constructive and destructive interference.",
+              "Loudness varies along BC because coherent waves from P and Q superpose to give alternating constructive and destructive interference as path difference varies."
+            ],
+            "(a)(ii)": [
+              "Cancellation at X is incomplete because the two waves arrive with unequal amplitudes due to different distances from P and Q, and/or background/reflected sound is present.",
+              "The waves from P and Q arrive at X with unequal amplitudes so cannot cancel completely to zero.",
+              "Amplitude is not zero at X because the two waves arrive with unequal amplitudes due to unequal distances PX and QX, so cancellation is incomplete, or due to background noise/reflection."
+            ],
+            "(b)": [
+              "0.68 m",
+              "0.68 m",
+              "0.68 m"
+            ]
+          }
+        }
       },
       "5": {
         "input": {
@@ -3972,7 +4591,26 @@
         ],
         "unanimous": false,
         "final_answers": null,
-        "worked": ""
+        "worked": "",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "subpart (a) disagrees beyond formatting: run 2 gives 400 m (AM 750 kHz R2 wavelength) while runs 1 and 3 give 3.03 m (FM 99 MHz R1), and the question asks for channel R1",
+          "runs_compared": {
+            "(a)": [
+              "3.03 m",
+              "400 m",
+              "3.03 m"
+            ],
+            "(b)": [
+              "Reception of channel R2 (AM/610 kHz) is better.",
+              "Reception of channel R2 (AM, 750 kHz) is better because its much longer wavelength diffracts around the hills.",
+              "Reception of channel R2, the AM lower-frequency channel, is better."
+            ]
+          }
+        }
       },
       "9": {
         "input": {
@@ -4015,9 +4653,36 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "P = m c (T2-T1)/t in watts, where m is mass of water, c = 4200 J/kg°C, T1,T2 initial/final temperatures, t heating time.",
+          "(b)": "Useful power is smaller because part of the electrical energy is lost as heat in the magnetron/oven and to beaker/surroundings and not absorbed by water.",
+          "(c)": "No, increasing water mass gives a smaller temperature rise and so a larger fractional uncertainty in ΔT."
+        },
+        "worked": "(a) 1.Measure mass m of water by balance: mass beaker+water minus empty beaker. 2.Measure initial water temp T1 by thermometer. 3.Place in oven, heat for time t measured by stopwatch. 4.Remove, stir for uniform temp, measure final/max temp T2. Precaution: stir before T2; transfer quickly, keep t short to reduce heat loss; do not let water boil. OR Assumption: all microwave output absorbed by water; negligible heat absorbed by beaker/air, no heat loss/evaporation; c of water known. Energy gained Q= m c (T2-T1), power P=Q/t = m c(T2-T1)/t. (b) Rated power is electrical input; magnetron efficiency <100%, plus microwaves absorbed by oven walls/beaker/air and heat loss to surroundings, so water receives less. (c) For same t, larger m gives smaller delta-T; thermometer resolution error then gives larger % error in delta-T, accuracy worsened; if heat longer to keep delta-T, heat loss increases.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "P = m c (T2-T1)/t in watts, where m is mass of water, c = 4200 J/kg°C, T1,T2 initial/final temperatures, t heating time.",
+              "Useful output power P = m*c*(T2-T1)/t in watts, where m is mass of water, T1/T2 initial/final temperatures, t heating time.",
+              "Measure m in kg, T1,T2 in °C and t in s, then P = m*c*(T2-T1)/t in W."
+            ],
+            "(b)": [
+              "Useful power is smaller because part of the electrical energy is lost as heat in the magnetron/oven and to beaker/surroundings and not absorbed by water.",
+              "Part of the microwave energy is absorbed by the beaker and oven walls or lost to the surroundings and not used to heat the water.",
+              "Part of the microwave energy is absorbed by the beaker and lost to the surroundings so efficiency is below 100%."
+            ],
+            "(c)": [
+              "No, increasing water mass gives a smaller temperature rise and so a larger fractional uncertainty in ΔT.",
+              "No, larger mass gives a smaller temperature rise for the same heating time and hence a larger percentage error in the thermometer reading.",
+              "No, larger mass gives smaller temperature rise and larger fractional error in temperature."
+            ]
+          }
+        }
       },
       "10": {
         "input": {
@@ -4062,7 +4727,31 @@
         ],
         "unanimous": false,
         "final_answers": null,
-        "worked": ""
+        "worked": "",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "subpart (b) disagrees beyond formatting: run 1 gives \"≈10° to the normal in air\" while runs 2 and 3 give \"≈8.4°\" (Snell's law: sin r = (340/1500) sin 40° ≈ 8.4°)",
+          "runs_compared": {
+            "(a)": [
+              "≈86 m beneath sea surface",
+              "≈86 m beneath sea surface",
+              "≈86 m vertical depth"
+            ],
+            "(b)": [
+              "≈10° to the normal in air",
+              "≈8.4° from the normal in air",
+              "≈8.4° from the normal in air"
+            ],
+            "(c)": [
+              "No, total internal reflection cannot occur going from sea water to air.",
+              "No, total internal reflection cannot occur when sound goes from sea water to air.",
+              "No, TIR cannot occur going from sea water to air because sound is faster in water than in air."
+            ]
+          }
+        }
       },
       "11": {
         "input": {
@@ -4111,9 +4800,48 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)(i)": "5.98×10^6 N upwards",
+          "(a)(ii)": "approx 2.6 m s^-2 upwards, with thrust up and weight down",
+          "(b)(i)": "v = sqrt(g R_E^2 / r)",
+          "(b)(ii)": "approx 7.66×10^4 s (~21.3 h) for 14 orbits",
+          "(c)": "An aircraft needs air for wing lift and oxygen for engine combustion, which is absent in space."
+        },
+        "worked": "(a)(i) [exponents inferred as 4.80x10^5 kg, 1.15x10^3 kg expelled]: exhaust momentum gain = m_gas*v_rel. By N3/conservation, impulse on rocket = same. F_avg = dp/dt = (1.15e3*2600)/0.5 = 5.98e6 N upwards. (a)(ii) Forces on rocket: thrust/upward force from gas up, weight mg down through C.G. Neglect dm: net F = F_thrust - mg. mg=4.80e5*9.81=4.71e6 N. a=(5.98e6-4.71e6)/4.80e5 ~2.65 m/s2 up. (b)(i) Circular orbit: gravity provides centripetal: GMm/r^2 = m v^2/r => v=sqrt(GM/r). At Earth's surface: mg = GMm/R_E^2 => GM = g R_E^2. Substitute => v=sqrt(g R_E^2/r). Mass m cancels. (b)(ii) [r=6.71e6 m, R_E=6.37e6 m]: v=sqrt(9.81*(6.37e6)^2/6.71e6) ~7.70e3 m/s. Period T=2πr/v=2π*6.71e6/7702 ~5475 s. 14T ~76640 s ~21.3 h. (c) Aircraft wings need airflow for lift and air-breathing engines need atmospheric oxygen; in vacuum of space neither is available, while rocket carries propellant/oxidiser and needs no lift.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)(i)": [
+              "5.98×10^6 N upwards",
+              "5.98x10^6 N upwards",
+              "5.98×10^6 N upward"
+            ],
+            "(a)(ii)": [
+              "approx 2.6 m s^-2 upwards, with thrust up and weight down",
+              "~2.6 m s^-2 upwards; thrust up, weight mg down",
+              "~2.65 m s^-2 upward; forces are upward thrust ~5.98×10^6 N and downward weight mg ~4.71×10^6 N"
+            ],
+            "(b)(i)": [
+              "v = sqrt(g R_E^2 / r)",
+              "v = sqrt(g*R_E^2 / r) ~7.7x10^3 m s^-1",
+              "v = sqrt(g*R_E^2/r) = R_E*sqrt(g/r)"
+            ],
+            "(b)(ii)": [
+              "approx 7.66×10^4 s (~21.3 h) for 14 orbits",
+              "~7.7x10^4 s (~21 h) for 14 orbits",
+              "~7.66×10^4 s ≈21.3 h for 14 orbits"
+            ],
+            "(c)": [
+              "An aircraft needs air for wing lift and oxygen for engine combustion, which is absent in space.",
+              "No air in space so no lift and no oxygen for air-breathing engines, rocket carries own propellant/oxidizer.",
+              "No air in space so aircraft gets no lift and air-breathing jet engines get no oxygen, while rocket carries own propellant/oxidizer and works by reaction."
+            ]
+          }
+        }
       },
       "13": {
         "input": {
@@ -4159,9 +4887,42 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "The output (secondary) voltage is directly proportional to the input (primary) voltage.",
+          "(b)": "about 13 V",
+          "(c)": "Keep primary voltage and primary turns constant, vary the number of turns in the secondary coil and measure the output voltage.",
+          "(d)": "Efficiency = Vs Is / (Vp Ip); measure Vp, Ip in primary and Vs, Is in secondary using voltmeters and additional a.c. ammeters."
+        },
+        "worked": "(a) Graph Vs against Vp is a straight line through origin, so Vs proportional to Vp with constant turns ratio. (b) Vs/Vp ~10.0/6.0~1.67, extrapolation to Vp=8.0V gives Vs~13V. (c) 1M: fix Vp and Np; 1M: change Ns only, record Vs for each Ns, Vs proportional to Ns. (d) 1M: eff=Pout/Pin; 1M: Pin=Vp Ip, Pout=Vs Is for resistive load; 1M: read Vp,Vs on voltmeters, add a.c. ammeters in series with primary and secondary to read Ip,Is.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "The output (secondary) voltage is directly proportional to the input (primary) voltage.",
+              "The secondary (output) voltage Vs is proportional to the primary (input) voltage Vp.",
+              "The secondary (output) voltage is directly proportional to the primary (input) voltage."
+            ],
+            "(b)": [
+              "about 13 V",
+              "About 13.3 V when Vp = 8.0 V",
+              "approx 13.3 V"
+            ],
+            "(c)": [
+              "Keep primary voltage and primary turns constant, vary the number of turns in the secondary coil and measure the output voltage.",
+              "Keep Vp and primary turns constant, vary the number of turns in the secondary coil and measure Vs.",
+              "Keep primary voltage and primary turns constant, vary number of secondary turns and measure secondary voltage to show Vs proportional to Ns."
+            ],
+            "(d)": [
+              "Efficiency = Vs Is / (Vp Ip); measure Vp, Ip in primary and Vs, Is in secondary using voltmeters and additional a.c. ammeters.",
+              "Efficiency = VsIs/VpIp x100% by measuring Ip and Is with a.c. ammeters in addition to Vp and Vs.",
+              "Efficiency = Vs*Is / (Vp*Ip) x 100%, measured with voltmeters plus added ammeters in primary and secondary."
+            ]
+          }
+        }
       },
       "12": {
         "input": {
@@ -4202,7 +4963,31 @@
         ],
         "unanimous": false,
         "final_answers": null,
-        "worked": ""
+        "worked": "",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "settled": false,
+          "reason": "run 1 is illegible (no subparts recorded), so no 3/3 agreement exists",
+          "runs_compared": {
+            "(a)": [
+              "",
+              "Cell, switch and bulb in series with voltage sensor in parallel across bulb.",
+              "Cell, switch and bulb in series in a single loop with the voltage sensor connected in parallel across the bulb only."
+            ],
+            "(b)(i)": [
+              "",
+              "Claim is incorrect, lithium lifetime is only about 4 times alkaline lifetime, not 5 times.",
+              "Claim is incorrect: lithium lifetime about 8 hour versus alkaline about 2 hour, ratio about 4, not 5."
+            ],
+            "(b)(ii)": [
+              "",
+              "Lithium cell is best buy with lowest cost per hour of about $1.3/h.",
+              "Lithium cell is best buy with lowest cost about $1.3 per hour for lighting the bulb."
+            ]
+          }
+        }
       },
       "14": {
         "input": {
@@ -4248,9 +5033,42 @@
             "illegible": false
           }
         ],
-        "unanimous": false,
-        "final_answers": null,
-        "worked": ""
+        "unanimous": true,
+        "final_answers": {
+          "(a)": "Cosmic rays (or radioactive rocks/soil, radon gas, K-40 in food) - one source of background radiation.",
+          "(b)(i)": "x = 4",
+          "(b)(ii)": "≈159 MeV per fission",
+          "(b)(iii)": "About 377 years are needed to decay to 200 Bq, so after 350 years activity is still above background, justifying the claim."
+        },
+        "worked": "(a) Background from nature/man-made: cosmic rays, U/Th in rocks, radon, K-40 etc. (b)(i) Nucleon number: 235+1=137+95+x => x=4; charge 92=55+37 balanced. (b)(ii) Initial m=235.0439+1.0087=236.0526u. Final m=136.9071+94.9399+4x1.0087=235.8818u. delta-m=0.1708u. E=0.1708x931≈159 MeV. (b)(iii) Assume 1.2e6 Bq initial. Need factor 1.2e6/200=6000 to reach background. n=log2(6000)≈12.55 half-lives => t≈12.55x30≈377yr>350yr. Or after 350yr: n=350/30≈11.67, A=1.2e6/2^11.67≈369Bq>200Bq.",
+        "adjudication": {
+          "adjudicator": "captain",
+          "at": "2026-10-04",
+          "board": ".lavish/derived-keys-review",
+          "basis": "formatting-only: the three runs agree on value and unit",
+          "runs_compared": {
+            "(a)": [
+              "Cosmic rays (or radioactive rocks/soil, radon gas, K-40 in food) - one source of background radiation.",
+              "Cosmic rays (or natural radioactive material in rocks/soil, radon gas, building materials) - background radiation source",
+              "Cosmic radiation from outer space."
+            ],
+            "(b)(i)": [
+              "x = 4",
+              "4",
+              "x = 4"
+            ],
+            "(b)(ii)": [
+              "≈159 MeV per fission",
+              "159 MeV per fission",
+              "About 159 MeV per fission"
+            ],
+            "(b)(iii)": [
+              "About 377 years are needed to decay to 200 Bq, so after 350 years activity is still above background, justifying the claim.",
+              "Activity after 350 years is ~370 Bq still > 200 Bq background, so contamination lasts >350 years.",
+              "About 377 years are needed for activity to fall to 200 Bq, so contamination lasts more than 350 years."
+            ]
+          }
+        }
       }
     }
   }
