@@ -87,66 +87,13 @@ class TestUnanimity(unittest.TestCase):
         ]
         self.assertIsNone(derive_keys.lq_unanimous(runs))
 
-    def test_split_mc_text_counts(self) -> None:
-        full = "\n".join(
-            f"{n}. Question {n} stem\nA. a\nB. b\nC. c\nD. d" for n in range(1, 37)
-        )
-        chunks = derive_keys.split_mc_text(full, 36)
-        self.assertEqual(len(chunks), 36)
-        self.assertTrue(all(f"Question {n}" in c for n, c in enumerate(chunks, 1)))
-
-
-class TestSameValueFact(unittest.TestCase):
-    """same_value_of is a tri-state fact: True only when all three runs were
-    parsed and agree, False only when all three were parsed and differ, and
-    None ("not comparable") when any run fails to parse. Agreement is never
-    claimed from fewer than three parsed runs."""
-
-    @classmethod
-    def setUpClass(cls) -> None:
-        cls.build = load_module(
-            "build_derived_keys_review",
-            ROOT / "scripts" / "build_derived_keys_review.py",
-        )
-
-    def test_all_numeric_equal_is_true(self) -> None:
-        self.assertIs(
-            self.build.same_value_of(["10.2 N", "10.2 N", "10.2 N"]), True
-        )
-
-    def test_all_numeric_differ_is_false(self) -> None:
-        self.assertIs(
-            self.build.same_value_of(["7.1 A", "7.07 A", "7.07 A"]), False
-        )
-
-    def test_one_parseable_run_is_not_comparable(self) -> None:
-        self.assertIsNone(
-            self.build.same_value_of(
-                [
-                    "50° to the horizontal",
-                    "R = u^2 sin2θ/g, another angle is 50° to the horizontal",
-                    "Range R = u^2 sin2θ / g ≈ 10.0 m; other angle θ = 50° "
-                    "gives same R with u = 10 m s^-1",
-                ]
-            )
-        )
-
-    def test_prose_runs_are_not_comparable(self) -> None:
-        self.assertIsNone(
-            self.build.same_value_of(
-                ["vertically downwards", "Acceleration is downwards", "g downwards"]
-            )
-        )
-
-    def test_empty_run_is_not_comparable(self) -> None:
-        self.assertIsNone(self.build.same_value_of(["", "16 m", "16 m"]))
-
-
 class TestAdjudicationContract(unittest.TestCase):
     """Every LQ target is either settled (3/3 + adjudication record whose
-    compared values name the three runs, whose same_value facts match what
-    the parser derives from those values, and whose final is one of them) or
-    explicitly unsettled with a reason; the board HTML shows both shapes."""
+    compared values name the three runs verbatim and whose final is one of
+    them) or explicitly unsettled with a reason. The per-subpart fact is
+    always "not comparable": the parser cannot read explanation prose, so
+    the board records the three runs and the human adjudication and verifies
+    nothing about the answers."""
 
     def setUp(self) -> None:
         self.build = load_module(
@@ -170,6 +117,10 @@ class TestAdjudicationContract(unittest.TestCase):
                     self.assertTrue(compared, "record names the three compared values")
                     facts = adj.get("same_value")
                     self.assertTrue(facts, "record carries a per-subpart same_value fact")
+                    self.assertTrue(
+                        all(v is None for v in facts.values()),
+                        "no subpart carries a machine same-value mark; the fact is always not comparable",
+                    )
                     runs = entry["runs"]
                     self.assertEqual(len(runs), 3)
 
@@ -186,18 +137,6 @@ class TestAdjudicationContract(unittest.TestCase):
                                 if normalized(k) == normalized(label)
                             ]
                             self.assertEqual(values[i], matches[0] if matches else "", f"{label} run {i + 1}")
-                        derived = self.build.same_value_of(values)
-                        self.assertEqual(
-                            facts[label],
-                            derived,
-                            f"same_value {label} must match the parsed claim",
-                        )
-                        if derived is None:
-                            self.assertIsNot(
-                                facts[label],
-                                True,
-                                f"no true mark from an unparsed run ({label})",
-                            )
                     if entry.get("unanimous"):
                         finals = entry.get("final_answers") or {}
                         self.assertTrue(finals)
@@ -208,22 +147,9 @@ class TestAdjudicationContract(unittest.TestCase):
                         )
                         for label, final in finals.items():
                             self.assertIn(final, compared[label], f"final {label}")
-                        self.assertFalse(
-                            any(v is False for v in facts.values()),
-                            "a settled target has no differing numeric subpart",
-                        )
                     else:
                         self.assertIs(adj.get("settled"), False)
                         self.assertTrue(adj.get("reason"))
-                        self.assertTrue(
-                            any(v is False or v is None for v in facts.values())
-                            or any(
-                                str(v).strip() == ""
-                                for label in compared
-                                for v in compared[label]
-                            ),
-                            "unsettled target has an unconfirmed or missing run",
-                        )
 
     def test_board_html_shows_adjudication_records(self) -> None:
         store = json.loads(DERIVED_KEYS.read_text(encoding="utf-8"))
@@ -254,6 +180,7 @@ class TestAdjudicationContract(unittest.TestCase):
         self.assertIn(self.build.esc(unsettled["adjudication"]["reason"]), html)
         self.assertIn(self.build.esc(unsettled["adjudication"]["board"]), html)
         self.assertIn("same value", html)
+        self.assertIn("not comparable", html)
 
 
 class TestDerivedKeysContract(unittest.TestCase):
