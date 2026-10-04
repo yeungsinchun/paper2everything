@@ -116,7 +116,12 @@ def build_cards() -> tuple[list[dict], dict]:
                         }
                         for r in entry.get("runs", [])
                     ]
-                    detail = {"runs": runs, "final_answers": None, "worked": ""}
+                    detail = {
+                        "runs": runs,
+                        "final_answers": None,
+                        "worked": "",
+                        "adjudication": entry.get("adjudication"),
+                    }
                 else:
                     verdict = None
                     runs = [
@@ -131,6 +136,7 @@ def build_cards() -> tuple[list[dict], dict]:
                         "runs": runs,
                         "final_answers": entry.get("final_answers"),
                         "worked": (entry.get("worked", "") or "")[:4000],
+                        "adjudication": entry.get("adjudication"),
                     }
                 cards.append(
                     {
@@ -207,12 +213,60 @@ table.runs th, table.runs td { border: 1px solid var(--rule); padding: 0.35rem 0
 table.runs th { background: var(--paper); }
 .verdict { font-size: 1.1rem; font-weight: bold; }
 .verdict.ok { color: var(--ok); } .verdict.bad { color: var(--bad); }
+.adjudication { margin-top: 0.7rem; border: 1px solid var(--accent);
+  border-radius: 8px; padding: 0.6rem 0.8rem; background: #eef5f2; }
+.adjudication h3 { font-size: 0.9rem; margin: 0 0 0.25rem; }
+.adj-note { font-size: 0.85rem; margin: 0.25rem 0 0.4rem; color: var(--ink); }
 details { margin-top: 0.5rem; } summary { cursor: pointer; min-height: 40px; }
 </style>
 </head>
 <body>
 <main>
 """
+
+
+def status_badge(c: dict) -> str:
+    adj = c.get("adjudication")
+    if adj and adj.get("settled") is not False and c["unanimous"]:
+        return "adjudicated 3/3"
+    return "unanimous 3/3" if c["unanimous"] else "NON-UNANIMOUS"
+
+
+def adjudication_html(c: dict) -> str:
+    """Render the human adjudication record (settled basis + accepted final, or
+    the unsettled reason) for a card that carries one."""
+    adj = c.get("adjudication")
+    if not adj:
+        return ""
+    settled = adj.get("settled") is not False
+    finals = c.get("final_answers") or {}
+    if settled and c.get("paper") == "mc":
+        finals = {"option": c.get("verdict")}
+    compared = adj.get("runs_compared") or {}
+    rows = []
+    for label, values in compared.items():
+        cells = "".join(f"<td>{esc(v)}</td>" for v in values)
+        if settled:
+            accepted = esc(finals.get(label, ""))
+            rows.append(
+                f"<tr><td>{esc(label)}</td>{cells}<td><b>{accepted}</b></td></tr>"
+            )
+        else:
+            rows.append(f"<tr><td>{esc(label)}</td>{cells}</tr>")
+    header = (
+        "<tr><th>subpart</th><th>run 1</th><th>run 2</th><th>run 3</th>"
+        + ("<th>accepted final</th>" if settled else "")
+        + "</tr>"
+    )
+    note = adj.get("basis", "") if settled else adj.get("reason", "")
+    return (
+        f"<div class=adjudication><h3>Adjudication</h3>"
+        f"<p class=sub>by {esc(adj.get('adjudicator', '?'))} on "
+        f"{esc(adj.get('at', '?'))} &middot; board "
+        f"{esc(adj.get('board', '?'))}</p>"
+        f"<p class=adj-note>{esc(note)}</p>"
+        f"<table class=runs>{header}{''.join(rows)}</table></div>"
+    )
 
 
 def write_html(cards: list[dict], summary: dict) -> None:
@@ -292,10 +346,11 @@ def write_html(cards: list[dict], summary: dict) -> None:
             f"{esc(c['section_name'])}</h2>"
             f"<div class=badges>"
             f"<span class='badge {verdict_cls}'>"
-            f"{'unanimous 3/3' if c['unanimous'] else 'NON-UNANIMOUS'}</span>"
+            f"{status_badge(c)}</span>"
             f"<span class='badge scope'>{esc(c['scope'])}</span>"
             f"<span class=badge>{esc(c['input_kind'])}</span>"
-            f"</div>{verdict_html}<div class=cols><div>{img_html}</div>"
+            f"</div>{verdict_html}{adjudication_html(c)}"
+            f"<div class=cols><div>{img_html}</div>"
             f"<div>{runs_html}"
             f"<details><summary>Key-maker input text</summary>"
             f"<pre class=input>{esc(c['input_text'])}</pre></details>"
