@@ -4,45 +4,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Active Physics Book 5 · Radioactivity and Nuclear Energy</title>
-  <link rel="stylesheet" href="css/notes.css">
-  <link rel="stylesheet" href="css/p2n.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="../css/p2n-shell.css">
+  <style>
+    /* Book 5 chapter glyphs (Design System assets/icon-map.json → book5:
+       radiation, hourglass, atom). radiation and chevron-right are already in
+       ../css/p2n-shell.css; these two extend that vendored Lucide set from
+       ../assets/icons/ (lucide-static@0.468.0). */
+    [data-ic="hourglass"] { --src: url(../assets/icons/hourglass.svg); }
+    [data-ic="atom"] { --src: url(../assets/icons/atom.svg); }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="index.html">Active Physics Book 5<small>Radioactivity and Nuclear Energy</small></a>
-    <nav>
+  <header class="p2n-top">
+    <a class="p2n-top-brand" href="../index.html">paper<i>2</i>notes</a>
+    <nav class="p2n-top-nav" aria-label="Book 5 chapters">
       <a href="index.html" aria-current="page">Chapters</a>
       <a href="ch01-radiation-and-radioactivity/index.html">Ch.1</a>
       <a href="ch02-rate-of-decay-and-uses-of-radionuclides/index.html">Ch.2</a>
       <a href="ch03-nuclear-energy/index.html">Ch.3</a>
     </nav>
   </header>
-  <main>
-    <p class="kicker">Book 5 · HKDSE Physics compulsory part</p>
-    <h1>Radiation chapters</h1>
-    <p class="lede">Study notes for the Radioactivity and Nuclear Energy section. Each chapter has one page per textbook section, a summary with comparison tables and common mistakes, and topic-matched public-exam practice in the relevant subsection.</p>
+  <main class="p2n-page">
+    <div class="p2n-book-head">
+      <span class="p2n-book-tile" style="--tone:var(--book5);--soft:var(--book5-soft)"><span class="p2n-icon" style="--s:30px" data-ic="radiation" aria-hidden="true"></span></span>
+      <div class="p2n-page-head"><span class="p2n-label">Book 5</span><h1>Radioactivity and Nuclear Energy</h1></div>
+    </div>
+    <p style="color:var(--text-muted);margin:0">HKDSE Physics compulsory part. Each chapter has one page per textbook section, a summary with comparison tables and common mistakes, and topic-matched public-exam practice in the relevant subsection.</p>
 
-    <div class="chapter-cards">
-      <a href="ch01-radiation-and-radioactivity/index.html">
-        <span class="num">Ch.1</span>
-        <strong>Radiation and Radioactivity</strong>
-        <span>25.1 Ionizing radiation and X-rays · 25.2 Atoms, nuclides and decay equations · 25.3 Properties of α, β and γ and how to detect and identify them</span>
+    <div class="p2n-cards">
+      <a class="p2n-cc" href="ch01-radiation-and-radioactivity/index.html" style="--tone:var(--book5);--soft:var(--book5-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="radiation" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.1</span><b>Radiation and Radioactivity</b><small>25.1 Ionizing radiation · 25.2 Nuclides and decay · 25.3 α, β and γ</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch02-rate-of-decay-and-uses-of-radionuclides/index.html">
-        <span class="num">Ch.2</span>
-        <strong>Rate of Decay and Uses of Radionuclides</strong>
-        <span>26.1 Random decay, half-life, activity and the decay constant · 26.2 Choosing a radionuclide for medicine, industry, agriculture and dating · 26.3 Dose, sievert and radiation safety</span>
+      <a class="p2n-cc" href="ch02-rate-of-decay-and-uses-of-radionuclides/index.html" style="--tone:var(--book5);--soft:var(--book5-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="hourglass" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.2</span><b>Rate of Decay and Uses of Radionuclides</b><small>26.1 Half-life and activity · 26.2 Uses of radionuclides · 26.3 Dose and safety</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch03-nuclear-energy/index.html">
-        <span class="num">Ch.3</span>
-        <strong>Nuclear Energy</strong>
-        <span>27.1 Nuclear fission and fusion · chain reaction, reactors and the power debate · 27.2 Mass-energy relation, the electronvolt and the atomic mass unit (extension)</span>
+      <a class="p2n-cc" href="ch03-nuclear-energy/index.html" style="--tone:var(--book5);--soft:var(--book5-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="atom" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.3</span><b>Nuclear Energy</b><small>27.1 Fission and fusion · 27.2 Mass-energy relation</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
     </div>
-    <p>
-      <a class="quiz-export" href="_local/dse/mc/25/combined.pdf" download="combined.pdf">Export Ch.1 PDF</a>
-      <a class="quiz-export" href="_local/dse/mc/26/combined.pdf" download="combined.pdf">Export Ch.2 PDF</a>
-      <a class="quiz-export" href="_local/dse/mc/27/combined.pdf" download="combined.pdf">Export Ch.3 PDF</a>
+    <p class="p2n-exports">
+      <a href="_local/dse/mc/25/combined.pdf" download="combined.pdf">Export Ch.1 PDF</a>
+      <a href="_local/dse/mc/26/combined.pdf" download="combined.pdf">Export Ch.2 PDF</a>
+      <a href="_local/dse/mc/27/combined.pdf" download="combined.pdf">Export Ch.3 PDF</a>
     </p>
   </main>
 <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="bb3835">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">bb3835</code> <span class="deploy-commit-subject">fix(skills): clarify gh --attach as preferred, drag-drop as fallback for video and crop (#66)</span></footer>
