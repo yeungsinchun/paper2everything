@@ -3197,8 +3197,8 @@
             ]
           },
           "same_value": {
-            "(a)": false,
-            "(b)": false,
+            "(a)": null,
+            "(b)": null,
             "(c)": null
           },
           "settled": false,
@@ -3295,12 +3295,12 @@
             ]
           },
           "same_value": {
-            "1(a)": false,
-            "1(b)": true,
+            "1(a)": null,
+            "1(b)": null,
             "1(c)": null,
-            "2(a)": true,
-            "2(b)(i)": false,
-            "2(b)(ii)": true
+            "2(a)": null,
+            "2(b)(i)": null,
+            "2(b)(ii)": null
           },
           "settled": false,
           "reason": "the three runs do not agree on the value: 1(a): 3.56 x 10^5 J vs ≈3.6×10^5 J vs 3.6e5 J; 2(b)(i): 6.21 x 10^-21 J vs ≈6.2×10^-21 J vs 6.21e-21 J"
@@ -3377,8 +3377,8 @@
             ]
           },
           "same_value": {
-            "(a)": true,
-            "(b)(i)": true,
+            "(a)": null,
+            "(b)(i)": null,
             "(b)(ii)": null
           }
         }
@@ -3463,9 +3463,9 @@
             ]
           },
           "same_value": {
-            "(a)": true,
+            "(a)": null,
             "(b)(i)": null,
-            "(b)(ii)": true,
+            "(b)(ii)": null,
             "(b)(iii)": null
           }
         }
@@ -3685,9 +3685,9 @@
             ]
           },
           "same_value": {
-            "(a)": true,
+            "(a)": null,
             "(b)": null,
-            "(c)": true
+            "(c)": null
           }
         }
       },
@@ -3771,8 +3771,8 @@
             ]
           },
           "same_value": {
-            "(a)": true,
-            "(b)(i)": true,
+            "(a)": null,
+            "(b)(i)": null,
             "(b)(ii)": null,
             "(c)": null
           }
@@ -3844,8 +3844,8 @@
             ]
           },
           "same_value": {
-            "(a)": false,
-            "(b)": true,
+            "(a)": null,
+            "(b)": null,
             "(c)": null
           },
           "settled": false,
@@ -3927,7 +3927,7 @@
           },
           "same_value": {
             "(a)": null,
-            "(b)(i)": false,
+            "(b)(i)": null,
             "(b)(ii)": null,
             "(b)(iii)": null
           },
@@ -3986,7 +3986,7 @@
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
           "settled": false,
-          "reason": "run 1 is illegible (no subparts recorded): the subparts are not comparable",
+          "reason": "run 1 is illegible (no subparts recorded), so no one can adjudicate this target; it stays permanently withheld",
           "runs_compared": {
             "(a)(i)": [
               "",
@@ -4128,8 +4128,8 @@
           },
           "same_value": {
             "a(i)": null,
-            "a(ii)": true,
-            "a(iii)": true,
+            "a(ii)": null,
+            "a(iii)": null,
             "b(i)": null,
             "b(ii)": null,
             "b(iii)": null
@@ -4210,7 +4210,7 @@
           },
           "same_value": {
             "*(a)": null,
-            "*(b)": true,
+            "*(b)": null,
             "*(c)": null
           }
         }
@@ -4273,7 +4273,7 @@
             ]
           },
           "same_value": {
-            "(a)": false,
+            "(a)": null,
             "(b)": null
           },
           "settled": false,
@@ -4348,7 +4348,7 @@
           "same_value": {
             "(a)": null,
             "(b)": null,
-            "(c)": true
+            "(c)": null
           },
           "settled": false,
           "reason": "the three runs were never shown to agree: (b) - 50° to the horizontal / R = u^2 sin2θ/g, another angle is 50° to the horizontal / Range R = u^2 sin2θ / g ≈ 10.0 m; other angle θ = 50° gives same R with u = 10 m s^-1 (two of the three runs are prose the parser cannot compare)"
@@ -4550,7 +4550,7 @@
           },
           "same_value": {
             "(a)": null,
-            "(b)": true,
+            "(b)": null,
             "(c)": null
           }
         }
@@ -4628,7 +4628,7 @@
           "same_value": {
             "(a)(i)": null,
             "(a)(ii)": null,
-            "(b)": true
+            "(b)": null
           }
         }
       },
@@ -4692,7 +4692,7 @@
             ]
           },
           "same_value": {
-            "(a)": false,
+            "(a)": null,
             "(b)": null
           }
         }
@@ -4842,8 +4842,8 @@
             ]
           },
           "same_value": {
-            "(a)": true,
-            "(b)": false,
+            "(a)": null,
+            "(b)": null,
             "(c)": null
           }
         }
@@ -4930,10 +4930,10 @@
             ]
           },
           "same_value": {
-            "(a)(i)": true,
-            "(a)(ii)": false,
+            "(a)(i)": null,
+            "(a)(ii)": null,
             "(b)(i)": null,
-            "(b)(ii)": false,
+            "(b)(ii)": null,
             "(c)": null
           },
           "settled": false,
@@ -5015,7 +5015,7 @@
           },
           "same_value": {
             "(a)": null,
-            "(b)": false,
+            "(b)": null,
             "(c)": null,
             "(d)": null
           },
@@ -5068,7 +5068,7 @@
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
           "settled": false,
-          "reason": "run 1 is illegible (no subparts recorded): the subparts are not comparable",
+          "reason": "run 1 is illegible (no subparts recorded), so no one can adjudicate this target; it stays permanently withheld",
           "runs_compared": {
             "(a)": [
               "",
@@ -5174,8 +5174,8 @@
           },
           "same_value": {
             "(a)": null,
-            "(b)(i)": true,
-            "(b)(ii)": true,
+            "(b)(i)": null,
+            "(b)(ii)": null,
             "(b)(iii)": null
           }
         }

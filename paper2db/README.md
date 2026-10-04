@@ -79,8 +79,8 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `tests/reconstructed/lq/<year>/ans_starts.json` | Per-year marking-scheme page map for LQ answer crops (whole 1-based PDF pages per question; replaces OCR label detection) |
 | `scripts/build_ans_starts.py` | Generate `ans_starts.json` candidates from an ans PDF (human-verified before tracking) |
 | `scripts/derive_keys.py` | 3/3 unanimous Muse key-maker deriving keys for years with no ans PDF → tracked `metadata/derived_keys.json`; LQ subparts that the three runs do not all agree on numerically stay withheld for hand adjudication on the Lavish board |
-| `metadata/derived_keys.json` | Tracked derived MC options + LQ worked solutions for 2026/pp/sap (3/3 unanimous or hand-adjudicated on the board where the three runs agree on value+unit; replayed by `keys`) |
-| `scripts/build_derived_keys_review.py` | Lavish review board for derived keys (`.lavish/derived-keys-review/`); records the machine-checkable `same_value` fact per LQ subpart - true when all three runs parse to the same value with the same unit, false when all three parse and differ, and "not comparable" when any run is unparsed prose; a subpart with an unparsed run is not settled by the machine and stays withheld for human adjudication on the board |
+| `metadata/derived_keys.json` | Tracked derived MC options + LQ worked solutions for 2026/pp/sap (3/3 unanimous or hand-adjudicated on the Lavish board; replayed by `keys`) |
+| `scripts/build_derived_keys_review.py` | Lavish review board for derived keys (`.lavish/derived-keys-review/`); records the three key-maker runs, the per-subpart fact (always "not comparable" - the parser cannot read explanation prose, so the board verifies nothing about the answers), and the human adjudication (settled finals or the withheld reason) |
 | `segment.py` | Low-level single-PDF tool (prefer `./pipeline`) |
 | `.lavish/pipeline-review/` | Step-by-step HTML evidence for captain review |
 | `.lavish/classified-review/` | MC section bank HTML |

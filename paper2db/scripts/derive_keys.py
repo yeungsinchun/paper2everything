@@ -7,8 +7,8 @@ Target years are discovered, not hard-coded: classification years with no
 2026/pp/sap for MC and 2026/pp for LQ (sap has no Paper 1B).
 
 For each target question the script builds the key-maker input (tesseract OCR
-of the question crop/stack, or the PDF text layer when the crop is absent),
-then calls the Muse key-maker three times with different method hints. A
+of the question crop/stack), then calls the Muse key-maker three times with
+different method hints. A
 derived key is recorded only on 3/3 unanimous agreement (MC option letter; LQ
 per-subpart final answers after normalisation). Anything else - dissent,
 illegible transcription, transport errors - is recorded as non-unanimous with
@@ -184,33 +184,6 @@ def crop_source_for(paper: str, year: str, q: int) -> Path | None:
     return mc_crop(year, q) if paper == "mc" else lq_stack(year, q)
 
 
-def pdf_text_year(year: str, paper: str) -> str:
-    import fitz
-
-    suffix = "p1a" if paper == "mc" else "p1b"
-    pdf = ROOT / "paper" / ("mc" if paper == "mc" else "lq") / f"{year}{suffix}.pdf"
-    with fitz.open(pdf) as doc:
-        return "\n".join(page.get_text("text") for page in doc)
-
-
-def split_mc_text(full: str, count: int) -> list[str]:
-    """Split a Paper 1A text layer into per-question chunks by number labels."""
-    marks = [m for m in re.finditer(r"(?m)^\s*\*?\s*(\d{1,2})\s*[.)]", full)]
-    nums = [int(m.group(1)) for m in marks]
-    chunks: list[str] = []
-    for i, m in enumerate(marks):
-        n = nums[i]
-        if not 1 <= n <= count:
-            continue
-        end = marks[i + 1].start() if i + 1 < len(marks) else len(full)
-        chunks.append((n, full[m.start() : end].strip()))
-    by_n: dict[int, str] = {}
-    for n, text in chunks:
-        if n not in by_n or len(text) > len(by_n[n]):
-            by_n[n] = text
-    return [by_n.get(n, "") for n in range(1, count + 1)]
-
-
 def question_input(paper: str, year: str, q: int) -> dict:
     if paper == "mc":
         crop = mc_crop(year, q)
@@ -221,20 +194,9 @@ def question_input(paper: str, year: str, q: int) -> dict:
                 "source": crop.relative_to(ROOT).as_posix(),
                 "text": text,
             }
-        # Fallback for years whose anchors cannot be located: split the paper
-        # PDF text layer (pp/sap carry one) into per-question chunks.
-        full = pdf_text_year(year, paper)
-        if len(full.strip()) > 500:
-            chunks = split_mc_text(full, len(mc_questions(year)))
-            if all(c.strip() for c in chunks):
-                return {
-                    "kind": "pdf-text",
-                    "source": f"paper/mc/{year}p1a.pdf",
-                    "text": chunks[q - 1].strip(),
-                }
         raise SystemExit(
-            f"No MC crop tests/reconstructed/mc/{year}/q{q}.png and no usable "
-            f"PDF text layer; run ./pipeline --only mc-anchors,mc-split --years {year} first."
+            f"No MC crop tests/reconstructed/mc/{year}/q{q}.png; "
+            f"run ./pipeline --only mc-anchors,mc-split --years {year} first."
         )
     stack = lq_stack(year, q)
     if stack is not None:
@@ -440,7 +402,6 @@ def derive_one(
     kind_label = {
         "crop-ocr": "tesseract OCR of the question crop",
         "stack-ocr": "tesseract OCR of the whole-page question stack",
-        "pdf-text": "the paper PDF text layer",
     }.get(question["kind"], question["kind"])
     image: Path | None = None
     if with_images:
