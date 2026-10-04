@@ -32,4 +32,5 @@ jobs:
       - run: node --test paper2notes/scripts/anchor-lint.test.mjs
       - run: node paper2notes/scripts/ci-check.mjs
       - run: node --test paper2notes/scripts/leak-check.test.mjs
+      - run: node --test paper2notes/scripts/brief.test.mjs
       - run: python3 paper2db/scripts/leak_fingerprints.py --check

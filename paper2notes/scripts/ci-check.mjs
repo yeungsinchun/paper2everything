@@ -15,8 +15,9 @@
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { runLeakCheck } from "./leak-check.mjs";
+import { runLeakCheck, checkBlocks, loadFingerprints } from "./leak-check.mjs";
 import { lintAnchors } from "./anchor-lint.mjs";
+import { briefBlocks } from "./brief.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
@@ -369,6 +370,32 @@ function checkLeaks() {
   for (const e of leaks) fail(`leak-check: ${e}`);
 }
 
+// A committed brief must be clean too: brief.mjs leak-checks what it writes, and
+// this catches a hand-edited or stale one. Same rules, same fingerprints, same
+// block splitting as the generator (scripts/brief.mjs).
+function checkBriefLeaks() {
+  const briefsDir = join(repoRoot, "briefs");
+  if (!existsSync(briefsDir)) return;
+  const files = [];
+  const walk = dir => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (entry.isFile() && /\.md$|\.json$/i.test(entry.name) && entry.name !== "README.md") files.push(full);
+    }
+  };
+  walk(briefsDir);
+  if (!files.length) return;
+  const fp = loadFingerprints();
+  for (const file of files) {
+    for (const finding of checkBlocks(briefBlocks(readFileSync(file, "utf8")), fp)) {
+      const message = `${finding.level} ${relative(repoRoot, file)}: item ${finding.item}: ${finding.detail}`;
+      if (finding.severity === "warn") console.warn(`brief leak-check warning: ${message}`);
+      else fail(`brief leak-check: ${message}`);
+    }
+  }
+}
+
 checkSiteRegionConsistency();
 checkLavishBoards();
 
@@ -382,6 +409,7 @@ checkBook4Structure();
 checkRelativeLinks();
 checkDeployFooter();
 checkLeaks();
+checkBriefLeaks();
 errors.push(...lintAnchors({ repoRoot }).errors);
 
 if (errors.length > 0) {

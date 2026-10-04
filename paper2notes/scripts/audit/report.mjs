@@ -29,6 +29,87 @@ function parseArgs(argv) {
   return out;
 }
 
+// ---- shared item shape and rule (plan §4.7) ---------------------------------
+// Exported so brief.mjs reuses this exact rule instead of a second threshold.
+
+export const PASSING_VERDICTS = ["pass", "pass-leaked", "cross-ref"];
+export const MUST_FIX_MARKS = 4;          // a failing item worth this many marks maps to a known section
+export const MUST_FIX_CONCEPT_CITATIONS = 2; // a concept cited by this many failing core items
+
+/** Distinct missing concepts of one result: solver `answer.missing` plus judge `lost-knowledge` marking. */
+export function missingConceptsOf(result) {
+  return result && result.tiers
+    ? [...new Set(Object.values(result.tiers).flatMap(t => (t.samples || []).flatMap(sample => [
+      ...(sample.answer?.missing || []).map(m => m.concept),
+      ...(sample.judge?.marking || []).filter(m => m.verdict === "lost-knowledge").map(m => m.concept),
+    ]).filter(Boolean)))]
+    : [];
+}
+
+/**
+ * Assemble the item rows of one bank from its inventory and its result files.
+ * `results` are the parsed `results/<bank>/*.json` files; inventory rows win for
+ * id/part/marks/type/missing_evidence, results add verdict, section and concepts.
+ */
+export function collectItems(bank, results, inventory) {
+  const byId = new Map();
+  for (const data of results) byId.set(data.id, data);
+  const items = inventory.map((item, index) => {
+    const result = byId.get(item.id);
+    return { ...result, id: item.id, bank, part: item.part, marks: item.marks, type: item.type, missing_evidence: item.missing_evidence === true, inventory_present: true, result_present: !!result, verdict: result?.verdict || "missing", missing_concepts: missingConceptsOf(result), inventory_index: index };
+  });
+  for (const [id, result] of byId) if (!inventory.some(item => item.id === id)) items.push({ ...result, id, bank, inventory_present: false, result_present: true, verdict: "unmatched", missing_concepts: missingConceptsOf(result), inventory_index: null });
+  return items;
+}
+
+/** Concept → number of failing core items that miss it. */
+export function conceptCitationCounts(items) {
+  const counts = new Map();
+  for (const x of items.filter(i => i.part === "core" && !PASSING_VERDICTS.includes(i.verdict))) {
+    for (const concept of new Set(x.missing_concepts || [])) counts.set(concept, (counts.get(concept) || 0) + 1);
+  }
+  return counts;
+}
+
+/**
+ * Why the audit rule makes one item must-fix (empty when it does not).
+ * Must-fix = missing evidence, or a failing core item that is a failed DSE
+ * long question, worth 4+ marks and mapped to a known section, or misses a
+ * concept two or more failing core items miss.
+ */
+export function mustFixReasons(item, counts) {
+  if (item.missing_evidence) return ["missing-evidence"];
+  if (item.part !== "core" || PASSING_VERDICTS.includes(item.verdict)) return [];
+  const reasons = [];
+  if (item.bank && item.bank.startsWith("DSE_") && item.type === "lq") reasons.push("failed-dse-lq");
+  if (item.marks >= MUST_FIX_MARKS && item.section && item.section !== "unknown") reasons.push(`marks-at-least-${MUST_FIX_MARKS}-with-known-section`);
+  if ((item.missing_concepts || []).some(c => (counts.get(c) || 0) >= MUST_FIX_CONCEPT_CITATIONS)) reasons.push(`concept-cited-by-${MUST_FIX_CONCEPT_CITATIONS}+-failing-core-items`);
+  return reasons;
+}
+
+/** The must-fix items of a list, under the rule above. */
+export function mustFixItems(items) {
+  const counts = conceptCitationCounts(items);
+  return items.filter(item => mustFixReasons(item, counts).length > 0);
+}
+
+/**
+ * Load one bank's rows from `results/<bank>/`. `inventoryPath` defaults to the
+ * first inventory file that exists; callers holding another inventory (a run
+ * rooted elsewhere) pass it.
+ */
+export function loadBankItems(bank, resultsDir, inventoryPath = inventoryCandidates(bank).find(p => fs.existsSync(p)) || null) {
+  const bankDir = path.join(resultsDir, bank);
+  const inventory = inventoryPath ? JSON.parse(fs.readFileSync(inventoryPath, "utf8")).items || [] : [];
+  const results = [];
+  for (const f of fs.readdirSync(bankDir).filter(f => f.endsWith(".json")).sort()) {
+    const data = JSON.parse(fs.readFileSync(path.join(bankDir, f), "utf8"));
+    results.push({ ...data, id: data.id || path.basename(f, ".json") });
+  }
+  return { bank, inventory_found: !!inventoryPath, inventory, items: collectItems(bank, results, inventory) };
+}
+
+/** Per-bank and per-section completeness counts (plan §4.7). */
 function completenessFor(items) {
   // Plan §4.7
   const total = items.length;
@@ -39,16 +120,9 @@ function completenessFor(items) {
     byVerdict[v] = (byVerdict[v] || 0) + 1;
   }
   const passed = (byVerdict.pass || 0) + (byVerdict["pass-leaked"] || 0) + (byVerdict["cross-ref"] || 0);
-  const corePassed = core.filter(x => ["pass", "pass-leaked", "cross-ref"].includes(x.verdict)).length;
+  const corePassed = core.filter(x => PASSING_VERDICTS.includes(x.verdict)).length;
   const coreRate = core.length ? corePassed / core.length : 0;
-  const failures = core.filter(x => !["pass", "pass-leaked", "cross-ref"].includes(x.verdict));
-  const concepts = new Map();
-  for (const x of failures) for (const concept of new Set(x.missing_concepts || [])) concepts.set(concept, (concepts.get(concept) || 0) + 1);
-  const dseLq = x => x.bank && x.bank.startsWith("DSE_") && x.type === "lq";
-  const mustFix = [
-    ...items.filter(x => x.missing_evidence),
-    ...failures.filter(x => !x.missing_evidence && (dseLq(x) || (x.marks >= 4 && x.section && x.section !== "unknown") || (x.missing_concepts || []).some(c => concepts.get(c) >= 2))),
-  ];
+  const mustFix = mustFixItems(items);
   const complete = total > 0 && items.every(x => x.inventory_present && x.result_present && x.part) && coreRate >= 0.95 && mustFix.length === 0;
   return { total, core: core.length, byVerdict, passed, corePassed, coreRate, mustFix: mustFix.map(x => x.id), complete };
 }
@@ -67,26 +141,12 @@ function main() {
   const coverage = { generated_at: new Date().toISOString(), banks: {}, overall: null };
   const allItems = [];
   for (const bank of banks) {
-    const bankDir = path.join(resultsDir, bank);
-    const inventories = inventoryCandidates(bank);
-    const inventoryPath = inventories.find(p => fs.existsSync(p));
-    const inventory = inventoryPath ? JSON.parse(fs.readFileSync(inventoryPath, "utf8")).items || [] : [];
-    const results = new Map();
-    for (const f of fs.readdirSync(bankDir).filter(f => f.endsWith(".json"))) {
-      const data = JSON.parse(fs.readFileSync(path.join(bankDir, f), "utf8"));
-      results.set(data.id || path.basename(f, ".json"), data);
-    }
-    const items = inventory.map(item => {
-      const result = results.get(item.id);
-      const missing_concepts = result ? [...new Set(Object.values(result.tiers || {}).flatMap(t => (t.samples || []).flatMap(sample => [...(sample.answer?.missing || []).map(m => m.concept), ...(sample.judge?.marking || []).filter(m => m.verdict === "lost-knowledge").map(m => m.concept)].filter(Boolean))))] : [];
-      return { ...result, id: item.id, bank, part: item.part, marks: item.marks, type: item.type, missing_evidence: item.missing_evidence === true, inventory_present: true, result_present: !!result, verdict: result?.verdict || "missing", missing_concepts };
-    });
-    for (const [id, result] of results) if (!inventory.some(item => item.id === id)) items.push({ ...result, id, bank, inventory_present: false, result_present: true, verdict: "unmatched" });
+    const { inventory_found, items } = loadBankItems(bank, resultsDir);
     const stats = completenessFor(items);
     const bySection = {};
     for (const it of items) (bySection[it.section || "unknown"] ||= []).push(it);
     const sections = Object.fromEntries(Object.entries(bySection).map(([sec, list]) => [sec, completenessFor(list)]));
-    coverage.banks[bank] = { ...stats, inventory_found: !!inventoryPath, sections, items: items.map(x => ({ id: x.id, verdict: x.verdict, leaked: x.leaked, section: x.section })) };
+    coverage.banks[bank] = { ...stats, inventory_found, sections, items: items.map(x => ({ id: x.id, verdict: x.verdict, leaked: x.leaked, section: x.section })) };
     allItems.push(...items);
   }
   coverage.overall = completenessFor(allItems);

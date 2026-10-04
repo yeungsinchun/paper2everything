@@ -28,6 +28,10 @@ node scripts/audit/report.mjs
 
 Use `--bank QB_501` with the real item file, or `--all` when every bank's pages and item files are present. Narrow a run with `--items id,id`, `--page 25-1`, or `--dse-section 25.1|all`; `node scripts/audit/audit.mjs verify` checks results, mappings and bundles for consistency (non-passing results carry `pointer_candidates`, anchors that are real DOM ids). Results, bundles, mappings, and the HTML coverage board are written under gitignored `.audit/` (override the root with `P2E_AUDIT_ROOT`). Keep those local: they can contain question-bank material and cropped images.
 
+## Per-page concept briefs
+
+`node scripts/brief.mjs --page book2/ch03-forces-and-newton-i/index.html` turns one page's `missing_concepts` into a ranked brief: one `pi` call clusters the concepts, the page's own `lo-block` supplies the learning-objective ids each cluster blocks, and the must-fix rule comes from `scripts/audit/report.mjs` unchanged. It writes `briefs/<page>.json` and `briefs/<page>.md` from one computation and leak-checks both with `scripts/leak-check.mjs` before writing; a finding blocks the write. `--no-model` skips the call, `--dry-run` prints without writing, `--results` and `--out` point the run elsewhere. See `briefs/README.md`.
+
 ## Hosting
 
 See `deploy/cloudrun/README.md` for Cloud Run hosting and `../docs/ARCHITECTURE.md` (repo root) for the monorepo deploy path — the monorepo workflow is `.github/workflows/deploy-notes.yml` at the repo root (see `../docs/ARCHITECTURE.md` §6). Live site: https://paper2notes-152505675251.asia-east2.run.app/.
