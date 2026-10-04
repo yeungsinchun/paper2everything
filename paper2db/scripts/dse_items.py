@@ -10,6 +10,7 @@ Reads (all under the paper2db root):
   tests/sections/mc/answer_keys.json          MC keys + correct-% (keys)
   tests/sections/lq/candidate_performance.json  LQ notes         (lq-performance)
   metadata/pointers/dse.json                 answer-pointer store
+  qb-web-ui-staging/dse-lq/crops/*-ans.png   derived answer pointers
 
 Writes `paper2db.dse-item.v1` records (schemas/dse-item.v1.json):
   tests/sections/items/<section folder>.json  full records listed under that section
@@ -454,7 +455,7 @@ def build_records(years: list[str] | None = None) -> list[dict[str, Any]]:
     keys = load_json(ANSWER_KEYS, "MC answer keys", "keys")
     performance = load_json(LQ_PERFORMANCE, "LQ candidate performance", "lq-performance")
     records = build_mc_records(keys, years) + build_lq_records(performance, years)
-    resolved = pointers.merge(pointers.load_store("dse", ANSWER_POINTERS))
+    resolved = pointers.resolve_store("dse", ANSWER_POINTERS)
     records = pointers.join_items(records, resolved)
     records.sort(key=record_sort_key)
     return records

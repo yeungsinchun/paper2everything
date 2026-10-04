@@ -69,7 +69,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `schemas/dse-item.v1.json` | `paper2db.dse-item.v1` DSE past-paper item contract (`dse-items` stage) |
 | `schemas/qb-item.v2.json` | `paper2db.qb-item.v2` item contract (corpus-agnostic, with `scope` and `source_manifest`) |
 | `schemas/answer-pointer.v1.json` | `paper2db.answer-pointer.v1` store contract for answer pointers |
-| `metadata/pointers/{qb,dse}.json` | Tracked answer-pointer stores (empty until pointers are added) |
+| `metadata/pointers/{qb,dse}.json` | Tracked answer-pointer records (reviewed pointers; the staged answer crops are derived automatically) |
 | `metadata/mc/llm_classifications.json` | Tracked MC classification decisions (LLM or keyword backend) |
 | `metadata/lq/llm_classifications.json` | Tracked LQ classification decisions |
 | `metadata/qb/banks.json` | Tracked QB census per bank (46 banks, 169 DOCX → 3847 items, 1881 in-scope) — source of truth for counts |
@@ -82,7 +82,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `.lavish/classified-review/` | MC section bank HTML |
 | `.lavish/lq-classified-review/` | LQ section bank HTML |
 | `.lavish/qb-review/` | Local QB crop review board (generated) |
-| `tests/sections/quality_audit.json` | Measured crop/classification failure rates (generated) |
+| `tests/sections/quality_audit.json` | Measured crop/classification failure rates (generated; `summary.built` says which papers were audited) |
 
 ## Stages
 
@@ -96,7 +96,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 8. **lq-performance** - candidate-performance notes → `tests/sections/lq/candidate_performance.json` (free, local, deterministic; `scripts/extract_lq_performance.py`)
 9. **classify-lq** - same sections for LQ; same metadata replay / LLM-only-for-missing-years / keyword-fallback behavior as classify-mc. Either backend then lists every Book 5 section a radioactivity LQ tests (e.g. 2014 Q10: ch26 activity + ch25 alpha handling; 2012 Q11 keeps 25+26+27), primary = latest section. Both backends OCR the whole page stack (cache keyed by PNG size under `tests/sections/lq/ocr_cache/`)
 10. **section-pdfs** - per-section A4 `combined.pdf` (+ LQ `answers.pdf` / `performance.pdf`); an LQ appears in every section it is listed under, not only its primary
-11. **dse-items** - join crops, tracked classifications, MC keys, LQ candidate performance and tier-resolved answer pointers from `metadata/pointers/dse.json` into `paper2db.dse-item.v1` records (`schemas/dse-item.v1.json`): `tests/sections/items/<section>.json` per section (a question appears under every section it is listed under) plus `index.json`. A record is in-scope when its primary section is in Books 2, 4 or 5 (366 MC + 104 LQ = 470); the stage fails if any record is schema-invalid or an in-scope question crop is missing. Without `--years`, rebuilds the whole corpus. With `--years`, processes and validates only selected years, replaces their section records and index entries, and preserves other years without requiring their crops
+11. **dse-items** - join crops, tracked classifications, MC keys, LQ candidate performance and tier-resolved answer pointers (tracked `metadata/pointers/dse.json` plus the derived staged answer crops) into `paper2db.dse-item.v1` records (`schemas/dse-item.v1.json`): `tests/sections/items/<section>.json` per section (a question appears under every section it is listed under) plus `index.json`. A record is in-scope when its primary section is in Books 2, 4 or 5 (366 MC + 104 LQ = 470); the stage fails if any record is schema-invalid or an in-scope question crop is missing. Without `--years`, rebuilds the whole corpus. With `--years`, processes and validates only selected years, replaces their section records and index entries, and preserves other years without requiring their crops
 12. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
 13. **qb-pdf** - verify `metadata/qb/source-manifest.json` (sha256 per DOCX, plus `banks.json` agreement) then convert QB DOCX files to PDF with LibreOffice; copy PDF-only sources
 14. **qb-ocr** - OCR QB PDFs with `pdftoppm` and Tesseract
@@ -109,13 +109,16 @@ The QB stages skip when no QB DOCX source tree is found. They use `$P2DB_QB_ROOT
 
 `metadata/pointers/{qb,dse}.json` (`schemas/answer-pointer.v1.json`) say where each item's worked answer or marking scheme lives. An item may have several pointers; `scripts/pointers.py` merges them to one by tier (`verified` > `derived` > `inferred`), and two different targets at the same top tier are a conflict. Items are joined by `item_id` against the staged indexes in `qb-web-ui-staging/` (qb ids as-is, `dse-mc-<year>-<q>`, `dse-lq-<year>-q<n>`). Target paths are relative to `paper2db/`.
 
+Pointers that need no judgement are derived from the tracked staging tree: every staged question crop with an answer crop beside it (`qb/crops/<id>.ans.png`, `dse-lq/crops/<id>-ans.png`) resolves to that answer file at the `derived` tier. A tracked record for the same item wins, so the stores stay the place for reviewed pointers (a `verified` record can point at a marking-scheme PDF page instead). MC past-paper items have no staged answer crop - their answer is the correct option in the generated `answer_keys.json` - so they resolve to nothing until a pointer names the marking-scheme page.
+
 ```bash
 python3 scripts/pointers.py coverage             # in-scope items with a pointer, by type and tier
 python3 scripts/pointers.py merge --corpus dse   # resolved pointers as JSON on stdout
+python3 scripts/pointers.py derive --corpus qb   # just the pointers computed from the staged answer crops
 python3 scripts/pointers.py check                # CI resolver (target exceptions below)
 ```
 
-All three commands default to both corpora; `--corpus qb` or `--corpus dse` selects one. The Python API `join_items(load_items(corpus), merge(load_store(corpus)))` returns item copies with `answer_pointer` set to the resolved pointer or `None`; it does not rewrite the staged indexes.
+All commands default to both corpora; `--corpus qb` or `--corpus dse` selects one. The Python API `join_items(load_items(corpus), resolve_store(corpus))` returns item copies with `answer_pointer` set to the resolved pointer or `None`; it does not rewrite the staged indexes.
 
 `check` runs in [ci-pointers](../.github/workflows/ci-pointers.yml); it needs only the standard library. It validates records, known item IDs and merge conflicts, and checks that targets exist unless their paths fall under `GENERATED_ROOTS` in `scripts/pointers.py`. Those roots include local/generated artifacts and source papers; target existence is deliberately not checked there.
 
@@ -142,6 +145,8 @@ python scripts/quality_audit.py --strict
 ```
 
 `tests/sections/quality_audit.json` counts as failures: missing crop, missing classified copy, uncertain flag, tiny crop, incomplete year folder, and override-tuned questions. It does **not** count missing LQ answer PNGs when no ans PDF exists, or tall LQ crops.
+
+A paper with no crops and no classification rows is reported as **not built**: its rate is `null` and `summary.built` names the papers that were audited, rather than a rate divided by one question. `--strict` exits 1 when nothing was built, because an unaudited tree cannot show the budget is met.
 
 Captain review surface: `.lavish/pipeline-review/index.html` (step-by-step intermediates + finals). Full banks: `.lavish/classified-review/` (MC) and `.lavish/lq-classified-review/` (LQ).
 

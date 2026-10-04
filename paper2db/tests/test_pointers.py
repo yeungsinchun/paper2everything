@@ -119,6 +119,9 @@ class CommandTests(unittest.TestCase):
         tmp = self.enterContext(tempfile.TemporaryDirectory())
         directory = Path(tmp)
         self.enterContext(mock.patch.object(pointers, "POINTERS_DIR", directory))
+        # These tests cover command plumbing: the staged answer crops of the real
+        # tree would add derived pointers to every resolved set.
+        self.enterContext(mock.patch.object(pointers, "derived_pointers", return_value=[]))
         self.winner = ptr("q1", "verified", "y.png")
         stores = {
             "qb": [],
@@ -143,9 +146,11 @@ class CommandTests(unittest.TestCase):
         items = [{"id": "q1", "type": "mc", "in_scope": True}]
         expected = {
             "qb": "[qb] in-scope items with an answer pointer\n"
+                  "  (0 tracked, 0 derived from staged answer crops)\n"
                   "  mc       0/1       0.0%  verified=0 derived=0 inferred=0\n"
                   "  all      0/1       0.0%  verified=0 derived=0 inferred=0\n",
             "dse": "[dse] in-scope items with an answer pointer\n"
+                   "  (1 tracked, 0 derived from staged answer crops)\n"
                    "  mc       1/1     100.0%  verified=1 derived=0 inferred=0\n"
                    "  all      1/1     100.0%  verified=1 derived=0 inferred=0\n",
         }
@@ -203,6 +208,60 @@ class StagedStoreTests(unittest.TestCase):
         self.assertIn("dse-mc-2012-1", dse)
         self.assertIn("dse-lq-2012-q1", dse)
 
+    def test_derived_pointers_resolve_to_real_items_and_files(self):
+        for corpus in pointers.CORPORA:
+            with self.subTest(corpus=corpus):
+                known = {item["id"] for item in pointers.load_items(corpus)}
+                records = pointers.derived_pointers(corpus)
+                self.assertTrue(records, "staged answer crops should yield pointers")
+                for pointer in records:
+                    self.assertEqual(pointers.validate_pointer(pointer, "p"), [])
+                    self.assertIn(pointer["item_id"], known)
+                    self.assertEqual(pointer["tier"], "derived")
+                    self.assertEqual(pointer["kind"], "crop")
+                    self.assertTrue((ROOT / pointer["target"]["path"]).is_file())
+
+    def test_staged_answer_crops_cover_the_in_scope_items_they_can(self):
+        for corpus in pointers.CORPORA:
+            with self.subTest(corpus=corpus):
+                items = pointers.load_items(corpus)
+                resolved = pointers.resolve_store(corpus)
+                report = pointers.coverage(items, resolved)
+                expected = sum(1 for item in items if item["in_scope"] and item["id"] in resolved)
+                self.assertEqual(report["all"]["covered"], expected)
+                self.assertEqual(report["all"]["missing"], report["all"]["total"] - expected)
+                self.assertGreater(report["all"]["pct"], 0.0)
+
+
+class ResolveStoreTests(unittest.TestCase):
+    def write_store(self, directory: Path, corpus: str, records: list[dict]) -> Path:
+        store = directory / f"{corpus}.json"
+        store.write_text(
+            json.dumps({"schema": pointers.SCHEMA_ID, "corpus": corpus, "pointers": records}),
+            encoding="utf-8",
+        )
+        return store
+
+    def test_tracked_record_wins_over_derived(self):
+        tracked = ptr("PHY11011101", "derived", "qb-web-ui-staging/qb/crops/other.png")
+        with tempfile.TemporaryDirectory() as tmp:
+            store = self.write_store(Path(tmp), "qb", [tracked])
+            records = pointers.pointer_records("qb", store)
+            resolved = pointers.resolve_store("qb", store)
+        self.assertEqual(resolved["PHY11011101"]["target"]["path"], "qb-web-ui-staging/qb/crops/other.png")
+        self.assertEqual(sum(1 for r in records if r["item_id"] == "PHY11011101"), 1)
+
+    def test_verified_record_wins_by_tier(self):
+        winner = ptr("PHY11011101", "verified", "paper/ans/2012ans.pdf", page=3)
+        with tempfile.TemporaryDirectory() as tmp:
+            store = self.write_store(Path(tmp), "qb", [winner])
+            resolved = pointers.resolve_store("qb", store)
+        self.assertEqual(resolved["PHY11011101"], winner)
+
+    def test_unknown_corpus_has_no_derived_pointers(self):
+        with self.assertRaises(pointers.PointerError):
+            pointers.derived_pointers("mc")
+
 
 class CheckTests(unittest.TestCase):
     def run_check(self, corpus: str, plist: list[dict]) -> list[str]:
@@ -242,6 +301,21 @@ class CheckTests(unittest.TestCase):
 
     def test_valid_pointer_passes(self):
         self.assertEqual(self.run_check("dse", [ptr("dse-mc-2012-1", "verified", "qb-web-ui-staging/dse-mc/crops/2012/q01.png")]), [])
+
+    def test_derived_missing_answer_crop_is_reported(self):
+        # A derived pointer is built from the staging tree, so its target exists by
+        # construction; losing the crop file must not go unnoticed.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "qb.json"
+            store.write_text(
+                json.dumps({"schema": pointers.SCHEMA_ID, "corpus": "qb", "pointers": []}),
+                encoding="utf-8",
+            )
+            missing = pointers.derived_pointers("qb")[0]
+            with mock.patch.object(pointers, "derived_pointers", return_value=[missing]):
+                with mock.patch.object(pointers, "ROOT", Path(tmp)):
+                    problems = pointers.check(("qb",))
+        self.assertIn(f"derived pointers[0] ({missing['item_id']}): target {missing['target']['path']} does not exist", problems)
 
     def test_conflict_reported(self):
         plist = [ptr("dse-mc-2012-1", path="tests/a.png"), ptr("dse-mc-2012-1", path="tests/b.png")]

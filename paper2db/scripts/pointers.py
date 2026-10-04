@@ -5,6 +5,11 @@ Pointers live in tracked `metadata/pointers/{qb,dse}.json` (`schemas/answer-poin
 Several pointers may exist per item; `merge` keeps the highest tier
 (verified > derived > inferred). Two different targets at the same top tier are a conflict.
 
+Pointers that need no hand editing are derived from the tracked staging tree: every
+staged question crop with an answer crop beside it gets a `derived` `crop` pointer at
+that file. A tracked record for the same item wins, so the store stays the place for
+reviewed pointers and `derive` shows what the staging tree alone gives.
+
 Item universes come from the tracked staging indexes under `qb-web-ui-staging/`:
   qb   qb/items/index.json   (id as-is; in-scope banks from metadata/qb/banks.json)
   dse  dse-mc/index.json     (id as-is, e.g. dse-mc-2012-1)
@@ -12,6 +17,7 @@ Item universes come from the tracked staging indexes under `qb-web-ui-staging/`:
 
 Commands:
   pointers.py merge [--corpus qb|dse]      resolved pointer per item as JSON
+  pointers.py derive [--corpus qb|dse]     pointers computed from the staged answer crops
   pointers.py coverage [--corpus qb|dse]   per corpus/type counts by tier
   pointers.py check [--corpus qb|dse]      CI resolver; exit 1 on any problem
 """
@@ -31,10 +37,28 @@ from qb_banks import get_in_scope_banks  # noqa: E402
 SCHEMA_ID = "paper2db.answer-pointer.v1"
 POINTERS_DIR = ROOT / "metadata" / "pointers"
 STAGING = ROOT / "qb-web-ui-staging"
+STAGING_REL = STAGING.relative_to(ROOT).as_posix()
 CORPORA = ("qb", "dse")
 # Higher rank wins on merge.
 TIERS = {"verified": 3, "derived": 2, "inferred": 1}
 KINDS = ("crop", "page", "pdf")
+DERIVED_SOURCE = "scripts/pointers.py derive (staged answer crop)"
+# Where each corpus stages an answer crop next to its question crop. dse-mc has
+# none: an MC item's answer is the correct option in the generated answer-key file.
+DERIVED_CROPS = {
+    "qb": {
+        "index": STAGING / "qb" / "items" / "index.json",
+        "crops": f"{STAGING_REL}/qb/crops",
+        "suffix": ".ans.png",
+        "prefix": "",
+    },
+    "dse": {
+        "index": STAGING / "dse-lq" / "index.json",
+        "crops": f"{STAGING_REL}/dse-lq/crops",
+        "suffix": "-ans.png",
+        "prefix": "dse-lq-",
+    },
+}
 # Skip target existence checks for local/generated artifacts and source-paper roots;
 # CI must resolve stores without requiring those artifacts on disk.
 GENERATED_ROOTS = ("tests/", "intermediate/", "qb-pdf/", "qb/", "paper/")
@@ -158,7 +182,49 @@ def merge(pointers: list[dict]) -> dict[str, dict]:
 
 
 def merge_all(corpora: tuple[str, ...] = CORPORA) -> dict[str, dict[str, dict]]:
-    return {corpus: merge(load_store(corpus)) for corpus in corpora}
+    return {corpus: resolve_store(corpus) for corpus in corpora}
+
+
+def derived_pointers(corpus: str) -> list[dict]:
+    """Pointers to the answer crop staged beside each question crop.
+
+    These are computed, not authored: every item in the staged index whose answer
+    crop exists gets one `derived` record, so resolution never depends on hand
+    editing. Items whose corpus stages no answer crop get nothing.
+    """
+    spec = DERIVED_CROPS.get(corpus)
+    if spec is None:
+        raise PointerError(f"no staged answer crops for corpus {corpus!r}")
+    suffix = spec["suffix"]
+    crop_dir = ROOT / spec["crops"]
+    names = {path.name[: -len(suffix)] for path in crop_dir.glob(f"*{suffix}")}
+    index = _load_json(spec["index"])
+    rows = index["items"] if isinstance(index, dict) else index
+    return [
+        {
+            "item_id": f"{spec['prefix']}{row['id']}",
+            "tier": "derived",
+            "kind": "crop",
+            "target": {"path": f"{spec['crops']}/{row['id']}{suffix}"},
+            "source": DERIVED_SOURCE,
+        }
+        for row in rows
+        if row["id"] in names
+    ]
+
+
+def resolve_store(corpus: str, path: Path | None = None) -> dict[str, dict]:
+    """One pointer per item_id: tracked records win, staged answer crops fill the rest."""
+    return merge(pointer_records(corpus, path))
+
+
+def pointer_records(corpus: str, path: Path | None = None) -> list[dict]:
+    """Tracked records plus the derived ones no tracked record covers."""
+    records = load_store(corpus, path)
+    tracked = {record["item_id"] for record in records}
+    return records + [
+        pointer for pointer in derived_pointers(corpus) if pointer["item_id"] not in tracked
+    ]
 
 
 def _load_json(path: Path) -> object:
@@ -232,7 +298,8 @@ def check(corpora: tuple[str, ...] = CORPORA) -> list[str]:
     problems: list[str] = []
     for corpus in corpora:
         try:
-            pointers = load_store(corpus)
+            tracked = load_store(corpus)
+            records = pointer_records(corpus)
         except PointerError as e:
             problems.extend(str(e).splitlines())
             continue
@@ -241,15 +308,21 @@ def check(corpora: tuple[str, ...] = CORPORA) -> list[str]:
         except PointerError as e:
             problems.append(str(e))
             continue
-        for idx, pointer in enumerate(pointers):
-            where = f"{corpus}.json pointers[{idx}] ({pointer['item_id']})"
+        # Tracked records are validated by load_store; derived ones are built here,
+        # so validate_pointer is the only check they have been through.
+        for idx, pointer in enumerate(records):
+            derived = idx >= len(tracked)
+            label = "derived" if derived else f"{corpus}.json"
+            where = f"{label} pointers[{idx}] ({pointer['item_id']})"
+            if derived:
+                problems.extend(validate_pointer(pointer, where))
             if pointer["item_id"] not in known:
                 problems.append(f"{where}: item_id not in {corpus} staging index")
             path = pointer["target"]["path"]
             if not path.startswith(GENERATED_ROOTS) and not (ROOT / path).is_file():
                 problems.append(f"{where}: target {path} does not exist")
         try:
-            merge(pointers)
+            merge(records)
         except PointerError as e:
             problems.append(f"{corpus}.json: {e}")
     return problems
@@ -266,12 +339,26 @@ def cmd_merge(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_derive(args: argparse.Namespace) -> int:
+    out = {corpus: derived_pointers(corpus) for corpus in _selected(args.corpus)}
+    sys.stdout.write(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    return 0
+
+
 def cmd_coverage(args: argparse.Namespace) -> int:
-    report = {}
+    report: dict[str, dict] = {}
+    provenance: dict[str, tuple[int, int]] = {}
     for corpus, resolved in merge_all(_selected(args.corpus)).items():
         report[corpus] = coverage(load_items(corpus), resolved)
+        tracked = {record["item_id"] for record in load_store(corpus)}
+        provenance[corpus] = (
+            len(tracked),
+            sum(1 for item_id in resolved if item_id not in tracked),
+        )
     for corpus, rows in report.items():
+        tracked, derived = provenance[corpus]
         print(f"[{corpus}] in-scope items with an answer pointer")
+        print(f"  ({tracked} tracked, {derived} derived from staged answer crops)")
         for typ, row in rows.items():
             tiers = " ".join(f"{t}={n}" for t, n in row["tiers"].items())
             print(f"  {typ:<4} {row['covered']:>5}/{row['total']:<5} {row['pct']:>5}%  {tiers}")
@@ -284,7 +371,9 @@ def cmd_check(args: argparse.Namespace) -> int:
         print(f"FAIL {problem}", file=sys.stderr)
     if problems:
         return 1
-    print(f"pointers ok ({', '.join(_selected(args.corpus))})")
+    counts = {corpus: len(resolve_store(corpus)) for corpus in _selected(args.corpus)}
+    detail = ", ".join(f"{corpus}={count}" for corpus, count in counts.items())
+    print(f"pointers ok ({detail} items resolved)")
     return 0
 
 
@@ -293,6 +382,7 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     for name, fn, helptext in (
         ("merge", cmd_merge, "print merged pointers per item"),
+        ("derive", cmd_derive, "print pointers computed from the staged answer crops"),
         ("coverage", cmd_coverage, "report pointer coverage of in-scope items"),
         ("check", cmd_check, "validate stores against staged items (CI)"),
     ):
