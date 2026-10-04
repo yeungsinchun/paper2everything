@@ -3199,7 +3199,7 @@
           "same_value": {
             "(a)": false,
             "(b)": false,
-            "(c)": true
+            "(c)": null
           },
           "settled": false,
           "reason": "the three runs do not agree on the value: (a): 3.56 x 10^5 J vs ≈3.6×10⁵ J vs ≈3.6×10^5 J; (b): ~178 s (~3.0 min) vs ≈1.8×10² s (≈3.0 min) vs ≈1.8×10^2 s (≈3.0 min)"
@@ -3297,7 +3297,7 @@
           "same_value": {
             "1(a)": false,
             "1(b)": true,
-            "1(c)": true,
+            "1(c)": null,
             "2(a)": true,
             "2(b)(i)": false,
             "2(b)(ii)": true
@@ -3379,7 +3379,7 @@
           "same_value": {
             "(a)": true,
             "(b)(i)": true,
-            "(b)(ii)": true
+            "(b)(ii)": null
           }
         }
       },
@@ -3464,9 +3464,9 @@
           },
           "same_value": {
             "(a)": true,
-            "(b)(i)": true,
+            "(b)(i)": null,
             "(b)(ii)": true,
-            "(b)(iii)": true
+            "(b)(iii)": null
           }
         }
       },
@@ -3532,8 +3532,8 @@
             ]
           },
           "same_value": {
-            "(I)": true,
-            "(II)": true
+            "(I)": null,
+            "(II)": null
           }
         }
       },
@@ -3608,9 +3608,9 @@
             ]
           },
           "same_value": {
-            "(a)": true,
-            "(b)": true,
-            "(c)": true
+            "(a)": null,
+            "(b)": null,
+            "(c)": null
           }
         }
       },
@@ -3686,7 +3686,7 @@
           },
           "same_value": {
             "(a)": true,
-            "(b)": true,
+            "(b)": null,
             "(c)": true
           }
         }
@@ -3773,8 +3773,8 @@
           "same_value": {
             "(a)": true,
             "(b)(i)": true,
-            "(b)(ii)": true,
-            "(c)": true
+            "(b)(ii)": null,
+            "(c)": null
           }
         }
       },
@@ -3846,7 +3846,7 @@
           "same_value": {
             "(a)": false,
             "(b)": true,
-            "(c)": true
+            "(c)": null
           },
           "settled": false,
           "reason": "the three runs do not agree on the value: (a): 7.1 A vs 7.07 A vs 7.07 A peak"
@@ -3926,10 +3926,10 @@
             ]
           },
           "same_value": {
-            "(a)": true,
+            "(a)": null,
             "(b)(i)": false,
-            "(b)(ii)": true,
-            "(b)(iii)": true
+            "(b)(ii)": null,
+            "(b)(iii)": null
           },
           "settled": false,
           "reason": "the three runs do not agree on the value: (b)(i): 约61° (≈61.1°) vs 61.1° vs approx 61.1 degrees"
@@ -3986,7 +3986,7 @@
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
           "settled": false,
-          "reason": "run 1 is illegible (no subparts recorded), so the three runs do not agree on the value",
+          "reason": "run 1 is illegible (no subparts recorded): the subparts are not comparable",
           "runs_compared": {
             "(a)(i)": [
               "",
@@ -4020,12 +4020,12 @@
             ]
           },
           "same_value": {
-            "(a)(i)": false,
-            "(a)(ii)": false,
-            "(a)(iii)": false,
-            "(b)(i)": false,
-            "(b)(ii)": false,
-            "(b)(iii)": false
+            "(a)(i)": null,
+            "(a)(ii)": null,
+            "(a)(iii)": null,
+            "(b)(i)": null,
+            "(b)(ii)": null,
+            "(b)(iii)": null
           }
         }
       },
@@ -4127,12 +4127,12 @@
             ]
           },
           "same_value": {
-            "a(i)": true,
+            "a(i)": null,
             "a(ii)": true,
             "a(iii)": true,
-            "b(i)": true,
-            "b(ii)": true,
-            "b(iii)": true
+            "b(i)": null,
+            "b(ii)": null,
+            "b(iii)": null
           }
         }
       }
@@ -4209,9 +4209,9 @@
             ]
           },
           "same_value": {
-            "*(a)": true,
+            "*(a)": null,
             "*(b)": true,
-            "*(c)": true
+            "*(c)": null
           }
         }
       },
@@ -4274,7 +4274,7 @@
           },
           "same_value": {
             "(a)": false,
-            "(b)": true
+            "(b)": null
           },
           "settled": false,
           "reason": "the three runs do not agree on the value: (a): KE ≈ 5.4×10^5 J, average power ≈ 5.8×10^4 W (58 kW) vs KE ≈ 5.41×10^5 J, average power ≈ 5.8×10^4 W (≈58 kW) vs KE = 5.41 x 10^5 J; P_avg = 5.8 x 10^4 W (~58 kW)"
@@ -4321,18 +4321,13 @@
             "illegible": false
           }
         ],
-        "unanimous": true,
-        "final_answers": {
-          "(a)": "vertically downwards",
-          "(b)": "50° to the horizontal",
-          "(c)": "8.3 m s⁻¹"
-        },
-        "worked": "(a) Only force is weight, so acceleration = g vertically downwards at all points including C. (b) ux=u cosθ, uy=u sinθ. Vertical: y=uy t-1/2 g t^2. Range: y=0 => T(uy-1/2 g T)=0 => T=2uy/g=2u sinθ/g. Horizontal: no acceleration, R=ux T =u cosθ*2u sinθ/g =u^2 2sinθcosθ/g =u^2 sin2θ/g. Same R with same u requires sin2θ'=sin2θ. With θ=40°, sin80°=sin(180°-80°), so 2θ'=100° => θ'=50° (=90°-θ). (c) At C y=1.6m: vx=ux=10cos40°=7.66 m/s. vy^2=(u sinθ)^2-2gy=(10sin40°)^2-2*9.81*1.6≈9.93 => vy≈3.15 m/s. Speed v=sqrt(vx^2+vy^2)≈sqrt(58.7+9.9)≈8.3 m/s.",
+        "unanimous": false,
+        "final_answers": null,
+        "worked": "",
         "adjudication": {
           "adjudicator": "captain",
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
-          "basis": "the three runs agree on the value(s) (a): vertically downwards; (b): 50° to the horizontal; (c): 8.3 m s⁻¹ and differ only in notation (caret vs superscript exponent, x vs *, spacing, trailing zeros, leading ~, unicode minus); explanation subparts state the same conclusion, with the three compared values in runs_compared",
           "runs_compared": {
             "(a)": [
               "vertically downwards",
@@ -4351,10 +4346,12 @@
             ]
           },
           "same_value": {
-            "(a)": true,
-            "(b)": true,
+            "(a)": null,
+            "(b)": null,
             "(c)": true
-          }
+          },
+          "settled": false,
+          "reason": "the three runs were never shown to agree: (b) - 50° to the horizontal / R = u^2 sin2θ/g, another angle is 50° to the horizontal / Range R = u^2 sin2θ / g ≈ 10.0 m; other angle θ = 50° gives same R with u = 10 m s^-1 (two of the three runs are prose the parser cannot compare)"
         }
       },
       "7": {
@@ -4410,7 +4407,7 @@
             ]
           },
           "same_value": {
-            "7": true
+            "7": null
           }
         }
       },
@@ -4476,8 +4473,8 @@
             ]
           },
           "same_value": {
-            "(a)": true,
-            "(b)": true
+            "(a)": null,
+            "(b)": null
           }
         }
       },
@@ -4552,9 +4549,9 @@
             ]
           },
           "same_value": {
-            "(a)": true,
+            "(a)": null,
             "(b)": true,
-            "(c)": true
+            "(c)": null
           }
         }
       },
@@ -4629,8 +4626,8 @@
             ]
           },
           "same_value": {
-            "(a)(i)": true,
-            "(a)(ii)": true,
+            "(a)(i)": null,
+            "(a)(ii)": null,
             "(b)": true
           }
         }
@@ -4696,7 +4693,7 @@
           },
           "same_value": {
             "(a)": false,
-            "(b)": true
+            "(b)": null
           }
         }
       },
@@ -4771,9 +4768,9 @@
             ]
           },
           "same_value": {
-            "(a)": true,
-            "(b)": true,
-            "(c)": true
+            "(a)": null,
+            "(b)": null,
+            "(c)": null
           }
         }
       },
@@ -4847,7 +4844,7 @@
           "same_value": {
             "(a)": true,
             "(b)": false,
-            "(c)": true
+            "(c)": null
           }
         }
       },
@@ -4935,9 +4932,9 @@
           "same_value": {
             "(a)(i)": true,
             "(a)(ii)": false,
-            "(b)(i)": true,
+            "(b)(i)": null,
             "(b)(ii)": false,
-            "(c)": true
+            "(c)": null
           },
           "settled": false,
           "reason": "the three runs do not agree on the value: (a)(ii): approx 2.6 m s^-2 upwards, with thrust up and weight down vs ~2.6 m s^-2 upwards; thrust up, weight mg down vs ~2.65 m s^-2 upward; forces are upward thrust ~5.98×10^6 N and downward weight mg ~4.71×10^6 N; (b)(ii): approx 7.66×10^4 s (~21.3 h) for 14 orbits vs ~7.7x10^4 s (~21 h) for 14 orbits vs ~7.66×10^4 s ≈21.3 h for 14 orbits"
@@ -5017,10 +5014,10 @@
             ]
           },
           "same_value": {
-            "(a)": true,
+            "(a)": null,
             "(b)": false,
-            "(c)": true,
-            "(d)": true
+            "(c)": null,
+            "(d)": null
           },
           "settled": false,
           "reason": "the three runs do not agree on the value: (b): about 13 V vs About 13.3 V when Vp = 8.0 V vs approx 13.3 V"
@@ -5071,7 +5068,7 @@
           "at": "2026-10-04",
           "board": ".lavish/derived-keys-review",
           "settled": false,
-          "reason": "run 1 is illegible (no subparts recorded), so the three runs do not agree on the value",
+          "reason": "run 1 is illegible (no subparts recorded): the subparts are not comparable",
           "runs_compared": {
             "(a)": [
               "",
@@ -5090,9 +5087,9 @@
             ]
           },
           "same_value": {
-            "(a)": false,
-            "(b)(i)": false,
-            "(b)(ii)": false
+            "(a)": null,
+            "(b)(i)": null,
+            "(b)(ii)": null
           }
         }
       },
@@ -5176,10 +5173,10 @@
             ]
           },
           "same_value": {
-            "(a)": true,
+            "(a)": null,
             "(b)(i)": true,
             "(b)(ii)": true,
-            "(b)(iii)": true
+            "(b)(iii)": null
           }
         }
       }

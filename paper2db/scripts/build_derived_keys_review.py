@@ -219,19 +219,17 @@ def parse_quantity(value: str) -> tuple | None:
     return tuple(sorted(quantities))
 
 
-def same_value_of(values: list) -> bool:
-    """Machine-checkable per-subpart fact: the three recorded run values are
-    the same numeric value with the same unit (ignoring notation-only
-    differences). Empty values (illegible runs) can never agree; explanation
-    prose carries a human conclusion agreement on the board, not a numeric
-    comparison, so it reports True only when every value is prose."""
-    if any(str(v).strip() == "" for v in values):
-        return False
+def same_value_of(values: list) -> bool | None:
+    """Tri-state machine fact per subpart: True when all three recorded run
+    values parse to the same (number, unit) ignoring notation-only
+    differences; False when all three parse and differ. None ("not
+    comparable") when any run fails to parse - an empty (illegible) run has no
+    value to compare and explanation prose cannot be parsed, so the parser
+    reports no agreement on evidence it did not compare."""
     parsed = [parse_quantity(str(v)) for v in values]
-    non_prose = [p for p in parsed if p is not None]
-    if not non_prose:
-        return True
-    return len(set(non_prose)) == 1
+    if any(p is None for p in parsed):
+        return None
+    return len(set(parsed)) == 1
 
 
 def primary_section(paper: str, year: str, q: int) -> int | None:
@@ -423,16 +421,22 @@ def adjudication_html(c: dict) -> str:
     rows = []
     for label, values in compared.items():
         cells = "".join(f"<td>{esc(v)}</td>" for v in values)
-        mark = "✓" if same.get(label) else "✗"
+        fact = same.get(label)
+        if fact is True:
+            mark = "✓ same value"
+        elif fact is False:
+            mark = "✗ values differ"
+        else:
+            mark = "not comparable"
         if settled:
             accepted = esc(finals.get(label, ""))
             rows.append(
                 f"<tr><td>{esc(label)}</td>{cells}"
-                f"<td>{mark} same value</td><td><b>{accepted}</b></td></tr>"
+                f"<td>{mark}</td><td><b>{accepted}</b></td></tr>"
             )
         else:
             rows.append(
-                f"<tr><td>{esc(label)}</td>{cells}<td>{mark} same value</td></tr>"
+                f"<tr><td>{esc(label)}</td>{cells}<td>{mark}</td></tr>"
             )
     header = (
         "<tr><th>subpart</th><th>run 1</th><th>run 2</th><th>run 3</th>"

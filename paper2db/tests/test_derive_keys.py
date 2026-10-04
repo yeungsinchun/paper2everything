@@ -96,6 +96,52 @@ class TestUnanimity(unittest.TestCase):
         self.assertTrue(all(f"Question {n}" in c for n, c in enumerate(chunks, 1)))
 
 
+class TestSameValueFact(unittest.TestCase):
+    """same_value_of is a tri-state fact: True only when all three runs were
+    parsed and agree, False only when all three were parsed and differ, and
+    None ("not comparable") when any run fails to parse. Agreement is never
+    claimed from fewer than three parsed runs."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.build = load_module(
+            "build_derived_keys_review",
+            ROOT / "scripts" / "build_derived_keys_review.py",
+        )
+
+    def test_all_numeric_equal_is_true(self) -> None:
+        self.assertIs(
+            self.build.same_value_of(["10.2 N", "10.2 N", "10.2 N"]), True
+        )
+
+    def test_all_numeric_differ_is_false(self) -> None:
+        self.assertIs(
+            self.build.same_value_of(["7.1 A", "7.07 A", "7.07 A"]), False
+        )
+
+    def test_one_parseable_run_is_not_comparable(self) -> None:
+        self.assertIsNone(
+            self.build.same_value_of(
+                [
+                    "50° to the horizontal",
+                    "R = u^2 sin2θ/g, another angle is 50° to the horizontal",
+                    "Range R = u^2 sin2θ / g ≈ 10.0 m; other angle θ = 50° "
+                    "gives same R with u = 10 m s^-1",
+                ]
+            )
+        )
+
+    def test_prose_runs_are_not_comparable(self) -> None:
+        self.assertIsNone(
+            self.build.same_value_of(
+                ["vertically downwards", "Acceleration is downwards", "g downwards"]
+            )
+        )
+
+    def test_empty_run_is_not_comparable(self) -> None:
+        self.assertIsNone(self.build.same_value_of(["", "16 m", "16 m"]))
+
+
 class TestAdjudicationContract(unittest.TestCase):
     """Every LQ target is either settled (3/3 + adjudication record whose
     compared values name the three runs, whose same_value facts match what
@@ -140,11 +186,18 @@ class TestAdjudicationContract(unittest.TestCase):
                                 if normalized(k) == normalized(label)
                             ]
                             self.assertEqual(values[i], matches[0] if matches else "", f"{label} run {i + 1}")
+                        derived = self.build.same_value_of(values)
                         self.assertEqual(
                             facts[label],
-                            self.build.same_value_of(values),
+                            derived,
                             f"same_value {label} must match the parsed claim",
                         )
+                        if derived is None:
+                            self.assertIsNot(
+                                facts[label],
+                                True,
+                                f"no true mark from an unparsed run ({label})",
+                            )
                     if entry.get("unanimous"):
                         finals = entry.get("final_answers") or {}
                         self.assertTrue(finals)
@@ -155,25 +208,21 @@ class TestAdjudicationContract(unittest.TestCase):
                         )
                         for label, final in finals.items():
                             self.assertIn(final, compared[label], f"final {label}")
-                        self.assertTrue(
-                            all(facts.values()),
+                        self.assertFalse(
+                            any(v is False for v in facts.values()),
                             "a settled target has no differing numeric subpart",
                         )
                     else:
                         self.assertIs(adj.get("settled"), False)
                         self.assertTrue(adj.get("reason"))
-                        self.assertIn(
-                            "do not agree on the value",
-                            adj["reason"],
-                            "unsettled reason names the disagreement",
-                        )
                         self.assertTrue(
-                            any(not v for v in facts.values()) or any(
+                            any(v is False or v is None for v in facts.values())
+                            or any(
                                 str(v).strip() == ""
                                 for label in compared
                                 for v in compared[label]
                             ),
-                            "unsettled target has a disagreeing or missing run",
+                            "unsettled target has an unconfirmed or missing run",
                         )
 
     def test_board_html_shows_adjudication_records(self) -> None:
