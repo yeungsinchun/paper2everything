@@ -98,8 +98,15 @@ class TestUnanimity(unittest.TestCase):
 
 class TestAdjudicationContract(unittest.TestCase):
     """Every LQ target is either settled (3/3 + adjudication record whose
-    compared values name the three runs and whose final is one of them) or
+    compared values name the three runs, whose same_value facts match what
+    the parser derives from those values, and whose final is one of them) or
     explicitly unsettled with a reason; the board HTML shows both shapes."""
+
+    def setUp(self) -> None:
+        self.build = load_module(
+            "build_derived_keys_review",
+            ROOT / "scripts" / "build_derived_keys_review.py",
+        )
 
     def test_lq_targets_have_adjudication_record(self) -> None:
         store = json.loads(DERIVED_KEYS.read_text(encoding="utf-8"))
@@ -115,8 +122,11 @@ class TestAdjudicationContract(unittest.TestCase):
                     self.assertRegex(adj["at"], r"^\d{4}-\d{2}-\d{2}$")
                     compared = adj.get("runs_compared")
                     self.assertTrue(compared, "record names the three compared values")
+                    facts = adj.get("same_value")
+                    self.assertTrue(facts, "record carries a per-subpart same_value fact")
                     runs = entry["runs"]
                     self.assertEqual(len(runs), 3)
+
                     def normalized(key: str) -> str:
                         return key.replace("(", "").replace(")", "")
 
@@ -130,46 +140,71 @@ class TestAdjudicationContract(unittest.TestCase):
                                 if normalized(k) == normalized(label)
                             ]
                             self.assertEqual(values[i], matches[0] if matches else "", f"{label} run {i + 1}")
+                        self.assertEqual(
+                            facts[label],
+                            self.build.same_value_of(values),
+                            f"same_value {label} must match the parsed claim",
+                        )
                     if entry.get("unanimous"):
                         finals = entry.get("final_answers") or {}
                         self.assertTrue(finals)
-                        self.assertEqual(
-                            adj.get("basis"),
-                            "formatting-only: the three runs agree on value and unit",
+                        self.assertTrue(adj.get("basis"))
+                        self.assertFalse(
+                            "formatting-only" in adj["basis"].lower(),
+                            "basis must not claim a formatting-only agreement",
                         )
                         for label, final in finals.items():
                             self.assertIn(final, compared[label], f"final {label}")
+                        self.assertTrue(
+                            all(facts.values()),
+                            "a settled target has no differing numeric subpart",
+                        )
                     else:
                         self.assertIs(adj.get("settled"), False)
                         self.assertTrue(adj.get("reason"))
+                        self.assertIn(
+                            "do not agree on the value",
+                            adj["reason"],
+                            "unsettled reason names the disagreement",
+                        )
+                        self.assertTrue(
+                            any(not v for v in facts.values()) or any(
+                                str(v).strip() == ""
+                                for label in compared
+                                for v in compared[label]
+                            ),
+                            "unsettled target has a disagreeing or missing run",
+                        )
 
     def test_board_html_shows_adjudication_records(self) -> None:
-        build = load_module(
-            "build_derived_keys_review",
-            ROOT / "scripts" / "build_derived_keys_review.py",
-        )
         store = json.loads(DERIVED_KEYS.read_text(encoding="utf-8"))
-        settled = store["lq"]["2026"]["1"]
-        unsettled = store["lq"]["pp"]["5"]
+        lq = store["lq"]
+        settled = next(
+            e for year in lq for e in lq[year].values() if e.get("unanimous")
+        )
+        unsettled = next(
+            e for year in lq for e in lq[year].values() if not e.get("unanimous")
+        )
         self.assertTrue(settled["unanimous"])
         self.assertIs(unsettled["adjudication"]["settled"], False)
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp)
-            build.OUT = out
-            build.IMG = out / "img"
-            build.IMG.mkdir(parents=True, exist_ok=True)
-            cards, summary = build.build_cards()
-            build.write_html(cards, summary)
+            self.build.OUT = out
+            self.build.IMG = out / "img"
+            self.build.IMG.mkdir(parents=True, exist_ok=True)
+            cards, summary = self.build.build_cards()
+            self.build.write_html(cards, summary)
             html = (out / "index.html").read_text(encoding="utf-8")
         label, values = next(iter(settled["adjudication"]["runs_compared"].items()))
         for v in values:
             self.assertIn(
-                build.esc(v), html, f"board shows compared run value {v!r}"
+                self.build.esc(v), html, f"board shows compared run value {v!r}"
             )
-        self.assertIn(build.esc(settled["final_answers"][label]), html)
-        self.assertIn(build.esc(settled["adjudication"]["basis"]), html)
-        self.assertIn(build.esc(unsettled["adjudication"]["reason"]), html)
-        self.assertIn(build.esc(unsettled["adjudication"]["board"]), html)
+        self.assertIn(self.build.esc(settled["final_answers"][label]), html)
+        self.assertIn(self.build.esc(settled["adjudication"]["basis"]), html)
+        self.assertIn(self.build.esc(unsettled["adjudication"]["reason"]), html)
+        self.assertIn(self.build.esc(unsettled["adjudication"]["board"]), html)
+        self.assertIn("same value", html)
 
 
 class TestDerivedKeysContract(unittest.TestCase):

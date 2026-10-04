@@ -12,8 +12,10 @@ from __future__ import annotations
 
 import html
 import json
+import re
 import shutil
 import time
+from decimal import Decimal
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -56,6 +58,180 @@ IN_SCOPE = {5, 6, 7, 8, 9, 10, 11, 12, 20, 21, 22, 23, 24, 25, 26, 27}
 
 def esc(value: object) -> str:
     return html.escape(str(value), quote=True)
+
+
+SUPER_SCRIPT = {
+    "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5",
+    "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "⁻": "-", "⁺": "+",
+}
+
+
+def _caret(text: str) -> str:
+    """Turn superscript exponent runs (10⁵, 10⁻⁸, s⁻¹, m s⁻²) into caret
+    form (10^5, 10^-8, s^-1, m s^-2) so number and unit parsers see one form."""
+    def repl(m: re.Match) -> str:
+        plain = "".join(SUPER_SCRIPT.get(c, c) for c in m.group(0))
+        return "^" + plain
+
+    return re.sub(r"[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]+", repl, text)
+
+_NUMBER = r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?"
+
+UNIT_ROOTS = {
+    "m", "cm", "mm", "km", "kg", "g", "s", "ms", "min", "h", "j", "kj",
+    "w", "kw", "a", "ma", "v", "pa", "kpa", "bq", "t", "mt", "n", "ohm",
+    "deg", "%", "λ", "wb", "mev", "gev", "hz", "khz", "mhz", "k", "u",
+    "c", "f", "lm", "mol",
+}
+
+UNIT_TOKENS = UNIT_ROOTS | {
+    root + "-" + str(n) for root in UNIT_ROOTS for n in range(1, 4)
+} | {
+    root + str(n) for root in UNIT_ROOTS for n in range(1, 4)
+}
+
+
+def normalize_unit(unit: str) -> str:
+    """Collapse notation-only unit variants: ° vs degrees, Ω·m vs ohm m,
+    m/s vs m s^-1 (superscripts/carets stripped), spacing and trailing
+    zeros. The result is a compact token list; units that differ only in
+    notation compare equal."""
+    u = (unit or "").lower()
+    for sup, plain in (("⁻", "-"), ("⁺", "+"), ("⁰", "0"), ("¹", "1"),
+                       ("²", "2"), ("³", "3"), ("⁴", "4"), ("⁵", "5"),
+                       ("⁶", "6"), ("⁷", "7"), ("⁸", "8"), ("⁹", "9")):
+        u = u.replace(sup, plain)
+    u = u.replace("degrees", "deg").replace("degree", "deg")
+    u = u.replace("°", "deg").replace("º", "deg").replace("○", "deg")
+    u = u.replace("λ", "λ").replace("lambda", "λ")
+    u = u.replace("ω", "ohm").replace("Ω", "ohm")
+    u = u.replace("·", " ")
+    u = u.replace("^", "")
+    u = re.sub(r"([a-zλ]+)/([a-zλ]+)", r"\1 \2-1", u)
+    return " ".join(t for t in u.split() if t)
+
+
+def matches_unit(unit: str) -> bool:
+    if not unit:
+        return False
+    tokens = [t for t in unit.split() if t]
+    return bool(tokens) and all(t in UNIT_TOKENS for t in tokens)
+
+
+def _unit_tokens(tail: str) -> list[str]:
+    """Take the leading run of unit tokens out of the text after a number.
+    Non-unit words such as 'towards', 'peak' or 'beneath' end the run, so the
+    trailing wording of a final answer does not leak into the unit."""
+    out: list[str] = []
+    for raw in tail.strip().split():
+        token = raw.strip("=,;()[]")
+        norm = normalize_unit(token)
+        if not norm and token:
+            break
+        if matches_unit(norm) or not token:
+            if token:
+                out.append(norm)
+            continue
+        break
+    return out
+
+
+def parse_quantity(value: str) -> tuple | None:
+    """Parse the leading numeric value + unit of one run's final answer.
+
+    Returns a sorted tuple of (number, unit) quantities or None when the value
+    is explanation prose rather than a numeric answer. Only notation
+    differences (caret vs superscript exponent, x vs *, spacing, trailing
+    zeros, unicode minus, leading ~/≈/约/about/approx words, a label like KE= or
+    u≈) are ignored; the parsed number and unit must be identical for the
+    three runs to count as the same value. A run value of the form
+    "1.0 cm = 0.5λ" folds the right-hand quantity of "=" into the same set, so
+    writing the answer as an equality does not split it.
+    """
+    text = (value or "").replace("×", "x").replace("−", "-").replace("−", "-")
+    text = _caret(text).strip()
+    for marker in ("约", "~", "≈"):
+        text = text.lstrip(marker).lstrip()
+    for word in ("approx", "about", "approximately"):
+        if text.lower().startswith(word) and (
+            len(text) == len(word) or not text[len(word)].isalpha()
+        ):
+            text = text[len(word):].lstrip()
+    label = re.match(r"^([A-Za-z]{1,4})\s*(?:≈|~|=)\s*", text)
+    if label:
+        text = text[label.end():]
+
+    def quantity(num: Decimal, tail: str):
+        tokens = _unit_tokens(tail)
+        if tokens:
+            return (num, " ".join(tokens))
+        if not tail.strip():
+            return (num, "")
+        return None
+
+    def consume(value_text: str):
+        m = re.match("^(" + _NUMBER + r")", value_text)
+        if not m:
+            return None, value_text
+        num = Decimal(m.group(1))
+        tail = value_text[m.end():]
+        exp = re.match(r"^\s*(?:[eE]([+-]?\d+)|x?\s*10\s*\^?\s*([+-]?\d+))", tail)
+        if exp:
+            power = exp.group(1) or exp.group(2)
+            if power is not None:
+                num = num * (Decimal(10) ** int(power))
+            tail = tail[exp.end():]
+        return num, tail
+
+    number, rest = consume(text)
+    if number is None:
+        return None
+    q = quantity(number, rest)
+    if q is None:
+        return None
+    quantities = {q}
+    tail = rest.lstrip()
+    unit_len = 0
+    pieces = tail.split()
+    for piece in pieces:
+        token = piece.strip("=,;()[]")
+        if matches_unit(normalize_unit(token)):
+            unit_len += 1
+        else:
+            break
+    if unit_len:
+        tail = " ".join(pieces[unit_len:])
+    def fold(text_after_eq: str):
+        stripped = text_after_eq.lstrip("= ")
+        if not re.match("^(" + _NUMBER + r")", stripped):
+            return
+        num2, tail2 = consume(stripped)
+        q2 = quantity(num2, tail2)
+        if q2 is not None:
+            quantities.add(q2)
+
+    eq = re.match(r"^=\s*(" + _NUMBER + r")", tail)
+    if eq:
+        fold(tail[eq.start():])
+    for pm in re.finditer(r"\(([^()]*=\s*" + _NUMBER + r"[^()]*)\)", tail):
+        inner = pm.group(1)
+        fold(inner[inner.index("=") + 1:])
+    return tuple(sorted(quantities))
+
+
+def same_value_of(values: list) -> bool:
+    """Machine-checkable per-subpart fact: the three recorded run values are
+    the same numeric value with the same unit (ignoring notation-only
+    differences). Empty values (illegible runs) can never agree; explanation
+    prose carries a human conclusion agreement on the board, not a numeric
+    comparison, so it reports True only when every value is prose."""
+    if any(str(v).strip() == "" for v in values):
+        return False
+    parsed = [parse_quantity(str(v)) for v in values]
+    non_prose = [p for p in parsed if p is not None]
+    if not non_prose:
+        return True
+    return len(set(non_prose)) == 1
 
 
 def primary_section(paper: str, year: str, q: int) -> int | None:
@@ -243,18 +419,24 @@ def adjudication_html(c: dict) -> str:
     if settled and c.get("paper") == "mc":
         finals = {"option": c.get("verdict")}
     compared = adj.get("runs_compared") or {}
+    same = adj.get("same_value") or {}
     rows = []
     for label, values in compared.items():
         cells = "".join(f"<td>{esc(v)}</td>" for v in values)
+        mark = "✓" if same.get(label) else "✗"
         if settled:
             accepted = esc(finals.get(label, ""))
             rows.append(
-                f"<tr><td>{esc(label)}</td>{cells}<td><b>{accepted}</b></td></tr>"
+                f"<tr><td>{esc(label)}</td>{cells}"
+                f"<td>{mark} same value</td><td><b>{accepted}</b></td></tr>"
             )
         else:
-            rows.append(f"<tr><td>{esc(label)}</td>{cells}</tr>")
+            rows.append(
+                f"<tr><td>{esc(label)}</td>{cells}<td>{mark} same value</td></tr>"
+            )
     header = (
         "<tr><th>subpart</th><th>run 1</th><th>run 2</th><th>run 3</th>"
+        "<th>same value</th>"
         + ("<th>accepted final</th>" if settled else "")
         + "</tr>"
     )
@@ -312,9 +494,10 @@ def write_html(cards: list[dict], summary: dict) -> None:
                 )
                 verdict_html = f"<span class='verdict ok'>Finals:</span><br>{finals}"
             else:
+                reason = (c.get("adjudication") or {}).get("reason", "")
                 verdict_html = (
-                    "<span class='verdict bad'>No key - finals disagree "
-                    "or illegible</span>"
+                    f"<span class='verdict bad'>No key</span> "
+                    f"<span class=sub>{esc(reason)}</span>"
                 )
             rows = "".join(
                 f"<tr><td>run {i + 1}</td>"
