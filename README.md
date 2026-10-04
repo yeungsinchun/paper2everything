@@ -156,6 +156,7 @@ Full rules: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Diagram, data flows, design findings |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution rules |
 | [`AGENTS.md`](AGENTS.md) | Agent-facing map |
+| [`failed/`](failed/) | Abandoned and superseded attempts, with the model, data and reason each was dropped and what replaced it; written 2026-10-04 |
 | [`paper2notes/README.md`](paper2notes/README.md) | Audit harness, sources, hosting pointer |
 | [`paper2db/README.md`](paper2db/README.md) | Pipeline stages, tracked inputs, QB census |
 | [`paper2notes/deploy/cloudrun/README.md`](paper2notes/deploy/cloudrun/README.md) | Hosting, access model, rollback |
