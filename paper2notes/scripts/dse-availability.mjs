@@ -363,7 +363,7 @@ export function checkDocumentedReferenceCounts(docText, counts) {
 
 /* ---------- one page ---------- */
 
-function slideBlocks(html) {
+export function slideBlocks(html) {
   const opens = [...html.matchAll(/<article\b[^>]*class="[^"]*quiz-slide[^"]*"[^>]*>/g)];
   return opens.map((m, i) => {
     const id = m[0].match(/\bid="([^"]+)"/)?.[1] || "";
@@ -373,7 +373,7 @@ function slideBlocks(html) {
 }
 
 /* Every crop a page points at: { kind, section, file }. */
-function cropRefs(html) {
+export function cropRefs(html) {
   const out = [];
   for (const m of html.matchAll(/_local\/dse\/(mc|lq)\/(\d+)\/([A-Za-z0-9_.-]+)/g)) {
     out.push({ kind: m[1], section: m[2], file: m[3] });
@@ -481,9 +481,21 @@ export function checkPage(html, { page, availability, source }) {
     }
   }
 
-  /* A panel that states in words that a section has no long question. The
-     record must agree, and the words must name the paper and its range so the
-     statement can be checked later. */
+  return { page, problems, informational };
+}
+
+/* A panel that states in words that a section has no long question. The record
+   must agree, and the words must name the paper and its range so the statement
+   can be checked later. The audit entry points call this for every page
+   alongside the other checks, so the guard runs even while no page states an
+   absence yet. */
+export function checkAbsencePanels(html, { page, availability }) {
+  const problems = [];
+  const informational = [];
+  const manifest = availability?.manifest || null;
+  const manifestRel = availability?.repoRoot ? relative(availability.repoRoot, availability.file) : availability?.file || "notes/dse/availability.json";
+  const entryFor = (kind, section) => manifest?.sections?.[section]?.[kind] || null;
+
   for (const m of html.matchAll(/<([a-z]+)\b[^>]*\bdata-lq-none="([^"]+)"[^>]*>/gi)) {
     const tag = m[1];
     const section = m[2].trim();
@@ -545,6 +557,9 @@ function main() {
     const page = relative(repoRoot, file);
     const html = readFileSync(file, "utf8");
     const row = checkPage(html, { page, availability, source });
+    const panels = checkAbsencePanels(html, { page, availability });
+    row.problems.push(...panels.problems);
+    row.informational.push(...panels.informational);
     const missing = cropRefs(html).filter((ref) => !existsSync(join(repoRoot, SNAPSHOT_REL, ref.kind, ref.section, ref.file)));
     if (missing.length) {
       const names = [...new Set(missing.map((ref) => `${ref.kind}/${ref.section}/${ref.file}`))];

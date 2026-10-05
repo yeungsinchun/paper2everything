@@ -21,7 +21,7 @@ import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runLeakCheck } from "./leak-check.mjs";
 import { lintAnchors } from "./anchor-lint.mjs";
-import { checkPage, checkSnapshot, loadAvailability, loadSource, referenceCounts, checkDocumentedReferenceCounts } from "./dse-availability.mjs";
+import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource, referenceCounts, checkDocumentedReferenceCounts } from "./dse-availability.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
@@ -388,7 +388,11 @@ function checkDseAvailability() {
   for (const file of walkHtmlFiles(notesDir)) {
     if (file.includes("/_source/") || file.includes("/_local/") || file.includes("/.lavish/")) continue;
     const page = relative(repoRoot, file);
-    for (const p of checkPage(readFileSync(file, "utf8"), { page, availability, source }).problems) {
+    const html = readFileSync(file, "utf8");
+    for (const p of checkPage(html, { page, availability, source }).problems) {
+      fail(`dse-availability: ${page}: ${p.detail}`);
+    }
+    for (const p of checkAbsencePanels(html, { page, availability }).problems) {
       fail(`dse-availability: ${page}: ${p.detail}`);
     }
   }
