@@ -4,7 +4,7 @@ Generated at 2026-09-29T19:14:56.988202Z
 
 - Total LQ questions (crops): 170 (170 expected)
 - Crops present: 170 / 170
-- Answer crops: 122 / 170 (missing 48)
+- Answer crops: 144 / 170 (missing 26)
 - Candidate performance notes: 144 / 170 (missing 26 – flagged per item)
 
 ## Layout
