@@ -5,10 +5,10 @@ Generated from `paper2db` pipeline stages `mc-anchors` + `mc-split` + `keys`.
 - **Years:** 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, pp + pp — 537 MC items (36 for 2012-2013 and pp, 33 otherwise)
 - **Full MC corpus:** 573 items (2012-2026+pp+sap) in `metadata/mc/llm_classifications.json`; staged slice excludes `sap` (mc-anchors cannot locate its question labels)
 - **Images:** `crops/<year>/qNN.png` (optimized palette PNG, 256 colors, ~45% of original) + `qNN.webp` (WebP q85, ~20%)
-  - Original pipeline PNG total: 9.2 MB
-  - Optimized palette PNG: 4.3 MB
-  - WebP: 2.6 MB
-  - Combined staged: 6.9 MB (both formats kept; WebP alone is ~2.6 MB)
+  - Original pipeline PNG total: 53.1 MB
+  - Optimized palette PNG: 23.8 MB
+  - WebP: 13.0 MB
+  - Combined staged: 36.8 MB (both formats kept; WebP alone is ~13.0 MB)
 - **Metadata:** `index.json` per-question (year, question, paper 1A, type MC, marks 1, sections + reason, statementPreview, answer option + percentage, image paths, warnings)
 - **Sections:** `sections.json` 27 sections with counts; see `stats.json` for per-year/section breakdown
 - **Answer keys:** from `tests/sections/mc/answer_keys.json` (OCR + manual overrides); missing keys flagged as `warnings: ["missing_answer"]` and `missing_percentage`
