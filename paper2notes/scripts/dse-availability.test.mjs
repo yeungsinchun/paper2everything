@@ -10,7 +10,7 @@ import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { checkPage, checkSnapshot, loadAvailability, loadSource } from "./dse-availability.mjs";
+import { checkPage, checkSnapshot, checkDocumentedReferenceCounts, loadAvailability, loadSource, referenceCounts } from "./dse-availability.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PAPER2NOTES = resolve(HERE, "..");
@@ -61,6 +61,34 @@ test("the shipped snapshot and pages match the availability record", () => {
 /* The reader-facing contract for section 20: both section-20 pages show every
    long question the source papers hold for the section, each as a slide that
    points at a crop the snapshot really publishes. */
+test("the reference counts docs/ARCHITECTURE.md quotes are counted from the pages", () => {
+  /* The doc quotes these numbers, so they must be derived, never hand-copied. */
+  const counts = referenceCounts(PAPER2NOTES);
+  assert.equal(
+    counts.books.book2.total,
+    counts.books.book2.png + counts.books.book2.pdf,
+    "book2 PNG + PDF counts must add up",
+  );
+  const sum = Object.values(counts.books).reduce((n, c) => n + c.total, 0);
+  assert.ok(sum >= counts.total.total, "per-book totals cannot exceed the distinct total");
+
+  const doc = readFileSync(resolve(PAPER2NOTES, "..", "docs", "ARCHITECTURE.md"), "utf8");
+  const problems = checkDocumentedReferenceCounts(doc, counts);
+  assert.deepEqual(problems, [], `docs/ARCHITECTURE.md quotes stale DSE reference counts:\n${problems.map((p) => `- ${p.detail}`).join("\n")}`);
+});
+
+test("a stale count in the doc is caught", () => {
+  const counts = { total: { total: 10, png: 6, pdf: 4 }, books: { book2: { total: 8, png: 0, pdf: 8 } } };
+  const doc = "10 distinct `_local/dse` references are used (Book 2: 8 = 0 PNG + 8 PDFs).";
+  assert.deepEqual(checkDocumentedReferenceCounts(doc, counts), []);
+
+  const staleTotal = checkDocumentedReferenceCounts(doc.replace("10 distinct", "11 distinct"), counts);
+  assert.ok(staleTotal.some((p) => p.kind === "dse-doc-reference-total-stale"), JSON.stringify(staleTotal));
+
+  const staleBook = checkDocumentedReferenceCounts(doc.replace("8 = 0 PNG + 8 PDFs", "9 = 1 PNG + 8 PDFs"), counts);
+  assert.ok(staleBook.some((p) => p.kind === "dse-doc-reference-count-stale"), JSON.stringify(staleBook));
+});
+
 test("section 20 shows every electrostatics long question the source holds", () => {
   const source = loadSource(PAPER2NOTES);
   assert.ok(source.ok, `paper2db tracked inputs not found beside paper2notes: ${source.note}`);
