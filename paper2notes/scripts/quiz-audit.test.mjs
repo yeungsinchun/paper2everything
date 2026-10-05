@@ -53,6 +53,19 @@ test("no page repeats an element id", () => {
   assert.deepEqual(bad, [], `duplicate ids:\n${bad.join("\n")}`);
 });
 
+test("every DSE slide points at a crop that is actually published", () => {
+  const bad = (report.store?.problems || [])
+    .filter((x) => x.kind === "dse-slide-image-missing" || x.kind === "dse-slide-no-image")
+    .map((x) => `${x.where}: ${x.detail}`);
+  assert.deepEqual(bad, [], `slides that show no question:\n${bad.join("\n")}`);
+});
+
+test("every graded DSE MC key is one paper2db's answer store backs", () => {
+  const bad = (report.store?.problems || []).map((x) => `${x.where}: ${x.detail}`);
+  assert.deepEqual(bad, [], `keys no marking scheme supports:\n${bad.join("\n")}`);
+  assert.ok(report.store.keys > 100, `expected the store cross-check to see the published keys, saw ${report.store.keys}`);
+});
+
 test("the audit still finds the quizzes it is meant to guard", () => {
   const total = pages.reduce((a, p) => a + p.mc + p.tf + p.sa + p.dseMc, 0);
   assert.ok(total > 200, `expected the audit to see the full quiz set, saw ${total}`);

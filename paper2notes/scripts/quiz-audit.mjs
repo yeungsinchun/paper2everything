@@ -7,12 +7,18 @@
      3. DSE  .quiz-slide[id^="dse-mc-"]                    -> id must exist in that page's QUIZ_KEYS
      4. wiring: the page must load a js/checks.js that resolves on disk
 
+   It also runs the store cross-check from quiz-store-audit.mjs, which fails a
+   slide whose crop is not published and a key that
+   paper2db/qb-web-ui-staging/dse-mc/index.json does not back. Rules 1-4 only
+   ask "is there a key?", so a key no marking scheme supports used to pass.
+
    Run: node paper2notes/scripts/quiz-audit.mjs [--json]
    Exit code 1 when any page has a broken contract. */
 
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { auditAgainstStore } from "./quiz-store-audit.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const NOTES = join(ROOT, "notes");
@@ -251,11 +257,12 @@ function audit(file) {
 /* ---------- run ---------- */
 const files = pages(NOTES);
 const rows = files.map(audit);
+const store = auditAgainstStore();
 const json = process.argv.includes("--json");
-const anyProblem = rows.some((r) => r.problems.length);
+const anyProblem = rows.some((r) => r.problems.length) || store.problems.length > 0;
 
 if (json) {
-  console.log(JSON.stringify({ pages: rows }, null, 2));
+  console.log(JSON.stringify({ pages: rows, store }, null, 2));
 } else {
   const w = (s, n) => String(s).padEnd(n);
   console.log(`${w("page", 62)}${w("mc", 4)}${w("tf", 4)}${w("sa", 4)}${w("dseMC", 7)}${w("keyed", 7)}problems`);
@@ -281,5 +288,13 @@ if (json) {
   console.log(
     `\npages ${rows.length} | graded MC ${tot.mc} | TF ${tot.tf} | short answer ${tot.sa} | DSE MC slides ${tot.dseMc} | DSE LQ slides ${tot.dseLq}\nproblems ${tot.probs} on ${tot.badPages} pages`,
   );
+
+  /* 5. store cross-check: published crops and store-backed keys */
+  const sw = (s, n) => String(s).padEnd(n);
+  console.log(
+    `\nstore cross-check: DSE slides ${store.slides} | graded keys ${store.keys} in ${store.keyStores} checks.js`,
+  );
+  for (const p of store.problems) console.log(`  - [${p.kind}] ${p.where}: ${p.detail}`);
+  console.log(`store problems ${store.problems.length}`);
 }
 process.exit(anyProblem ? 1 : 0);
