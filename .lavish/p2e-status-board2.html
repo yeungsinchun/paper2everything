@@ -119,13 +119,13 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
 <div class="wrap">
 
-  <p class="eyebrow" style="margin-top:28px">Read at 2026-10-05 23:05 HKT · this is the board of record · annotate it here, the notes come back to this project's inbox</p>
+  <p class="eyebrow" style="margin-top:28px">Read at 2026-10-05 23:20 HKT · this is the board of record · annotate it here, the notes come back to this project's inbox</p>
   <h1>What is open, what is live, and what lands next</h1>
-  <p class="lede">Four pull requests are open, and this board is one of them; every one has its link in the table at the top. Two carry green checks; the two documentation ones carry none because every path they touch is outside the workflows' filters. Two requests closed today: one merged, one dropped by you. Eleven worktree slots are in play, six are finished with nothing left in them, one is stale for a concrete reason, two still hold work that exists nowhere else. The UI consistency work is a queue of lanes, and three of them cannot start until the shared stylesheet lane lands. Nine calls are waiting on your word.</p>
+  <p class="lede">Two pull requests are open; every request this board names has its link in the table at the top, and both open ones carry green checks. Four requests closed while this board was being written: #113 merged, #112 closed unmerged, and earlier #105 merged with #106 dropped by you. Eleven worktree slots are in play, six are finished with nothing left in them, one is stale for a concrete reason, two still hold work that exists nowhere else. Nine calls are waiting on your word.</p>
 
   <div class="grid g4" style="margin-top:22px">
-    <div class="stat"><div class="big">4</div><div class="k">Open pull requests</div><div class="d">#107, #108, #112 and #113. All four target <span class="mono">main</span> and all four merge clean. #112 is this board.</div></div>
-    <div class="stat"><div class="big">2</div><div class="k">Closed today</div><div class="d">#105 merged. #106 the failed-attempt record was dropped by you and closed unmerged.</div></div>
+    <div class="stat"><div class="big">2</div><div class="k">Open pull requests</div><div class="d">#107 and #108, both green, both merge clean. Links in the table below.</div></div>
+    <div class="stat"><div class="big">4</div><div class="k">Closed today</div><div class="d">#113 merged, #105 merged. #106 dropped by you, #112 closed unmerged.</div></div>
     <div class="stat"><div class="big">4</div><div class="k">Slots finished, safe</div><div class="d">27, 10, 34, 32, 33 and 30-held. Slot 25 is the one stale slot.</div></div>
     <div class="stat ask"><div class="big">9</div><div class="k">Waiting on your word</div><div class="d">Five answer-data items, two DSE design calls, and three that arrived from finished scout work tonight.</div></div>
   </div>
@@ -137,8 +137,8 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
       <tbody>
         <tr><td class="id" style="white-space:nowrap"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/107">https://github.com/yeungsinchun/paper2everything/pull/107</a> — question-bank harness, 2 checks green</td></tr>
         <tr><td class="id"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/108">https://github.com/yeungsinchun/paper2everything/pull/108</a> — per-page concept brief generator, 1 check green</td></tr>
-        <tr><td class="id"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/112">https://github.com/yeungsinchun/paper2everything/pull/112</a> — this board and the README note, no checks</td></tr>
-        <tr><td class="id"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/113">https://github.com/yeungsinchun/paper2everything/pull/113</a> — screenshot rule in AGENTS.md, removes 5 PNGs, no checks</td></tr>
+        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/113">https://github.com/yeungsinchun/paper2everything/pull/113</a> — screenshot rule in AGENTS.md, removed 5 PNGs; merged 22:55 HKT</td></tr>
+        <tr><td class="id"><span class="pill dead">closed</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/112">https://github.com/yeungsinchun/paper2everything/pull/112</a> — this board and the README note; closed unmerged 22:55 HKT, branch kept</td></tr>
         <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/105">https://github.com/yeungsinchun/paper2everything/pull/105</a> — Book 5 chapter picker, merged 13:53 UTC</td></tr>
         <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/109">https://github.com/yeungsinchun/paper2everything/pull/109</a> — grade every DSE MC slide</td></tr>
         <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/94">https://github.com/yeungsinchun/paper2everything/pull/94</a> — anchor id lint, moves.json, pointer shape</td></tr>
@@ -153,8 +153,8 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
   <!-- ============ 1 REQUESTS ============ -->
   <section id="prs">
-    <div class="sec-head"><span class="n">1</span><h2>Pull requests and their real check status</h2><span class="pill info">4 open, read 22:55</span></div>
-    <p class="plain">Read with <span class="mono">gh-axi pr list --state open</span>, <span class="mono">gh-axi pr view</span>, <span class="mono">gh-axi pr checks</span> and the pull-request API. Check names are what the forge reports. Every open request is listed, including this board's own.</p>
+    <div class="sec-head"><span class="n">1</span><h2>Pull requests and their real check status</h2><span class="pill info">2 open, read 23:20</span></div>
+    <p class="plain">Read with <span class="mono">gh-axi pr list --state open</span>, <span class="mono">gh-axi pr view</span>, <span class="mono">gh-axi pr checks</span> and the pull-request API. Check names are what the forge reports. Everything closed today is listed too, with what closed it.</p>
     <div class="tblwrap" style="margin-top:14px">
       <table>
         <thead><tr><th>Request</th><th>State</th><th>What it changes, plainly</th><th>Checks, as reported</th><th>Notes</th></tr></thead>
@@ -175,17 +175,17 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
           </tr>
           <tr>
             <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/112">#112</a><br><span class="pill info">this board</span></td>
-            <td><span class="pill info">open</span></td>
+            <td><span class="pill dead">closed, not merged</span></td>
             <td class="plain"><b>This page, committed as the board of record, plus the README note about the dropped record.</b> One self-contained file at <span class="path">.lavish/p2e-status-board2.html</span>, force-added because the repository ignores <span class="path">.lavish/</span>. 2 files, +551.</td>
             <td><span class="pill">none configured</span><br><span class="note">both paths sit outside every workflow's filters</span></td>
-            <td class="plain">Mergeable clean, not a draft, head <span class="mono">624b0cd</span>. Verified locally: <span class="mono">node paper2notes/scripts/ci-check.mjs</span> → OK, and the page renders without horizontal overflow at 1280 and at a narrow width.</td>
+            <td class="plain">Closed unmerged at 22:55 HKT, about a minute after #113 merged, with no message to this task. The branch was pushed again after that so the work is not lost, so this board now lives in the working copy and in <span class="mono">data/p2e-status-board2/report.md</span> rather than on the forge. Whether to request it again is the supervisor's call.</td>
           </tr>
           <tr>
             <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/113">#113</a></td>
-            <td><span class="pill info">open</span></td>
-            <td class="plain"><b>Writes the screenshot rule down, then obeys it.</b> <span class="path">AGENTS.md</span> gains two lines: do not commit screenshots into the tree, and do not write bare local filenames into a request body because GitHub renders those as question marks. It then deletes the five Book 5 PNGs that came in with #105. 6 files, +2 lines of text and five images removed.</td>
+            <td><span class="pill ok">merged</span></td>
+            <td class="plain"><b>Wrote the screenshot rule down, then obeyed it.</b> <span class="path">AGENTS.md</span> gained two lines: do not commit screenshots into the tree, and do not write bare local filenames into a request body because GitHub renders those as question marks. It then deleted the five Book 5 PNGs that came in with #105. 6 files.</td>
             <td><span class="pill">none configured</span><br><span class="note">a markdown file and five images, both outside the workflow filters</span></td>
-            <td class="plain">Mergeable clean, not a draft, head <span class="mono">840693f</span>, branch <span class="path">fm/p2e-image-rule-and-105</span>. The five images are still on main right now, so this is what removes them.</td>
+            <td class="plain">Merged as <span class="mono">5976aec</span> at 22:55 HKT. The five images are gone from main.</td>
           </tr>
           <tr>
             <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/105">#105</a></td>
@@ -440,12 +440,10 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
       <li><div class="step-head"><span class="step-n">2</span><a href="https://github.com/yeungsinchun/paper2everything/pull/108"><b>#108</b></a> <span class="pill ok">1 check green</span></div>
         <p class="plain">Second, and last on the forge. It adds a new failure mode to the notes check, so no already-approved request gets re-gated by a rule that did not exist when it was approved.</p>
         <div class="unblock"><b>Unblocks:</b> per-page concept briefs, the work list the book 2, 4 and 5 writing needs. <b>Risk:</b> the gate can fail future work that quotes a question stem inside a brief; that is intended.</div></li>
-      <li><div class="step-head"><span class="step-n">3</span><a href="https://github.com/yeungsinchun/paper2everything/pull/113"><b>#113</b></a> <span class="pill">no CI</span> <span class="pill info">docs</span></div>
-        <p class="plain">Writes the screenshot rule into <span class="path">AGENTS.md</span> and then obeys it by removing the five Book 5 images that arrived with #105. Cheap and independent, so it can land at any point in this order.</p>
-        <div class="unblock"><b>Unblocks:</b> every later visual request, which can then attach images to the forge instead of committing them. <b>Risk:</b> one markdown file and five deletions, no workflow claims it.</div></li>
-      <li><div class="step-head"><span class="step-n">4</span><a href="https://github.com/yeungsinchun/paper2everything/pull/112"><b>#112</b></a> <span class="pill">no CI</span> <span class="pill info">this board</span></div>
-        <p class="plain">The board itself plus the README note that the failed-attempt record was dropped and is deliberately not replaced. It touches one README section, so it does not collide with #113's <span class="path">AGENTS.md</span> line.</p>
-        <div class="unblock"><b>Unblocks:</b> nothing technical; it is the durable record. <b>Risk:</b> the board file is force-added past the repository's <span class="path">.lavish/</span> rule, deliberately and only for this one file.</div></li>
+      <li><div class="step-head"><span class="step-n">3</span><a href="https://github.com/yeungsinchun/paper2everything/pull/113"><b>#113</b></a> <span class="pill ok">merged</span> <span class="pill info">docs</span></div>
+        <p class="plain">Wrote the screenshot rule into <span class="path">AGENTS.md</span> and obeyed it by deleting the five Book 5 images #105 brought in. Merged as <span class="mono">5976aec</span> at 22:55 HKT, so this step is done: every later visual request can attach images to the forge instead of committing them.</p></li>
+      <li><div class="step-head"><span class="step-n">4</span><a href="https://github.com/yeungsinchun/paper2everything/pull/112"><b>#112</b></a> <span class="pill dead">closed unmerged</span> <span class="pill info">this board</span></div>
+        <p class="plain">The board itself plus the README note that the failed-attempt record was dropped and is deliberately not replaced. Closed without merging at 22:55 HKT with no message to this task, so the board now lives in the working copy and in the plain-text report. Whether to request it again is the supervisor's call; this lane did not open a second request on its own.</p></li>
       <li><div class="step-head"><span class="step-n">5</span><b>The shared stylesheet lane</b> <span class="pill hold">running, slot 28</span></div>
         <p class="plain">Third, because three queued lanes are specified to build on its output and are told to wait rather than add per-page copies.</p>
         <div class="unblock"><b>Unblocks:</b> lane 1 (2×2 option grid), lane 3 (path home), lane 4 (true/false and quick-check side by side).</div></li>
@@ -615,6 +613,7 @@ chrome-devtools-axi                        rendered this page at 1280 and at a n
       <p class="plain">Your second note asked for the link for everything that has a request. There is now a link table at the top of this page listing every request this board names, open, merged and closed, with its full URL copied out.</p>
       <p class="plain">Your first note asked why two requests were shown when four are open. Two were missing because this board was written at 22:10, before #113 opened, and because it left its own request out of the count. Both are fixed: all four open requests are now listed, this board counts itself as #112, and the counts at the top, the figure and the order all agree with the forge at 22:55.</p>
       <p class="plain">This round also folds in two finished scout tasks. The deployed-quiz sweep reported: 14 broken crops on 6 Book 5 pages, 5 multiple-choice slides keyed against a store that says missing, 111 of 130 slides showing objective 0, and a screenshot in #109 that is a stale capture. The framework recon reported: no React in the live site, no build step, and a real but undeployed React design system. Both raised calls, now listed in section 7 with their options.</p>
+      <p class="plain">While this round was being written, #113 merged and this board's own request #112 was closed without merging. Section 1 and the link table say so, and the board now reads from this working copy plus <span class="mono">data/p2e-status-board2/report.md</span>.</p>
     </details>
   </section>
 
