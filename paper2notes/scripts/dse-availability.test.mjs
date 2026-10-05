@@ -5,6 +5,7 @@
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync } from "node:fs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -60,6 +61,55 @@ function unpublishedSlideCrops(html, repoRoot) {
     .filter((ref) => !existsSync(join(repoRoot, "notes", "dse", ref.kind, ref.section, ref.file)));
 }
 
+const SECTION_20_KEYS = ["2013-q11", "2020-q9", "2024-q9", "2026-q7"];
+
+/* The reader-facing contract for a section-20 page: every expected long
+   question is a live slide, it points at its own crop, and the snapshot
+   publishes that crop. A commented-out slide is not a slide. */
+function section20Problems(html) {
+  const problems = [];
+  const slides = slideBlocks(html).filter((slide) => slide.id.startsWith("dse-lq-"));
+  for (const key of SECTION_20_KEYS) {
+    const [year, n] = key.match(/^(\d+)-q(\d+)$/).slice(1);
+    const slide = slides.find((s) => s.id === `dse-lq-${year}-${n}`);
+    if (!slide) { problems.push(`no slide ${key}`); continue; }
+    const crop = cropRefs(slide.html).find((ref) => ref.kind === "lq" && ref.section === "20");
+    if (!crop) { problems.push(`slide ${key} shows no published crop`); continue; }
+    if (crop.file !== `${year}-q${n}.png`) problems.push(`slide ${key} shows ${crop.file}`);
+    if (!existsSync(join(PAPER2NOTES, "notes", "dse", "lq", "20", crop.file))) {
+      problems.push(`slide ${key} points at notes/dse/lq/20/${crop.file}, which the snapshot does not publish`);
+    }
+  }
+  return problems;
+}
+
+const AUDIT = join(HERE, "dse-availability.mjs");
+
+/* A throwaway checkout for the standalone audit. */
+function auditFixture({ manifest, pages = {}, sections = [] }) {
+  const root = mkdtempSync(join(tmpdir(), "p2e-dse-audit-"));
+  mkdirSync(join(root, "notes", "dse"), { recursive: true });
+  writeFileSync(join(root, "notes", "dse", "availability.json"), JSON.stringify(manifest));
+  for (const [kind, section, files] of sections) {
+    mkdirSync(join(root, "notes", "dse", kind, section), { recursive: true });
+    for (const name of files) writeFileSync(join(root, "notes", "dse", kind, section, name), "png");
+  }
+  for (const [name, html] of Object.entries(pages)) writeFileSync(join(root, "notes", name), html);
+  return root;
+}
+
+/* Run the standalone audit the way an operator does. A problem set exits
+   non-zero, so read the JSON out of the throw. */
+function runAudit(root) {
+  let stdout;
+  try {
+    stdout = execFileSync(process.execPath, [AUDIT, "--root", root, "--json"], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+  } catch (err) {
+    stdout = err.stdout;
+  }
+  return JSON.parse(stdout);
+}
+
 const lqPanel = (slide, section) => `<section class="section-dse lo-quiz" id="lq-quiz" data-quiz="lq">
   <div class="quiz-slides"><article class="quiz-slide is-current" id="${slide}">
     <figure class="dse-paper"><img src="../_local/dse/lq/${section}/${slide.slice("dse-lq-".length).replace(/^\d+-/, "")}.png" alt=""></figure>
@@ -106,29 +156,29 @@ test("section 20 shows every electrostatics long question the source holds", () 
   const source = loadSource(PAPER2NOTES);
   assert.ok(source.ok, `paper2db tracked inputs not found beside paper2notes: ${source.note}`);
   const expected = source.lqBySection.get(20) || [];
-  assert.deepEqual([...expected].sort(), ["2013-q11", "2020-q9", "2024-q9", "2026-q7"]);
+  assert.deepEqual([...expected].sort(), SECTION_20_KEYS);
 
   for (const page of ["20-1.html", "20-2.html"]) {
     const rel = join("notes", "book4", "ch01-electrostatics", page);
     const html = readFileSync(join(PAPER2NOTES, rel), "utf8");
     const problems = checkPage(html, { page: rel, availability: { ...loadAvailability(PAPER2NOTES), repoRoot: PAPER2NOTES }, source }).problems;
     assert.deepEqual(problems, [], `${page}: ${problems.map((p) => `- ${p.kind}: ${p.detail}`).join("\n")}`);
-
-    const slides = slideBlocks(html).filter((slide) => slide.id.startsWith("dse-lq-"));
-    for (const key of expected) {
-      const [year, n] = key.match(/^(\d+)-q(\d+)$/).slice(1);
-      const slide = slides.find((s) => s.id === `dse-lq-${year}-${n}`);
-      assert.ok(slide, `${page} has no slide ${key}`);
-      const crop = cropRefs(slide.html).find((ref) => ref.kind === "lq" && ref.section === "20");
-      assert.ok(crop, `${page} slide ${key} shows no published crop`);
-      assert.equal(crop.file, `${year}-q${n}.png`, `${page} slide ${key} shows ${crop.file}`);
-      assert.ok(
-        existsSync(join(PAPER2NOTES, "notes", "dse", "lq", "20", crop.file)),
-        `${page} slide ${key} points at notes/dse/lq/20/${crop.file}, which the snapshot does not publish`,
-      );
-    }
+    assert.deepEqual(section20Problems(html), [], `${page} does not show every crop the source holds for section 20`);
     assert.deepEqual(unpublishedSlideCrops(html, PAPER2NOTES), [], `${page} shows a crop the snapshot does not publish`);
   }
+});
+
+test("the section-20 crop check fails when a slide is commented out", () => {
+  const rel = join("notes", "book4", "ch01-electrostatics", "20-1.html");
+  const html = readFileSync(join(PAPER2NOTES, rel), "utf8");
+  assert.deepEqual(section20Problems(html), []);
+
+  const commented = html.replace(/(<article\b[^>]*\bid="dse-lq-2024-9"[\s\S]*?<\/article>)/, "<!-- $1 -->");
+  assert.notEqual(commented, html, "the dse-lq-2024-9 article was not found to comment out");
+  assert.ok(
+    section20Problems(commented).some((p) => p.includes("2024-q9")),
+    `a commented-out 2024/9 slide must fail the conformance check, got ${JSON.stringify(section20Problems(commented))}`,
+  );
 });
 
 test("the section-20 crop check fails when a published crop is removed", () => {
@@ -256,10 +306,50 @@ test("a written absence must match the record and name the paper and its questio
 
   /* No record for the stated section: the statement must fail. */
   assert.deepEqual(kinds(absenceCheck(note("99", evidence))), ["dse-lq-none-undeclared"]);
-  /* The record says real-crop: the statement contradicts it. */
+  /* The record does not say none-in-source: the statement contradicts it. */
   assert.deepEqual(kinds(absenceCheck(note("20", evidence))), ["dse-lq-none-contradicts-record"]);
+  assert.deepEqual(kinds(absenceCheck(note("21", evidence))), ["dse-lq-none-contradicts-record"]);
   /* The words name no paper and no range: the statement must fail. */
-  assert.deepEqual(kinds(absenceCheck(note("21", "No long question is published for this section."))), ["dse-lq-none-no-evidence"]);
-  /* A placeholder section with checkable words passes. */
-  assert.deepEqual(kinds(absenceCheck(note("21", evidence))), []);
+  assert.deepEqual(kinds(absenceCheck(note("21", "No long question is published for this section."))), ["dse-lq-none-contradicts-record", "dse-lq-none-no-evidence"]);
+
+  /* A none-in-source record with an evidence-bearing reason passes when the
+     note repeats it, and fails when the note alone claims the absence. */
+  const none = fakeRepo({
+    manifest: { placeholderFiles: ["sample.png"], sections: { 30: { lq: { state: "none-in-source", reason: evidence } } } },
+    lq: {},
+    mc: [],
+    starts: {},
+  });
+  assert.deepEqual(kinds(absenceCheck(note("30", evidence), { repoRoot: none })), []);
+  assert.deepEqual(kinds(absenceCheck(note("30", "No long question is published for this section."), { repoRoot: none })), ["dse-lq-none-no-evidence"]);
+});
+
+test("the audit fails a data-lq-none page with no backing record", () => {
+  const evidence = "The 2012 long-question paper has questions 1 to 11.";
+  const root = auditFixture({
+    manifest: { placeholderFiles: ["sample.png"], sections: {} },
+    pages: { "30-1.html": `<p class="dse-lq-none" data-lq-none="30">${evidence}</p>` },
+  });
+  const report = runAudit(root);
+  assert.ok(report.problems.some((p) => p.kind === "dse-lq-none-undeclared"), JSON.stringify(report.problems));
+});
+
+test("the audit fails a data-lq-none page whose record lacks an evidence-bearing reason", () => {
+  const evidence = "The 2012 long-question paper has questions 1 to 11.";
+  const root = auditFixture({
+    manifest: { placeholderFiles: ["sample.png"], sections: { 31: { lq: { state: "none-in-source", reason: "nothing ships here" } } } },
+    pages: { "31-1.html": `<p class="dse-lq-none" data-lq-none="31">${evidence}</p>` },
+  });
+  const report = runAudit(root);
+  assert.ok(report.problems.some((p) => p.kind === "dse-availability-no-evidence"), JSON.stringify(report.problems));
+});
+
+test("the audit fails a none-in-source record whose page shows a placeholder", () => {
+  const root = auditFixture({
+    manifest: { placeholderFiles: ["sample.png"], sections: { 32: { lq: { state: "none-in-source", reason: "The 2012 long-question paper has questions 1 to 11." } } } },
+    sections: [["lq", "32", ["sample.png"]]],
+    pages: { "32-1.html": `<article class="quiz-slide" id="dse-lq-32-sample"><img src="../_local/dse/lq/32/sample.png" alt=""></article>` },
+  });
+  const report = runAudit(root);
+  assert.ok(report.problems.some((p) => p.kind === "dse-lq-placeholder-undeclared"), JSON.stringify(report.problems));
 });

@@ -14,7 +14,7 @@
  *   paper2db/metadata/{mc,lq}/llm_classifications.json   which question belongs to which section
  *   paper2db/tests/reconstructed/lq/<year>/starts.json   the long questions each year's paper holds
  *
- * Run: node paper2notes/scripts/dse-availability.mjs [--json]
+ * Run: node paper2notes/scripts/dse-availability.mjs [--json] [--root <dir>]
  * Also called from scripts/quiz-audit.mjs (per page) and scripts/ci-check.mjs
  * (the snapshot record), so a later run cannot quietly turn a documented
  * absence back into a bug. */
@@ -312,7 +312,7 @@ export function referenceCounts(root) {
         if (SKIP.has(name)) continue;
         walk(full);
       } else if (name.endsWith(".html")) {
-        const refs = [...readFileSync(full, "utf8").matchAll(/_local\/dse\/[^'"\s)]+/g)].map((m) => m[0]);
+        const refs = [...withoutComments(readFileSync(full, "utf8")).matchAll(/_local\/dse\/[^'"\s)]+/g)].map((m) => m[0]);
         if (!refs.length) continue;
         const book = relative(notesDir, full).split("/")[0];
         if (!byBook.has(book)) byBook.set(book, new Set());
@@ -363,19 +363,26 @@ export function checkDocumentedReferenceCounts(docText, counts) {
 
 /* ---------- one page ---------- */
 
+/* Blank HTML comments without moving any other character, so a parser never
+   matches markup a reader cannot see. */
+function withoutComments(html) {
+  return html.replace(/<!--[\s\S]*?-->/g, (m) => m.replace(/[^\n]/g, " "));
+}
+
 export function slideBlocks(html) {
-  const opens = [...html.matchAll(/<article\b[^>]*class="[^"]*quiz-slide[^"]*"[^>]*>/g)];
+  const text = withoutComments(html);
+  const opens = [...text.matchAll(/<article\b[^>]*class="[^"]*quiz-slide[^"]*"[^>]*>/g)];
   return opens.map((m, i) => {
     const id = m[0].match(/\bid="([^"]+)"/)?.[1] || "";
-    const end = opens[i + 1]?.index ?? html.length;
-    return { id, html: html.slice(m.index, end) };
+    const end = opens[i + 1]?.index ?? text.length;
+    return { id, html: text.slice(m.index, end) };
   });
 }
 
 /* Every crop a page points at: { kind, section, file }. */
 export function cropRefs(html) {
   const out = [];
-  for (const m of html.matchAll(/_local\/dse\/(mc|lq)\/(\d+)\/([A-Za-z0-9_.-]+)/g)) {
+  for (const m of withoutComments(html).matchAll(/_local\/dse\/(mc|lq)\/(\d+)\/([A-Za-z0-9_.-]+)/g)) {
     out.push({ kind: m[1], section: m[2], file: m[3] });
   }
   return out;
@@ -495,13 +502,14 @@ export function checkAbsencePanels(html, { page, availability }) {
   const manifest = availability?.manifest || null;
   const manifestRel = availability?.repoRoot ? relative(availability.repoRoot, availability.file) : availability?.file || "notes/dse/availability.json";
   const entryFor = (kind, section) => manifest?.sections?.[section]?.[kind] || null;
+  const text = withoutComments(html);
 
-  for (const m of html.matchAll(/<([a-z]+)\b[^>]*\bdata-lq-none="([^"]+)"[^>]*>/gi)) {
+  for (const m of text.matchAll(/<([a-z]+)\b[^>]*\bdata-lq-none="([^"]+)"[^>]*>/gi)) {
     const tag = m[1];
     const section = m[2].trim();
-    const close = html.slice(m.index + m[0].length).search(new RegExp(`</${tag}\\b`, "i"));
-    const inner = close === -1 ? html.slice(m.index + m[0].length) : html.slice(m.index + m[0].length, m.index + m[0].length + close);
-    const text = inner.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    const close = text.slice(m.index + m[0].length).search(new RegExp(`</${tag}\\b`, "i"));
+    const inner = close === -1 ? text.slice(m.index + m[0].length) : text.slice(m.index + m[0].length, m.index + m[0].length + close);
+    const note = inner.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
     const entry = entryFor("lq", section);
     if (!entry) {
       problems.push({
@@ -510,7 +518,7 @@ export function checkAbsencePanels(html, { page, availability }) {
       });
       continue;
     }
-    if (entry.state === "real-crop") {
+    if (entry.state !== "none-in-source") {
       problems.push({
         kind: "dse-lq-none-contradicts-record",
         detail: `the page states that lq/${section} has no long question, but ${manifestRel} records ${entry.state} for it`,
@@ -518,11 +526,16 @@ export function checkAbsencePanels(html, { page, availability }) {
     }
     if (typeof entry.reason !== "string" || !entry.reason.trim()) {
       problems.push({ kind: "dse-availability-no-reason", detail: `the page states that lq/${section} has no long question, but ${manifestRel} gives no reason` });
+    } else if (entry.state === "none-in-source" && !namesEvidence(entry.reason)) {
+      problems.push({
+        kind: "dse-availability-no-evidence",
+        detail: `the page states that lq/${section} has no long question, but ${manifestRel} gives no checkable reason for it: "${entry.reason}"`,
+      });
     }
-    if (!namesEvidence(text)) {
+    if (!namesEvidence(note)) {
       problems.push({
         kind: "dse-lq-none-no-evidence",
-        detail: `the note on lq/${section} must name the paper and the questions it does have, so a reader can check it: "${text}"`,
+        detail: `the note on lq/${section} must name the paper and the questions it does have, so a reader can check it: "${note}"`,
       });
     }
     informational.push({
@@ -548,7 +561,8 @@ function pages(dir, out = []) {
 }
 
 function main() {
-  const repoRoot = resolve(fileURLToPath(import.meta.url), "..", "..");
+  const rootFlag = process.argv.indexOf("--root");
+  const repoRoot = rootFlag !== -1 && process.argv[rootFlag + 1] ? resolve(process.argv[rootFlag + 1]) : resolve(fileURLToPath(import.meta.url), "..", "..");
   const availability = { ...loadAvailability(repoRoot), repoRoot };
   const snapshot = checkSnapshot({ repoRoot, availability });
   const source = loadSource(repoRoot);
