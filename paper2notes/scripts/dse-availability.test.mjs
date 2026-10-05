@@ -95,6 +95,17 @@ test("a slide naming a real long question of another section fails", () => {
   assert.ok(kinds(r).includes("dse-lq-wrong-section"), `expected dse-lq-wrong-section, got ${JSON.stringify(r)}`);
 });
 
+test("a slide that names one question and shows another fails", () => {
+  const slide = (id, crop) => `<section class="section-dse lo-quiz" id="lq-quiz" data-quiz="lq">
+  <div class="quiz-slides"><article class="quiz-slide is-current" id="${id}">
+    <figure class="dse-paper"><img src="../_local/dse/lq/20/${crop}.png" alt=""></figure>
+  </article></div>
+</section>`;
+  const bad = pageCheck(slide("dse-lq-2013-11", "2020-q9"));
+  assert.ok(kinds(bad).includes("dse-lq-slide-crop-mismatch"), `expected dse-lq-slide-crop-mismatch, got ${JSON.stringify(bad)}`);
+  assert.deepEqual(kinds(pageCheck(slide("dse-lq-2013-11", "2013-q11"))), []);
+});
+
 test("a placeholder slide passes only where the record says placeholder", () => {
   /* Section 21 still publishes only its placeholder; section 20 publishes real crops. */
   assert.deepEqual(kinds(pageCheck(lqPanel("dse-lq-21-sample", 21))), []);
@@ -129,6 +140,7 @@ test("an undeclared section fails", () => {
 test("a published directory must match the state it declares", () => {
   const cases = [
     ["real-crop", ["sample.png"], "dse-availability-placeholder-declared-real"],
+    ["real-crop", ["sample.png", "2013-q1.png"], "dse-availability-real-with-placeholder"],
     ["placeholder", ["2013-q1.png"], "dse-availability-real-declared-placeholder"],
     ["none-in-source", ["sample.png"], "dse-availability-none-in-source-with-files"],
   ];

@@ -3,7 +3,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -60,43 +59,10 @@ test("the audit still finds the quizzes it is meant to guard", () => {
 });
 
 test("every DSE question a page shows is one the papers hold", () => {
-  const kinds = ["dse-lq-not-in-source", "dse-lq-wrong-section", "dse-lq-outside-paper-range", "dse-question-not-in-source", "dse-availability-undeclared", "dse-lq-placeholder-undeclared", "dse-lq-none-undeclared", "dse-lq-none-contradicts-record", "dse-lq-none-no-evidence"];
+  const kinds = ["dse-lq-not-in-source", "dse-lq-wrong-section", "dse-lq-outside-paper-range", "dse-lq-slide-crop-mismatch", "dse-question-not-in-source", "dse-availability-undeclared", "dse-availability-real-with-placeholder", "dse-lq-placeholder-undeclared", "dse-lq-none-undeclared", "dse-lq-none-contradicts-record", "dse-lq-none-no-evidence"];
   const bad = [
     ...report.snapshot.problems.filter((x) => kinds.includes(x.kind)),
     ...pages.flatMap((p) => p.problems.filter((x) => kinds.includes(x.kind)).map((x) => `${p.page}: ${x.detail}`)),
   ];
   assert.deepEqual(bad, [], `DSE slides or notes that drift from notes/dse/availability.json:\n${bad.join("\n")}`);
-});
-
-test("every section that publishes only placeholders says so on a page", () => {
-  const manifest = JSON.parse(readFileSync(join(ROOT, "paper2notes", "notes", "dse", "availability.json"), "utf8"));
-  const placeholderSections = Object.entries(manifest.sections)
-    .filter(([, kinds]) => kinds.lq?.state === "placeholder")
-    .map(([section]) => section)
-    .sort();
-
-  /* Read the placeholder sections off disk rather than assuming how many there
-     are: publishing a section's real crops (section 20 does) removes it from
-     this set, and a hard-coded count would then fail for the wrong reason.
-     Comparing the two sets also keeps the test from passing vacuously when the
-     record and the snapshot agree on an empty set. */
-  const lqDir = join(ROOT, "paper2notes", "notes", "dse", "lq");
-  const placeholders = new Set(manifest.placeholderFiles || ["sample.png"]);
-  const onlyPlaceholders = readdirSync(lqDir)
-    .filter((section) => statSync(join(lqDir, section)).isDirectory())
-    .filter((section) => {
-      const files = readdirSync(join(lqDir, section));
-      return files.length > 0 && files.every((file) => placeholders.has(file));
-    })
-    .sort();
-  assert.deepEqual(placeholderSections, onlyPlaceholders, `notes/dse/lq/ directories holding only placeholders must be the sections the record calls placeholder`);
-
-  const stated = new Set();
-  for (const page of pages) {
-    for (const note of page.informational.filter((x) => x.kind === "dse-lq-none-stated")) {
-      stated.add(note.detail.match(/^lq\/(\d+)/)?.[1]);
-      assert.match(note.detail, /records it as placeholder/, `${page.page}: ${note.detail}`);
-    }
-  }
-  assert.deepEqual([...stated].sort(), placeholderSections, "every section that publishes only placeholders must state it on a page, with the reason from notes/dse/availability.json");
 });

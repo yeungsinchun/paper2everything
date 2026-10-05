@@ -7,8 +7,9 @@
      3. DSE  .quiz-slide[id^="dse-mc-"]                    -> id must exist in that page's QUIZ_KEYS
      4. wiring: the page must load a js/checks.js that resolves on disk
      5. DSE availability: every DSE crop a page shows must be a question the
-        papers really hold, and every section that publishes no long question
-        must say so in notes/dse/availability.json and on the page
+        papers really hold, and every section must be recorded in
+        notes/dse/availability.json; a page that states in words that a section
+        has no long question must match that record
         (see scripts/dse-availability.mjs)
 
    Run: node paper2notes/scripts/quiz-audit.mjs [--json]

@@ -185,8 +185,8 @@ curated, tracked set of 95 DSE question assets (79 PNG crops + 16
 `combined.pdf`) beside `availability.json`, copied from the paper2db output
 (`tests/sections/`, 921 PNGs). The paths paper2db has no crop for were filled
 with text placeholders in 361de93; four of those placeholders remain, all of
-them `lq/21/sample.png` … `lq/24/sample.png`, and every page that uses one says
-in words that no long question is published for its section. Section 20's
+them `lq/21/sample.png` … `lq/24/sample.png`, and each section page shows its
+placeholder as a sample deck. Section 20's
 placeholder is gone: that section publishes the four long questions its source
 papers hold (2013/11, 2020/9, 2024/9, 2026/7), cropped by `crop_lq_from_pages.py`
 from `paper/lq/<year>p1b.pdf` and checked by

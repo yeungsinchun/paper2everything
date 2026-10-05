@@ -214,6 +214,12 @@ export function checkSnapshot({ repoRoot, availability }) {
             detail: `${where} declares placeholder but publishes ${real.join(", ")}`,
           });
         }
+        if (entry.state === "real-crop" && real.length && placeholders.length) {
+          problems.push({
+            kind: "dse-availability-real-with-placeholder",
+            detail: `${where} declares real-crop but still publishes the placeholder(s) ${placeholders.join(", ")} beside ${real.join(", ")}`,
+          });
+        }
         if (entry.state === "none-in-source" && files.length) {
           problems.push({
             kind: "dse-availability-none-in-source-with-files",
@@ -352,6 +358,13 @@ export function checkPage(html, { page, availability, source }) {
 
     if (question) {
       const { year, n } = { year: question[1], n: Number(question[2]) };
+      const parsedCrop = crop ? parseCropName(crop.file) : null;
+      if (crop && (!parsedCrop || parsedCrop.year !== year || parsedCrop.n !== n)) {
+        problems.push({
+          kind: "dse-lq-slide-crop-mismatch",
+          detail: `slide ${slide.id} names ${year} question ${n}, but shows ${crop.kind}/${crop.section}/${crop.file}`,
+        });
+      }
       if (source.ok) {
         const key = `${year}-q${n}`;
         const sections = source.lqQuestions.get(key);
