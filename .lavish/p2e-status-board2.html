@@ -119,16 +119,37 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
 <div class="wrap">
 
-  <p class="eyebrow" style="margin-top:28px">Read at 2026-10-05 22:55 HKT · this is the board of record · annotate it here, the notes come back to this project's inbox</p>
+  <p class="eyebrow" style="margin-top:28px">Read at 2026-10-05 23:05 HKT · this is the board of record · annotate it here, the notes come back to this project's inbox</p>
   <h1>What is open, what is live, and what lands next</h1>
-  <p class="lede">Four pull requests are open, and this board is one of them. Two carry green checks; the two documentation ones carry none because every path they touch is outside the workflows' filters. Two requests closed today: one merged, one dropped by you. Eleven worktree slots are in play, four are finished with nothing left to lose, one is stale for a concrete reason. The UI consistency work is now a queue of lanes, and three of them cannot start until the shared stylesheet lane lands.</p>
+  <p class="lede">Four pull requests are open, and this board is one of them; every one has its link in the table at the top. Two carry green checks; the two documentation ones carry none because every path they touch is outside the workflows' filters. Two requests closed today: one merged, one dropped by you. Eleven worktree slots are in play, six are finished with nothing left in them, one is stale for a concrete reason, two still hold work that exists nowhere else. The UI consistency work is a queue of lanes, and three of them cannot start until the shared stylesheet lane lands. Nine calls are waiting on your word.</p>
 
   <div class="grid g4" style="margin-top:22px">
     <div class="stat"><div class="big">4</div><div class="k">Open pull requests</div><div class="d">#107, #108, #112 and #113. All four target <span class="mono">main</span> and all four merge clean. #112 is this board.</div></div>
     <div class="stat"><div class="big">2</div><div class="k">Closed today</div><div class="d">#105 merged. #106 the failed-attempt record was dropped by you and closed unmerged.</div></div>
-    <div class="stat"><div class="big">7</div><div class="k">Live worktrees</div><div class="d">Four finished and safe, one stale and provable, two still writing files.</div></div>
-    <div class="stat ask"><div class="big">5</div><div class="k">Waiting on your word</div><div class="d">The answer-data items, plus two smaller design calls that sit behind them.</div></div>
+    <div class="stat"><div class="big">4</div><div class="k">Slots finished, safe</div><div class="d">27, 10, 34, 32, 33 and 30-held. Slot 25 is the one stale slot.</div></div>
+    <div class="stat ask"><div class="big">9</div><div class="k">Waiting on your word</div><div class="d">Five answer-data items, two DSE design calls, and three that arrived from finished scout work tonight.</div></div>
   </div>
+
+  <details open style="margin-top:22px">
+    <summary>Every request, with its link</summary>
+    <p class="note" style="margin:8px 0 0">Every request this board names, copied out so nothing has to be hunted for.</p>
+    <table style="margin-top:10px">
+      <tbody>
+        <tr><td class="id" style="white-space:nowrap"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/107">https://github.com/yeungsinchun/paper2everything/pull/107</a> — question-bank harness, 2 checks green</td></tr>
+        <tr><td class="id"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/108">https://github.com/yeungsinchun/paper2everything/pull/108</a> — per-page concept brief generator, 1 check green</td></tr>
+        <tr><td class="id"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/112">https://github.com/yeungsinchun/paper2everything/pull/112</a> — this board and the README note, no checks</td></tr>
+        <tr><td class="id"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/113">https://github.com/yeungsinchun/paper2everything/pull/113</a> — screenshot rule in AGENTS.md, removes 5 PNGs, no checks</td></tr>
+        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/105">https://github.com/yeungsinchun/paper2everything/pull/105</a> — Book 5 chapter picker, merged 13:53 UTC</td></tr>
+        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/109">https://github.com/yeungsinchun/paper2everything/pull/109</a> — grade every DSE MC slide</td></tr>
+        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/94">https://github.com/yeungsinchun/paper2everything/pull/94</a> — anchor id lint, moves.json, pointer shape</td></tr>
+        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/102">https://github.com/yeungsinchun/paper2everything/pull/102</a> — Book 2 stylesheet aligned to the Book 5 contract</td></tr>
+        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/103">https://github.com/yeungsinchun/paper2everything/pull/103</a> — design-system layer on the Book 5 index</td></tr>
+        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/104">https://github.com/yeungsinchun/paper2everything/pull/104</a> — Book 4 answer-bearing block ids</td></tr>
+        <tr><td class="id"><span class="pill dead">closed</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/106">https://github.com/yeungsinchun/paper2everything/pull/106</a> — failed-attempt record, dropped and closed unmerged</td></tr>
+        <tr><td class="id"><span class="pill dead">closed</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/110">https://github.com/yeungsinchun/paper2everything/pull/110</a> — committed screenshots, superseded and closed unmerged</td></tr>
+      </tbody>
+    </table>
+  </details>
 
   <!-- ============ 1 REQUESTS ============ -->
   <section id="prs">
@@ -203,32 +224,32 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
           <tr>
             <td class="id">p2db-answer-corrections<br>slot 9</td>
             <td class="plain">Fixing wrong and unreadable answers: extending answer-key overrides, bounding the key-page scan to Paper 1 Section A, re-cropping rotated answer images.</td>
-            <td>Five files edited and uncommitted, two of them new tests. Branch <span class="path">fm/p2db-answer-corrections</span> at <span class="mono">5ef1716</span>, four behind main, nothing pushed of its own. Slot is 3.8 GB.</td>
+            <td>Five files edited and uncommitted, two of them new tests. A key-extraction run is rewriting the derived keys now, through 2019 so far. Branch <span class="path">fm/p2db-answer-corrections</span> at <span class="mono">5ef1716</span>, four behind main, nothing pushed of its own. Slot is 3.8 GB.</td>
             <td><span class="pill hold">live, nothing safe</span><br><span class="note">Returning this slot would delete five files of work.</span></td>
           </tr>
           <tr>
             <td class="id">p2e-f03-dse-answers-complete-m1<br>slot 26</td>
             <td class="plain">Completing the DSE answers: answer-start maps, derived keys, re-staged DSE data. Six commits.</td>
-            <td>Committed at <span class="mono">bce760a</span>, none pushed. Custody was returned and a fresh run started, but that run has sat pending with zero steps for about half an hour; the shared daemon is alive, so this is its queue.</td>
+            <td>Committed at <span class="mono">bce760a</span>, none pushed. The review fix round came back with zero findings and the run has reached its test, document, lint, push, request and CI steps.</td>
             <td><span class="pill hold">live, six commits only here</span></td>
           </tr>
           <tr>
             <td class="id">p2e-shared-styles-consolidation<br>slot 28</td>
             <td class="plain">Pulling the repeated quiz, option, header and navigation styling into one shared stylesheet and one reusable component, with a test that fails if an inline copy reappears.</td>
-            <td>Branch created, no commits yet. 130 in-scope selector slots mapped across three book stylesheets, 122 of them duplicated.</td>
+            <td>Still working: 130 in-scope selector slots mapped across three book stylesheets, 122 of them duplicated. No commits yet.</td>
             <td><span class="pill hold">live, and it gates three lanes</span></td>
           </tr>
           <tr>
             <td class="id">p2e-deployed-quiz-integrity<br>slot 32</td>
-            <td class="plain">Checking every deployed page's quiz data for missing, unkeyed, unreadable or wrong-paper items.</td>
-            <td>Running since 20:11, no findings published yet.</td>
-            <td><span class="pill hold">live</span></td>
+            <td class="plain">Checked every deployed page's quiz data. Report written: section 20.1's 2012/24 multiple choice is present and gradable, a screenshot in #109 is a stale capture, and the sweep found 14 broken crops on 6 Book 5 pages, 5 multiple-choice slides keyed against a store that says missing, and 111 of 130 slides showing objective 0.</td>
+            <td>Task reported done at 22:21, and it raised two student-visible product choices it could not settle. Two follow-up fixes are already queued from it.</td>
+            <td><span class="pill ask">finished, waiting on your word</span><br><span class="note">2.2 GB. Nothing in the slot is unfinished.</span></td>
           </tr>
           <tr>
             <td class="id">p2e-framework-recon<br>slot 33</td>
-            <td class="plain">Answering from evidence whether this repository should move to React or a modern component model. Report only, no migration.</td>
-            <td>Running since 21:18.</td>
-            <td><span class="pill hold">live</span></td>
+            <td class="plain">Answered from evidence whether this repository should move to React. Bottom line: the live site does not use React. It is hand-written static HTML, 60 files, plus vendored CSS and vanilla JS. No package manifest, no bundler, no build step. A React design system exists in the tree with 15 components, but it is reference material and is never deployed.</td>
+            <td>Task reported done at 22:12 with three options and a recommendation: consolidate the duplicated shared files rather than migrate. No migration performed.</td>
+            <td><span class="pill ask">finished, waiting on your word</span><br><span class="note">2.0 GB. Read-only task, nothing in the slot.</span></td>
           </tr>
           <tr>
             <td class="id">p2e-ds-apply-book5-m1<br>slot 27</td>
@@ -298,6 +319,18 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
             <td class="id">2.0 GB</td>
           </tr>
           <tr>
+            <td class="id">32</td>
+            <td class="plain">Finished. The deployed-quiz sweep reported at 22:21 and its findings are in the task's own report and in two queued follow-ups.</td>
+            <td><span class="pill ok">yes</span></td>
+            <td class="id">2.2 GB</td>
+          </tr>
+          <tr>
+            <td class="id">33</td>
+            <td class="plain">Finished. Read-only recon; the report lives outside the repository and nothing is left in the slot.</td>
+            <td><span class="pill ok">yes</span></td>
+            <td class="id">2.0 GB</td>
+          </tr>
+          <tr>
             <td class="id">30</td>
             <td class="plain">Finished but held: the audit report is stored outside the repository and only 163 MB of scratch crops remain in the slot. Kept while A1 to A5 are open in case the audit must be re-run.</td>
             <td><span class="pill ask">after your answers</span><br><span class="note">The scratch folder alone could go now.</span></td>
@@ -316,15 +349,15 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
             <td class="id">3.8 GB, 2.8 GB</td>
           </tr>
           <tr>
-            <td class="id">28, 32, 33, 20</td>
-            <td class="plain">Live. The consolidation lane, the deployed-quiz sweep, the framework recon, and this board.</td>
+            <td class="id">28, 20</td>
+            <td class="plain">Live: the shared stylesheet consolidation and this board.</td>
             <td><span class="pill hold">no</span></td>
             <td class="id">2.0 to 2.2 GB each</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="note" style="margin-top:12px">Freeing the four finished slots plus slot 25 gives about 10 GB, on a machine with roughly 11 GB free. That is the single largest reclaim available and nothing depends on those slots.</p>
+    <p class="note" style="margin-top:12px">Freeing slots 27, 10, 34, 32 and 33 plus the stale 25 gives about 12 GB, on a machine with roughly 11 GB free. That is the single largest reclaim available and nothing depends on those slots. Slot 30 follows once you answer A1 to A5.</p>
   </section>
 
   <!-- ============ 4 ORDER ============ -->
@@ -473,10 +506,10 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
             <td><span class="pill hold">queued</span></td>
           </tr>
           <tr>
-            <td class="id">Framework recon<br><span class="note">running, slot 33</span></td>
-            <td class="plain">Not a defect: the open question of whether this repository should move to React or a modern component model.</td>
-            <td class="plain">An evidence-based answer on what the pages are built from today, how many pages are affected, and two or three options with real cost and risk. No migration.</td>
-            <td><span class="pill hold">running</span></td>
+            <td class="id">Framework recon<br><span class="note">reported, slot 33</span></td>
+            <td class="plain">Not a defect: the open question of whether this repository should move to React or a modern component model. Answered: the live site is 60 files of hand-written static HTML with vendored CSS and vanilla JS. No React, no package manifest, no bundler, no build step. A React design system with 15 components exists in the tree but is never deployed.</td>
+            <td class="plain">Three options on the table: consolidate the duplicated shared files only and stay static, recommended; adopt the design system without a bundler, which costs offline rendering; or a full React migration with a bundler, which adds a Node build stage and an npm install to every contributor. No migration performed.</td>
+            <td><span class="pill ask">reported, waiting on your word</span></td>
           </tr>
         </tbody>
       </table>
@@ -495,8 +528,8 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
   <!-- ============ 7 CAPTAIN'S CALL ============ -->
   <section id="calls">
-    <div class="sec-head"><span class="n">7</span><h2>What needs your word</h2><span class="pill ask">5 answer-data items</span></div>
-    <p class="plain">All of these are already tracked as held items, so nothing is lost if the answer comes later. Tick what you are deciding now and the answers come back to this project's inbox.</p>
+    <div class="sec-head"><span class="n">7</span><h2>What needs your word</h2><span class="pill ask">9 open calls</span></div>
+    <p class="plain">All of these are tracked as held items, so nothing is lost if the answer comes later. Tick what you are deciding now and the answers come back to this project's inbox. Two arrived since the last pass and are at the bottom.</p>
     <div class="grid g2" style="margin-top:14px">
       <form class="q" data-lavish-question="merge-order" onsubmit="event.preventDefault(); const choice = new FormData(event.currentTarget).get('merge-order'); if (choice) window.lavish.queuePrompt('Merge in the order: ' + choice + '. Treat each merge as approved in that order.', { tag: 'choice', text: 'Merge order: ' + choice, element: event.currentTarget, data: { question: 'merge-order', answer: choice } });">
         <h3>Merge order for the two open requests</h3>
@@ -524,6 +557,15 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
       <p class="plain"><b>Should the DSE key checker ever equate scientific notation</b>, or stay a strict string comparison?</p>
       <p class="plain"><b>Should the DSE review board carry machine-checkable agreement claims</b> when its parser cannot read prose runs? The guard built on it currently accepts a mark that two of three runs do not support, and the README states a rule untrue for that record. No wrong key ships today.</p>
     </details>
+
+    <form class="q" data-lavish-question="captain-new-calls" onsubmit="event.preventDefault(); const selected = [...event.currentTarget.querySelectorAll('input[name=items]:checked')].map((input) => ({ id: input.value, label: input.dataset.label, disposition: input.dataset.disposition })); if (selected.length) window.lavish.queuePrompt('Act on every selected item below and give an item-by-item receipt. Name each submitted ID and its outcome.', { tag: 'tracked-batch', text: 'Decide ' + selected.length + ' new items', element: event.currentTarget, data: { items: selected } });" style="margin-top:14px">
+      <h3>Two calls that arrived since the last pass</h3>
+      <p class="help">Both came out of finished scout work in the last hour. Neither blocks a running task.</p>
+      <label class="opt"><input type="checkbox" name="items" value="CALL-FRAMEWORK-ABC" data-label="Framework option A, B or C from the recon report" data-disposition="decide-framework"><span><span class="t">Framework — A, B or C</span><span class="d">A: consolidate the duplicated shared files only and stay static — recommended. B: use the design system without a bundler, which costs offline rendering. C: full React migration with a bundler, which adds a Node build stage and an npm install for every contributor.</span></span></label>
+      <label class="opt"><input type="checkbox" name="items" value="CALL-QUIZ-LONGQ-DECK" data-label="What the Long questions deck should show on Book 4 pages 20-1 to 24-4" data-disposition="decide-placeholder"><span><span class="t">Quiz — the Long questions deck on Book 4 pages 20-1 to 24-4</span><span class="d">Today it renders a placeholder image reading that real crops will appear after pipeline publication. Hide the deck until real crops exist, keep the placeholder with clearer wording, or source real section 20 to 24 long questions.</span></span></label>
+      <label class="opt"><input type="checkbox" name="items" value="CALL-QUIZ-PP-SAP" data-label="pp_q35 and sap_q34 exist nowhere, so their slides cannot be published" data-disposition="decide-slides"><span><span class="t">Quiz — two slides with no crop anywhere</span><span class="d">pp_q35 and sap_q34 exist in no repository location, so their slides cannot be published. Obtain and publish a real crop, or drop the slide.</span></span></label>
+      <p style="margin-top:12px"><button type="submit">Queue selected items</button></p>
+    </form>
 
     <details style="margin-top:14px">
       <summary>Slot 25 and the four finished slots — reclaim?</summary>
@@ -570,7 +612,9 @@ chrome-devtools-axi                        rendered this page at 1280 and at a n
     <details style="margin-top:12px">
       <summary>What changed in this pass</summary>
       <p class="plain">This board replaced an earlier hosted page, which you rejected. It is now a file in the repository at <span class="mono">.lavish/p2e-status-board2.html</span> on branch <span class="path">fm/p2e-status-board2</span>, with the listener armed on this page so your annotations arrive in this project's inbox. The README gained a note recording that the failed-attempt record was dropped and is deliberately not replaced. Nothing was merged.</p>
-      <p class="plain">Your first note on it asked why only two requests were shown when four are open. Two were missing because this board was written at 22:10, before #113 opened, and because it left its own request out of the count. Both are fixed: all four open requests are now listed, this board counts itself as #112, and the counts at the top, the figure and the order all agree with the forge at 22:55.</p>
+      <p class="plain">Your second note asked for the link for everything that has a request. There is now a link table at the top of this page listing every request this board names, open, merged and closed, with its full URL copied out.</p>
+      <p class="plain">Your first note asked why two requests were shown when four are open. Two were missing because this board was written at 22:10, before #113 opened, and because it left its own request out of the count. Both are fixed: all four open requests are now listed, this board counts itself as #112, and the counts at the top, the figure and the order all agree with the forge at 22:55.</p>
+      <p class="plain">This round also folds in two finished scout tasks. The deployed-quiz sweep reported: 14 broken crops on 6 Book 5 pages, 5 multiple-choice slides keyed against a store that says missing, 111 of 130 slides showing objective 0, and a screenshot in #109 that is a stale capture. The framework recon reported: no React in the live site, no build step, and a real but undeployed React design system. Both raised calls, now listed in section 7 with their options.</p>
     </details>
   </section>
 
