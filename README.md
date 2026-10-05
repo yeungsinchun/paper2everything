@@ -151,6 +151,13 @@ Full rules: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Documentation index
 
+### Dropped: the failed-attempt record
+
+On 2026-10-05 the captain dropped the failed-attempt record — the `failed/` folder of records for abandoned and superseded attempts — and
+[PR #106](https://github.com/yeungsinchun/paper2everything/pull/106), which proposed it, was closed without merging. The record is deliberately
+not being replaced: no other file in this repository links to `failed/`, and nothing should start linking to it. The history of what was tried and
+why it was dropped stays in that pull request and in the firstmate home's task records, not in the tree.
+
 | Document | Contents |
 |---|---|
 | [`docs/PRD.md`](docs/PRD.md) | Goals, users, content model, UI requirements, pipeline, usability lessons |

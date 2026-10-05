@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>paper2everything · board of record · 2026-10-05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  --teal-50:#E8F4F1;--teal-100:#CFE8E2;--teal-300:#6FBFB0;--teal-500:#1F9585;--teal-600:#137568;--teal-700:#0F5C54;--teal-900:#0A3F3A;
+  --sun-100:#FDF1D3;--sun-400:#F5B83D;--sun-500:#E8A317;--sun-700:#9A6A05;
+  --flame-100:#FFE6DB;--flame-500:#F26B3A;
+  --paper:#FAF7F0;--card:#FFFFFF;--ink:#17212B;--ink-2:#4A5562;--ink-3:#6E7885;--line:#E6E0D2;--line-soft:#F0EBDF;
+  --ok:#1F9D5C;--ok-soft:#E3F5EA;--ok-edge:#167A47;
+  --nudge:#D9822B;--nudge-soft:#FDEFDD;--nudge-edge:#B06419;
+  --book2:#2A62A8;--book2-soft:#E6EEF8;--book4:#7A4FC2;--book4-soft:#F0EAFA;--book5:#C2415E;--book5-soft:#FBE8EC;
+  --font-display:"Fredoka","Nunito",system-ui,sans-serif;
+  --font-body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{font-size:16px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.45 var(--font-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;margin:0;letter-spacing:-.005em}
+h1{font-size:30px}h2{font-size:24px}h3{font-size:19px}
+a{color:var(--teal-600);text-decoration:none;overflow-wrap:anywhere}
+a:hover{color:var(--teal-700);text-decoration:underline}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px 80px;min-width:0}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;min-height:60px;padding:10px 20px;background:rgba(250,247,240,.93);backdrop-filter:blur(10px);border-bottom:2px solid var(--line-soft)}
+.top .brand{font:700 19px/1 var(--font-display);color:var(--ink);min-width:0}
+.top .brand i{font-style:normal;color:var(--teal-600)}
+.top nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;min-width:0}
+.top nav a{font:700 13px/1 var(--font-body);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);padding:8px 10px;border-radius:999px}
+.top nav a:hover{background:var(--teal-50);color:var(--ink)}
+.eyebrow{font:700 12px/1.3 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.lede{font-size:17px;color:var(--ink-2);max-width:80ch;margin:10px 0 0}
+section{margin-top:44px;min-width:0}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:6px}
+.sec-head .n{font-family:var(--font-mono);color:var(--teal-600)}
+.grid{display:grid;gap:14px;min-width:0}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.g4,.g3,.g2{grid-template-columns:minmax(0,1fr)}}
+.stat{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 1px 0 var(--line);min-width:0}
+.stat .big{font-family:var(--font-mono);font-size:32px;font-weight:700;line-height:1}
+.stat .k{font:700 12px/1.3 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+.stat .d{font-size:14px;color:var(--ink-2);margin-top:6px}
+.stat.ask{border-color:var(--sun-400);background:linear-gradient(0deg,var(--sun-100),var(--card) 70%)}
+.tblwrap{overflow-x:auto;border:2px solid var(--line);border-radius:14px;background:var(--card);min-width:0}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line-soft)}
+th{font:700 12px/1.3 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--teal-50);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.id{font-family:var(--font-mono);white-space:nowrap}
+code,.mono{font-family:var(--font-mono);font-size:13px;overflow-wrap:anywhere}
+.path{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-2);overflow-wrap:anywhere;min-width:0}
+.pill{display:inline-block;font:700 11.5px/1 var(--font-body);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink-2);white-space:nowrap}
+.pill.ok{background:var(--ok-soft);border-color:var(--ok-edge);color:var(--ok-edge)}
+.pill.ask{background:var(--sun-100);border-color:var(--sun-500);color:var(--sun-700)}
+.pill.hold{background:var(--nudge-soft);border-color:var(--nudge-edge);color:var(--nudge-edge)}
+.pill.info{background:var(--teal-50);border-color:var(--teal-300);color:var(--teal-700)}
+.pill.dead{background:var(--flame-100);border-color:var(--flame-500);color:#8A3315}
+.plain{color:var(--ink-2);min-width:0}
+.card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 1px 0 var(--line);min-width:0}
+.card h3{margin-bottom:6px}
+.card p{margin:6px 0}
+figure{margin:0;min-width:0}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:14px;color:var(--ink-3);margin-top:10px}
+ol.steps{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:12px;min-width:0}
+ol.steps li{background:var(--card);border:2px solid var(--line);border-left-width:8px;border-radius:14px;padding:14px 16px;min-width:0}
+ol.steps li:nth-child(1){border-left-color:var(--teal-600)}
+ol.steps li:nth-child(2){border-left-color:var(--teal-500)}
+ol.steps li:nth-child(3){border-left-color:var(--book5)}
+ol.steps li:nth-child(4){border-left-color:var(--book4)}
+ol.steps li:nth-child(5){border-left-color:var(--sun-500)}
+.step-head{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.step-n{font-family:var(--font-mono);font-weight:700;font-size:20px;color:var(--teal-700)}
+.unblock{margin-top:8px;font-size:14px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:8px}
+.unblock b{color:var(--teal-700)}
+form.q{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+form.q h3{margin-bottom:4px}
+form.q .help{font-size:14px;color:var(--ink-3);margin:0 0 10px}
+label.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:10px;border:2px solid transparent;min-width:0}
+label.opt:hover{background:var(--teal-50)}
+label.opt input{margin-top:3px;flex:none;width:18px;height:18px}
+label.opt .t{font-weight:700}
+label.opt .d{display:block;font-size:14px;color:var(--ink-2);font-weight:400}
+button{font:700 15px/1 var(--font-body);background:var(--teal-600);color:#fff;border:2px solid var(--teal-900);border-radius:999px;padding:12px 18px;cursor:pointer;box-shadow:0 3px 0 var(--teal-900)}
+button:hover{background:var(--teal-700)}
+button.ghost{background:var(--card);color:var(--teal-700);box-shadow:0 3px 0 var(--line);border-color:var(--teal-300)}
+details{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 16px;min-width:0}
+summary{cursor:pointer;font-weight:700;font-family:var(--font-display);font-size:17px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:12.5px;background:var(--teal-50);border:2px solid var(--teal-100);border-radius:10px;padding:12px;margin:10px 0 0}
+.note{font-size:14px;color:var(--ink-3)}
+.callout{border:2px solid var(--sun-400);background:var(--sun-100);border-radius:14px;padding:16px;min-width:0}
+.callout h3{color:var(--sun-700)}
+.callout.alarm{border-color:var(--flame-500);background:var(--flame-100)}
+.callout.alarm h3{color:#8A3315}
+footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-size:14px;color:var(--ink-3)}
+</style>
+</head>
+<body>
+<header class="top">
+  <span class="brand">paper<i>2</i>everything · board of record</span>
+  <nav>
+    <a href="#prs">Requests</a>
+    <a href="#trees">Worktrees</a>
+    <a href="#slots">Slots</a>
+    <a href="#order">Order</a>
+    <a href="#lanes">UI lanes</a>
+    <a href="#calls">Your word</a>
+    <a href="#evidence">Evidence</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <p class="eyebrow" style="margin-top:28px">Read at 2026-10-05 22:10 HKT · this is the board of record · annotate it here, the notes come back to this project's inbox</p>
+  <h1>What is open, what is live, and what lands next</h1>
+  <p class="lede">Two pull requests are open and both are green. Two more closed today: one merged, one dropped by you. Eleven worktree slots are in play, four are finished with nothing left to lose, one is stale for a concrete reason. The UI consistency work is now a queue of lanes, and three of them cannot start until the shared stylesheet lane lands.</p>
+
+  <div class="grid g4" style="margin-top:22px">
+    <div class="stat"><div class="big">2</div><div class="k">Open pull requests</div><div class="d">Both target <span class="mono">main</span>, both report clean merges, both green.</div></div>
+    <div class="stat"><div class="big">2</div><div class="k">Closed today</div><div class="d">#105 merged. #106 the failed-attempt record was dropped by you and closed unmerged.</div></div>
+    <div class="stat"><div class="big">7</div><div class="k">Live worktrees</div><div class="d">Four finished and safe, one stale and provable, two still writing files.</div></div>
+    <div class="stat ask"><div class="big">5</div><div class="k">Waiting on your word</div><div class="d">The answer-data items, plus two smaller design calls that sit behind them.</div></div>
+  </div>
+
+  <!-- ============ 1 REQUESTS ============ -->
+  <section id="prs">
+    <div class="sec-head"><span class="n">1</span><h2>Pull requests and their real check status</h2><span class="pill info">forge, read directly</span></div>
+    <p class="plain">Read with <span class="mono">gh-axi pr view</span>, <span class="mono">gh-axi pr checks</span> and the pull-request API. Check names are what the forge reports.</p>
+    <div class="tblwrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th>Request</th><th>State</th><th>What it changes, plainly</th><th>Checks, as reported</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/107">#107</a></td>
+            <td><span class="pill info">open</span></td>
+            <td class="plain"><b>Makes the question-bank harness tell the truth on every path.</b> The quality audit no longer invents pass rates for a tree that was never built — it reported 10900%. The pointer script derives the answer pointers that were empty. Three new test modules cover the harness end to end, and the CI workflow, root README and architecture doc describe the real behaviour. 11 files, +605 −49.</td>
+            <td><span class="pill ok">pass</span> <span class="pill ok">pass</span><br><span class="note">2 of 2 green: <span class="mono">ci-paper2db</span> and <span class="mono">ci-pointers</span>.</span></td>
+            <td class="plain">Mergeable clean against main, not a draft, head <span class="mono">9465126</span>. The task row says "merged", the forge says open — see section 6.</td>
+          </tr>
+          <tr>
+            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/108">#108</a></td>
+            <td><span class="pill info">open</span></td>
+            <td class="plain"><b>Gives every notes page a ranked list of the concepts it is missing.</b> New script <span class="path">paper2notes/scripts/brief.mjs</span> turns the audit's missing-concept findings into one brief per page in priority order, with the evidence and learning-objective ids behind each item. Wired into the notes check as a new failure mode: a brief may not quote the question text. 9 files, +1262 −30.</td>
+            <td><span class="pill ok">pass</span><br><span class="note">1 of 1 green: <span class="mono">ci-notes</span>.</span></td>
+            <td class="plain">Mergeable clean, not a draft, head <span class="mono">c49f33b</span>, rebased onto the merged anchor-lint commit. The task row says "merged", the forge says open — see section 6.</td>
+          </tr>
+          <tr>
+            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/105">#105</a></td>
+            <td><span class="pill ok">merged</span></td>
+            <td class="plain">Rebuilt the Book 5 chapter picker on the shared Book screen. Merged 2026-10-05 13:53 UTC as <span class="mono">1d606f6</span>.</td>
+            <td><span class="pill ok">pass</span> <span class="mono">ci-notes</span> before merge</td>
+            <td class="plain">A follow-up fix landed on the branch first: the request body pointed at bare filenames that rendered as question marks, so the screenshots were re-hosted and referenced by URL.</td>
+          </tr>
+          <tr>
+            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/106">#106</a></td>
+            <td><span class="pill dead">closed, not merged</span></td>
+            <td class="plain">The <span class="path">failed/</span> folder of records for abandoned and superseded attempts, linked from the README.</td>
+            <td><span class="pill">none ever configured</span><br><span class="note">every path it touched was documentation</span></td>
+            <td class="plain"><b>Dropped by you.</b> The folder was never merged, so nothing in the tree links to it. The history stays in the request and in the firstmate home. The README now says so, in this change. Deliberately not being replaced.</td>
+          </tr>
+          <tr>
+            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/110">#110</a></td>
+            <td><span class="pill dead">closed, not merged</span></td>
+            <td class="plain">Committed the Book 5 before/after screenshots into the tree and referenced them by URL.</td>
+            <td>none reported</td>
+            <td class="plain">Superseded: the same evidence was served from the #105 request body instead, so the PNGs were pulled back out of the tree. The branch's second commit exists only in slot 10.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 2 WORKTREES ============ -->
+  <section id="trees">
+    <div class="sec-head"><span class="n">2</span><h2>Worktrees: live against finished</h2></div>
+    <p class="plain">From <span class="mono">state/&lt;id&gt;.meta</span>, <span class="mono">state/&lt;id&gt;.status</span>, the fleet view, and a read of each slot's branch and working tree.</p>
+    <div class="tblwrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th>Task · slot</th><th>What it holds</th><th>State</th><th>Live or finished</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="id">p2db-answer-corrections<br>slot 9</td>
+            <td class="plain">Fixing wrong and unreadable answers: extending answer-key overrides, bounding the key-page scan to Paper 1 Section A, re-cropping rotated answer images.</td>
+            <td>Five files edited and uncommitted, two of them new tests. Branch <span class="path">fm/p2db-answer-corrections</span> at <span class="mono">5ef1716</span>, four behind main, nothing pushed of its own. Slot is 3.8 GB.</td>
+            <td><span class="pill hold">live, nothing safe</span><br><span class="note">Returning this slot would delete five files of work.</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2e-f03-dse-answers-complete-m1<br>slot 26</td>
+            <td class="plain">Completing the DSE answers: answer-start maps, derived keys, re-staged DSE data. Six commits.</td>
+            <td>Committed at <span class="mono">bce760a</span>, none pushed. Custody was returned and a fresh run started, but that run has sat pending with zero steps for about half an hour; the shared daemon is alive, so this is its queue.</td>
+            <td><span class="pill hold">live, six commits only here</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2e-shared-styles-consolidation<br>slot 28</td>
+            <td class="plain">Pulling the repeated quiz, option, header and navigation styling into one shared stylesheet and one reusable component, with a test that fails if an inline copy reappears.</td>
+            <td>Branch created, no commits yet. 130 in-scope selector slots mapped across three book stylesheets, 122 of them duplicated.</td>
+            <td><span class="pill hold">live, and it gates three lanes</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2e-deployed-quiz-integrity<br>slot 32</td>
+            <td class="plain">Checking every deployed page's quiz data for missing, unkeyed, unreadable or wrong-paper items.</td>
+            <td>Running since 20:11, no findings published yet.</td>
+            <td><span class="pill hold">live</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2e-framework-recon<br>slot 33</td>
+            <td class="plain">Answering from evidence whether this repository should move to React or a modern component model. Report only, no migration.</td>
+            <td>Running since 21:18.</td>
+            <td><span class="pill hold">live</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2e-ds-apply-book5-m1<br>slot 27</td>
+            <td class="plain">The Book 5 chapter picker rebuild.</td>
+            <td>Task reported done, #105 merged. Branch still at <span class="mono">ad1d08b</span>, two behind main, remote branch deleted.</td>
+            <td><span class="pill ok">finished, safe</span><br><span class="note">2.0 GB. Returnable now.</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2e-pr105-images<br>slot 10</td>
+            <td class="plain">The screenshot evidence for #105.</td>
+            <td>Task reported done. #110 closed unmerged; the branch has two commits that exist only here, the second one removing the PNGs again. A browser is still running in the slot.</td>
+            <td><span class="pill ok">finished, safe</span><br><span class="note">2.0 GB. The evidence lives in the #105 body, so nothing is lost. Returnable now.</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2e-section201-longq-check<br>slot 34</td>
+            <td class="plain">Checking whether section 20.1's long-questions panel should list a question that does not exist.</td>
+            <td>Task reported done: HKDSE 2012 has no long question 24, and the panel's placeholder is deliberate, added in commit <span class="mono">361de93</span>. The deliverable is a report outside the repository.</td>
+            <td><span class="pill ok">finished, safe</span><br><span class="note">2.0 GB. Returnable now.</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2db-answers-audit<br>slot 30</td>
+            <td class="plain">The read-only audit of every answer artefact. Deliverable is a report outside the repository.</td>
+            <td>Report delivered, waiting on your five answers. A 163 MB scratch folder sits untracked in the slot. The task's own record says "unknown" because it has no live pane.</td>
+            <td><span class="pill ask">finished, held on purpose</span><br><span class="note">2.1 GB. Keep until A1 to A5 are answered.</span></td>
+          </tr>
+          <tr>
+            <td class="id">p2e-status-board2<br>slot 20</td>
+            <td class="plain">This board, and the README note about the dropped record.</td>
+            <td>On branch <span class="path">fm/p2e-status-board2</span>, one request open.</td>
+            <td><span class="pill hold">live</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 3 SLOTS ============ -->
+  <section id="slots">
+    <div class="sec-head"><span class="n">3</span><h2>Worktree slots under <span class="mono">~/.treehouse</span></h2><span class="pill dead">1 stale</span></div>
+    <p class="plain">The pool allows 32 slots. From <span class="mono">treehouse status</span>, each slot's <span class="path">.git</span> pointer, a working-tree read of each, and the pool state file.</p>
+    <div class="tblwrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th>Slot</th><th>Why it still exists</th><th>Can it go back now</th><th>Space</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="id">25</td>
+            <td class="plain"><b>Stale, and provably so.</b> Its <span class="path">.git</span> points at the old clone <span class="mono">~/github/paper2everything</span>, not at this home's project repository. It is detached at <span class="mono">335189d3</span>, the merge of #99, which is already on main. Clean, no owner recorded, created 2026-10-02. One idle shell has been parked in it since 3 October 23:32, which is why the pool still calls it in use. No task record names it, so what it was opened for is unverified.</td>
+            <td><span class="pill ok">yes</span><br><span class="note">Nothing is lost. Closing the idle shell and pruning the pool entry clears it. Supervisor's action; this board did not touch it.</span></td>
+            <td class="id">2.0 GB</td>
+          </tr>
+          <tr>
+            <td class="id">27</td>
+            <td class="plain">Finished. #105 merged from this branch; the branch is two behind main and its remote copy is deleted.</td>
+            <td><span class="pill ok">yes</span></td>
+            <td class="id">2.0 GB</td>
+          </tr>
+          <tr>
+            <td class="id">10</td>
+            <td class="plain">Finished. #110 closed unmerged and a browser is still running in the slot. Its two local commits are the screenshot add and the removal; the surviving evidence is in the #105 body.</td>
+            <td><span class="pill ok">yes</span></td>
+            <td class="id">2.0 GB</td>
+          </tr>
+          <tr>
+            <td class="id">34</td>
+            <td class="plain">Finished. The deliverable is a report outside the repository, and the finding is recorded in the task status.</td>
+            <td><span class="pill ok">yes</span></td>
+            <td class="id">2.0 GB</td>
+          </tr>
+          <tr>
+            <td class="id">30</td>
+            <td class="plain">Finished but held: the audit report is stored outside the repository and only 163 MB of scratch crops remain in the slot. Kept while A1 to A5 are open in case the audit must be re-run.</td>
+            <td><span class="pill ask">after your answers</span><br><span class="note">The scratch folder alone could go now.</span></td>
+            <td class="id">2.1 GB</td>
+          </tr>
+          <tr>
+            <td class="id">29, 31</td>
+            <td class="plain">Already back in the pool, both detached at main and clean. 31 held the #108 task; its branch is pushed, so #108 is unaffected by the slot going back.</td>
+            <td><span class="pill">returned</span></td>
+            <td class="id">2.0 GB each</td>
+          </tr>
+          <tr>
+            <td class="id">9, 26</td>
+            <td class="plain">Live. Slot 9 holds five uncommitted files, slot 26 holds six commits that exist nowhere else.</td>
+            <td><span class="pill hold">no</span></td>
+            <td class="id">3.8 GB, 2.8 GB</td>
+          </tr>
+          <tr>
+            <td class="id">28, 32, 33, 20</td>
+            <td class="plain">Live. The consolidation lane, the deployed-quiz sweep, the framework recon, and this board.</td>
+            <td><span class="pill hold">no</span></td>
+            <td class="id">2.0 to 2.2 GB each</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:12px">Freeing the four finished slots plus slot 25 gives about 10 GB, on a machine with roughly 11 GB free. That is the single largest reclaim available and nothing depends on those slots.</p>
+  </section>
+
+  <!-- ============ 4 ORDER ============ -->
+  <section id="order">
+    <div class="sec-head"><span class="n">4</span><h2>What lands next, in what order</h2><span class="pill info">2 requests, 1 lane gate</span></div>
+    <figure>
+      <svg viewBox="0 0 900 260" role="img" aria-labelledby="ordT ordD" style="color:var(--ink)">
+        <title id="ordT">Order of work after this board</title>
+        <desc id="ordD">The shared stylesheet consolidation must land before UI lanes 1, 3 and 4 can start. Requests 107 and 108 can merge in either order. The answer-corrections work waits on the captain's answers.</desc>
+        <defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"></path></marker></defs>
+        <text x="16" y="24" font-family="Fredoka, Nunito, sans-serif" font-size="15" font-weight="600" fill="currentColor">Two requests can merge in any order; the UI lanes cannot start until the shared stylesheet lands</text>
+        <g>
+          <rect x="16" y="42" width="205" height="64" rx="12" fill="#FFFFFF" stroke="#137568" stroke-width="2"></rect>
+          <text x="30" y="66" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#137568">#107 harness</text>
+          <text x="30" y="84" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">2 checks green, clean</text>
+          <text x="30" y="99" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">unblocks honest audit numbers</text>
+        </g>
+        <g>
+          <rect x="253" y="42" width="205" height="64" rx="12" fill="#FFFFFF" stroke="#7A4FC2" stroke-width="2"></rect>
+          <text x="267" y="66" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#7A4FC2">#108 brief.mjs</text>
+          <text x="267" y="84" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">1 check green, clean</text>
+          <text x="267" y="99" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">adds a new CI gate</text>
+        </g>
+        <g>
+          <rect x="490" y="42" width="205" height="64" rx="12" fill="#FFFFFF" stroke="#E8A317" stroke-width="2"></rect>
+          <text x="504" y="66" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#9A6A05">slot 9 corrections</text>
+          <text x="504" y="84" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">5 uncommitted files</text>
+          <text x="504" y="99" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">needs your answers A1 to A5</text>
+        </g>
+        <g stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#a2)"><path d="M225 74 L247 74"></path><path d="M462 74 L484 74"></path></g>
+        <line x1="16" y1="128" x2="884" y2="128" stroke="#E6E0D2" stroke-width="2"></line>
+        <text x="16" y="156" font-family="Fredoka, Nunito, sans-serif" font-size="15" font-weight="600" fill="currentColor">UI consistency lanes, and the one they all wait on</text>
+        <g>
+          <rect x="16" y="174" width="215" height="62" rx="12" fill="#FFFFFF" stroke="#1F9585" stroke-width="2"></rect>
+          <text x="30" y="197" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#0F5C54">shared stylesheet lane</text>
+          <text x="30" y="214" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">running now, slot 28</text>
+          <text x="30" y="229" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">122 duplicated selectors mapped</text>
+        </g>
+        <g>
+          <rect x="265" y="174" width="215" height="62" rx="12" fill="#FFFFFF" stroke="#C2415E" stroke-width="2"></rect>
+          <text x="279" y="197" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#C2415E">lanes 1, 3, 4 then 2, 7, 8</text>
+          <text x="279" y="214" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">queued, six of them</text>
+          <text x="279" y="229" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">three need the shared surface first</text>
+        </g>
+        <g>
+          <rect x="514" y="174" width="180" height="62" rx="12" fill="#FFFFFF" stroke="#6FBFB0" stroke-width="2"></rect>
+          <text x="528" y="197" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#0F5C54">framework recon</text>
+          <text x="528" y="214" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">running, slot 33</text>
+          <text x="528" y="229" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">read-only, gates no lane</text>
+        </g>
+        <g stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#a2)"><path d="M235 205 L259 205"></path></g>
+        <text x="705" y="205" font-family="Nunito, sans-serif" font-size="12" fill="#6E7885">Lanes 1, 3 and 4</text>
+        <text x="705" y="221" font-family="Nunito, sans-serif" font-size="12" fill="#6E7885">must not start</text>
+        <text x="705" y="237" font-family="Nunito, sans-serif" font-size="12" fill="#6E7885">before it lands.</text>
+      </svg>
+      <figcaption>Requests and lanes do not block each other. The only hard ordering on the UI side is that lanes 1, 3 and 4 must reuse the shared layout the consolidation lane produces, so they wait for it rather than adding per-page copies.</figcaption>
+    </figure>
+
+    <ol class="steps">
+      <li><div class="step-head"><span class="step-n">1</span><a href="https://github.com/yeungsinchun/paper2everything/pull/107"><b>#107</b></a> <span class="pill ok">2 checks green</span></div>
+        <p class="plain">First, because the answer work depends on it. Until the audit stops reporting rates for a tree that was never built, every answer fix has to be verified by hand.</p>
+        <div class="unblock"><b>Unblocks:</b> trustworthy numbers for slots 9 and 26, and a working pointer store, which is the machinery behind your decision A4. <b>Risk:</b> four pipeline scripts, 419 lines of new tests, both workflows green.</div></li>
+      <li><div class="step-head"><span class="step-n">2</span><a href="https://github.com/yeungsinchun/paper2everything/pull/108"><b>#108</b></a> <span class="pill ok">1 check green</span></div>
+        <p class="plain">Second, and last on the forge. It adds a new failure mode to the notes check, so no already-approved request gets re-gated by a rule that did not exist when it was approved.</p>
+        <div class="unblock"><b>Unblocks:</b> per-page concept briefs, the work list the book 2, 4 and 5 writing needs. <b>Risk:</b> the gate can fail future work that quotes a question stem inside a brief; that is intended.</div></li>
+      <li><div class="step-head"><span class="step-n">3</span><b>The shared stylesheet lane</b> <span class="pill hold">running, slot 28</span></div>
+        <p class="plain">Third, because three queued lanes are specified to build on its output and are told to wait rather than add per-page copies.</p>
+        <div class="unblock"><b>Unblocks:</b> lane 1 (2×2 option grid), lane 3 (path home), lane 4 (true/false and quick-check side by side).</div></li>
+      <li><div class="step-head"><span class="step-n">4</span><b>The answer corrections in slot 9</b> <span class="pill ask">waiting on you</span></div>
+        <p class="plain">Fourth, and it cannot move at all until A1 to A5 are answered. Five files are edited and uncommitted right now.</p>
+        <div class="unblock"><b>Unblocks:</b> nothing downstream until your answers land; then a rebase onto main and a request.</div></li>
+    </ol>
+  </section>
+
+  <!-- ============ 5 UI LANES ============ -->
+  <section id="lanes">
+    <div class="sec-head"><span class="n">5</span><h2>Consistency: the open UI issues in one place</h2><span class="pill info">6 queued, 2 running</span></div>
+    <p class="plain">The same styling problems were being found page by page. They are now separate lanes with one shared surface under them. Read from the task queue and each lane's brief.</p>
+    <div class="tblwrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th>Lane</th><th>The defect, plainly</th><th>Wants</th><th>State</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="id">Shared stylesheet<br><span class="note">running, slot 28</span></td>
+            <td class="plain">The same quiz, option, header and navigation styling is repeated inline page after page, so fixes have to be repeated and the pages drift apart.</td>
+            <td class="plain">One shared stylesheet and one reusable component every page uses, with a test that fails if an inline copy reappears.</td>
+            <td><span class="pill hold">running</span><br><span class="note">130 selector slots mapped, 122 duplicated.</span></td>
+          </tr>
+          <tr>
+            <td class="id">Lane 1 · MC grid 2×2</td>
+            <td class="plain">A multiple-choice question lays option C out as three across the top and one below. It should be 2×2 everywhere.</td>
+            <td class="plain">The 2×2 shape as a property of the shared layout primitive, plus a check that fails on any other shape.</td>
+            <td><span class="pill hold">queued, waits for the shared surface</span></td>
+          </tr>
+          <tr>
+            <td class="id">Lane 3 · path home</td>
+            <td class="plain">There is no easy way from a chapter back to the homepage. Found on Book 4 and Book 2.</td>
+            <td class="plain">An always-reachable path home on every chapter and section page, present on the page and surviving the mobile width.</td>
+            <td><span class="pill hold">queued, waits for the shared surface</span></td>
+          </tr>
+          <tr>
+            <td class="id">Lane 4 · true/false horizontal</td>
+            <td class="plain">True and false stack one above the other, and the chapter 4 quick-check tool is laid out vertically.</td>
+            <td class="plain">Both horizontal, through the same shared primitive as the option grid, so the three cannot drift apart.</td>
+            <td><span class="pill hold">queued, waits for the shared surface</span></td>
+          </tr>
+          <tr>
+            <td class="id">Lane 2 · section numbering</td>
+            <td class="plain">Book 4 chapter 1 shows 20.1 in the page header while the homepage for the same section shows 6.1, 6.2, 6.3. One chapter lists sections as words, one to ten.</td>
+            <td class="plain">One canonical number in header, homepage, chapter list, breadcrumb and link text, plus numeric section lists.</td>
+            <td><span class="pill hold">queued</span></td>
+          </tr>
+          <tr>
+            <td class="id">Lane 7 · goal-block centring</td>
+            <td class="plain">The goals text is not vertically centred inside its block, so it looks wrong.</td>
+            <td class="plain">The mechanism fixed at every viewport width, not an offset that looks right at one breakpoint, with a sweep of every section in every book.</td>
+            <td><span class="pill hold">queued</span></td>
+          </tr>
+          <tr>
+            <td class="id">Lane 8 · recap row alignment</td>
+            <td class="plain">Recap rows lose their baseline when a row holds rendered maths or an image beside plain text.</td>
+            <td class="plain">A row layout tolerant of any content height, with a check that fails on unaligned rows, plus a list of other alignment defects found.</td>
+            <td><span class="pill hold">queued</span></td>
+          </tr>
+          <tr>
+            <td class="id">Framework recon<br><span class="note">running, slot 33</span></td>
+            <td class="plain">Not a defect: the open question of whether this repository should move to React or a modern component model.</td>
+            <td class="plain">An evidence-based answer on what the pages are built from today, how many pages are affected, and two or three options with real cost and risk. No migration.</td>
+            <td><span class="pill hold">running</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:12px">One consistency finding is already closed: section 20.1's long-questions panel shows a deliberate placeholder because HKDSE 2012 has no long question 24 — the 2012 long-question paper runs Q1 to Q11, none of them electrostatics.</p>
+  </section>
+
+  <!-- ============ 6 RECORD DISAGREEMENT ============ -->
+  <section id="records">
+    <div class="sec-head"><span class="n">6</span><h2>Two records disagree about four requests</h2><span class="pill alarm">read this before trusting the task list</span></div>
+    <div class="callout alarm">
+      <h3>The task queue says "merged" for requests the forge says are still open</h3>
+      <p class="plain">The backlog marks #106, #107, #108 and #110 as merged on 2026-10-05. The forge says #106 and #110 are closed without merging and #107 and #108 are still open. The forge is the authority here, and this board follows it. Anything that reads the task list instead of the forge will conclude that four requests landed when none of them did, and will stop watching two pull requests that are still waiting.</p>
+    </div>
+  </section>
+
+  <!-- ============ 7 CAPTAIN'S CALL ============ -->
+  <section id="calls">
+    <div class="sec-head"><span class="n">7</span><h2>What needs your word</h2><span class="pill ask">5 answer-data items</span></div>
+    <p class="plain">All of these are already tracked as held items, so nothing is lost if the answer comes later. Tick what you are deciding now and the answers come back to this project's inbox.</p>
+    <div class="grid g2" style="margin-top:14px">
+      <form class="q" data-lavish-question="merge-order" onsubmit="event.preventDefault(); const choice = new FormData(event.currentTarget).get('merge-order'); if (choice) window.lavish.queuePrompt('Merge in the order: ' + choice + '. Treat each merge as approved in that order.', { tag: 'choice', text: 'Merge order: ' + choice, element: event.currentTarget, data: { question: 'merge-order', answer: choice } });">
+        <h3>Merge order for the two open requests</h3>
+        <p class="help">The board recommends 107 then 108. Merging is the supervisor's standing authority; pick here only to redirect it.</p>
+        <label class="opt"><input type="radio" name="merge-order" value="recommended 107 then 108"><span><span class="t">Take the recommended order</span><span class="d">107 then 108 — the answer work gets honest numbers first, the new CI gate lands last.</span></span></label>
+        <label class="opt"><input type="radio" name="merge-order" value="108 first, then 107"><span><span class="t">Take the concept briefs first</span><span class="d">108 then 107.</span></span></label>
+        <label class="opt"><input type="radio" name="merge-order" value="merge nothing yet"><span><span class="t">Merge nothing yet</span><span class="d">Keep both open and answer the data questions first.</span></span></label>
+        <p style="margin-top:12px"><button type="submit">Queue this answer</button></p>
+      </form>
+
+      <form class="q" data-lavish-question="captain-data-calls" onsubmit="event.preventDefault(); const selected = [...event.currentTarget.querySelectorAll('input[name=items]:checked')].map((input) => ({ id: input.value, label: input.dataset.label, disposition: input.dataset.disposition })); if (selected.length) window.lavish.queuePrompt('Act on every selected item below and give an item-by-item receipt. Name each submitted ID and its outcome.', { tag: 'tracked-batch', text: 'Decide ' + selected.length + ' answer-data items', element: event.currentTarget, data: { items: selected } });">
+        <h3>Answer-data questions, tracked as a batch</h3>
+        <p class="help">Each one blocks part of the correction work in slots 9 and 26.</p>
+        <label class="opt"><input type="checkbox" name="items" value="P2DB-A1" data-label="The 10 wrong MC answer letters in Books 2, 4, 5" data-disposition="fix-data"><span><span class="t">P2DB-A1 — the 10 wrong multiple-choice letters</span><span class="d">Fix the data now, or fix it and make the key stage refuse to ship an unread answer, or record only.</span></span></label>
+        <label class="opt"><input type="checkbox" name="items" value="P2DB-A2" data-label="The 17 rotated LQ answer crops that ship as present" data-disposition="fix-crops"><span><span class="t">P2DB-A2 — the 17 rotated answer crops</span><span class="d">Re-cut them upright, mark them unavailable, or rotate at display time.</span></span></label>
+        <label class="opt"><input type="checkbox" name="items" value="P2DB-A3" data-label="2026 and pp ship with no answers at all" data-disposition="decide-corpus"><span><span class="t">P2DB-A3 — 2026 and the practice paper ship with no answers</span><span class="d">Source the 2026 marking scheme, drop the practice paper, or leave them flagged missing.</span></span></label>
+        <label class="opt"><input type="checkbox" name="items" value="P2DB-A4" data-label="The answer-pointer stores are empty" data-disposition="decide-pointers"><span><span class="t">P2DB-A4 — the answer-pointer stores are empty</span><span class="d">Populate them from the marking-scheme page map, or keep the crops as the only answer surface. #107 makes either workable.</span></span></label>
+        <label class="opt"><input type="checkbox" name="items" value="P2DB-A5" data-label="Two over-inclusive crops and the uncertain 2020 Q27" data-disposition="investigate"><span><span class="t">P2DB-A5 — two loose crops and one uncertain item</span><span class="d">Tighten the row split, leave them, or check 2020 Q27 against the examination report.</span></span></label>
+        <p style="margin-top:12px"><button type="submit">Queue selected items</button></p>
+      </form>
+    </div>
+
+    <details style="margin-top:14px">
+      <summary>Two smaller calls already waiting</summary>
+      <p class="plain"><b>Should the DSE key checker ever equate scientific notation</b>, or stay a strict string comparison?</p>
+      <p class="plain"><b>Should the DSE review board carry machine-checkable agreement claims</b> when its parser cannot read prose runs? The guard built on it currently accepts a mark that two of three runs do not support, and the README states a rule untrue for that record. No wrong key ships today.</p>
+    </details>
+
+    <details style="margin-top:14px">
+      <summary>Slot 25 and the four finished slots — reclaim?</summary>
+      <p class="plain">Slot 25 is stale for a proven reason and the four finished slots have nothing left in them. Together they are about 10 GB on a machine with roughly 11 GB free. Returning a pool slot is the supervisor's action; this is only to put the intent on record.</p>
+      <form data-lavish-question="slot-reclaim" onsubmit="event.preventDefault(); const choice = new FormData(event.currentTarget).get('slot-reclaim'); if (choice) window.lavish.queuePrompt('Slot reclaim: ' + choice, { tag: 'choice', text: 'Slot reclaim: ' + choice, element: event.currentTarget, data: { question: 'slot-reclaim', answer: choice } });">
+        <label class="opt"><input type="radio" name="slot-reclaim" value="reclaim 25 and the four finished slots"><span><span class="t">Reclaim all five</span><span class="d">Slots 25, 27, 10 and 34, plus the scratch in 30 when the answers land.</span></span></label>
+        <label class="opt"><input type="radio" name="slot-reclaim" value="reclaim slot 25 only"><span><span class="t">Reclaim the stale one only</span><span class="d">Just slot 25; keep the finished slots warm.</span></span></label>
+        <label class="opt"><input type="radio" name="slot-reclaim" value="leave them"><span><span class="t">Leave them</span><span class="d>The pool has spare slots, so there is no capacity pressure.</span></span></label>
+        <p style="margin-top:12px"><button type="submit" class="ghost">Queue this answer</button></p>
+      </form>
+    </details>
+  </section>
+
+  <!-- ============ 8 EVIDENCE ============ -->
+  <section id="evidence">
+    <div class="sec-head"><span class="n">8</span><h2>Where every row came from, and what stayed unproven</h2></div>
+    <details open>
+      <summary>Commands run</summary>
+      <pre>bin/fm-fleet-view.sh                     which tasks are in play and their recorded state
+state/<id>.meta, state/<id>.status          branch, slot, request URL, and the last thing each task said
+data/backlog.md                            the queued lanes and the task-queue state behind them
+data/<lane>/brief.md                       what each queued UI lane is for
+gh-axi pr list --state open / --state all   which requests are open, merged or closed
+gh-axi pr view <n>, gh-axi pr checks <n>    bodies and per-check conclusions
+gh-axi api .../pulls/<n>                   state, merged flag, base, head sha, mergeable
+git branch -vv                             pushed or not, ahead and behind, deleted remotes
+git log origin/main..<branch>              what a branch actually adds
+git status per slot                        clean or dirty, and how many files
+treehouse status                           slot numbers, live processes, returned slots
+cat treehouse-state.json                   creation time and owner per slot
+bin/fm-captain-hold.sh open <task>         which calls are genuinely held
+chrome-devtools-axi                        rendered this page at 1280 and at a narrow width</pre>
+    </details>
+    <details style="margin-top:12px">
+      <summary>What I could not establish</summary>
+      <ul class="plain">
+        <li><b>Why the task queue says four requests merged when the forge does not.</b> Tried: read the backlog rows and the forge state side by side. The queue is wrong; I did not find the step that wrote the wrong value, and fixing it is not this task's job.</li>
+        <li><b>Whether #107 and #108 still merge cleanly after the other lands.</b> Each is clean against main as it stands. #108 changes the notes check; #107 changes the paper2db workflow. No shared lines.</li>
+        <li><b>What slot 25 was opened for.</b> No task record names it and the pool state records no owner. It is provably stale and clean; its purpose is unknown.</li>
+        <li><b>Whether slot 26's pending run will start.</b> Read the task's own status: the run sits pending with zero steps while the shared daemon is alive, which points at the daemon's queue. I did not touch the daemon.</li>
+        <li><b>Whether the two commits in slot 10 are worth keeping.</b> They add and then remove the committed screenshots; the surviving evidence is in the #105 body. The branch is local only.</li>
+      </ul>
+    </details>
+    <details style="margin-top:12px">
+      <summary>What changed in this pass</summary>
+      <p class="plain">This board replaced an earlier hosted page, which you rejected. It is now a file in the repository at <span class="mono">.lavish/p2e-status-board2.html</span> on branch <span class="path">fm/p2e-status-board2</span>, with the listener armed on this page so your annotations arrive in this project's inbox. The README gained a note recording that the failed-attempt record was dropped and is deliberately not replaced. Nothing was merged.</p>
+    </details>
+  </section>
+
+  <footer>
+    <p>Board of record for paper2everything, built by the <span class="mono">p2e-status-board2</span> task. Plain-text twin: <span class="mono">data/p2e-status-board2/report.md</span> in the firstmate home. Design taken from the project's own Paper2Notes shell.</p>
+  </footer>
+</div>
+</body>
+</html>
