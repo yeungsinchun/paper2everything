@@ -349,7 +349,7 @@ Source PDFs live in `paper/{mc,lq,ans,performance}/`.
 
 **Classification.** 27 syllabus sections across Books 1 to 5 (Heat and Gases, Force and Motion, Wave Motion, Ray Optics, Electricity and Magnetism, Radioactivity and Nuclear Energy). Each paper type has an LLM backend (`classify_*_llm.py`, needs `LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`, optional `LLM_BASE_URL`, `LLM_MODEL`) and a keyword fallback (`classify_mc_sections.py`, `classify_lq_keywords.py`). An LQ can belong to several sections; `apply_book5_listings()` lists every Book 5 section a radioactivity LQ tests, and section PDFs include non-primary listings. Decisions are tracked because they are paid and nondeterministic: `metadata/mc/llm_classifications.json` (573 MC items across 2012 to 2026 plus `pp` and `sap`) and `metadata/lq/llm_classifications.json`. `classify-mc` and `classify-lq` replay those decisions by default and call the LLM only for years missing from the metadata; a precomputed JSON can still be applied explicitly with `--from-json`.
 
-**Hand-tuned tracked inputs:** `scripts/overrides_*.json` (MC anchor overrides for 2012, 2015, 2016, 2018, 2019, 2020 and the sample paper `sap`), `scripts/answer_key_overrides.json`, `scripts/lq_answer_pages.json` (hand-verified marking-scheme page map used when OCR orientation or label detection fails), `tests/reconstructed/lq/<year>/starts.json`. Quality bar: at most 5% of questions need manual tuning; `scripts/quality_audit.py --strict` writes `tests/sections/quality_audit.json` counting missing crops, missing classified copies, uncertain flags, tiny crops, incomplete years and override-tuned questions.
+**Hand-tuned tracked inputs:** `scripts/overrides_*.json` (MC anchor overrides for 2012, 2015, 2016, 2018, 2019, 2020 and the sample paper `sap`), `scripts/answer_key_overrides.json`, `tests/reconstructed/lq/<year>/ans_starts.json` (per-year hand-verified marking-scheme page map used when OCR orientation or label detection fails), `tests/reconstructed/lq/<year>/starts.json`. Quality bar: at most 5% of questions need manual tuning; `scripts/quality_audit.py --strict` writes `tests/sections/quality_audit.json` counting missing crops, missing classified copies, uncertain flags, tiny crops, incomplete years and override-tuned questions.
 
 **Output.** `section-pdfs` writes `paper2db/tests/sections/{mc,lq}/<NN_Book>/<NN_Section>/` with PNG crops (`YYYY_qN.png` for MC; `YYYY-qN.png` and `YYYY-qN-ans.png` for LQ) and `combined.pdf`, plus CSVs, `answer_keys.json`, `quality_audit.json`. Everything is reproducible from `paper/` with `./pipeline --force --yes`.
 
@@ -470,9 +470,9 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|
-| `paper2db/paper/**` source PDFs | `paper2db/intermediate/`, `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
+| `paper2db/paper/**` source PDFs | `paper2db/intermediate/`, `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json` and `lq/*/ans_starts.json`) |
 | `paper2db/metadata/*/llm_classifications.json`, `metadata/qb/{banks,source-manifest}.json` | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
-| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json`, `tests/reconstructed/lq/*/starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
+| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `tests/reconstructed/lq/*/starts.json`, `tests/reconstructed/lq/*/ans_starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
 | `paper2notes/notes/` including the `dse/` snapshot (82 files) and `_source/` | `.audit/` harness output |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |

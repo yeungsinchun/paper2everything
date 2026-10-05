@@ -53,11 +53,11 @@ flowchart LR
   subgraph DB["paper2db"]
     direction TB
     PAPER["paper/{mc,lq,ans,performance}/<br/>HKDSE PDFs + performance.md<br/><b>tracked</b> (~283 MB)"]
-    HAND["scripts/overrides_*.json<br/>scripts/answer_key_overrides.json<br/>scripts/lq_answer_pages.json<br/>tests/reconstructed/lq/*/starts.json<br/><b>tracked, hand-tuned</b>"]
+    HAND["scripts/overrides_*.json<br/>scripts/answer_key_overrides.json<br/>tests/reconstructed/lq/*/starts.json<br/>tests/reconstructed/lq/*/ans_starts.json<br/><b>tracked, hand-tuned</b>"]
     META["metadata/{mc,lq}/llm_classifications.json<br/><b>tracked</b> (paid LLM decisions)"]
     PIPE(["./pipeline<br/>mc-anchors → mc-split → lq-pages → lq-crops → lq-answers<br/>→ keys → classify-mc → lq-performance → classify-lq<br/>→ section-pdfs → dse-items → lavish"])
     INTER["intermediate/mc/&lt;year&gt;/<br/><b>gitignored</b>"]
-    RECON["tests/reconstructed/{mc,lq}/&lt;year&gt;/<br/><b>gitignored</b> (except starts.json)"]
+    RECON["tests/reconstructed/{mc,lq}/&lt;year&gt;/<br/><b>gitignored</b> (except starts.json, ans_starts.json)"]
     SECT["tests/sections/{mc,lq}/&lt;NN_Book&gt;/&lt;NN_Section&gt;/<br/>YYYY_qN.png · YYYY-qN.png · combined.pdf<br/><b>gitignored</b>"]
     DBLAV[".lavish/ review HTML<br/><b>gitignored</b>"]
     LEGACY["classified/ · output/<br/>legacy layout, <b>gitignored</b>"]
@@ -146,8 +146,8 @@ check in `ci-notes` is the only cross-edge a workflow verifies.
 |---|---|---|
 | `paper2db/paper/**` (77 PDFs + performance notes) | tracked | Pipeline source. Plain git, no LFS; the pack is about 282 MB. |
 | `paper2db/metadata/{mc,lq}/llm_classifications.json` | tracked | Paid, nondeterministic LLM decisions. Deliberately tracked. |
-| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json` | tracked | Hand-tuned inputs. |
-| `paper2db/tests/reconstructed/lq/*/starts.json` | tracked | Hand-tuned input stored inside a generated output tree. |
+| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json` | tracked | Hand-tuned inputs. |
+| `paper2db/tests/reconstructed/lq/*/starts.json`, `paper2db/tests/reconstructed/lq/*/ans_starts.json` | tracked | Hand-tuned inputs stored inside a generated output tree. |
 | `paper2db/intermediate/`, `tests/reconstructed/**` (rest), `tests/sections/`, `.lavish/` | gitignored | Pipeline output. `tests/sections/` is the product paper2notes consumes. |
 | `paper2db/classified/`, `paper2db/output/` | gitignored | Pre-move legacy layout. `sync-dse.sh` still reads it. |
 | `paper2db/qb/`, `paper2db/qb-pdf/` | gitignored | The documented "canonical" QB DOCX source is not in git. |
@@ -303,7 +303,8 @@ paper2notes intake. `_source/*/problems.md` cite `paper2db/classified/mc/...`
 
 **A9. Product output lives under `tests/`, and tracked inputs live inside
 generated trees.** `tests/sections/` is the bank that notes consume, and
-hand-tuned `tests/reconstructed/lq/*/starts.json` is tracked inside an
+hand-tuned `tests/reconstructed/lq/*/starts.json` and
+`tests/reconstructed/lq/*/ans_starts.json` are tracked inside an
 otherwise-generated directory, held in place by chains of `!` negations in two
 `.gitignore` files.
 
