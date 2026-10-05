@@ -671,6 +671,12 @@ button[data-reveal] { margin-top: var(--space-2); }
 .dse-paper figcaption { margin-bottom: var(--space-2); font-size: var(--text-sm); font-weight: 600; color: var(--ink-2); }
 .dse-paper img { display: block; width: 100%; height: auto; background: var(--fig-bg); }
 
+/* A section whose long questions the papers do not contain: say so in words
+   instead of showing a placeholder image. Each wording is recorded in
+   notes/dse/availability.json and checked by scripts/dse-availability.mjs. */
+.dse-lq-none { margin: 0; padding: var(--space-4); border: var(--border-w) solid var(--line); border-radius: var(--radius-lg); background: var(--fig-bg); color: var(--ink-2); }
+.dse-lq-none b { color: var(--ink); }
+
 /* ---------- summary pages ---------- */
 
 .trap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-3); margin: var(--space-3) 0; }

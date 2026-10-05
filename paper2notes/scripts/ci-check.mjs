@@ -10,13 +10,18 @@
 // plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
 // plus leak-check (notes must not reproduce protected question/answer text;
 // see scripts/leak-check.mjs),
-// plus anchor ids / moves.json / answer pointers (see scripts/anchor-lint.mjs).
+// plus anchor ids / moves.json / answer pointers (see scripts/anchor-lint.mjs),
+// plus the DSE availability record: every published DSE section must be
+// recorded in notes/dse/availability.json with a reason, and every published
+// crop must be a question the papers really hold (see
+// scripts/dse-availability.mjs).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runLeakCheck } from "./leak-check.mjs";
 import { lintAnchors } from "./anchor-lint.mjs";
+import { checkPage, checkSnapshot, loadAvailability, loadSource } from "./dse-availability.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
@@ -369,6 +374,26 @@ function checkLeaks() {
   for (const e of leaks) fail(`leak-check: ${e}`);
 }
 
+/* notes/dse/availability.json must match what notes/dse/ holds, what the
+   source papers hold, and what each page shows or states, so a section with no
+   published long question stays a recorded decision instead of drifting back
+   into a silent gap. quiz-audit.mjs runs the same rules and prints them per
+   page with the rest of the quiz contracts. */
+function checkDseAvailability() {
+  if (!existsSync(notesDir)) return;
+  for (const p of checkSnapshot({ repoRoot }).problems) fail(`dse-availability: ${p.detail}`);
+
+  const availability = { ...loadAvailability(repoRoot), repoRoot };
+  const source = loadSource(repoRoot);
+  for (const file of walkHtmlFiles(notesDir)) {
+    if (file.includes("/_source/") || file.includes("/_local/") || file.includes("/.lavish/")) continue;
+    const page = relative(repoRoot, file);
+    for (const p of checkPage(readFileSync(file, "utf8"), { page, availability, source }).problems) {
+      fail(`dse-availability: ${page}: ${p.detail}`);
+    }
+  }
+}
+
 checkSiteRegionConsistency();
 checkLavishBoards();
 
@@ -382,6 +407,7 @@ checkBook4Structure();
 checkRelativeLinks();
 checkDeployFooter();
 checkLeaks();
+checkDseAvailability();
 errors.push(...lintAnchors({ repoRoot }).errors);
 
 if (errors.length > 0) {
