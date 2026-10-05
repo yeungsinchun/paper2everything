@@ -1,0 +1,87 @@
+/* The older book skin for the shared quiz, header and navigation components.
+   ----------------------------------------------------------------------------
+   Loads after notes/css/p2n-ui.css. It declares NO rules: every line sets a
+   --p2n-* custom property that p2n-ui.css reads. That is what keeps the
+   components themselves single-copy - a skin can change how they look but
+   cannot reintroduce a rule.
+
+   Book 2 and Book 5 both render this way today and their computed values are
+   identical, so they share this one file. A book that wants its own look sets
+   the same properties in its own stylesheet instead of loading this file.
+   ---------------------------------------------------------------------------- */
+
+:root {
+  /* header */
+  --p2n-bar-gap: var(--space-1) var(--space-3);
+  --p2n-bar-color: var(--ink);
+  --p2n-bar-nav-wrap: wrap;
+  --p2n-brand-align: center;
+  --p2n-brand-gap: 0;
+  --p2n-brand-sub-display: inline;
+  --p2n-brand-sub-margin: var(--space-1);
+  --p2n-brand-sub-pad: var(--space-3);
+  --p2n-brand-sub-rule: var(--border-w) solid var(--line);
+  --p2n-brand-sub-tracking: -.01em;
+
+  /* navigation */
+  --p2n-nav-a-justify: center;
+  --p2n-nav-a-min-width: var(--hit);
+  --p2n-nav-a-font: 700 var(--text-sm)/1 var(--font-mono);
+  --p2n-nav-a-transition: background var(--dur-fast), color var(--dur-fast);
+  --p2n-nav-current-weight: 700;
+
+  /* option grid */
+  --p2n-choices-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  --p2n-choices-margin: var(--space-3);
+  --p2n-choice-overflow: auto;
+  --p2n-choice-pad: 15px 12px 15px 40px;
+  --p2n-choice-font: 600 var(--text-md)/1.25 var(--font-body);
+  --p2n-choice-transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+  --p2n-choice-badge-left: 12px;
+  --p2n-choice-badge-display: block;
+  --p2n-choice-badge-place: normal;
+  --p2n-choice-badge-size: auto;
+  --p2n-choice-badge-radius: 0;
+  --p2n-choice-badge-bg: transparent;
+  --p2n-choice-badge-color: var(--ink-3);
+  --p2n-choice-badge-font: 700 var(--text-sm)/1 var(--font-mono);
+  --p2n-choice-badge-align: start;
+  --p2n-choice-badge-correct-color: var(--ok-edge);
+  --p2n-choice-badge-correct-bg: transparent;
+  --p2n-choice-badge-wrong-color: var(--nudge-edge);
+  --p2n-choice-badge-wrong-bg: transparent;
+
+  /* quiz options */
+  --p2n-quiz-choices-gap: 0.5rem;
+  --p2n-quiz-choices-max: 22rem;
+  --p2n-quiz-choices-margin: 0.85rem 0 0;
+  --p2n-quiz-letter-font: 700 var(--text-md)/1 var(--font-mono);
+  --p2n-quiz-letter-family: inherit;
+  --p2n-quiz-letter-pad: 0 14px;
+  --p2n-quiz-letter-transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  --p2n-quiz-letter-picked-color: var(--accent);
+  --p2n-quiz-letter-wrong-animation: none;
+
+  /* chapter map. The number badge takes its hue from the book's own --tone.
+     Book 2 has no chapter-map page today; these keep the component usable
+     there if one is added. */
+  --p2n-toc-a-columns: 56px 1fr;
+  --p2n-toc-a-align: baseline;
+  --p2n-toc-a-min-height: 0;
+  --p2n-toc-a-pad: 0.85rem 1rem;
+  --p2n-toc-a-bg: var(--panel);
+  --p2n-toc-a-border: 1px solid var(--rule);
+  --p2n-toc-a-radius: 4px;
+  --p2n-toc-a-shadow: none;
+  --p2n-toc-a-color: inherit;
+  --p2n-toc-a-transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+  --p2n-toc-a-hover-border: var(--teal-300);
+  --p2n-toc-a-hover-bg: var(--teal-50);
+  --p2n-toc-a-num-row: 1;
+  --p2n-toc-a-num-align: start;
+  --p2n-toc-a-num-width: 56px;
+  --p2n-toc-a-num-height: 44px;
+  --p2n-toc-a-num-font: 700 var(--text-md)/1 var(--font-mono);
+  --p2n-toc-a-blurb-margin: 0.15rem;
+  --p2n-toc-a-blurb-color: var(--muted);
+}

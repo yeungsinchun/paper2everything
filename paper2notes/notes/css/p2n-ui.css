@@ -1,0 +1,311 @@
+/* Shared quiz, header and navigation styles for every paper2notes book page.
+   ----------------------------------------------------------------------------
+   ONE copy of the four components that used to be written out again in every
+   book's stylesheet:
+
+     1. header       - .topbar, .topbar nav, .brand, .brand i, .brand small
+     2. navigation   - nav a, and the .toc chapter map
+     3. option grid  - .choices and its buttons (concept-check options)
+     4. quiz options - .quiz-choices and .quiz-letter (MC answer keys)
+
+   Every book page loads this file. The defaults below are the Paper2Notes
+   design-system values, which is what Book 4 renders today. A book that keeps
+   the older look loads notes/css/p2n-ui-legacy.css, which only sets --p2n-*
+   custom properties. A book with its own look sets those properties in its own
+   stylesheet instead. Either way the rules live here and only here.
+
+   Enforced by scripts/shared-ui.test.mjs:
+     - no book stylesheet may declare a selector used in this file;
+     - no page may carry an inline <style> rule for one of those selectors;
+     - every --p2n-* property read here must have a fallback on its own line.
+   ---------------------------------------------------------------------------- */
+
+/* ---------- 1. header ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--p2n-bar-gap, var(--space-1) var(--space-4));
+  min-height: 60px;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(250, 247, 240, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: var(--border-w) solid var(--line-soft);
+  color: var(--p2n-bar-color, inherit);
+}
+
+.topbar nav {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: var(--p2n-bar-nav-wrap, nowrap);
+  gap: var(--space-1);
+}
+
+.brand {
+  display: flex;
+  align-items: var(--p2n-brand-align, baseline);
+  gap: var(--p2n-brand-gap, var(--space-3));
+  font: 700 var(--text-lg)/1 var(--font-display);
+  letter-spacing: -.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand:hover { color: var(--ink); }
+
+.brand i {
+  font-style: normal;
+  color: var(--teal-600);
+}
+
+.brand small {
+  display: var(--p2n-brand-sub-display, inline);
+  margin-left: var(--p2n-brand-sub-margin, 0);
+  padding-left: var(--p2n-brand-sub-pad, 0);
+  border-left: var(--p2n-brand-sub-rule, 0);
+  font: 600 var(--text-sm)/1.2 var(--font-body);
+  letter-spacing: var(--p2n-brand-sub-tracking, 0);
+  color: var(--ink-2);
+  opacity: 1;
+}
+
+/* ---------- 2. navigation ---------- */
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: var(--p2n-nav-a-justify, normal);
+  min-width: var(--p2n-nav-a-min-width, auto);
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  color: var(--ink-2);
+  font: var(--p2n-nav-a-font, 600 var(--text-sm)/1 var(--font-display));
+  text-decoration: none;
+  transition: var(--p2n-nav-a-transition, background var(--dur-fast) var(--ease-out));
+}
+
+nav a:hover {
+  background: var(--teal-50);
+  color: var(--teal-700);
+}
+
+nav a[aria-current="page"] {
+  background: var(--teal-600);
+  color: #fff;
+  font-weight: var(--p2n-nav-current-weight, 600);
+}
+
+/* Chapter map: a two-column grid of cards, number on the left, title and blurb
+   on the right. Book 4 and Book 5 render this identically apart from the book
+   hue, so the hue is the only thing a book has to name. */
+.toc {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-6);
+}
+
+.toc a {
+  display: grid;
+  grid-template-columns: var(--p2n-toc-a-columns, 56px 1fr);
+  gap: 0 var(--space-4);
+  align-items: var(--p2n-toc-a-align, center);
+  min-height: var(--p2n-toc-a-min-height, var(--hit));
+  padding: var(--p2n-toc-a-pad, var(--space-4));
+  background: var(--p2n-toc-a-bg, var(--card));
+  border: var(--p2n-toc-a-border, var(--border-w) solid var(--line));
+  border-radius: var(--p2n-toc-a-radius, var(--radius-lg));
+  box-shadow: var(--p2n-toc-a-shadow, var(--edge));
+  color: var(--p2n-toc-a-color, var(--ink));
+  text-decoration: none;
+  transition: var(--p2n-toc-a-transition, transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out));
+}
+
+.toc a:hover {
+  border-color: var(--p2n-toc-a-hover-border, var(--tone));
+  background: var(--p2n-toc-a-hover-bg, var(--tone-soft));
+}
+
+.toc a .num {
+  grid-column: 1;
+  grid-row: var(--p2n-toc-a-num-row, 1 / span 2);
+  align-self: var(--p2n-toc-a-num-align, auto);
+  display: grid;
+  place-items: center;
+  width: var(--p2n-toc-a-num-width, 56px);
+  height: var(--p2n-toc-a-num-height, 56px);
+  border-radius: var(--radius-md);
+  background: var(--p2n-toc-a-num-bg, var(--tone-soft));
+  color: var(--p2n-toc-a-num-color, var(--tone));
+  font: var(--p2n-toc-a-num-font, 600 var(--text-md)/1 var(--font-display));
+}
+
+.toc a strong {
+  grid-column: 2;
+  font: 600 var(--text-lg)/1.2 var(--font-display);
+}
+
+.toc a > span:not(.num) {
+  grid-column: 2;
+  margin-top: var(--p2n-toc-a-blurb-margin, 2px);
+  color: var(--p2n-toc-a-blurb-color, var(--ink-3));
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* ---------- 3. option grid (concept-check options) ---------- */
+
+.choices {
+  display: grid;
+  grid-template-columns: var(--p2n-choices-columns, repeat(auto-fit, minmax(200px, 1fr)));
+  gap: var(--space-2);
+  margin-top: var(--p2n-choices-margin, 0);
+}
+
+.choices button {
+  position: relative;
+  display: block;
+  overflow: var(--p2n-choice-overflow, visible);
+  min-height: 56px;
+  padding: var(--p2n-choice-pad, var(--space-3) var(--space-3) var(--space-3) 44px);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--edge);
+  color: var(--ink);
+  font: var(--p2n-choice-font, 600 var(--text-md)/1.3 var(--font-body));
+  text-align: left;
+  cursor: var(--p2n-choice-cursor, pointer);
+  transition: var(--p2n-choice-transition, transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out));
+}
+
+.choices button:disabled {
+  cursor: var(--p2n-choice-cursor-off, default);
+}
+
+.choices button:hover:not(:disabled) {
+  border-color: var(--teal-300);
+  background: var(--teal-50);
+}
+
+/* The A/B/C/D badge: a coloured disc in the design system, a plain letter in
+   the older look. --p2n-choice-badge-* switches between the two. */
+.choices button::before {
+  content: attr(data-choice);
+  position: absolute;
+  left: var(--p2n-choice-badge-left, var(--space-3));
+  top: 50%;
+  transform: translateY(-50%);
+  display: var(--p2n-choice-badge-display, grid);
+  place-items: var(--p2n-choice-badge-place, center);
+  width: var(--p2n-choice-badge-size, 22px);
+  height: var(--p2n-choice-badge-size, 22px);
+  border-radius: var(--p2n-choice-badge-radius, 50%);
+  background: var(--p2n-choice-badge-bg, var(--surface-sunk));
+  color: var(--p2n-choice-badge-color, var(--ink-2));
+  font: var(--p2n-choice-badge-font, 700 12px/1 var(--font-mono));
+  text-align: var(--p2n-choice-badge-align, center);
+}
+
+.choices button.correct {
+  background: var(--ok-soft);
+  border-color: var(--ok);
+  color: var(--ok-edge);
+  box-shadow: 0 3px 0 var(--ok-edge);
+}
+
+.choices button.correct::before {
+  color: var(--p2n-choice-badge-correct-color, #fff);
+  background: var(--p2n-choice-badge-correct-bg, var(--ok));
+}
+
+.choices button.wrong {
+  background: var(--nudge-soft);
+  border-color: var(--nudge);
+  color: var(--nudge-edge);
+  box-shadow: none;
+  animation: p2n-wobble var(--dur-slow) var(--ease-out);
+}
+
+.choices button.wrong::before {
+  color: var(--p2n-choice-badge-wrong-color, #fff);
+  background: var(--p2n-choice-badge-wrong-bg, var(--nudge));
+}
+
+@keyframes p2n-wobble {
+  20% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  80% { transform: translateX(-2px); }
+}
+
+/* ---------- 4. quiz options (MC answer keys) ---------- */
+
+.quiz-choices {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--p2n-quiz-choices-gap, var(--space-2));
+  max-width: var(--p2n-quiz-choices-max, 360px);
+  margin: var(--p2n-quiz-choices-margin, var(--space-4) 0 0);
+}
+
+.quiz-letter {
+  min-height: var(--p2n-quiz-letter-min-height, var(--hit));
+  padding: var(--p2n-quiz-letter-pad, 0);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--ink);
+  font: var(--p2n-quiz-letter-font, 700 var(--text-lg)/1 var(--font-display));
+  font-family: var(--p2n-quiz-letter-family, var(--font-display));
+  cursor: pointer;
+  transition: var(--p2n-quiz-letter-transition, transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out));
+  box-shadow: var(--edge);
+}
+
+.quiz-letter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.quiz-letter:hover:not(:disabled) {
+  border-color: var(--teal-300);
+  background: var(--teal-50);
+}
+
+.quiz-letter.is-picked {
+  border-color: var(--teal-500);
+  background: var(--teal-50);
+  color: var(--p2n-quiz-letter-picked-color, inherit);
+}
+
+.quiz-letter:disabled {
+  cursor: default;
+  color: var(--muted);
+  background: #f7f7f4;
+}
+
+/* One rule per grade; the :disabled half keeps the grade on screen once the
+   buttons are locked, which is why the two selectors share a body. */
+.quiz-letter.correct,
+.quiz-letter.correct:disabled {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+  color: var(--ok-edge);
+  box-shadow: 0 3px 0 var(--ok-edge);
+  opacity: 1;
+}
+
+.quiz-letter.wrong,
+.quiz-letter.wrong:disabled {
+  border-color: var(--nudge);
+  background: var(--nudge-soft);
+  color: var(--nudge-edge);
+  box-shadow: none;
+  opacity: 1;
+  animation: var(--p2n-quiz-letter-wrong-animation, p2n-wobble var(--dur-slow) var(--ease-out));
+}

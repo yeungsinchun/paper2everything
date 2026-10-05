@@ -88,65 +88,6 @@ main {
   text-transform: uppercase;
 }
 
-/* ---------- top bar (TopBar) ---------- */
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-1) var(--space-3);
-  min-height: 60px;
-  padding: var(--space-2) var(--space-4);
-  background: rgba(250, 247, 240, .92);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-bottom: var(--border-w) solid var(--line-soft);
-  color: var(--ink);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  font: 700 var(--text-lg)/1 var(--font-display);
-  letter-spacing: -.01em;
-  color: var(--ink);
-  text-decoration: none;
-}
-.brand:hover { color: var(--ink); }
-.brand i { font-style: normal; color: var(--teal-600); }
-
-.brand small {
-  display: inline;
-  margin-left: var(--space-1);
-  padding-left: var(--space-3);
-  border-left: var(--border-w) solid var(--line);
-  font: 600 var(--text-sm)/1.2 var(--font-body);
-  color: var(--ink-2);
-  opacity: 1;
-}
-
-.topbar nav { margin-left: auto; gap: var(--space-1); }
-
-nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: var(--hit);
-  min-height: 36px;
-  padding: 0 var(--space-3);
-  border-radius: var(--radius-pill);
-  color: var(--ink-2);
-  font: 700 var(--text-sm)/1 var(--font-mono);
-  text-decoration: none;
-  transition: background var(--dur-fast), color var(--dur-fast);
-}
-nav a:hover { background: var(--teal-50); color: var(--teal-700); }
-nav a[aria-current="page"] { background: var(--teal-600); color: #fff; font-weight: 700; }
-
 /* ---------- learning objectives (LearningObjectives) ---------- */
 
 .lo-block,
@@ -477,9 +418,6 @@ table.notes tbody th { background: var(--paper); }
 }
 .check > p { font: 600 var(--text-lg)/1.3 var(--font-display); }
 
-.choices { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--space-2); margin-top: var(--space-3); }
-
-.choices button,
 .tf-item button[data-tf] {
   position: relative;
   display: block;
@@ -495,25 +433,18 @@ table.notes tbody th { background: var(--paper); }
   text-align: left;
 }
 .tf-item button[data-tf] { padding: 15px 20px; min-width: 96px; text-align: center; }
-.choices button::before {
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font: 700 var(--text-sm)/1 var(--font-mono);
-  color: var(--ink-3);
-}
-.choices button:hover:not(:disabled),
-.tf-item button[data-tf]:hover:not(:disabled) { border-color: var(--teal-300); background: var(--teal-50); }
 
-.choices button.correct,
+.tf-item button[data-tf]:hover:not(:disabled) {
+  border-color: var(--teal-300); background: var(--teal-50);
+}
+
 .tf-item button.correct {
   background: var(--ok-soft);
   border-color: var(--ok);
   box-shadow: 0 3px 0 var(--ok-edge);
   color: var(--ok-edge);
 }
-.choices button.correct::before { color: var(--ok-edge); }
-.choices button.wrong,
+
 .tf-item button.wrong {
   background: var(--nudge-soft);
   border-color: var(--nudge);
@@ -521,8 +452,6 @@ table.notes tbody th { background: var(--paper); }
   color: var(--nudge-edge);
   animation: p2n-wobble var(--dur-slow) var(--ease-out);
 }
-.choices button.wrong::before { color: var(--nudge-edge); }
-@keyframes p2n-wobble { 20% { transform: translateX(-4px); } 50% { transform: translateX(4px); } 80% { transform: translateX(-2px); } }
 
 .tf-item { border-top: var(--border-w) dashed var(--line-soft); padding: var(--space-3) 0 var(--space-1); }
 .tf-item > p:first-child { font: 600 var(--text-md)/1.35 var(--font-display); }
@@ -551,16 +480,7 @@ table.notes tbody th { background: var(--paper); }
 .section-dse { border-top: var(--border-w) solid var(--line-soft); }
 .quiz-lo,
 .quiz-slide.is-current { border-radius: var(--radius-lg); border-color: var(--line); }
-.quiz-letter {
-  min-height: var(--hit);
-  border: var(--border-w) solid var(--line);
-  border-radius: var(--radius-md);
-  box-shadow: var(--edge);
-  font: 700 var(--text-md)/1 var(--font-mono);
-}
-.quiz-letter:hover:not(:disabled) { border-color: var(--teal-300); background: var(--teal-50); }
-.quiz-letter.correct, .quiz-letter.correct:disabled { background: var(--ok-soft); border-color: var(--ok); color: var(--ok-edge); box-shadow: 0 3px 0 var(--ok-edge); }
-.quiz-letter.wrong, .quiz-letter.wrong:disabled { background: var(--nudge-soft); border-color: var(--nudge); color: var(--nudge-edge); box-shadow: none; }
+
 .quiz-pct.is-right { color: var(--ok-edge); }
 .quiz-pct.is-wrong { color: var(--nudge-edge); }
 .quiz-dot.is-current { background: var(--sun-400); }
