@@ -1,11 +1,20 @@
 ---
-name: lavish-notes-review
-description: Enforce before/after side-by-side lavish boards for every notes HTML refactor, with readable prose and no narrow text boxes. Use when creating or reviewing any lavish board that presents notes changes, chapter refactors, or visual HTML comparisons.
+name: paper2everything-lavish-board
+description: Enforce before/after side-by-side Lavish boards for every notes HTML refactor, with readable prose and no narrow text boxes. Use when creating or reviewing any Lavish board that presents notes changes, chapter refactors, or visual HTML comparisons. Boards are local review artifacts and never go into the repository; screenshots taken from a board go into the pull request body as forge attachments.
 ---
 
 # Lavish notes review boards
 
-Every lavish board that reviews a notes HTML change (chapter refactor, section rewrite, template migration, or visual comparison) **must** follow this contract. The contract is enforced by `node paper2notes/scripts/ci-check.mjs` and by review checklist — a board that violates it fails CI.
+Every Lavish board that reviews a notes HTML change (chapter refactor, section rewrite, template migration, or visual comparison) **must** follow this contract. The contract is enforced by `node paper2notes/scripts/ci-check.mjs` and by the review checklist — a board that violates it fails CI.
+
+Boards live in the gitignored `.lavish/` directory. Do not commit a board or any screenshot taken from one. See "Where a board lives" below.
+
+## 0. Where a board lives
+
+- Build the board at `.lavish/<board>.html` at the repository root. `.lavish/` is gitignored, so the board and every file beside it stay out of git.
+- Do not commit the board, its `before/` and `after/` snapshots, or a `screenshots/` folder of captures.
+- Do not link a repository path from the pull request body. Link the shared board URL, or attach the exported captures as forge attachments. A branch-scoped link dies with the branch.
+- Screenshots captured from a board are screen captures. The repository's screenshot rule in `AGENTS.md` governs them: attach them with `gh --attach`, never commit them.
 
 ## 1. Before / after side-by-side is mandatory
 
@@ -46,7 +55,7 @@ Every lavish board that reviews a notes HTML change (chapter refactor, section r
 </section>
 ```
 
-Repeat the block for each page (map, 27.1, 27.2, summary). Keep the before src pointing at the committed main version or a stored snapshot if the branch has overwritten the file — include an HTML comment `<!-- before src is archived at .lavish/snapshots/main/... if main file moved -->` when needed.
+Repeat the block for each page (map, 27.1, 27.2, summary). Keep the before src pointing at the committed main version or a stored snapshot if the branch has overwritten the file — put the archived main copy under `.lavish/snapshots/main/` and add an HTML comment `<!-- before src is archived at .lavish/snapshots/main/... if main file moved -->`.
 
 ## 2. No narrow unreadable text boxes
 
@@ -82,7 +91,7 @@ Lavish boards are read on laptops and phones simultaneously. A narrow column tha
 
 ## 3. CI / review checklist (fails the PR if violated)
 
-`node paper2notes/scripts/ci-check.mjs` enforces this skill on any lavish board that carries the marker:
+`node paper2notes/scripts/ci-check.mjs` enforces this skill on any lavish board that carries the marker. It scans `.lavish/` at the repository root and at `paper2notes/.lavish/`, so a board left in either place is checked before merge.
 
 - **Fails if:** the file does not contain at least one `class="before-after-grid"` (or `class="compare-grid"`/`before-after`) **and** at least two `<iframe` elements whose `src` points into `paper2notes/notes/` (one labeled before, one after). The error message names the missing pane.
 - **Fails if:** the board has no `width="1280"` and `width="390"` (or `data-viewport` equivalents) — i.e. desktop and phone are not both shown. The check is case-insensitive and accepts `width='1280'` or CSS `width: 1280px` in a style block as an alternative.
@@ -104,9 +113,16 @@ bin/fm-procevent-lavish.sh arm .lavish/<board>.html --for <task-id>
  /Users/sinchunyeung/github/firstmate/bin/fm-procevent-lavish.sh arm .lavish/<board>.html --for <task-id>
 ```
 
-The board doubles as the template for future notes refactoring boards — copy its `<section class="before-after">` blocks and its `.before-after-grid` CSS.
+To get a capture for the pull request body, export the board and screenshot the export at both widths, or share the board and link the `ht-ml.app` URL beside the attached PNGs:
 
-## 5. Relation to other skills
+```bash
+lavish-axi export .lavish/<board>.html --out .lavish/<board>.export.html
+lavish-axi share .lavish/<board>.html
+```
 
-- `paper2notes/.cursor/skills/visual-html-notes` governs the notes pages themselves (three.js, checks, KaTeX). This skill governs the **review surface** that compares two versions of those pages.
+## 5. Relation to other skills and docs
+
+- `paper2notes/.cursor/skills/visual-html-notes/SKILL.md` governs the notes pages themselves (three.js, checks, KaTeX). This skill governs the **review surface** that compares two versions of those pages.
+- `.agents/skills/paper2everything-ui-screenshot/SKILL.md` governs the before/after captures a pull request body must carry, including the Lavish capture variant (§5.2).
+- `docs/lavish-notes-boards.md` is a short index into this file, kept so the rule is discoverable from `docs/`.
 - `docs/ARCHITECTURE.md` maps the data edge; this board review does not change architecture.

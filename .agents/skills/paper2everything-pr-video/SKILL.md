@@ -371,7 +371,7 @@ proved by the real PR/comment you ship.
 - `paper2everything-ui-screenshot` governs screenshot proof for UI PRs; this skill
   governs video proof. A PR may need both (screenshot pair + inline video). The two
   checklists are independent and must both pass when both artefacts are present. For web UI changes both require laptop 1280×800 and mobile 390×844 coverage (screenshots: always both; video: both unless provably invisible at one).
-- `paper2notes/.agents/skills/lavish-notes-review` governs before/after board layout;
+- `.agents/skills/paper2everything-lavish-board` governs before/after board layout;
   videos do not replace Lavish boards when the change is a chapter refactor - add the
   board alongside the clip.
 - `docs/ARCHITECTURE.md` maps the data edge; this skill does not change architecture.

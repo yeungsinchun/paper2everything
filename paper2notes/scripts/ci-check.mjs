@@ -6,7 +6,7 @@
 // eight chapters when present, plus in-repo relative links (href/src) that
 // can be resolved on disk without a browser, plus lavish notes-refactor boards
 // (before/after side-by-side and readable prose — enforced only on boards
-// carrying the notes-refactor marker; see paper2notes/.agents/skills/lavish-notes-review/SKILL.md),
+// carrying the notes-refactor marker; see .agents/skills/paper2everything-lavish-board/SKILL.md),
 // plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
 // plus leak-check (notes must not reproduce protected question/answer text;
 // see scripts/leak-check.mjs),
@@ -235,7 +235,7 @@ function checkSiteRegionConsistency() {
 }
 
 function checkLavishBoards() {
-  // Enforces paper2notes/.agents/skills/lavish-notes-review/SKILL.md:
+  // Enforces .agents/skills/paper2everything-lavish-board/SKILL.md:
   // - every lavish board about refactoring notes HTML must render before/after
   //   side-by-side (left = before/main, right = after/branch) using iframes
   //   at both desktop (1280) and phone (390) widths
@@ -282,7 +282,7 @@ function checkLavishBoards() {
     const looksLikeNotesRefactor = hasMarker || (/p2e-book5-ch27-migrate/i.test(file) || /p2e-.*migrate/i.test(contents)) || (hasIframeNotes && /book5\//i.test(contents));
     // Boards that are clearly notes-refactor but forgot the marker: fail on missing marker so the skill is discoverable.
     if (hasIframeNotes && /book5\/ch03/i.test(contents) && !hasMarker) {
-      fail(`Lavish board ${rel}: missing marker <meta name="lavish-board-kind" content="notes-refactor"> or class "notes-refactor-board" required for notes-refactor boards (see paper2notes/.agents/skills/lavish-notes-review/SKILL.md)`);
+      fail(`Lavish board ${rel}: missing marker <meta name="lavish-board-kind" content="notes-refactor"> or class "notes-refactor-board" required for notes-refactor boards (see .agents/skills/paper2everything-lavish-board/SKILL.md)`);
       continue;
     }
     if (!looksLikeNotesRefactor) continue;
