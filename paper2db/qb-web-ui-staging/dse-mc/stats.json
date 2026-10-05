@@ -65,15 +65,15 @@
     "26": 16,
     "17": 4
   },
-  "missingAnswer": 71,
-  "missingPercentage": 86,
+  "missingAnswer": 5,
+  "missingPercentage": 85,
   "uncertain": 0,
   "imageStats": {
-    "count": 102,
-    "originalMB": 9.23,
-    "optimizedPngMB": 4.29,
-    "webpMB": 2.59,
-    "combinedMB": 6.88
+    "count": 537,
+    "originalMB": 53.14,
+    "optimizedPngMB": 23.82,
+    "webpMB": 12.99,
+    "combinedMB": 36.82
   },
   "pipeline": {
     "stages": [
@@ -85,8 +85,8 @@
     "classifications": "metadata/mc/llm_classifications.json (573 MC total; sap not staged)"
   },
   "warningsSummary": {
-    "missingAnswer": 71,
-    "missingPercentage": 86,
+    "missingAnswer": 5,
+    "missingPercentage": 85,
     "uncertain": 0
   }
 }
