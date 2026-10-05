@@ -295,6 +295,72 @@ export function checkSnapshot({ repoRoot, availability }) {
   return { problems, informational, source: { ok: source.ok, base: source.base || null } };
 }
 
+/* ---------- what the shipped pages actually reference ---------- */
+
+/* Every distinct _local/dse path the student pages load, counted from the pages
+   themselves rather than written down anywhere. docs/ARCHITECTURE.md quotes
+   these numbers, and checkDocumentedReferenceCounts() below refuses the quote
+   when it drifts, so the doc cannot hold a hand-copied count. */
+export function referenceCounts(root) {
+  const notesDir = join(root, "notes");
+  const total = new Set();
+  const byBook = new Map();
+  const walk = (dir) => {
+    for (const name of readdirSync(dir).sort()) {
+      const full = join(dir, name);
+      if (statSync(full).isDirectory()) {
+        if (SKIP.has(name)) continue;
+        walk(full);
+      } else if (name.endsWith(".html")) {
+        const refs = [...readFileSync(full, "utf8").matchAll(/_local\/dse\/[^'"\s)]+/g)].map((m) => m[0]);
+        if (!refs.length) continue;
+        const book = relative(notesDir, full).split("/")[0];
+        if (!byBook.has(book)) byBook.set(book, new Set());
+        for (const ref of refs) {
+          total.add(ref);
+          byBook.get(book).add(ref);
+        }
+      }
+    }
+  };
+  if (existsSync(notesDir)) walk(notesDir);
+  const split = (set) => {
+    const refs = [...set];
+    const png = refs.filter((r) => r.endsWith(".png")).length;
+    return { total: refs.length, png, pdf: refs.length - png };
+  };
+  return { total: split(total), books: Object.fromEntries([...byBook].sort().map(([b, s]) => [b, split(s)])) };
+}
+
+/* The sentences in docs/ARCHITECTURE.md that quote the counts. Kept loose on
+   purpose, and tolerant of the line wrapping a paragraph editor introduces:
+   the check is about the numbers agreeing, not about the prose. */
+const DOC_TOTAL_RE = /(\d+)\s+distinct\s+`_local(?:\/dse)?`\s+references\s+are/;
+const DOC_BOOK_RE = /\bBook\s+([245]):\s*(\d+)\s*=\s*(\d+)\s*PNG\s*\+\s*(\d+)\s*PDFs?/g;
+
+export function checkDocumentedReferenceCounts(docText, counts) {
+  const problems = [];
+  const total = docText.match(DOC_TOTAL_RE);
+  if (total && Number(total[1]) !== counts.total.total) {
+    problems.push({
+      kind: "dse-doc-reference-total-stale",
+      detail: `docs/ARCHITECTURE.md says ${total[1]} distinct _local/dse references; the pages hold ${counts.total.total}`,
+    });
+  }
+  for (const m of docText.matchAll(DOC_BOOK_RE)) {
+    const [, book, stated, png, pdf] = m;
+    const real = counts.books[`book${book}`];
+    if (!real) continue;
+    if (Number(stated) !== real.total || Number(png) !== real.png || Number(pdf) !== real.pdf) {
+      problems.push({
+        kind: "dse-doc-reference-count-stale",
+        detail: `docs/ARCHITECTURE.md says Book ${book}: ${stated} = ${png} PNG + ${pdf} PDFs; the pages hold ${real.total} = ${real.png} PNG + ${real.pdf} PDFs`,
+      });
+    }
+  }
+  return problems;
+}
+
 /* ---------- one page ---------- */
 
 function slideBlocks(html) {
@@ -500,6 +566,11 @@ function main() {
     console.log(`${w("where", 46)}${w("kind", 40)}detail`);
     for (const p of problems) console.log(`  - [${p.kind}] ${p.page ? `${p.page}: ` : ""}${p.detail}`);
     for (const i of informational) console.log(`  ~ [${i.kind}] ${i.page ? `${i.page}: ` : ""}${i.detail}`);
+    const counts = referenceCounts(repoRoot);
+    console.log(`\nDistinct _local/dse references the pages load: ${counts.total.total} = ${counts.total.png} PNG + ${counts.total.pdf} PDFs`);
+    for (const [book, c] of Object.entries(counts.books)) {
+      console.log(`  ${book}: ${c.total} = ${c.png} PNG + ${c.pdf} PDFs`);
+    }
     console.log(`\nsections checked | pages checked ${rows.length} | problems ${problems.length} | notes ${informational.length}`);
   }
   process.exit(problems.length ? 1 : 0);

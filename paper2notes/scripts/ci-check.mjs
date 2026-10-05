@@ -21,7 +21,7 @@ import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runLeakCheck } from "./leak-check.mjs";
 import { lintAnchors } from "./anchor-lint.mjs";
-import { checkPage, checkSnapshot, loadAvailability, loadSource } from "./dse-availability.mjs";
+import { checkPage, checkSnapshot, loadAvailability, loadSource, referenceCounts, checkDocumentedReferenceCounts } from "./dse-availability.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
@@ -390,6 +390,16 @@ function checkDseAvailability() {
     const page = relative(repoRoot, file);
     for (const p of checkPage(readFileSync(file, "utf8"), { page, availability, source }).problems) {
       fail(`dse-availability: ${page}: ${p.detail}`);
+    }
+  }
+
+  /* docs/ARCHITECTURE.md quotes how many DSE references the pages load. Count
+     them from the pages and refuse the quote when it drifts, so the number is
+     never a hand-copied value again. */
+  const doc = join(repoRoot, "..", "docs", "ARCHITECTURE.md");
+  if (existsSync(doc)) {
+    for (const p of checkDocumentedReferenceCounts(readFileSync(doc, "utf8"), referenceCounts(repoRoot))) {
+      fail(`dse-availability: ${p.detail}`);
     }
   }
 }
