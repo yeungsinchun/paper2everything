@@ -248,6 +248,29 @@ describe("planPaper against the real bank", () => {
     assert.equal(paper.count, 5);
     assert.ok(paper.questions.every((q) => q.sections.includes(section)));
   });
+
+  test("hits a 40% target when a spread-heavy cost would miss it", () => {
+    const paper = planPaper({ items: bank.items, sections: [2, 26], count: 5, targetPercent: 40, seed: "p2e" });
+    assert.equal(paper.count, 5);
+    assert.equal(paper.onTarget, true, `expected ${paper.expectedPercent}`);
+    assert.ok(Math.abs(paper.expectedPercent - 40) <= 2.5, `expected ${paper.expectedPercent}`);
+  });
+
+  test("takes the lowest scores when the target is below the pool", () => {
+    const paper = planPaper({ items: bank.items, count: 60, targetPercent: 20, seed: "p2e" });
+    assert.equal(paper.count, 60);
+    assert.ok(paper.expectedPercent <= 32, `expected ${paper.expectedPercent}`);
+  });
+
+  test("keeps the requested target when the whole pool cannot reach it", () => {
+    const paper = planPaper({ items: bank.items, sections: [4], count: 60, targetPercent: 90, seed: "p2e" });
+    assert.equal(paper.count, 16);
+    assert.equal(paper.targetPercent, 90);
+    assert.ok(paper.expectedPercent < 90);
+    const notes = paper.notes.join(" ");
+    assert.match(notes, /out of reach/);
+    assert.doesNotMatch(notes, /paper targets/i);
+  });
 });
 
 describe("gradePaper", () => {

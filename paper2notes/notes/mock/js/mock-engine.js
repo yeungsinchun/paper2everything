@@ -31,8 +31,9 @@ export const MAX_QUESTIONS = 60;
 export const MIN_TARGET = 10;
 export const MAX_TARGET = 90;
 const TARGET_TOLERANCE = 2.5; // percentage points
-// Cost weights for spreading a paper. The miss from the target dominates;
-// these only break near-ties, so they cannot drag the paper off target.
+// Weights for the spread terms. The miss from the target is compared first,
+// so these only break ties between sets with the same miss; they can never
+// drag the paper off target.
 const TOPIC_SPREAD = 0.9; // per squared question of topic over-share
 const YEAR_SPREAD = 0.35; // per squared repeat of one year
 const SEARCH_ROUNDS = 6;
@@ -131,10 +132,10 @@ export function achievableRange(pool) {
 }
 
 /**
- * Cost of a candidate set: how far its mean recorded pass rate sits from the
- * target, plus a penalty for piling onto few topics or few years. The miss
- * term dominates, so a spread can never buy an off-target paper; it only
- * separates sets that tie on the target.
+ * Score of a candidate set, in two parts. `miss` is how far its mean recorded
+ * pass rate sits from the target; `spread` penalises piling onto few topics or
+ * few years. Compare with `isBetter`: the miss is checked first, so the spread
+ * only separates sets that tie on the target.
  */
 function scoreSet(set, target, idealTopics) {
   let sum = 0;
@@ -154,9 +155,17 @@ function scoreSet(set, target, idealTopics) {
   let yearCost = 0;
   for (const count of years.values()) yearCost += count * count;
   return {
-    cost: Math.abs(sum / set.length - target) + TOPIC_SPREAD * topicCost + YEAR_SPREAD * yearCost,
+    miss: Math.abs(sum / set.length - target),
+    spread: TOPIC_SPREAD * topicCost + YEAR_SPREAD * yearCost,
     sum,
   };
+}
+
+/** True when set `a` beats set `b`: the target miss dominates the spread. */
+function isBetter(a, b) {
+  if (a.miss < b.miss - 1e-9) return true;
+  if (a.miss > b.miss + 1e-9) return false;
+  return a.spread < b.spread - 1e-9;
 }
 
 function ring(list, start, len) {
@@ -242,15 +251,11 @@ export function planPaper({
   let expectedPercent = null;
   let onTarget = false;
   let offset = null;
+  let unreachable = null;
   if (size > 0) {
     expectedPercent = clamp(Math.round(targetPercent), MIN_TARGET, MAX_TARGET);
-    if (target > range.highest && size === pool.length) {
-      expectedPercent = range.highest;
-      notes.push(`Every question left scores at most ${range.highest}% in the real exam, so ${target}% is out of reach for this pool. The paper targets ${range.highest}%.`);
-    } else if (target < range.lowest && size === pool.length) {
-      expectedPercent = range.lowest;
-      notes.push(`Every question left scores at least ${range.lowest}% in the real exam, so ${target}% is out of reach for this pool. The paper targets ${range.lowest}%.`);
-    }
+    if (target > range.highest && size === pool.length) unreachable = "high";
+    else if (target < range.lowest && size === pool.length) unreachable = "low";
   }
 
   // An even share per topic the teacher can reach. Topics with no usable
@@ -270,19 +275,19 @@ export function planPaper({
 
   const chosen = ordered.slice(0, size);
   const ids = new Set(chosen.map((item) => item.id));
-  let { cost: bestCost, sum } = scoreSet(chosen, expectedPercent, idealTopics);
+  let best = scoreSet(chosen, expectedPercent, idealTopics);
 
   const sweep = (start, len) => {
     for (let i = 0; i < chosen.length; i++) {
       const outgoing = chosen[i];
       let swapIn = null;
-      let swapCost = bestCost;
+      let swapScore = best;
       for (const candidate of ring(ordered, start, len)) {
         if (candidate !== outgoing && ids.has(candidate.id)) continue;
         chosen[i] = candidate;
         const scored = scoreSet(chosen, expectedPercent, idealTopics);
-        if (scored.cost < swapCost - 1e-9) {
-          swapCost = scored.cost;
+        if (isBetter(scored, swapScore)) {
+          swapScore = scored;
           swapIn = candidate;
         }
       }
@@ -290,18 +295,18 @@ export function planPaper({
       if (swapIn) {
         ids.delete(outgoing.id);
         ids.add(swapIn.id);
-        bestCost = swapCost;
+        best = swapScore;
       }
     }
   };
 
   for (let round = 0; round < SEARCH_ROUNDS; round++) {
-    const before = bestCost;
+    const before = best;
     sweep((round * SEARCH_WINDOW) % ordered.length, SEARCH_WINDOW);
-    if (bestCost >= before - 1e-9) break;
+    if (!isBetter(best, before)) break;
   }
   sweep(0, ordered.length); // final look at the whole pool
-  sum = scoreSet(chosen, expectedPercent, idealTopics).sum;
+  const sum = best.sum;
 
   // Exam order: syllabus section, then easiest first inside the section, so
   // the paper reads like a real paper and a teacher can see the shape of it.
@@ -347,7 +352,11 @@ export function planPaper({
   const realised = size ? sum / size : null;
   onTarget = realised !== null && Math.abs(realised - expectedPercent) <= TARGET_TOLERANCE;
 
-  if (realised !== null && !onTarget) {
+  if (realised !== null && unreachable === "high") {
+    notes.push(`Every question left scores at most ${range.highest}% in the real exam, so ${expectedPercent}% is out of reach for this pool. This paper expects ${Math.round(realised)}%.`);
+  } else if (realised !== null && unreachable === "low") {
+    notes.push(`Every question left scores at least ${range.lowest}% in the real exam, so ${expectedPercent}% is out of reach for this pool. This paper expects ${Math.round(realised)}%.`);
+  } else if (realised !== null && !onTarget) {
     notes.push(`The pool cannot hit ${expectedPercent}% exactly. This paper expects ${Math.round(realised)}%.`);
   }
 

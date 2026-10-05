@@ -135,10 +135,6 @@ function setupControls() {
   onTarget();
 
   $("topics-all").addEventListener("click", () => { state.topics.clear(); syncTopics(); });
-  $("topics-none").addEventListener("click", () => {
-    state.topics = new Set(state.sectionStats.map((s) => s.number));
-    syncTopics();
-  });
   $("new-seed").addEventListener("click", () => {
     $("seed").value = String(1 + Math.floor(Math.random() * 99999));
   });
@@ -431,6 +427,7 @@ function restore() {
   if (s.minutes != null) $("minutes").value = s.minutes;
   state.topics = new Set(s.topics ?? []);
   $("count").dispatchEvent(new Event("input"));
+  $("target").dispatchEvent(new Event("input"));
   syncTopics();
   return true;
 }
@@ -439,12 +436,6 @@ function wire() {
   $("start").addEventListener("click", start);
   $("submit").addEventListener("click", () => finish(false));
   $("plan-back").addEventListener("click", () => show("setup"));
-  $("plan-print").addEventListener("click", () => {
-    show("exam");
-    renderQuestion();
-    window.print(); // back to the plan once the print dialog closes
-    show("plan");
-  });
   $("prev").addEventListener("click", () => {
     state.index = Math.max(0, state.index - 1);
     renderQuestion();

@@ -149,15 +149,3 @@ input[type=range]{width:100%;height:var(--hit);margin:0;accent-color:var(--teal-
   .mk-figure img{min-width:540px}
   .mk-swipe{display:block;font-size:var(--text-xs);font-weight:700;color:var(--text-faint)}
 }
-
-/* Printing gives the teacher a clean paper: question crops, no answers. */
-@media print{
-  .p2n-top,.mk-actions,.mk-foot,.mk-bar,.mk-options,.deploy-commit-footer,.mk-no-print{display:none!important}
-  body{background:#fff}
-  .mk-page{max-width:none;padding:0}
-  .mk-card{border:0;box-shadow:none;padding:0}
-  .mk-bar{position:static}
-  .mk-figure{break-inside:avoid;border:0}
-  #exam{display:block!important}
-  #setup,#plan,#result{display:none!important}
-}
