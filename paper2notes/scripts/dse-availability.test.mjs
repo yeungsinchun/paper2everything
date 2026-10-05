@@ -2,15 +2,14 @@
 // which sections say in writing that they have none.
 // A section that shows a long question the papers do not contain must fail here,
 // not in a later run that reads "2012/24" and believes it is a long question.
-import { readFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync } from "node:fs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, mkdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { checkPage, checkSnapshot, checkDocumentedReferenceCounts, loadAvailability, loadSource, referenceCounts } from "./dse-availability.mjs";
+import { checkAbsencePanels, checkPage, checkSnapshot, checkDocumentedReferenceCounts, cropRefs, loadAvailability, loadSource, referenceCounts, slideBlocks } from "./dse-availability.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PAPER2NOTES = resolve(HERE, "..");
@@ -45,7 +44,21 @@ const pageCheck = (html, repo = realRepo) => {
   const availability = { ...loadAvailability(repo.repoRoot), repoRoot: repo.repoRoot };
   return checkPage(html, { page: "fixture.html", availability, source: loadSource(repo.repoRoot) });
 };
+const absenceCheck = (html, repo = realRepo) => {
+  const availability = { ...loadAvailability(repo.repoRoot), repoRoot: repo.repoRoot };
+  return checkAbsencePanels(html, { page: "fixture.html", availability });
+};
 const kinds = (r) => r.problems.map((p) => p.kind);
+
+/* Crop files the long-question slides on a page show, kept only where the
+   snapshot does not publish them, so a deleted crop fails a test instead of
+   serving a broken image. */
+function unpublishedSlideCrops(html, repoRoot) {
+  return slideBlocks(html)
+    .filter((slide) => slide.id.startsWith("dse-lq-"))
+    .flatMap((slide) => cropRefs(slide.html).map((ref) => ({ slide: slide.id, ...ref })))
+    .filter((ref) => !existsSync(join(repoRoot, "notes", "dse", ref.kind, ref.section, ref.file)));
+}
 
 const lqPanel = (slide, section) => `<section class="section-dse lo-quiz" id="lq-quiz" data-quiz="lq">
   <div class="quiz-slides"><article class="quiz-slide is-current" id="${slide}">
@@ -100,15 +113,43 @@ test("section 20 shows every electrostatics long question the source holds", () 
     const html = readFileSync(join(PAPER2NOTES, rel), "utf8");
     const problems = checkPage(html, { page: rel, availability: { ...loadAvailability(PAPER2NOTES), repoRoot: PAPER2NOTES }, source }).problems;
     assert.deepEqual(problems, [], `${page}: ${problems.map((p) => `- ${p.kind}: ${p.detail}`).join("\n")}`);
+
+    const slides = slideBlocks(html).filter((slide) => slide.id.startsWith("dse-lq-"));
     for (const key of expected) {
       const [year, n] = key.match(/^(\d+)-q(\d+)$/).slice(1);
-      assert.ok(html.includes(`id="dse-lq-${year}-${n}"`), `${page} has no slide ${key}`);
+      const slide = slides.find((s) => s.id === `dse-lq-${year}-${n}`);
+      assert.ok(slide, `${page} has no slide ${key}`);
+      const crop = cropRefs(slide.html).find((ref) => ref.kind === "lq" && ref.section === "20");
+      assert.ok(crop, `${page} slide ${key} shows no published crop`);
+      assert.equal(crop.file, `${year}-q${n}.png`, `${page} slide ${key} shows ${crop.file}`);
       assert.ok(
-        html.includes(`_local/dse/lq/20/${year}-q${n}.png`),
-        `${page} does not show the published crop for ${key}`,
+        existsSync(join(PAPER2NOTES, "notes", "dse", "lq", "20", crop.file)),
+        `${page} slide ${key} points at notes/dse/lq/20/${crop.file}, which the snapshot does not publish`,
       );
     }
+    assert.deepEqual(unpublishedSlideCrops(html, PAPER2NOTES), [], `${page} shows a crop the snapshot does not publish`);
   }
+});
+
+test("the section-20 crop check fails when a published crop is removed", () => {
+  const root = mkdtempSync(join(tmpdir(), "p2e-dse-crop-"));
+  const dir = join(root, "notes", "dse", "lq", "20");
+  mkdirSync(dir, { recursive: true });
+  const keys = ["2013-11", "2020-9", "2024-9", "2026-7"];
+  const html = keys
+    .map((key) => {
+      const [year, n] = key.split("-");
+      return `<article class="quiz-slide" id="dse-lq-${year}-${n}"><img src="../_local/dse/lq/20/${year}-q${n}.png" alt=""></article>`;
+    })
+    .join("\n");
+  for (const key of keys) {
+    const [year, n] = key.split("-");
+    writeFileSync(join(dir, `${year}-q${n}.png`), "png");
+  }
+  assert.deepEqual(unpublishedSlideCrops(html, root), []);
+
+  rmSync(join(dir, "2024-q9.png"));
+  assert.deepEqual(unpublishedSlideCrops(html, root), [{ slide: "dse-lq-2024-9", kind: "lq", section: "20", file: "2024-q9.png" }]);
 });
 
 test("a slide claiming a long question the paper does not hold fails", () => {
@@ -209,19 +250,16 @@ test("a crop file that names a question the source has not got fails", () => {
   assert.ok(problems.some((p) => p.kind === "dse-question-not-in-source"), JSON.stringify(problems));
 });
 
-test("a written absence must name the paper and its question range", () => {
-  /* Section 21 still states an absence in writing; section 20 publishes real crops. */
-  const note = (body) => `<p class="dse-lq-none" data-lq-none="21">${body}</p>`;
-  assert.deepEqual(kinds(pageCheck(note("No long question is published for this section."))), ["dse-lq-none-no-evidence"]);
-  assert.deepEqual(kinds(pageCheck(note("The 2012 long-question paper has questions 1 to 11."))), []);
+test("a written absence must match the record and name the paper and its question range", () => {
+  const note = (section, body) => `<p class="dse-lq-none" data-lq-none="${section}">${body}</p>`;
+  const evidence = "The 2012 long-question paper has questions 1 to 11.";
 
-  const real = fakeRepo({
-    manifest: { placeholderFiles: ["sample.png"], sections: { 20: { lq: { state: "real-crop", reason: "a crop" } } } },
-    sections: [["lq", "20", ["2013-q11.png"]]],
-    lq: { "2013-q11": { sections: [20] } },
-    mc: [],
-    starts: { 2013: [11] },
-  });
-  const contradicts = pageCheck(`<p class="dse-lq-none" data-lq-none="20">The 2012 long-question paper has questions 1 to 11.</p>`, { repoRoot: real });
-  assert.ok(kinds(contradicts).includes("dse-lq-none-contradicts-record"), JSON.stringify(contradicts));
+  /* No record for the stated section: the statement must fail. */
+  assert.deepEqual(kinds(absenceCheck(note("99", evidence))), ["dse-lq-none-undeclared"]);
+  /* The record says real-crop: the statement contradicts it. */
+  assert.deepEqual(kinds(absenceCheck(note("20", evidence))), ["dse-lq-none-contradicts-record"]);
+  /* The words name no paper and no range: the statement must fail. */
+  assert.deepEqual(kinds(absenceCheck(note("21", "No long question is published for this section."))), ["dse-lq-none-no-evidence"]);
+  /* A placeholder section with checkable words passes. */
+  assert.deepEqual(kinds(absenceCheck(note("21", evidence))), []);
 });

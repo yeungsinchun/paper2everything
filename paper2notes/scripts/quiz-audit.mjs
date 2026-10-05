@@ -18,7 +18,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { checkPage, checkSnapshot, loadAvailability, loadSource } from "./dse-availability.mjs";
+import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource } from "./dse-availability.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const NOTES = join(ROOT, "notes");
@@ -243,6 +243,9 @@ function audit(file) {
   const availability = checkPage(html, { page: rel, availability: AVAILABILITY, source: DSE_SOURCE });
   problems.push(...availability.problems);
   informational.push(...availability.informational);
+  const panels = checkAbsencePanels(html, { page: rel, availability: AVAILABILITY });
+  problems.push(...panels.problems);
+  informational.push(...panels.informational);
 
   /* duplicate ids */
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
