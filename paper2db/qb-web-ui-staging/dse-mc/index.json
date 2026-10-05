@@ -20376,7 +20376,7 @@
     },
     "answer": {
       "option": "D",
-      "percentage": null,
+      "percentage": 63,
       "deleted": false,
       "missing": false
     },
@@ -20385,9 +20385,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2025p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2025-24",

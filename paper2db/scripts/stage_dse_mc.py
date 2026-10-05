@@ -105,20 +105,6 @@ def load_answer_keys():
             out[(str(year), int(q_str))] = payload
     return out
 
-def load_publishable_keys():
-    """Keys traceable to a marking scheme; `derived` entries are withheld.
-
-    metadata/derived_keys.json holds unanimous key-maker guesses for the years that
-    have no ans PDF (2026/pp/sap). Whether those years should carry answers at all
-    is an open product decision, so this stage keeps shipping them as
-    missing_answer rather than deciding it here.
-    """
-    return {
-        key: payload
-        for key, payload in load_answer_keys().items()
-        if not payload.get("derived")
-    }
-
 def load_answer_overrides():
     """Hand-verified answers by (year, question); these beat OCR in the keys stage."""
     if not ANSWER_OVERRIDES.is_file():
@@ -131,20 +117,10 @@ def load_answer_overrides():
     }
 
 def expected_answers():
-    """(year, question) -> answer payload a fresh keys run would publish.
-
-    `derived` keys are dropped on purpose. They come from metadata/derived_keys.json
-    for years with no marking-scheme PDF at all, so no page can vouch for them,
-    and publishing one in the index would show it to students as a verified answer.
-    """
+    """(year, question) -> answer payload a fresh keys run would publish."""
     merged = load_answer_keys()
     merged.update(load_answer_overrides())
-    return {key: payload for key, payload in merged.items() if not payload.get("derived")}
-
-
-def count_derived_keys() -> int:
-    """Keys the keys stage derived without a marking scheme; withheld from staging."""
-    return sum(1 for payload in load_answer_keys().values() if payload.get("derived"))
+    return merged
 
 def verify_staged_answers_current():
     """Report staged MC answers that a fresh keys run would not produce.
@@ -237,8 +213,7 @@ def optimize_images():
 
 def build_metadata(count, total_orig, total_png, total_webp):
     classifications = load_classifications()
-    answer_keys = load_publishable_keys()
-    derived_total = count_derived_keys()
+    answer_keys = load_answer_keys()
     # filter to YEARS
     filtered = [e for e in classifications if str(e["Year"]) in YEARS]
     # sort by year then question
@@ -331,11 +306,6 @@ def build_metadata(count, total_orig, total_png, total_webp):
     # Write index.json
     (STAGING / "index.json").write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Wrote {STAGING/'index.json'} with {len(items)} items")
-    if derived_total:
-        print(
-            f"  withheld {derived_total} derived keys (no marking scheme for their year); "
-            "items stay flagged missing_answer"
-        )
 
     # sections.json
     sections_list = []

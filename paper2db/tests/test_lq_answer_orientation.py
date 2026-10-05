@@ -20,6 +20,11 @@ WORDS = [
     "the speed of the object are also correct.",
 ]
 
+# Scores shaped like the real staged crops: the 2018 scheme reads 55-71 at 270
+# against 1-7 upright, while an upright crop reads far better than any rotation.
+SIDEWAYS = {0: 2, 90: 22, 180: 7, 270: 71}
+UPRIGHT = {0: 34, 90: 6, 180: 4, 270: 5}
+
 
 def load_module(name: str, path: Path):
     scripts = str(ROOT / "scripts")
@@ -44,28 +49,59 @@ def text_page(lines: list[str], width: int = 1100, height: int = 700) -> Image.I
     return image
 
 
+def scores_in_order(*tables: dict[int, int]):
+    """Hand out one score table per call, then repeat the last one."""
+    remaining = list(tables)
+
+    def fake(image, max_dim: int = 1400) -> dict[int, int]:
+        return remaining.pop(0) if len(remaining) > 1 else remaining[0]
+
+    return fake
+
+
 class TestAnswerCropOrientation(unittest.TestCase):
     def test_reading_score_counts_plain_english(self) -> None:
-        good = " ".join(WORDS)
-        self.assertGreater(pla.reading_score(good), 25)
+        self.assertGreater(pla.reading_score(" ".join(WORDS)), 25)
         self.assertEqual(pla.reading_score("| 3. @ CG (@ ~@ peccay"), 0)
+
+    def test_reading_score_runs_the_ocr(self) -> None:
+        page = text_page(WORDS)
+        scores = pla.rotation_reading_scores(page)
+        self.assertEqual(max(scores, key=lambda r: scores[r]), 0, scores)
 
     def test_upright_crop_is_left_alone(self) -> None:
         page = text_page(WORDS)
-        self.assertIs(pla.upright_answer_crop(page, "test/q1.png"), page)
+        with mock.patch.object(pla, "rotation_reading_scores", scores_in_order(UPRIGHT)):
+            self.assertIs(pla.upright_answer_crop(page, "test/q1.png"), page)
 
     def test_sideways_crop_is_turned_upright(self) -> None:
         page = text_page(WORDS)
-        sideways = page.rotate(90, expand=True)
-        fixed = pla.upright_answer_crop(sideways, "test/q1.png")
-        scores = pla.rotation_reading_scores(fixed)
-        self.assertEqual(max(scores, key=lambda r: scores[r]), 0)
-        self.assertEqual(fixed.size, page.size)
+        with mock.patch.object(
+            pla, "rotation_reading_scores", scores_in_order(SIDEWAYS, UPRIGHT)
+        ):
+            fixed = pla.upright_answer_crop(page, "test/q1.png")
+        self.assertEqual(fixed.size, page.rotate(270, expand=True).size)
+        self.assertEqual(list(fixed.getdata()), list(page.rotate(270, expand=True).getdata()))
+
+    def test_scan_noise_does_not_rotate_an_upright_crop(self) -> None:
+        # 2021-q6 reads 12 at 180 against 4 upright but is plainly upright; the
+        # gate must leave it alone rather than turn it upside down.
+        noisy = {0: 4, 90: 6, 180: 12, 270: 6}
+        page = text_page(WORDS)
+        with mock.patch.object(pla, "rotation_reading_scores", scores_in_order(noisy)):
+            self.assertIs(pla.upright_answer_crop(page, "test/q1.png"), page)
 
     def test_unreadable_crop_is_rejected(self) -> None:
         blank = Image.new("RGB", (700, 500), (255, 255, 255))
+        nothing = {0: 0, 90: 0, 180: 0, 270: 0}
+        with mock.patch.object(pla, "rotation_reading_scores", scores_in_order(nothing, nothing)):
+            # Nothing to gain by rotating, so it is shipped as scanned.
+            self.assertEqual(
+                pla.upright_answer_crop(blank, "test/q1.png").size, blank.size
+            )
+        still_sideways = {0: 3, 90: 40, 180: 5, 270: 10}
         with mock.patch.object(
-            pla, "rotation_reading_scores", return_value={0: 0, 90: 0, 180: 0, 270: 9}
+            pla, "rotation_reading_scores", scores_in_order(SIDEWAYS, still_sideways)
         ):
             with self.assertRaises(SystemExit):
                 pla.upright_answer_crop(blank, "test/q1.png")

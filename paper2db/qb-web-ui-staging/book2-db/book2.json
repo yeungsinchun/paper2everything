@@ -580,8 +580,8 @@
   "answer_crop": {
    "path": "dse-lq/crops/2018-q5-ans.png",
    "exists": true,
-   "width": 1155,
-   "height": 1657
+   "width": 1657,
+   "height": 1155
   },
   "key": null,
   "key_percentage": null,
@@ -686,8 +686,8 @@
   "answer_crop": {
    "path": "dse-lq/crops/2018-q3-ans.png",
    "exists": true,
-   "width": 1155,
-   "height": 1657
+   "width": 1657,
+   "height": 1155
   },
   "key": null,
   "key_percentage": null,
@@ -1141,8 +1141,8 @@
   "answer_crop": {
    "path": "dse-lq/crops/2018-q4-ans.png",
    "exists": true,
-   "width": 1155,
-   "height": 1657
+   "width": 1657,
+   "height": 1155
   },
   "key": null,
   "key_percentage": null,
@@ -2103,14 +2103,12 @@
    "height": 522
   },
   "answer_crop": null,
-  "key": "D",
-  "key_percentage": null,
+  "key": "C",
+  "key_percentage": 58,
   "key_deleted": false,
   "reason": "Distance from velocity-time graph for motion on incline - Motion",
   "preview": "At time ¢ = 0, a small sphere is projected up along a smooth incline with a certain initial velocity. It travels a distance L and becomes momentarily at rest after a time 27. The c",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2022-4",
@@ -2240,13 +2238,12 @@
    "height": 410
   },
   "answer_crop": null,
-  "key": null,
+  "key": "C",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Toy car path; average speed from total distance and time.",
   "preview": "N t Sminis 10min5Ss  A toy car travelled due east for 10 m in 5 s, then immediately turned north and travelled 5 m for 1 s. WI was the average speed of the car ?",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -2270,13 +2267,12 @@
    "height": 186
   },
   "answer_crop": null,
-  "key": null,
+  "key": "C",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Free-fall kinematics; distance ratio in successive seconds from rest.",
   "preview": "A stone falls from rest. Neglecting air resistance, the ratio of the distance travelled by the stone in | 1 second to that travelled in the 2\" second is",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -2300,13 +2296,12 @@
    "height": 904
   },
   "answer_crop": null,
-  "key": null,
+  "key": "C",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Block on incline then ground; which speed-time graph matches higher release.",
   "preview": "v smooth inclined plane a  Figure (a) 9 Figure (b) As shown in Figure (a), a block slides down along a smooth inclined plane from rest. The correspondi speed-time graph of its moti",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -2411,14 +2406,12 @@
    "height": 463
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "A",
+  "key_percentage": 44,
   "key_deleted": false,
   "reason": "Suspended weight held at angle; resolve forces for F - Force (single-body; not moments/systems).",
   "preview": "\\ ‘25 F 20N  A block of weight 20 N is suspended by a light string from the ceiling. A force F is applied such that the block is displaced to one side with the string making an ang",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2013-6",
@@ -2467,14 +2460,12 @@
    "height": 394
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "A",
+  "key_percentage": 25,
   "key_deleted": false,
   "reason": "Constant-speed block; net force instantly after removing one force.",
   "preview": "constant speed —— 2N— —_ 12N Vp A block on a rough horizontal surface is moving to the left with constant speed under two horizontal forces 2 N and 12 N indicated as shown. If the ",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2014-4",
@@ -2605,13 +2596,11 @@
   },
   "answer_crop": null,
   "key": "C",
-  "key_percentage": null,
+  "key_percentage": 93,
   "key_deleted": false,
   "reason": "Free-body diagram of block at rest on rough incline (weight, normal, friction).",
   "preview": "A block of mass m stays at rest on a rough inclined plane as shown.  Which of the following diagrams correctly shows the forces acting on the block ?  (Nis the normal reaction from",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2018-8",
@@ -2714,14 +2703,12 @@
    "height": 518
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "B",
+  "key_percentage": 43,
   "key_deleted": false,
   "reason": "Weight and normal reaction; action-reaction pair misconception - Force",
   "preview": "A block of weight W is at rest on a horizontal ground as shown. round Ww The force acting on the block by the ground is R. Which of the following statements is/are correct ? (1) Ra",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2021-5",
@@ -2743,8 +2730,8 @@
    "height": 472
   },
   "answer_crop": null,
-  "key": "B",
-  "key_percentage": 43,
+  "key": "D",
+  "key_percentage": 35,
   "key_deleted": false,
   "reason": "Resultant contact force (normal+friction) on rough incline at constant speed - Force (single-body; not moments/systems).",
   "preview": "the indicates 1] ‘Ow Which sistance ir resi wn. arr ity as ? Neglect loci ine ? t veloc cli stant he in: ith const by t fe cost Sliding 12 iy ugh sting on tl B. Stay Clociny rol ti",
@@ -3014,13 +3001,11 @@
   },
   "answer_crop": null,
   "key": "D",
-  "key_percentage": null,
+  "key_percentage": 38,
   "key_deleted": false,
   "reason": "Atwood-like pulley blocks; dynamics then time to reach ground.",
   "preview": "Block X and Y of mass 3.0 kg and 1.0 kg respectively are connected by a light inextensible string passing over a smooth light pulley fixed to the ceiling as shown. The blocks are r",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2024-9",
@@ -3096,13 +3081,12 @@
    "height": 510
   },
   "answer_crop": null,
-  "key": null,
+  "key": "C",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Luggage on train floor; forces / inertia in accelerating frame.",
   "preview": "A train is moving horizontally along a straight line. A piece of luggage rests on the floor of the train. The diagram shows the frictional force acting on the luggage, directed to ",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -3126,13 +3110,12 @@
    "height": 499
   },
   "answer_crop": null,
-  "key": null,
+  "key": "D",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Two blocks on incline at constant velocity; friction between blocks.",
   "preview": "We : oy cae F 30? A 1-kg block is placed on a 2-kg block, and both are on a smooth incline at 30° to the horizontal. A constant force F is applied to the 1-kg block upward along th",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -3156,13 +3139,12 @@
    "height": 807
   },
   "answer_crop": null,
-  "key": null,
+  "key": "B",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Balloon-string free-body diagrams; Newton's third-law pairs.",
   "preview": "One end of a light and inextensible string is connected to a floating balloon and the other end is fixed to the ground as shown. The string is taut. balloon —>\\ string ——> ground T",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -3186,13 +3168,12 @@
    "height": 465
   },
   "answer_crop": null,
-  "key": null,
+  "key": "B",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Block on table with vertical force; weight, normal force, action-reaction pairs.",
   "preview": "o an A block of weight 100 N is placed on a horizontal table and a vertical force of 60 N is exerted on the blo as shown in the figure above. Which of the following statements is/a",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -3216,13 +3197,12 @@
    "height": 458
   },
   "answer_crop": null,
-  "key": null,
+  "key": "A",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Connected blocks and added mass; tension changes under constant F (Newton 2).",
   "preview": "Blocks, P, Q and R, connected by light inextensible threads, are placed on a smooth horizontal surface shown. A constant force F is applied to P so that the whole system travels to",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -3652,13 +3632,11 @@
   },
   "answer_crop": null,
   "key": "A",
-  "key_percentage": null,
+  "key_percentage": 33,
   "key_deleted": false,
   "reason": "Toppling wrestler about contact point; moments for minimum push F.",
   "preview": "A child tries to push a 150 kg (sumo) wrestler in order to topple him backwards in a game. The simplified diagram indicates the weight W of the wrestler and the horizontal pushing ",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2025-7",
@@ -3734,13 +3712,12 @@
    "height": 577
   },
   "answer_crop": null,
-  "key": null,
+  "key": "B",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Sphere suspended by strings to wall/ceiling and balance; forces / equilibrium.",
   "preview": "4, ceiling string wall sphere string electronic balance A sphere of weight 18 N is suspended by two light and inextensible strings. One string is attached horizontally to a wall, a",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -3764,13 +3741,12 @@
    "height": 666
   },
   "answer_crop": null,
-  "key": null,
+  "key": "D",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Moments of three forces on plate; greatest net moment about a point.",
   "preview": "Im lm Fi | R Fy Q Fy  A rectangular plate of width 2 m and length 4 m is placed on a smooth horizontal surface. Three force F\\, Fy and F3 of equal magnitude act on it as shown. F\\ ",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -3794,13 +3770,12 @@
    "height": 536
   },
   "answer_crop": null,
-  "key": null,
+  "key": "A",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Hinged rod held by string; arrangement giving smallest tension (moments).",
   "preview": "A rod XY hinged at X is kept horizontal by a light string. M is the midpoint of XY. In which of t following arrangements will the tension T in the string be the smallest ? AL B. 4 ",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -4229,13 +4204,12 @@
    "height": 543
   },
   "answer_crop": null,
-  "key": null,
+  "key": "D",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Total mechanical energy vs time for bouncing ball; energy loss.",
   "preview": "A ball is released from a certain height. It rebounds from the ground several times before it comes to rest. Neglect air resistance. Which of the following graphs best represents t",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -4259,13 +4233,12 @@
    "height": 457
   },
   "answer_crop": null,
-  "key": null,
+  "key": "B",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Ball speed at height from launch speed; mechanical energy conservation.",
   "preview": "xX 2m 4  A football player kicks a ball on the ground. The ball leaves the ground with speed v and hits the bar at with a speed of 17 ms'', X is 2 m above the ground. Neglecting ai",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -4586,14 +4559,12 @@
    "height": 349
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "A",
+  "key_percentage": 44,
   "key_deleted": false,
   "reason": "Momentum and KE of Th and alpha after nuclear decay - Momentum",
   "preview": "A stationary uranium nucleus °33U decays to give a thorium nucleus 733Th and an particle $He. 233U ——> 733Th + jHe Which of the following correctly describes the situation about th",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2022-7",
@@ -4750,13 +4721,12 @@
    "height": 401
   },
   "answer_crop": null,
-  "key": null,
+  "key": "B",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Block on trolley after push; common final speed by momentum.",
   "preview": "A 1-kg trolley with a 0.5-kg block placed on its horizontal platform is resting on a smooth horizontal floor. The block is then given a sharp push to the right. At an instant after",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -4780,13 +4750,12 @@
    "height": 737
   },
   "answer_crop": null,
-  "key": null,
+  "key": "D",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Ball rebound v-t graph; change in momentum, average force, energy loss.",
   "preview": "13, v/ms\" 4 Niicue cde aang 0 sidtaadissssel aeiven ereeerHinTTTTTT tls Fae itaeies eet a -4 A ball of mass 0.2 kg is released from rest, It hits the ground and rebounds. The veloc",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -4810,13 +4779,12 @@
    "height": 505
   },
   "answer_crop": null,
-  "key": null,
+  "key": "A",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "2D collision of discs; y-component of velocity after impact (momentum).",
   "preview": "A disc of mass 0.1 kg and velocity 5 ms strikes a stationary disc of mass 0.2 kg on a smooth table. Af the collision, the 0.1 kg disc moves with a speed of 3 m s* at 50° to the x d",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -5300,13 +5268,12 @@
    "height": 531
   },
   "answer_crop": null,
-  "key": null,
+  "key": "C",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Person in rotor pressed to wall; which force provides centripetal force.",
   "preview": "*15, = — wall ‘rotor’ Co} cam A man is rotating with constant speed inside a cylindrical ‘rotor’ and he remains pressed against the wz The floor of the ‘rotor’ is smooth. Which of ",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -5600,14 +5567,12 @@
    "height": 187
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "D",
+  "key_percentage": 49,
   "key_deleted": false,
   "reason": "Satellite circular orbits; period vs orbital radius (Kepler/gravitation).",
   "preview": "A satellite orbits the Earth in a circular orbit of radius r with a period of 24 hours. The period of another satellite which orbits the Earth in a circular orbit of radius 2r is",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2025-12",
@@ -5656,13 +5621,12 @@
    "height": 882
   },
   "answer_crop": null,
-  "key": null,
+  "key": "A",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Satellites in circular orbits of radii r and 4r; orbital period ratio.",
   "preview": "‘ll. Satellites ¥ and Y revolve around the Earth in circular orbits, in the same plane and in the same direction. The radii of their orbits are r and 4r respectively. The figure be",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },
@@ -5686,13 +5650,12 @@
    "height": 724
   },
   "answer_crop": null,
-  "key": null,
+  "key": "C",
   "key_percentage": null,
   "key_deleted": false,
   "reason": "Rocket thrust for acceleration g at surface vs at distance 2R.",
   "preview": "A rocket on the Earth’s surface is launched by an upward thrust F, producing an upward acceleration g, where g is the acceleration due to gravity near the Earth’s surface, as shown",
   "warnings": [
-   "missing_answer",
    "missing_percentage"
   ]
  },

@@ -604,10 +604,13 @@ READABLE_WORDS_RE = re.compile(
     re.I,
 )
 
-# A rotation only counts as a fix when it beats the upright read by this much;
-# near ties are OCR noise on table pages, not a sideways crop.
-ROTATION_MARGIN = 4
-ROTATION_RATIO = 2
+# A rotation only counts as a fix when it beats the upright read by this much.
+# Calibrated on all 144 staged crops: the 10 sideways 2018 crops score 55-71
+# against an upright 1-7 (their tightest case clears the bar twice over), while
+# the closest upright crop that merely tempts OCR, 2021-q6, scores 12 against 4
+# and stays put. Anything between those two is scan noise, not a rotated crop.
+ROTATION_MARGIN = 8
+ROTATION_RATIO = 4
 
 
 def reading_score(text: str) -> int:
