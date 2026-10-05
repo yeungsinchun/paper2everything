@@ -145,20 +145,41 @@ def is_front_matter(image: Image.Image) -> bool:
     return bool(FRONT_MATTER_RE.search(top) or FRONT_MATTER_RE.search(body))
 
 
+def header_text_at_all_rotations(image: Image.Image) -> list[str]:
+    """Header-band OCR at 0/90/180/270 so a sideways page still shows its heading.
+
+    Paper 2 pages are sometimes scanned sideways, and normalize_answer_orientation()
+    cannot always tell, so the heading is read in every orientation.
+    """
+    return [
+        header_text(image if rot == 0 else image.rotate(rot, expand=True))
+        for rot in (0, 90, 180, 270)
+    ]
+
+
 def is_paper_2_page(image: Image.Image) -> bool:
-    """True when we've left Paper 1B marking and hit Paper 2."""
-    text = header_text(image)
-    # Still on Paper 1B solution tables.
-    if SECTION_B_RE.search(text) and (
-        SOLUTION_HDR_RE.search(text) or MARKS_HDR_RE.search(text)
+    """True when we've left Paper 1B marking and hit Paper 2.
+
+    HKEAA marks Paper 2 pages either "Paper 2" or by topic heading only
+    ("Astronomy and Space Science", "Section B : Atomic World", ...). Both
+    heading kinds are matched, at every rotation, because a sideways scan hides
+    the heading from an upright read (this guard missed 2021 Paper 2 that way).
+    """
+    headers = header_text_at_all_rotations(image)
+    # Paper 2 topic heading wins over any Paper 1B wording on the page.
+    if any(PAPER_2_TOPIC_RE.search(text) for text in headers):
+        return True
+    if any(
+        PAPER_2_RE.search(text) and not re.search(r"paper\s*1\b", text, re.I)
+        for text in headers
     ):
-        # Paper 1B says "Paper 1 Section B"; Paper 2 says "Section B: Atomic World".
-        if not PAPER_2_TOPIC_RE.search(text):
+        return True
+    # Still on Paper 1B solution tables.
+    for text in headers:
+        if SECTION_B_RE.search(text) and (
+            SOLUTION_HDR_RE.search(text) or MARKS_HDR_RE.search(text)
+        ):
             return False
-    if PAPER_2_RE.search(text) and not re.search(r"paper\s*1\b", text, re.I):
-        return True
-    if PAPER_2_TOPIC_RE.search(text):
-        return True
     body = ocr_text(image.crop((0, 0, image.width, min(image.height, int(image.height * 0.25)))))
     if PAPER_2_TOPIC_RE.search(body):
         return True
@@ -261,10 +282,17 @@ def page_has_pdf_question_labels(page: fitz.Page, max_questions: int = 12) -> bo
 
 
 def is_paper_2_pdf_text(page: fitz.Page) -> bool:
-    """Detect Paper 2 from embedded text footers like '2020-DSE-PHY 2'."""
+    """Detect Paper 2 from embedded text: footers ('2020-DSE-PHY 2') or topic headings.
+
+    A topic heading alone is enough: 2021 page 11 starts with
+    'Astronomy and Space Science' and no literal 'Paper 2', so the old footer-only
+    test let that Paper 2 page pass as a Paper 1B solution page.
+    """
     text = page.get_text("text")[:800]
     if not text.strip():
         return False
+    if PAPER_2_TOPIC_RE.search(text):
+        return True
     if re.search(r"DSE-PHY\s*1B\b|Paper\s*1\s*Section\s*B", text, re.I):
         return False
     return bool(re.search(r"DSE-PHY\s*2\b|Paper\s*2\b", text, re.I))
@@ -563,6 +591,71 @@ def resolve_max_questions(year: str, explicit: int | None) -> int:
     return 14
 
 
+# Every word here is ordinary HKEAA marking-scheme English. Sideways pages OCR to
+# non-words, so counting these separates a real upright read from a rotated guess.
+READABLE_WORDS_RE = re.compile(
+    r"\b(?:solution|solutions|mark|marks|remarks?|answer|correct|accepted?|or|the|of|a|an|"
+    r"for|with|and|in|to|is|are|at|by|on|from|as|it|work|works|energy|power|mass|speed|"
+    r"current|voltage|force|therefore|hence|since|given|using|value|values|total|number|"
+    r"rate|half|time|times|temperature|distance|momentum|wave|waves|friction|resistance|"
+    r"capacitance|induced|magnetic|electric|not|no|any|each|per|also|when|after|before|"
+    r"because|thus|method|part|case|only|should|must|cannot|let|shown|figure|axis|maximum|"
+    r"minimum|object|light|heat|gas|liquid|solid|pressure|length|area|change|converted)\b",
+    re.I,
+)
+
+# A rotation only counts as a fix when it beats the upright read by this much;
+# near ties are OCR noise on table pages, not a sideways crop.
+ROTATION_MARGIN = 4
+ROTATION_RATIO = 2
+
+
+def reading_score(text: str) -> int:
+    """Count of ordinary English words; high means the page reads upright."""
+    return len(READABLE_WORDS_RE.findall(text))
+
+
+def rotation_reading_scores(image: Image.Image, max_dim: int = 1400) -> dict[int, int]:
+    """Reading score of the image at 0/90/180/270 degrees."""
+    work = image
+    longest = max(image.size)
+    if longest > max_dim:
+        scale_back = longest / max_dim
+        work = image.resize((max(1, int(image.width / scale_back)), max(1, int(image.height / scale_back))))
+    return {
+        rot: reading_score(
+            ocr_text(work if rot == 0 else work.rotate(rot, expand=True))
+        )
+        for rot in (0, 90, 180, 270)
+    }
+
+
+def upright_answer_crop(image: Image.Image, label: str) -> Image.Image:
+    """Return the crop rotated so English reads upright; fail when none reads.
+
+    Sideways booklet scans (2018) survive the per-page document rotation because
+    their /Rotate is 0, so the row strip inherits the scan's sideways orientation.
+    Each crop is OCR'd at four rotations; a decisive non-zero winner is turned
+    upright, and a crop whose upright read is still the worst is rejected rather
+    than staged as if it were readable.
+    """
+    scores = rotation_reading_scores(image)
+    best = max(scores, key=lambda rot: scores[rot])
+    if best == 0 or scores[best] < scores[0] * ROTATION_RATIO + ROTATION_MARGIN:
+        return image
+    print(f"  {label}: reading sideways, rotating {best}° upright {scores}")
+    # Same transform that scored best, so upright means "the rotation that reads".
+    upright = image.rotate(best, expand=True)
+    after = rotation_reading_scores(upright)
+    worst_best = max(rot for rot in after if rot != 0)
+    if after[0] < after[worst_best]:
+        raise SystemExit(
+            f"{label}: answer crop is unreadable at every rotation {after}; "
+            "re-crop from the marking scheme before staging it."
+        )
+    return upright
+
+
 def process_page_map(
     source: Path, output_dir: Path, page_map: dict[int, list[int]], scale: float
 ) -> int:
@@ -583,7 +676,9 @@ def process_page_map(
             parts = [render_page(doc[p - 1], scale) for p in pdf_pages]
             # Whole pages, header row kept: chrome stripping guesses where the header ends
             # and cut (a)(i) off Q11 on a verified page.
-            combined = trim_whitespace(stitch_vertical(parts))
+            combined = upright_answer_crop(
+                trim_whitespace(stitch_vertical(parts)), f"{output_dir.parent.name}/q{qn}.png"
+            )
             out = output_dir / f"q{qn}.png"
             combined.save(out, format="PNG")
             print(f"  Wrote {out.name} ({combined.width}x{combined.height}) from pdf pages {pdf_pages}")
@@ -777,7 +872,10 @@ def process_answers(
             parts.append(image.crop((0, top, image.width, bottom)))
         if not parts:
             continue
-        combined = strip_answer_chrome(trim_whitespace(stitch_vertical(parts)))
+        combined = upright_answer_crop(
+            strip_answer_chrome(trim_whitespace(stitch_vertical(parts))),
+            f"{output_dir.parent.name}/q{qn}.png",
+        )
         out = output_dir / f"q{qn}.png"
         combined.save(out, format="PNG")
         print(f"  Wrote {out.name} ({combined.width}x{combined.height})")

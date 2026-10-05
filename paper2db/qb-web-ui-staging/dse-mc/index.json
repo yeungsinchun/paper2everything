@@ -3054,8 +3054,8 @@
       "height": 247
     },
     "answer": {
-      "option": "A",
-      "percentage": null,
+      "option": "B",
+      "percentage": 54,
       "deleted": false,
       "missing": false
     },
@@ -3064,9 +3064,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2013p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2013-2",
@@ -3139,7 +3137,7 @@
     },
     "answer": {
       "option": "C",
-      "percentage": null,
+      "percentage": 53,
       "deleted": false,
       "missing": false
     },
@@ -3148,9 +3146,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2013p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2013-4",
@@ -3222,8 +3218,8 @@
       "height": 463
     },
     "answer": {
-      "option": "C",
-      "percentage": null,
+      "option": "A",
+      "percentage": 44,
       "deleted": false,
       "missing": false
     },
@@ -3232,9 +3228,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2013p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2013-6",
@@ -3306,8 +3300,8 @@
       "height": 394
     },
     "answer": {
-      "option": "C",
-      "percentage": null,
+      "option": "A",
+      "percentage": 25,
       "deleted": false,
       "missing": false
     },
@@ -3316,9 +3310,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2013p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2013-8",
@@ -8168,7 +8160,7 @@
     },
     "answer": {
       "option": "C",
-      "percentage": null,
+      "percentage": 71,
       "deleted": false,
       "missing": false
     },
@@ -8177,9 +8169,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2016p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2016-24",
@@ -8876,7 +8866,7 @@
     },
     "answer": {
       "option": "C",
-      "percentage": null,
+      "percentage": 93,
       "deleted": false,
       "missing": false
     },
@@ -8885,9 +8875,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2017p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2017-8",
@@ -14141,8 +14129,8 @@
       "height": 248
     },
     "answer": {
-      "option": "A",
-      "percentage": null,
+      "option": "C",
+      "percentage": 53,
       "deleted": false,
       "missing": false
     },
@@ -14151,9 +14139,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2021p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2021-4",
@@ -14184,8 +14170,8 @@
       "height": 518
     },
     "answer": {
-      "option": "C",
-      "percentage": null,
+      "option": "B",
+      "percentage": 43,
       "deleted": false,
       "missing": false
     },
@@ -14194,9 +14180,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2021p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2021-5",
@@ -14227,8 +14211,8 @@
       "height": 472
     },
     "answer": {
-      "option": "B",
-      "percentage": 43,
+      "option": "D",
+      "percentage": 35,
       "deleted": false,
       "missing": false
     },
@@ -14309,8 +14293,8 @@
       "height": 522
     },
     "answer": {
-      "option": "D",
-      "percentage": null,
+      "option": "C",
+      "percentage": 58,
       "deleted": false,
       "missing": false
     },
@@ -14319,9 +14303,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2021p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2021-8",
@@ -14352,8 +14334,8 @@
       "height": 349
     },
     "answer": {
-      "option": "C",
-      "percentage": null,
+      "option": "A",
+      "percentage": 44,
       "deleted": false,
       "missing": false
     },
@@ -14362,9 +14344,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2021p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2021-9",
@@ -14724,7 +14704,7 @@
     },
     "answer": {
       "option": "D",
-      "percentage": null,
+      "percentage": 61,
       "deleted": false,
       "missing": false
     },
@@ -14733,9 +14713,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2021p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2021-18",
@@ -18430,7 +18408,7 @@
     },
     "answer": {
       "option": "D",
-      "percentage": null,
+      "percentage": 38,
       "deleted": false,
       "missing": false
     },
@@ -18439,9 +18417,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-9",
@@ -18514,7 +18490,7 @@
     },
     "answer": {
       "option": "A",
-      "percentage": null,
+      "percentage": 33,
       "deleted": false,
       "missing": false
     },
@@ -18523,9 +18499,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-11",
@@ -18638,8 +18612,8 @@
       "height": 187
     },
     "answer": {
-      "option": "C",
-      "percentage": null,
+      "option": "D",
+      "percentage": 49,
       "deleted": false,
       "missing": false
     },
@@ -18648,9 +18622,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-14",
@@ -19010,7 +18982,7 @@
     },
     "answer": {
       "option": "B",
-      "percentage": null,
+      "percentage": 57,
       "deleted": false,
       "missing": false
     },
@@ -19019,9 +18991,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-23",
@@ -19340,7 +19310,7 @@
     },
     "answer": {
       "option": "A",
-      "percentage": null,
+      "percentage": 58,
       "deleted": false,
       "missing": false
     },
@@ -19349,9 +19319,7 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2024p1a.pdf",
-    "warnings": [
-      "missing_percentage"
-    ]
+    "warnings": []
   },
   {
     "id": "dse-mc-2024-31",
@@ -20408,7 +20376,7 @@
     },
     "answer": {
       "option": "D",
-      "percentage": 63,
+      "percentage": null,
       "deleted": false,
       "missing": false
     },
@@ -20417,7 +20385,9 @@
       "source": "metadata/mc/llm_classifications.json"
     },
     "sourcePdf": "paper/mc/2025p1a.pdf",
-    "warnings": []
+    "warnings": [
+      "missing_percentage"
+    ]
   },
   {
     "id": "dse-mc-2025-24",
