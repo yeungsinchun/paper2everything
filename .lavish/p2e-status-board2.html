@@ -120,102 +120,54 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
 <div class="wrap">
 
-  <p class="eyebrow" style="margin-top:28px">Read at 2026-10-05 23:25 HKT · this is the board of record · annotate it here, the notes come back to this project's inbox</p>
+  <p class="eyebrow" style="margin-top:28px">Read at 2026-10-05 23:35 HKT · this is the board of record · annotate it here, the notes come back to this project's inbox</p>
   <h1>What is open, what is live, and what lands next</h1>
-  <p class="lede">Three pull requests are open; every request this board names has its link in the table at the top. All three carry green checks. You asked what the uncommitted files in slots 9 and 28 actually are: section 4 answers that file by file, because they are the answer fix, the DSE answers and the shared stylesheet that three queued lanes are waiting for. Firstmate acted on your "clean all worktrees": four clean slots went back, and the three holding unique work stayed. Nine other calls are waiting on your word.</p>
+  <p class="lede">This page now shows only what still needs you: the three open requests, the worktrees that still hold work, the cleanup that is safe to do now, the order to land things in, and the nine calls waiting on your word. Merged and closed requests are off the page by your instruction; their worktrees are being cleared instead. You asked what the uncommitted files in slots 9 and 28 are: section 4 answers that file by file.</p>
 
   <div class="grid g4" style="margin-top:22px">
     <div class="stat"><div class="big">3</div><div class="k">Open pull requests</div><div class="d">#107, #108 and #114, all green, all merge clean. Links in the table below.</div></div>
-    <div class="stat"><div class="big">4</div><div class="k">Slots reclaimed today</div><div class="d">20, 27, 32, 34 — all clean. 9, 28 and 30 were kept because they hold unique work.</div></div>
-    <div class="stat"><div class="big">4</div><div class="k">Slots finished, safe</div><div class="d">27, 10, 34, 32, 33 and 30-held. Slot 25 is the one stale slot.</div></div>
+    <div class="stat"><div class="big">3</div><div class="k">Slots to clear now</div><div class="d">25, 30 and 20. Nine are already back. Four must wait: 9, 26, 28, 29.</div></div>
+    <div class="stat"><div class="big">5</div><div class="k">Worktrees with live work</div><div class="d">9, 26, 28, 29 and this one. Each holds work that exists nowhere else.</div></div>
     <div class="stat ask"><div class="big">9</div><div class="k">Waiting on your word</div><div class="d">Five answer-data items, two DSE design calls, and three that arrived from finished scout work tonight.</div></div>
   </div>
 
-  <details open style="margin-top:22px">
-    <summary>Every request, with its link</summary>
-    <p class="note" style="margin:8px 0 0">Every request this board names, copied out so nothing has to be hunted for.</p>
+  <details style="margin-top:22px">
+    <summary>The open requests, with their links</summary>
+    <p class="note" style="margin:8px 0 0">Only what is still open. Anything merged or closed is off this list by your instruction and its worktree is being cleared instead.</p>
     <table style="margin-top:10px">
       <tbody>
-        <tr><td class="id" style="white-space:nowrap"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/107">https://github.com/yeungsinchun/paper2everything/pull/107</a> — question-bank harness, 2 checks green</td></tr>
-        <tr><td class="id"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/108">https://github.com/yeungsinchun/paper2everything/pull/108</a> — per-page concept brief generator, 1 check green</td></tr>
-        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/113">https://github.com/yeungsinchun/paper2everything/pull/113</a> — screenshot rule in AGENTS.md, removed 5 PNGs; merged 22:55 HKT</td></tr>
-        <tr><td class="id"><span class="pill dead">closed</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/112">https://github.com/yeungsinchun/paper2everything/pull/112</a> — this board and the README note; closed unmerged 22:55 HKT, branch kept</td></tr>
-        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/105">https://github.com/yeungsinchun/paper2everything/pull/105</a> — Book 5 chapter picker, merged 13:53 UTC</td></tr>
-        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/109">https://github.com/yeungsinchun/paper2everything/pull/109</a> — grade every DSE MC slide</td></tr>
-        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/94">https://github.com/yeungsinchun/paper2everything/pull/94</a> — anchor id lint, moves.json, pointer shape</td></tr>
-        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/102">https://github.com/yeungsinchun/paper2everything/pull/102</a> — Book 2 stylesheet aligned to the Book 5 contract</td></tr>
-        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/103">https://github.com/yeungsinchun/paper2everything/pull/103</a> — design-system layer on the Book 5 index</td></tr>
-        <tr><td class="id"><span class="pill ok">merged</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/104">https://github.com/yeungsinchun/paper2everything/pull/104</a> — Book 4 answer-bearing block ids</td></tr>
-        <tr><td class="id"><span class="pill dead">closed</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/106">https://github.com/yeungsinchun/paper2everything/pull/106</a> — failed-attempt record, dropped and closed unmerged</td></tr>
-        <tr><td class="id"><span class="pill info">open</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/114">https://github.com/yeungsinchun/paper2everything/pull/114</a> — section 20-24 publish no long question, and a guard for that record</td></tr>
-        <tr><td class="id"><span class="pill dead">closed</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/110">https://github.com/yeungsinchun/paper2everything/pull/110</a> — committed screenshots, superseded and closed unmerged</td></tr>
+        <tr><td class="id" style="white-space:nowrap"><span class="pill ok">pass</span> <span class="pill ok">pass</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/107">https://github.com/yeungsinchun/paper2everything/pull/107</a> — question-bank harness tells the truth on every path</td></tr>
+        <tr><td class="id"><span class="pill ok">pass</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/108">https://github.com/yeungsinchun/paper2everything/pull/108</a> — per-page concept brief generator</td></tr>
+        <tr><td class="id"><span class="pill ok">pass</span></td><td><a href="https://github.com/yeungsinchun/paper2everything/pull/114">https://github.com/yeungsinchun/paper2everything/pull/114</a> — sections 20-24 publish no long question, with a guard</td></tr>
       </tbody>
     </table>
   </details>
 
   <!-- ============ 1 REQUESTS ============ -->
   <section id="prs">
-    <div class="sec-head"><span class="n">1</span><h2>Pull requests and their real check status</h2><span class="pill info">2 open, read 23:20</span></div>
-    <p class="plain">Read with <span class="mono">gh-axi pr list --state open</span>, <span class="mono">gh-axi pr view</span>, <span class="mono">gh-axi pr checks</span> and the pull-request API. Check names are what the forge reports. Everything closed today is listed too, with what closed it.</p>
+    <div class="sec-head"><span class="n">1</span><h2>Open pull requests</h2><span class="pill info">3 open, read 23:30</span></div>
+    <p class="plain">Only requests still open. Merged and closed ones are off this page by your instruction; their worktrees are handled in section 3 instead. Read with <span class="mono">gh-axi pr list --state open</span>, <span class="mono">gh-axi pr checks</span> and the pull-request API.</p>
     <div class="tblwrap" style="margin-top:14px">
       <table>
-        <thead><tr><th>Request</th><th>State</th><th>What it changes, plainly</th><th>Checks, as reported</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Request</th><th>Checks</th><th>What it changes, plainly</th><th>State</th></tr></thead>
         <tbody>
           <tr>
             <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/107">#107</a></td>
-            <td><span class="pill info">open</span></td>
-            <td class="plain"><b>Makes the question-bank harness tell the truth on every path.</b> The quality audit no longer invents pass rates for a tree that was never built — it reported 10900%. The pointer script derives the answer pointers that were empty. Three new test modules cover the harness end to end, and the CI workflow, root README and architecture doc describe the real behaviour. 11 files, +605 −49.</td>
-            <td><span class="pill ok">pass</span> <span class="pill ok">pass</span><br><span class="note">2 of 2 green: <span class="mono">ci-paper2db</span> and <span class="mono">ci-pointers</span>.</span></td>
-            <td class="plain">Mergeable clean against main, not a draft, head <span class="mono">9465126</span>. The task row says "merged", the forge says open — see section 6.</td>
+            <td><span class="pill ok">pass</span> <span class="pill ok">pass</span><br><span class="note">2 of 2 green: <span class="mono">ci-paper2db</span>, <span class="mono">ci-pointers</span>.</span></td>
+            <td class="plain"><b>Makes the question-bank harness tell the truth on every path.</b> The quality audit no longer invents pass rates for a tree that was never built — it reported 10900%. The pointer script derives the answer pointers that were empty. Three new test modules cover the harness end to end, and the workflow, root README and architecture doc describe the real behaviour. 11 files, +605 &minus;49.</td>
+            <td class="plain">Mergeable clean against main, not a draft, head <span class="mono">9465126</span>. Waiting on a merge decision. <b>First to land:</b> the answer work depends on it.</td>
           </tr>
           <tr>
             <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/108">#108</a></td>
-            <td><span class="pill info">open</span></td>
-            <td class="plain"><b>Gives every notes page a ranked list of the concepts it is missing.</b> New script <span class="path">paper2notes/scripts/brief.mjs</span> turns the audit's missing-concept findings into one brief per page in priority order, with the evidence and learning-objective ids behind each item. Wired into the notes check as a new failure mode: a brief may not quote the question text. 9 files, +1262 −30.</td>
             <td><span class="pill ok">pass</span><br><span class="note">1 of 1 green: <span class="mono">ci-notes</span>.</span></td>
-            <td class="plain">Mergeable clean, not a draft, head <span class="mono">c49f33b</span>, rebased onto the merged anchor-lint commit. The task row says "merged", the forge says open — see section 6.</td>
+            <td class="plain"><b>Gives every notes page a ranked list of the concepts it is missing.</b> New <span class="path">paper2notes/scripts/brief.mjs</span>, wired into the notes check as a new failure mode: a brief may not quote the question text. 9 files, +1262 &minus;30.</td>
+            <td class="plain">Mergeable clean, not a draft, head <span class="mono">c49f33b</span>. <b>Land after #107:</b> it adds a CI gate, so it should not re-gate work already approved.</td>
           </tr>
           <tr>
             <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/114">#114</a></td>
-            <td><span class="pill info">open</span></td>
-            <td class="plain"><b>Says out loud that sections 20 to 24 publish no long question, and adds a check that keeps saying so.</b> The Book 4 long-questions deck currently shows a placeholder because the 2012 long-question paper has no question 24. This makes that a stated fact with a guard, instead of a picture standing in for missing content.</td>
             <td><span class="pill ok">pass</span><br><span class="note">1 of 1 green.</span></td>
-            <td class="plain">Mergeable clean against main, not a draft. This is the work from slot 27, which firstmate reclaimed on the strength of it.</td>
-          </tr>
-          <tr>
-            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/112">#112</a><br><span class="pill info">this board</span></td>
-            <td><span class="pill dead">closed, not merged</span></td>
-            <td class="plain"><b>This page, committed as the board of record, plus the README note about the dropped record.</b> One self-contained file at <span class="path">.lavish/p2e-status-board2.html</span>, force-added because the repository ignores <span class="path">.lavish/</span>. 2 files, +551.</td>
-            <td><span class="pill">none configured</span><br><span class="note">both paths sit outside every workflow's filters</span></td>
-            <td class="plain">Closed unmerged at 22:55 HKT, about a minute after #113 merged, with no message to this task. The branch was pushed again after that so the work is not lost, so this board now lives in the working copy and in <span class="mono">data/p2e-status-board2/report.md</span> rather than on the forge. Whether to request it again is the supervisor's call.</td>
-          </tr>
-          <tr>
-            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/113">#113</a></td>
-            <td><span class="pill ok">merged</span></td>
-            <td class="plain"><b>Wrote the screenshot rule down, then obeyed it.</b> <span class="path">AGENTS.md</span> gained two lines: do not commit screenshots into the tree, and do not write bare local filenames into a request body because GitHub renders those as question marks. It then deleted the five Book 5 PNGs that came in with #105. 6 files.</td>
-            <td><span class="pill">none configured</span><br><span class="note">a markdown file and five images, both outside the workflow filters</span></td>
-            <td class="plain">Merged as <span class="mono">5976aec</span> at 22:55 HKT. The five images are gone from main.</td>
-          </tr>
-          <tr>
-            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/105">#105</a></td>
-            <td><span class="pill ok">merged</span></td>
-            <td class="plain">Rebuilt the Book 5 chapter picker on the shared Book screen. Merged 2026-10-05 13:53 UTC as <span class="mono">1d606f6</span>.</td>
-            <td><span class="pill ok">pass</span> <span class="mono">ci-notes</span> before merge</td>
-            <td class="plain">A follow-up fix landed on the branch first: the request body pointed at bare filenames that rendered as question marks, so the screenshots were re-hosted and referenced by URL.</td>
-          </tr>
-          <tr>
-            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/106">#106</a></td>
-            <td><span class="pill dead">closed, not merged</span></td>
-            <td class="plain">The <span class="path">failed/</span> folder of records for abandoned and superseded attempts, linked from the README.</td>
-            <td><span class="pill">none ever configured</span><br><span class="note">every path it touched was documentation</span></td>
-            <td class="plain"><b>Dropped by you.</b> The folder was never merged, so nothing in the tree links to it. The history stays in the request and in the firstmate home. The README now says so, in this change. Deliberately not being replaced.</td>
-          </tr>
-          <tr>
-            <td class="id"><a href="https://github.com/yeungsinchun/paper2everything/pull/110">#110</a></td>
-            <td><span class="pill dead">closed, not merged</span></td>
-            <td class="plain">Committed the Book 5 before/after screenshots into the tree and referenced them by URL.</td>
-            <td>none reported</td>
-            <td class="plain">Superseded: the same evidence was served from the #105 request body instead, so the PNGs were pulled back out of the tree. The branch's second commit exists only in slot 10.</td>
+            <td class="plain"><b>Says out loud that sections 20 to 24 publish no long question, and guards that record.</b> The Book 4 deck shows a placeholder today because the 2012 long-question paper has no question 24; this makes it a stated fact with a check behind it.</td>
+            <td class="plain">Mergeable clean, not a draft. Its worktree, slot 27, is back in the pool because this work is on the forge.</td>
           </tr>
         </tbody>
       </table>
@@ -224,234 +176,74 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
   <!-- ============ 2 WORKTREES ============ -->
   <section id="trees">
-    <div class="sec-head"><span class="n">2</span><h2>Worktrees: live against finished</h2></div>
-    <p class="plain">From <span class="mono">state/&lt;id&gt;.meta</span>, <span class="mono">state/&lt;id&gt;.status</span>, the fleet view, and a read of each slot's branch and working tree.</p>
+    <div class="sec-head"><span class="n">2</span><h2>Worktrees that still hold work</h2><span class="pill hold">live only</span></div>
+    <p class="plain">Only slots with work in them. Finished worktrees are not listed here; section 5 says which ones are already back and which two the supervisor can still clear. Re-read at 23:30.</p>
     <div class="tblwrap" style="margin-top:14px">
       <table>
-        <thead><tr><th>Task · slot</th><th>What it holds</th><th>State</th><th>Live or finished</th></tr></thead>
+        <thead><tr><th>Slot · branch</th><th>What is in it</th><th>Where the work is</th></tr></thead>
         <tbody>
           <tr>
-            <td class="id">p2db-answer-corrections<br>slot 9</td>
-            <td class="plain">Fixing wrong and unreadable answers: extending answer-key overrides, bounding the key-page scan to Paper 1 Section A, re-cropping rotated answer images.</td>
-            <td>Five files edited and uncommitted, two of them new tests. A key-extraction run is rewriting the derived keys now, through 2019 so far. Branch <span class="path">fm/p2db-answer-corrections</span> at <span class="mono">5ef1716</span>, four behind main, nothing pushed of its own. Slot is 3.8 GB.</td>
-            <td><span class="pill hold">live, nothing safe</span><br><span class="note">Returning this slot would delete five files of work.</span></td>
+            <td class="id">9 · fm/p2db-answer-corrections</td>
+            <td class="plain">The answer fix: 11 files, 667 lines added and 131 removed, plus two new tests. Everything named in section 4.</td>
+            <td><span class="pill hold">nowhere else</span><br><span class="note">Nothing committed, nothing pushed. 3.8 GB.</span></td>
           </tr>
           <tr>
-            <td class="id">p2e-f03-dse-answers-complete-m1<br>slot 26</td>
-            <td class="plain">Completing the DSE answers: answer-start maps, derived keys, re-staged DSE data. Six commits.</td>
-            <td>Committed at <span class="mono">bce760a</span>, none pushed. The review fix round came back with zero findings and the run has reached its test, document, lint, push, request and CI steps.</td>
-            <td><span class="pill hold">live, six commits only here</span></td>
+            <td class="id">26 · fm/p2e-f03-dse-answers-complete-m1</td>
+            <td class="plain">Six commits completing the DSE answers: per-year answer-start pages, derived keys, staged multiple-choice data, three test modules. 314 files, 8,068 lines added.</td>
+            <td><span class="pill hold">this slot only</span><br><span class="note">Committed, not pushed. Its review run came back with zero findings and is at the test and CI steps. 2.8 GB.</span></td>
           </tr>
           <tr>
-            <td class="id">p2e-shared-styles-consolidation<br>slot 28</td>
-            <td class="plain">Pulling the repeated quiz, option, header and navigation styling into one shared stylesheet and one reusable component, with a test that fails if an inline copy reappears.</td>
-            <td>Still working: 130 in-scope selector slots mapped across three book stylesheets, 122 of them duplicated. No commits yet.</td>
-            <td><span class="pill hold">live, and it gates three lanes</span></td>
+            <td class="id">28 · fm/p2e-shared-styles-consolidation</td>
+            <td class="plain">The shared stylesheet: two new files (311 and 87 lines), 62 files edited, 277 lines of duplicated CSS deleted, net 135 added and 611 removed.</td>
+            <td><span class="pill hold">nowhere else</span><br><span class="note">Nothing committed. Three queued lanes wait for it. 2.1 GB.</span></td>
           </tr>
           <tr>
-            <td class="id">p2e-deployed-quiz-integrity<br>slot 32</td>
-            <td class="plain">Checked every deployed page's quiz data. Report written: section 20.1's 2012/24 multiple choice is present and gradable, a screenshot in #109 is a stale capture, and the sweep found 14 broken crops on 6 Book 5 pages, 5 multiple-choice slides keyed against a store that says missing, and 111 of 130 slides showing objective 0.</td>
-            <td>Task reported done at 22:21, and it raised two student-visible product choices it could not settle. Two follow-up fixes are already queued from it.</td>
-            <td><span class="pill ask">finished, waiting on your word</span><br><span class="note">2.2 GB. Nothing in the slot is unfinished.</span></td>
+            <td class="id">29 · fm/p2e-broken-crops-and-keys</td>
+            <td class="plain">A lane fixing the broken crops and keys the quiz sweep found. Started from main, no commits yet.</td>
+            <td><span class="pill info">starting</span><br><span class="note">2.0 GB.</span></td>
           </tr>
           <tr>
-            <td class="id">p2e-framework-recon<br>slot 33</td>
-            <td class="plain">Answered from evidence whether this repository should move to React. Bottom line: the live site does not use React. It is hand-written static HTML, 60 files, plus vendored CSS and vanilla JS. No package manifest, no bundler, no build step. A React design system exists in the tree with 15 components, but it is reference material and is never deployed.</td>
-            <td>Task reported done at 22:12 with three options and a recommendation: consolidate the duplicated shared files rather than migrate. No migration performed.</td>
-            <td><span class="pill ask">finished, waiting on your word</span><br><span class="note">2.0 GB. Read-only task, nothing in the slot.</span></td>
-          </tr>
-          <tr>
-            <td class="id">p2e-ds-apply-book5-m1<br>slot 27</td>
-            <td class="plain">The Book 5 chapter picker rebuild.</td>
-            <td>Task reported done, #105 merged. Branch still at <span class="mono">ad1d08b</span>, two behind main, remote branch deleted.</td>
-            <td><span class="pill ok">finished, safe</span><br><span class="note">2.0 GB. Returnable now.</span></td>
-          </tr>
-          <tr>
-            <td class="id">p2e-pr105-images<br>slot 10</td>
-            <td class="plain">The screenshot evidence for #105.</td>
-            <td>Task reported done. #110 closed unmerged; the branch has two commits that exist only here, the second one removing the PNGs again. A browser is still running in the slot.</td>
-            <td><span class="pill ok">finished, safe</span><br><span class="note">2.0 GB. The evidence lives in the #105 body, so nothing is lost. Returnable now.</span></td>
-          </tr>
-          <tr>
-            <td class="id">p2e-section201-longq-check<br>slot 34</td>
-            <td class="plain">Checking whether section 20.1's long-questions panel should list a question that does not exist.</td>
-            <td>Task reported done: HKDSE 2012 has no long question 24, and the panel's placeholder is deliberate, added in commit <span class="mono">361de93</span>. The deliverable is a report outside the repository.</td>
-            <td><span class="pill ok">finished, safe</span><br><span class="note">2.0 GB. Returnable now.</span></td>
-          </tr>
-          <tr>
-            <td class="id">p2db-answers-audit<br>slot 30</td>
-            <td class="plain">The read-only audit of every answer artefact. Deliverable is a report outside the repository.</td>
-            <td>Report delivered, waiting on your five answers. A 163 MB scratch folder sits untracked in the slot. The task's own record says "unknown" because it has no live pane.</td>
-            <td><span class="pill ask">finished, held on purpose</span><br><span class="note">2.1 GB. Keep until A1 to A5 are answered.</span></td>
-          </tr>
-          <tr>
-            <td class="id">p2e-status-board2<br>slot 20</td>
-            <td class="plain">This board, and the README note about the dropped record.</td>
-            <td>On branch <span class="path">fm/p2e-status-board2</span>, one request open.</td>
-            <td><span class="pill hold">live</span></td>
+            <td class="id">20 · fm/p2e-status-board2</td>
+            <td class="plain">This board. Six commits, all pushed.</td>
+            <td><span class="pill ok">on the forge</span><br><span class="note">Branch <span class="path">fm/p2e-status-board2</span>; the request for it was closed unmerged, and this page is also plain text at <span class="mono">data/p2e-status-board2/report.md</span>.</span></td>
           </tr>
         </tbody>
       </table>
-    </div>
-  </section>
-
-  <section id="whatsin">
-    <div class="sec-head"><span class="n">4</span><h2>What is actually in those three slots</h2><span class="pill ask">asked: "what are those?"</span></div>
-    <p class="plain">Re-read at 23:20 from <span class="mono">git status</span> and <span class="mono">git log</span> in each slot. Nothing here is a build artefact or a cache: it is source, tests and staged data that exist only on this machine.</p>
-
-    <div class="card" style="margin-top:14px;border-left:8px solid var(--nudge)">
-      <h3>Slot 9 — the answer corrections, 11 files, nothing committed</h3>
-      <p class="plain">The audit found wrong answer letters and unreadable answer images. This slot holds the code that fixes it:</p>
-      <ul class="plain">
-        <li><span class="path">paper2db/scripts/answer_key_overrides.json</span> — the hand-checked answer letters, being extended so the machine stops guessing them from a scan.</li>
-        <li><span class="path">paper2db/scripts/extract_answer_keys.py</span> — reads the answer out of a marking scheme; being taught to stop at the first Paper 2 heading, which is what produced two phantom answers.</li>
-        <li><span class="path">paper2db/scripts/preprocess_lq_answers.py</span> — turns sideways answer pages upright, the fix for the 17 rotated crops.</li>
-        <li><span class="path">paper2db/scripts/stage_dse_mc.py</span> and <span class="path">stage_lq_answer_patch.py</span> — the staging step, being made to refuse to mark an answer present unless it can actually be read.</li>
-        <li><span class="path">paper2db/qb-web-ui-staging/dse-mc/</span> — four generated index files: the answers the website actually serves, regenerated with the corrected letters.</li>
-        <li><span class="path">paper2db/tests/test_lq_answer_orientation.py</span> and <span class="path">test_stage_dse_mc_freshness.py</span> — two new tests, so neither defect can come back.</li>
-      </ul>
-      <p class="plain">Nine files changed, 667 lines added, 131 removed, plus the two new tests. This is the whole of the answer fix. It is not on the forge, and not in any commit.</p>
-    </div>
-
-    <div class="card" style="margin-top:14px;border-left:8px solid var(--teal-600)">
-      <h3>Slot 26 — the DSE answers, 6 commits, none pushed</h3>
-      <p class="plain">Six commits that exist only in this slot, together touching <b>314 files with 8,068 lines added and 581 removed</b>. They add, per exam year: which page each long answer starts on; the derived answer keys; the staged multiple-choice data the site serves; and three test modules. The review rounds in the commit names are the pipeline's own read of them, and the last round came back with zero findings.</p>
-      <p class="plain">A run is still using this slot, so firstmate is leaving it alone even though the tree is clean.</p>
-    </div>
-
-    <div class="card" style="margin-top:14px;border-left:8px solid var(--book5)">
-      <h3>Slot 28 — the shared stylesheet, 64 files, nothing committed</h3>
-      <p class="plain">This is the largest of the three. Two new stylesheets, <span class="path">paper2notes/notes/css/p2n-ui.css</span> (311 lines) and <span class="path">p2n-ui-legacy.css</span> (87 lines), and 62 existing files edited to stop repeating themselves: 277 lines of duplicated CSS deleted from the Book 2 and Book 4 stylesheets, and the inline copies pulled out of chapter and section pages.</p>
-      <p class="plain">Net effect on the tree: 135 lines added, 611 removed. It is also the surface the queued option-grid, path-home and true/false lanes are waiting for, so losing it also strands three queued lanes.</p>
-    </div>
-
-    <div class="callout" style="margin-top:16px">
-      <h3>What firstmate did with your "yes", and where the line was</h3>
-      <p class="plain">Reclaiming: slots 20, 27, 32 and 34 — all clean, and 27's work is on the forge as <a href="https://github.com/yeungsinchun/paper2everything/pull/114">https://github.com/yeungsinchun/paper2everything/pull/114</a>.</p>
-      <p class="plain">Kept: slots 9, 28 and 30 for the reasons above and because slot 30 holds the audit's evidence table; slot 26 because its run is live; slot 29 because its lane is starting.</p>
-      <p class="plain">One correction to firstmate's note: this board's request, <a href="https://github.com/yeungsinchun/paper2everything/pull/112">https://github.com/yeungsinchun/paper2everything/pull/112</a>, is <b>closed unmerged</b>, not open. The board file is on the forge as branch <span class="path">fm/p2e-status-board2</span>, so nothing is lost when slot 20 goes back — and this page is also stored as plain text at <span class="mono">data/p2e-status-board2/report.md</span>.</p>
     </div>
   </section>
 
   <!-- ============ 3 SLOTS ============ -->
   <section id="slots">
-    <div class="sec-head"><span class="n">5</span><h2>Worktree slots under <span class="mono">~/.treehouse</span></h2><span class="pill dead">1 stale</span></div>
-    <div class="callout alarm" style="margin-top:12px">
-      <h3>Read this before answering "clean all worktrees"</h3>
-      <p class="plain">Four slots hold work that exists nowhere else. Reclaiming every slot would delete <b>seven uncommitted files in slot 9</b>, <b>six unpushed commits in slot 26</b>, <b>twenty-five uncommitted files in slot 27</b> and <b>six uncommitted files in slot 28</b>. None of that is on the forge, so reclaiming those four loses it outright.</p>
-      <p class="plain">Six slots are genuinely finished and lose nothing: <b>25</b> (stale, old clone), <b>30</b> (audit report already stored, 163 MB of scratch), <b>32</b> (quiz sweep reported), <b>33</b> (framework recon reported), <b>34</b> (section 20.1 check reported), plus <b>10</b> which is already back in the pool. That is about 12 GB on a machine with roughly 11 GB free.</p>
-      <p class="plain">Returning a pool slot is the supervisor's action, not this board's, so nothing here was touched. Your answer decides which list goes back.</p>
+    <div class="sec-head"><span class="n">3</span><h2>Worktree cleanup</h2><span class="pill info">supervisor's action</span></div>
+    <p class="plain">Your instruction: clean the worktrees of anything finished. This is what is left to clear, and the two that must wait. Returning a pool slot is the supervisor's action; this board did not touch a single slot.</p>
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card" style="border-left:8px solid var(--ok-edge)">
+        <h3>Clear now, nothing lost</h3>
+        <p class="plain"><b>Slot 25</b> — stale since 2026-10-02. It points at the old clone <span class="mono">~/github/paper2everything</span>, is clean, and sits at <span class="mono">335189d3</span>, the merge of #99, already on main. No task owns it. About 2.0 GB.</p>
+        <p class="plain"><b>Slot 30</b> — the answers audit. Its report is stored outside the repository; what is left is a 163 MB scratch folder. Kept only as the evidence behind the five open answer-data calls. About 2.1 GB.</p>
+        <p class="plain"><b>Slot 20</b> — this board's own slot. Clean, and its work is on the forge as branch <span class="path">fm/p2e-status-board2</span>. About 2.0 GB.</p>
+      </div>
+      <div class="card" style="border-left:8px solid var(--nudge-edge)">
+        <h3>Must wait</h3>
+        <p class="plain"><b>Slot 9</b> — 11 uncommitted files, the answer fix.</p>
+        <p class="plain"><b>Slot 26</b> — six unpushed commits, and a review run is live in it.</p>
+        <p class="plain"><b>Slot 28</b> — 64 uncommitted files, the shared stylesheet three queued lanes need.</p>
+        <p class="plain"><b>Slot 29</b> — a lane that is only starting.</p>
+        <p class="note">Each becomes clear the moment its lane commits and pushes. That is the rule: nothing is cleared while work exists only in the worktree.</p>
+      </div>
     </div>
-    <p class="plain" style="margin-top:14px">The pool allows 32 slots. Re-read at 23:05 from <span class="mono">treehouse status</span>, each slot's <span class="path">.git</span> pointer, a working-tree read of each, and the pool state file. Slots are being reused as tasks finish, so this list moved twice today.</p>
-    <div class="tblwrap" style="margin-top:14px">
-      <table>
-        <thead><tr><th>Slot</th><th>Why it still exists</th><th>Can it go back now</th><th>Space</th></tr></thead>
-        <tbody>
-          <tr>
-            <td class="id">25</td>
-            <td class="plain"><b>Stale, and provably so.</b> Its <span class="path">.git</span> points at the old clone <span class="mono">~/github/paper2everything</span>, not at this home's project repository. It is detached at <span class="mono">335189d3</span>, the merge of #99, which is already on main. Clean, no owner recorded, created 2026-10-02. One idle shell has been parked in it since 3 October 23:32, which is why the pool still calls it in use. No task record names it, so what it was opened for is unverified.</td>
-            <td><span class="pill ok">yes</span><br><span class="note">Nothing is lost. Closing the idle shell and pruning the pool entry clears it. Supervisor's action; this board did not touch it.</span></td>
-            <td class="id">2.0 GB</td>
-          </tr>
-          <tr>
-            <td class="id">27</td>
-            <td class="plain">Was finished at 22:40 — #105 had merged from it — and was then reused at 23:00 by the section 20.1 task, which now has twenty-five uncommitted files in it.</td>
-            <td><span class="pill hold">no</span><br><span class="note">it is no longer the finished slot it was an hour ago</span></td>
-            <td class="id">2.2 GB</td>
-          </tr>
-          <tr>
-            <td class="id">10</td>
-            <td class="plain">Was finished with two local commits; the pool reports it available again since 22:55, detached at the merged main. Nothing lost — the evidence lives in the #105 body.</td>
-            <td><span class="pill">returned</span></td>
-            <td class="id">2.0 GB</td>
-          </tr>
-          <tr>
-            <td class="id">34</td>
-            <td class="plain">Finished. The deliverable is a report outside the repository, and the finding is recorded in the task status.</td>
-            <td><span class="pill ok">yes</span></td>
-            <td class="id">2.0 GB</td>
-          </tr>
-          <tr>
-            <td class="id">32</td>
-            <td class="plain">Finished. The deployed-quiz sweep reported at 22:21 and its findings are in the task's own report and in two queued follow-ups.</td>
-            <td><span class="pill ok">yes</span></td>
-            <td class="id">2.2 GB</td>
-          </tr>
-          <tr>
-            <td class="id">33</td>
-            <td class="plain">Finished. Read-only recon; the report lives outside the repository and nothing is left in the slot.</td>
-            <td><span class="pill ok">yes</span></td>
-            <td class="id">2.0 GB</td>
-          </tr>
-          <tr>
-            <td class="id">30</td>
-            <td class="plain">Finished but held: the audit report is stored outside the repository and only 163 MB of scratch crops remain in the slot. Kept while A1 to A5 are open in case the audit must be re-run.</td>
-            <td><span class="pill ask">after your answers</span><br><span class="note">The scratch folder alone could go now.</span></td>
-            <td class="id">2.1 GB</td>
-          </tr>
-          <tr>
-            <td class="id">29, 31</td>
-            <td class="plain">Already back in the pool, both detached at main and clean. 31 held the #108 task; its branch is pushed, so #108 is unaffected by the slot going back.</td>
-            <td><span class="pill">returned</span></td>
-            <td class="id">2.0 GB each</td>
-          </tr>
-          <tr>
-            <td class="id">10, 31</td>
-            <td class="plain">Already back in the pool, detached at main and clean. 10 held the screenshot task; 31 held the #108 task, whose branch is pushed, so #108 is unaffected by the slot going back.</td>
-            <td><span class="pill">returned</span></td>
-            <td class="id">2.0 GB each</td>
-          </tr>
-          <tr>
-            <td class="id">29</td>
-            <td class="plain">Taken again at 23:00 for a new task; detached at main and clean.</td>
-            <td><span class="pill hold">no, in use again</span></td>
-            <td class="id">2.0 GB</td>
-          </tr>
-          <tr>
-            <td class="id">9</td>
-            <td class="plain">Live: the answer corrections. Seven uncommitted files. A key-extraction run is rewriting the derived keys.</td>
-            <td><span class="pill hold">no</span><br><span class="note">would delete seven files of work</span></td>
-            <td class="id">3.8 GB</td>
-          </tr>
-          <tr>
-            <td class="id">26</td>
-            <td class="plain">Live: the DSE answers. Clean tree, but six commits that exist nowhere else; its review run has reached the test, document, lint, push and CI steps.</td>
-            <td><span class="pill hold">no</span><br><span class="note">would lose six commits</span></td>
-            <td class="id">2.8 GB</td>
-          </tr>
-          <tr>
-            <td class="id">27</td>
-            <td class="plain">Live again: a new task, section 20.1 long questions documented. Twenty-five uncommitted files. This slot held the finished #105 task earlier today and was reused.</td>
-            <td><span class="pill hold">no</span><br><span class="note">would delete twenty-five files</span></td>
-            <td class="id">2.2 GB</td>
-          </tr>
-          <tr>
-            <td class="id">28</td>
-            <td class="plain">Live: the shared stylesheet consolidation. Six uncommitted files.</td>
-            <td><span class="pill hold">no</span></td>
-            <td class="id">2.1 GB</td>
-          </tr>
-          <tr>
-            <td class="id">20</td>
-            <td class="plain">This board.</td>
-            <td><span class="pill hold">no</span></td>
-            <td class="id">2.0 GB</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note" style="margin-top:12px">Freeing the six finished slots — 25, 30, 32, 33, 34 and the already-returned 10 — gives about 12 GB on a machine with roughly 11 GB free. Nothing depends on those slots. Slots 9, 26, 27 and 28 cannot be reclaimed without losing work.</p>
+    <p class="note" style="margin-top:12px">Already back in the pool and needing nothing: 10, 27, 31, 32, 33, 34. That is the list your cleanup instruction has already cleared, and 27's work is on the forge as https://github.com/yeungsinchun/paper2everything/pull/114.</p>
   </section>
 
   <!-- ============ 4 ORDER ============ -->
   <section id="order">
-    <div class="sec-head"><span class="n">5</span><h2>What lands next, in what order</h2><span class="pill info">4 requests, 1 lane gate</span></div>
+    <div class="sec-head"><span class="n">4</span><h2>What lands next, in what order</h2><span class="pill info">4 requests, 1 lane gate</span></div>
     <figure>
-      <svg viewBox="0 0 900 300" role="img" aria-labelledby="ordT ordD" style="color:var(--ink)">
+      <svg viewBox="0 0 900 240" role="img" aria-labelledby="ordT ordD" style="color:var(--ink)">
         <title id="ordT">Order of work after this board</title>
-        <desc id="ordD">Requests 107 and 108 can merge in either order. Requests 113 and 112 are documentation and can land at any point. The shared stylesheet consolidation must land before UI lanes 1, 3 and 4 can start. The answer-corrections work waits on the captain's answers.</desc>
+        <desc id="ordD">Request 107 merges first, 108 second, 114 at any point. The shared stylesheet consolidation must land before UI lanes 1, 3 and 4 can start. The answer-corrections work waits on the captain's answers.</desc>
         <defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"></path></marker></defs>
-        <text x="16" y="24" font-family="Fredoka, Nunito, sans-serif" font-size="15" font-weight="600" fill="currentColor">Four open requests. The two green ones can merge in any order; the two documentation ones can land at any point.</text>
+        <text x="16" y="24" font-family="Fredoka, Nunito, sans-serif" font-size="15" font-weight="600" fill="currentColor">Three open requests. Merge 107 first, 108 after it, 114 any time.</text>
         <g>
           <rect x="16" y="42" width="205" height="64" rx="12" fill="#FFFFFF" stroke="#137568" stroke-width="2"></rect>
           <text x="30" y="66" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#137568">#107 harness</text>
@@ -467,51 +259,33 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
         <g>
           <rect x="490" y="42" width="205" height="64" rx="12" fill="#FFFFFF" stroke="#E8A317" stroke-width="2"></rect>
           <text x="504" y="66" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#9A6A05">slot 9 corrections</text>
-          <text x="504" y="84" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">5 uncommitted files</text>
+          <text x="504" y="84" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">11 uncommitted files</text>
           <text x="504" y="99" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">needs your answers A1 to A5</text>
         </g>
         <g stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#a2)"><path d="M225 74 L247 74"></path><path d="M462 74 L484 74"></path></g>
+        <line x1="16" y1="136" x2="884" y2="136" stroke="#E6E0D2" stroke-width="2"></line>
+        <text x="16" y="164" font-family="Fredoka, Nunito, sans-serif" font-size="15" font-weight="600" fill="currentColor">UI consistency lanes, and the one they all wait on — 122 duplicated selectors mapped</text>
         <g>
-          <rect x="727" y="42" width="157" height="64" rx="12" fill="#FFFFFF" stroke="#D9822B" stroke-width="2"></rect>
-          <text x="741" y="66" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#B06419">#113 rule</text>
-          <text x="741" y="84" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">no CI, clean</text>
-          <text x="741" y="99" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">clears 5 PNGs</text>
+          <rect x="16" y="180" width="215" height="46" rx="12" fill="#FFFFFF" stroke="#1F9585" stroke-width="2"></rect>
+          <text x="30" y="200" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#0F5C54">shared stylesheet lane</text>
+          <text x="30" y="217" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">running now, slot 28</text>
         </g>
         <g>
-          <rect x="16" y="118" width="205" height="64" rx="12" fill="#FFFFFF" stroke="#1F9585" stroke-width="2"></rect>
-          <text x="30" y="142" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#0F5C54">#112 this board</text>
-          <text x="30" y="160" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">no CI, clean</text>
-          <text x="30" y="175" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">board plus README note</text>
+          <rect x="265" y="180" width="215" height="46" rx="12" fill="#FFFFFF" stroke="#C2415E" stroke-width="2"></rect>
+          <text x="279" y="200" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#C2415E">lanes 1, 3, 4 then 2, 7, 8</text>
+          <text x="279" y="217" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">queued, six; three wait</text>
         </g>
         <g>
-          <rect x="253" y="118" width="205" height="64" rx="12" fill="#FFFFFF" stroke="#1F9585" stroke-width="2"></rect>
-          <text x="267" y="142" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#0F5C54">UI lanes 1, 3, 4</text>
-          <text x="267" y="160" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">wait for the shared surface</text>
-          <text x="267" y="175" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">lanes 2, 7, 8 free</text>
-        </g>
-        <line x1="16" y1="204" x2="884" y2="204" stroke="#E6E0D2" stroke-width="2"></line>
-        <text x="16" y="232" font-family="Fredoka, Nunito, sans-serif" font-size="15" font-weight="600" fill="currentColor">UI consistency lanes, and the one they all wait on — 122 duplicated selectors mapped</text>
-        <g>
-          <rect x="16" y="248" width="215" height="46" rx="12" fill="#FFFFFF" stroke="#1F9585" stroke-width="2"></rect>
-          <text x="30" y="268" font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="700" fill="#0F5C54">shared stylesheet lane</text>
-          <text x="30" y="285" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">running now, slot 28</text>
+          <rect x="514" y="180" width="180" height="46" rx="12" fill="#FFFFFF" stroke="#6FBFB0" stroke-width="2"></rect>
+          <text x="528" y="200" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#0F5C54">framework recon</text>
+          <text x="528" y="217" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">running, slot 33, gates no lane</text>
         </g>
         <g>
-          <rect x="265" y="248" width="215" height="46" rx="12" fill="#FFFFFF" stroke="#C2415E" stroke-width="2"></rect>
-          <text x="279" y="268" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#C2415E">lanes 1, 3, 4 then 2, 7, 8</text>
-          <text x="279" y="285" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">queued, six; three wait</text>
+          <rect x="727" y="180" width="157" height="46" rx="12" fill="#FFFFFF" stroke="#E8A317" stroke-width="2"></rect>
+          <text x="741" y="200" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#9A6A05">slot 9 corrections</text>
+          <text x="741" y="217" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">needs A1 to A5</text>
         </g>
-        <g>
-          <rect x="514" y="248" width="180" height="46" rx="12" fill="#FFFFFF" stroke="#6FBFB0" stroke-width="2"></rect>
-          <text x="528" y="268" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#0F5C54">framework recon</text>
-          <text x="528" y="285" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">running, slot 33, gates no lane</text>
-        </g>
-        <g>
-          <rect x="727" y="248" width="157" height="46" rx="12" fill="#FFFFFF" stroke="#E8A317" stroke-width="2"></rect>
-          <text x="741" y="268" font-family="Nunito, sans-serif" font-size="13.5" font-weight="700" fill="#9A6A05">slot 9 corrections</text>
-          <text x="741" y="285" font-family="Nunito, sans-serif" font-size="12" fill="#4A5562">needs A1 to A5</text>
-        </g>
-        <g stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#a2)"><path d="M235 271 L259 271"></path></g>
+        <g stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#a2)"><path d="M235 203 L259 203"></path></g>
       </svg>
       <figcaption>Nothing on the forge blocks anything else on the forge. The only hard ordering is on the UI side: lanes 1, 3 and 4 must reuse the shared layout the consolidation lane produces, so they wait for it rather than adding per-page copies.</figcaption>
     </figure>
@@ -523,14 +297,13 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
       <li><div class="step-head"><span class="step-n">2</span><a href="https://github.com/yeungsinchun/paper2everything/pull/108"><b>#108</b></a> <span class="pill ok">1 check green</span></div>
         <p class="plain">Second, and last on the forge. It adds a new failure mode to the notes check, so no already-approved request gets re-gated by a rule that did not exist when it was approved.</p>
         <div class="unblock"><b>Unblocks:</b> per-page concept briefs, the work list the book 2, 4 and 5 writing needs. <b>Risk:</b> the gate can fail future work that quotes a question stem inside a brief; that is intended.</div></li>
-      <li><div class="step-head"><span class="step-n">3</span><a href="https://github.com/yeungsinchun/paper2everything/pull/113"><b>#113</b></a> <span class="pill ok">merged</span> <span class="pill info">docs</span></div>
-        <p class="plain">Wrote the screenshot rule into <span class="path">AGENTS.md</span> and obeyed it by deleting the five Book 5 images #105 brought in. Merged as <span class="mono">5976aec</span> at 22:55 HKT, so this step is done: every later visual request can attach images to the forge instead of committing them.</p></li>
-      <li><div class="step-head"><span class="step-n">4</span><a href="https://github.com/yeungsinchun/paper2everything/pull/112"><b>#112</b></a> <span class="pill dead">closed unmerged</span> <span class="pill info">this board</span></div>
-        <p class="plain">The board itself plus the README note that the failed-attempt record was dropped and is deliberately not replaced. Closed without merging at 22:55 HKT with no message to this task, so the board now lives in the working copy and in the plain-text report. Whether to request it again is the supervisor's call; this lane did not open a second request on its own.</p></li>
-      <li><div class="step-head"><span class="step-n">5</span><b>The shared stylesheet lane</b> <span class="pill hold">running, slot 28</span></div>
+      <li><div class="step-head"><span class="step-n">3</span><a href="https://github.com/yeungsinchun/paper2everything/pull/114"><b>#114</b></a> <span class="pill ok">1 check green</span></div>
+        <p class="plain">Third, and independent of the other two: it states a fact the Book 4 pages were only hinting at with a placeholder picture, and adds a check so the statement stays true.</p>
+        <div class="unblock"><b>Unblocks:</b> slot 27 is already back in the pool on the strength of it. <b>Risk:</b> one record and one guard.</div></li>
+      <li><div class="step-head"><span class="step-n">4</span><b>The shared stylesheet lane</b> <span class="pill hold">running, slot 28</span></div>
         <p class="plain">Third, because three queued lanes are specified to build on its output and are told to wait rather than add per-page copies.</p>
         <div class="unblock"><b>Unblocks:</b> lane 1 (2×2 option grid), lane 3 (path home), lane 4 (true/false and quick-check side by side).</div></li>
-      <li><div class="step-head"><span class="step-n">6</span><b>The answer corrections in slot 9</b> <span class="pill ask">waiting on you</span></div>
+      <li><div class="step-head"><span class="step-n">5</span><b>The answer corrections in slot 9</b> <span class="pill ask">waiting on you</span></div>
         <p class="plain">Fourth, and it cannot move at all until A1 to A5 are answered. Five files are edited and uncommitted right now.</p>
         <div class="unblock"><b>Unblocks:</b> nothing downstream until your answers land; then a rebase onto main and a request.</div></li>
     </ol>
@@ -538,7 +311,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
   <!-- ============ 5 UI LANES ============ -->
   <section id="lanes">
-    <div class="sec-head"><span class="n">6</span><h2>Consistency: the open UI issues in one place</h2><span class="pill info">6 queued, 2 running</span></div>
+    <div class="sec-head"><span class="n">5</span><h2>Consistency: the open UI issues in one place</h2><span class="pill info">6 queued, 2 running</span></div>
     <p class="plain">The same styling problems were being found page by page. They are now separate lanes with one shared surface under them. Read from the task queue and each lane's brief.</p>
     <div class="tblwrap" style="margin-top:14px">
       <table>
@@ -600,16 +373,17 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
   <!-- ============ 6 RECORD DISAGREEMENT ============ -->
   <section id="records">
-    <div class="sec-head"><span class="n">7</span><h2>Two records disagree about four requests</h2><span class="pill alarm">read this before trusting the task list</span></div>
+    <div class="sec-head"><span class="n">6</span><h2>The task queue and the forge disagree</h2><span class="pill alarm">affects what you see</span></div>
     <div class="callout alarm">
-      <h3>The task queue says "merged" for requests the forge says are still open</h3>
-      <p class="plain">The backlog marks #106, #107, #108 and #110 as merged on 2026-10-05. The forge says #106 and #110 are closed without merging and #107 and #108 are still open. The forge is the authority here, and this board follows it. Anything that reads the task list instead of the forge will conclude that four requests landed when none of them did, and will stop watching two pull requests that are still waiting.</p>
+      <h3>Four requests are recorded as merged that are not</h3>
+      <p class="plain">The task queue marks #106, #107, #108 and #110 as merged on 2026-10-05. The forge says #106 and #110 are closed without merging and #107 and #108 are open. This board follows the forge, which is why #107, #108 and #114 are on it and the others are not.</p>
+      <p class="plain">It matters for your cleanup: anything reading the queue instead of the forge will believe four requests landed, and will leave two pull requests nobody is watching. I did not find the step that wrote the wrong value, and fixing the queue is not this lane's job.</p>
     </div>
   </section>
 
   <!-- ============ 7 CAPTAIN'S CALL ============ -->
   <section id="calls">
-    <div class="sec-head"><span class="n">8</span><h2>What needs your word</h2><span class="pill ask">9 open calls</span></div>
+    <div class="sec-head"><span class="n">7</span><h2>What needs your word</h2><span class="pill ask">9 open calls</span></div>
     <p class="plain">All of these are tracked as held items, so nothing is lost if the answer comes later. Tick what you are deciding now and the answers come back to this project's inbox. Two arrived since the last pass and are at the bottom.</p>
     <div class="grid g2" style="margin-top:14px">
       <form class="q" data-lavish-question="merge-order" onsubmit="event.preventDefault(); const choice = new FormData(event.currentTarget).get('merge-order'); if (choice) window.lavish.queuePrompt('Merge in the order: ' + choice + '. Treat each merge as approved in that order.', { tag: 'choice', text: 'Merge order: ' + choice, element: event.currentTarget, data: { question: 'merge-order', answer: choice } });">
@@ -663,7 +437,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
   <!-- ============ 8 EVIDENCE ============ -->
   <section id="evidence">
-    <div class="sec-head"><span class="n">9</span><h2>Where every row came from, and what stayed unproven</h2></div>
+    <div class="sec-head"><span class="n">8</span><h2>Where every row came from, and what stayed unproven</h2></div>
     <details open>
       <summary>Commands run</summary>
       <pre>bin/fm-fleet-view.sh                     which tasks are in play and their recorded state
@@ -694,6 +468,7 @@ chrome-devtools-axi                        rendered this page at 1280 and at a n
     <details style="margin-top:12px">
       <summary>What changed in this pass</summary>
       <p class="plain">This board replaced an earlier hosted page, which you rejected. It is now a file in the repository at <span class="mono">.lavish/p2e-status-board2.html</span> on branch <span class="path">fm/p2e-status-board2</span>, with the listener armed on this page so your annotations arrive in this project's inbox. The README gained a note recording that the failed-attempt record was dropped and is deliberately not replaced. Nothing was merged.</p>
+      <p class="plain">Your fifth note: stop showing merged and closed requests, and clear their worktrees instead. Done. The page now lists only the three open requests, the worktrees that still hold work, and a cleanup list. The merged and closed requests are gone from it, and so are the finished worktrees, with the six already returned named in one line.</p>
       <p class="plain">Your fourth note asked what the uncommitted files and unpushed commits actually are. Section 4 now lists them file by file in plain words, and section 3 records what firstmate reclaimed and what was kept.</p>
       <p class="plain">Your third note said to clean all worktrees with yes. Before anyone pressed that: four slots held work that exists nowhere else. The callout at the top of section 3 and the reclaim options in section 7 both name which slots lose nothing. Returning a pool slot is the supervisor's action, so this board did not touch any slot.</p>
       <p class="plain">Your second note asked for the link for everything that has a request. There is now a link table at the top of this page listing every request this board names, open, merged and closed, with its full URL copied out.</p>
