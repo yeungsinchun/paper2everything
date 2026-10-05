@@ -220,10 +220,10 @@ Local preview (`sync-dse.sh`, developer machine): `paper2notes/scripts/sync-dse.
 Pages then load crops by relative path: section pages at
 `notes/bookX/chYY/NN-N.html` use `../_local/dse/{mc,lq}/<NN>/<file>`, and book
 indexes use `_local/dse/...`. Both resolve to `notes/bookX/_local/dse/`. No page
-references `notes/_local/dse/` directly. 115 distinct `_local` references are
-used (Book 2: 8 = 0 PNG + 8 PDFs, Book 4: 19 = 14 PNG + 5 PDFs, Book 5: 88 = 71
-PNG + 17 PDFs); `quiz-audit.mjs` reports the ones the snapshot does not hold as
-`dse-crop-not-published`.
+references `notes/_local/dse/` directly. 119 distinct `_local` references are
+used (Book 2: 8 = 0 PNG + 8 PDFs, Book 4: 23 = 18 PNG + 5 PDFs, Book 5: 88 = 71
+PNG + 17 PDFs); the standalone run of `paper2notes/scripts/dse-availability.mjs`
+reports the ones the snapshot does not hold as `dse-crop-not-published`.
 
 ### 3. QB banks: DOCX → PDF → notes intake
 
