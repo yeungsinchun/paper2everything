@@ -87,6 +87,28 @@ describe("isUsable", () => {
     assert.equal(rejectionReason(item("t", null)), "no recorded pass rate");
     assert.equal(rejectionReason(item("t", 50)), null);
   });
+
+  test("agrees with rejectionReason on every fixture shape", () => {
+    const shapes = [
+      item("ok", 50),
+      item("no-crop", 50, { hasCrop: false }),
+      item("no-image", 50, { image: "" }),
+      item("no-key", 50, { answer: { correctOption: null, percentage: 50, deleted: false } }),
+      item("no-rate", 50, { answer: { correctOption: "A", percentage: null, deleted: false } }),
+      item("deleted", 50, { answer: { correctOption: "A", percentage: 50, deleted: true } }),
+      item("uncertain", 50, { uncertain: true }),
+      item("long-question", 50, { type: "lq" }),
+      null,
+      undefined,
+    ];
+    for (const shape of [...shapes, ...bank.items]) {
+      assert.equal(
+        isUsable(shape),
+        rejectionReason(shape) === null,
+        `isUsable and rejectionReason disagree on ${shape && shape.id}`
+      );
+    }
+  });
 });
 
 describe("usableCounts", () => {

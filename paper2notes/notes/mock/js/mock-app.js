@@ -14,6 +14,7 @@ import {
   durationSeconds,
   formatClock,
   gradePaper,
+  isUsable,
   planPaper,
   usableCounts,
 } from "./mock-engine.js";
@@ -75,7 +76,10 @@ function renderTopics() {
     block.className = "mk-book";
     const head = document.createElement("div");
     head.className = "mk-book-h";
-    const available = list.reduce((n, s) => n + (state.counts.get(s.number) ?? 0), 0);
+    const sectionNumbers = new Set(list.map((s) => Number(s.number)));
+    const available = state.items.filter(
+      (it) => isUsable(it) && it.sections.some((s) => sectionNumbers.has(Number(s)))
+    ).length;
     head.innerHTML = `<b>${esc(bookLabel)}</b><span>${available} questions ready</span>`;
     block.appendChild(head);
 

@@ -63,16 +63,10 @@ export function estimateDifficulty(passRate) {
 
 /** An item can sit in a mock paper only if it is answerable and scorable. */
 export function isUsable(item) {
-  if (!item || item.type !== "mc") return false;
-  if (!item.hasCrop || !item.image) return false;
-  if (item.uncertain) return false;
-  const answer = item.answer || {};
-  if (answer.deleted) return false;
-  if (!OPTIONS.includes(answer.correctOption)) return false;
-  return estimateDifficulty(answer.percentage) !== null;
+  return rejectionReason(item) === null;
 }
 
-/** Why an item cannot sit in a paper, for the setup panel's tally. */
+/** Why an item cannot sit in a paper; null when it can. */
 export function rejectionReason(item) {
   if (!item || item.type !== "mc") return "not multiple choice";
   if (item.answer && item.answer.deleted) return "deleted from the exam";
