@@ -12,15 +12,16 @@
         has no long question must match that record
         (see scripts/dse-availability.mjs)
 
-   Run: node paper2notes/scripts/quiz-audit.mjs [--json]
+   Run: node paper2notes/scripts/quiz-audit.mjs [--json] [--root <dir>]
    Exit code 1 when any page has a broken contract. */
 
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource } from "./dse-availability.mjs";
+import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource, withoutComments } from "./dse-availability.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const rootFlag = process.argv.indexOf("--root");
+const ROOT = rootFlag !== -1 && process.argv[rootFlag + 1] ? resolve(process.argv[rootFlag + 1]) : resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const NOTES = join(ROOT, "notes");
 const SKIP = new Set(["_local", "vendor", "lib", "crops", "css", "data", "js"]);
 
@@ -115,6 +116,7 @@ function quizKeys(scriptHtml) {
 /* ---------- per-page audit ---------- */
 function audit(file) {
   const html = readFileSync(file, "utf8");
+  const page = withoutComments(html);
   const rel = relative(ROOT, file);
   const problems = [];
   const informational = [];
@@ -126,14 +128,14 @@ function audit(file) {
   let keyed = 0;
 
   /* 4. wiring */
-  const scripts = [...html.matchAll(/<script\b[^>]*src="([^"]+)"[^>]*>/g)].map((m) => m[1]);
+  const scripts = [...page.matchAll(/<script\b[^>]*src="([^"]+)"[^>]*>/g)].map((m) => m[1]);
   const checkRefs = scripts.filter((s) => /(^|\/)checks\.js(\?|$)/.test(s));
   const resolved = checkRefs.filter((s) => existsSync(resolve(dirname(file), s)));
   const hasQuizMarkup =
-    /class="[^"]*\bcheck\b/.test(html) ||
-    /class="[^"]*\btf-item\b/.test(html) ||
-    /class="[^"]*quiz-slide/.test(html) ||
-    /data-quiz=/.test(html);
+    /class="[^"]*\bcheck\b/.test(page) ||
+    /class="[^"]*\btf-item\b/.test(page) ||
+    /class="[^"]*quiz-slide/.test(page) ||
+    /data-quiz=/.test(page);
   let keys = null;
   if (!checkRefs.length) {
     /* A landing page with no quiz markup needs no grading script. */
@@ -164,7 +166,7 @@ function audit(file) {
   }
 
   /* 1. MC */
-  for (const box of checkBlocks(html)) {
+  for (const box of checkBlocks(page)) {
     const kind = box.tag["data-check"];
     if (kind === "mc") {
       mc += 1;
@@ -185,11 +187,11 @@ function audit(file) {
   }
 
   /* 2. TF, including tf-items that sit outside a data-check=tf wrapper */
-  const wrapped = checkBlocks(html)
+  const wrapped = checkBlocks(page)
     .filter((b) => b.tag["data-check"] === "tf")
     .map((b) => tfItems(b.html).map((i) => i.tag.id));
   const wrappedIds = new Set(wrapped.flat());
-  for (const item of tfItems(html)) {
+  for (const item of tfItems(page)) {
     const key = item.tag["data-answer"];
     const vals = [...item.html.matchAll(/<button\b[^>]*data-tf="([^"]*)"[^>]*>/g)].map((m) => m[1]);
     tf += 1;
@@ -210,7 +212,7 @@ function audit(file) {
   }
 
   /* 3. DSE deck slides */
-  for (const m of html.matchAll(/<article\b[^>]*class="[^"]*quiz-slide[^"]*"[^>]*>/g)) {
+  for (const m of page.matchAll(/<article\b[^>]*class="[^"]*quiz-slide[^"]*"[^>]*>/g)) {
     const a = attrs(m[0]);
     const id = a.id || "";
     if (id.startsWith("dse-lq-")) {
@@ -240,15 +242,15 @@ function audit(file) {
 
   /* 5. DSE availability: a slide may only show a question the papers hold, and
      a section with no published long question must say so on the page. */
-  const availability = checkPage(html, { page: rel, availability: AVAILABILITY, source: DSE_SOURCE });
+  const availability = checkPage(page, { page: rel, availability: AVAILABILITY, source: DSE_SOURCE });
   problems.push(...availability.problems);
   informational.push(...availability.informational);
-  const panels = checkAbsencePanels(html, { page: rel, availability: AVAILABILITY });
+  const panels = checkAbsencePanels(page, { page: rel, availability: AVAILABILITY });
   problems.push(...panels.problems);
   informational.push(...panels.informational);
 
   /* duplicate ids */
-  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
+  const ids = [...page.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   const seen = new Set();
   for (const id of ids) {
     if (seen.has(id)) problems.push({ kind: "duplicate-id", detail: `id="${id}" appears ${ids.filter((x) => x === id).length} times` });
