@@ -365,7 +365,7 @@ export function checkDocumentedReferenceCounts(docText, counts) {
 
 /* Blank HTML comments without moving any other character, so a parser never
    matches markup a reader cannot see. */
-function withoutComments(html) {
+export function withoutComments(html) {
   return html.replace(/<!--[\s\S]*?-->/g, (m) => m.replace(/[^\n]/g, " "));
 }
 

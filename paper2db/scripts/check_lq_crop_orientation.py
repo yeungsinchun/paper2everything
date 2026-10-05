@@ -24,7 +24,8 @@ Run:
     python3 paper2db/scripts/check_lq_crop_orientation.py --fix FILE_OR_DIR
     python3 paper2db/scripts/check_lq_crop_orientation.py --json FILE_OR_DIR
 
-Exit code 0 when every crop passes, 1 when any crop fails, 2 on bad input.
+Exit code 0 when every crop passes, 1 when any crop fails or the input is
+bad (a path does not exist, or a directory holds no PNG crops).
 --fix rewrites each crop the way the gate scores it, then re-checks the
 rewritten file, so a fix never hides a failure it did not solve.
 """
