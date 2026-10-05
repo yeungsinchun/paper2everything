@@ -289,7 +289,13 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
   <!-- ============ 3 SLOTS ============ -->
   <section id="slots">
     <div class="sec-head"><span class="n">3</span><h2>Worktree slots under <span class="mono">~/.treehouse</span></h2><span class="pill dead">1 stale</span></div>
-    <p class="plain">The pool allows 32 slots. From <span class="mono">treehouse status</span>, each slot's <span class="path">.git</span> pointer, a working-tree read of each, and the pool state file.</p>
+    <div class="callout alarm" style="margin-top:12px">
+      <h3>Read this before answering "clean all worktrees"</h3>
+      <p class="plain">Four slots hold work that exists nowhere else. Reclaiming every slot would delete <b>seven uncommitted files in slot 9</b>, <b>six unpushed commits in slot 26</b>, <b>twenty-five uncommitted files in slot 27</b> and <b>six uncommitted files in slot 28</b>. None of that is on the forge, so reclaiming those four loses it outright.</p>
+      <p class="plain">Six slots are genuinely finished and lose nothing: <b>25</b> (stale, old clone), <b>30</b> (audit report already stored, 163 MB of scratch), <b>32</b> (quiz sweep reported), <b>33</b> (framework recon reported), <b>34</b> (section 20.1 check reported), plus <b>10</b> which is already back in the pool. That is about 12 GB on a machine with roughly 11 GB free.</p>
+      <p class="plain">Returning a pool slot is the supervisor's action, not this board's, so nothing here was touched. Your answer decides which list goes back.</p>
+    </div>
+    <p class="plain" style="margin-top:14px">The pool allows 32 slots. Re-read at 23:05 from <span class="mono">treehouse status</span>, each slot's <span class="path">.git</span> pointer, a working-tree read of each, and the pool state file. Slots are being reused as tasks finish, so this list moved twice today.</p>
     <div class="tblwrap" style="margin-top:14px">
       <table>
         <thead><tr><th>Slot</th><th>Why it still exists</th><th>Can it go back now</th><th>Space</th></tr></thead>
@@ -302,14 +308,14 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
           </tr>
           <tr>
             <td class="id">27</td>
-            <td class="plain">Finished. #105 merged from this branch; the branch is two behind main and its remote copy is deleted.</td>
-            <td><span class="pill ok">yes</span></td>
-            <td class="id">2.0 GB</td>
+            <td class="plain">Was finished at 22:40 — #105 had merged from it — and was then reused at 23:00 by the section 20.1 task, which now has twenty-five uncommitted files in it.</td>
+            <td><span class="pill hold">no</span><br><span class="note">it is no longer the finished slot it was an hour ago</span></td>
+            <td class="id">2.2 GB</td>
           </tr>
           <tr>
             <td class="id">10</td>
-            <td class="plain">Finished. #110 closed unmerged and a browser is still running in the slot. Its two local commits are the screenshot add and the removal; the surviving evidence is in the #105 body.</td>
-            <td><span class="pill ok">yes</span></td>
+            <td class="plain">Was finished with two local commits; the pool reports it available again since 22:55, detached at the merged main. Nothing lost — the evidence lives in the #105 body.</td>
+            <td><span class="pill">returned</span></td>
             <td class="id">2.0 GB</td>
           </tr>
           <tr>
@@ -343,21 +349,51 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
             <td class="id">2.0 GB each</td>
           </tr>
           <tr>
-            <td class="id">9, 26</td>
-            <td class="plain">Live. Slot 9 holds five uncommitted files, slot 26 holds six commits that exist nowhere else.</td>
-            <td><span class="pill hold">no</span></td>
-            <td class="id">3.8 GB, 2.8 GB</td>
+            <td class="id">10, 31</td>
+            <td class="plain">Already back in the pool, detached at main and clean. 10 held the screenshot task; 31 held the #108 task, whose branch is pushed, so #108 is unaffected by the slot going back.</td>
+            <td><span class="pill">returned</span></td>
+            <td class="id">2.0 GB each</td>
           </tr>
           <tr>
-            <td class="id">28, 20</td>
-            <td class="plain">Live: the shared stylesheet consolidation and this board.</td>
+            <td class="id">29</td>
+            <td class="plain">Taken again at 23:00 for a new task; detached at main and clean.</td>
+            <td><span class="pill hold">no, in use again</span></td>
+            <td class="id">2.0 GB</td>
+          </tr>
+          <tr>
+            <td class="id">9</td>
+            <td class="plain">Live: the answer corrections. Seven uncommitted files. A key-extraction run is rewriting the derived keys.</td>
+            <td><span class="pill hold">no</span><br><span class="note">would delete seven files of work</span></td>
+            <td class="id">3.8 GB</td>
+          </tr>
+          <tr>
+            <td class="id">26</td>
+            <td class="plain">Live: the DSE answers. Clean tree, but six commits that exist nowhere else; its review run has reached the test, document, lint, push and CI steps.</td>
+            <td><span class="pill hold">no</span><br><span class="note">would lose six commits</span></td>
+            <td class="id">2.8 GB</td>
+          </tr>
+          <tr>
+            <td class="id">27</td>
+            <td class="plain">Live again: a new task, section 20.1 long questions documented. Twenty-five uncommitted files. This slot held the finished #105 task earlier today and was reused.</td>
+            <td><span class="pill hold">no</span><br><span class="note">would delete twenty-five files</span></td>
+            <td class="id">2.2 GB</td>
+          </tr>
+          <tr>
+            <td class="id">28</td>
+            <td class="plain">Live: the shared stylesheet consolidation. Six uncommitted files.</td>
             <td><span class="pill hold">no</span></td>
-            <td class="id">2.0 to 2.2 GB each</td>
+            <td class="id">2.1 GB</td>
+          </tr>
+          <tr>
+            <td class="id">20</td>
+            <td class="plain">This board.</td>
+            <td><span class="pill hold">no</span></td>
+            <td class="id">2.0 GB</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="note" style="margin-top:12px">Freeing slots 27, 10, 34, 32 and 33 plus the stale 25 gives about 12 GB, on a machine with roughly 11 GB free. That is the single largest reclaim available and nothing depends on those slots. Slot 30 follows once you answer A1 to A5.</p>
+    <p class="note" style="margin-top:12px">Freeing the six finished slots — 25, 30, 32, 33, 34 and the already-returned 10 — gives about 12 GB on a machine with roughly 11 GB free. Nothing depends on those slots. Slots 9, 26, 27 and 28 cannot be reclaimed without losing work.</p>
   </section>
 
   <!-- ============ 4 ORDER ============ -->
@@ -567,11 +603,12 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--line);font-si
 
     <details style="margin-top:14px">
       <summary>Slot 25 and the four finished slots — reclaim?</summary>
-      <p class="plain">Slot 25 is stale for a proven reason and the four finished slots have nothing left in them. Together they are about 10 GB on a machine with roughly 11 GB free. Returning a pool slot is the supervisor's action; this is only to put the intent on record.</p>
+      <p class="plain">Slot 25 is stale for a proven reason, and the finished slots 30, 32, 33 and 34 have nothing left in them. Together they are about 10 GB on a machine with roughly 11 GB free. Returning a pool slot is the supervisor's action; this is only to put the intent on record.</p>
       <form data-lavish-question="slot-reclaim" onsubmit="event.preventDefault(); const choice = new FormData(event.currentTarget).get('slot-reclaim'); if (choice) window.lavish.queuePrompt('Slot reclaim: ' + choice, { tag: 'choice', text: 'Slot reclaim: ' + choice, element: event.currentTarget, data: { question: 'slot-reclaim', answer: choice } });">
-        <label class="opt"><input type="radio" name="slot-reclaim" value="reclaim 25 and the four finished slots"><span><span class="t">Reclaim all five</span><span class="d">Slots 25, 27, 10 and 34, plus the scratch in 30 when the answers land.</span></span></label>
-        <label class="opt"><input type="radio" name="slot-reclaim" value="reclaim slot 25 only"><span><span class="t">Reclaim the stale one only</span><span class="d">Just slot 25; keep the finished slots warm.</span></span></label>
-        <label class="opt"><input type="radio" name="slot-reclaim" value="leave them"><span><span class="t">Leave them</span><span class="d>The pool has spare slots, so there is no capacity pressure.</span></span></label>
+        <label class="opt"><input type="radio" name="slot-reclaim" value="reclaim the six finished slots (25, 30, 32, 33, 34 and any already returned)"><span><span class="t">Reclaim the finished six</span><span class="d">Slots 25, 30, 32, 33, 34, and 10 and 31 which are already back. Nothing is lost. About 12 GB.</span></span></label>
+        <label class="opt"><input type="radio" name="slot-reclaim" value="reclaim slot 25 only"><span><span class="t">Reclaim slot 25 only</span><span class="d">Just the stale one; about 2 GB.</span></span></label>
+        <label class="opt"><input type="radio" name="slot-reclaim" value="reclaim every slot including 9, 26, 27 and 28"><span><span class="t">Reclaim every slot, including the live four</span><span class="d">This deletes seven uncommitted files in slot 9, six unpushed commits in slot 26, twenty-five uncommitted files in slot 27 and six in slot 28. Nothing is recoverable afterwards.</span></span></label>
+        <label class="opt"><input type="radio" name="slot-reclaim" value="leave them all"><span><span class="t">Leave them all</span><span class="d>The pool has spare slots, so there is no capacity pressure.</span></span></label>
         <p style="margin-top:12px"><button type="submit" class="ghost">Queue this answer</button></p>
       </form>
     </details>
@@ -610,6 +647,7 @@ chrome-devtools-axi                        rendered this page at 1280 and at a n
     <details style="margin-top:12px">
       <summary>What changed in this pass</summary>
       <p class="plain">This board replaced an earlier hosted page, which you rejected. It is now a file in the repository at <span class="mono">.lavish/p2e-status-board2.html</span> on branch <span class="path">fm/p2e-status-board2</span>, with the listener armed on this page so your annotations arrive in this project's inbox. The README gained a note recording that the failed-attempt record was dropped and is deliberately not replaced. Nothing was merged.</p>
+      <p class="plain">Your third note said to clean all worktrees with yes. Before anyone presses that: four slots hold work that exists nowhere else. Reclaiming every slot would delete seven uncommitted files in slot 9, six unpushed commits in slot 26, twenty-five uncommitted files in slot 27 and six in slot 28. The callout at the top of section 3 and the reclaim options in section 7 both name which slots lose nothing. Returning a pool slot is the supervisor's action, so this board did not touch any slot.</p>
       <p class="plain">Your second note asked for the link for everything that has a request. There is now a link table at the top of this page listing every request this board names, open, merged and closed, with its full URL copied out.</p>
       <p class="plain">Your first note asked why two requests were shown when four are open. Two were missing because this board was written at 22:10, before #113 opened, and because it left its own request out of the count. Both are fixed: all four open requests are now listed, this board counts itself as #112, and the counts at the top, the figure and the order all agree with the forge at 22:55.</p>
       <p class="plain">This round also folds in two finished scout tasks. The deployed-quiz sweep reported: 14 broken crops on 6 Book 5 pages, 5 multiple-choice slides keyed against a store that says missing, 111 of 130 slides showing objective 0, and a screenshot in #109 that is a stale capture. The framework recon reported: no React in the live site, no build step, and a real but undeployed React design system. Both raised calls, now listed in section 7 with their options.</p>
