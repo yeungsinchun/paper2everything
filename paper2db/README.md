@@ -89,7 +89,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 1. **mc-anchors** - blue dots on each MC paper; **you must review** `intermediate/mc/<year>/anchor.pdf`
 2. **mc-split** - crop clean `qN.png` into `tests/reconstructed/mc/<year>/` + A4 `combined.pdf`; then joins every year into `tests/reconstructed/mc/combined.pdf`
 3. **lq-pages** - export LQ pages + `starts.json`
-4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `combined.pdf` of those stacks from the source paper (no cover, no within-page crop; trailing data/formulae sheets excluded); then joins every year into `tests/reconstructed/lq/combined.pdf`
+4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `combined.pdf` of those stacks from the source paper (no cover, no within-page crop; trailing data/formulae sheets excluded); then joins every year into `tests/reconstructed/lq/combined.pdf`. Before a crop is copied into the published snapshot (`paper2notes/notes/dse/lq/<section>/`), run `scripts/check_lq_crop_orientation.py` on it: it reuses the upright/rotated test from `scripts/preprocess_lq_answers.py`, adds a legibility floor, and exits non-zero on a sideways or unreadable page (`--fix` rotates and re-checks)
 5. **lq-answers** - marking-scheme answer crops under `ans/`
 6. **keys** - MC keys + correct-% → `tests/sections/mc/answer_keys.json`
 7. **classify-mc** - 27 syllabus sections; replays `metadata/mc/llm_classifications.json`, calls the LLM only for years missing from it, keyword fallback on error
