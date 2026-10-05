@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 /* Static quiz audit for every shipped notes page.
 
-   Checks the four contracts the runtime in js/checks.js grades against:
+   Checks the five contracts the runtime in js/checks.js grades against:
      1. MC   .check[data-check="mc"][data-answer] > button[data-choice]  -> key must match an option
      2. TF   .tf-item[data-answer="true|false"]            > button[data-tf] -> key must be true|false
      3. DSE  .quiz-slide[id^="dse-mc-"]                    -> id must exist in that page's QUIZ_KEYS
      4. wiring: the page must load a js/checks.js that resolves on disk
+     5. DSE availability: every DSE crop a page shows must be a question the
+        papers really hold, and every section that publishes no long question
+        must say so in notes/dse/availability.json and on the page
+        (see scripts/dse-availability.mjs)
 
    Run: node paper2notes/scripts/quiz-audit.mjs [--json]
    Exit code 1 when any page has a broken contract. */
@@ -13,6 +17,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { checkPage, checkSnapshot, loadAvailability, loadSource } from "./dse-availability.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const NOTES = join(ROOT, "notes");
@@ -26,6 +31,12 @@ const UNAVAILABLE = new Set(
     JSON.parse(readFileSync(join(ROOT, "scripts", "quiz-keys-unavailable.json"), "utf8")).papers || {},
   ),
 );
+
+/* What each DSE section really has: notes/dse/availability.json plus the
+   tracked paper2db inputs that say which questions the papers hold. Read once
+   for the whole run. */
+const AVAILABILITY = { ...loadAvailability(ROOT), repoRoot: ROOT };
+const DSE_SOURCE = loadSource(ROOT);
 
 /* ---------- page discovery ---------- */
 function pages(dir, out = []) {
@@ -226,6 +237,12 @@ function audit(file) {
     }
   }
 
+  /* 5. DSE availability: a slide may only show a question the papers hold, and
+     a section with no published long question must say so on the page. */
+  const availability = checkPage(html, { page: rel, availability: AVAILABILITY, source: DSE_SOURCE });
+  problems.push(...availability.problems);
+  informational.push(...availability.informational);
+
   /* duplicate ids */
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   const seen = new Set();
@@ -249,16 +266,20 @@ function audit(file) {
 }
 
 /* ---------- run ---------- */
+const snapshot = checkSnapshot({ repoRoot: ROOT, availability: AVAILABILITY });
 const files = pages(NOTES);
 const rows = files.map(audit);
 const json = process.argv.includes("--json");
-const anyProblem = rows.some((r) => r.problems.length);
+const anyProblem = snapshot.problems.length > 0 || rows.some((r) => r.problems.length);
 
 if (json) {
-  console.log(JSON.stringify({ pages: rows }, null, 2));
+  console.log(JSON.stringify({ snapshot, pages: rows }, null, 2));
 } else {
   const w = (s, n) => String(s).padEnd(n);
-  console.log(`${w("page", 62)}${w("mc", 4)}${w("tf", 4)}${w("sa", 4)}${w("dseMC", 7)}${w("keyed", 7)}problems`);
+  console.log(`DSE availability (notes/dse/availability.json against notes/dse/ and paper2db)`);
+  for (const p of snapshot.problems) console.log(`  - [${p.kind}] ${p.detail}`);
+  for (const i of snapshot.informational) console.log(`  ~ [${i.kind}] ${i.detail}`);
+  console.log(`\n${w("page", 62)}${w("mc", 4)}${w("tf", 4)}${w("sa", 4)}${w("dseMC", 7)}${w("keyed", 7)}problems`);
   for (const r of rows) {
     console.log(
       `${w(r.page, 62)}${w(r.mc, 4)}${w(r.tf, 4)}${w(r.sa, 4)}${w(r.dseMc, 7)}${w(r.keyed, 7)}${r.problems.length}`,

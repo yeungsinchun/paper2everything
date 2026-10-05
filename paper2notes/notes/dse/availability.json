@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "updated": "2026-10-05",
+  "checkedBy": [
+    "node paper2notes/scripts/quiz-audit.mjs",
+    "node paper2notes/scripts/ci-check.mjs"
+  ],
+  "why": "One DSE paper numbers its multiple-choice part and its long-question part separately, so a bare '2012/24' does not say which kind of question it is. HKDSE 2012 Paper 1A Section A is questions 1 to 36 and every one of them is multiple choice; Paper 1B is questions 1 to 11 and every one of them is a long question. A number that reads like a long question can therefore be a Section A multiple-choice question. This file records, for every section the published snapshot carries, what actually ships and why, so an absent question reads as a decision instead of a bug.",
+  "states": {
+    "real-crop": "Every published file for this section is a real question image, or the real combined PDF built from paper scans. Nothing here is hand-written.",
+    "placeholder": "Every published file for this section is a hand-written placeholder, not a scan of a paper. The reason says which file, and what the source papers really contain.",
+    "none-in-source": "The source papers contain no such question for this section, so no crop can exist and none may be invented. The reason names the paper and the question range that paper does have."
+  },
+  "placeholderFiles": ["sample.png"],
+  "sources": {
+    "lqClassifications": "paper2db/metadata/lq/llm_classifications.json - which long question belongs to which section",
+    "lqQuestionStarts": "paper2db/tests/reconstructed/lq/<year>/starts.json - the long-question numbers each year's paper contains",
+    "mcClassifications": "paper2db/metadata/mc/llm_classifications.json - which question numbers are multiple choice, and which section each belongs to",
+    "note": "These tracked inputs are the evidence behind every state below. When paper2db is not beside paper2notes, the source cross-checks are skipped and reported as skipped; they are never replaced by a guess."
+  },
+  "sections": {
+    "05": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "06": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "07": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "08": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "09": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "10": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "11": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "12": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "20": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "2 crops published (2012/24, 2014/21) plus combined.pdf, all scans of Paper 1A Section A. 2012/24 is a multiple-choice question: paper2db files it under metadata/mc, not metadata/lq, and the 2012 answer table lists it under 'Paper 1 Section A'."
+      },
+      "lq": {
+        "state": "placeholder",
+        "reason": "Only sample.png is published: a hand-written placeholder added in 361de93 so the deck resolves, standing for no question. No 2012 long question can replace it, because the 2012 long-question paper 1B has questions 1 to 11 and none of them is about electrostatics; 2012/24 is a Section A multiple-choice question and is published under mc/20. Long questions for this section do exist for other years (2013/11, 2020/9, 2024/9, 2026/7) and are not published. The pages book4/ch01-electrostatics/20-1.html and 20-2.html state this in words instead of showing the placeholder."
+      }
+    },
+    "21": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "2 crops published (2012/26, 2018/23) plus combined.pdf, all scans of Paper 1A Section A."
+      },
+      "lq": {
+        "state": "placeholder",
+        "reason": "Only sample.png is published, a hand-written placeholder added in 361de93 so the deck resolves. The source files 13 long questions for this section (2013/10, 2015/8, 2016/7, 2017/8, 2019/7, 2020/8, 2021/8, 2022/8, 2023/7, 2024/11, 2025/7, 2026/8, pp/12); none of them is published yet."
+      }
+    },
+    "22": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "2 crops published (2012/33, 2016/28) plus combined.pdf, all scans of Paper 1A Section A."
+      },
+      "lq": {
+        "state": "placeholder",
+        "reason": "Only sample.png is published, a hand-written placeholder added in 361de93 so the deck resolves. The source files 7 long questions for this section (2012/8, 2012/9, 2014/8, 2018/8, 2019/8, 2025/11, pp/8); none of them is published yet."
+      }
+    },
+    "23": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "2 crops published (2012/29, 2018/27) plus combined.pdf, all scans of Paper 1A Section A."
+      },
+      "lq": {
+        "state": "placeholder",
+        "reason": "Only sample.png is published, a hand-written placeholder added in 361de93 so the deck resolves. The source files 11 long questions for this section (2012/10, 2013/4, 2016/8, 2017/9, 2019/9, 2020/3, 2022/7, 2022/9, 2023/8, 2024/12, 2025/8); none of them is published yet."
+      }
+    },
+    "24": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "2 crops published (2012/31, 2014/27) plus combined.pdf, all scans of Paper 1A Section A."
+      },
+      "lq": {
+        "state": "placeholder",
+        "reason": "Only sample.png is published, a hand-written placeholder added in 361de93 so the deck resolves. The source files 8 long questions for this section (2014/9, 2015/8, 2015/9, 2018/9, 2021/7, pp/6, pp/7, pp/13); none of them is published yet."
+      }
+    },
+    "25": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "17 crops published (2012/36, 2013/34, 2014/31, 2014/32, 2015/31, 2016/32, 2017/31, 2017/32, 2019/31, 2020/30, 2020/31, 2021/31, 2021/33, 2022/31, 2025/32, pp/34, sap/36) plus combined.pdf, all scans of the multiple-choice papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "1 crop published: 2026-q12.png, a scan of 2026 Paper 1B question 12. The other 10 long questions the source files for this section are not published."
+      }
+    },
+    "26": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "17 crops published (2012/35, 2013/35, 2015/32, 2015/33, 2016/33, 2018/32, 2019/32, 2020/32, 2020/33, 2021/32, 2022/32, 2023/31, 2024/32, 2024/33, 2025/31, 2026/32, sap/35) plus combined.pdf, all scans of the multiple-choice papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "8 crops published (2013/9, 2014/10, 2016/9, 2017/10, 2018/10, 2021/9, 2023/9, 2025/12), all scans of Paper 1B. The other 5 long questions the source files for this section are not published."
+      }
+    },
+    "27": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "12 crops published (2013/36, 2014/33, 2017/33, 2018/31, 2018/33, 2019/33, 2022/33, 2023/32, 2023/33, 2025/33, 2026/33, pp/36) plus combined.pdf, all scans of the multiple-choice papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "6 crops published (2012/11, 2015/10, 2019/10, 2020/10, 2022/10, pp/14), all scans of Paper 1B. These are every long question the source files for this section."
+      }
+    }
+  }
+}

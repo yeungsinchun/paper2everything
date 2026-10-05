@@ -181,13 +181,20 @@ second copy in `paper2db/scripts/classify_mc_sections.py`.
 ### 2. DSE crops: paper2db → paper2notes (published snapshot + local sync)
 
 Published snapshot (deployed): `paper2notes/notes/dse/{mc,lq}/<NN>/` is a
-curated, tracked set of the 82 files HTML references (66 PNG crops + 16
-`combined.pdf`). It is copied from the paper2db output (`tests/sections/`,
-921 PNGs) and, on the 13 `QB`/custom paths not in paper2db, filled with
-text placeholders (`sample.png`, `chain.png` etc). `paper2notes/deploy/cloudrun/Dockerfile`
-stages it into the image at build time (`cp -r dse/* → _local/dse/` and
-`book*/_local/dse/`) so production serves `_local/dse/…` without running the
-pipeline.
+curated, tracked set of 92 crop files (76 PNG crops + 16 `combined.pdf`), copied
+from the paper2db output (`tests/sections/`, 921 PNGs). The paths paper2db has
+no crop for were filled with text placeholders in 361de93; five of those
+placeholders remain, all of them `lq/20/sample.png` … `lq/24/sample.png`, and
+every page that used one now says in words that no long question is published
+for its section. `notes/dse/availability.json` records, for every section
+against `mc` and `lq`, whether what ships is a real crop, one of those
+placeholders, or a question the source paper does not contain, with the reason.
+`paper2notes/scripts/dse-availability.mjs` reads that record beside the tracked
+paper2db inputs and fails (`ci-check.mjs` for the snapshot, `quiz-audit.mjs`
+for what each page shows) when a section, a page and the record disagree.
+`paper2notes/deploy/cloudrun/Dockerfile` stages the snapshot into the image at
+build time (`cp -r dse/* → _local/dse/` and `book*/_local/dse/`) so production
+serves `_local/dse/…` without running the pipeline.
 
 Local preview (`sync-dse.sh`, developer machine): `paper2notes/scripts/sync-dse.sh`:
 
@@ -207,8 +214,10 @@ Local preview (`sync-dse.sh`, developer machine): `paper2notes/scripts/sync-dse.
 Pages then load crops by relative path: section pages at
 `notes/bookX/chYY/NN-N.html` use `../_local/dse/{mc,lq}/<NN>/<file>`, and book
 indexes use `_local/dse/...`. Both resolve to `notes/bookX/_local/dse/`. No page
-references `notes/_local/dse/` directly. 82 distinct `_local` references (66 PNG crops + 16 `combined.pdf` exports) are referenced
-(Book 2: 8 = 0 PNG + 8 PDFs, Book 4: 20 = 15 PNG + 5 PDFs, Book 5: 54 = 51 PNG + 3 PDFs).
+references `notes/_local/dse/` directly. 114 distinct `_local` references are
+used (Book 2: 8 = 0 PNG + 8 PDFs, Book 4: 19 = 14 PNG + 5 PDFs, Book 5: 88 = 71
+PNG + 17 PDFs); `quiz-audit.mjs` reports the ones the snapshot does not hold as
+`dse-crop-not-published`.
 
 ### 3. QB banks: DOCX → PDF → notes intake
 

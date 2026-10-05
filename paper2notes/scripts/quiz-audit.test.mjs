@@ -3,6 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -56,4 +57,31 @@ test("no page repeats an element id", () => {
 test("the audit still finds the quizzes it is meant to guard", () => {
   const total = pages.reduce((a, p) => a + p.mc + p.tf + p.sa + p.dseMc, 0);
   assert.ok(total > 200, `expected the audit to see the full quiz set, saw ${total}`);
+});
+
+test("every DSE question a page shows is one the papers hold", () => {
+  const kinds = ["dse-lq-not-in-source", "dse-lq-wrong-section", "dse-lq-outside-paper-range", "dse-question-not-in-source", "dse-availability-undeclared", "dse-lq-placeholder-undeclared", "dse-lq-none-undeclared", "dse-lq-none-contradicts-record", "dse-lq-none-no-evidence"];
+  const bad = [
+    ...report.snapshot.problems.filter((x) => kinds.includes(x.kind)),
+    ...pages.flatMap((p) => p.problems.filter((x) => kinds.includes(x.kind)).map((x) => `${p.page}: ${x.detail}`)),
+  ];
+  assert.deepEqual(bad, [], `DSE slides or notes that drift from notes/dse/availability.json:\n${bad.join("\n")}`);
+});
+
+test("every section that publishes only placeholders says so on a page", () => {
+  const manifest = JSON.parse(readFileSync(join(ROOT, "paper2notes", "notes", "dse", "availability.json"), "utf8"));
+  const placeholderSections = Object.entries(manifest.sections)
+    .filter(([, kinds]) => kinds.lq?.state === "placeholder")
+    .map(([section]) => section)
+    .sort();
+  assert.ok(placeholderSections.length >= 5, `expected the placeholder sections to be recorded, saw ${placeholderSections.join(", ")}`);
+
+  const stated = new Set();
+  for (const page of pages) {
+    for (const note of page.informational.filter((x) => x.kind === "dse-lq-none-stated")) {
+      stated.add(note.detail.match(/^lq\/(\d+)/)?.[1]);
+      assert.match(note.detail, /records it as placeholder/, `${page.page}: ${note.detail}`);
+    }
+  }
+  assert.deepEqual([...stated].sort(), placeholderSections, "every section that publishes only placeholders must state it on a page, with the reason from notes/dse/availability.json");
 });
