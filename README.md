@@ -10,7 +10,7 @@ Goals, users, UI rules and data contracts are in the [PRD](docs/PRD.md).
 
 | Folder | Purpose | Stack | Owner doc |
 |---|---|---|---|
-| `paper2notes/` | Visual HKDSE Physics notes (Books 2, 4, 5), static site, `/qb` question-bank UI | HTML/CSS/JS, vendored three.js and KaTeX, no build | [`paper2notes/README.md`](paper2notes/README.md), [`paper2notes/AGENTS.md`](paper2notes/AGENTS.md) |
+| `paper2notes/` | Visual HKDSE Physics notes (Books 2, 4, 5), static site, `/qb` question-bank UI, `/mock` mock-exam builder | HTML/CSS/JS, vendored three.js and KaTeX, no build | [`paper2notes/README.md`](paper2notes/README.md), [`paper2notes/AGENTS.md`](paper2notes/AGENTS.md) |
 | `paper2db/` | Past-paper (MC, LQ) and question-bank (QB) pipeline, classified by syllabus section | Python 3, PyMuPDF, Pillow, tesseract, optional LLM API | [`paper2db/README.md`](paper2db/README.md), [`paper2db/AGENTS.md`](paper2db/AGENTS.md) |
 | `paper2mock/` | F.1 maths mock papers and marking schemes, 10 sets | LaTeX (LuaLaTeX via latexmk) | [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) |
 | `docs/` | PRD, architecture map, board notes, screenshots | Markdown | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
@@ -24,7 +24,7 @@ paper2everything/
 ├── AGENTS.md, CONTRIBUTING.md   agent map and contribution rules
 ├── docs/                        PRD.md, ARCHITECTURE.md, screenshots
 ├── paper2notes/
-│   ├── notes/                   the site: landing, book2/, book4/, book5/, qb/, dse/ snapshot
+│   ├── notes/                   the site: landing, book2/, book4/, book5/, qb/, mock/, dse/ snapshot
 │   │   └── _source/<book-ch>/   intake (ocr.md, outline.md, problems.md, images/, INDEX.md)
 │   ├── scripts/                 ci-check.mjs, leak-check.mjs, anchor-lint.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
 │   ├── anchors/                 ids.lock.json, moves.json (anchor-id rules; see anchors/README.md)

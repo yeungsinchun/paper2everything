@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mock exam · paper2notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="../css/p2n-shell.css">
+  <link rel="stylesheet" href="css/mock.css">
+</head>
+<body>
+<header class="p2n-top">
+  <a class="p2n-top-brand" href="../index.html">paper<i>2</i>notes</a>
+  <nav class="p2n-top-nav" aria-label="Books">
+    <a href="../book2/index.html">Book 2</a>
+    <a href="../book4/index.html">Book 4</a>
+    <a href="../book5/index.html">Book 5</a>
+    <a href="../qb/index.html">QB</a>
+    <a href="index.html" aria-current="page">Mock</a>
+  </nav>
+</header>
+
+<main class="p2n-page mk-page">
+
+  <div class="p2n-page-head">
+    <span class="p2n-label">Practice</span>
+    <h1>Mock exam</h1>
+    <p class="mk-note">Pick topics, set how many questions you want and what score you expect. The paper is built from real HKDSE Physics questions, and each one is sized by how many candidates got it right in the real exam.</p>
+  </div>
+
+  <!-- ================= SETUP ================= -->
+  <section class="mk-card" id="setup" aria-labelledby="setup-h">
+    <div class="mk-card-head">
+      <h2 id="setup-h">Build a paper</h2>
+    </div>
+
+    <div class="mk-row">
+      <div class="mk-field">
+        <label for="count"><span class="p2n-label">Questions</span><span class="mk-val" id="count-val">15</span></label>
+        <input type="range" id="count" min="1" max="60" step="1" value="15">
+        <p class="mk-hint">How many questions the paper holds.</p>
+      </div>
+      <div class="mk-field">
+        <label for="target"><span class="p2n-label">Target score</span><span class="mk-val" id="target-val">60%</span></label>
+        <input type="range" id="target" min="10" max="90" step="1" value="60">
+        <p class="mk-hint" id="target-hint">The paper is built so a real cohort would score about this.</p>
+      </div>
+      <div class="mk-field">
+        <label for="minutes"><span class="p2n-label">Minutes</span></label>
+        <input type="number" class="mk-num" id="minutes" min="1" max="300" step="1" placeholder="No limit" inputmode="numeric">
+        <p class="mk-hint">Leave empty for an untimed paper.</p>
+      </div>
+      <div class="mk-field">
+        <label for="seed"><span class="p2n-label">Paper code</span></label>
+        <input type="number" class="mk-num mk-num--seed" id="seed" min="1" step="1" value="1" inputmode="numeric">
+        <p class="mk-hint">Same code, same paper. Change it for a new one.</p>
+      </div>
+    </div>
+
+    <div class="mk-actions">
+      <button type="button" class="mk-btn mk-btn--primary" id="build">Build paper</button>
+      <button type="button" class="mk-btn mk-btn--sm" id="new-seed" title="Give me a different paper">New code</button>
+    </div>
+
+    <div class="mk-book">
+      <div class="mk-pick-head">
+        <h3>Topics</h3>
+        <span class="mk-hint" id="topic-summary">All 27 topics</span>
+        <button type="button" class="mk-btn mk-btn--sm" id="topics-all">All topics</button>
+        <button type="button" class="mk-btn mk-btn--sm" id="topics-none">Clear</button>
+      </div>
+      <div class="mk-books" id="topics"></div>
+    </div>
+
+    <p class="mk-error" id="setup-error" hidden></p>
+  </section>
+
+  <!-- ================= PLAN ================= -->
+  <section class="mk-card" id="plan" aria-labelledby="plan-h" hidden>
+    <div class="mk-card-head">
+      <h2 id="plan-h">Paper plan</h2>
+      <span class="p2n-label" id="plan-code"></span>
+    </div>
+    <div class="mk-tiles" id="plan-tiles"></div>
+    <div id="plan-notes-wrap"></div>
+    <div id="plan-band-wrap"></div>
+    <div id="plan-topics-wrap"></div>
+    <details id="plan-list-wrap">
+      <summary>Every question in this paper</summary>
+      <ul class="mk-list" id="plan-list"></ul>
+    </details>
+    <div class="mk-actions">
+      <button type="button" class="mk-btn mk-btn--go" id="start">Start exam</button>
+      <button type="button" class="mk-btn" id="plan-back">Change settings</button>
+      <button type="button" class="mk-btn" id="plan-print">Print paper</button>
+    </div>
+  </section>
+
+  <!-- ================= EXAM ================= -->
+  <section class="mk-card" id="exam" aria-labelledby="exam-h" hidden>
+    <h2 id="exam-h" class="p2n-num">Mock exam</h2>
+    <div class="mk-bar">
+      <span class="mk-bar-q" id="bar-q">Question 1</span>
+      <span class="mk-bar-spacer"></span>
+      <span class="mk-timer" id="timer" hidden></span>
+      <button type="button" class="mk-btn mk-btn--sm" id="flag">Flag</button>
+      <button type="button" class="mk-btn mk-btn--sm" id="submit">Submit paper</button>
+      <div class="mk-progress" role="progressbar" aria-labelledby="bar-q" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress"><i></i></div>
+    </div>
+
+    <figure class="mk-figure">
+      <img id="q-img" alt="">
+      <span class="mk-swipe">Swipe the question sideways to read all of it.</span>
+      <figcaption id="q-cap"></figcaption>
+    </figure>
+
+    <div class="mk-options" id="options" role="group" aria-label="Choose one answer"></div>
+
+    <div class="mk-foot">
+      <button type="button" class="mk-btn" id="prev">Back</button>
+      <span class="mk-hint" id="answered-count"></span>
+      <button type="button" class="mk-btn" id="next">Next</button>
+    </div>
+  </section>
+
+  <!-- ================= RESULT ================= -->
+  <section class="mk-card" id="result" aria-labelledby="result-h" hidden>
+    <div class="mk-card-head">
+      <h2 id="result-h">Result</h2>
+      <span class="p2n-label" id="result-code"></span>
+    </div>
+    <div class="mk-tiles" id="result-tiles"></div>
+    <div id="result-band-wrap"></div>
+    <div id="result-topic-wrap"></div>
+    <h3>Every question</h3>
+    <div class="mk-review" id="review"></div>
+    <div class="mk-actions">
+      <button type="button" class="mk-btn mk-btn--primary" id="again">Build another paper</button>
+      <button type="button" class="mk-btn" id="retry">Sit this paper again</button>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="js/mock-app.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="bb3835">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">bb3835</code> <span class="deploy-commit-subject">fix(skills): clarify gh --attach as preferred, drag-drop as fallback for video and crop (#66)</span></footer>
+</body>
+</html>
