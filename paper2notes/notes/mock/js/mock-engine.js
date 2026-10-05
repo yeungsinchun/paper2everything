@@ -204,30 +204,10 @@ export function planPaper({
   const target = clamp(Math.round(targetPercent), MIN_TARGET, MAX_TARGET);
   const picked = new Set((sections ?? []).map(Number).filter((n) => Number.isInteger(n)));
 
-  const dropped = {
-    outsideTopics: 0,
-    noPassRate: 0,
-    noCrop: 0,
-    noAnswerKey: 0,
-    deleted: 0,
-    uncertain: 0,
-  };
-
   const pool = [];
   for (const item of items) {
-    const reason = rejectionReason(item);
-    if (reason) {
-      if (reason === "no recorded pass rate") dropped.noPassRate++;
-      else if (reason === "no question crop") dropped.noCrop++;
-      else if (reason === "no answer key") dropped.noAnswerKey++;
-      else if (reason === "deleted from the exam") dropped.deleted++;
-      else if (reason === "topic classification uncertain") dropped.uncertain++;
-      continue;
-    }
-    if (picked.size && !item.sections.some((s) => picked.has(Number(s)))) {
-      dropped.outsideTopics++;
-      continue;
-    }
+    if (rejectionReason(item)) continue;
+    if (picked.size && !item.sections.some((s) => picked.has(Number(s)))) continue;
     pool.push(item);
   }
 
@@ -240,7 +220,7 @@ export function planPaper({
       seed, targetPercent: target, requested: wanted, count: 0,
       expectedPercent: null, expectedCorrect: 0, onTarget: false, offset: null,
       questions: [], bandCounts: { easy: 0, medium: 0, hard: 0 }, sectionSpread: [],
-      dropped, poolSize: 0, achievable: range,
+      poolSize: 0, achievable: range,
       notes: ["No question matches those topics with a recorded pass rate and a crop."],
     };
   }
@@ -374,7 +354,6 @@ export function planPaper({
     sectionSpread: [...spread.entries()]
       .map(([number, asked]) => ({ number, asked, name: sectionNames[number] ?? `§${number}` }))
       .sort((a, b) => a.number - b.number),
-    dropped,
     poolSize: pool.length,
     achievable: range,
     notes,
