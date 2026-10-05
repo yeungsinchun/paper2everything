@@ -353,9 +353,17 @@
         if (!slide || slide.getAttribute("data-quiz-marked")) return;
         var key = QUIZ_KEYS[slide.id];
         if (!key || !key.option) {
+          /* No key for this paper, so the pick cannot be graded. Keep the
+             student's letter and say so, rather than leaving a dead tile. */
           $all("[data-quiz-choice]", slide).forEach(function (b) {
             b.classList.toggle("is-picked", b === letterBtn);
           });
+          var un = $(".quiz-pct", slide);
+          if (un) {
+            un.hidden = false;
+            un.className = "quiz-pct is-unkeyed";
+            un.textContent = "Answer key not available for this paper.";
+          }
           return;
         }
         slide.setAttribute("data-quiz-marked", "true");

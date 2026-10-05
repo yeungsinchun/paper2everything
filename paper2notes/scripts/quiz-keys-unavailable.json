@@ -1,0 +1,8 @@
+{
+  "_comment": "DSE MC papers the answer store has no answer for, so their slides cannot be graded. checks.js shows 'Answer key not available for this paper.' when one of these is picked. Remove an entry once paper2db/qb-web-ui-staging/dse-mc/index.json carries its answer, then quiz-audit.mjs will pass on it again.",
+  "papers": {
+    "dse-mc-2026-33": "index.json marks answer.missing = true",
+    "dse-mc-pp-36": "index.json marks answer.missing = true",
+    "dse-mc-sap-34": "not present in index.json at all"
+  }
+}

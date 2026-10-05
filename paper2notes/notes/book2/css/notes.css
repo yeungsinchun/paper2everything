@@ -400,6 +400,7 @@ p { margin: 0.45rem 0; }
 
 .quiz-pct.is-right { color: var(--ok); }
 .quiz-pct.is-wrong { color: var(--bad); }
+.quiz-pct.is-unkeyed { color: var(--muted); font-style: italic; }
 
 .quiz-verdict { font-weight: 700; }
 

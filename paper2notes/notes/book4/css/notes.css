@@ -645,6 +645,7 @@ button[data-reveal] { margin-top: var(--space-2); }
 
 .quiz-pct.is-right { background: var(--ok-soft); color: var(--ok-edge); }
 .quiz-pct.is-wrong { background: var(--nudge-soft); color: var(--nudge-edge); }
+.quiz-pct.is-unkeyed { background: var(--nudge-soft); color: var(--ink-2); font-style: italic; }
 .quiz-verdict { font-weight: 800; }
 .quiz-stat { margin-left: var(--space-2); color: var(--ink-2); font: 500 12px/1 var(--font-mono); }
 
