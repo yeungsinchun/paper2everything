@@ -464,9 +464,8 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 | `paper2notes/` | Student site (`notes/`), CI check, deploy scripts, Cloud Run config | Static HTML/CSS/JS (vendored three.js, KaTeX); Node for checks; Docker and nginx for hosting |
 | `paper2mock/` | `f1/test1/<1..10>/{question-paper,marking-scheme}/` | LuaLaTeX via latexmk |
 | `.github/workflows/` | `ci-notes`, `ci-pointers`, `ci-paper2db`, `compile-mocks`, `deploy-notes` | GitHub Actions |
-| `docs/` | `ARCHITECTURE.md`, this PRD, board notes, screenshots | Markdown |
+| `docs/` | `ARCHITECTURE.md`, this PRD, board notes | Markdown |
 | `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML, CSS, JS |
-| `data/` | Working notes (`p2e-book2-ch01-usability-mistakes.md`) | Markdown |
 
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|

@@ -108,14 +108,14 @@ Required flags for correctness:
 
 ### 5.2 lavish-axi (for Lavish boards)
 
-When the PR's visual proof is a Lavish before/after board (e.g. under `.lavish/`), the board itself must satisfy `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` and this skill simultaneously:
+When the PR's visual proof is a Lavish before/after board (e.g. under `.lavish/`), the board itself must satisfy `.agents/skills/paper2everything-lavish-board/SKILL.md` and this skill simultaneously:
 
 ```bash
 lavish-axi .lavish/<board>.html
 # verify left = before/main, right = after/branch, both at 1280 and 390 via iframes
 ```
 
-Build the board with the template in `lavish-notes-review` §1 (grid `minmax(0,1fr) minmax(0,1fr)`, marker `notes-refactor`, two widths labeled).
+Build the board with the template in `paper2everything-lavish-board` §1 (grid `minmax(0,1fr) minmax(0,1fr)`, marker `notes-refactor`, two widths labeled).
 Then still add a PR-body summary that embeds exported PNGs from the board or the board URL - reviewers must not have to run Lavish locally to see the comparison.
 Preferred: `lavish-axi export .lavish/<board>.html --out .lavish/<board>.export.html` and screenshot the export at both widths, or `lavish-axi share` and link the `ht-ml.app` URL in the PR body alongside the embedded PNGs. Both exported screenshots must be attached via `gh --attach` so they render inline.
 
@@ -200,5 +200,5 @@ This skill stays isolated: it adds no dismissals, no CI mutations, and no code c
 
 - This skill is discoverable via `.agents/skills/paper2everything-ui-screenshot/SKILL.md` and via the one-line pointer in `AGENTS.md` / `CONTRIBUTING.md`.
 - `paper2notes/.cursor/skills/visual-html-notes/SKILL.md` governs how to author visuals; this skill governs how to *prove* visual changes.
-- `paper2notes/.agents/skills/lavish-notes-review/SKILL.md` governs review-board layout; this skill reuses it for Lavish capture (§5.2).
+- `.agents/skills/paper2everything-lavish-board/SKILL.md` governs review-board layout; this skill reuses it for Lavish capture (§5.2).
 - `docs/ARCHITECTURE.md` maps the data edge; this skill does not change architecture.
