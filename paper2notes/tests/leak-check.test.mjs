@@ -1,11 +1,11 @@
-// Acceptance tests for leak-check.mjs: node --test paper2notes/scripts/leak-check.test.mjs
+// Acceptance tests for leak-check.mjs: node --test paper2notes/tests/leak-check.test.mjs
 import { after, test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync, spawnSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { checkBlocks, DEFAULT_BASELINE, loadFingerprints, numset, runLeakCheck, tokens } from "./leak-check.mjs";
+import { checkBlocks, DEFAULT_BASELINE, loadFingerprints, numset, runLeakCheck, tokens } from "../scripts/leak-check.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const bank = JSON.parse(readFileSync(resolve(here, "../notes/qb/data/qb_book5.json"), "utf8")).items;
@@ -93,7 +93,7 @@ test("one repeated 8-gram is not independent evidence", () => {
 test("CLI cannot authorize leaks or overwrite the baseline", () => {
   const before = readFileSync(DEFAULT_BASELINE);
   const file = page("<p>See PHY15011101 for practice.</p>");
-  const result = spawnSync(process.execPath, [join(here, "leak-check.mjs"), "--update-baseline", file], { encoding: "utf8" });
+  const result = spawnSync(process.execPath, [join(here, "..", "scripts", "leak-check.mjs"), "--update-baseline", file], { encoding: "utf8" });
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /unknown option: --update-baseline/);
   assert.deepEqual(readFileSync(DEFAULT_BASELINE), before);
@@ -214,7 +214,7 @@ test("SVG text is checked while deck exemptions still apply", () => {
 
 test("only explicit HTML inputs and the fixed corpus are accepted by the CLI", () => {
   const html = page("<p>PHY12013101</p>");
-  const cli = join(here, "leak-check.mjs");
+  const cli = join(here, "..", "scripts", "leak-check.mjs");
   const valid = spawnSync(process.execPath, [cli, html], { encoding: "utf8" });
   assert.equal(valid.status, 1);
   assert.match(valid.stderr, /L4 .*item PHY12013101:/);

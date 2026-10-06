@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
-import { lintAnchors, lintPage, isPositionalId, parseElements } from "./anchor-lint.mjs";
+import { lintAnchors, lintPage, isPositionalId, parseElements } from "../scripts/anchor-lint.mjs";
 
 const page = (body) => `<!doctype html><body>${body}</body>`;
 

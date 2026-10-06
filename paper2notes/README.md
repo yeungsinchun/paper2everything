@@ -34,4 +34,4 @@ See `deploy/cloudrun/README.md` for Cloud Run hosting and `../docs/ARCHITECTURE.
 
 ## CI
 
-Pull requests and pushes to `main` run the root `.github/workflows/ci-notes.yml` check. For its scope and local check command, see `../docs/ARCHITECTURE.md` §5.
+Pull requests and pushes to `main` run the root `.github/workflows/notes-checks.yml` check. For its scope and local check command, see `../docs/ARCHITECTURE.md` §5.

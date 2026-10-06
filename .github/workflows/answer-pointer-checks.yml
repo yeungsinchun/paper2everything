@@ -1,4 +1,4 @@
-name: ci-pointers
+name: answer-pointer-checks
 on:
   pull_request:
     paths:
@@ -8,7 +8,7 @@ on:
       - "paper2db/tests/test_pointers.py"
       - "paper2db/qb-web-ui-staging/**"
       - "paper2db/metadata/qb/banks.json"
-      - ".github/workflows/ci-pointers.yml"
+      - ".github/workflows/answer-pointer-checks.yml"
   push:
     branches: [main]
     paths:
@@ -18,7 +18,7 @@ on:
       - "paper2db/tests/test_pointers.py"
       - "paper2db/qb-web-ui-staging/**"
       - "paper2db/metadata/qb/banks.json"
-      - ".github/workflows/ci-pointers.yml"
+      - ".github/workflows/answer-pointer-checks.yml"
 jobs:
   check:
     runs-on: ubuntu-latest

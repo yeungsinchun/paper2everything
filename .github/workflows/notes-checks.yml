@@ -1,26 +1,28 @@
-name: ci-notes
+name: notes-checks
 on:
   pull_request:
     paths:
       - "paper2notes/notes/**"
       - "paper2notes/scripts/**"
+      - "paper2notes/tests/**"
       - "paper2db/scripts/leak_fingerprints.py"
       - "paper2db/qb-web-ui-staging/**/*.json"
       - "paper2notes/anchors/**"
       - "paper2db/metadata/pointers/**"
       - "paper2notes/.github/workflows/**"
-      - ".github/workflows/ci-notes.yml"
+      - ".github/workflows/notes-checks.yml"
   push:
     branches: [main]
     paths:
       - "paper2notes/notes/**"
       - "paper2notes/scripts/**"
+      - "paper2notes/tests/**"
       - "paper2db/scripts/leak_fingerprints.py"
       - "paper2db/qb-web-ui-staging/**/*.json"
       - "paper2notes/anchors/**"
       - "paper2db/metadata/pointers/**"
       - "paper2notes/.github/workflows/**"
-      - ".github/workflows/ci-notes.yml"
+      - ".github/workflows/notes-checks.yml"
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -29,7 +31,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node --test paper2notes/scripts/anchor-lint.test.mjs
+      - run: node --test paper2notes/tests/anchor-lint.test.mjs
       - run: node paper2notes/scripts/ci-check.mjs
-      - run: node --test paper2notes/scripts/leak-check.test.mjs
+      - run: node --test paper2notes/tests/leak-check.test.mjs
       - run: python3 paper2db/scripts/leak_fingerprints.py --check

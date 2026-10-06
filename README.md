@@ -129,9 +129,9 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2notes/anchors/**`, `paper2db/metadata/pointers/**`, the leak generator, or its staging inputs | Notes, leak checks (`ci-check.mjs`, `leak-check.test.mjs`, `leak_fingerprints.py --check`), and anchor checks (`anchor-lint.test.mjs`, `ci-check.mjs`: required/unique/non-positional ids, `moves.json` renames, answer-pointer shape — see [anchors README](paper2notes/anchors/README.md)); scope in [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci) |
-| [`ci-pointers`](.github/workflows/ci-pointers.yml) | PR and push to `main`; path filters in the workflow | Answer-pointer checks; see [paper2db usage](paper2db/README.md#answer-pointers) |
-| [`ci-paper2db`](.github/workflows/ci-paper2db.yml) | PR and push to `main` touching `paper2db/**` or itself | `python -m unittest tests.test_dse_items tests.test_pointers` (dse-items records and answer-pointer join) |
+| [`notes-checks`](.github/workflows/notes-checks.yml) | PR and push to `main` touching notes, scripts, tests, anchors, pointers or the leak generator | Notes, leak and anchor checks; scope and local commands in [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci) |
+| [`answer-pointer-checks`](.github/workflows/answer-pointer-checks.yml) | PR and push to `main`; path filters in the workflow | Answer-pointer checks; see [paper2db usage](paper2db/README.md#answer-pointers) |
+| [`paper2db-unit-tests`](.github/workflows/paper2db-unit-tests.yml) | PR and push to `main` touching `paper2db/**` or itself | `python -m unittest tests.test_dse_items tests.test_pointers` (dse-items records and answer-pointer join) |
 | `compile-mocks` | PR touching `paper2mock/**`; every push to `main` | LaTeX build of all 20 mock documents; `main` pushes release two zips |
 | `deploy-notes` | push to `main` touching `paper2notes/notes/` or `paper2notes/deploy/cloudrun/`; manual | `paper2notes/deploy/cloudrun/deploy.sh` to Cloud Run (`asia-east2`) via Workload Identity Federation |
 

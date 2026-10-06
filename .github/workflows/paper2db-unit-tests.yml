@@ -1,18 +1,18 @@
 # Standalone paper2db unit tests for the dse-items stage and the answer-pointer
 # join it consumes. These modules build their own temp-tree fixtures, so no
 # PDFs, crops or other generated data are required.
-name: ci-paper2db
+name: paper2db-unit-tests
 
 on:
   pull_request:
     paths:
       - "paper2db/**"
-      - ".github/workflows/ci-paper2db.yml"
+      - ".github/workflows/paper2db-unit-tests.yml"
   push:
     branches: [main]
     paths:
       - "paper2db/**"
-      - ".github/workflows/ci-paper2db.yml"
+      - ".github/workflows/paper2db-unit-tests.yml"
 
 jobs:
   check:
