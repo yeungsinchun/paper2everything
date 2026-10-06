@@ -233,6 +233,7 @@ def write_outputs(
                 dest = CLASSIFIED_LQ / book / folder / f"{row['Year']}-q{row['Question']}.png"
                 src = ROOT / row["PNG"]
                 if src.is_file():
+                    dest.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(src, dest)
                 ans_src = ROOT / row["AnswerPNG"]
                 if ans_src.is_file():
@@ -242,6 +243,7 @@ def write_outputs(
                         / folder
                         / f"{row['Year']}-q{row['Question']}-ans.png"
                     )
+                    ans_dest.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(ans_src, ans_dest)
 
     decisions_path.write_text(
