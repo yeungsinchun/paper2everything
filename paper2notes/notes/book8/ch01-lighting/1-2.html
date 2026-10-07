@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.2 Lighting</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Lighting</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="1-1.html">1.1</a>
+      <a href="1-2.html" aria-current="page">1.2</a>
+      <a href="1-3.html">1.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.2</p>
+    <h1>Lighting</h1>
+    <p class="lede">How bright a lamp looks, how well it turns electricity into light, and how filament, fluorescent and LED lamps make light.</p>
+    <aside class="quick-digest" id="12-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>Luminous flux \( \Phi \) (lm)</b><span>light output as the eye judges it; the eye is most sensitive to green</span></p>
+        <p><b>Efficacy \( = \Phi / P \) (lm W⁻¹)</b><span>light out per watt in; higher means less waste</span></p>
+        <p><b>Light from atoms</b><span>an electron drops to a lower energy level and gives out \( \Delta E \)</span></p>
+        <p><b>Filament · fluorescent · LED</b><span>about 10 · 50 · 100 lm W⁻¹; lifetime short · medium · long</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#luminous-flux"><b>A</b>Luminous flux</a>
+      <a href="#efficacy"><b>B</b>Efficacy</a>
+      <a href="#light-emission"><b>C</b>Light from atoms</a>
+      <a href="#incandescent"><b>D</b>Filament lamp</a>
+      <a href="#fluorescent"><b>E</b>Fluorescent lamp</a>
+      <a href="#led"><b>F</b>LED lamp</a>
+      <a href="#choosing-lamps"><b>G</b>Choosing a lamp</a>
+    </nav>
+
+    <section class="idea" id="luminous-flux" data-chip="Luminous flux">
+      <header>
+        <h2><span class="sec-num">A</span>Luminous flux: brightness as the eye sees it</h2>
+      </header>
+      <figure class="fig" id="luminous-flux-fig-1">
+        <div class="visual play stage" id="eye-vis" data-scene="eye-curve">
+          <canvas class="scene-canvas" aria-label="Sensitivity of the human eye against wavelength from 400 to 700 nanometres. The curve peaks in the green at 555 nanometres and falls towards red and violet. A marker shows the chosen wavelength and the luminous flux that one watt of that light gives."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Wavelength<input type="range" min="400" max="700" step="5" value="555" data-param="lambda" aria-label="Wavelength in nanometres"><output data-out="lambda">555 nm</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Colour</b><span data-out="colour">green</span></span><span class="readout"><b>1 W of this light</b><span data-out="flux">683 lm</span></span></p>
+        <figcaption><b>Fig. 1.5</b> Slide the wavelength: one watt of light looks brightest in the green.</figcaption>
+      </figure>
+      <div class="def" id="luminous-flux-def-1">
+        <span class="tag">Definition</span>
+        <p><b>Luminous flux</b> \( \Phi \) is the light given out by a source per second, weighted by how sensitive the human eye is to each wavelength. Its unit is the <b>lumen</b> (lm).</p>
+      </div>
+      <ul class="points">
+        <li>How bright a source looks depends on two things: the light power it gives out, and how the eye responds to its wavelengths.</li>
+        <li>One watt of light at 555 nm, where the eye is most sensitive, is defined as 683 lm. The same watt of red or violet light gives far fewer lumens.</li>
+      </ul>
+      <div class="tip"><span class="tag">Common mistake</span> Dividing lumens by 683 gives watts only for pure 555 nm light. Real lamps give out many wavelengths, so the conversion does not hold.</div>
+      <div class="check" id="luminous-flux-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A red, a green and a blue lamp each give out 1 W of light. Which one looks brightest?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The red lamp</button>
+          <button type="button" data-choice="B">The green lamp</button>
+          <button type="button" data-choice="C">The blue lamp</button>
+          <button type="button" data-choice="D">They look equally bright</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Equal light power does not mean equal brightness. The eye is most sensitive near 555 nm, so the green lamp gives the most lumens. "Equally bright" would be true only for equal luminous flux.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="efficacy" data-chip="Efficacy">
+      <header>
+        <h2><span class="sec-num">B</span>Luminous efficacy: light per watt</h2>
+      </header>
+      <figure class="fig" id="efficacy-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 250" role="img" aria-labelledby="efficacy-title">
+            <title id="efficacy-title">Two lamps give the same luminous flux of 800 lumens. The filament lamp needs 60 watts, an efficacy of about 13 lumens per watt. The LED lamp needs 8 watts, an efficacy of 100 lumens per watt.</title>
+            <text x="120" y="28" text-anchor="middle">filament lamp</text>
+            <text x="360" y="28" text-anchor="middle">LED lamp</text>
+            <rect x="60" y="48" width="120" height="44" rx="10" fill="#E8F4F1" stroke="#1F9585" stroke-width="2"/>
+            <text x="120" y="77" text-anchor="middle" class="num">60 W in</text>
+            <rect x="300" y="48" width="120" height="44" rx="10" fill="#E8F4F1" stroke="#1F9585" stroke-width="2"/>
+            <text x="360" y="77" text-anchor="middle" class="num">8 W in</text>
+            <path d="M120 96 v26" stroke="#17212B" stroke-width="2.5"/>
+            <path d="M112 118 l8 12 l8 -12 z" fill="#17212B"/>
+            <path d="M360 96 v26" stroke="#17212B" stroke-width="2.5"/>
+            <path d="M352 118 l8 12 l8 -12 z" fill="#17212B"/>
+            <rect x="60" y="136" width="120" height="44" rx="10" fill="#FDF1D3" stroke="#E8A317" stroke-width="2"/>
+            <text x="120" y="165" text-anchor="middle" class="num">800 lm</text>
+            <rect x="300" y="136" width="120" height="44" rx="10" fill="#FDF1D3" stroke="#E8A317" stroke-width="2"/>
+            <text x="360" y="165" text-anchor="middle" class="num">800 lm</text>
+            <text x="120" y="216" text-anchor="middle" class="m">≈ 13 lm W⁻¹</text>
+            <text x="360" y="216" text-anchor="middle" class="m">100 lm W⁻¹</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.6</b> Same brightness, one-eighth of the power.</figcaption>
+      </figure>
+      <div class="def" id="efficacy-def-1">
+        <span class="tag">Definition</span>
+        <p>The <b>luminous efficacy</b> of a lamp is its luminous flux divided by its electrical input power. Its unit is lm W⁻¹.</p>
+      </div>
+      <div class="eq" id="efficacy-eq-1">\[ \text{efficacy} = \frac{\Phi}{P_\text{in}} \]</div>
+      <ul class="points">
+        <li>For white lamps, higher efficacy means a bigger share of the input becomes light, so the lamp wastes less.</li>
+        <li>The theoretical maximum is 683 lm W⁻¹: every watt turned into 555 nm light.</li>
+        <li>In Hong Kong, energy labels on compact fluorescent lamps state the efficacy.</li>
+      </ul>
+      <div class="tip"><span class="tag">Exam tip</span> Efficacy includes the eye's response; energy efficiency does not. Two lamps with the same efficiency can differ in efficacy if their colours differ.</div>
+      <div class="check" id="efficacy-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Which lamp looks brightest?</p>
+        <table class="notes" id="efficacy-notes-lamps">
+          <thead><tr><th></th><th>Input power</th><th>Efficacy</th></tr></thead>
+          <tbody>
+            <tr><th>A</th><td>10 W</td><td>100 lm W⁻¹</td></tr>
+            <tr><th>B</th><td>60 W</td><td>12 lm W⁻¹</td></tr>
+            <tr><th>C</th><td>15 W</td><td>55 lm W⁻¹</td></tr>
+            <tr><th>D</th><td>40 W</td><td>20 lm W⁻¹</td></tr>
+          </tbody>
+        </table>
+        <div class="choices">
+          <button type="button" data-choice="A">A</button>
+          <button type="button" data-choice="B">B</button>
+          <button type="button" data-choice="C">C</button>
+          <button type="button" data-choice="D">D</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Brightness is the luminous flux, \( \Phi = \text{efficacy} \times P \): A gives 1000 lm, B 720 lm, C 825 lm, D 800 lm. The highest power (B) is not the brightest.</p></div>
+      </div>
+      <div class="worked" id="efficacy-worked-label">
+        <h3>Worked example</h3>
+        <p>A 15 W lamp has an efficacy of 60 lm W⁻¹. Find its luminous flux, and the energy it uses in a year if it is on 5 hours a day.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>\( \Phi = 60 \times 15 = 900\ \text{lm} \).</li>
+            <li>Energy \( = 0.015\ \text{kW} \times 5\ \text{h} \times 365 = 27.4\ \text{kW h} \).</li>
+          </ol>
+          <p class="answer">900 lm; about 27 kW h a year.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="light-emission" data-chip="Light from atoms">
+      <header>
+        <h2><span class="sec-num">C</span>How atoms give out light</h2>
+      </header>
+      <figure class="fig" id="light-emission-fig-1">
+        <div class="visual play stage" id="levels-vis" data-autoplay data-scene="energy-levels">
+          <canvas class="scene-canvas" aria-label="Energy levels of an atom. An electron gains energy and jumps to a higher level, then drops back and gives out an electromagnetic wave. A small drop gives red light; a large drop gives blue light."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.7</b> A bigger drop gives out a higher-frequency wave.</figcaption>
+      </figure>
+      <div class="def" id="light-emission-def-1">
+        <span class="tag">Definition</span>
+        <p>An electron in an atom can only have certain values of energy, called <b>energy levels</b>. The atom is most stable with its electrons at the lowest levels.</p>
+      </div>
+      <div class="eq" id="light-emission-eq-1">\[ \Delta E = E_2 - E_1 = hf \qquad h = 6.63 \times 10^{-34}\ \text{J s} \]</div>
+      <ul class="points">
+        <li>Heating, collisions or absorbed radiation can lift an electron from \( E_1 \) to a higher level \( E_2 \). The excited state lasts only about \( 10^{-8} \) s.</li>
+        <li>When the electron drops back, the atom gives out an electromagnetic wave carrying the energy difference \( \Delta E \).</li>
+        <li>A larger \( \Delta E \) means a higher frequency \( f \). Visible light, about \( 4 \)–\( 7.5 \times 10^{14} \) Hz, needs a gap of the right size. Every lamp works by exciting atoms this way.</li>
+      </ul>
+      <div class="check" id="light-emission-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="light-emission-tf-drop" data-answer="true">
+          <p>When an object gives out light, electrons are dropping from higher to lower energy levels.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The drop releases the energy difference as an electromagnetic wave.</p></div>
+        </div>
+        <div class="tf-item" id="light-emission-tf-gap" data-answer="false">
+          <p>A larger gap between two levels gives out light of lower frequency.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>\( \Delta E = hf \): a larger gap gives a higher frequency, towards blue and ultraviolet.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="incandescent" data-chip="Filament lamp">
+      <header>
+        <h2><span class="sec-num">D</span>Incandescent (filament) lamp</h2>
+      </header>
+      <figure class="fig" id="incandescent-fig-1">
+        <div class="visual play stage" id="filament-vis" data-scene="filament-spectrum">
+          <canvas class="scene-canvas" aria-label="Spectrum of a hot filament: intensity against wavelength from 0 to 3000 nanometres. The visible band from 400 to 700 nanometres is shaded. Raising the temperature moves the peak to shorter wavelengths and puts a bigger share of the output into the visible band."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Filament temperature<input type="range" min="1500" max="3500" step="50" value="2700" data-param="T" aria-label="Filament temperature in kelvin"><output data-out="T">2700 K</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Peak at</b><span data-out="peak">1070 nm</span></span><span class="readout"><b>Share in visible band</b><span data-out="visible">9%</span></span></p>
+        <figcaption><b>Fig. 1.8</b> A hotter filament puts more of its output into visible light.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>A current heats a thin coiled tungsten filament to about 2000 °C or more. Its electrons jump between very many levels, so the light is a <b>continuous spectrum</b>.</li>
+        <li>Most of the output is invisible infrared, so efficacy is only about 10 lm W⁻¹ and a filament lamp gets hot.</li>
+      </ul>
+      <table class="notes" id="incandescent-notes-1">
+        <thead><tr><th>Design feature</th><th>Reason</th></tr></thead>
+        <tbody>
+          <tr><th>Tungsten filament</th><td>Very high melting point (3422 °C), so it can glow white-hot</td></tr>
+          <tr><th>Bulb filled with argon</th><td>An unreactive, heavy gas slows the evaporation of the filament</td></tr>
+          <tr><th>Halogen bulb</th><td>A halogen slows evaporation further, so the filament can run hotter: whiter light, higher efficacy, longer life</td></tr>
+        </tbody>
+      </table>
+      <div class="tip"><span class="tag">Trade-off</span> Hotter filament: higher efficacy, but faster evaporation and a shorter life (typically about 1000 hours).</div>
+      <div class="check" id="incandescent-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A filament lamp is run at a higher temperature. Which of the following happen?</p>
+        <ol class="stem-list">
+          <li>A larger share of its output is visible light.</li>
+          <li>Its efficacy rises.</li>
+          <li>Its lifetime gets longer.</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(3) only</button>
+          <button type="button" data-choice="C">(1) and (2) only</button>
+          <button type="button" data-choice="D">(1), (2) and (3)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Fig. 1.8: the peak moves towards the visible band, so (1) and (2). (3) is reversed: a hotter filament evaporates faster and fails sooner.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="fluorescent" data-chip="Fluorescent lamp">
+      <header>
+        <h2><span class="sec-num">E</span>Gas discharge: the fluorescent lamp</h2>
+      </header>
+      <figure class="fig" id="fluorescent-fig-1">
+        <div class="visual play stage" id="ftl-vis" data-autoplay data-scene="ftl">
+          <canvas class="scene-canvas" aria-label="Inside a fluorescent tube. Electrons from a heated filament speed along the tube and hit mercury atoms. Each mercury atom gives out ultraviolet radiation, which strikes the phosphor coating on the wall; the phosphor gives out visible light."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.9</b> Electrons → mercury gives UV → phosphor gives visible light.</figcaption>
+      </figure>
+      <div class="def" id="fluorescent-def-1">
+        <span class="tag">Definition</span>
+        <p><b>Gas discharge</b> is a current carried by an ionized gas. A <b>fluorescent tube lamp</b> (FTL) is a sealed glass tube of low-pressure argon and mercury vapour, coated inside with phosphor.</p>
+      </div>
+      <ol class="points">
+        <li>A large pd across the tube sets up an electric field. Electrons from a heated filament accelerate along the tube and ionize the argon, so a current flows.</li>
+        <li>Electrons hit mercury atoms and excite them (without ionizing them). The mercury atoms drop back and give out mainly ultraviolet.</li>
+        <li>The phosphor absorbs the UV and gives out visible light: <b>fluorescence</b>. Different phosphors give different colours, which mix to white.</li>
+      </ol>
+      <table class="notes" id="fluorescent-notes-1">
+        <thead><tr><th>Part</th><th>Job</th></tr></thead>
+        <tbody>
+          <tr><th>Starter</th><td>Gives the brief large pd that starts the discharge</td></tr>
+          <tr><th>Ballast</th><td>Limits and steadies the current once the gas conducts</td></tr>
+          <tr><th>Low-pressure argon</th><td>Ionizes easily, and gives electrons more chance to meet mercury atoms</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>A <b>compact fluorescent lamp</b> (CFL) is an FTL folded to fit a filament-lamp socket.</li>
+        <li>Runs cooler than a filament: about 50 lm W⁻¹ and 5000 to 24 000 hours. Most of the waste is heat in the discharge. The mercury makes disposal a concern.</li>
+      </ul>
+      <div class="check" id="fluorescent-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>What is the mercury vapour in a fluorescent tube for?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">To give out the visible light we see</button>
+          <button type="button" data-choice="B">To give out ultraviolet when electrons hit it</button>
+          <button type="button" data-choice="C">To supply the electrons for the current</button>
+          <button type="button" data-choice="D">To ionize the phosphor coating</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Excited mercury atoms give out mainly UV; the phosphor turns that into visible light (not A). The filaments supply the electrons (not C), and the phosphor is excited by UV, not ionized (not D).</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="led" data-chip="LED lamp">
+      <header>
+        <h2><span class="sec-num">F</span>Light-emitting diode (LED)</h2>
+      </header>
+      <figure class="fig" id="led-fig-1">
+        <div class="visual play stage" id="led-vis" data-autoplay data-scene="led">
+          <canvas class="scene-canvas" aria-label="A p-n junction. Forward connected, electrons from the n-type side and holes from the p-type side meet at the junction; each electron falls into a hole and a photon of light leaves. Reverse connected, the carriers are pulled away from the junction and no light is given out."></canvas>
+        </div>
+        <div class="seg" role="group" aria-label="How the cell is connected">
+          <button type="button" data-param="bias" data-value="forward" aria-pressed="true">Forward connected</button>
+          <button type="button" data-param="bias" data-value="reverse" aria-pressed="false">Reverse connected</button>
+        </div>
+        <figcaption><b>Fig. 1.10</b> Light comes only when electrons and holes meet at the junction.</figcaption>
+      </figure>
+      <div class="def" id="led-def-1">
+        <span class="tag">Definition</span>
+        <p>An LED is a <b>p-n junction</b>: n-type semiconductor (free electrons) joined to p-type semiconductor (holes, which act as positive carriers).</p>
+      </div>
+      <ul class="points">
+        <li>Forward connected (field from p to n inside): electrons and holes move to the junction. An electron falling into a hole drops to a lower level and gives out light.</li>
+        <li>The colour is set by the energy gap of the semiconductors, so one LED gives a narrow band of colours. White LEDs are usually blue LEDs with a coating that re-emits green to red.</li>
+        <li>An LED needs a low dc voltage: a lamp on the mains has a transformer to step the voltage down and a rectifier to turn ac into dc.</li>
+        <li>Efficacy up to about 100 lm W⁻¹; lifetime 25 000 to 100 000 hours. Heat in the semiconductor is the main loss and shortens its life.</li>
+      </ul>
+      <div class="check" id="led-check-1" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Two identical LEDs are connected in series to a cell. One of them is turned round. What happens?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Both light up</button>
+          <button type="button" data-choice="B">Only the forward-connected LED lights up</button>
+          <button type="button" data-choice="C">Only the reversed LED lights up</button>
+          <button type="button" data-choice="D">Neither lights up</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>The reversed LED blocks the current, and in a series circuit that stops the current through both. B would be the answer only if the LEDs were in parallel.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="choosing-lamps" data-chip="Choosing a lamp">
+      <header>
+        <h2><span class="sec-num">G</span>Choosing a lamp</h2>
+      </header>
+      <figure class="fig" id="choosing-lamps-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 330" role="img" aria-labelledby="spectra-title">
+            <title id="spectra-title">Sketches of the spectra, intensity against wavelength from 400 to 700 nanometres. Filament lamp: a smooth curve rising towards red, a continuous spectrum. Fluorescent lamp: a few sharp lines on a low background. White LED: a narrow blue peak and a broad hump from green to red.</title>
+            <g fill="none" stroke-width="3" stroke-linejoin="round">
+              <path d="M150 90 C 220 84 300 60 460 26" stroke="#F26B3A"/>
+              <path d="M150 196 L 200 196 L 204 140 L 208 196 L 270 196 L 274 128 L 278 196 L 330 196 L 334 160 L 338 196 L 384 196 L 388 118 L 392 196 L 460 196" stroke="#1F9585"/>
+              <path d="M150 302 C 200 302 205 300 214 300 C 222 300 226 228 232 228 C 238 228 242 290 260 286 C 300 278 330 246 370 248 C 410 250 440 290 460 300" stroke="#2A62A8"/>
+            </g>
+            <g class="guide" stroke-width="1.5">
+              <line x1="150" y1="104" x2="460" y2="104"/>
+              <line x1="150" y1="210" x2="460" y2="210"/>
+              <line x1="150" y1="316" x2="460" y2="316"/>
+            </g>
+            <text x="8" y="70" text-anchor="start">filament</text>
+            <text x="8" y="94" text-anchor="start" class="m">continuous</text>
+            <text x="8" y="176" text-anchor="start">fluorescent</text>
+            <text x="8" y="200" text-anchor="start" class="m">lines</text>
+            <text x="8" y="282" text-anchor="start">white LED</text>
+            <text x="8" y="306" text-anchor="start" class="m">blue + hump</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.11</b> Spectrum shapes, 400 nm (left) to 700 nm (right).</figcaption>
+      </figure>
+      <table class="notes" id="choosing-lamps-notes-1">
+        <thead><tr><th></th><th>Filament</th><th>Fluorescent (FTL, CFL)</th><th>LED</th></tr></thead>
+        <tbody>
+          <tr><th>Light comes from</th><td>Hot filament</td><td>Phosphor coating</td><td>Semiconductor junction</td></tr>
+          <tr><th>Spectrum</th><td>Continuous</td><td>A few lines</td><td>Narrow bands</td></tr>
+          <tr><th>Working temperature</th><td>High</td><td>Medium</td><td>Low</td></tr>
+          <tr><th>Efficacy</th><td>Low (~10 lm W⁻¹)</td><td>Medium (~50)</td><td>High (up to ~100)</td></tr>
+          <tr><th>Lifetime</th><td>Short</td><td>Medium</td><td>Long</td></tr>
+          <tr><th>Price</th><td>Low</td><td>Medium</td><td>High</td></tr>
+          <tr><th>Drawback</th><td>Wastes most energy</td><td>Contains mercury</td><td>Contains heavy metals; costs more</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="choosing-lamps-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="choosing-lamps-tf-heating" data-answer="false">
+          <p>Every type of lamp makes light by heating something until it glows.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Only the filament lamp does. Fluorescent lamps use electron collisions and fluorescence; LEDs use electrons falling into holes.</p></div>
+        </div>
+        <div class="tf-item" id="choosing-lamps-tf-continuous" data-answer="true">
+          <p>Of the three types, only the filament lamp gives a continuous spectrum.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Fluorescent lamps give lines from their phosphors, and LEDs give narrow bands set by their energy gaps.</p></div>
+        </div>
+      </div>
+      <div class="worked" id="choosing-lamps-worked-cost">
+        <h3>Worked example</h3>
+        <p>Three lamps give about the same flux. Over 10 000 hours at $1.20 per kW h, which costs least in total?</p>
+        <table class="notes" id="choosing-lamps-notes-cost">
+          <thead><tr><th></th><th>Power</th><th>Price</th><th>Lifetime</th></tr></thead>
+          <tbody>
+            <tr><th>Filament</th><td>60 W</td><td>$4</td><td>1000 h</td></tr>
+            <tr><th>CFL</th><td>13 W</td><td>$25</td><td>8000 h</td></tr>
+            <tr><th>LED</th><td>9 W</td><td>$40</td><td>25 000 h</td></tr>
+          </tbody>
+        </table>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Lamps needed: filament 10, CFL 2, LED 1. Lamp cost: $40, $50, $40.</li>
+            <li>Electricity \( = P \times 10\,000\ \text{h} \times \$1.20 \): filament \( 0.060 \times 10\,000 \times 1.2 = \$720 \); CFL $156; LED $108.</li>
+            <li>Totals: filament $760, CFL $206, LED $148.</li>
+          </ol>
+          <p class="answer">The LED lamp costs least, even though it is the dearest to buy.</p>
+        </details>
+      </div>
+    </section>
+
+    <p class="next"><a href="1-3.html">Next: 1.3 Measuring illumination →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>
