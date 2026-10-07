@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.2 Heat and internal energy</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Temperature and heat transfer</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="1-1.html">1.1</a>
+      <a href="1-2.html" aria-current="page">1.2</a>
+      <a href="1-3.html">1.3</a>
+      <a href="1-4.html">1.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.2</p>
+    <h1>Heat and internal energy</h1>
+    <p class="lede">What temperature means for molecules, what a body stores, and what flows.</p>
+
+    <aside class="quick-digest" id="internal-energy-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Temperature</b><span>measures the average KE per molecule (random motion)</span></p>
+        <p><b>Internal energy</b><span>total random KE + total intermolecular PE of all molecules</span></p>
+        <p><b>Heat</b><span>energy transferred because of a temperature difference</span></p>
+        <p><b>Direction</b><span>higher temperature → lower, until the temperatures are equal</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#molecular-ke"><b>A</b>Molecular KE</a>
+      <a href="#internal-energy"><b>B</b>Internal energy</a>
+      <a href="#heat-flow"><b>C</b>Heat flow</a>
+      <a href="#mc-quiz"><b>MC</b>DSE practice</a>
+    </nav>
+
+    <details class="lo-block" id="internal-energy-goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>interpret temperature as a quantity associated with the average kinetic energy due to the random motion of molecules in a system</p></li>
+        <li><p>realise that heat is the energy transferred as a result of the temperature difference between two objects</p></li>
+        <li><p>describe the effect of mass, temperature and state of matter on the internal energy of a system</p></li>
+        <li><p>relate internal energy to the sum of the kinetic energy of random motion and the potential energy of molecules in the system</p></li>
+      </ul>
+    </details>
+
+    <section class="idea" id="molecular-ke">
+      <header>
+        <h2><span class="sec-num">A</span>Temperature is average molecular KE</h2>
+      </header>
+      <figure class="fig" id="molecular-ke-fig-boxes">
+        <div class="pane-pair">
+          <div class="visual play stage" id="mol-cold-vis" data-autoplay data-scene="molecules" data-temp="cold">
+            <canvas class="scene-canvas" aria-label="Molecules in a cold body move about at random, mostly slowly, with a range of speeds."></canvas>
+            <span class="hud-label" data-hud="avg" style="left:50%;top:10%">cold: slower on average</span>
+          </div>
+          <div class="visual play stage" id="mol-hot-vis" data-autoplay data-scene="molecules" data-temp="hot">
+            <canvas class="scene-canvas" aria-label="Molecules in a hot body move about at random, faster on average, still with a range of speeds."></canvas>
+            <span class="hud-label" data-hud="avg" style="left:50%;top:10%">hot: faster on average</span>
+          </div>
+        </div>
+        <figcaption><b>Random molecular motion.</b> Hotter means faster on average, not every molecule faster (speeds exaggerated).</figcaption>
+      </figure>
+      <div class="def" id="molecular-ke-def-temperature">
+        <span class="tag">Temperature, molecular view</span>
+        <p>All matter is made of molecules in constant <b>random motion</b>. The <b>temperature</b> of a body is a measure of the <b>average kinetic energy per molecule</b> of this random motion.</p>
+      </div>
+      <ul class="points">
+        <li>Molecules in one body have a spread of speeds and keep changing speed in collisions. Only the average is set by the temperature.</li>
+        <li>Average is not total: 2 kg of water at 50 °C has twice the total molecular KE of 1 kg at 50 °C, but the same average KE per molecule.</li>
+        <li>Moving the whole body (a cup on a moving train) is bulk motion. It does not change the random motion, so it does not change the temperature.</li>
+      </ul>
+      <div class="check" id="molecular-ke-check-two-pots" data-check="tf">
+        <h3>Quick check</h3>
+        <div class="tf-item" id="molecular-ke-tf-average" data-answer="true">
+          <p>(a) A small cup and a large pot of soup are both at 70 °C. Their molecules have the same average KE.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. Same temperature means the same average KE per molecule, whatever the amount.</p></div>
+        </div>
+        <div class="tf-item" id="molecular-ke-tf-total" data-answer="false">
+          <p>(b) They also have the same total molecular KE.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. The pot has many more molecules, so the total is larger.</p></div>
+        </div>
+        <div class="tf-item" id="molecular-ke-tf-faster" data-answer="false">
+          <p>(c) Every molecule in water at 60 °C moves faster than every molecule in water at 20 °C.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. Only the average is higher. Both bodies have slow and fast molecules.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="internal-energy">
+      <header>
+        <h2><span class="sec-num">B</span>Internal energy: KE plus PE</h2>
+      </header>
+      <figure class="fig" id="internal-energy-fig-split">
+        <div class="visual svg-fig" id="split-vis">
+          <svg class="fig-svg" viewBox="0 0 440 300" role="img" aria-labelledby="split-title">
+            <title id="split-title">Internal energy is drawn as one bar made of two parts, total molecular kinetic energy and total molecular potential energy. Energy taken in during a temperature rise mostly adds to the kinetic energy part; energy taken in during melting or boiling adds to the potential energy part.</title>
+            <defs><marker id="split-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#C89A10"/></marker></defs>
+            <text x="220" y="24" class="muted small">energy in (heat or work)</text>
+            <path d="M120 36 L120 74" stroke="#C89A10" stroke-width="4" fill="none" marker-end="url(#split-arrow)"/>
+            <path d="M320 36 L320 74" stroke="#C89A10" stroke-width="4" fill="none" marker-end="url(#split-arrow)"/>
+            <text x="120" y="100">temperature rise</text>
+            <text x="120" y="122" class="muted small">molecules move faster</text>
+            <text x="320" y="100">melting or boiling</text>
+            <text x="320" y="122" class="muted small">bonds break, T steady</text>
+            <rect x="20" y="150" width="210" height="56" rx="12" fill="#FFE6DB" stroke="#F26B3A" stroke-width="2"/>
+            <rect x="230" y="150" width="190" height="56" rx="12" fill="#E6EEF8" stroke="#2A62A8" stroke-width="2"/>
+            <text x="125" y="184">total random KE</text>
+            <text x="325" y="184">total PE (bonds)</text>
+            <path d="M20 226 L420 226" stroke="#17212B" stroke-width="2"/>
+            <path d="M20 218 L20 234 M420 218 L420 234" stroke="#17212B" stroke-width="2"/>
+            <text x="220" y="258">internal energy</text>
+          </svg>
+        </div>
+        <figcaption><b>Where absorbed energy goes.</b> Into KE (warmer) or into PE (change of state).</figcaption>
+      </figure>
+      <div class="def" id="internal-energy-def-internal">
+        <span class="tag">Internal energy</span>
+        <p>The <b>internal energy</b> of a body is the sum of the kinetic energy of the random motion and the potential energy (from forces between molecules) of all its molecules. Unit: joule (J).</p>
+      </div>
+      <div class="eq" id="internal-energy-eq-sum">\[ \text{internal energy} = \text{total KE} + \text{total PE} \]</div>
+      <table class="notes" id="internal-energy-notes-factors">
+        <thead><tr><th>Internal energy is larger when</th><th>Because</th></tr></thead>
+        <tbody>
+          <tr><th>the mass is larger</th><td>more molecules, each with its own KE and PE</td></tr>
+          <tr><th>the temperature is higher</th><td>higher average KE per molecule</td></tr>
+          <tr><th>the state is liquid rather than solid, gas rather than liquid</th><td>molecules are further apart, so more PE (energy was absorbed to break bonds)</td></tr>
+        </tbody>
+      </table>
+      <div class="tip" id="internal-energy-tip-contain">
+        <span class="tag">Common mistake</span>
+        <p>A body contains internal energy, not heat. Heat is only the energy on its way in or out.</p>
+      </div>
+      <div class="check" id="internal-energy-check-factors" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Which of these has the largest internal energy?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">1 kg of ice at 0 °C</button>
+          <button type="button" data-choice="B">1 kg of water at 0 °C</button>
+          <button type="button" data-choice="C">1 kg of water at 100 °C</button>
+          <button type="button" data-choice="D">1 kg of steam at 100 °C</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> Same mass throughout. Water at 100 °C beats water at 0 °C on KE; steam at 100 °C has the same KE as water at 100 °C but much more PE, because a lot of energy was absorbed to separate the molecules. <b>A</b> is lowest: water at 0 °C has the same KE but more PE than ice at 0 °C.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="heat-flow">
+      <header>
+        <h2><span class="sec-num">C</span>Heat flows until the temperatures are equal</h2>
+      </header>
+      <figure class="fig" id="heat-flow-fig-equilibrium">
+        <div class="visual play stage" id="equilibrium-vis" data-autoplay data-scene="equilibrium">
+          <canvas class="scene-canvas" aria-label="Hot tea at 80 degrees Celsius touches a cup at 20 degrees Celsius. Energy flows from tea to cup, fast at first and then slower, until both are at 60 degrees Celsius and the flow stops."></canvas>
+          <span class="hud-label metric" data-hud="hot" style="left:32%;top:12%">tea 80 °C</span>
+          <span class="hud-label metric" data-hud="cold" style="left:68%;top:12%">cup 20 °C</span>
+          <span class="hud-label" data-hud="flow" style="left:50%;top:92%">heat flows hot → cold</span>
+          <button type="button" class="stage-replay" data-replay="equilibrium-vis">Replay</button>
+        </div>
+        <figcaption><b>Thermal equilibrium.</b> The flow is fastest when the temperature gap is largest and stops at equal temperatures.</figcaption>
+      </figure>
+      <div class="def" id="heat-flow-def-heat">
+        <span class="tag">Heat</span>
+        <p><b>Heat</b> is the energy transferred from one body to another because of a temperature difference. It always flows from the higher temperature to the lower temperature.</p>
+      </div>
+      <div class="def" id="heat-flow-def-equilibrium">
+        <span class="tag">Thermal equilibrium</span>
+        <p>Two bodies in contact are in <b>thermal equilibrium</b> when they are at the same temperature; there is then no net heat flow between them.</p>
+      </div>
+      <ul class="points">
+        <li>The bigger the temperature difference, the faster the heat flows: ice melts faster in hot water than in cold water.</li>
+        <li>Temperature decides the direction, not internal energy. A bath at 40 °C has far more internal energy than a cup of tea at 80 °C, yet heat flows from the tea into the bath.</li>
+        <li>Energy can also be given by doing work (rubbing hands, an electric heater current). Once inside, you cannot tell whether energy arrived as heat or as work: it is all internal energy.</li>
+      </ul>
+      <div class="check" id="heat-flow-check-direction" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A sealed cup of tea at 80 °C floats in a large bath of water at 40 °C. The bath has far more internal energy than the tea. Which way does heat flow?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">From the tea to the bath, until both reach the same temperature.</button>
+          <button type="button" data-choice="B">From the bath to the tea, because the bath has more internal energy.</button>
+          <button type="button" data-choice="C">From the tea to the bath, until both hold the same internal energy.</button>
+          <button type="button" data-choice="D">No heat flows, because the cup is sealed.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> Only the temperature difference sets the direction and the end point. <b>B</b> uses internal energy, which depends on mass as well as temperature. <b>C</b> has the right direction but the wrong stopping rule. <b>D</b>: sealing stops the tea escaping, not heat passing through the cup wall.</p>
+        </div>
+      </div>
+      <div class="check" id="heat-flow-check-zero" data-check="tf">
+        <h3>Quick check</h3>
+        <div class="tf-item" id="heat-flow-tf-ice-water" data-answer="false">
+          <p>(a) Ice at 0 °C is dropped into water at 0 °C. Heat flows from the water to the ice.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. Same temperature, so no net heat flow, even though the water has more internal energy.</p></div>
+        </div>
+        <div class="tf-item" id="heat-flow-tf-stops" data-answer="false">
+          <p>(b) Heat flow between two bodies stops when they have equal internal energy.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. It stops when the temperatures are equal.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../_local/dse/mc/01/combined.pdf" data-quiz-section-pdf="../_local/dse/mc/01/1.2.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the goals</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2015-3">
+          <h3>What sets the direction of heat flow</h3>
+          <p>Only one quantity must be larger in the body that gives out heat.</p>
+          <figure class="dse-paper">
+            <figcaption>2015/3 MC</figcaption>
+            <img src="../_local/dse/mc/01/2015_q3.png" alt="HKDSE 2015/3 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2021-2">
+          <h3>Hotter is not the same as more internal energy</h3>
+          <p>Separate what temperature tells you from what depends on mass and material.</p>
+          <figure class="dse-paper">
+            <figcaption>2021/2 MC</figcaption>
+            <img src="../_local/dse/mc/01/2021_q2.png" alt="HKDSE 2021/2 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="1-3.html">Next: 1.3 Ways of heat transfer →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="../js/notes.js"></script>
+</body>
+</html>
