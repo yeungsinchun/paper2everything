@@ -186,8 +186,8 @@ curated, tracked set of PNG crops and `combined.pdf` exports beside `availabilit
 The snapshot copies crops from the paper2db output (`tests/sections/`).
 `availability.json` owns the section inventory.
 Run `paper2db/scripts/check_lq_crop_orientation.py` before publishing LQ crops; its docstring owns the checks and command options.
-`notes/dse/availability.json` records, for every section against `mc` and `lq`,
-whether what ships is a real crop, a placeholder, or absent from the source, with the reason.
+The record covers each published section and question kind (`mc` or `lq`), plus any declared source absences.
+Each entry states whether it holds real crops, placeholders, or no source questions, with a reason.
 `paper2notes/scripts/dse-availability.mjs` reads that record alongside tracked paper2db inputs.
 Both `ci-check.mjs` and `quiz-audit.mjs` check the snapshot, page references, and absence statements.
 A `data-lq-none` statement requires a `none-in-source` entry whose reason names source evidence.

@@ -14,10 +14,10 @@ it imports the text scorer and rotation helper. It chooses orientation using
 four bands and requires an upright margin, as described in orientation_scores().
 
 Two things are checked per file:
-  orientation  the best rotation is 0; a crop whose best rotation is 90 or 270
-               is rotated or sideways, and fails
-  legibility   the width is at least MIN_WIDTH px and the page holds a normal
-               amount of ink, so a blank or hairline fragment cannot ship
+  orientation  rotation 0 must score highest and beat both sideways rotations
+               by at least MARGIN; sideways or unclear crops fail
+  legibility   width and height must meet MIN_WIDTH and MIN_HEIGHT;
+               the ink fraction must fall between MIN_INK and MAX_INK
 
 Run:
     python3 paper2db/scripts/check_lq_crop_orientation.py FILE_OR_DIR [FILE_OR_DIR...]
