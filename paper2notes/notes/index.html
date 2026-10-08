@@ -8,6 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
   <link rel="stylesheet" href="css/p2n-shell.css">
+  <style>
+    [data-ic="telescope"] { --src: url(/assets/icons/telescope.svg); }
+    @media (max-width: 560px) {
+      .p2n-top-nav { min-width: 0; max-width: calc(100vw - 132px); overflow-x: auto; flex-wrap: nowrap; white-space: nowrap; }
+      .p2n-top-nav a { flex: none; white-space: nowrap; }
+    }
+  </style>
 </head>
 <body>
   <header class="p2n-top">
@@ -16,6 +23,7 @@
       <a href="book2/index.html">Book 2</a>
       <a href="book4/index.html">Book 4</a>
       <a href="book5/index.html">Book 5</a>
+      <a href="book6/index.html">Book 6</a>
       <a href="qb/index.html">QB</a>
     </nav>
   </header>
@@ -38,6 +46,11 @@
       <a class="p2n-cc" href="book5/index.html" style="--tone:var(--book5);--soft:var(--book5-soft)">
         <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="radiation" aria-hidden="true"></span></span>
         <span class="p2n-cc-t"><span class="p2n-label">Book 5</span><b>Radioactivity</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="book6/index.html" style="--tone:var(--teal-600);--soft:var(--teal-50)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="telescope" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 6</span><b>Astronomy &amp; Space Science</b></span>
         <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
       <a class="p2n-cc" href="qb/index.html" style="--tone:var(--bookqb);--soft:var(--bookqb-soft)">
