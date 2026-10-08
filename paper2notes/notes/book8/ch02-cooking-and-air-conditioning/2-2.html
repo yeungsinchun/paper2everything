@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.2 Moving heat around</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Cooking and air-conditioning</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="2-1.html">2.1</a>
+      <a href="2-2.html" aria-current="page">2.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.2</p>
+    <h1>Moving heat around</h1>
+    <p class="lede">An air conditioner does work to move heat out of a cool room into the hot air outside.</p>
+    <aside class="quick-digest" id="22-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>\( Q_H = Q_C + W \)</b><span>heat dumped outside = heat taken from the room + work done</span></p>
+        <p><b>Cooling capacity \( = Q_C / t \)</b><span>heat removed per second, in W or kW</span></p>
+        <p><b>\( \text{COP} = \dfrac{Q_C}{W} \)</b><span>cooling capacity ÷ input power; no unit, usually above 1</span></p>
+        <p><b>Refrigerant</b><span>evaporates indoors (absorbs latent heat), condenses outdoors (releases it)</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#heat-pump"><b>A</b>Heat pump</a>
+      <a href="#cop"><b>B</b>Capacity and COP</a>
+      <a href="#refrigeration-cycle"><b>C</b>Refrigeration cycle</a>
+      <a href="#central-ac"><b>D</b>Central air-conditioning</a>
+      <a href="#ac-labels"><b>E</b>Air-conditioner labels</a>
+    </nav>
+
+    <section class="idea" id="heat-pump" data-chip="Heat pump">
+      <header>
+        <h2><span class="sec-num">A</span>A heat pump works against the natural flow</h2>
+      </header>
+      <figure class="fig" id="heat-pump-fig-1">
+        <div class="visual play stage" id="pump-vis" data-autoplay data-scene="heat-pump">
+          <canvas class="scene-canvas" aria-label="Energy flows in an air conditioner. Heat Q C leaves the cool room, electrical work W comes in from the mains, and heat Q H, the sum of the two, goes to the hot outdoors. A higher coefficient of performance needs less work for the same heat removed."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">COP<input type="range" min="1.5" max="5" step="0.1" value="3" data-param="cop" aria-label="Coefficient of performance"><output data-out="cop">3.0</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Q<sub>C</sub> per second</b><span>3.0 kW</span></span><span class="readout"><b>Input power W</b><span data-out="work">1.0 kW</span></span><span class="readout"><b>Q<sub>H</sub> per second</b><span data-out="qh">4.0 kW</span></span></p>
+        <figcaption><b>Fig. 2.4</b> Same cooling, less work: raise the COP.</figcaption>
+      </figure>
+      <div class="eq" id="heat-pump-eq-1">\[ Q_H = Q_C + W \]</div>
+      <ul class="points">
+        <li>Heat flows naturally from hot to cold. A <b>heat pump</b> moves heat the other way, from a cold region to a hot one, and needs work to do it.</li>
+        <li>\( Q_C \): heat removed from the cold room; \( W \): work done (electrical energy used); \( Q_H \): heat given to the hot outdoors. Energy is conserved, so \( Q_H \) is the largest.</li>
+        <li>An air conditioner and a refrigerator are both heat pumps.</li>
+      </ul>
+      <div class="check" id="heat-pump-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>An air conditioner with a COP of 4 gives \( 1.0 \times 10^{7} \) J of heat to the outdoors in one hour. How much heat does it remove from the room?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">\( 2.0 \times 10^{6} \) J</button>
+          <button type="button" data-choice="B">\( 2.5 \times 10^{6} \) J</button>
+          <button type="button" data-choice="C">\( 8.0 \times 10^{6} \) J</button>
+          <button type="button" data-choice="D">\( 1.0 \times 10^{7} \) J</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( Q_C = 4W \) and \( Q_H = Q_C + W = 5W \), so \( W = 2.0 \times 10^{6} \) J and \( Q_C = 8.0 \times 10^{6} \) J. A is the work, B divides \( Q_H \) by the COP, and D forgets the work.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="cop" data-chip="Capacity and COP">
+      <header>
+        <h2><span class="sec-num">B</span>Cooling capacity and COP</h2>
+      </header>
+      <div class="def" id="cop-def-capacity">
+        <span class="tag">Definition</span>
+        <p>The <b>cooling capacity</b> of an air conditioner is the heat it removes per unit time, in W or kW.</p>
+      </div>
+      <div class="def" id="cop-def-cop">
+        <span class="tag">Definition</span>
+        <p>The <b>coefficient of performance</b> (COP) is the heat removed divided by the work done to remove it.</p>
+      </div>
+      <div class="eq" id="cop-eq-1">\[ \text{cooling capacity} = \frac{Q_C}{t} \qquad \text{COP} = \frac{Q_C}{W} = \frac{\text{cooling capacity}}{\text{input electrical power}} \]</div>
+      <div class="tip"><span class="tag">Common mistake</span> COP is not an efficiency. It has no unit and is usually greater than 1: a COP of 3 moves 3 J of heat for every 1 J of electrical energy.</div>
+      <div class="check" id="cop-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>An air conditioner has a cooling capacity of 2.0 kW and a COP of 2.5. What is its input power?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">0.8 kW</button>
+          <button type="button" data-choice="B">2.0 kW</button>
+          <button type="button" data-choice="C">2.8 kW</button>
+          <button type="button" data-choice="D">5.0 kW</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Input power = cooling capacity ÷ COP = 2.0 / 2.5 = 0.8 kW. 5.0 kW multiplies instead; 2.8 kW is the heat given out outdoors per second.</p></div>
+      </div>
+      <div class="worked" id="cop-worked-bill">
+        <h3>Worked example</h3>
+        <p>A bedroom air conditioner has a cooling capacity of 2.6 kW and a COP of 3.2. It runs 8 hours a day for 30 days at $1.10 per kW h. Find the cost.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Input power \( = 2.6 / 3.2 = 0.8125\ \text{kW} \).</li>
+            <li>Energy \( = 0.8125 \times 8 \times 30 = 195\ \text{kW h} \).</li>
+            <li>Cost \( = 195 \times 1.10 = \$214.50 \).</li>
+          </ol>
+          <p class="answer">About $215 for the month.</p>
+        </details>
+      </div>
+      <div class="worked" id="cop-worked-cooldown">
+        <h3>Worked example</h3>
+        <p>A room 4 m × 5 m × 2.8 m holds air of density 1.2 kg m⁻³ and specific heat capacity 1000 J kg⁻¹ °C⁻¹. Estimate how long a 2.0 kW air conditioner takes to cool the air by 6 °C, and say why the real time is longer.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Mass of air \( = 1.2 \times 56 = 67.2\ \text{kg} \).</li>
+            <li>Heat to remove \( = mc\Delta T = 67.2 \times 1000 \times 6 = 4.03 \times 10^{5}\ \text{J} \).</li>
+            <li>Time \( = 4.03 \times 10^{5} / 2000 \approx 200\ \text{s} \).</li>
+          </ol>
+          <p class="answer">About 200 s. In practice the walls, furniture and people must be cooled too, and heat keeps leaking in, so it takes longer.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="refrigeration-cycle" data-chip="Refrigeration cycle">
+      <header>
+        <h2><span class="sec-num">C</span>The refrigeration cycle</h2>
+      </header>
+      <figure class="fig" id="refrigeration-cycle-fig-1">
+        <div class="visual play stage" id="cycle-vis" data-autoplay data-scene="fridge-cycle">
+          <canvas class="scene-canvas tall" aria-label="Refrigerant circulates through four parts. In the evaporator indoors it evaporates and absorbs heat from the room air. The compressor raises its pressure and temperature. In the condenser outdoors it condenses and gives heat to the outside air. The expansion valve lowers its pressure and temperature, and the cycle repeats."></canvas>
+        </div>
+        <figcaption><b>Fig. 2.5</b> Cold liquid boils indoors; hot gas condenses outdoors.</figcaption>
+      </figure>
+      <table class="notes" id="refrigeration-cycle-notes-1">
+        <thead><tr><th>Part</th><th>What happens to the refrigerant</th><th>Heat</th></tr></thead>
+        <tbody>
+          <tr><th>Evaporator (indoors)</th><td>Cold liquid evaporates in coiled tubes</td><td>Absorbs latent heat from the room air</td></tr>
+          <tr><th>Compressor</th><td>Gas is compressed to high pressure and high temperature</td><td>Work is done on it (the electrical input)</td></tr>
+          <tr><th>Condenser (outdoors)</th><td>Hot gas condenses back to liquid</td><td>Releases latent heat to the outdoor air</td></tr>
+          <tr><th>Expansion valve</th><td>Liquid expands to low pressure and low temperature</td><td>Ready to absorb heat again</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>In a split-type unit the indoor part is the evaporator; the compressor, condenser and expansion valve are outdoors.</li>
+        <li>The condenser has metal (copper or aluminium) tubes, many thin fins and a fan, all to pass heat to the air quickly.</li>
+        <li>A refrigerator runs the same cycle; reversing the flow turns an air conditioner into a heater.</li>
+      </ul>
+      <div class="check" id="refrigeration-cycle-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>An air conditioner is cooling a room on a hot day. Put these in increasing order of temperature: refrigerant in the evaporator (\( T_e \)), refrigerant in the condenser (\( T_c \)), outdoor air (\( T_o \)).</p>
+        <div class="choices">
+          <button type="button" data-choice="A">\( T_o < T_e < T_c \)</button>
+          <button type="button" data-choice="B">\( T_e < T_o < T_c \)</button>
+          <button type="button" data-choice="C">\( T_e < T_c < T_o \)</button>
+          <button type="button" data-choice="D">\( T_c < T_o < T_e \)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>The evaporator must be colder than the room to take heat in, so it is coldest. The condenser must be hotter than the outdoor air to give heat out, so it is hottest.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="central-ac" data-chip="Central air-conditioning">
+      <header>
+        <h2><span class="sec-num">D</span>Central air-conditioning</h2>
+      </header>
+      <figure class="fig" id="central-ac-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 300" role="img" aria-labelledby="central-title">
+            <title id="central-title">A central air-conditioning system. An air handling unit blows cooled air through ducts to the rooms. Chilled water circulates between the air handling unit and a chiller. A second water loop carries the heat from the chiller to cooling towers on the roof, which release it to the outdoor air.</title>
+            <rect x="12" y="20" width="140" height="64" rx="12" fill="#E8F4F1" stroke="#1F9585" stroke-width="2"/>
+            <text x="82" y="58" text-anchor="middle">rooms</text>
+            <rect x="12" y="130" width="140" height="64" rx="12" fill="#FFFFFF" stroke="#17212B" stroke-width="2"/>
+            <text x="82" y="168" text-anchor="middle">AHU</text>
+            <rect x="200" y="130" width="120" height="64" rx="12" fill="#FFFFFF" stroke="#17212B" stroke-width="2"/>
+            <text x="260" y="168" text-anchor="middle">chiller</text>
+            <rect x="360" y="20" width="108" height="64" rx="12" fill="#FFFFFF" stroke="#17212B" stroke-width="2"/>
+            <text x="414" y="48" text-anchor="middle">cooling</text>
+            <text x="414" y="72" text-anchor="middle">tower</text>
+            <path d="M82 128 V 92" stroke="#2A62A8" stroke-width="4"/>
+            <path d="M74 98 l8 -12 l8 12 z" fill="#2A62A8"/>
+            <text x="92" y="114" text-anchor="start" class="m">cool air</text>
+            <path d="M152 150 H 198" stroke="#D64545" stroke-width="4"/>
+            <path d="M192 142 l12 8 l-12 8 z" fill="#D64545"/>
+            <path d="M198 176 H 156" stroke="#2A62A8" stroke-width="4"/>
+            <path d="M162 168 l-12 8 l12 8 z" fill="#2A62A8"/>
+            <text x="176" y="230" text-anchor="middle" class="m">chilled water</text>
+            <path d="M320 150 H 414 V 88" stroke="#D64545" stroke-width="4" fill="none"/>
+            <path d="M406 94 l8 -12 l8 12 z" fill="#D64545"/>
+            <path d="M380 88 V 176 H 324" stroke="#2A62A8" stroke-width="4" fill="none"/>
+            <path d="M330 168 l-12 8 l12 8 z" fill="#2A62A8"/>
+            <text x="368" y="230" text-anchor="middle" class="m">cooling water</text>
+            <g stroke="#F26B3A" stroke-width="3" fill="none"><path d="M396 16 q 6 -6 0 -12"/><path d="M414 16 q 6 -6 0 -12"/><path d="M432 16 q 6 -6 0 -12"/></g>
+            <text x="250" y="274" text-anchor="middle">heat ends up in the outdoor air</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.6</b> Two water loops carry the heat from the rooms to the roof.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>The <b>air handling unit</b> (AHU) cools the air and sends it through ducts to the rooms. It can also control humidity and filter the air.</li>
+        <li>Chilled water flows between the AHU and a chiller; a second water loop takes the heat from the chiller to cooling towers.</li>
+        <li>Water is used because its high specific heat capacity lets it carry a lot of heat with a small temperature change. These loops involve no change of state.</li>
+        <li>Waste heat can be reclaimed, for example to preheat bath water or to reheat air after dehumidification.</li>
+      </ul>
+      <div class="check" id="central-ac-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="central-ac-tf-water" data-answer="true">
+          <p>Water suits the cooling loops because a large amount of heat changes its temperature only a little.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>That is what a high specific heat capacity means.</p></div>
+        </div>
+        <div class="tf-item" id="central-ac-tf-phase" data-answer="false">
+          <p>The chilled-water loop works by evaporating and condensing the water.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The water stays liquid; only its temperature changes. Changes of state happen in the refrigeration cycle inside the chiller.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="ac-labels" data-chip="Air-conditioner labels">
+      <header>
+        <h2><span class="sec-num">E</span>Energy labels for air conditioners</h2>
+      </header>
+      <table class="notes" id="ac-labels-notes-1">
+        <thead><tr><th>Grade</th><th>Energy consumption index \( I_c \)</th></tr></thead>
+        <tbody>
+          <tr><th>1</th><td>\( I_c \le 85\% \)</td></tr>
+          <tr><th>2</th><td>\( 85\% &lt; I_c \le 95\% \)</td></tr>
+          <tr><th>3</th><td>\( 95\% &lt; I_c \le 105\% \)</td></tr>
+          <tr><th>4</th><td>\( 105\% &lt; I_c \le 120\% \)</td></tr>
+          <tr><th>5</th><td>\( I_c &gt; 120\% \)</td></tr>
+        </tbody>
+      </table>
+      <div class="eq" id="ac-labels-eq-1">\[ I_c = \frac{E}{E_\text{avg}} \times 100\% \]</div>
+      <ul class="points">
+        <li>\( E \): the model's energy use in a standard cooling test; \( E_\text{avg} \): the average for models of the same type and similar capacity. Lower is better.</li>
+        <li>In Hong Kong the label's annual energy consumption assumes 1200 hours of use a year, so average input power = annual consumption ÷ 1200 h.</li>
+        <li>With the cooling capacity also on the label, \( \text{COP} = \text{capacity} / \text{input power} \).</li>
+      </ul>
+      <div class="check" id="ac-labels-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>For one type of air conditioner, \( E_\text{avg} = 1000 \) kW h. A model uses 900 kW h in the test. What grade does it get?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Grade 1</button>
+          <button type="button" data-choice="B">Grade 2</button>
+          <button type="button" data-choice="C">Grade 3</button>
+          <button type="button" data-choice="D">Grade 4</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( I_c = 900/1000 = 90\% \), which lies between 85% and 95%: grade 2. Grade 1 needs 850 kW h or less.</p></div>
+      </div>
+      <div class="worked" id="ac-labels-worked-cost">
+        <h3>Worked example</h3>
+        <p>A label shows an annual energy consumption of 1320 kW h and a cooling capacity of 3.3 kW. Find the COP, and the cost of running it 6 hours a day for 120 days at $1.20 per kW h.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Input power \( = 1320 / 1200 = 1.1\ \text{kW} \); \( \text{COP} = 3.3 / 1.1 = 3.0 \).</li>
+            <li>Hours \( = 6 \times 120 = 720\ \text{h} \); energy \( = 1.1 \times 720 = 792\ \text{kW h} \).</li>
+            <li>Cost \( = 792 \times 1.20 = \$950.40 \).</li>
+          </ol>
+          <p class="answer">COP 3.0; about $950.</p>
+        </details>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>
