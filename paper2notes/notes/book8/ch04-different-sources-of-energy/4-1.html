@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.1 Electricity and energy</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Energy sources</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="4-1.html" aria-current="page">4.1</a>
+      <a href="4-2.html">4.2</a>
+      <a href="4-3.html">4.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 4.1</p>
+    <h1>Electricity and energy</h1>
+    <p class="lede">Where mains electricity comes from, and which energy sources will last.</p>
+    <aside class="quick-digest" id="41-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>Generator</b><span>turns the kinetic energy of a spinning turbine into electrical energy by electromagnetic induction</span></p>
+        <p><b>Turbine</b><span>a large wheel turned by steam, water or air; the energy source makes that flow</span></p>
+        <p><b>Renewable</b><span>replaced in a short time: solar, wind, hydroelectric, geothermal, biomass</span></p>
+        <p><b>Non-renewable</b><span>used up far faster than it forms: coal, oil, natural gas, nuclear fuel</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#generation"><b>A</b>Generating electricity</a>
+      <a href="#renewable"><b>B</b>Renewable or not</a>
+    </nav>
+
+    <section class="idea" id="generation" data-chip="Generating electricity">
+      <header>
+        <h2><span class="sec-num">A</span>From energy source to the mains</h2>
+      </header>
+      <figure class="fig" id="generation-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 320" role="img" aria-labelledby="gen-title">
+            <title id="gen-title">Most power stations follow one chain. An energy source makes a flow of steam, water or air. The flow turns a turbine. The turbine turns a generator, which makes electrical energy by electromagnetic induction. Transmission lines carry it to users.</title>
+            <rect x="140" y="12" width="200" height="50" rx="12" fill="#FDF1D3" stroke="#E8A317" stroke-width="2"/>
+            <text x="240" y="44" text-anchor="middle">energy source</text>
+            <rect x="140" y="88" width="200" height="50" rx="12" fill="#FFFFFF" stroke="#17212B" stroke-width="2"/>
+            <text x="240" y="120" text-anchor="middle">steam, water or air</text>
+            <rect x="140" y="164" width="200" height="50" rx="12" fill="#FFFFFF" stroke="#17212B" stroke-width="2"/>
+            <text x="240" y="196" text-anchor="middle">turbine</text>
+            <rect x="140" y="240" width="200" height="50" rx="12" fill="#E8F4F1" stroke="#1F9585" stroke-width="2"/>
+            <text x="240" y="272" text-anchor="middle">generator</text>
+            <g stroke="#17212B" stroke-width="3">
+              <line x1="240" y1="62" x2="240" y2="82"/>
+              <line x1="240" y1="138" x2="240" y2="158"/>
+              <line x1="240" y1="214" x2="240" y2="234"/>
+            </g>
+            <g fill="#17212B">
+              <path d="M232 80 l8 10 l8 -10 z"/>
+              <path d="M232 156 l8 10 l8 -10 z"/>
+              <path d="M232 232 l8 10 l8 -10 z"/>
+            </g>
+            <path d="M340 265 H 420" stroke="#1F9585" stroke-width="4"/>
+            <path d="M414 257 l14 8 l-14 8 z" fill="#1F9585"/>
+            <text x="440" y="250" text-anchor="middle" class="m">to</text>
+            <text x="440" y="300" text-anchor="middle" class="m">grid</text>
+            <text x="350" y="120" text-anchor="start" class="m">flow</text>
+            <text x="350" y="196" text-anchor="start" class="m">spins</text>
+            <text x="130" y="272" text-anchor="end" class="m">induction</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 4.1</b> Source → flow → turbine → generator → grid.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>A <b>generator</b> uses electromagnetic induction to turn mechanical energy into electrical energy.</li>
+        <li>It is driven by a <b>turbine</b>: a large wheel of blades turned by a flow of steam, water or air.</li>
+        <li>The energy source creates that flow: burning fuel or nuclear fission boils water into steam; a dam releases falling water; the wind is moving air.</li>
+      </ul>
+      <div class="check" id="generation-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="generation-tf-battery" data-answer="false">
+          <p>Mains electricity is supplied by very large batteries.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Mains electricity comes from generators in power stations.</p></div>
+        </div>
+        <div class="tf-item" id="generation-tf-turbine" data-answer="false">
+          <p>A turbine turns the kinetic energy of steam directly into electrical energy.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The turbine only gives rotational kinetic energy; the generator it drives makes the electrical energy.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="renewable" data-chip="Renewable or not">
+      <header>
+        <h2><span class="sec-num">B</span>Renewable and non-renewable sources</h2>
+      </header>
+      <div class="def" id="renewable-def-1">
+        <span class="tag">Definition</span>
+        <p>A <b>renewable</b> energy source is replaced naturally in a short time. A <b>non-renewable</b> source is used up much faster than it forms, so it can run out.</p>
+      </div>
+      <table class="notes" id="renewable-notes-1">
+        <thead><tr><th>Source</th><th>Type</th><th>Where its energy comes from</th></tr></thead>
+        <tbody>
+          <tr><th>Solar</th><td>Renewable</td><td>The Sun directly</td></tr>
+          <tr><th>Wind</th><td>Renewable</td><td>The Sun heats the Earth unevenly; pressure differences make wind</td></tr>
+          <tr><th>Hydroelectric</th><td>Renewable</td><td>The Sun evaporates water, which falls as rain on high ground</td></tr>
+          <tr><th>Geothermal</th><td>Renewable</td><td>Heat inside the Earth, much of it from radioactive decay in rocks</td></tr>
+          <tr><th>Biomass</th><td>Renewable</td><td>Plants store sunlight as chemical energy (for example ethanol from corn)</td></tr>
+          <tr><th>Coal, oil, natural gas</th><td>Non-renewable</td><td>Remains of plants and animals buried about 100 million years ago</td></tr>
+          <tr><th>Nuclear (uranium)</th><td>Non-renewable</td><td>Nuclear energy of uranium mined from the ground</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="renewable-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Which energy source is non-renewable?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Nuclear power</button>
+          <button type="button" data-choice="B">Wind power</button>
+          <button type="button" data-choice="C">Hydroelectric power</button>
+          <button type="button" data-choice="D">Geothermal power</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Uranium is mined and cannot be replaced. Wind and rain are renewed by the Sun every day, and the Earth's internal heat lasts for billions of years.</p></div>
+      </div>
+    </section>
+
+    <p class="next"><a href="4-2.html">Next: 4.2 Energy sources →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>
