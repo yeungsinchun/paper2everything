@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.3 Specific latent heat</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Change of State</small></a>
+    <nav>
+      <a href="index.html">Map</a><a href="3-1.html">3.1</a><a href="3-2.html">3.2</a><a href="3-3.html" aria-current="page">3.3</a><a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 3.3</p>
+    <h1>Specific latent heat</h1>
+    <p class="lede">Specific latent heat connects the energy transferred during a phase change to the mass that changes state.</p>
+    <aside class="quick-digest" id="specific-latent-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Equation</b><span>\(E=m\ell\): energy = changed mass × specific latent heat</span></p>
+        <p><b>Unit</b><span>\(\mathrm{J\,kg^{-1}}\); mass in kg</span></p>
+        <p><b>Fusion</b><span>melting/freezing at the melting/freezing point</span></p>
+        <p><b>Vaporization</b><span>liquid/gas phase change; water's value is especially large</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#definition"><b>A</b>Definition</a><a href="#experiment"><b>B</b>Measurements</a><a href="#cooling"><b>C</b>Evaporation</a><a href="#stages"><b>D</b>Energy stages</a>
+    </nav>
+    <section class="idea" id="definition">
+      <header>
+        <h2><span class="sec-num">A</span>Energy per kilogram</h2>
+      </header>
+      <div class="def" id="specific-latent-def">
+        <span class="tag">Specific latent heat</span>
+        <p><b>Specific latent heat</b> is the energy absorbed or released per kilogram of a material during a change of state.</p>
+      </div>
+      <div class="eq" id="specific-latent-eq">
+        \[E=m\ell\]
+      </div>
+      <p class="note">\(E\): energy (J); \(m\): mass that changes state (kg); \(\ell\): specific latent heat (J kg⁻¹). Use \(\ell_f\) for fusion and \(\ell_v\) for vaporization.</p>
+      <table class="notes" id="water-latent-values">
+        <thead>
+          <tr>
+            <th>Water phase change</th>
+            <th>Specific latent heat</th>
+            <th>At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Fusion</th>
+            <td>334 kJ kg⁻¹</td>
+            <td>0 °C</td>
+          </tr>
+          <tr>
+            <th>Vaporization</th>
+            <td>2260 kJ kg⁻¹</td>
+            <td>100 °C</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="worked" id="specific-latent-worked">
+        <h3>Worked example · melting ice</h3>
+        <ol class="steps">
+          <li>Ice mass: 0.12 kg.</li>
+          <li>Use \(E=m\ell_f\): \(0.12\times334\,\mathrm{kJ}\).</li>
+          <li><b>Energy absorbed: 40.1 kJ.</b></li>
+        </ol>
+      </div>
+      <div class="check" id="specific-check-mass" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Half a kilogram of ice at 0 °C melts. Which mass belongs in \(E=m\ell_f\)?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The mass of the beaker.</button><button type="button" data-choice="B">The mass of all water in the room.</button><button type="button" data-choice="C">0.50 kg, the ice that changes state.</button><button type="button" data-choice="D">The mass of the heater.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> The formula uses only the mass undergoing the phase change.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="experiment">
+      <header>
+        <h2><span class="sec-num">B</span>Measure the energy and changed mass</h2>
+      </header>
+      <figure class="fig" id="specific-fig-measure">
+        <div class="visual">
+          <svg viewbox="0 0 600 260" role="img" aria-label="A heater supplies measured electrical energy to melting ice at zero degrees Celsius; meltwater is collected and weighed." xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="260" fill="white"></rect>
+          <path d="M185 55H405L380 205H210Z" fill="#fffdf8" stroke="#1b2129" stroke-width="3"></path>
+          <path d="M211 127H379L368 195H222Z" fill="#e4efec"></path>
+          <path d="M290 64V133Q290 148 300 148T310 133V64" fill="none" stroke="#a8690a" stroke-width="7"></path>
+          <path d="M300 45V25H405V45" fill="none" stroke="#0f5c54" stroke-width="3"></path>
+          <text x="413" y="38" fill="#1b2129" font-size="17">
+            energy meter
+          </text>
+          <text x="250" y="185" fill="#1b2129" font-size="17">
+            ice + meltwater
+          </text>
+          <path d="M183 220H407" stroke="#0f5c54" stroke-width="3"></path>
+          <text x="155" y="246" fill="#5d6673" font-size="16">
+            weigh water before and after
+          </text></svg>
+        </div>
+        <figcaption>
+          <b>Energy and mass difference.</b> Measure supplied energy and the mass that melts or vaporizes.
+        </figcaption>
+      </figure>
+      <p>For melting ice, keep it at 0 °C and compare a heated setup with a control to estimate heat gained from the surroundings. For boiling water, measure electrical energy and mass lost while steady boiling continues.</p>
+      <ul class="points">
+        <li>Immerse the heater properly and record its supplied energy.</li>
+        <li>Reduce unwanted energy exchange with the surroundings.</li>
+        <li>For vaporization, prevent splashing and dry external droplets before weighing.</li>
+        <li>Unexpected energy loss can make the calculated value too high or low depending on which measured quantity it affects.</li>
+      </ul>
+      <div class="check" id="specific-check-loss" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A vaporization experiment counts electrical energy that escapes to the room. What happens to the calculated specific latent heat if the lost energy is mistakenly counted as heating the water?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">It becomes too small.</button><button type="button" data-choice="B">It becomes too large.</button><button type="button" data-choice="C">It is unchanged.</button><button type="button" data-choice="D">It becomes zero.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> The energy numerator is overestimated while the measured vaporized mass is unchanged.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="cooling">
+      <header>
+        <h2><span class="sec-num">C</span>Evaporation carries energy away</h2>
+      </header>
+      <p>Water has a large specific latent heat of vaporization. Evaporating a small mass can remove substantial energy, so evaporation cools wet skin and hot water. Sweat helps the body lose energy when it evaporates.</p>
+      <div class="eq" id="evaporation-energy-eq">
+        \[E=m\ell_v\]
+      </div>
+      <div class="check" id="evaporation-check-sweat" data-check="sa">
+        <h3>Explain it</h3>
+        <p>Why does sweat cool the body only when it evaporates?</p><button type="button" data-reveal="">Show answer</button>
+        <div class="model" hidden>
+          <p>Evaporation requires energy to separate molecules. The escaping sweat takes that energy from the skin and nearby tissue, lowering their average kinetic energy.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="stages">
+      <header>
+        <h2><span class="sec-num">D</span>Split a process into stages</h2>
+      </header>
+      <p>When temperature and state both change, calculate each stage separately. Add heating within a phase \((E=mc\Delta T)\) and phase changes \((E=m\ell)\). Keep the same mass unless some material leaves the system.</p>
+      <ol class="points">
+        <li>Warm ice to its melting point.</li>
+        <li>Melt the ice.</li>
+        <li>Warm the liquid to its boiling point.</li>
+        <li>Vaporize the liquid.</li>
+        <li>Warm the vapour if needed.</li>
+      </ol>
+      <div class="worked" id="stages-worked">
+        <h3>Worked setup · ice to steam</h3>
+        <ol class="steps">
+          <li>Write one energy term for each stage.</li>
+          <li>Add \(mc_{ice}\Delta T + m\ell_f + mc_{water}\Delta T + m\ell_v + mc_{steam}\Delta T\).</li>
+          <li>For a constant-power heater, divide the total energy by power to find time.</li>
+        </ol>
+      </div>
+      <div class="check" id="stages-check" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>A sample starts as ice below 0 °C and ends as liquid water above 0 °C. Which energy terms are needed?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Only \(m\ell_f\).</button><button type="button" data-choice="B">Only \(mc\Delta T\) for liquid water.</button><button type="button" data-choice="C">Only the energy to warm the ice.</button><button type="button" data-choice="D">Warm the ice, melt it, then warm the water.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> The sample undergoes two temperature changes and one phase change.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../../dse/mc/03/combined.pdf" data-quiz-section-pdf="../../dse/mc/03/3.3.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">DSE practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-pp-4">
+          <h3>Evaporation from a wet surface</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              Practice paper/4 MC
+            </figcaption><img src="../../dse/mc/01/pp_q4.png" alt="HKDSE practice paper question 4">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2013-2">
+          <h3>Measuring latent heat of vaporization</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2013/2 MC
+            </figcaption><img src="../../dse/mc/03/2013_q2.png" alt="HKDSE 2013 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2016-2">
+          <h3>Ice added to warm water</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2016/2 MC
+            </figcaption><img src="../../dse/mc/03/2016_q2.png" alt="HKDSE 2016 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2023-2">
+          <h3>Specific latent heat from a cooling curve</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2023/2 MC
+            </figcaption><img src="../../dse/mc/03/2023_q2.png" alt="HKDSE 2023 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2024-2">
+          <h3>Warm water mixed with ice</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2024/2 MC
+            </figcaption><img src="../../dse/mc/03/2024_q2.png" alt="HKDSE 2024 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2025-2">
+          <h3>Measuring specific latent heat of fusion</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2025/2 MC
+            </figcaption><img src="../../dse/mc/03/2025_q2.png" alt="HKDSE 2025 question 2">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev="">Prev</button>
+        <p class="quiz-status" aria-live="polite"></p><button type="button" data-quiz-next="">Next</button>
+      </div>
+    </section>
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../../dse/lq/03/combined.pdf" data-quiz-section-pdf="../../dse/lq/03/3.3.pdf">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2019-1">
+          <h3>Energy in a mixed drink</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2019/1 LQ
+            </figcaption><img src="../../dse/lq/03/2019-q1.png" alt="HKDSE 2019 long question 1">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2021-1">
+          <h3>Vaporizing water with a heater</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2021/1 LQ
+            </figcaption><img src="../../dse/lq/03/2021-q1.png" alt="HKDSE 2021 long question 1">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2026-1">
+          <h3>Heating ice to the boiling point</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2026/1 LQ
+            </figcaption><img src="../../dse/lq/03/2026-q1.png" alt="HKDSE 2026 long question 1">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2026-2">
+          <h3>Heating ice to the boiling point</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2026/2 LQ
+            </figcaption><img src="../../dse/lq/03/2026-q2.png" alt="HKDSE 2026 long question 2">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev="">Prev</button>
+        <p class="quiz-status" aria-live="polite"></p><button type="button" data-quiz-next="">Next</button>
+      </div>
+    </section>
+    <p class="next"><a href="3-2.html">← Latent heat</a> · <a href="summary.html">Next: Chapter summary →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/notes.js"></script>
+  <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">
+    deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span>
+  </footer>
+</body>
+</html>

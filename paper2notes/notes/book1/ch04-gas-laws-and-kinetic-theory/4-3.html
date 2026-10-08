@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.3 Kinetic theory</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Kinetic Theory</small></a>
+    <nav>
+      <a href="index.html">Map</a><a href="4-1.html">4.1</a><a href="4-2.html">4.2</a><a href="4-3.html" aria-current="page">4.3</a><a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 4.3 · Extension</p>
+    <h1>Kinetic theory</h1>
+    <p class="lede">A gas's large-scale pressure and temperature arise from random molecular motion and collisions.</p>
+    <aside class="quick-digest" id="kinetic-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Pressure</b><span>momentum transfer in molecule-wall collisions</span></p>
+        <p><b>Temperature</b><span>linked to average molecular kinetic energy</span></p>
+        <p><b>Ideal gas</b><span>molecules are small, far apart and interact negligibly</span></p>
+        <p><b>Heating at fixed volume</b><span>molecules move faster; collisions are stronger and more frequent</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#model"><b>A</b>Particle model</a><a href="#beads"><b>B</b>Analogy</a><a href="#ideal"><b>C</b>Ideal gas</a><a href="#equation"><b>D</b>Equation</a>
+    </nav>
+    <section class="idea" id="model">
+      <header>
+        <h2><span class="sec-num">A</span>Macroscopic properties have a molecular cause</h2>
+      </header>
+      <figure class="fig" id="kinetic-fig">
+        <div class="visual">
+          <svg viewbox="0 0 600 280" role="img" aria-label="Randomly moving gas particles collide elastically with the walls. Faster particles make more forceful and frequent collisions." xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="280" fill="white"></rect>
+          <rect x="105" y="35" width="390" height="205" fill="#fffdf8" stroke="#1b2129" stroke-width="4"></rect>
+          <g fill="#0f5c54">
+            <circle cx="175" cy="90" r="8"></circle>
+            <circle cx="275" cy="175" r="8"></circle>
+            <circle cx="405" cy="75" r="8"></circle>
+            <circle cx="430" cy="185" r="8"></circle>
+            <circle cx="225" cy="220" r="8"></circle>
+          </g>
+          <g stroke="#a8690a" stroke-width="3">
+            <path d="M175 90L240 62"></path>
+            <path d="M275 175L330 130"></path>
+            <path d="M405 75L478 108"></path>
+            <path d="M430 185L360 215"></path>
+            <path d="M225 220L145 175"></path>
+          </g>
+          <text x="132" y="267" fill="#1b2129" font-size="17">
+            random motion → wall impacts → pressure
+          </text></svg>
+        </div>
+        <figcaption>
+          <b>Collision model.</b> An enormous number of impacts gives a steady average pressure.
+        </figcaption>
+      </figure>
+      <table class="notes" id="kinetic-links">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Molecular interpretation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Pressure</th>
+            <td>Momentum transfer in collisions with walls</td>
+          </tr>
+          <tr>
+            <th>Temperature</th>
+            <td>Measure linked to average random-motion kinetic energy</td>
+          </tr>
+          <tr>
+            <th>Volume</th>
+            <td>Space available for gas molecules to move</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="check" id="kinetic-check-temperature" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>At the same gas volume, heating increases pressure. Which molecular change explains it?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Molecule size increases.</button><button type="button" data-choice="B">Molecules move faster and transfer more momentum to the walls.</button><button type="button" data-choice="C">The number of molecules increases automatically.</button><button type="button" data-choice="D">The gas molecules become stationary.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> Higher temperature means greater average kinetic energy and stronger, more frequent wall collisions.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="beads">
+      <header>
+        <h2><span class="sec-num">B</span>Use models carefully</h2>
+      </header>
+      <p>A vibrating platform can make beads bounce inside a cylinder beneath a movable piston. The beads represent gas molecules; platform drive represents heating; piston height represents gas volume; piston load represents outside pressure.</p>
+      <table class="notes" id="beads-table">
+        <thead>
+          <tr>
+            <th>Change in model</th>
+            <th>Gas idea</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Drive the platform harder</th>
+            <td>Raise temperature: particles move faster.</td>
+          </tr>
+          <tr>
+            <th>Add beads</th>
+            <td>Increase the amount of gas and collision frequency.</td>
+          </tr>
+          <tr>
+            <th>Add weight to piston</th>
+            <td>Raise outside pressure and compress the gas.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>The model makes collisions visible but beads need continuous input from the platform. Real gas molecules move between collisions without a vibrating floor. Beads also lose energy and are much larger relative to their container.</p>
+      <div class="check" id="beads-check" data-check="sa">
+        <h3>Explain the limit</h3>
+        <p>Why does the bead model need a vibrating platform while a gas does not?</p><button type="button" data-reveal="">Show answer</button>
+        <div class="model" hidden>
+          <p>The platform continually supplies energy to the beads. Gas molecules already have kinetic energy and move freely between collisions.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="ideal">
+      <header>
+        <h2><span class="sec-num">C</span>Ideal gases are a useful model</h2>
+      </header>
+      <div class="def" id="ideal-def">
+        <span class="tag">Ideal gas</span>
+        <p>An <b>ideal gas</b> is a model whose molecules have negligible size, move randomly, and exert negligible forces on each other except during elastic collisions.</p>
+      </div>
+      <p>Real gases behave more like the ideal model at high temperature and low pressure. Molecules are farther apart and intermolecular effects matter less. At low temperature or high pressure, real gases can depart from ideal behaviour or condense.</p>
+      <div class="check" id="ideal-check-limits" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>When is a real gas most likely to behave ideally?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Low temperature and high pressure.</button><button type="button" data-choice="B">Near condensation.</button><button type="button" data-choice="C">When molecules are crowded together.</button><button type="button" data-choice="D">High temperature and low pressure.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> Molecules are farther apart and move freely, so their size and interactions matter less.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="equation">
+      <header>
+        <h2><span class="sec-num">D</span>Quantitative kinetic theory (extension)</h2>
+      </header>
+      <p>For an ideal gas, the kinetic-theory equation connects pressure and volume to the number, mass and motion of molecules:</p>
+      <div class="eq" id="kt-eq">
+        \[pV=\frac{1}{3}Nm\langle v^2\rangle\]
+      </div>
+      <p class="note">\(N\): number of molecules; \(m\): mass per molecule; \(\langle v^2\rangle\): mean square speed. The root-mean-square speed is \(v_{rms}=\sqrt{\langle v^2\rangle}\).</p>
+      <p>Combining this model with the ideal gas law shows that average translational kinetic energy per molecule is proportional to absolute temperature. This advanced relation explains why Kelvin temperature is fundamental to gas laws.</p>
+      <div class="check" id="kt-check" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>At the same Kelvin temperature, two ideal gases have the same average translational kinetic energy per molecule. Which quantity may differ?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Their typical molecular speeds, if their molecular masses differ.</button><button type="button" data-choice="B">Their absolute temperature.</button><button type="button" data-choice="C">The proportionality between temperature and average kinetic energy.</button><button type="button" data-choice="D">Whether their particles move randomly.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> For equal kinetic energy, lighter molecules move faster than heavier molecules.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../../dse/mc/04/combined.pdf" data-quiz-section-pdf="../../dse/mc/04/4.3.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">DSE practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-pp-5">
+          <h3>Cooling a gas at fixed pressure</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              Practice paper/5 MC
+            </figcaption><img src="../../dse/mc/04/pp_q5.png" alt="HKDSE practice paper question 5">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2013-3">
+          <h3>Molecular speed changes</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2013/3 MC
+            </figcaption><img src="../../dse/mc/04/2013_q3.png" alt="HKDSE 2013 question 3">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2016-3">
+          <h3>Average molecular kinetic energy</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2016/3 MC
+            </figcaption><img src="../../dse/mc/04/2016_q3.png" alt="HKDSE 2016 question 3">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2021-3">
+          <h3>Meaning of the kinetic-theory equation</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2021/3 MC
+            </figcaption><img src="../../dse/mc/04/2021_q3.png" alt="HKDSE 2021 question 3">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2024-3">
+          <h3>Estimate molecule number from pressure</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2024/3 MC
+            </figcaption><img src="../../dse/mc/04/2024_q3.png" alt="HKDSE 2024 question 3">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2025-3">
+          <h3>Comparing molecular properties of two gases</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2025/3 MC
+            </figcaption><img src="../../dse/mc/04/2025_q3.png" alt="HKDSE 2025 question 3">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev="">Prev</button>
+        <p class="quiz-status" aria-live="polite"></p><button type="button" data-quiz-next="">Next</button>
+      </div>
+    </section>
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../../dse/lq/04/combined.pdf" data-quiz-section-pdf="../../dse/lq/04/4.3.pdf">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2017-3">
+          <h3>Average kinetic energy in a monatomic gas</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2017/3 LQ
+            </figcaption><img src="../../dse/lq/04/2017-q3.png" alt="HKDSE 2017 long question 3">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2024-2">
+          <h3>RMS speed of argon</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2024/2 LQ
+            </figcaption><img src="../../dse/lq/04/2024-q2.png" alt="HKDSE 2024 long question 2">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev="">Prev</button>
+        <p class="quiz-status" aria-live="polite"></p><button type="button" data-quiz-next="">Next</button>
+      </div>
+    </section>
+    <p class="next"><a href="4-2.html">← Gas laws</a> · <a href="summary.html">Next: Chapter summary →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/notes.js"></script>
+  <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">
+    deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span>
+  </footer>
+</body>
+</html>

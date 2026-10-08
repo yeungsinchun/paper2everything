@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.2 Latent heat</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Change of State</small></a>
+    <nav>
+      <a href="index.html">Map</a><a href="3-1.html">3.1</a><a href="3-2.html" aria-current="page">3.2</a><a href="3-3.html">3.3</a><a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 3.2</p>
+    <h1>Latent heat</h1>
+    <p class="lede">A substance can absorb or release energy during a phase change without changing temperature.</p>
+    <aside class="quick-digest" id="latent-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Latent heat</b><span>energy absorbed or released during a change of state</span></p>
+        <p><b>Temperature plateau</b><span>phase change continues; energy still transfers</span></p>
+        <p><b>Molecular KE</b><span>stays constant while temperature stays constant</span></p>
+        <p><b>Molecular PE</b><span>rises on melting/vaporization and falls on freezing/condensation</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#latent"><b>A</b>Energy</a><a href="#curve"><b>B</b>Curves</a><a href="#molecules"><b>C</b>Molecular model</a>
+    </nav>
+    <section class="idea" id="latent">
+      <header>
+        <h2><span class="sec-num">A</span>Energy during a phase change</h2>
+      </header>
+      <figure class="fig" id="latent-fig-path">
+        <div class="visual">
+          <svg viewbox="0 0 600 220" role="img" aria-label="Solid to liquid to gas absorbs energy; gas to liquid to solid releases energy." xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="220" fill="white"></rect>
+          <g fill="#fffdf8" stroke="#d9d2c4" stroke-width="2">
+            <rect x="40" y="75" width="130" height="70" rx="8"></rect>
+            <rect x="235" y="75" width="130" height="70" rx="8"></rect>
+            <rect x="430" y="75" width="130" height="70" rx="8"></rect>
+          </g>
+          <g fill="#1b2129" font-size="20" text-anchor="middle">
+            <text x="105" y="117">
+              solid
+            </text>
+            <text x="300" y="117">
+              liquid
+            </text>
+            <text x="495" y="117">
+              gas
+            </text>
+          </g>
+          <g stroke="#0f5c54" stroke-width="4" fill="none">
+            <path d="M170 88H226"></path>
+            <path d="M365 88H421"></path>
+          </g>
+          <g stroke="#a8690a" stroke-width="4" fill="none">
+            <path d="M421 132H365"></path>
+            <path d="M226 132H170"></path>
+          </g>
+          <g fill="#1b2129" font-size="15" text-anchor="middle">
+            <text x="198" y="66">
+              melting: in
+            </text>
+            <text x="393" y="66">
+              vaporization: in
+            </text>
+            <text x="393" y="166">
+              condensation: out
+            </text>
+            <text x="198" y="166">
+              freezing: out
+            </text>
+          </g></svg>
+        </div>
+        <figcaption>
+          <b>Direction of energy transfer.</b> Breaking molecular bonds absorbs energy; forming bonds releases it.
+        </figcaption>
+      </figure>
+      <div class="def" id="latent-def">
+        <span class="tag">Latent heat</span>
+        <p><b>Latent heat</b> is the energy absorbed or released by a body while it changes state.</p>
+      </div>
+      <p>During melting or vaporization, the body absorbs energy. During freezing or condensation, it releases energy. This energy changes the body's internal energy even when its temperature is constant.</p>
+    </section>
+    <section class="idea" id="curve">
+      <header>
+        <h2><span class="sec-num">B</span>Read the flat part of a curve</h2>
+      </header>
+      <figure class="fig" id="latent-fig-curve">
+        <div class="visual">
+          <svg viewbox="0 0 600 300" role="img" aria-label="A cooling curve falls while liquid cools, stays flat while liquid freezes, then falls again after all liquid becomes solid." xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="300" fill="white"></rect>
+          <path d="M75 30V240H545" fill="none" stroke="#1b2129" stroke-width="2"></path>
+          <path d="M90 55L220 120H375L520 205" fill="none" stroke="#0f5c54" stroke-width="5"></path>
+          <path d="M75 120H545" stroke="#d9d2c4" stroke-width="2" stroke-dasharray="7 6"></path>
+          <text x="30" y="45" fill="#1b2129" font-size="17">
+            T
+          </text>
+          <text x="530" y="267" fill="#1b2129" font-size="17">
+            time
+          </text>
+          <text x="270" y="105" fill="#1b2129" font-size="16">
+            freezing: liquid + solid
+          </text>
+          <text x="105" y="276" fill="#5d6673" font-size="15">
+            liquid cools
+          </text>
+          <text x="405" y="276" fill="#5d6673" font-size="15">
+            solid cools
+          </text></svg>
+        </div>
+        <figcaption>
+          <b>Cooling plateau.</b> The substance releases energy while its temperature stays at the freezing point.
+        </figcaption>
+      </figure>
+      <p>On a flat segment, two phases coexist. Energy leaves the body and the liquid fraction shrinks, but average molecular kinetic energy does not change. After the phase change finishes, the temperature can fall again.</p>
+      <div class="check" id="curve-check-plateau" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>A cooling curve is flat while a liquid freezes. Which statement is correct?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">No energy leaves the substance.</button><button type="button" data-choice="B">The molecules stop moving.</button><button type="button" data-choice="C">The liquid fraction increases.</button><button type="button" data-choice="D">The substance releases energy as molecular potential energy decreases.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> Bond formation releases energy and lowers molecular potential energy. Temperature and average kinetic energy stay constant.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="molecules">
+      <header>
+        <h2><span class="sec-num">C</span>Separate kinetic and potential energy</h2>
+      </header>
+      <table class="notes" id="latent-energy-table">
+        <thead>
+          <tr>
+            <th>Change</th>
+            <th>Temperature / average KE</th>
+            <th>Average molecular PE</th>
+            <th>Energy transfer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Melting or vaporization</th>
+            <td>constant</td>
+            <td>increases</td>
+            <td>absorbed</td>
+          </tr>
+          <tr>
+            <th>Freezing or condensation</th>
+            <td>constant</td>
+            <td>decreases</td>
+            <td>released</td>
+          </tr>
+          <tr>
+            <th>Warming or cooling within one phase</th>
+            <td>changes</td>
+            <td>approximately constant</td>
+            <td>absorbed or released</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Internal energy is the sum of molecular kinetic and potential energies. Temperature tracks average kinetic energy, not total internal energy.</p>
+      <div class="check" id="latent-check-ke" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Water boils steadily while a heater supplies energy. What changes during boiling?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Molecular potential energy rises as molecules separate.</button><button type="button" data-choice="B">Average molecular kinetic energy rises, so temperature rises.</button><button type="button" data-choice="C">Both average molecular KE and PE stay fixed.</button><button type="button" data-choice="D">Internal energy falls because water leaves.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> Temperature and average kinetic energy remain constant; energy increases molecular potential energy during vaporization.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../../dse/mc/03/combined.pdf" data-quiz-section-pdf="../../dse/mc/03/3.2.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">DSE practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-4">
+          <h3>Molecular energy on heating</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2012/4 MC
+            </figcaption><img src="../../dse/mc/03/2012_q4.png" alt="HKDSE 2012 question 4">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2014-2">
+          <h3>Reading a phase-change graph</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2014/2 MC
+            </figcaption><img src="../../dse/mc/03/2014_q2.png" alt="HKDSE 2014 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2017-2">
+          <h3>Comparing melting curves</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2017/2 MC
+            </figcaption><img src="../../dse/mc/03/2017_q2.png" alt="HKDSE 2017 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2017-3">
+          <h3>Internal energy through phase changes</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2017/3 MC
+            </figcaption><img src="../../dse/mc/03/2017_q3.png" alt="HKDSE 2017 question 3">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2019-2">
+          <h3>Energy during a melting plateau</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2019/2 MC
+            </figcaption><img src="../../dse/mc/03/2019_q2.png" alt="HKDSE 2019 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2021-1">
+          <h3>Comparing fusion data at different powers</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2021/1 MC
+            </figcaption><img src="../../dse/mc/03/2021_q1.png" alt="HKDSE 2021 question 1">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2022-2">
+          <h3>Molecules as ice melts</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2022/2 MC
+            </figcaption><img src="../../dse/mc/03/2022_q2.png" alt="HKDSE 2022 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2024-1">
+          <h3>Comparing phase-change data</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2024/1 MC
+            </figcaption><img src="../../dse/mc/03/2024_q1.png" alt="HKDSE 2024 question 1">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev="">Prev</button>
+        <p class="quiz-status" aria-live="polite"></p><button type="button" data-quiz-next="">Next</button>
+      </div>
+    </section>
+    <p class="next"><a href="3-1.html">← Change of state</a> · <a href="3-3.html">Next: Specific latent heat →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/notes.js"></script>
+  <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">
+    deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span>
+  </footer>
+</body>
+</html>
