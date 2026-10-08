@@ -8,10 +8,10 @@ That test fixes the failure mode where a sideways booklet scan is published as
 a question scan and a reader cannot read it.
 
 The question crops built by crop_lq_from_pages.py come out of the same scans, so
-they need the same test before they are copied into the published snapshot
-(paper2notes/notes/dse/lq/<section>/). This script reuses that test unchanged:
-it imports the scoring and the rotation chooser rather than restating them, so
-one rule governs both kinds of crop.
+they need an orientation check before they are copied into the published snapshot
+(paper2notes/notes/dse/lq/<section>/). This script adapts that check:
+it imports the text scorer and rotation helper. It chooses orientation using
+four bands and requires an upright margin, as described in orientation_scores().
 
 Two things are checked per file:
   orientation  the best rotation is 0; a crop whose best rotation is 90 or 270
@@ -26,6 +26,7 @@ Run:
 
 Exit code 0 when every crop passes, 1 when any crop fails or the input is
 bad (a path does not exist, or a directory holds no PNG crops).
+Argument parsing errors exit with code 2.
 --fix rewrites each crop the way the gate scores it, then re-checks the
 rewritten file, so a fix never hides a failure it did not solve.
 """
