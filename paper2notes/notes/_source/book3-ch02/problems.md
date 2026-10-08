@@ -36,7 +36,7 @@ Ordered to match the notes pages. Sources are tracked: DSE crops come from `pape
 ## Classified here, taught elsewhere
 
 - HKDSE 2012/6 LQ (section 14) is a slide on page 15.3.
-- HKDSE 2026/5 LQ (section 14) is a slide on page 15.3.
+- HKDSE 2026/5 LQ (sections 15 and 13) is a slide on page 15.3.
 - HKDSE 2025/18 MC (section 14) is a slide on page 16.1.
 - HKDSE 2019/19 MC (section 14) is a slide on page 16.1.
 - HKDSE 2013/23 MC (section 14) is a slide on page 16.1.
@@ -50,5 +50,5 @@ Ordered to match the notes pages. Sources are tracked: DSE crops come from `pape
 - HKDSE 2023/18 MC (section 14) is a slide on page 16.1.
 - HKDSE 2015/17 MC (section 14) is a slide on page 16.1.
 - HKDSE 2014/7 LQ (section 14) is a slide on page 16.1.
-- HKDSE 2018/7 LQ (section 14) is a slide on page 16.1.
+- HKDSE 2018/7 LQ (section 16) is a slide on page 16.1.
 - HKDSE 2024/6 LQ (section 14) is a slide on page 16.1.

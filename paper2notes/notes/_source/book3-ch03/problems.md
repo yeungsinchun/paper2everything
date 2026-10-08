@@ -42,7 +42,7 @@ Ordered to match the notes pages. Sources are tracked: DSE crops come from `pape
 | HKDSE 2024/17 | MC | mc/15 | Antiphase speakers at two points |
 | HKDSE 2013/7 | LQ | lq/15 | Waves from a source and a reflecting plate |
 | HKDSE 2012/6 | LQ | lq/14 | Two dippers in phase |
-| HKDSE 2026/5 | LQ | lq/14 | Two dippers in antiphase |
+| HKDSE 2026/5 | LQ | lq/15 | Two dippers in antiphase |
 
 ## Classified here, taught elsewhere
 

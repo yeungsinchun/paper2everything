@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-05",
+  "updated": "2026-10-08",
   "checkedBy": [
     "node paper2notes/scripts/quiz-audit.mjs",
     "node paper2notes/scripts/ci-check.mjs"
@@ -65,6 +65,72 @@
       "mc": {
         "state": "real-crop",
         "reason": "combined.pdf only: this section's multiple-choice crops merged into the one PDF that Book 2 chapter pages offer as 'Export PDF for this section'. Built from paper scans; no per-question image is published for this section."
+      }
+    },
+    "13": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "26 multiple-choice question crops, including this section\u2019s real scans from the published papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "2 long-question image crops are real scans from the papers; other source questions are not published here."
+      }
+    },
+    "14": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "26 multiple-choice question crops are real scans from the published papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "7 long-question and marking-scheme image crops are real scans from the papers."
+      }
+    },
+    "15": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "27 multiple-choice question crops are real scans from the published papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "6 long-question and marking-scheme image crops are real scans from the papers."
+      }
+    },
+    "16": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "24 multiple-choice question crops are real scans from the published papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "13 long-question and marking-scheme image crops are real scans from the papers."
+      }
+    },
+    "17": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "4 multiple-choice question crops are real scans from the published papers."
+      }
+    },
+    "18": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "12 multiple-choice question crops are real scans from the published papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "9 long-question and marking-scheme image crops are real scans from the papers."
+      }
+    },
+    "19": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "21 multiple-choice question crops are real scans from the published papers."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "17 long-question and marking-scheme image crops are real scans from the papers."
       }
     },
     "20": {

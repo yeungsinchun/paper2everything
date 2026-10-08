@@ -785,6 +785,10 @@
       loLabel.appendChild(document.createTextNode(" "));
       loLabel.appendChild(loText);
       loLabel.appendChild(paperId);
+      if (!loTexts.length) {
+        loLabel.hidden = true;
+        loLabel.style.display = "none";
+      }
 
       var dots = null;
       if (status && status.parentNode) {

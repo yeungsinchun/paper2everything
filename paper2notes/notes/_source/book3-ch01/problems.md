@@ -53,5 +53,5 @@ Ordered to match the notes pages. Sources are tracked: DSE crops come from `pape
 
 ## Classified here, taught elsewhere
 
-- HKDSE 2016/6 LQ (section 13) is a slide on page 16.1.
+- HKDSE 2016/6 LQ (section 14) is a slide on page 16.1.
 - HKDSE pp/5 LQ (section 13) is a slide on page 16.1.
