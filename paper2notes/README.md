@@ -34,4 +34,11 @@ See `deploy/cloudrun/README.md` for Cloud Run hosting and `../docs/ARCHITECTURE.
 
 ## CI
 
-Pull requests and pushes to `main` run the root `.github/workflows/notes-checks.yml` check. For its scope and local check command, see `../docs/ARCHITECTURE.md` §5.
+Pull requests and pushes to `main` run the root `.github/workflows/notes-checks.yml` check. It runs one job per distinct test:
+
+- `anchor-lint tests` — `node --test paper2notes/tests/anchor-lint.test.mjs`
+- `ci-check` — `node paper2notes/scripts/ci-check.mjs`
+- `leak-check tests` — `node --test paper2notes/tests/leak-check.test.mjs`
+- `leak fingerprint check` — `python3 paper2db/scripts/leak_fingerprints.py --check`
+
+For what each job checks, see `../docs/ARCHITECTURE.md` §5.

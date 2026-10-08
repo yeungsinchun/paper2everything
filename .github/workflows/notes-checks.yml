@@ -1,4 +1,5 @@
 name: notes-checks
+
 on:
   pull_request:
     paths:
@@ -23,8 +24,13 @@ on:
       - "paper2db/metadata/pointers/**"
       - "paper2notes/.github/workflows/**"
       - ".github/workflows/notes-checks.yml"
+
+# One job per distinct check, so a failure names the test that broke.
+# Triggers and path filters stay defined once per workflow; separate
+# workflow files would only duplicate them.
 jobs:
-  check:
+  anchor-lint-tests:
+    name: anchor-lint tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +38,33 @@ jobs:
         with:
           node-version: '20'
       - run: node --test paper2notes/tests/anchor-lint.test.mjs
+
+  ci-check:
+    name: ci-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
       - run: node paper2notes/scripts/ci-check.mjs
+
+  leak-check-tests:
+    name: leak-check tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
       - run: node --test paper2notes/tests/leak-check.test.mjs
+
+  leak-fingerprint-check:
+    name: leak fingerprint check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - run: python3 paper2db/scripts/leak_fingerprints.py --check

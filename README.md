@@ -135,6 +135,15 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 | `compile-mocks` | PR touching `paper2mock/**`; every push to `main` | LaTeX build of all 20 mock documents; `main` pushes release two zips |
 | `deploy-notes` | push to `main` touching `paper2notes/notes/` or `paper2notes/deploy/cloudrun/`; manual | `paper2notes/deploy/cloudrun/deploy.sh` to Cloud Run (`asia-east2`) via Workload Identity Federation |
 
+The three check workflows run one job per distinct test, so a failure names
+the test that broke:
+
+- `notes-checks`: anchor-lint tests, ci-check, leak-check tests, leak fingerprint check
+- `paper2db-unit-tests`: dse-items unit tests, pointers unit tests
+- `answer-pointer-checks`: pointers check, pointers coverage, pointers unit tests
+
+What each job checks and how to run it locally: [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci).
+
 Access model and rollback: [`paper2notes/deploy/cloudrun/README.md`](paper2notes/deploy/cloudrun/README.md).
 
 ## Contributing

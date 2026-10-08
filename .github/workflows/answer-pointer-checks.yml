@@ -1,4 +1,7 @@
+# One job per distinct answer-pointer check, so a failure names the test
+# that broke. Triggers and path filters stay defined once per workflow.
 name: answer-pointer-checks
+
 on:
   pull_request:
     paths:
@@ -19,8 +22,10 @@ on:
       - "paper2db/qb-web-ui-staging/**"
       - "paper2db/metadata/qb/banks.json"
       - ".github/workflows/answer-pointer-checks.yml"
+
 jobs:
-  check:
+  pointers-check:
+    name: pointers check
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -31,5 +36,29 @@ jobs:
         with:
           python-version: '3.12'
       - run: python3 scripts/pointers.py check
+
+  pointers-coverage:
+    name: pointers coverage
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: paper2db
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: python3 scripts/pointers.py coverage
+
+  pointers-unit-tests:
+    name: pointers unit tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: paper2db
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: python3 -m unittest tests.test_pointers

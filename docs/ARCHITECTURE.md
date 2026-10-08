@@ -238,10 +238,20 @@ no path filter.
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
 | `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
-Run the same checks locally with the commands above: `notes-checks` from the
-repo root, `paper2db-unit-tests` and `answer-pointer-checks` from `paper2db/`
-(the unit tests need `python3 -m pip install "Pillow>=10,<12"` once; the
-answer-pointer commands need only the standard library).
+Each workflow runs one job per distinct check, so a failure names the test
+that broke:
+
+| Workflow | Job | Checks | Local command |
+|---|---|---|---|
+| `notes-checks` | anchor-lint tests | required, unique, non-positional anchor ids, `moves.json` renames, answer-pointer shape (`paper2notes/anchors/README.md`) | `node --test paper2notes/tests/anchor-lint.test.mjs` |
+| `notes-checks` | ci-check | the full notes gate — everything in the row above | `node paper2notes/scripts/ci-check.mjs` |
+| `notes-checks` | leak-check tests | L1–L4 protected-text findings against the tracked fingerprints | `node --test paper2notes/tests/leak-check.test.mjs` |
+| `notes-checks` | leak fingerprint check | the tracked `paper2notes/scripts/leak/fingerprints.v1.json.gz` matches `qb-web-ui-staging/` and `paper2notes/notes/qb/data/` | `python3 paper2db/scripts/leak_fingerprints.py --check` |
+| `paper2db-unit-tests` | dse-items unit tests | dse-items record join, schema validation and image gating on a temp tree | `python3 -m unittest tests.test_dse_items` (from `paper2db/`; needs `python3 -m pip install "Pillow>=10,<12"` once) |
+| `paper2db-unit-tests` | pointers unit tests | answer-pointer validation, tier merge, item join and coverage | `python3 -m unittest tests.test_pointers` (from `paper2db/`) |
+| `answer-pointer-checks` | pointers check | pointer records, known item IDs, merge conflicts, target existence | `python3 scripts/pointers.py check` (from `paper2db/`) |
+| `answer-pointer-checks` | pointers coverage | in-scope items with a pointer, by type and tier | `python3 scripts/pointers.py coverage` (from `paper2db/`) |
+| `answer-pointer-checks` | pointers unit tests | answer-pointer validation, tier merge, item join and coverage | `python3 -m unittest tests.test_pointers` (from `paper2db/`) |
 
 Not run in CI: the paper2db pipeline itself and most of its `unittest`
 suite (only `test_dse_items` and `test_pointers` run, in `paper2db-unit-tests` and

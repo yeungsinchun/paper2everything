@@ -1,6 +1,7 @@
 # Standalone paper2db unit tests for the dse-items stage and the answer-pointer
 # join it consumes. These modules build their own temp-tree fixtures, so no
-# PDFs, crops or other generated data are required.
+# PDFs, crops or other generated data are required. One job per test module,
+# so a failure names the test that broke.
 name: paper2db-unit-tests
 
 on:
@@ -15,7 +16,8 @@ on:
       - ".github/workflows/paper2db-unit-tests.yml"
 
 jobs:
-  check:
+  test-dse-items:
+    name: dse-items unit tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -26,4 +28,17 @@ jobs:
         with:
           python-version: "3.12"
       - run: python3 -m pip install "Pillow>=10,<12"
-      - run: python3 -m unittest tests.test_dse_items tests.test_pointers
+      - run: python3 -m unittest tests.test_dse_items
+
+  test-pointers:
+    name: pointers unit tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: paper2db
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 -m unittest tests.test_pointers

@@ -117,7 +117,7 @@ python3 scripts/pointers.py check                # CI resolver (target exception
 
 All three commands default to both corpora; `--corpus qb` or `--corpus dse` selects one. The Python API `join_items(load_items(corpus), merge(load_store(corpus)))` returns item copies with `answer_pointer` set to the resolved pointer or `None`; it does not rewrite the staged indexes.
 
-`check` runs in [answer-pointer-checks](../.github/workflows/answer-pointer-checks.yml); it needs only the standard library. It validates records, known item IDs and merge conflicts, and checks that targets exist unless their paths fall under `GENERATED_ROOTS` in `scripts/pointers.py`. Those roots include local/generated artifacts and source papers; target existence is deliberately not checked there.
+[answer-pointer-checks](../.github/workflows/answer-pointer-checks.yml) runs one job per command — `pointers check`, `pointers coverage` and `pointers unit tests` — and needs only the standard library. `check` validates records, known item IDs and merge conflicts, and checks that targets exist unless their paths fall under `GENERATED_ROOTS` in `scripts/pointers.py`. Those roots include local/generated artifacts and source papers; target existence is deliberately not checked there.
 
 ## Leak fingerprints
 
@@ -128,6 +128,8 @@ All three commands default to both corpora; `--corpus qb` or `--corpus dse` sele
 ```bash
 .venv/bin/python -m unittest discover -s tests   # seconds; needs no build
 ```
+
+CI runs `tests.test_dse_items` and `tests.test_pointers` as separate jobs (`paper2db-unit-tests`, `answer-pointer-checks`); see `../docs/ARCHITECTURE.md` §5.
 
 The suite runs against fixtures (`tests/fixtures/lq_ocr/`, temp trees) and covers the Book 5 listing rule, the reconstructed layout joiner, the upright section-PDF packing and QB extraction. Tests that inspect generated banks (`tests/sections/`, `tests/reconstructed/`) skip until `./pipeline` has built them. A full rebuild, especially QB conversion and OCR, can take much longer than the fixture suite. For past-paper evidence, build one track - e.g. `./pipeline --only lq-pages,lq-crops,lq-answers,classify-lq,keys,section-pdfs --yes` for the LQ banks (`section-pdfs` needs `keys`) - or one year with `--years`.
 
