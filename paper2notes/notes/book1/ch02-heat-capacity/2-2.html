@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.2 Heat capacity</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Heat capacity</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="2-1.html">2.1</a>
+      <a href="2-2.html" aria-current="page">2.2</a>
+      <a href="2-3.html">2.3</a>
+      <a href="2-4.html">2.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.2</p>
+    <h1>Heat capacity</h1>
+    <p class="lede">How much energy one degree costs: for a whole body, and for each kilogram of a material.</p>
+
+    <aside class="quick-digest" id="capacity-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Heat capacity</b><span>\( C = E/\Delta T \), J&nbsp;°C⁻¹; depends on mass and material</span></p>
+        <p><b>Specific heat capacity</b><span>\( c = E/(m\Delta T) \), J&nbsp;kg⁻¹&nbsp;°C⁻¹; material only</span></p>
+        <p><b>Key equation</b><span>\( E = mc\Delta T = C\Delta T \)</span></p>
+        <p><b>Heating rate</b><span>\( \Delta T/t = P/(mc) \): heavier or higher \(c\) → slower</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#capacity"><b>A</b>C and c</a>
+      <a href="#measuring"><b>B</b>Measuring c</a>
+      <a href="#curves"><b>C</b>Heating curves</a>
+      <a href="#mc-quiz"><b>MC</b>DSE practice</a>
+    </nav>
+
+    <details class="lo-block" id="capacity-goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>define heat capacity as \( C = \dfrac{Q}{\Delta T} \) and specific heat capacity as \( c = \dfrac{Q}{m\Delta T} \)</p></li>
+        <li><p>determine the specific heat capacity of a substance</p></li>
+        <li><p>solve problems involving heat capacity and specific heat capacity</p></li>
+      </ul>
+    </details>
+
+    <section class="idea" id="capacity">
+      <header>
+        <h2><span class="sec-num">A</span>Heat capacity and specific heat capacity</h2>
+      </header>
+      <figure class="fig" id="capacity-fig-heating">
+        <div class="visual play stage" id="heating-vis" data-scene="heating">
+          <canvas class="scene-canvas" aria-label="Heating curve of temperature against time for a body heated by a 1 kilowatt heater. The line is steeper for a smaller mass or a material with a lower specific heat capacity. A dashed line shows 1 kilogram of water for comparison."></canvas>
+          <span class="hud-label metric" data-hud="cap" style="left:35%;top:12%">C = mc = 4200 J °C⁻¹</span>
+          <span class="hud-label metric" data-hud="rate" style="left:35%;top:22%">rise = P ÷ C = 0.24 °C s⁻¹</span>
+          <span class="hud-label" data-hud="ref" style="left:80%;top:55%">1 kg water</span>
+        </div>
+        <div class="ctrl">
+          <label for="heating-m">Mass</label>
+          <input id="heating-m" type="range" min="0.2" max="2" step="0.1" value="1" data-stage-ctrl="heating-vis" data-key="mass">
+          <output class="readout" data-readout="heating-vis:mass">m = 1.0 kg</output>
+          <span class="row-btns" role="group" aria-label="Material">
+            <button type="button" data-stage-ctrl="heating-vis" data-key="material" data-value="water" aria-pressed="true">Water</button>
+            <button type="button" data-stage-ctrl="heating-vis" data-key="material" data-value="aluminium" aria-pressed="false">Aluminium</button>
+            <button type="button" data-stage-ctrl="heating-vis" data-key="material" data-value="copper" aria-pressed="false">Copper</button>
+          </span>
+        </div>
+        <figcaption><b>Heating curve, 1 kW heater, no loss.</b> Change the mass or the material and watch the slope.</figcaption>
+      </figure>
+      <div class="def" id="capacity-def-heat-capacity">
+        <span class="tag">Heat capacity</span>
+        <p>The <b>heat capacity</b> \(C\) of a body is the energy needed to raise its temperature by 1&nbsp;°C. Unit: J&nbsp;°C⁻¹.</p>
+      </div>
+      <div class="def" id="capacity-def-specific">
+        <span class="tag">Specific heat capacity</span>
+        <p>The <b>specific heat capacity</b> \(c\) of a material is the energy needed to raise the temperature of 1&nbsp;kg of it by 1&nbsp;°C. Unit: J&nbsp;kg⁻¹&nbsp;°C⁻¹.</p>
+      </div>
+      <div class="eq" id="capacity-eq-main">\[ C = \frac{E}{\Delta T} \qquad c = \frac{E}{m\,\Delta T} \qquad E = mc\,\Delta T = C\,\Delta T \]</div>
+      <p class="note">\(E\): energy absorbed or released (J) · \(m\): mass (kg) · \(\Delta T\): temperature change (°C) · \(C = mc\).</p>
+      <table class="notes" id="capacity-notes-values">
+        <thead><tr><th>Material</th><th>c / J kg⁻¹ °C⁻¹</th></tr></thead>
+        <tbody>
+          <tr><th>Water</th><td>4200</td></tr>
+          <tr><th>Ice</th><td>2100</td></tr>
+          <tr><th>Aluminium</th><td>900</td></tr>
+          <tr><th>Glass</th><td>about 700</td></tr>
+          <tr><th>Copper</th><td>390</td></tr>
+          <tr><th>Lead</th><td>130</td></tr>
+        </tbody>
+      </table>
+      <div class="tip" id="capacity-tip-body-material">
+        <span class="tag">Common mistake</span>
+        <p>\(C\) belongs to a body and grows with its mass. \(c\) belongs to a material: 1&nbsp;g and 1&nbsp;tonne of copper have the same \(c\).</p>
+      </div>
+      <div class="check" id="capacity-check-same-energy" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>The same amount of energy is given to each block below. Which one has the largest temperature rise?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">2 kg of aluminium (900 J kg⁻¹ °C⁻¹)</button>
+          <button type="button" data-choice="B">1 kg of water (4200 J kg⁻¹ °C⁻¹)</button>
+          <button type="button" data-choice="C">4 kg of copper (390 J kg⁻¹ °C⁻¹)</button>
+          <button type="button" data-choice="D">3 kg of lead (130 J kg⁻¹ °C⁻¹)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> \(\Delta T = E/(mc)\): the smallest \(mc\) wins. \(mc\) is 1800 (A), 4200 (B), 1560 (C) and 390 (D) J&nbsp;°C⁻¹. Comparing \(c\) alone or \(m\) alone is not enough.</p>
+        </div>
+      </div>
+      <details class="worked" id="capacity-worked-kettle">
+        <summary>Worked example <span>Water and its kettle</span></summary>
+        <div class="worked-body">
+          <p>A 1.5&nbsp;kW kettle of heat capacity 300&nbsp;J&nbsp;°C⁻¹ holds 0.80&nbsp;kg of water at 20&nbsp;°C. Ignoring losses, how long does it take to reach 100&nbsp;°C?</p>
+          <ol class="steps">
+            <li>Both the water and the kettle warm by 80&nbsp;°C. Total \(C = 0.80 \times 4200 + 300 = 3660\ \mathrm{J\,^\circ C^{-1}}\).</li>
+            <li>\(E = C\Delta T = 3660 \times 80 = 2.93 \times 10^{5}\ \mathrm{J}\).</li>
+            <li>\(t = E/P = 2.93 \times 10^{5} / 1500 = 195\ \mathrm{s}\).</li>
+          </ol>
+          <p class="answer">about 195 s (3.3 min)</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="measuring">
+      <header>
+        <h2><span class="sec-num">B</span>Measuring specific heat capacity</h2>
+      </header>
+      <figure class="fig" id="measuring-fig-setup">
+        <div class="visual svg-fig" id="setup-vis">
+          <svg class="fig-svg" viewBox="0 0 440 330" role="img" aria-labelledby="setup-title">
+            <title id="setup-title">Electrical method: an immersion heater connected through a joulemeter to a power supply sits in water in a lidded polystyrene cup, with a thermometer and a stirrer.</title>
+            <rect x="20" y="40" width="90" height="56" rx="8" fill="#F0EBDF" stroke="#4A5562" stroke-width="2"/>
+            <text x="65" y="74">supply</text>
+            <rect x="20" y="130" width="90" height="56" rx="8" fill="#FFFFFF" stroke="#4A5562" stroke-width="2"/>
+            <text x="65" y="164">joulemeter</text>
+            <path d="M65 96 L65 130 M110 158 L170 158 L170 70 L230 70 L230 120" stroke="#4A5562" stroke-width="2.5" fill="none"/>
+            <rect x="180" y="110" width="200" height="22" rx="6" fill="#C9793A" stroke="#4A5562" stroke-width="2"/>
+            <text x="280" y="102" class="muted small">lid</text>
+            <path d="M180 132 L195 300 L365 300 L380 132" fill="#E6EEF8" stroke="#9AA7B4" stroke-width="10"/>
+            <rect x="222" y="120" width="16" height="160" rx="6" fill="#9AA7B4" stroke="#4A5562" stroke-width="2"/>
+            <rect x="222" y="230" width="16" height="50" rx="6" fill="#F26B3A"/>
+            <rect x="300" y="84" width="10" height="196" rx="5" fill="#FFFFFF" stroke="#4A5562" stroke-width="2"/>
+            <circle cx="305" cy="282" r="9" fill="#F26B3A" stroke="#4A5562" stroke-width="2"/>
+            <path d="M340 84 L340 270 M326 270 L354 270" stroke="#4A5562" stroke-width="3" fill="none"/>
+            <text x="230" y="322" class="small">heater</text>
+            <text x="305" y="70" class="small">thermometer</text>
+            <text x="392" y="70" class="small">stirrer</text>
+            <text x="120" y="250" text-anchor="end" class="small">polystyrene</text>
+            <text x="120" y="270" text-anchor="end" class="small">cup</text>
+          </svg>
+        </div>
+        <figcaption><b>Electrical method.</b> The joulemeter gives \(E\); the thermometer gives \(\Delta T\).</figcaption>
+      </figure>
+      <div class="eq" id="measuring-eq-electrical">\[ c = \frac{E_2 - E_1}{m\,(T_2 - T_1)} \]</div>
+      <p class="note">\(E_1, E_2\): joulemeter readings before and after · \(T_1\): starting temperature · \(T_2\): <b>highest</b> temperature reached.</p>
+      <table class="notes" id="measuring-notes-precautions">
+        <thead><tr><th>Precaution</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><th>Polystyrene cup, lid, insulating mat; cotton wool round a metal block</th><td>cut heat loss, which would make the measured \(c\) too large</td></tr>
+          <tr><th>Heating element fully immersed (or fully inside the block)</th><td>all the heater's energy goes into the sample</td></tr>
+          <tr><th>Stir the water; oil in the holes of a metal block</th><td>even temperature; good thermal contact with the thermometer and the heater</td></tr>
+          <tr><th>Record the highest temperature, not the reading at switch-off</th><td>the hot element keeps giving heat for a while after switch-off</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="measuring-check-loss" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>In the electrical method, heat is lost to the surroundings. Compared with the true value, the measured specific heat capacity is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">too large, because the joulemeter energy is more than the water actually gained.</button>
+          <button type="button" data-choice="B">too small, because some energy is lost.</button>
+          <button type="button" data-choice="C">unaffected, because the loss is the same at all temperatures.</button>
+          <button type="button" data-choice="D">too large, because the temperature rise is measured too high.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> We divide all the supplied energy by \(m\Delta T\), but only part of it stayed in the water: \(c\) comes out too big. <b>B</b> gets the direction wrong. <b>C</b>: any loss matters, and it grows as the water gets hotter. <b>D</b>: loss makes the rise <em>smaller</em>, not larger.</p>
+        </div>
+      </div>
+      <details class="worked" id="measuring-worked-joulemeter">
+        <summary>Worked example <span>From joulemeter readings</span></summary>
+        <div class="worked-body">
+          <p>0.250&nbsp;kg of water warms from 22.0&nbsp;°C to 41.0&nbsp;°C (highest reading) while the joulemeter goes from 15&nbsp;600&nbsp;J to 36&nbsp;100&nbsp;J. Find \(c\).</p>
+          <ol class="steps">
+            <li>\(E = 36\,100 - 15\,600 = 20\,500\ \mathrm{J}\); \(\Delta T = 41.0 - 22.0 = 19.0\ ^\circ\mathrm{C}\).</li>
+            <li>\(c = E/(m\Delta T) = 20\,500/(0.250 \times 19.0) = 4320\ \mathrm{J\,kg^{-1}\,^\circ C^{-1}}\).</li>
+            <li>It is above 4200 because some energy heated the cup and the air.</li>
+          </ol>
+          <p class="answer">c ≈ 4.3 × 10³ J kg⁻¹ °C⁻¹</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="curves">
+      <header>
+        <h2><span class="sec-num">C</span>Heating and cooling curves</h2>
+      </header>
+      <figure class="fig" id="curves-fig-graphs">
+        <div class="visual svg-fig" id="curves-vis">
+          <svg class="fig-svg" viewBox="0 0 440 300" role="img" aria-labelledby="curves-title">
+            <title id="curves-title">Temperature against time. With no heat loss a body heated at constant power gives a straight line. With heat loss the line bends over. A hot body left to cool gives a curve that falls quickly at first and then levels off towards room temperature.</title>
+            <path d="M50 260 L420 260 M50 260 L50 30" class="axis"/>
+            <text x="420" y="282" text-anchor="end" class="small">time</text>
+            <text x="54" y="22" text-anchor="start" class="small">temperature</text>
+            <path d="M50 230 L250 70" stroke="#F26B3A" stroke-width="4" fill="none"/>
+            <path d="M50 230 C120 175 190 140 250 125" stroke="#F26B3A" stroke-width="4" stroke-dasharray="9 7" fill="none"/>
+            <path d="M250 70 C300 160 340 205 420 222" stroke="#2A62A8" stroke-width="4" fill="none"/>
+            <path d="M50 236 L420 236" class="guide"/>
+            <text x="190" y="80">no loss</text>
+            <text x="205" y="178" class="small">with loss</text>
+            <text x="350" y="170">cooling</text>
+            <text x="360" y="252" class="muted small">room temperature</text>
+          </svg>
+        </div>
+        <figcaption><b>Heating and cooling.</b> Loss bends a heating line; cooling slows as the gap to room temperature shrinks.</figcaption>
+      </figure>
+      <div class="eq" id="curves-eq-slope">\[ \text{slope of } T\text{–}t = \frac{\Delta T}{t} = \frac{P}{mc} \]</div>
+      <ul class="points">
+        <li>Same heater, steeper curve → smaller \(mc\). Same body, steeper curve → bigger \(P\).</li>
+        <li>Heat is lost faster the hotter the body is compared with the room, so a real heating curve bends and a cooling curve flattens out at room temperature.</li>
+      </ul>
+      <div class="check" id="curves-check-slopes" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Two blocks of the same metal are heated by identical heaters. Block P's temperature rises three times as fast as block Q's. The ratio of mass P : Q is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">3 : 1</button>
+          <button type="button" data-choice="B">1 : 1</button>
+          <button type="button" data-choice="C">1 : 3</button>
+          <button type="button" data-choice="D">1 : 9</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> Slope \(= P/(mc)\) with the same \(P\) and \(c\), so slope ∝ 1/m. Three times the slope means one third the mass. <b>A</b> inverts the relation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../_local/dse/mc/02/combined.pdf" data-quiz-section-pdf="../_local/dse/mc/02/2.2.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the goals</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2025-1">
+          <h3>Largest temperature rise</h3>
+          <p>Compare \(mc\) for each substance, not \(m\) or \(c\) alone.</p>
+          <figure class="dse-paper">
+            <figcaption>2025/1 MC</figcaption>
+            <img src="../_local/dse/mc/02/2025_q1.png" alt="HKDSE 2025/1 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2015-2">
+          <h3>Mass ratio from two heating lines</h3>
+          <p>Read the two slopes; slope is \(P/(mc)\).</p>
+          <figure class="dse-paper">
+            <figcaption>2015/2 MC</figcaption>
+            <img src="../_local/dse/mc/02/2015_q2.png" alt="HKDSE 2015/2 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-pp-2">
+          <h3>Two pools in the sun</h3>
+          <p>Think of the mass of water each pool must warm.</p>
+          <figure class="dse-paper">
+            <figcaption>PP/2 MC</figcaption>
+            <img src="../_local/dse/mc/02/pp_q2.png" alt="HKDSE practice paper Q2 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../_local/dse/lq/02/combined.pdf" data-quiz-section-pdf="../_local/dse/lq/02/2.2.pdf">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2014-1">
+          <h3>Specific heat capacity of a metal block</h3>
+          <figure class="dse-paper">
+            <figcaption>2014/1 LQ</figcaption>
+            <img src="../_local/dse/lq/02/2014-q1.png" alt="HKDSE 2014/1 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2013-1">
+          <h3>Solar water heater</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/1 LQ</figcaption>
+            <img src="../_local/dse/lq/02/2013-q1.png" alt="HKDSE 2013/1 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="2-3.html">Next: 2.3 Temperature of a mixture →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="../js/notes.js"></script>
+</body>
+</html>

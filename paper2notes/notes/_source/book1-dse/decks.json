@@ -11,7 +11,11 @@
   "means": "identify the means of energy transfer in terms of conduction, convection and radiation",
   "cond": "interpret energy transfer by conduction in terms of molecular motion",
   "ir": "realise the emission of infra-red radiation by hot objects",
-  "rad": "determine the factors affecting the emission and absorption of radiation"
+  "rad": "determine the factors affecting the emission and absorption of radiation",
+  "C": "define heat capacity as \\( C = \\dfrac{Q}{\\Delta T} \\) and specific heat capacity as \\( c = \\dfrac{Q}{m\\Delta T} \\)",
+  "det": "determine the specific heat capacity of a substance",
+  "water": "discuss the practical importance of the high specific heat capacity of water",
+  "solve": "solve problems involving heat capacity and specific heat capacity"
  },
  "pages": {
   "1.1": {
@@ -120,6 +124,148 @@
      "id": "2022-1",
      "los": [
       "identify the means of energy transfer in terms of conduction, convection and radiation"
+     ]
+    }
+   ]
+  },
+  "2.1": {
+   "mc": [
+    {
+     "id": "2020-2",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "pp-9",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2018-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ]
+  },
+  "2.2": {
+   "mc": [
+    {
+     "id": "2025-1",
+     "los": [
+      "define heat capacity as \\( C = \\dfrac{Q}{\\Delta T} \\) and specific heat capacity as \\( c = \\dfrac{Q}{m\\Delta T} \\)"
+     ]
+    },
+    {
+     "id": "2015-2",
+     "los": [
+      "define heat capacity as \\( C = \\dfrac{Q}{\\Delta T} \\) and specific heat capacity as \\( c = \\dfrac{Q}{m\\Delta T} \\)",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "pp-2",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2014-1",
+     "los": [
+      "determine the specific heat capacity of a substance",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2013-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ]
+  },
+  "2.3": {
+   "mc": [
+    {
+     "id": "2012-1",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "pp-3",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2017-1",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2018-3",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2019-1",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2022-1",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2026-3",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2016-1",
+     "los": [
+      "determine the specific heat capacity of a substance",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2020-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2023-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2025-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
      ]
     }
    ]

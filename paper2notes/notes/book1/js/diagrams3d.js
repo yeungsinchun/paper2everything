@@ -228,6 +228,13 @@
         ctx.g.setTransform(ctx.dpr * k, 0, 0, ctx.dpr * k, ctx.dpr * ox, ctx.dpr * oy);
         return k;
       },
+      /* view() with a design box that fills the canvas: the wide box on a laptop,
+         the narrow (taller) one on a phone. Returns { W, H, wide }. */
+      frame: function (wide, narrow) {
+        var b = ctx.w / Math.max(ctx.h, 1) > 1.7 ? wide : narrow;
+        ctx.view(b[0], b[1]);
+        return { W: b[0], H: b[1], wide: b === wide };
+      },
       /* A HUD label at design-box coordinates (after view()). */
       placeV: function (key, x, y, label) {
         ctx.place(key, ctx.ox + x * ctx.k, ctx.oy + y * ctx.k, label);

@@ -8,11 +8,7 @@
   var C = S.colours;
 
   /* Pick a design box that fills the canvas: wide on a laptop, taller on a phone. */
-  function frame(ctx, wide, narrow) {
-    var b = ctx.w / Math.max(ctx.h, 1) > 1.7 ? wide : narrow;
-    ctx.view(b[0], b[1]);
-    return { W: b[0], H: b[1], wide: b === wide };
-  }
+  function frame(ctx, wide, narrow) { return ctx.frame(wide, narrow); }
 
   /* Point at arc length s (0..1) along a polyline [[x,y],...]. */
   function along(poly, s) {

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.1 Rate of energy transfer</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Heat capacity</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="2-1.html" aria-current="page">2.1</a>
+      <a href="2-2.html">2.2</a>
+      <a href="2-3.html">2.3</a>
+      <a href="2-4.html">2.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.1</p>
+    <h1>Rate of energy transfer</h1>
+    <p class="lede">Power says how fast energy is delivered; at constant power, energy grows in step with time.</p>
+
+    <aside class="quick-digest" id="power-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Power</b><span>energy transferred per second</span></p>
+        <p><b>Formula</b><span>\( P = E/t \), so \( E = Pt \)</span></p>
+        <p><b>Unit</b><span>watt: 1&nbsp;W = 1&nbsp;J&nbsp;s⁻¹; 1&nbsp;kW = 1000&nbsp;W</span></p>
+        <p><b>E–t graph</b><span>straight line through the origin; slope = power</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#power"><b>A</b>Power</a>
+      <a href="#efficiency"><b>B</b>Useful power</a>
+      <a href="#mc-quiz"><b>MC</b>DSE practice</a>
+    </nav>
+
+    <details class="lo-block" id="power-goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>solve problems involving heat capacity and specific heat capacity</p></li>
+      </ul>
+    </details>
+
+    <section class="idea" id="power">
+      <header>
+        <h2><span class="sec-num">A</span>Power: energy per second</h2>
+      </header>
+      <figure class="fig" id="power-fig-graph">
+        <div class="visual play stage" id="power-vis" data-scene="power">
+          <canvas class="scene-canvas" aria-label="Graph of energy supplied against time for a heater at constant power: a straight line through the origin whose slope equals the power. A dashed line shows 1 kilowatt for comparison."></canvas>
+          <span class="hud-label" data-hud="ref" style="left:82%;top:58%">1 kW</span>
+          <span class="hud-label metric" data-hud="slope" style="left:40%;top:70%">slope = 40 kJ ÷ 20 s = 2.0 kW</span>
+          <span class="hud-label metric" data-hud="end" style="left:75%;top:28%">E = 120 kJ after 60 s</span>
+        </div>
+        <div class="ctrl">
+          <label for="power-p">Heater power</label>
+          <input id="power-p" type="range" min="0.5" max="3" step="0.1" value="2" data-stage-ctrl="power-vis" data-key="power">
+          <output class="readout" data-readout="power-vis:power">P = 2.0 kW</output>
+        </div>
+        <figcaption><b>Energy against time.</b> A higher power gives a steeper line.</figcaption>
+      </figure>
+      <div class="def" id="power-def-power">
+        <span class="tag">Power</span>
+        <p><b>Power</b> is the rate of energy transfer: the energy transferred per unit time. Its SI unit is the watt (W); 1&nbsp;W = 1&nbsp;J&nbsp;s⁻¹.</p>
+      </div>
+      <div class="eq" id="power-eq-definition">\[ P = \frac{E}{t} \qquad E = Pt \]</div>
+      <p class="note">\(P\): power (W) · \(E\): energy transferred (J) · \(t\): time (s). Convert minutes and hours to seconds first.</p>
+      <ul class="points">
+        <li>At constant power, \(E \propto t\): double the time, double the energy. The E–t graph is a straight line through the origin, and its slope is the power.</li>
+        <li>If the power changes, the energy is the area under the P–t graph.</li>
+        <li>Prefixes: 1&nbsp;kJ = 10³&nbsp;J, 1&nbsp;MJ = 10⁶&nbsp;J, 1&nbsp;kW = 10³&nbsp;W, 1&nbsp;MW = 10⁶&nbsp;W.</li>
+      </ul>
+      <div class="check" id="power-check-units" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Which of these is <b>not</b> a unit of power?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">W</button>
+          <button type="button" data-choice="B">J s⁻¹</button>
+          <button type="button" data-choice="C">kJ</button>
+          <button type="button" data-choice="D">MW</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> The kilojoule is a unit of energy. Power must be energy per time, so it is J&nbsp;s⁻¹ (= W), or a multiple such as MW.</p>
+        </div>
+      </div>
+      <details class="worked" id="power-worked-kettles">
+        <summary>Worked example <span>Two kettles</span></summary>
+        <div class="worked-body">
+          <p>Kettle X is rated 1.2&nbsp;kW and kettle Y 2.0&nbsp;kW. Each holds the same mass of water at the same starting temperature. (a) How much energy does each supply in 4 minutes? (b) Which boils first?</p>
+          <ol class="steps">
+            <li>\(t = 4 \times 60 = 240\ \mathrm{s}\).</li>
+            <li>X: \(E = Pt = 1200 \times 240 = 2.88 \times 10^{5}\ \mathrm{J}\). Y: \(E = 2000 \times 240 = 4.80 \times 10^{5}\ \mathrm{J}\).</li>
+            <li>Both need the same energy to boil the water; Y supplies it faster.</li>
+          </ol>
+          <p class="answer">(a) 288 kJ and 480 kJ · (b) Y</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="efficiency">
+      <header>
+        <h2><span class="sec-num">B</span>Useful power and losses</h2>
+      </header>
+      <p>Not all the energy a device takes in heats the thing you want. The rest heats the container and the surroundings.</p>
+      <div class="eq" id="efficiency-eq-useful">\[ \text{useful energy} = \text{efficiency} \times P \times t \]</div>
+      <div class="tip" id="efficiency-tip-loss">
+        <span class="tag">Exam tip</span>
+        <p>Energy supplied = energy gained by the body + energy lost. In a "find the time" question, losses make the real time longer.</p>
+      </div>
+      <details class="worked" id="efficiency-worked-solar">
+        <summary>Worked example <span>Solar water heater</span></summary>
+        <div class="worked-body">
+          <p>Sunlight delivers 1.0&nbsp;kW on each square metre. A 1.5&nbsp;m² panel passes 50% of what it receives to the water. How long does it take to deliver 3.0&nbsp;MJ to the water?</p>
+          <ol class="steps">
+            <li>Useful power \(= 0.50 \times 1000 \times 1.5 = 750\ \mathrm{W}\).</li>
+            <li>\(t = E/P = 3.0 \times 10^{6} / 750 = 4000\ \mathrm{s}\).</li>
+          </ol>
+          <p class="answer">4000 s ≈ 67 min</p>
+        </div>
+      </details>
+      <div class="check" id="efficiency-check-oven" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>An oven takes in 1500&nbsp;W and loses 60% of it to the surroundings. How much energy heats the food in 10&nbsp;minutes?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">540 kJ</button>
+          <button type="button" data-choice="B">360 kJ</button>
+          <button type="button" data-choice="C">900 kJ</button>
+          <button type="button" data-choice="D">6 kJ</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> 40% is useful: \(0.40 \times 1500 \times 600 = 3.6 \times 10^{5}\) J. <b>A</b> uses the 60% that is lost. <b>C</b> is the total energy taken in. <b>D</b> forgets to change 10 minutes into 600 seconds.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../_local/dse/mc/02/combined.pdf" data-quiz-section-pdf="../_local/dse/mc/02/2.1.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the goals</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2020-2">
+          <h3>Kettle power and heating time</h3>
+          <p>Use \(Pt = mc\Delta T\). Statement (2) also needs \(P = V^2/R\) from Book 4.</p>
+          <figure class="dse-paper">
+            <figcaption>2020/2 MC</figcaption>
+            <img src="../_local/dse/mc/02/2020_q2.png" alt="HKDSE 2020/2 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../_local/dse/lq/02/combined.pdf" data-quiz-section-pdf="../_local/dse/lq/02/2.1.pdf">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-pp-9">
+          <h3>Useful power of a microwave oven</h3>
+          <figure class="dse-paper">
+            <figcaption>PP/9 LQ</figcaption>
+            <img src="../_local/dse/lq/01/pp-q9.png" alt="HKDSE practice paper Q9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2018-1">
+          <h3>Power of a gas water heater</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/1 LQ</figcaption>
+            <img src="../_local/dse/lq/02/2018-q1.png" alt="HKDSE 2018/1 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="2-2.html">Next: 2.2 Heat capacity →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="../js/notes.js"></script>
+</body>
+</html>

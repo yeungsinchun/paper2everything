@@ -115,7 +115,7 @@ def pdf_from_images(title, entries, out):
             top += slice_h
             part += 1
     out.parent.mkdir(parents=True, exist_ok=True)
-    doc.save(out, garbage=4, deflate=True)
+    doc.save(out, garbage=4, deflate=True, no_new_id=True)  # no random /ID: reruns are byte-identical
 
 
 def main():

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.3 Temperature of a mixture</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Heat capacity</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="2-1.html">2.1</a>
+      <a href="2-2.html">2.2</a>
+      <a href="2-3.html" aria-current="page">2.3</a>
+      <a href="2-4.html">2.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.3</p>
+    <h1>Temperature of a mixture</h1>
+    <p class="lede">What the hot body gives out, the cold body takes in: write that as one equation and solve for the final temperature.</p>
+
+    <aside class="quick-digest" id="mixture-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Energy is conserved</b><span>released by hot = absorbed by cold + lost</span></p>
+        <p><b>No loss</b><span>\( m_1c_1(T_1 - T) = m_2c_2(T - T_2) \)</span></p>
+        <p><b>Common final T</b><span>both bodies end at the same temperature</span></p>
+        <p><b>Sanity check</b><span>T lies between the two starting temperatures</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#conservation"><b>A</b>Energy balance</a>
+      <a href="#mixtures-method"><b>B</b>Method of mixtures</a>
+      <a href="#mc-quiz"><b>MC</b>DSE practice</a>
+    </nav>
+
+    <details class="lo-block" id="mixture-goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>realise that heat is the energy transferred as a result of the temperature difference between two objects</p></li>
+        <li><p>determine the specific heat capacity of a substance</p></li>
+        <li><p>solve problems involving heat capacity and specific heat capacity</p></li>
+      </ul>
+    </details>
+
+    <section class="idea" id="conservation">
+      <header>
+        <h2><span class="sec-num">A</span>Energy released = energy absorbed</h2>
+      </header>
+      <figure class="fig" id="conservation-fig-mixing">
+        <div class="visual play stage" id="mixing-vis" data-scene="mixing">
+          <canvas class="scene-canvas" aria-label="Temperature scale from 0 to 100 degrees Celsius. Hot water starts at 90 degrees Celsius and falls to the common final temperature; the cold body starts at 20 degrees Celsius and rises to it. Bars show that the energy released equals the energy absorbed."></canvas>
+          <span class="hud-label" data-hud="hot" style="left:30%;top:16%">hot water 90 °C</span>
+          <span class="hud-label" data-hud="cold" style="left:46%;top:86%">water 20 °C</span>
+          <span class="hud-label metric" data-hud="T" style="left:66%;top:50%">T = 46.3 °C</span>
+          <span class="hud-label metric" data-hud="out" style="left:82%;top:26%">released 55.1 kJ</span>
+          <span class="hud-label metric" data-hud="in" style="left:82%;top:70%">absorbed 55.1 kJ</span>
+        </div>
+        <div class="ctrl">
+          <label for="mixing-m">Hot water</label>
+          <input id="mixing-m" type="range" min="0.1" max="1" step="0.05" value="0.3" data-stage-ctrl="mixing-vis" data-key="mass">
+          <output class="readout" data-readout="mixing-vis:mass">hot water 0.30 kg</output>
+          <span class="row-btns" role="group" aria-label="Cold body, 0.5 kg">
+            <button type="button" data-stage-ctrl="mixing-vis" data-key="material" data-value="water" aria-pressed="true">Water</button>
+            <button type="button" data-stage-ctrl="mixing-vis" data-key="material" data-value="aluminium" aria-pressed="false">Aluminium</button>
+            <button type="button" data-stage-ctrl="mixing-vis" data-key="material" data-value="copper" aria-pressed="false">Copper</button>
+          </span>
+        </div>
+        <figcaption><b>Mixing, no loss.</b> Hot water at 90 °C meets 0.5 kg of a cold body at 20 °C.</figcaption>
+      </figure>
+      <div class="def" id="conservation-def-energy">
+        <span class="tag">Conservation of energy</span>
+        <p>Energy is not created or destroyed. When a hot body and a cold body reach a common temperature, the energy released by the hot body equals the energy absorbed by the cold body plus any energy lost to the surroundings.</p>
+      </div>
+      <div class="eq" id="conservation-eq-balance">\[ m_1c_1(T_1 - T) = m_2c_2(T - T_2) \]</div>
+      <p class="note">This form assumes no heat loss. Body 1 starts hot at \(T_1\); body 2 starts cold at \(T_2\); \(T\) is the common final temperature. Use \(C\,\Delta T\) for a body given as a heat capacity (a cup, a teapot).</p>
+      <ol class="points">
+        <li>Sketch who cools and who warms; write each temperature change in terms of \(T\), always as a positive number.</li>
+        <li>Set released = absorbed (+ loss) and solve for \(T\).</li>
+        <li>Check that \(T\) lies between the starting temperatures, and nearer to the body with the larger \(mc\).</li>
+      </ol>
+      <div class="check" id="conservation-check-equal-masses" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>0.2&nbsp;kg of water at 30&nbsp;°C is mixed with 0.2&nbsp;kg of water at 70&nbsp;°C, with no heat loss. The final temperature is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">40 °C</button>
+          <button type="button" data-choice="B">100 °C</button>
+          <button type="button" data-choice="C">50 °C</button>
+          <button type="button" data-choice="D">60 °C</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> Equal \(mc\), so the hot water falls by as much as the cold water rises: halfway, 50&nbsp;°C. <b>B</b> adds temperatures, which never works. <b>A</b> and <b>D</b> would need unequal masses.</p>
+        </div>
+      </div>
+      <div class="check" id="conservation-check-teaspoon" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A cold metal spoon is put into a large cup of hot tea. Compared with the tea, the spoon's temperature change is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">smaller, because the spoon absorbs less energy.</button>
+          <button type="button" data-choice="B">larger, because the spoon's heat capacity is much smaller than the tea's.</button>
+          <button type="button" data-choice="C">equal, because energy is conserved.</button>
+          <button type="button" data-choice="D">larger, because metal has a higher specific heat capacity than tea.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> Equal energies, \(\Delta T = E/C\): the small \(C\) of the spoon gives a large change. <b>C</b> confuses equal energy with equal temperature change. <b>D</b>: metals have a <em>lower</em> \(c\) than water-based drinks.</p>
+        </div>
+      </div>
+      <details class="worked" id="conservation-worked-teapot">
+        <summary>Worked example <span>Boiling water into a teapot</span></summary>
+        <div class="worked-body">
+          <p>0.30&nbsp;kg of water at 100&nbsp;°C is poured into a teapot of heat capacity 400&nbsp;J&nbsp;°C⁻¹ at 20&nbsp;°C. Ignoring losses, find the final temperature.</p>
+          <ol class="steps">
+            <li>Water cools: released \(= 0.30 \times 4200 \times (100 - T)\).</li>
+            <li>Teapot warms: absorbed \(= 400 \times (T - 20)\).</li>
+            <li>\(1260(100 - T) = 400(T - 20)\) → \(126\,000 + 8000 = 1660\,T\) → \(T = 80.7\ ^\circ\mathrm{C}\).</li>
+          </ol>
+          <p class="answer">T ≈ 81 °C</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="mixtures-method">
+      <header>
+        <h2><span class="sec-num">B</span>Method of mixtures: finding c of a solid</h2>
+      </header>
+      <p>Heat a solid of known mass in boiling water (so it starts at 100&nbsp;°C), drop it quickly into cool water of known mass, stir, and read the highest temperature. The energy the water gained is the energy the solid lost.</p>
+      <div class="eq" id="mixtures-method-eq-solid">\[ m_s\,c_s\,(100 - T) = m_w\,c_w\,(T - T_w) \;\Rightarrow\; c_s = \frac{m_w c_w (T - T_w)}{m_s (100 - T)} \]</div>
+      <div class="tip" id="mixtures-method-tip-loss">
+        <span class="tag">Exam tip</span>
+        <p>Energy lost while transferring the solid makes the water's gain too small, so the calculated \(c_s\) comes out <b>too small</b>. Hot water carried over with the solid has the opposite effect.</p>
+      </div>
+      <details class="worked" id="mixtures-method-worked-cube">
+        <summary>Worked example <span>A hot metal cube</span></summary>
+        <div class="worked-body">
+          <p>A 50&nbsp;g metal cube at 100&nbsp;°C is dropped into 0.15&nbsp;kg of water at 22&nbsp;°C. The highest water temperature is 25&nbsp;°C. Find \(c\) of the metal, ignoring losses.</p>
+          <ol class="steps">
+            <li>Water gains \(0.15 \times 4200 \times 3 = 1890\ \mathrm{J}\).</li>
+            <li>Cube loses \(0.050 \times c \times 75 = 3.75\,c\).</li>
+            <li>\(3.75\,c = 1890\) → \(c = 504\ \mathrm{J\,kg^{-1}\,^\circ C^{-1}}\).</li>
+          </ol>
+          <p class="answer">c ≈ 500 J kg⁻¹ °C⁻¹</p>
+        </div>
+      </details>
+      <div class="check" id="mixtures-method-check-loss" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>In the method of mixtures, the hot solid cools in the air for a few seconds on its way to the water. The calculated specific heat capacity of the solid will be</p>
+        <div class="choices">
+          <button type="button" data-choice="A">smaller than the true value.</button>
+          <button type="button" data-choice="B">larger than the true value.</button>
+          <button type="button" data-choice="C">unchanged, because the water still reaches equilibrium.</button>
+          <button type="button" data-choice="D">larger, because the water is stirred.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> We still assume the solid fell all the way from 100&nbsp;°C, but less energy reaches the water: the water's gain (top of the fraction) is too small, so \(c_s\) is too small. <b>D</b>: stirring helps accuracy; it does not bias the result.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../_local/dse/mc/02/combined.pdf" data-quiz-section-pdf="../_local/dse/mc/02/2.3.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the goals</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-1">
+          <h3>Two blocks in contact</h3>
+          <p>Final temperatures are equal; which block's temperature changes less?</p>
+          <figure class="dse-paper"><figcaption>2012/1 MC</figcaption><img src="../_local/dse/mc/02/2012_q1.png" alt="HKDSE 2012/1 MC"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-pp-3">
+          <h3>Milk into tea</h3>
+          <p>Write released = absorbed with the two specific heat capacities given.</p>
+          <figure class="dse-paper"><figcaption>PP/3 MC</figcaption><img src="../_local/dse/mc/02/pp_q3.png" alt="HKDSE practice paper Q3 MC"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2017-1">
+          <h3>Milk into coffee</h3>
+          <p>Same method; watch the grams.</p>
+          <figure class="dse-paper"><figcaption>2017/1 MC</figcaption><img src="../_local/dse/mc/02/2017_q1.png" alt="HKDSE 2017/1 MC"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2018-3">
+          <h3>Cold milk in tea, molecule by molecule</h3>
+          <p>Link temperature to average KE (1.2) and use conservation of energy.</p>
+          <figure class="dse-paper"><figcaption>2018/3 MC</figcaption><img src="../_local/dse/mc/02/2018_q3.png" alt="HKDSE 2018/3 MC"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2019-1">
+          <h3>A block in water</h3>
+          <p>Compare the temperature changes to compare the heat capacities.</p>
+          <figure class="dse-paper"><figcaption>2019/1 MC</figcaption><img src="../_local/dse/mc/02/2019_q1.png" alt="HKDSE 2019/1 MC"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2022-1">
+          <h3>Find the mass of warm water</h3>
+          <p>The cold water rises to the final temperature; set the two energies equal.</p>
+          <figure class="dse-paper"><figcaption>2022/1 MC</figcaption><img src="../_local/dse/mc/02/2022_q1.png" alt="HKDSE 2022/1 MC"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2026-3">
+          <h3>A second hot sphere</h3>
+          <p>Use the first mixing to find the sphere's heat capacity relative to the water.</p>
+          <figure class="dse-paper"><figcaption>2026/3 MC</figcaption><img src="../_local/dse/mc/02/2026_q3.png" alt="HKDSE 2026/3 MC"></figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../_local/dse/lq/02/combined.pdf" data-quiz-section-pdf="../_local/dse/lq/02/2.3.pdf">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2016-1">
+          <h3>Specific heat capacity of bronze</h3>
+          <figure class="dse-paper"><figcaption>2016/1 LQ</figcaption><img src="../_local/dse/lq/02/2016-q1.png" alt="HKDSE 2016/1 LQ"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2020-1">
+          <h3>Wontons in soup</h3>
+          <figure class="dse-paper"><figcaption>2020/1 LQ</figcaption><img src="../_local/dse/lq/02/2020-q1.png" alt="HKDSE 2020/1 LQ"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2023-1">
+          <h3>A very hot iron cube</h3>
+          <figure class="dse-paper"><figcaption>2023/1 LQ</figcaption><img src="../_local/dse/lq/02/2023-q1.png" alt="HKDSE 2023/1 LQ"></figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2025-1">
+          <h3>Boiling water in a glass cup</h3>
+          <figure class="dse-paper"><figcaption>2025/1 LQ</figcaption><img src="../_local/dse/lq/02/2025-q1.png" alt="HKDSE 2025/1 LQ"></figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="2-4.html">Next: 2.4 High specific heat capacity of water →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="../js/notes.js"></script>
+</body>
+</html>

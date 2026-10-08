@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.4 High specific heat capacity of water</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Heat capacity</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="2-1.html">2.1</a>
+      <a href="2-2.html">2.2</a>
+      <a href="2-3.html">2.3</a>
+      <a href="2-4.html" aria-current="page">2.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.4</p>
+    <h1>High specific heat capacity of water</h1>
+    <p class="lede">Water takes in or gives out a lot of energy for a small temperature change, and that shapes engines, bodies and climates.</p>
+
+    <aside class="quick-digest" id="water-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Water</b><span>4200&nbsp;J&nbsp;kg⁻¹&nbsp;°C⁻¹, far above common solids</span></p>
+        <p><b>So</b><span>large energy change, small temperature change</span></p>
+        <p><b>Uses</b><span>coolant, hot-water bottles, central heating</span></p>
+        <p><b>Effects</b><span>steady body temperature; mild coastal climate</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#same-energy"><b>A</b>Same energy</a>
+      <a href="#uses"><b>B</b>Uses and effects</a>
+    </nav>
+
+    <details class="lo-block" id="water-goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>discuss the practical importance of the high specific heat capacity of water</p></li>
+      </ul>
+    </details>
+
+    <section class="idea" id="same-energy">
+      <header>
+        <h2><span class="sec-num">A</span>Same energy, very different rises</h2>
+      </header>
+      <figure class="fig" id="same-energy-fig-bars">
+        <div class="visual play stage" id="same-energy-vis" data-scene="same-energy">
+          <canvas class="scene-canvas" aria-label="Bars show the temperature rise of 1 kilogram each of water, aluminium, copper and lead given the same energy. Water rises least; lead rises most."></canvas>
+          <span class="hud-label metric" data-hud="dt-water" style="left:40%;top:16%">+1.9 °C</span>
+          <span class="hud-label metric" data-hud="dt-aluminium" style="left:50%;top:38%">+8.9 °C</span>
+          <span class="hud-label metric" data-hud="dt-copper" style="left:60%;top:60%">+21 °C</span>
+          <span class="hud-label metric" data-hud="dt-lead" style="left:85%;top:80%">+62 °C</span>
+        </div>
+        <div class="ctrl">
+          <label for="same-energy-e">Energy given</label>
+          <input id="same-energy-e" type="range" min="0.5" max="12" step="0.5" value="8" data-stage-ctrl="same-energy-vis" data-key="energy">
+          <output class="readout" data-readout="same-energy-vis:energy">E = 8.0 kJ</output>
+        </div>
+        <figcaption><b>1 kg of each material, same energy.</b> \(\Delta T = E/(mc)\): water barely warms.</figcaption>
+      </figure>
+      <div class="check" id="same-energy-check-sand" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>On a sunny afternoon, dry sand on a beach is much hotter than the sea water beside it. The main reason is that</p>
+        <div class="choices">
+          <button type="button" data-choice="A">sand absorbs far more sunlight energy per square metre than water.</button>
+          <button type="button" data-choice="B">water has a much higher specific heat capacity, so the same energy warms it less (and convection spreads it through a lot of water).</button>
+          <button type="button" data-choice="C">water is a better conductor, so it loses heat to the air faster.</button>
+          <button type="button" data-choice="D">sand has a higher specific heat capacity than water.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> Similar energy arrives on each, but \(\Delta T = E/(mc)\) is much smaller for water. <b>A</b> is not the main difference. <b>C</b>: water is a poor conductor. <b>D</b> reverses the facts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="uses">
+      <header>
+        <h2><span class="sec-num">B</span>Uses and effects</h2>
+      </header>
+      <figure class="fig" id="uses-fig-climate">
+        <div class="visual svg-fig" id="climate-vis">
+          <svg class="fig-svg" viewBox="0 0 440 300" role="img" aria-labelledby="climate-title">
+            <title id="climate-title">Illustrative temperature over one day for a coastal city and an inland city at the same latitude. The coastal curve rises and falls only a little; the inland curve swings much higher by day and much lower by night.</title>
+            <path d="M50 250 L420 250 M50 250 L50 30" class="axis"/>
+            <text x="420" y="294" text-anchor="end" class="small">time of day</text>
+            <text x="54" y="22" text-anchor="start" class="small">temperature</text>
+            <path d="M50 150 C120 150 140 120 200 112 C260 104 300 140 340 150 C380 158 400 156 420 154" stroke="#2A62A8" stroke-width="4" fill="none"/>
+            <path d="M50 200 C110 210 140 90 200 60 C250 40 290 150 340 200 C380 230 400 226 420 220" stroke="#F26B3A" stroke-width="4" fill="none"/>
+            <path d="M296 36 L322 36" stroke="#F26B3A" stroke-width="4"/>
+            <text x="330" y="41" text-anchor="start" class="small">inland</text>
+            <path d="M296 62 L322 62" stroke="#2A62A8" stroke-width="4"/>
+            <text x="330" y="67" text-anchor="start" class="small">coastal</text>
+            <text x="80" y="270" class="muted small">night</text>
+            <text x="200" y="270" class="muted small">noon</text>
+            <text x="340" y="270" class="muted small">night</text>
+          </svg>
+        </div>
+        <figcaption><b>Coastal and inland days (illustrative).</b> The sea changes temperature slowly and steadies the air above it.</figcaption>
+      </figure>
+      <table class="notes" id="uses-notes-examples">
+        <thead><tr><th>Where</th><th>How the high \(c\) of water helps</th></tr></thead>
+        <tbody>
+          <tr><th>Car engine coolant, power station cooling</th><td>water carries a lot of energy away from the engine for a small rise in its own temperature, then gives it out at the radiator</td></tr>
+          <tr><th>Hot-water bottle, radiators</th><td>stores a lot of energy and releases it slowly as it cools</td></tr>
+          <tr><th>Human body (about 70% water)</th><td>body temperature changes slowly when the surroundings change</td></tr>
+          <tr><th>Coastal cities such as Hong Kong</th><td>smaller daily range, cooler summers and milder winters than inland places</td></tr>
+          <tr><th>Food in soup</th><td>a wonton in soup stays hot much longer than a dry one</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="uses-check-coolant" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Which statement best explains why water is used as the coolant in a car engine?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Water is a good conductor of heat.</button>
+          <button type="button" data-choice="B">Water has a low boiling point, so it evaporates and cools the engine.</button>
+          <button type="button" data-choice="C">Water has a low specific heat capacity, so it heats up quickly.</button>
+          <button type="button" data-choice="D">Each kilogram of water removes a lot of energy for a small rise in its temperature.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> That is what a high \(c\) means. It is also cheap and plentiful. <b>A</b> is false; <b>B</b>: the coolant should not boil; <b>C</b> states the opposite of the truth and would make a poor coolant.</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="../js/notes.js"></script>
+</body>
+</html>
