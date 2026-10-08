@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>13.4 Particle motion and wave graphs</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Wave motion</small></a>
+    <nav aria-label="Chapter pages">
+      <a href="index.html">Map</a>
+      <a href="13-1.html">13.1</a>
+      <a href="13-2.html">13.2</a>
+      <a href="13-3.html">13.3</a>
+      <a href="13-4.html" aria-current="page">13.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 13.4</p>
+    <h1>Particle motion and wave graphs</h1>
+    <p class="lede">How each particle moves as the wave passes, and the two graphs that record it.</p>
+
+    <aside class="quick-digest" id="digest" aria-label="Particle motion and wave graphs in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>In phase</b><span>λ, 2λ, 3λ … apart</span></p>
+        <p><b>Antiphase</b><span>λ/2, 3λ/2 … apart</span></p>
+        <p><b>s–d graph</b><span>one moment, every particle</span></p>
+        <p><b>s–t graph</b><span>one particle, all moments</span></p>
+      </div>
+    </aside>
+    <details class="lo-block" id="goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>describe wave motion in terms of waveform, crest, trough, compression, rarefaction, wavefront, phase, displacement, amplitude, period, frequency, wavelength and wave speed</p></li>
+        <li><p>present information on displacement-time and displacement-distance graphs for travelling waves</p></li>
+        <li><p>apply \( f = \frac{1}{T} \) and \( v = f\lambda \) to solve problems</p></li>
+      </ul>
+    </details>
+    <nav aria-label="Ideas on this page">
+      <ul class="idea-jump">
+        <li><a href="#particle-motion"><b>A</b>Particle motion and phase</a></li>
+        <li><a href="#wave-graphs"><b>B</b>Displacement–distance and displacement–time graphs</a></li>
+        <li><a href="#longitudinal-graphs"><b>C</b>Longitudinal waves on an s–d graph</a></li>
+      </ul>
+    </nav>
+
+    <section class="idea" id="particle-motion">
+      <header>
+        <h2><span class="sec-num">A</span>Particle motion and phase</h2>
+      </header>
+      <figure class="fig" id="particle-motion-fig">
+        <div class="visual play stage" id="phase-vis" data-autoplay data-scene="phase">
+          <canvas class="scene-canvas" aria-label="Ten particles A to J on a transverse wave travelling to the right. The chosen particle is large and violet; particles one wavelength away are filled violet and move with it; particles half a wavelength away are hollow and always move the opposite way."></canvas>
+          <span class="hud-label" data-hud="ref">C</span>
+        </div>
+        <figcaption><b>Fig. 13.6</b> Filled violet: in phase with the chosen particle. Hollow: in antiphase.</figcaption>
+        <div class="sim-controls">
+          <div class="row">
+            <span class="row-label">Compare with</span>
+            <button type="button" data-param="ref" data-value="A">A</button>
+            <button type="button" data-param="ref" data-value="B">B</button>
+            <button type="button" data-param="ref" data-value="C" aria-pressed="true">C</button>
+            <button type="button" data-param="ref" data-value="D">D</button>
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="row-label">In phase:</span><span class="readout" data-out="inphase">G</span>
+            <span class="row-label">Antiphase:</span><span class="readout" data-out="anti">A, E, I</span>
+          </div>
+        </div>
+      </figure>
+      <ul class="points">
+        <li>Every particle oscillates with the <b>same frequency and amplitude</b> as the source; they just start at different times.</li>
+        <li>A particle at a crest or trough is <b>momentarily at rest</b>. A particle passing its rest position moves fastest.</li>
+        <li>While one particle makes one full oscillation, the wave moves on by exactly one wavelength.</li>
+      </ul>
+      <div class="def" id="phase-def">
+        <span class="tag">Definition</span>
+        <p><b>Phase</b> describes the stage a particle has reached in its oscillation. Particles <b>in phase</b> always move the same way and are a whole number of wavelengths apart. Particles in <b>antiphase</b> always move opposite ways and are an odd number of half wavelengths apart.</p>
+      </div>
+      <div class="tip" id="direction-tip">
+        <span class="tag">Which way is it moving?</span>
+        <p>Sketch the waveform a moment later, shifted a little in the direction of travel. Each particle moves to the new curve: up if the new curve is above it, down if below.</p>
+      </div>
+      <div class="check" id="particle-motion-check" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A transverse wave travels to the right. Particle P is on the rest line, halfway between a crest on its left and a trough on its right. How is P moving now?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Upwards</button>
+          <button type="button" data-choice="B">Downwards</button>
+          <button type="button" data-choice="C">To the right</button>
+          <button type="button" data-choice="D">It is at rest</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>A</b>. The crest is moving towards P, so P is rising, and at the rest line it is moving fastest. <b>B</b> is right for a particle with the trough on its left; <b>C</b> treats the particle as travelling with the wave; <b>D</b> is true only at a crest or trough.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="wave-graphs">
+      <header>
+        <h2><span class="sec-num">B</span>Displacement–distance and displacement–time graphs</h2>
+      </header>
+      <figure class="fig" id="wave-graphs-fig">
+        <div class="visual play stage" id="sdst-vis" data-autoplay data-scene="sdst">
+          <canvas class="scene-canvas tall" aria-label="Top: the s-d graph of a wave moving right, with particle C marked. Bottom: the s-t graph of particle C drawn as time goes on. The wavelength is read from the top graph and the period from the bottom graph."></canvas>
+          <span class="hud-label" data-hud="sd">s–d graph</span>
+          <span class="hud-label" data-hud="st">s–t graph of C</span>
+          <span class="hud-label" data-hud="lam">λ</span>
+          <span class="hud-label" data-hud="T">T</span>
+          <span class="hud-label" data-hud="c">C</span>
+        </div>
+        <figcaption><b>Fig. 13.7</b> Top: a snapshot of the whole wave. Bottom: the history of one particle.</figcaption>
+      </figure>
+      <table class="notes" id="wave-graphs-table">
+        <thead><tr><th></th><th>s–d graph</th><th>s–t graph</th></tr></thead>
+        <tbody>
+          <tr><th>Horizontal axis</th><td>Position \(d\) along the medium</td><td>Time \(t\)</td></tr>
+          <tr><th>Shows</th><td>Every particle at one instant</td><td>One particle at every instant</td></tr>
+          <tr><th>You can read</th><td>\(A\) and \(\lambda\)</td><td>\(A\), \(T\) and so \(f\)</td></tr>
+          <tr><th>You cannot read</th><td>\(T\) or \(f\) (one snapshot has no time)</td><td>\(\lambda\) (one particle has no length)</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>The slope of an s–t graph is the particle's <b>velocity</b>: zero at a peak, steepest where \(s = 0\).</li>
+        <li>For a transverse wave the s–d graph has the same shape as the wave itself.</li>
+        <li>To get \(v\) you need both graphs (or one graph plus a given speed): \(v = \lambda / T\).</li>
+      </ul>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked" id="wave-graphs-worked">
+          <h3>Worked example</h3>
+          <p>A particle's s–t graph peaks at 0.15 m and repeats every 2.0 s. The wave travels at 0.30 m s<sup>−1</sup>. Find the amplitude and the wavelength.</p>
+          <ol class="steps">
+            <li>Amplitude = highest displacement = 0.15 m.</li>
+            <li>Period \(T = 2.0\) s, read from one full cycle on the time axis.</li>
+            <li>\( \lambda = vT = 0.30 \times 2.0 = 0.60\ \text{m} \)</li>
+          </ol>
+        </div>
+      </details>
+      <div class="check" id="wave-graphs-check" data-check="tf">
+        <h3>Quick check</h3>
+        <div class="tf-item" id="wave-graphs-tf-freq" data-answer="false">
+          <p>(a) A single s–d graph is enough to find the frequency of a wave.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. A snapshot has no time axis; you also need the speed or an s–t graph.</p></div>
+        </div>
+        <div class="tf-item" id="wave-graphs-tf-rest" data-answer="true">
+          <p>(b) Where an s–t graph reaches a peak, the particle is momentarily at rest.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. The slope (velocity) is zero at the top of the curve.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="longitudinal-graphs">
+      <header>
+        <h2><span class="sec-num">C</span>Longitudinal waves on an s–d graph</h2>
+      </header>
+      <figure class="fig" id="longitudinal-graphs-fig">
+        <div class="visual play stage" id="longsd-vis" data-autoplay data-scene="longsd">
+          <canvas class="scene-canvas tall" aria-label="A row of particles in a longitudinal wave, with the s-d graph drawn beneath it on the same horizontal scale. A compression centre lines up with a point where the graph crosses zero going down; a rarefaction centre with a crossing going up."></canvas>
+          <span class="hud-label" data-hud="comp">compression centre</span>
+          <span class="hud-label" data-hud="rare">rarefaction centre</span>
+        </div>
+        <figcaption><b>Fig. 13.8</b> Displacement to the right is positive. Compression: \(s = 0\), graph sloping down.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>Particles at the centre of a compression or rarefaction have \(s = 0\); look at the neighbours to tell which. Left neighbour moved right and right neighbour moved left: they close in, so it is a compression.</li>
+        <li>Particles with the largest displacement (\(s = \pm A\)) are momentarily at rest.</li>
+      </ul>
+      <table class="notes" id="particle-speed-table">
+        <thead><tr><th>Wave</th><th>Where the particle is</th><th>Displacement</th><th>Velocity</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2">Transverse</td><td>Crest or trough</td><td>\(\pm A\) (largest)</td><td>Zero</td></tr>
+          <tr><td>Rest line</td><td>0</td><td>Largest (up or down)</td></tr>
+          <tr><td rowspan="2">Longitudinal</td><td>Centre of compression</td><td>0</td><td>Largest, <b>forwards</b> (direction of travel)</td></tr>
+          <tr><td>Centre of rarefaction</td><td>0</td><td>Largest, <b>backwards</b></td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="longitudinal-graphs-check" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>A longitudinal wave travels to the right. Particle R sits at the centre of a compression. Right is positive. Which describes R now?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Largest displacement, at rest</button>
+          <button type="button" data-choice="B">Zero displacement, at rest</button>
+          <button type="button" data-choice="C">Zero displacement, moving fastest to the left</button>
+          <button type="button" data-choice="D">Zero displacement, moving fastest to the right</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>D</b>. At a compression centre the particle is at its rest position and moving fastest in the direction of travel. <b>A</b> describes a particle at maximum displacement; <b>B</b> mixes zero displacement with zero velocity; <b>C</b> describes a rarefaction centre.</p></div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Past-paper MC</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2014-14">
+          <h3>Which way is each particle moving?</h3>
+          <figure class="dse-paper">
+            <figcaption>2014/14 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2014_q14.png" alt="HKDSE 2014/14 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2016-15">
+          <h3>Particle motion on a string</h3>
+          <figure class="dse-paper">
+            <figcaption>2016/15 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2016_q15.png" alt="HKDSE 2016/15 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2013-16">
+          <h3>Speed from a particle's timing</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/16 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2013_q16.png" alt="HKDSE 2013/16 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2012-15">
+          <h3>Phase on a slinky</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/15 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2012_q15.png" alt="HKDSE 2012/15 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2015-12">
+          <h3>Possible frequencies from snapshots</h3>
+          <figure class="dse-paper">
+            <figcaption>2015/12 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2015_q12.png" alt="HKDSE 2015/12 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2013-17">
+          <h3>Longitudinal displacements</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/17 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2013_q17.png" alt="HKDSE 2013/17 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2017-14">
+          <h3>Longitudinal wave one second later</h3>
+          <figure class="dse-paper">
+            <figcaption>2017/14 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2017_q14.png" alt="HKDSE 2017/14 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2019-14">
+          <h3>Compression and particle velocity</h3>
+          <figure class="dse-paper">
+            <figcaption>2019/14 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2019_q14.png" alt="HKDSE 2019/14 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2020-11">
+          <h3>Amplitude and speed of a longitudinal wave</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/11 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2020_q11.png" alt="HKDSE 2020/11 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-pp-17">
+          <h3>Wavelength and particle motion</h3>
+          <figure class="dse-paper">
+            <figcaption>PP/17 MC</figcaption>
+            <img src="../../_local/dse/mc/13/pp_q17.png" alt="HKDSE PP/17 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2026-15">
+          <h3>Longitudinal particle positions</h3>
+          <figure class="dse-paper">
+            <figcaption>2026/15 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2026_q15.png" alt="HKDSE 2026/15 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2021-11">
+          <h3>Frequency from an s-t graph</h3>
+          <figure class="dse-paper">
+            <figcaption>2021/11 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2021_q11.png" alt="HKDSE 2021/11 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2018-15">
+          <h3>Matching s-t graphs to particles</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/15 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2018_q15.png" alt="HKDSE 2018/15 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2020-12">
+          <h3>Kinetic energy of a particle over time</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/12 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2020_q12.png" alt="HKDSE 2020/12 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2022-15">
+          <h3>Two s-d graphs, one wave</h3>
+          <figure class="dse-paper">
+            <figcaption>2022/15 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2022_q15.png" alt="HKDSE 2022/15 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2024-16">
+          <h3>Slinky snapshots and timing</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/16 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2024_q16.png" alt="HKDSE 2024/16 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2025-15">
+          <h3>s-d graph of a sound wave</h3>
+          <figure class="dse-paper">
+            <figcaption>2025/15 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2025_q15.png" alt="HKDSE 2025/15 MC" loading="lazy">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Past-paper long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2017-6">
+          <h3>Dipper waves: speed and an s-t graph</h3>
+          <figure class="dse-paper">
+            <figcaption>2017/6 LQ</figcaption>
+            <img src="../../_local/dse/lq/13/2017-q6.png" alt="HKDSE 2017/6 LQ" loading="lazy">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="pager"><a href="13-3.html">← 13.3 Terms for waves</a> · <a href="../index.html">Book 3 contents</a></p>
+    <p class="next"><a href="summary.html">Next: chapter summary →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/scenes-ch13.js"></script>
+</body>
+</html>

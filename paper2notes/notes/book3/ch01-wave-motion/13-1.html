@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>13.1 Waves</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Wave motion</small></a>
+    <nav aria-label="Chapter pages">
+      <a href="index.html">Map</a>
+      <a href="13-1.html" aria-current="page">13.1</a>
+      <a href="13-2.html">13.2</a>
+      <a href="13-3.html">13.3</a>
+      <a href="13-4.html">13.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 13.1</p>
+    <h1>Waves</h1>
+    <p class="lede">What a wave is, where it comes from, and what it carries.</p>
+
+    <aside class="quick-digest" id="digest" aria-label="Waves in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>Made by</b><span>an oscillating source</span></p>
+        <p><b>Carries</b><span>energy, never the medium itself</span></p>
+        <p><b>Mechanical</b><span>needs a medium (water, string, air)</span></p>
+        <p><b>Electromagnetic</b><span>can cross a vacuum</span></p>
+      </div>
+    </aside>
+    <details class="lo-block" id="goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>interpret wave motion in terms of oscillation</p></li>
+        <li><p>realise waves as transmitting energy without transferring matter</p></li>
+      </ul>
+    </details>
+    <nav aria-label="Ideas on this page">
+      <ul class="idea-jump">
+        <li><a href="#oscillation"><b>A</b>Oscillations make waves</a></li>
+        <li><a href="#wave-types"><b>B</b>Mechanical or electromagnetic, travelling or stationary</a></li>
+        <li><a href="#energy-not-matter"><b>C</b>Energy moves, matter stays</a></li>
+      </ul>
+    </nav>
+
+    <section class="idea" id="oscillation">
+      <header>
+        <h2><span class="sec-num">A</span>Oscillations make waves</h2>
+      </header>
+      <figure class="fig" id="oscillation-fig">
+        <div class="visual play stage" id="ballspring-vis" data-autoplay data-scene="ballspring">
+          <canvas class="scene-canvas" aria-label="A row of balls joined by springs. The first ball is flicked once, and a bump passes along the row to a fixed wall while each ball only moves up and back down."></canvas>
+          <span class="hud-label" data-hud="pulse">pulse</span>
+          <span class="hud-label" data-hud="hand">flicked once</span>
+          <span class="hud-label" data-hud="ball">one ball</span>
+          <button type="button" class="stage-replay" data-replay="ballspring-vis">Replay</button>
+        </div>
+        <figcaption><b>Fig. 13.1</b> Watch the violet ball: it rises and falls back; it does not travel with the pulse.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Each ball pulls on its neighbour through the spring, so a disturbance at one end is passed along the chain. One flick makes a single pulse; flicking again and again makes a continuous train of waves.</p></details>
+      </figure>
+      <div class="def" id="oscillation-def">
+        <span class="tag">Definition</span>
+        <p>A <b>wave</b> is a disturbance that travels outwards from an oscillating (vibrating) source. A single short disturbance is a <b>pulse</b>. The material the wave travels through is the <b>medium</b>.</p>
+      </div>
+      <ul class="points">
+        <li>Every wave starts with something oscillating: a hand on a rope, a finger tapping water, a drum skin, electrons in an aerial.</li>
+        <li>Each part of the medium copies the motion of its neighbour a little later, so the disturbance moves on while each part stays near home.</li>
+      </ul>
+      <div class="check" id="oscillation-check" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A girl flicks one end of a long rope once. What travels along the rope?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The piece of rope she held</button>
+          <button type="button" data-choice="B">A pulse: a disturbance passed from one part of the rope to the next</button>
+          <button type="button" data-choice="C">Air pushed along beside the rope</button>
+          <button type="button" data-choice="D">A continuous train of waves</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>B</b>. Each part of the rope only moves sideways and back. <b>A</b> mixes up the disturbance with the material; <b>C</b> is not the wave on the rope; <b>D</b> needs repeated flicking, not one flick.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="wave-types">
+      <header>
+        <h2><span class="sec-num">B</span>Mechanical or electromagnetic, travelling or stationary</h2>
+      </header>
+      <table class="notes" id="wave-types-table">
+        <thead><tr><th>Sort by</th><th>One kind</th><th>The other kind</th></tr></thead>
+        <tbody>
+          <tr><th>Needs a medium?</th><td><b>Mechanical</b> waves need one: water waves, waves on strings and springs, sound</td><td><b>Electromagnetic (EM)</b> waves do not: light, radio, microwaves, X-rays cross a vacuum</td></tr>
+          <tr><th>Does the pattern move?</th><td><b>Travelling</b> waves carry the pattern (and energy) along</td><td><b>Stationary</b> waves stay in place, such as a plucked guitar string (Ch.3)</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="wave-types-check" data-check="tf">
+        <h3>Quick check</h3>
+        <div class="tf-item" id="wave-types-tf-sound" data-answer="false">
+          <p>(a) Sound can travel through the vacuum of space.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. Sound is a mechanical wave and needs particles to pass the vibration on.</p></div>
+        </div>
+        <div class="tf-item" id="wave-types-tf-light" data-answer="true">
+          <p>(b) Sunlight reaches Earth even though most of the journey is through empty space.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. Light is an electromagnetic wave, so it needs no medium.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="energy-not-matter">
+      <header>
+        <h2><span class="sec-num">C</span>Energy moves, matter stays</h2>
+      </header>
+      <figure class="fig" id="energy-not-matter-fig">
+        <div class="visual play stage" id="leaf-vis" data-autoplay data-scene="leaf">
+          <canvas class="scene-canvas" aria-label="Ripples cross a pond from left to right. A floating leaf bobs up and down in the same place; it is not carried along."></canvas>
+          <span class="hud-label" data-hud="leaf">leaf: up and down only</span>
+          <span class="hud-label" data-hud="energy">energy travels</span>
+        </div>
+        <figcaption><b>Fig. 13.2</b> The ripples pass under the leaf; the leaf stays where it is.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>The leaf gains kinetic energy as each ripple lifts it, so the ripples clearly deliver energy. Yet the leaf, and the water around it, ends up where it started. Sound works the same way: you hear a drum because energy reaches your ear, not because air from the drum reaches you.</p></details>
+      </figure>
+      <div class="def" id="energy-not-matter-def">
+        <span class="tag">Key idea</span>
+        <p>A travelling wave <b>transfers energy</b> from one place to another <b>without transferring matter</b>. The particles of the medium oscillate about fixed positions.</p>
+      </div>
+      <div class="tip" id="energy-not-matter-tip">
+        <span class="tag">Exam tip</span>
+        <p>“The wave carries the water forward” loses the mark. Say the particles oscillate about their equilibrium positions and only energy is passed on.</p>
+      </div>
+      <div class="check" id="energy-not-matter-check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A cork floats on a pond as ripples pass it. Which statement is correct?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The cork drifts along with the ripples.</button>
+          <button type="button" data-choice="B">The cork stays still because the water under it does not move.</button>
+          <button type="button" data-choice="C">The cork moves up and down about one place and gains energy from the ripples.</button>
+          <button type="button" data-choice="D">The ripples carry water from the source to the cork.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>C</b>. The water and the cork oscillate in place. <b>A</b> and <b>D</b> say matter is carried; <b>B</b> forgets that the water does oscillate.</p></div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Past-paper MC</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2018-14">
+          <h3>What waves carry</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/14 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2018_q14.png" alt="HKDSE 2018/14 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2021-10">
+          <h3>Energy, not matter</h3>
+          <figure class="dse-paper">
+            <figcaption>2021/10 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2021_q10.png" alt="HKDSE 2021/10 MC" loading="lazy">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="pager"><a href="index.html">← Chapter map</a> · <a href="../index.html">Book 3 contents</a></p>
+    <p class="next"><a href="13-2.html">Next: 13.2 Kinds of waves →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/scenes-ch13.js"></script>
+</body>
+</html>

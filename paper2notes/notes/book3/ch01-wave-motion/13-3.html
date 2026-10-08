@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>13.3 Terms for waves</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Wave motion</small></a>
+    <nav aria-label="Chapter pages">
+      <a href="index.html">Map</a>
+      <a href="13-1.html">13.1</a>
+      <a href="13-2.html">13.2</a>
+      <a href="13-3.html" aria-current="page">13.3</a>
+      <a href="13-4.html">13.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 13.3</p>
+    <h1>Terms for waves</h1>
+    <p class="lede">Amplitude, wavelength, period, frequency and speed, and how they link.</p>
+
+    <aside class="quick-digest" id="digest" aria-label="Terms for waves in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>\( f = \dfrac{1}{T} \)</b><span>frequency and period</span></p>
+        <p><b>\( v = f\lambda \)</b><span>speed = frequency × wavelength</span></p>
+        <p><b>Speed set by</b><span>the medium, not by \(f\) or \(A\)</span></p>
+        <p><b>Tighter or lighter string</b><span>faster wave</span></p>
+      </div>
+    </aside>
+    <details class="lo-block" id="goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>describe wave motion in terms of waveform, crest, trough, compression, rarefaction, wavefront, phase, displacement, amplitude, period, frequency, wavelength and wave speed</p></li>
+        <li><p>determine factors affecting the speed of propagation of waves along stretched strings or springs</p></li>
+        <li><p>apply \( f = \frac{1}{T} \) and \( v = f\lambda \) to solve problems</p></li>
+      </ul>
+    </details>
+    <nav aria-label="Ideas on this page">
+      <ul class="idea-jump">
+        <li><a href="#amplitude-wavelength"><b>A</b>Amplitude and wavelength</a></li>
+        <li><a href="#period-speed"><b>B</b>Period, frequency and wave speed</a></li>
+        <li><a href="#speed-factors"><b>C</b>What sets the wave speed</a></li>
+      </ul>
+    </nav>
+
+    <section class="idea" id="amplitude-wavelength">
+      <header>
+        <h2><span class="sec-num">A</span>Amplitude and wavelength</h2>
+      </header>
+      <table class="notes" id="amplitude-wavelength-table">
+        <thead><tr><th>Term</th><th>Meaning</th><th>Read it from</th></tr></thead>
+        <tbody>
+          <tr><td><b>Displacement</b> \(s\)</td><td>How far a particle is from its rest (equilibrium) position, with a sign for direction</td><td>Any particle at one moment</td></tr>
+          <tr><td><b>Amplitude</b> \(A\)</td><td>The largest displacement a particle reaches</td><td>Transverse: height of a crest above the rest line</td></tr>
+          <tr><td><b>Wavelength</b> \(\lambda\)</td><td>The shortest distance after which the wave pattern repeats</td><td>Crest to next crest, trough to next trough, or compression to next compression</td></tr>
+        </tbody>
+      </table>
+      <div class="tip" id="amplitude-wavelength-tip">
+        <span class="tag">Common slip</span>
+        <p>Crest-to-trough height is \(2A\), not \(A\). One compression to the next rarefaction is \(\lambda/2\), not \(\lambda\).</p>
+      </div>
+    </section>
+
+    <section class="idea" id="period-speed">
+      <header>
+        <h2><span class="sec-num">B</span>Period, frequency and wave speed</h2>
+      </header>
+      <figure class="fig" id="period-speed-fig">
+        <div class="visual play stage" id="terms-vis" data-autoplay data-scene="terms">
+          <canvas class="scene-canvas" aria-label="A transverse wave travels to the right with its wavelength and amplitude marked. Raising the frequency squeezes the waves closer together at the same speed; raising the tension makes them travel faster and spread out."></canvas>
+          <span class="hud-label" data-hud="lam">wavelength λ</span>
+          <span class="hud-label" data-hud="amp">A</span>
+          <span class="hud-label" data-hud="crest">crest</span>
+          <span class="hud-label" data-hud="trough">trough</span>
+          <span class="hud-label" data-hud="eq">rest line</span>
+        </div>
+        <figcaption><b>Fig. 13.5</b> Change the frequency: λ changes, speed does not. Change the tension: speed changes.</figcaption>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="terms-f">Source frequency</label>
+            <input id="terms-f" type="range" min="0.5" max="3" step="0.1" value="1" data-param="f" aria-label="Source frequency in hertz, 0.5 to 3">
+            <output class="readout" data-out="f" for="terms-f">1.0 Hz</output>
+          </div>
+          <div class="row">
+            <span class="row-label">String tension</span>
+            <button type="button" data-param="tension" data-value="low" aria-pressed="true">Lower</button>
+            <button type="button" data-param="tension" data-value="high" aria-pressed="false">Higher</button>
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="readout" data-out="T">T = 1.00 s</span>
+            <span class="readout" data-out="lam">λ = 1.20 m</span>
+            <span class="readout" data-out="v">v = 1.2 m/s</span>
+          </div>
+        </div>
+      </figure>
+      <div class="def" id="period-def">
+        <span class="tag">Definition</span>
+        <p>The <b>period</b> \(T\) is the time for one complete oscillation, which is also the time for the source to make one whole wave. The <b>frequency</b> \(f\) is the number of complete waves made each second, measured in hertz (1 Hz = 1 s<sup>−1</sup>).</p>
+      </div>
+      <div class="formula-sheet">
+        <div class="eq" id="period-eq" role="math" aria-label="f equals one over T">\[ f = \frac{1}{T} \]</div>
+        <div class="eq" id="wave-speed-eq" role="math" aria-label="v equals f lambda">\[ v = \frac{\lambda}{T} = f\lambda \]</div>
+      </div>
+      <ul class="points">
+        <li>\(v\): <b>wave speed</b>, the distance a crest (or any point of the pattern) travels each second, in m s<sup>−1</sup>.</li>
+        <li>Why \(v = f\lambda\): in one period the wave moves forward exactly one wavelength, so \(v = \lambda / T\).</li>
+      </ul>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked" id="period-speed-worked">
+          <h3>Worked example</h3>
+          <p>A vibrator makes 30 complete waves on a string in 6.0 s. The crests are 0.40 m apart. Find \(T\), \(f\) and \(v\).</p>
+          <ol class="steps">
+            <li>\( T = \dfrac{6.0\ \text{s}}{30} = 0.20\ \text{s} \)</li>
+            <li>\( f = \dfrac{1}{T} = \dfrac{1}{0.20} = 5.0\ \text{Hz} \)</li>
+            <li>\( v = f\lambda = 5.0 \times 0.40 = 2.0\ \text{m s}^{-1} \)</li>
+          </ol>
+        </div>
+      </details>
+      <div class="check" id="period-speed-check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A violin string vibrates 26 400 times in one minute. What is its frequency?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">26 400 Hz</button>
+          <button type="button" data-choice="B">880 Hz</button>
+          <button type="button" data-choice="C">440 Hz</button>
+          <button type="button" data-choice="D">0.0023 Hz</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>C</b>: 26 400 ÷ 60 s = 440 Hz. <b>A</b> forgets to divide by the time; <b>B</b> divides by 30 s; <b>D</b> is the period, not the frequency.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="speed-factors">
+      <header>
+        <h2><span class="sec-num">C</span>What sets the wave speed</h2>
+      </header>
+      <table class="notes" id="speed-factors-table">
+        <thead><tr><th>Change</th><th>Wave speed on a string or spring</th></tr></thead>
+        <tbody>
+          <tr><td>Larger tension (stretch it tighter)</td><td><b>Faster</b></td></tr>
+          <tr><td>Lighter string (less mass per metre)</td><td><b>Faster</b></td></tr>
+          <tr><td>Higher frequency at the source</td><td>Same speed; \(\lambda\) gets shorter</td></tr>
+          <tr><td>Bigger amplitude (shake harder)</td><td>Same speed</td></tr>
+        </tbody>
+      </table>
+      <p>The speed of a mechanical wave depends on the <b>medium</b>. The source sets the frequency; the medium sets the speed; \(\lambda = v/f\) then follows.</p>
+      <details class="worked-more">
+        <summary>Going further: the string formula</summary>
+        <div class="worked" id="string-speed-worked">
+          <h3>Going further</h3>
+          <p>For a string of tension \(F\) and mass per unit length \(\mu\) (kg m<sup>−1</sup>), the wave speed is \( v = \sqrt{F/\mu} \). Four times the tension doubles the speed. A string of the same material but twice the radius has four times the mass per metre, so the wave travels at half the speed.</p>
+        </div>
+      </details>
+      <div class="check" id="speed-factors-check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Joe sends waves along a stretched string. Which change makes the waves travel faster?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Shake the end with a larger amplitude.</button>
+          <button type="button" data-choice="B">Shake the end at a higher frequency.</button>
+          <button type="button" data-choice="C">Pull the string tighter.</button>
+          <button type="button" data-choice="D">Use a thicker string of the same material.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p><b>C</b>. More tension means a faster wave. <b>A</b> and <b>B</b> change the source, not the medium; <b>D</b> makes the string heavier per metre, so the wave is slower.</p></div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Past-paper MC</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2016-16">
+          <h3>Wave speed from crests and timing</h3>
+          <figure class="dse-paper">
+            <figcaption>2016/16 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2016_q16.png" alt="HKDSE 2016/16 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2023-14">
+          <h3>Period from wavelength and speed</h3>
+          <figure class="dse-paper">
+            <figcaption>2023/14 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2023_q14.png" alt="HKDSE 2023/14 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2020-16">
+          <h3>Does frequency change the speed?</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/16 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2020_q16.png" alt="HKDSE 2020/16 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2019-18">
+          <h3>Speed on a stretched string</h3>
+          <figure class="dse-paper">
+            <figcaption>2019/18 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2019_q18.png" alt="HKDSE 2019/18 MC" loading="lazy">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2022-16">
+          <h3>Tension, thickness and wave speed</h3>
+          <figure class="dse-paper">
+            <figcaption>2022/16 MC</figcaption>
+            <img src="../../_local/dse/mc/13/2022_q16.png" alt="HKDSE 2022/16 MC" loading="lazy">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="pager"><a href="13-2.html">← 13.2 Kinds of waves</a> · <a href="../index.html">Book 3 contents</a></p>
+    <p class="next"><a href="13-4.html">Next: 13.4 Particle motion and wave graphs →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/scenes-ch13.js"></script>
+</body>
+</html>
