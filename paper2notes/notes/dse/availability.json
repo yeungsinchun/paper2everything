@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-05",
+  "updated": "2026-10-08",
   "checkedBy": [
     "node paper2notes/scripts/quiz-audit.mjs",
     "node paper2notes/scripts/ci-check.mjs"
@@ -11,7 +11,7 @@
     "placeholder": "Every published file for this section is a hand-written placeholder, not a scan of a paper. The reason says which file, and what the source papers really contain.",
     "none-in-source": "The source papers contain no such question for this section, so no crop can exist and none may be invented. The reason names the paper and the question range that paper does have."
   },
-  "placeholderFiles": ["sample.png"],
+  "placeholderFiles": [],
   "sources": {
     "lqClassifications": "paper2db/metadata/lq/llm_classifications.json - which long question belongs to which section",
     "lqQuestionStarts": "paper2db/tests/reconstructed/lq/<year>/starts.json - the long-question numbers each year's paper contains",
@@ -83,8 +83,8 @@
         "reason": "2 crops published (2012/26, 2018/23) plus combined.pdf, all scans of Paper 1A Section A."
       },
       "lq": {
-        "state": "placeholder",
-        "reason": "Only sample.png is published, a hand-written placeholder added in 361de93 so the deck resolves. The source files 13 long questions for this section (2013/10, 2015/8, 2016/7, 2017/8, 2019/7, 2020/8, 2021/8, 2022/8, 2023/7, 2024/11, 2025/7, 2026/8, pp/12); none of them is published yet."
+        "state": "real-crop",
+        "reason": "13 real crops published (2013/10, 2015/8, 2016/7, 2017/8, 2019/7, 2020/8, 2021/8, 2022/8, 2023/7, 2024/11, 2025/7, 2026/8, pp/12), all scans of Paper 1B long questions. Each question belongs to section 21 in paper2db/metadata/lq/llm_classifications.json."
       }
     },
     "22": {
@@ -93,8 +93,8 @@
         "reason": "2 crops published (2012/33, 2016/28) plus combined.pdf, all scans of Paper 1A Section A."
       },
       "lq": {
-        "state": "placeholder",
-        "reason": "Only sample.png is published, a hand-written placeholder added in 361de93 so the deck resolves. The source files 7 long questions for this section (2012/8, 2012/9, 2014/8, 2018/8, 2019/8, 2025/11, pp/8); none of them is published yet."
+        "state": "real-crop",
+        "reason": "7 real crops published (2012/8, 2012/9, 2014/8, 2018/8, 2019/8, 2025/11, pp/8), all scans of Paper 1B long questions. Each question belongs to section 22 in paper2db/metadata/lq/llm_classifications.json."
       }
     },
     "23": {
@@ -103,8 +103,8 @@
         "reason": "2 crops published (2012/29, 2018/27) plus combined.pdf, all scans of Paper 1A Section A."
       },
       "lq": {
-        "state": "placeholder",
-        "reason": "Only sample.png is published, a hand-written placeholder added in 361de93 so the deck resolves. The source files 11 long questions for this section (2012/10, 2013/4, 2016/8, 2017/9, 2019/9, 2020/3, 2022/7, 2022/9, 2023/8, 2024/12, 2025/8); none of them is published yet."
+        "state": "real-crop",
+        "reason": "11 real crops published (2012/10, 2013/4, 2016/8, 2017/9, 2019/9, 2020/3, 2022/7, 2022/9, 2023/8, 2024/12, 2025/8), all scans of Paper 1B long questions. Each question belongs to section 23 in paper2db/metadata/lq/llm_classifications.json."
       }
     },
     "24": {
@@ -113,8 +113,8 @@
         "reason": "2 crops published (2012/31, 2014/27) plus combined.pdf, all scans of Paper 1A Section A."
       },
       "lq": {
-        "state": "placeholder",
-        "reason": "Only sample.png is published, a hand-written placeholder added in 361de93 so the deck resolves. The source files 8 long questions for this section (2014/9, 2015/8, 2015/9, 2018/9, 2021/7, pp/6, pp/7, pp/13); none of them is published yet."
+        "state": "real-crop",
+        "reason": "8 real crops published (2014/9, 2015/8, 2015/9, 2018/9, 2021/7, pp/6, pp/7, pp/13), all scans of Paper 1B long questions. Each question belongs to section 24 in paper2db/metadata/lq/llm_classifications.json."
       }
     },
     "25": {
