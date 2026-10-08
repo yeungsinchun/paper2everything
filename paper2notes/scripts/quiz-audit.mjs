@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Static quiz audit for every shipped notes page.
 
-   Checks the five contracts the runtime in js/checks.js grades against:
+   Checks grading, script wiring, and publication contracts:
      1. MC   .check[data-check="mc"][data-answer] > button[data-choice]  -> key must match an option
      2. TF   .tf-item[data-answer="true|false"]            > button[data-tf] -> key must be true|false
      3. DSE  .quiz-slide[id^="dse-mc-"]                    -> id must exist in that page's QUIZ_KEYS
@@ -240,8 +240,8 @@ function audit(file) {
     }
   }
 
-  /* 5. DSE availability: a slide may only show a question the papers hold, and
-     a section with no published long question must say so on the page. */
+  /* 5. DSE availability: absence statements require a none-in-source record;
+     unpublished questions may still have recorded placeholders. */
   const availability = checkPage(page, { page: rel, availability: AVAILABILITY, source: DSE_SOURCE });
   problems.push(...availability.problems);
   informational.push(...availability.informational);
