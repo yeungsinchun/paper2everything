@@ -129,7 +129,7 @@
     api.view(-0.3, 10.3, -1.55, 1.75);
     var shift = 0;
     var last = null;
-    function speed() { return api.param("tension", "low") === "high" ? 2.4 : 1.2; }
+    function speed() { return api.param("tension", "low") === "high" ? 4.8 : 2.4; }
     function out() {
       var f = api.param("f", 1);
       var v = speed();

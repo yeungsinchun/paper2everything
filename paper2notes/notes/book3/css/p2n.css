@@ -776,6 +776,10 @@ h1 .katex, h2 .katex, h3 .katex { font-size: 1em; }
 .lq-answer[open] > summary { margin-bottom: var(--space-3); }
 .lq-answer img { display: block; width: 100%; height: auto; border: var(--border-w) solid var(--line); border-radius: var(--radius-md); }
 
+@media (max-width: 760px) {
+  .quick-digest > div { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (max-width: 620px) {
   .idea-jump { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: var(--space-1); }
   .idea-jump li { flex: none; }
