@@ -15,9 +15,9 @@
  *   paper2db/tests/reconstructed/lq/<year>/starts.json   the long questions each year's paper holds
  *
  * Run: node paper2notes/scripts/dse-availability.mjs [--json] [--root <dir>]
- * Also called from scripts/quiz-audit.mjs (per page) and scripts/ci-check.mjs
- * (the snapshot record), so a later run cannot quietly turn a documented
- * absence back into a bug. */
+ * scripts/quiz-audit.mjs and scripts/ci-check.mjs check both the snapshot
+ * record and page contracts. ci-check.mjs also checks the reference counts
+ * quoted in docs/ARCHITECTURE.md against the pages. */
 
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";

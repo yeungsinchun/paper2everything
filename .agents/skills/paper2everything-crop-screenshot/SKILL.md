@@ -22,7 +22,7 @@ Captain waived `https://github.com/yeungsinchun/paper2everything/pull/59` (DSE M
 Load and follow this skill **before** launching any PR that adds, removes, or changes crop images — if you edited, generated, or moved one of these, you must invoke this skill before `gh-axi pr create`:
 
 - `paper2notes/notes/qb/crops/**` (`qb/crops/dse-mc/**`, `qb/crops/dse-lq/**`, `qb/crops/qb/**` — WebP/PNG question, figure, table, or answer crops shipped to the `/qb` UI).
-- `paper2notes/notes/dse/**` (committed DSE snapshot `dse/{mc,lq}/<NN>/` — 82 files staged to `_local/dse` in the image).
+- `paper2notes/notes/dse/**` (committed DSE snapshot; publication rules belong to `docs/ARCHITECTURE.md` §2).
 - `paper2db` pipeline crop outputs: `paper2db/tests/sections/{mc,lq}/**` (per-section `YYYY_qN.png` / `YYYY-qN.png` and `combined.pdf`), `paper2db/tests/reconstructed/**`, `paper2db/intermediate/**`, `paper2db/output/**` and `paper2db/classified/**` (legacy), `paper2db/qb-web-ui-staging/**`, `paper2db/qb-pdf/**` crops.
 - `paper2db/qb/**` source DOCX that drive crops via `scripts/convert-qb-to-pdf.sh` + `qb_items`/`qb_convert`.
 

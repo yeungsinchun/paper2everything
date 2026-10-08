@@ -184,7 +184,7 @@ second copy in `paper2db/scripts/classify_mc_sections.py`.
 Published snapshot (deployed): `paper2notes/notes/dse/{mc,lq}/<NN>/` is a
 curated, tracked set of PNG crops and `combined.pdf` exports beside `availability.json`.
 The snapshot copies crops from the paper2db output (`tests/sections/`).
-`availability.json` owns the section inventory, including section 20's real long questions and sections 21–24's remaining sample placeholders.
+`availability.json` owns the section inventory.
 Run `paper2db/scripts/check_lq_crop_orientation.py` before publishing LQ crops; its docstring owns the checks and command options.
 `notes/dse/availability.json` records, for every section against `mc` and `lq`,
 whether what ships is a real crop, a placeholder, or absent from the source, with the reason.
@@ -193,7 +193,6 @@ Both `ci-check.mjs` and `quiz-audit.mjs` check the snapshot, page references, an
 A `data-lq-none` statement requires a `none-in-source` entry whose reason names source evidence.
 The guard also rejects a placeholder slide when its record says `none-in-source`.
 No current page states an absence; the guard awaits its first use.
-Section 20 keeps real crops; sections 21–24 keep placeholder slides.
 The regression cases live in `paper2notes/scripts/dse-availability.test.mjs`.
 `paper2notes/deploy/cloudrun/Dockerfile` stages the snapshot into the image at
 build time (`cp -r dse/* → _local/dse/` and `book*/_local/dse/`) so production
