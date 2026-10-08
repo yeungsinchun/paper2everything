@@ -21,14 +21,11 @@ Two things are checked per file:
 
 Run:
     python3 paper2db/scripts/check_lq_crop_orientation.py FILE_OR_DIR [FILE_OR_DIR...]
-    python3 paper2db/scripts/check_lq_crop_orientation.py --fix FILE_OR_DIR
     python3 paper2db/scripts/check_lq_crop_orientation.py --json FILE_OR_DIR
 
 Exit code 0 when every crop passes, 1 when any crop fails or the input is
 bad (a path does not exist, or a directory holds no PNG crops).
 Argument parsing errors exit with code 2.
---fix rewrites each crop the way the gate scores it, then re-checks the
-rewritten file, so a fix never hides a failure it did not solve.
 """
 from __future__ import annotations
 
@@ -167,7 +164,6 @@ def collect(paths: list[str]) -> list[Path]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("paths", nargs="+", metavar="FILE_OR_DIR", help="crop PNG, or a directory of them")
-    parser.add_argument("--fix", action="store_true", help="rotate each failing crop the way the gate scores it, then re-check")
     parser.add_argument("--json", action="store_true", dest="as_json", help="print the result rows as JSON")
     args = parser.parse_args()
 
@@ -182,23 +178,6 @@ def main() -> None:
             image = handle.convert("RGB")
         row = check_image(image)
         row["file"] = str(file)
-        # Only a sideways page is worth rotating. A crop that failed on width,
-        # height, ink or an unclear orientation is left alone: rotating it
-        # changes nothing and would rewrite a file for no reason.
-        if args.fix and row["rotation"] in (90, 270):
-            fixed = apply_rotation(image, row["rotation"])
-            fixed.save(file, format="PNG")
-            with Image.open(file) as handle:
-                handle.load()
-                recheck = check_image(handle.convert("RGB"))
-            row["fixed"] = True
-            row["recheck"] = recheck
-            row["readable"] = recheck["readable"]
-            row["problems"] = recheck["problems"]
-            row["size"] = recheck["size"]
-            row["scores"] = recheck["scores"]
-            row["rotation"] = recheck["rotation"]
-            row["margin"] = recheck["margin"]
         rows.append(row)
 
     failed = [r for r in rows if not r["readable"]]
@@ -213,8 +192,6 @@ def main() -> None:
             sizes = f"{row['size'][0]}x{row['size'][1]}"
             upright = "yes" if row["rotation"] == 0 else f"no ({row['rotation']}°)"
             verdict = "readable" if row["readable"] else "FAILED"
-            if row.get("fixed"):
-                verdict = "readable (rotated, re-checked)" if row["readable"] else "FAILED (after rotating)"
             print(f"{w(row['file'], 46)}{w(sizes, 14)}{w(upright, 9)}{w(row['margin'], 8)}{row['ink']:<7.3f}{verdict}")
             for problem in row["problems"]:
                 print(f"    - {problem}")
