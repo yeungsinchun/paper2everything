@@ -6,7 +6,7 @@ This is a **revamp**, not a recreation. The existing site (flat paper, Palatino 
 
 ## Sources
 - GitHub: https://github.com/yeungsinchun/paper2everything (monorepo, `main`) — explore it for real chapter content, figure code and quiz behaviour.
-  - `paper2notes/notes/` — the live notes site (Books 2, 4, 5 + QB). Styles: `paper2notes/notes/book2/css/notes.css`. Quiz logic: `book*/js/checks.js`. Home: `paper2notes/notes/index.html`.
+  - `paper2notes/notes/` — the live notes site (Books 2, 4, 5 + QB). Styles: shared `paper2notes/notes/css/notes.css` plus a thin `book*/css/book.css`. Quiz logic: shared `notes/js/checks.js`. Home: `paper2notes/notes/index.html`.
   - `paper2db/` — classified DSE MC/LQ banks + QB items (future source for the "Stuck?" pointer).
 - Live site: https://paper2notes-152505675251.asia-east2.run.app/
 

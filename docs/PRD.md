@@ -87,8 +87,12 @@ notes/book<N>/ch<NN>-<slug>/          one chapter
     index.html                        chapter map (Book 2: the whole chapter)
     <sec>.html                        one page per syllabus subsection (Book 4 and 5, e.g. 25-1.html)
     summary.html                      chapter summary (Book 4 and 5)
-    css/notes.css, js/                chapter overrides
-notes/book<N>/{css,js,vendor}/        shared per-book assets (notes.css, checks.js, diagrams3d.js, math.js, KaTeX)
+    css/notes.css, js/                chapter overrides (that chapter's figures only)
+notes/book<N>/css/book.css            thin book sheet: --tone / --tone-soft and book-only rules
+notes/book<N>/js/                     quiz-data.js (DSE keys) and the book's own scene scripts
+notes/css/notes.css                   shared sheet for every book (tokens, layout, blocks, checks, decks)
+notes/js/                             shared checks.js, math.js, scene-kit.js
+notes/vendor/{katex,three}/           shared vendored KaTeX and three.js
 notes/qb/                             question-bank UI (index.html, crops/, data/)
 notes/dse/{mc,lq}/<section>/          published DSE snapshot (tracked, from paper2db)
 notes/_source/<book-ch>/              intake; never shown to students, not shipped in the image
@@ -140,7 +144,7 @@ Each chapter is produced from `notes/_source/<book-ch>/` holding `ocr.md`, `outl
 
 ## 6. UI requirements
 
-Reference implementation: `paper2notes/notes/book5/css/notes.css` (tokens, `.def`, `.stage`, `table.notes`, quiz, breakpoints) and `paper2notes/notes/qb/index.html` (900px breakpoint). The `paper2notes/Paper2Notes Design System/` folder is a separate design-system proposal (friendlier, phone-first revamp); where it differs from this section, treat this section as the contract for the current site and the design system as a direction to reconcile (section 13).
+Reference implementation: `paper2notes/notes/css/notes.css`, the shared sheet every book links (tokens, `.def`, `.stage`, `table.notes`, quiz, breakpoints) and `paper2notes/notes/qb/index.html` (900px breakpoint). The `paper2notes/Paper2Notes Design System/` folder is a separate design-system proposal (friendlier, phone-first revamp); where it differs from this section, treat this section as the contract for the current site and the design system as a direction to reconcile (section 13).
 
 ### 6.1 Viewports and layout
 
@@ -169,7 +173,7 @@ Rules:
 
 ### 6.2 Design tokens
 
-Use these; do not invent colours per chapter. Source: `:root` in `notes/book5/css/notes.css`.
+Use these; do not invent colours per chapter. Source: the legacy-name `:root` block in `notes/css/notes.css`, which points these names at design-system tokens (the values below are the original document palette; Books 2, 4 and 5 now render the design-system values). A book sets only `--tone` and `--tone-soft` in its `css/book.css`.
 
 | Role | Token | Value |
 |---|---|---|
@@ -184,7 +188,7 @@ Use these; do not invent colours per chapter. Source: `:root` in `notes/book5/cs
 - Physics colours are semantic and consistent across books (alpha is always red). Never reuse them for decoration.
 - Text and UI labels meet WCAG AA (4.5:1). Colour is never the only carrier of meaning: right and wrong also show a mark and a word.
 - Figure boxes are plain white, not cream or yellow.
-- Shared rules (stage centering, `.hud-label`, `.def`, tables) belong in the book-level sheet, not per-chapter CSS. Today each book carries its own copy of `notes.css` (section 12).
+- Shared rules (stage centering, `.hud-label`, `.def`, tables) belong in the shared sheet `notes/css/notes.css`, not in a book sheet or per-chapter CSS. `paper2notes/README.md` (Shared assets) gives the link order, and `ci-check.mjs` fails a book that copies a shared file.
 
 ### 6.3 Alignment and centering
 
@@ -513,7 +517,7 @@ Only the workflows under `.github/workflows/` run; nested copies under `paper2no
 ## 12. Known gaps
 
 - **No automated layout check.** The alignment rules (stage centering, no stacked `.hud-label`, single `aria-current`, left-aligned `.def`, no `<br>` in prose, no fixed narrow prose widths) are written-down forms of existing CSS and the Book 2 fix series. A layout test or `ci-check.mjs` lint would enforce them.
-- **Per-book CSS copies.** Book 2, 4 and 5 each have their own `notes.css`; chapter overrides were the source of repeat bugs. Consolidate to one sheet or generate per-book copies from one source.
+- **Book 4 look.** Books 2, 4 and 5 link one shared sheet (`notes/css/notes.css`), shared scripts and one vendored KaTeX and three.js. Book 4 still keeps a "Book 4 look" section in `book4/css/book.css` that preserves where it differed from Books 2 and 5 (top bar, check headings, Show answer, deck buttons, section numbers). Removing those rules moves Book 4 onto the shared look and is a visual change to review. Book 2 and Book 4 scene scripts do not use `js/scene-kit.js` yet.
 - **Book 2 shape.** Book 2 is one long page per chapter; the quick-digest and anchor requirements (section 6.8) are the target and apply fully only to Book 4 and 5 style pages.
 - **Unchecked DSE contract.** Nothing verifies that notes references exist in the snapshot or agree with paper2db classification; the snapshot is synced by hand. `ci-check.mjs` skips `_local/` links.
 - **paper2db mostly untested in CI.** `ci-paper2db` runs only the dse-items and answer-pointer unit tests, and `ci-notes` runs `leak_fingerprints.py --check`; the pipeline itself and the rest of its suite are not run in CI.
@@ -531,7 +535,6 @@ Only the workflows under `.github/workflows/` run; nested copies under `paper2no
 - **Syllabus scope.** Only Books 2, 4, 5 are covered; Books 1 and 3 and other subjects are undecided **(planned)**.
 - **Learner state.** Progress and accounts are out of scope; self-checks are stateless.
 - **F.1 maths mocks:** keep in this product or present as a separate offering for a different audience?
-- **Shared stylesheet:** one `notes/css/notes.css` for all books, or per-book copies generated from one source?
 - **Lint:** add mechanical-rule lint to `ci-check.mjs` (every `data-hud` has a position rule, no `<br>` in prose, no fixed narrow prose widths)?
 - **Phone quiz navigation:** sticky bottom bar, or inline under the item?
 - **Dark mode:** out of scope, or a required token pass?

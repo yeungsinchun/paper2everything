@@ -4,8 +4,10 @@
    Checks the four contracts the runtime in js/checks.js grades against:
      1. MC   .check[data-check="mc"][data-answer] > button[data-choice]  -> key must match an option
      2. TF   .tf-item[data-answer="true|false"]            > button[data-tf] -> key must be true|false
-     3. DSE  .quiz-slide[id^="dse-mc-"]                    -> id must exist in that page's QUIZ_KEYS
-     4. wiring: the page must load a js/checks.js that resolves on disk
+     3. DSE  .quiz-slide[id^="dse-mc-"]                    -> id must exist in the quizKeys of the
+                                                              book's js/quiz-data.js that the page loads
+     4. wiring: the page must load a js/checks.js that resolves on disk (the shared
+        notes/js/checks.js), and a page with DSE MC slides must load its book's quiz-data.js
 
    Run: node paper2notes/scripts/quiz-audit.mjs [--json]
    Exit code 1 when any page has a broken contract. */
@@ -89,8 +91,10 @@ function tfItems(html) {
   return out;
 }
 
-function quizKeys(scriptHtml) {
-  const m = scriptHtml.match(/var\s+QUIZ_KEYS\s*=\s*(\{[\s\S]*?\});\s*\n/);
+/* quiz-data.js sets window.P2N_QUIZ = { paperLos: {...}, quizKeys: {...} } (contract in
+   notes/js/checks.js); the keys are one line of plain JSON. */
+function quizKeys(scriptSrc) {
+  const m = scriptSrc.match(/\bquizKeys\s*:\s*(\{[^\n]*\})\s*,?\s*\n/);
   if (!m) return null;
   try {
     return JSON.parse(m[1]);
@@ -122,6 +126,9 @@ function audit(file) {
     /class="[^"]*\btf-item\b/.test(html) ||
     /class="[^"]*quiz-slide/.test(html) ||
     /data-quiz=/.test(html);
+  const dataRefs = scripts.filter((s) => /(^|\/)quiz-data\.js(\?|$)/.test(s));
+  const hasDseMc = /<article\b[^>]*class="[^"]*quiz-slide[^"]*"[^>]*\bid="dse-mc-/.test(html) ||
+    /<article\b[^>]*\bid="dse-mc-[^>]*class="[^"]*quiz-slide/.test(html);
   let keys = null;
   if (!checkRefs.length) {
     /* A landing page with no quiz markup needs no grading script. */
@@ -131,15 +138,23 @@ function audit(file) {
       kind: "checks-script-404",
       detail: `checks.js refs do not resolve: ${checkRefs.join(", ")}`,
     });
-  } else {
-    keys = quizKeys(readFileSync(resolve(dirname(file), resolved[0]), "utf8"));
-    if (keys === null) {
-      problems.push({ kind: "no-quiz-keys", detail: "checks.js has no QUIZ_KEYS store" });
-      keys = {};
-    } else if (keys.__parseError) {
-      problems.push({ kind: "quiz-keys-unparsable", detail: keys.__parseError });
-      keys = {};
+  }
+  if (dataRefs.length) {
+    const dataFile = dataRefs.map((s) => resolve(dirname(file), s)).find((f) => existsSync(f));
+    if (!dataFile) {
+      problems.push({ kind: "quiz-data-404", detail: `quiz-data.js refs do not resolve: ${dataRefs.join(", ")}` });
+    } else {
+      keys = quizKeys(readFileSync(dataFile, "utf8"));
+      if (keys === null) {
+        problems.push({ kind: "no-quiz-keys", detail: "quiz-data.js has no quizKeys store" });
+        keys = {};
+      } else if (keys.__parseError) {
+        problems.push({ kind: "quiz-keys-unparsable", detail: keys.__parseError });
+        keys = {};
+      }
     }
+  } else if (hasDseMc) {
+    problems.push({ kind: "no-quiz-data", detail: "page has DSE MC slides but loads no js/quiz-data.js, so no slide can be graded" });
   }
   if (keys === null) keys = {};
 
@@ -215,7 +230,7 @@ function audit(file) {
       if (UNAVAILABLE.has(id)) {
         informational.push({ kind: "dse-mc-key-unavailable", detail: `slide ${id} has no answer in the store; the page says so on pick` });
       } else {
-        problems.push({ kind: "dse-mc-no-key", detail: `slide ${id} has no entry in QUIZ_KEYS, so no verdict` });
+        problems.push({ kind: "dse-mc-no-key", detail: `slide ${id} has no entry in quiz-data.js quizKeys, so no verdict` });
       }
     } else if (!key.option) {
       problems.push({ kind: "dse-mc-key-no-option", detail: `slide ${id} key has no option` });
