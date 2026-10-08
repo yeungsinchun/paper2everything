@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.1 Vision</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Vision and hearing</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="1-1.html" aria-current="page">1.1</a>
+      <a href="1-2.html">1.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">1.1</p>
+    <h1>Vision</h1>
+    <p class="lede">The eye is a variable-power lens that throws a real image onto a screen of light sensors.</p>
+
+    <aside class="quick-digest" aria-label="Vision in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>Cornea bends most</b><span>the lens only fine-tunes</span></p>
+        <p><b>\( P = 1/f \)</b><span>dioptres; near objects need more power</span></p>
+        <p><b>25 cm to infinity</b><span>normal near point to far point</span></p>
+        <p><b>\( \theta_{\min} \approx 1.22\lambda/D \)</b><span>wider pupil resolves finer detail</span></p>
+        <p><b>Short sight: concave</b><span>long sight: convex</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-chips" aria-label="Ideas on this page">
+      <a href="#eye-optics"><b>A</b>Eye as a camera</a>
+      <a href="#lens-power"><b>B</b>Lens power</a>
+      <a href="#accommodation"><b>C</b>Accommodation</a>
+      <a href="#resolving-power"><b>D</b>Resolving power</a>
+      <a href="#spectral-response"><b>E</b>Colour</a>
+      <a href="#sight-defects"><b>F</b>Sight defects</a>
+    </nav>
+
+    <section class="idea" id="eye-optics">
+      <header>
+        <h2><span class="sec-num">A</span>The eye as an optical system</h2>
+      </header>
+      <figure class="fig" id="eye-optics-fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 440 330" role="img" aria-label="Cross-section of the eye. Light from an object passes the cornea, the pupil and the lens and forms a small upside-down image on the retina at the back. Under the eye, a strip of refractive indices: air 1.00, cornea 1.38, aqueous humour 1.34, lens 1.40, vitreous humour 1.34. The biggest jump is from air to cornea.">
+            <circle cx="225" cy="130" r="92" class="obj"/>
+            <path d="M145,84 Q105,130 145,176" class="obj"/>
+            <ellipse cx="167" cy="130" rx="12" ry="34" class="obj" style="fill:var(--teal-50)"/>
+            <path d="M155,88 L155,106 M155,154 L155,172" class="obj" style="stroke-width:5"/>
+            <ellipse cx="168" cy="92" rx="7" ry="5" class="obj" style="fill:var(--line-soft)"/>
+            <ellipse cx="168" cy="168" rx="7" ry="5" class="obj" style="fill:var(--line-soft)"/>
+            <path d="M278,55 A92,92 0 0,1 278,205" fill="none" style="stroke:var(--teal-600);stroke-width:5"/>
+            <circle cx="314" cy="130" r="5" style="fill:var(--sun-400)"/>
+            <path d="M309,150 L360,156 L360,176 L307,170 Z" class="obj" style="fill:var(--line-soft)"/>
+            <path d="M30,130 L30,94" class="obj" style="stroke:var(--fig-energy)"/>
+            <path d="M24,102 L30,92 L36,102" class="obj" style="stroke:var(--fig-energy)"/>
+            <path d="M30,94 L127,118 L311,150 M30,94 L140,96 L311,150" fill="none" style="stroke:var(--fig-energy);stroke-width:2"/>
+            <path d="M313,130 L311,150" class="obj" style="stroke:var(--fig-energy)"/>
+            <path d="M306,144 L311,152 L316,145" class="obj" style="stroke:var(--fig-energy)"/>
+            <path d="M145,34 L155,88 M218,34 L172,88 M110,226 L126,140 M175,226 L168,166 M250,248 L245,190 M326,52 L290,64 M330,116 L318,127 M380,226 L330,168" class="guide"/>
+            <text x="140" y="26" text-anchor="middle">iris</text>
+            <text x="232" y="26" text-anchor="middle">ciliary muscle</text>
+            <text x="100" y="242" text-anchor="middle">cornea</text>
+            <text x="175" y="242" text-anchor="middle">lens</text>
+            <text x="252" y="266" text-anchor="middle">vitreous humour</text>
+            <text x="328" y="48">retina</text>
+            <text x="332" y="112">yellow spot</text>
+            <text x="436" y="244" text-anchor="end">blind spot, optic nerve</text>
+            <g>
+              <rect x="20" y="276" width="80" height="48" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/>
+              <rect x="100" y="276" width="80" height="48" fill="var(--teal-50)" stroke="var(--line)" stroke-width="2"/>
+              <rect x="180" y="276" width="80" height="48" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+              <rect x="260" y="276" width="80" height="48" fill="var(--teal-50)" stroke="var(--line)" stroke-width="2"/>
+              <rect x="340" y="276" width="80" height="48" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+              <line x1="100" y1="270" x2="100" y2="330" style="stroke:var(--sun-700);stroke-width:5"/>
+              <text x="60" y="296" text-anchor="middle">air</text><text x="60" y="316" text-anchor="middle" class="muted">1.00</text>
+              <text x="140" y="296" text-anchor="middle">cornea</text><text x="140" y="316" text-anchor="middle" class="muted">1.38</text>
+              <text x="220" y="296" text-anchor="middle">aqueous</text><text x="220" y="316" text-anchor="middle" class="muted">1.34</text>
+              <text x="300" y="296" text-anchor="middle">lens</text><text x="300" y="316" text-anchor="middle" class="muted">1.40</text>
+              <text x="380" y="296" text-anchor="middle">vitreous</text><text x="380" y="316" text-anchor="middle" class="muted">1.34</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.1</b> The biggest jump in refractive index (amber line) is at the cornea, so the cornea does most of the bending.</figcaption>
+      </figure>
+      <div class="def" id="eye-optics-def">
+        <span class="tag">Definition</span>
+        <p>The cornea and the lens act together as one converging lens. They form a <b>real, inverted, diminished</b> image on the <b>retina</b>, the light-sensitive layer at the back of the eye.</p>
+      </div>
+      <ul class="points">
+        <li>Light passes the cornea, the aqueous humour, the pupil (the hole in the iris), the lens and the vitreous humour before it reaches the retina.</li>
+        <li>The cornea has a fixed shape. The <b>ciliary muscle</b> changes the shape of the lens, so the lens adjusts the focus.</li>
+        <li>The iris controls the pupil size: small in bright light, large in dim light.</li>
+        <li>The retina turns light into electrical signals. The optic nerve carries them to the brain, which also turns the image the right way up.</li>
+        <li>The eye detects only visible light, about 400 nm to 750 nm.</li>
+      </ul>
+      <table class="notes" id="eye-optics-notes-receptors">
+        <thead><tr><th>Receptor</th><th>Works in</th><th>Gives</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td>Rods</td><td>dim light (very sensitive)</td><td>brightness only, no colour</td><td>most of the retina; none at the yellow spot</td></tr>
+          <tr><td>Cones</td><td>bright light</td><td>colour and fine detail</td><td>packed most tightly at the yellow spot</td></tr>
+        </tbody>
+      </table>
+      <p>The <b>blind spot</b> is where the optic nerve leaves the eye. It has no rods or cones, so light landing there is not seen.</p>
+      <div class="check" id="eye-optics-check-bending" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Light enters the eye. At which surface is it refracted the most?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">aqueous humour to lens</button>
+          <button type="button" data-choice="B">air to cornea</button>
+          <button type="button" data-choice="C">lens to vitreous humour</button>
+          <button type="button" data-choice="D">vitreous humour to retina</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Bending depends on the change in refractive index. Air to cornea is 1.00 to 1.38, the largest step, so <b>B</b>. <b>A</b> and <b>C</b> are small steps (about 0.06): the lens only fine-tunes. <b>D</b>: the retina detects light; it does not focus it.</p>
+        </div>
+      </div>
+      <div class="check" id="eye-optics-check-facts" data-check="tf">
+        <h3>Quick check</h3>
+        <div class="tf-item" id="eye-optics-tf-image" data-answer="false">
+          <p>(a) The image on the retina is upright and virtual.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. A converging lens with the object far beyond its focal length gives a real, inverted, diminished image. The brain interprets it the right way up.</p></div>
+        </div>
+        <div class="tf-item" id="eye-optics-tf-cornea" data-answer="false">
+          <p>(b) The cornea changes shape to focus on near objects.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. The cornea's shape is fixed. The lens changes shape, pulled or released by the ciliary muscle.</p></div>
+        </div>
+        <div class="tf-item" id="eye-optics-tf-rods" data-answer="true">
+          <p>(c) In very dim light we see shades of grey because only the rods respond.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. Rods are far more sensitive than cones but there is only one type, so they cannot tell colours apart.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="lens-power">
+      <header>
+        <h2><span class="sec-num">B</span>Lens power and the eye as one lens</h2>
+      </header>
+      <figure class="fig" id="lens-power-fig">
+        <div class="visual play stage" id="eye-power-vis" data-scene="eye-power">
+          <canvas class="scene-canvas" width="960" height="480" aria-label="A simplified eye with a point of light in front of it. Moving the object closer makes the rays reach the eye more steeply, so the lens must be fatter and more powerful to focus them on the retina. Closer than 25 cm the lens cannot get fat enough and the image blurs."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.2</b> Bring the object closer: the eye needs more power, and the lens grows fatter.</figcaption>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="eye-u">Object distance</label>
+            <input id="eye-u" type="range" min="0" max="100" step="1" value="100" data-for="eye-power-vis" data-key="u" aria-label="Object distance, from 10 cm to infinity">
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="readout" data-out-for="eye-power-vis" data-out="u">u = infinity</span>
+            <span class="readout" data-out-for="eye-power-vis" data-out="P">P needed = 50.0 D</span>
+          </div>
+          <p class="caption" data-out-for="eye-power-vis" data-out="state">ciliary muscle relaxed, lens thin</p>
+        </div>
+      </figure>
+      <div class="def" id="lens-power-def">
+        <span class="tag">Definition</span>
+        <p>The <b>power</b> of a lens is \( P = 1/f \), with the focal length \( f \) in metres. Its unit is the <b>dioptre</b> (D), equal to m⁻¹. A converging (convex) lens has positive power; a diverging (concave) lens has negative power.</p>
+      </div>
+      <div class="formula-sheet">
+        <div class="eq" id="lens-power-eq-formula" role="math" aria-label="Lens formula in power form">\[ P = \frac{1}{f} = \frac{1}{u} + \frac{1}{v} \]</div>
+        <div class="eq" id="lens-power-eq-combined" role="math" aria-label="Powers of thin lenses in contact add">\[ P_{\text{total}} = P_1 + P_2 \]</div>
+      </div>
+      <ul class="points">
+        <li>\( u \) is the object distance and \( v \) the image distance, both in metres. Real distances are positive; a virtual image has negative \( v \).</li>
+        <li>In the simplified eye, cornea and lens are one thin lens. The image distance \( v \) is the depth of the eyeball, about 2 cm, and it cannot change.</li>
+        <li>So to focus a nearer object (smaller \( u \), larger \( 1/u \)), the eye must increase \( P \).</li>
+        <li>Thin lenses close together add their powers. A cornea of about +40 D and a relaxed lens of about +20 D give an eye of about +60 D.</li>
+      </ul>
+      <div class="check" id="lens-power-check-add" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A +6 D lens is placed against a −2 D lens. What is the focal length of the pair?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">4 cm</button>
+          <button type="button" data-choice="B">12.5 cm</button>
+          <button type="button" data-choice="C">25 cm</button>
+          <button type="button" data-choice="D">−25 cm</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Powers add: \( +6 + (-2) = +4 \) D, so \( f = 1/4 = 0.25 \) m: <b>C</b>. <b>A</b> forgets that \( f \) is in metres. <b>B</b> adds the sizes, 6 + 2 = 8 D, ignoring the minus sign. <b>D</b> has the wrong sign: the pair still converges.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked" id="lens-power-worked">
+          <h3>Worked example</h3>
+          <p>A simplified eye is 2.0 cm deep. Find its power when it looks at (a) a distant star and (b) a book 25 cm away.</p>
+          <ol class="steps">
+            <li>The image is always on the retina: \( v = 0.020 \) m.</li>
+            <li>(a) Star: \( u \to \infty \), so \( 1/u = 0 \). \( P = 0 + 1/0.020 = 50 \) D.</li>
+            <li>(b) Book: \( P = 1/0.25 + 1/0.020 = 4 + 50 = 54 \) D.</li>
+          </ol>
+          <p class="note">The eye adds 4 D of power to read at 25 cm.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="accommodation">
+      <header>
+        <h2><span class="sec-num">C</span>Accommodation, near point and far point</h2>
+      </header>
+      <figure class="fig" id="accommodation-fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 440 210" role="img" aria-label="Two views of the lens. Looking far: the ciliary muscle is relaxed, the ligaments pull tight and the lens is thin. Looking near: the ciliary muscle contracts, the ligaments go slack and the lens bulges fatter.">
+            <g>
+              <ellipse cx="110" cy="90" rx="9" ry="44" class="obj" style="fill:var(--teal-50)"/>
+              <ellipse cx="110" cy="22" rx="16" ry="9" class="obj" style="fill:var(--line-soft)"/>
+              <ellipse cx="110" cy="158" rx="16" ry="9" class="obj" style="fill:var(--line-soft)"/>
+              <path d="M104,30 L106,47 M116,30 L114,47 M104,150 L106,133 M116,150 L114,133" class="obj" style="stroke-width:2"/>
+              <text x="110" y="188" text-anchor="middle">looking far</text>
+              <text x="110" y="206" text-anchor="middle" class="muted">relaxed, thin lens</text>
+            </g>
+            <g>
+              <ellipse cx="330" cy="90" rx="20" ry="40" class="obj" style="fill:var(--teal-50)"/>
+              <ellipse cx="330" cy="34" rx="11" ry="7" class="obj" style="fill:var(--line-soft)"/>
+              <ellipse cx="330" cy="146" rx="11" ry="7" class="obj" style="fill:var(--line-soft)"/>
+              <path d="M324,40 Q318,46 322,52 M336,40 Q342,46 338,52 M324,140 Q318,134 322,128 M336,140 Q342,134 338,128" class="obj" style="stroke-width:2"/>
+              <text x="330" y="188" text-anchor="middle">looking near</text>
+              <text x="330" y="206" text-anchor="middle" class="muted">contracted, fat lens</text>
+            </g>
+            <text x="220" y="94" text-anchor="middle" class="muted">ciliary muscle</text>
+            <path d="M172,92 L128,30 M268,92 L318,38" class="guide"/>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.3</b> The ciliary muscle contracts for near objects. The ligaments go slack and the lens bulges.</figcaption>
+      </figure>
+      <div class="def" id="accommodation-def">
+        <span class="tag">Definition</span>
+        <p><b>Accommodation</b> is the eye changing the shape, and so the power, of its lens to focus objects at different distances. The lens-to-retina distance never changes.</p>
+      </div>
+      <table class="notes" id="accommodation-notes-states">
+        <thead><tr><th>Object</th><th>Ciliary muscle</th><th>Lens</th><th>Power</th></tr></thead>
+        <tbody>
+          <tr><td>far away</td><td>relaxed</td><td>pulled thin</td><td>smallest</td></tr>
+          <tr><td>near</td><td>contracted</td><td>bulges fatter</td><td>larger</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>The <b>near point</b> is the closest point the eye can focus. For a normal eye it is about 25 cm.</li>
+        <li>The <b>far point</b> is the farthest point the eye can focus. For a normal eye it is at infinity.</li>
+        <li>The <b>power of accommodation</b> is the extra power the eye can add: power at the near point minus power at the far point.</li>
+        <li>The power of accommodation falls with age as the lens stiffens, so the near point moves away.</li>
+      </ul>
+      <div class="check" id="accommodation-check-far" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>A student looks up from a phone to a mountain far away. What happens in the eye?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The ciliary muscle contracts and the lens gets fatter.</button>
+          <button type="button" data-choice="B">The ciliary muscle contracts and the lens gets thinner.</button>
+          <button type="button" data-choice="C">The lens moves closer to the retina.</button>
+          <button type="button" data-choice="D">The ciliary muscle relaxes and the lens gets thinner.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>A far object needs less power, so the lens must be thinner. The ciliary muscle relaxes and the ligaments pull the lens thin: <b>D</b>. <b>A</b> is the near-object case. <b>B</b> mixes the two. <b>C</b> is how a camera focuses; the human eye changes shape, not distance.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked" id="accommodation-worked">
+          <h3>Worked example</h3>
+          <p>An eye 2.0 cm deep has its near point at 40 cm and its far point at infinity. Find its power of accommodation.</p>
+          <ol class="steps">
+            <li>Far point: \( P_{\text{far}} = 0 + 1/0.020 = 50 \) D.</li>
+            <li>Near point: \( P_{\text{near}} = 1/0.40 + 1/0.020 = 2.5 + 50 = 52.5 \) D.</li>
+            <li>Power of accommodation \( = 52.5 - 50 = 2.5 \) D.</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="resolving-power">
+      <header>
+        <h2><span class="sec-num">D</span>Resolving power</h2>
+      </header>
+      <figure class="fig" id="resolving-power-fig">
+        <div class="visual play stage" id="resolve-vis" data-scene="resolve">
+          <canvas class="scene-canvas" width="960" height="480" aria-label="Light from two point sources spreads into two blurred discs on the retina because of diffraction at the pupil. Make the angle between the sources smaller than the limit and the two discs merge into one blur. A wider pupil or a shorter wavelength makes the discs narrower."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.4</b> Two sources make two diffraction blurs. Below the limit angle the blurs merge.</figcaption>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="resolve-sep">Angle apart</label>
+            <input id="resolve-sep" type="range" min="40" max="600" step="10" value="300" data-for="resolve-vis" data-key="sep" aria-label="Angle between the two sources, 40 to 600 microradians">
+            <output class="readout" data-out-for="resolve-vis" data-out="sep">θ = 300 μrad</output>
+          </div>
+          <div class="row">
+            <label class="row-label" for="resolve-d">Pupil</label>
+            <input id="resolve-d" type="range" min="2" max="8" step="0.5" value="3" data-for="resolve-vis" data-key="D" aria-label="Pupil diameter, 2 to 8 mm">
+            <output class="readout" data-out-for="resolve-vis" data-out="D">D = 3.0 mm</output>
+          </div>
+          <div class="row tabs" role="group" aria-label="Wavelength">
+            <span class="row-label">Wavelength</span>
+            <button type="button" data-for="resolve-vis" data-key="lam" data-value="450" aria-pressed="false">450 nm</button>
+            <button type="button" data-for="resolve-vis" data-key="lam" data-value="550" aria-pressed="true">550 nm</button>
+            <button type="button" data-for="resolve-vis" data-key="lam" data-value="650" aria-pressed="false">650 nm</button>
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="readout" data-out-for="resolve-vis" data-out="tmin">θmin = 224 μrad</span>
+            <span class="readout" data-out-for="resolve-vis" data-out="verdict">θ ≥ θmin: resolved</span>
+          </div>
+        </div>
+      </figure>
+      <div class="def" id="resolving-power-def">
+        <span class="tag">Definition</span>
+        <p>Two points are <b>resolved</b> when the eye sees them as separate. The <b>resolving power</b> is the eye's ability to do this: the smaller the angle it can separate, the better.</p>
+      </div>
+      <div class="formula-sheet">
+        <div class="eq" id="resolving-power-eq-rayleigh" role="math" aria-label="Smallest angle the eye can resolve">\[ \theta_{\min} \approx \frac{1.22\,\lambda}{D} \]</div>
+        <div class="eq" id="resolving-power-eq-small-angle" role="math" aria-label="Separation from distance and angle">\[ \ell \approx r\,\theta \]</div>
+      </div>
+      <ul class="points">
+        <li>\( \theta_{\min} \) is in radians, \( \lambda \) is the wavelength and \( D \) the pupil diameter, in the same unit.</li>
+        <li>\( \ell \) is the distance between the two points and \( r \) their distance from the eye; this needs small angles in radians.</li>
+        <li>The pupil is a circular gap, so light <b>diffracts</b> through it and each point becomes a small blurred disc on the retina.</li>
+        <li>A larger pupil or a shorter wavelength gives a smaller \( \theta_{\min} \): better resolving power.</li>
+        <li>The spacing of the cones and imperfections of the lens also limit detail. \( \theta_{\min} \) is the best the eye could ever do.</li>
+      </ul>
+      <div class="tip" id="resolving-power-tip">
+        <span class="tag">Watch out</span>
+        <p>In dim light the pupil opens wider, so the diffraction limit is smaller. We still see less detail, because the lens edges blur the image and only the rods work.</p>
+      </div>
+      <div class="check" id="resolving-power-check-improve" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Which change lets an eye resolve two closer points?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">a larger pupil</button>
+          <button type="button" data-choice="B">light of longer wavelength</button>
+          <button type="button" data-choice="C">moving the two points farther from the eye</button>
+          <button type="button" data-choice="D">a smaller pupil, so less light spreads out</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>\( \theta_{\min} \approx 1.22\lambda/D \): a larger \( D \) makes \( \theta_{\min} \) smaller, <b>A</b>. <b>B</b> makes \( \theta_{\min} \) larger. <b>C</b> shrinks the angle between the points, making it harder. <b>D</b> is backwards: a narrower gap diffracts more.</p>
+        </div>
+      </div>
+      <div class="check" id="resolving-power-check-pixels" data-check="sa">
+        <h3>Write it</h3>
+        <p>A screen is viewed from 0.50 m. Take the pupil as 3.0 mm and the light as 550 nm. Estimate the largest spacing between pixels that the eye cannot resolve.</p>
+        <button type="button" data-reveal>Show answer</button>
+        <div class="model" hidden>
+          <p>\( \theta_{\min} = 1.22 \times 550 \times 10^{-9} / 3.0 \times 10^{-3} = 2.2 \times 10^{-4} \) rad.</p>
+          <p>\( \ell = r\theta_{\min} = 0.50 \times 2.2 \times 10^{-4} = 1.1 \times 10^{-4} \) m, about 0.1 mm. Pixels closer than this merge into a smooth picture.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked" id="resolving-power-worked">
+          <h3>Worked example</h3>
+          <p>A car's two headlamps are 1.4 m apart. At night the pupil is 5.0 mm wide; take the light as 600 nm. How far away can the car be before the lamps look like one?</p>
+          <ol class="steps">
+            <li>\( \theta_{\min} = 1.22 \times 600 \times 10^{-9} / 5.0 \times 10^{-3} = 1.46 \times 10^{-4} \) rad.</li>
+            <li>\( r = \ell / \theta_{\min} = 1.4 / 1.46 \times 10^{-4} \).</li>
+            <li>\( r \approx 9.6 \times 10^{3} \) m, about 10 km.</li>
+          </ol>
+          <p class="note">This is an upper limit. Real eyes merge the lamps sooner.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="spectral-response">
+      <header>
+        <h2><span class="sec-num">E</span>Spectral response and colour</h2>
+      </header>
+      <figure class="fig" id="spectral-response-fig">
+        <div class="visual play stage" id="cones-vis" data-scene="cones">
+          <canvas class="scene-canvas" width="960" height="480" aria-label="Response curves of the three cone types, S peaking near 440 nm, M near 535 nm and L near 565 nm, and of the rods near 505 nm. Moving the wavelength marker shows how strongly each cone type responds."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.5</b> One wavelength excites the three cone types by different amounts. The brain reads the mix as a colour.</figcaption>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="cones-lam">Wavelength</label>
+            <input id="cones-lam" type="range" min="400" max="700" step="5" value="555" data-for="cones-vis" data-key="lam" aria-label="Wavelength, 400 to 700 nm">
+            <output class="readout" data-out-for="cones-vis" data-out="lam">555 nm</output>
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="readout" data-out-for="cones-vis" data-out="s">S 0%</span>
+            <span class="readout" data-out-for="cones-vis" data-out="m">M 95%</span>
+            <span class="readout" data-out-for="cones-vis" data-out="l">L 98%</span>
+          </div>
+        </div>
+      </figure>
+      <div class="def" id="spectral-response-def">
+        <span class="tag">Definition</span>
+        <p>The <b>spectral response</b> of a receptor is how strongly it responds to light of each wavelength.</p>
+      </div>
+      <ul class="points">
+        <li>There is one type of rod and three types of cone. Each cone type covers a band of wavelengths; the bands overlap.</li>
+        <li>A colour is the ratio in which the three cone types are excited. Mixing three lights (red, green, blue) in the right ratio copies most colours; screens use this.</li>
+        <li>Taken together, the cones respond most near 555 nm, so green-yellow light looks brightest for the same intensity.</li>
+        <li>The rods peak near 505 nm. In dim light only rods work, so we see no colour.</li>
+      </ul>
+      <ol class="points">
+        <li>Light from an object is refracted by the cornea and the lens.</li>
+        <li>An image forms on the retina.</li>
+        <li>Rods and cones turn the light into electrical signals.</li>
+        <li>The optic nerve carries the signals to the brain, which builds the picture and adjusts the lens if needed.</li>
+      </ol>
+      <div class="check" id="spectral-response-check-cones" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Light of wavelength 600 nm enters the eye. Which cone types respond strongly?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">S only</button>
+          <button type="button" data-choice="B">L strongly, M less, S hardly at all</button>
+          <button type="button" data-choice="C">all three equally</button>
+          <button type="button" data-choice="D">rods only</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>At 600 nm the L curve is high, the M curve lower and the S curve near zero: <b>B</b>. That unequal mix is what we see as orange. <b>C</b> would look white. <b>D</b> is dim-light vision; at normal brightness the cones respond.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="sight-defects">
+      <header>
+        <h2><span class="sec-num">F</span>Defects of vision and their correction</h2>
+      </header>
+      <figure class="fig" id="sight-defects-fig">
+        <div class="visual play stage" id="defects-vis" data-scene="defects">
+          <canvas class="scene-canvas" width="960" height="480" aria-label="An eye with rays from a far or a near object. A short-sighted eye focuses far objects in front of the retina; a concave lens fixes it. A long-sighted eye focuses near objects behind the retina; a convex lens fixes it."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.6</b> Pick an eye and an object, then add the glasses.</figcaption>
+        <div class="sim-controls">
+          <div class="row tabs" role="group" aria-label="Eye">
+            <span class="row-label">Eye</span>
+            <button type="button" data-for="defects-vis" data-key="eye" data-value="normal" aria-pressed="true">Normal</button>
+            <button type="button" data-for="defects-vis" data-key="eye" data-value="short" aria-pressed="false">Short sight</button>
+            <button type="button" data-for="defects-vis" data-key="eye" data-value="long" aria-pressed="false">Long sight</button>
+          </div>
+          <div class="row tabs" role="group" aria-label="Object">
+            <span class="row-label">Object</span>
+            <button type="button" data-for="defects-vis" data-key="obj" data-value="far" aria-pressed="true">Far</button>
+            <button type="button" data-for="defects-vis" data-key="obj" data-value="near" aria-pressed="false">Near (25 cm)</button>
+          </div>
+          <div class="row tabs" role="group" aria-label="Glasses">
+            <span class="row-label">Glasses</span>
+            <button type="button" data-for="defects-vis" data-key="lens" data-value="off" aria-pressed="true">Off</button>
+            <button type="button" data-for="defects-vis" data-key="lens" data-value="on" aria-pressed="false">On</button>
+          </div>
+          <p class="caption" aria-live="polite" data-out-for="defects-vis" data-out="what">Normal eye: far point at infinity, near point 25 cm.</p>
+        </div>
+      </figure>
+      <table class="notes" id="sight-defects-notes-compare">
+        <thead><tr><th>Defect</th><th>Sees clearly</th><th>Cause</th><th>Where the image falls</th><th>Correction</th></tr></thead>
+        <tbody>
+          <tr><td>Short sight (myopia)</td><td>near objects</td><td>eye too powerful or eyeball too long</td><td>in front of the retina (far objects)</td><td>concave lens, negative power</td></tr>
+          <tr><td>Long sight (hypermetropia)</td><td>far objects</td><td>eye too weak or eyeball too short</td><td>behind the retina (near objects)</td><td>convex lens, positive power</td></tr>
+          <tr><td>Old sight (presbyopia)</td><td>far objects, as the near point recedes</td><td>lens loses elasticity with age; accommodation shrinks</td><td>behind the retina (near objects)</td><td>convex lens for reading; bifocal or progressive lenses</td></tr>
+        </tbody>
+      </table>
+      <div class="formula-sheet">
+        <div class="eq" id="sight-defects-eq-short" role="math" aria-label="Short sight lens: focal length equals minus the far point distance">\[ \text{short sight: } f = -d_{\text{far}} \]</div>
+        <div class="eq" id="sight-defects-eq-long" role="math" aria-label="Long sight lens power for reading at 25 cm">\[ \text{long sight: } P = \frac{1}{0.25} + \frac{1}{-d_{\text{near}}} \]</div>
+      </div>
+      <ul class="points">
+        <li>The concave lens takes rays from a very distant object and makes them seem to come from the eye's own far point \( d_{\text{far}} \): a virtual image there, so \( v = -d_{\text{far}} \).</li>
+        <li>The convex lens takes an object at 25 cm and forms a virtual image at the eye's own near point \( d_{\text{near}} \), so \( v = -d_{\text{near}} \).</li>
+        <li>A side effect of the concave lens: the near point moves a little farther away.</li>
+        <li>Bifocals: the upper part corrects far vision and the lower part is a convex reading lens.</li>
+        <li>Astigmatism (an unevenly curved cornea) brings lines in one direction into focus but not lines at right angles; a special non-spherical lens corrects it.</li>
+      </ul>
+      <div class="check" id="sight-defects-check-match" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A person can read comfortably but cannot read a bus number across the road. Which statement is correct?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">They are long-sighted and need a convex lens.</button>
+          <button type="button" data-choice="B">Their eyeball is too short.</button>
+          <button type="button" data-choice="C">The image of the bus forms in front of the retina; a concave lens corrects it.</button>
+          <button type="button" data-choice="D">Their ciliary muscle cannot contract.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Near is clear and far is blurred: short sight. The eye is too strong, so the far image forms in front of the retina, and a diverging lens fixes it: <b>C</b>. <b>A</b> and <b>B</b> describe long sight. <b>D</b> would spoil near vision, not far vision.</p>
+        </div>
+      </div>
+      <div class="check" id="sight-defects-check-power" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A long-sighted person's near point is 75 cm. What lens power lets them read at 25 cm?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">+2.7 D</button>
+          <button type="button" data-choice="B">+5.3 D</button>
+          <button type="button" data-choice="C">−2.7 D</button>
+          <button type="button" data-choice="D">+1.3 D</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>\( P = 1/0.25 + 1/(-0.75) = 4 - 1.33 = +2.7 \) D: <b>A</b>. <b>B</b> uses \( v = +0.75 \) m; the image is virtual, so \( v \) is negative. <b>C</b> has the sign of a short-sight lens. <b>D</b> is \( 1/0.75 \) alone.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked" id="sight-defects-worked">
+          <h3>Worked example</h3>
+          <p>A short-sighted eye has its far point at 2.5 m and its near point at 20 cm. (a) Find the power of the correcting lens. (b) Find the new near point with the lens on.</p>
+          <ol class="steps">
+            <li>(a) A distant object must give a virtual image at the far point: \( f = -2.5 \) m.</li>
+            <li>\( P = 1/(-2.5) = -0.40 \) D, a concave lens.</li>
+            <li>(b) The lens must put its image at the eye's near point: \( v = -0.20 \) m.</li>
+            <li>\( 1/u = P - 1/v = -0.40 + 5.0 = 4.6 \) m⁻¹, so \( u = 0.217 \) m.</li>
+            <li>The near point moves from 20 cm out to about 22 cm.</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <p class="next"><a href="1-2.html">Next: 1.2 Hearing →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="js/scenes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code> <span class="deploy-commit-subject">Book 9 notes</span></footer>
+</body>
+</html>
