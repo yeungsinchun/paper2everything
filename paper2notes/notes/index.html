@@ -8,11 +8,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
   <link rel="stylesheet" href="css/p2n-shell.css">
+  <style>
+    /* Book 1 hue (design-system sun tokens) and glyph from assets/icons (lucide-static@0.468.0). */
+    :root { --book1: var(--sun-700); --book1-soft: var(--sun-100); }
+    [data-ic="thermometer"] { --src: url(assets/icons/thermometer.svg); }
+  </style>
 </head>
 <body>
   <header class="p2n-top">
     <a class="p2n-top-brand" href="index.html">paper<i>2</i>notes</a>
     <nav class="p2n-top-nav" aria-label="Books">
+      <a href="book1/index.html">Book 1</a>
       <a href="book2/index.html">Book 2</a>
       <a href="book4/index.html">Book 4</a>
       <a href="book5/index.html">Book 5</a>
@@ -26,6 +32,11 @@
       <h1>Pick a book</h1>
     </div>
     <div class="p2n-cards">
+      <a class="p2n-cc" href="book1/index.html" style="--tone:var(--book1);--soft:var(--book1-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="thermometer" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 1</span><b>Heat &amp; Gases</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
       <a class="p2n-cc" href="book2/index.html" style="--tone:var(--book2);--soft:var(--book2-soft)">
         <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="rocket" aria-hidden="true"></span></span>
         <span class="p2n-cc-t"><span class="p2n-label">Book 2</span><b>Force &amp; Motion</b></span>
