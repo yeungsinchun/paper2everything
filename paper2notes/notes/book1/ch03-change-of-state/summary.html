@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book 1 Ch.3 · Summary</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Change of State</small></a>
+    <nav>
+      <a href="index.html">Map</a><a href="3-1.html">3.1</a><a href="3-2.html">3.2</a><a href="3-3.html">3.3</a><a href="summary.html" aria-current="page">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Book 1 · Chapter 3</p>
+    <h1>Change of State · Summary</h1>
+    <p class="lede">Review what changes in a phase transition, what stays fixed, and how to calculate transferred energy.</p>
+    <section class="idea" id="summary-definitions">
+      <header>
+        <h2><span class="sec-num">A</span>Definitions</h2>
+      </header>
+      <dl class="formula-list">
+        <dt>Evaporation</dt>
+        <dd>Liquid to gas at the surface; can occur below the boiling point.</dd>
+        <dt>Boiling</dt>
+        <dd>Vaporization throughout a liquid at its boiling point.</dd>
+        <dt>Latent heat</dt>
+        <dd>Energy absorbed or released during a change of state.</dd>
+        <dt>Specific latent heat</dt>
+        <dd>Latent heat per unit mass, measured in J kg⁻¹.</dd>
+        <dt>Internal energy</dt>
+        <dd>Total molecular kinetic and potential energy.</dd>
+      </dl>
+    </section>
+    <section class="idea" id="summary-formulae">
+      <header>
+        <h2><span class="sec-num">B</span>Formulae</h2>
+      </header>
+      <div class="eq" id="summary-eq-latent">
+        \[E=m\ell\]
+      </div>
+      <p>Use \(m\) for the mass that changes state. Use \(\ell_f\) for fusion and \(\ell_v\) for vaporization.</p>
+      <div class="eq" id="summary-eq-water">
+        \[\ell_f(\text{ice})=334\,\mathrm{kJ\,kg^{-1}},\qquad \ell_v(\text{water})=2260\,\mathrm{kJ\,kg^{-1}}\]
+      </div>
+      <p>For a process with temperature changes and phase changes, add every \(mc\Delta T\) and \(m\ell\) stage.</p>
+    </section>
+    <section class="idea" id="summary-energy">
+      <header>
+        <h2><span class="sec-num">C</span>Energy and molecular model</h2>
+      </header>
+      <table class="notes" id="summary-energy-table">
+        <thead>
+          <tr>
+            <th>Process</th>
+            <th>Energy transfer</th>
+            <th>Temperature</th>
+            <th>Average molecular PE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Melting, vaporization</th>
+            <td>into substance</td>
+            <td>constant during phase change</td>
+            <td>increases</td>
+          </tr>
+          <tr>
+            <th>Freezing, condensation</th>
+            <td>out of substance</td>
+            <td>constant during phase change</td>
+            <td>decreases</td>
+          </tr>
+          <tr>
+            <th>Heating/cooling within one phase</th>
+            <td>into/out of substance</td>
+            <td>changes</td>
+            <td>approximately unchanged</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Temperature is linked to average molecular kinetic energy. A flat heating or cooling curve does not mean that energy transfer stops.</p>
+    </section>
+    <section class="idea" id="summary-traps">
+      <header>
+        <h2><span class="sec-num">D</span>Common traps</h2>
+      </header>
+      <ul class="points">
+        <li>Visible white mist above hot water is tiny liquid droplets, not invisible water vapour.</li>
+        <li>Evaporation is not restricted to boiling temperature.</li>
+        <li>At a phase-change plateau, energy changes molecular potential energy while average kinetic energy stays constant.</li>
+        <li>Do not use the whole apparatus mass in \(E=m\ell\); use only the mass transformed.</li>
+        <li>Convert masses to kilograms and energy values to matching units before calculating.</li>
+      </ul>
+    </section>
+    <p class="next"><a href="index.html">Back to chapter map ↑</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">
+    deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span>
+  </footer>
+</body>
+</html>
