@@ -1,0 +1,385 @@
+/* Concept checks shared by every Book 6 page (copied from book5/js/checks.js).
+   Markup contract:
+   - .check[data-check="mc"][data-answer="B"] > .choices > button[data-choice] ; .feedback ; .explain[hidden]
+   - .check[data-check="tf"] > .tf-item[data-answer="true|false"] > button[data-tf] ; .feedback ; .explain[hidden]
+   - .check[data-check="sa"] > button[data-reveal] ; .model[hidden]
+   After the student answers, the explanation is shown so every check teaches the reasoning. */
+(function () {
+  "use strict";
+
+  function $(sel, root) {
+    return (root || document).querySelector(sel);
+  }
+
+  function $all(sel, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  }
+
+  function setFeedback(el, ok, text) {
+    if (!el) return;
+    el.textContent = text;
+    el.className = "feedback " + (ok ? "ok" : "no");
+  }
+
+  function reveal(box) {
+    $all(".explain[hidden]", box).forEach(function (ex) {
+      if (ex.closest(".tf-item") && ex.closest(".tf-item") !== box) return;
+      ex.hidden = false;
+    });
+  }
+
+  function initMc() {
+    $all("[data-check='mc']").forEach(function (box) {
+      var answer = box.getAttribute("data-answer");
+      var out = $(".feedback", box);
+      $all("button[data-choice]", box).forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var pick = btn.getAttribute("data-choice");
+          if (pick === answer) {
+            $all("button[data-choice]", box).forEach(function (b) {
+              b.classList.remove("wrong");
+              b.disabled = true;
+            });
+            btn.classList.add("correct");
+            setFeedback(out, true, "Right.");
+          } else {
+            /* wrong answers are a nudge: wobble, dim this option, keep the rest live */
+            btn.classList.remove("wrong");
+            void btn.offsetWidth;
+            btn.classList.add("wrong");
+            btn.disabled = true;
+            setFeedback(out, false, "Not quite. Try another.");
+            return;
+          }
+          var ex = $(":scope > .explain", box);
+          if (ex) ex.hidden = false;
+        });
+      });
+    });
+  }
+
+  function initTf() {
+    $all("[data-check='tf']").forEach(function (box) {
+      $all(".tf-item", box).forEach(function (item) {
+        var answer = item.getAttribute("data-answer") === "true";
+        var out = $(".feedback", item);
+        $all("button[data-tf]", item).forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var pick = btn.getAttribute("data-tf") === "true";
+            if (pick === answer) {
+              $all("button[data-tf]", item).forEach(function (b) {
+                b.disabled = true;
+              });
+              btn.classList.add("correct");
+              setFeedback(out, true, "Right.");
+            } else {
+              btn.classList.add("wrong");
+              btn.disabled = true;
+              setFeedback(out, false, "Not quite. Try the other.");
+              return;
+            }
+            reveal(item);
+          });
+        });
+      });
+    });
+  }
+
+  function initSa() {
+    $all("[data-check='sa']").forEach(function (box) {
+      var btn = $("button[data-reveal]", box);
+      var model = $(".model", box);
+      if (!btn || !model) return;
+      btn.setAttribute("aria-expanded", "false");
+      btn.addEventListener("click", function () {
+        var open = model.hidden;
+        model.hidden = !open;
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.textContent = open ? "Hide answer" : "Show answer";
+      });
+    });
+  }
+
+  function numberChecks() {
+    var n = 0;
+    $all(".check").forEach(function (box) {
+      var h = $("h3", box);
+      if (!h || h.getAttribute("data-numbered")) return;
+      n += 1;
+      var label = box.getAttribute("data-check") === "sa" ? "Write it" : "Quick check";
+      h.textContent = label + " " + n;
+      h.removeAttribute("data-src");
+      h.setAttribute("data-numbered", "true");
+    });
+  }
+
+  /* Book 6 has no classified DSE decks (elective Paper 2 is not in paper2db), so the
+     per-paper objective and key tables that Book 5 carries here are empty. */
+  var PAPER_LOS = {};
+  var QUIZ_KEYS = {};
+
+  function normalizeLo(text) {
+    return (text || "").replace(/extension/gi, " ").replace(/\s+/g, " ").trim();
+  }
+
+  function loNumbersFor(paperId, loTexts) {
+    var stems = PAPER_LOS[paperId] || [];
+    var nums = [];
+    var i, j, lo, stem;
+    for (i = 0; i < loTexts.length; i += 1) {
+      lo = normalizeLo(loTexts[i]);
+      for (j = 0; j < stems.length; j += 1) {
+        stem = normalizeLo(stems[j]);
+        if (stem && (lo.indexOf(stem) !== -1 || stem.indexOf(lo) !== -1)) {
+          nums.push(i + 1);
+          break;
+        }
+      }
+    }
+    if (!nums.length && loTexts.length) nums.push(loTexts.length);
+    return nums;
+  }
+
+  /* Export notes as PDF: the browser's own print of this page (Save as PDF in
+     the dialog). Print styles drop the top bar, page tools and quiz decks, so
+     the PDF is the notes themselves. */
+  function initNotesExport() {
+    $all("[data-notes-export]").forEach(function (btn) {
+      if (btn.getAttribute("data-notes-export-ready")) return;
+      btn.setAttribute("data-notes-export-ready", "true");
+      btn.addEventListener("click", function () { window.print(); });
+    });
+  }
+
+  /* Section quiz: one DSE paper at a time in a single card.
+     Card: LO line (which objective this paper tests, paper id), the scan,
+     A-D tiles for MC, verdict. Prev / Next and "n of N" with dots under it.
+     Papers are ordered by their last-matching LO so the LO line changes as the student moves on. */
+  function initQuizDecks() {
+    $all("[data-quiz]").forEach(function (deck) {
+      if (deck.getAttribute("data-quiz-ready")) return;
+      deck.setAttribute("data-quiz-ready", "true");
+      var slides = $all(".quiz-slide", deck);
+      if (!slides.length) return;
+      var status = $(".quiz-status", deck);
+      var loTexts = $all(".lo-list li").map(function (li) {
+        var p = $("p", li);
+        return ((p ? p.textContent : li.textContent) || "").replace(/\s+/g, " ").trim();
+      }).filter(Boolean);
+      var playlist = slides.map(function (slide) {
+        var nums = loNumbersFor(slide.id, loTexts);
+        return { slide: slide, primary: nums.length ? nums[nums.length - 1] : 0 };
+      }).sort(function (a, b) { return a.primary - b.primary; });
+      var index = 0;
+      var isLq = deck.getAttribute("data-quiz") === "lq";
+      var slidesBox = $(".quiz-slides", deck) || deck;
+
+      slides.forEach(function (slide) {
+        $all(".quiz-lo, .quiz-lq, .quiz-also", slide).forEach(function (el) { el.parentNode.removeChild(el); });
+        if (slide.id.indexOf("dse-lq-") === 0) return;
+        if ($(".quiz-choices", slide)) return;
+        var row = document.createElement("div");
+        row.className = "quiz-choices";
+        row.setAttribute("role", "group");
+        row.setAttribute("aria-label", "Your answer: A, B, C or D");
+        ["A", "B", "C", "D"].forEach(function (letter) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "quiz-letter";
+          b.setAttribute("data-quiz-choice", letter);
+          b.textContent = letter;
+          row.appendChild(b);
+        });
+        slide.appendChild(row);
+        var pct = document.createElement("p");
+        pct.className = "quiz-pct";
+        pct.setAttribute("aria-live", "polite");
+        pct.hidden = true;
+        slide.appendChild(pct);
+      });
+
+      var chapterPdf = deck.getAttribute("data-quiz-pdf");
+      var sectionPdf = deck.getAttribute("data-quiz-section-pdf");
+      if ((chapterPdf || sectionPdf) && !$("[data-quiz-export]", deck)) {
+        var group = document.createElement("div");
+        group.className = "quiz-export-group";
+        group.setAttribute("role", "group");
+        group.setAttribute("aria-label", isLq ? "Export LQ PDF" : "Export MC PDF");
+        if (sectionPdf) {
+          var sec = document.createElement("a");
+          sec.className = "quiz-export";
+          sec.setAttribute("data-quiz-export", isLq ? "lq" : "mc");
+          sec.setAttribute("data-quiz-scope", "section");
+          sec.href = sectionPdf;
+          sec.target = "_blank";
+          sec.rel = "noopener";
+          sec.textContent = "This section";
+          group.appendChild(sec);
+        }
+        if (chapterPdf && sectionPdf) group.appendChild(document.createTextNode(" \u00b7 "));
+        if (chapterPdf) {
+          var chap = document.createElement("a");
+          chap.className = "quiz-export";
+          chap.setAttribute("data-quiz-export", isLq ? "lq" : "mc");
+          chap.setAttribute("data-quiz-scope", "chapter");
+          chap.href = chapterPdf;
+          chap.target = "_blank";
+          chap.rel = "noopener";
+          chap.textContent = "Whole chapter";
+          group.appendChild(chap);
+        }
+        var head = $("header", deck);
+        if (head) head.appendChild(group);
+        else deck.insertBefore(group, deck.firstChild);
+      }
+
+      var loLabel = $(".quiz-lo", deck);
+      if (!loLabel) {
+        loLabel = document.createElement("p");
+        loLabel.className = "quiz-lo";
+        slidesBox.insertBefore(loLabel, slidesBox.firstChild);
+      }
+      var loNum = document.createElement("b");
+      loNum.className = "quiz-lo-num";
+      var loText = document.createElement("span");
+      loText.className = "quiz-lo-text";
+      var paperId = document.createElement("span");
+      paperId.className = "quiz-paper-id";
+      paperId.setAttribute("aria-hidden", "true");
+      loLabel.textContent = "";
+      loLabel.appendChild(loNum);
+      loLabel.appendChild(document.createTextNode(" "));
+      loLabel.appendChild(loText);
+      loLabel.appendChild(paperId);
+
+      var dots = null;
+      if (status && status.parentNode) {
+        var wrap = document.createElement("div");
+        wrap.className = "quiz-progress";
+        status.parentNode.insertBefore(wrap, status);
+        wrap.appendChild(status);
+        dots = document.createElement("div");
+        dots.className = "quiz-dots";
+        dots.setAttribute("aria-hidden", "true");
+        wrap.appendChild(dots);
+      }
+
+      function paintDots(current) {
+        if (!dots) return;
+        dots.textContent = "";
+        dots.hidden = playlist.length < 2;
+        playlist.forEach(function (item) {
+          var dot = document.createElement("span");
+          var result = item.slide.getAttribute("data-quiz-result");
+          dot.className = "quiz-dot" +
+            (item === current ? " is-current" : "") +
+            (result ? " is-" + result : "");
+          dots.appendChild(dot);
+        });
+      }
+
+      function show() {
+        if (!playlist.length) return;
+        if (index < 0) index = playlist.length - 1;
+        if (index >= playlist.length) index = 0;
+        var current = playlist[index];
+        slides.forEach(function (slide) {
+          var on = slide === current.slide;
+          slide.hidden = !on;
+          if (on) slide.classList.add("is-current");
+          else slide.classList.remove("is-current");
+        });
+        var desc = loTexts[current.primary - 1] || "";
+        loNum.textContent = "LO " + current.primary;
+        loText.textContent = desc;
+        var cap = $("figcaption", current.slide);
+        paperId.textContent = cap ? cap.textContent.trim() : "";
+        if (status) status.textContent = (index + 1) + " of " + playlist.length;
+        paintDots(current);
+      }
+
+      function markChoice(letterBtn) {
+        var slide = letterBtn.closest(".quiz-slide");
+        if (!slide || slide.getAttribute("data-quiz-marked")) return;
+        var key = QUIZ_KEYS[slide.id];
+        if (!key || !key.option) {
+          /* No key for this paper, so the pick cannot be graded. Keep the
+             student's letter and say so, rather than leaving a dead tile. */
+          $all("[data-quiz-choice]", slide).forEach(function (b) {
+            b.classList.toggle("is-picked", b === letterBtn);
+          });
+          var un = $(".quiz-pct", slide);
+          if (un) {
+            un.hidden = false;
+            un.className = "quiz-pct is-unkeyed";
+            un.textContent = "Answer key not available for this paper.";
+          }
+          return;
+        }
+        slide.setAttribute("data-quiz-marked", "true");
+        var right = letterBtn.getAttribute("data-quiz-choice") === key.option;
+        slide.setAttribute("data-quiz-result", right ? "right" : "wrong");
+        $all("[data-quiz-choice]", slide).forEach(function (b) {
+          var choice = b.getAttribute("data-quiz-choice");
+          b.disabled = true;
+          b.classList.remove("is-picked", "correct", "wrong");
+          if (choice === key.option) b.classList.add("correct");
+          else if (b === letterBtn) b.classList.add("wrong");
+        });
+        var out = $(".quiz-pct", slide);
+        if (out) {
+          out.hidden = false;
+          out.className = "quiz-pct " + (right ? "is-right" : "is-wrong");
+          out.textContent = "";
+          var verdict = document.createElement("b");
+          verdict.className = "quiz-verdict";
+          verdict.textContent = right ? "Right." : ("Not quite. It is " + key.option + ".");
+          out.appendChild(verdict);
+          if (key.pct != null) {
+            out.appendChild(document.createTextNode(" "));
+            var stat = document.createElement("span");
+            stat.className = "quiz-stat";
+            stat.textContent = key.pct + "% got it";
+            out.appendChild(stat);
+          }
+        }
+        paintDots(playlist[index]);
+      }
+
+      deck.addEventListener("click", function (ev) {
+        var prev = ev.target.closest("[data-quiz-prev]");
+        var next = ev.target.closest("[data-quiz-next]");
+        var letter = ev.target.closest("[data-quiz-choice]");
+        if (prev) {
+          ev.preventDefault();
+          index -= 1;
+          show();
+          return;
+        }
+        if (next) {
+          ev.preventDefault();
+          index += 1;
+          show();
+          return;
+        }
+        if (letter && deck.contains(letter)) markChoice(letter);
+      });
+      show();
+    });
+  }
+
+  function bootChecks() {
+    numberChecks();
+    initMc();
+    initTf();
+    initSa();
+    initQuizDecks();
+    initNotesExport();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootChecks);
+  } else {
+    bootChecks();
+  }
+})();

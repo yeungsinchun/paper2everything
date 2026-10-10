@@ -1,0 +1,11 @@
+/* Book 2 sheet: loaded after ../../css/notes.css (the shared sheet for every book).
+   Sets the book's identity colour; every other rule is shared. */
+
+:root {
+  --tone: var(--book2);
+  --tone-soft: var(--book2-soft);
+}
+
+/* Book 2 HUD coordinates are the label centre (docs/PRD.md section 6.3);
+   the shared sheet anchors labels by their top edge. */
+.stage .hud-label { transform: translate(-50%, -50%); }

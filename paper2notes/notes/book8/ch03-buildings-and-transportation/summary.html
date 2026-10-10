@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book 8 Ch.3 summary: Buildings and Transportation</title>
+  <link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Buildings and transport</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="3-1.html">3.1</a>
+      <a href="3-2.html">3.2</a>
+      <a href="summary.html" aria-current="page">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Chapter 3</p>
+    <h1>Summary: Buildings and Transportation</h1>
+    <p class="lede">Formulas, definitions, the vehicles side by side, and the traps.</p>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#ch3-formulas"><b>1</b>Formulas</a>
+      <a href="#ch3-definitions"><b>2</b>Definitions</a>
+      <a href="#ch3-vehicles"><b>3</b>Vehicles compared</a>
+      <a href="#ch3-traps"><b>4</b>Traps</a>
+    </nav>
+
+    <section class="lo-block" aria-labelledby="lo-heading">
+      <h2 id="lo-heading">Goals</h2>
+      <p class="lo-stem">After this chapter you can:</p>
+      <ul class="lo-list">
+        <li><p>use the law of conduction and U-values to find heat flow through a layer</p></li>
+        <li><p>find the OTTV of a building and explain what raises or lowers it</p></li>
+        <li><p>explain how insulation, double glazing, low-e coatings, shading and orientation cut heat gain</p></li>
+        <li><p>compare the energy conversions in petrol, electric and hybrid vehicles, including regenerative braking</p></li>
+        <li><p>explain why mass transport saves energy, and use \( P = Fv \) for a car</p></li>
+      </ul>
+    </section>
+
+    <section class="idea" id="ch3-formulas" data-chip="Formulas">
+      <header>
+        <h2><span class="sec-num">1</span>Formula sheet</h2>
+      </header>
+      <div class="formula-sheet">
+        <div class="eq" id="ch3-formulas-eq-conduction">\[ \begin{gathered} P = \frac{\kappa A\,\Delta T}{d} = UA\,\Delta T \\ U = \frac{\kappa}{d} \end{gathered} \]</div>
+        <div class="eq" id="ch3-formulas-eq-ottv">\[ \text{OTTV} = \frac{P_1 + P_2 + \cdots}{A_1 + A_2 + \cdots}\ (\text{W m}^{-2}) \]</div>
+        <div class="eq" id="ch3-formulas-eq-car">\[ \begin{gathered} \text{KE} = \tfrac{1}{2}mv^2 \\ P = (f_r + k_a v^2)\,v \end{gathered} \]</div>
+      </div>
+    </section>
+
+    <section class="idea" id="ch3-definitions" data-chip="Definitions">
+      <header>
+        <h2><span class="sec-num">2</span>Definitions</h2>
+      </header>
+      <dl class="defs">
+        <dt>Building envelope</dt><dd>The roofs, walls and windows that separate a building from outside</dd>
+        <dt>Thermal conductivity \( \kappa \)</dt><dd>How well a material conducts heat; W m⁻¹ K⁻¹; set by the material alone</dd>
+        <dt>U-value</dt><dd>\( \kappa/d \) of one layer; W m⁻² K⁻¹; small means good insulation</dd>
+        <dt>OTTV</dt><dd>Average heat gain through the envelope per unit area over a year; W m⁻²</dd>
+        <dt>Regenerative braking</dt><dd>The motor works as a generator while braking and recharges the battery</dd>
+        <dt>Hybrid electric vehicle</dt><dd>A vehicle with an engine and a battery-powered motor, chosen by a computer</dd>
+      </dl>
+    </section>
+
+    <section class="idea" id="ch3-vehicles" data-chip="Vehicles compared">
+      <header>
+        <h2><span class="sec-num">3</span>Vehicles compared</h2>
+      </header>
+      <table class="notes" id="ch3-vehicles-notes-1">
+        <thead><tr><th></th><th>Petrol / diesel</th><th>Electric</th><th>Hybrid</th></tr></thead>
+        <tbody>
+          <tr><th>Energy conversion</th><td>chemical → mechanical (engine)</td><td>chemical → electrical → mechanical (battery, motor)</td><td>both, as the computer chooses</td></tr>
+          <tr><th>Braking</th><td>KE → heat</td><td>KE → electrical → chemical</td><td>KE → electrical → chemical</td></tr>
+          <tr><th>Strength</th><td>Long range, quick refill</td><td>No exhaust where it drives; efficient</td><td>Less fuel; no plug needed</td></tr>
+          <tr><th>Weakness</th><td>Wastes most energy; exhaust</td><td>Short range; slow charging</td><td>Costly; complex</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="idea" id="ch3-traps" data-chip="Traps">
+      <header>
+        <h2><span class="sec-num">4</span>Traps that cost marks</h2>
+      </header>
+      <div class="trap-grid">
+        <div class="trap">
+          <h3>κ or U?</h3>
+          <p>\( \kappa \) is the material's; \( U = \kappa/d \) is the layer's. Only \( U \) changes with thickness.</p>
+        </div>
+        <div class="trap">
+          <h3>U is not P</h3>
+          <p>U does not depend on area or temperature difference; the heat flow \( P = UA\Delta T \) does.</p>
+        </div>
+        <div class="trap">
+          <h3>OTTV is the envelope only</h3>
+          <p>People, lamps and appliances add air-conditioning load but not OTTV. Open-window convection is not counted.</p>
+        </div>
+        <div class="trap">
+          <h3>Batteries store chemical energy</h3>
+          <p>Regenerative braking: KE → electrical → <em>chemical</em>.</p>
+        </div>
+        <div class="trap">
+          <h3>Hybrids still burn fuel</h3>
+          <p>An HEV's energy all comes from fuel; it just wastes less. It is not emission-free.</p>
+        </div>
+        <div class="trap">
+          <h3>Power is not ∝ v³ exactly</h3>
+          <p>Rolling friction stays constant, so \( P = (f_r + k_a v^2)v \) rises a little less steeply than \( v^3 \).</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="next"><a href="../ch04-different-sources-of-energy/index.html">On to Chapter 4: Different sources of energy →</a></p>
+  </main>
+  <script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>

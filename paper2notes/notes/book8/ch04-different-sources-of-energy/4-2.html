@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.2 Energy sources</title>
+  <link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Energy sources</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="4-1.html">4.1</a>
+      <a href="4-2.html" aria-current="page">4.2</a>
+      <a href="4-3.html">4.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 4.2</p>
+    <h1>Energy sources</h1>
+    <p class="lede">Fossil fuels, nuclear, wind, water and sunlight: how each makes electricity, how much, and at what cost.</p>
+    <aside class="quick-digest" id="42-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>\( \Delta E = \Delta m\,c^2 \)</b><span>energy released from the mass lost in fission or fusion; 1 u ≡ 931 MeV</span></p>
+        <p><b>Binding energy \( E_b \)</b><span>work needed to pull a nucleus apart into its nucleons; higher \( E_b/A \) means more stable</span></p>
+        <p><b>\( P = \tfrac12 \eta \rho A v^3 \)</b><span>wind power; \( \eta \) is always below about 0.6</span></p>
+        <p><b>\( P = \eta \dfrac{m}{t} g h \)</b><span>hydroelectric power from water falling through height \( h \)</span></p>
+        <p><b>Solar constant</b><span>about 1360 W m⁻² on a surface facing the Sun at the top of the atmosphere</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#fossil"><b>A</b>Fossil fuels</a>
+      <a href="#binding"><b>B</b>Binding energy</a>
+      <a href="#fission"><b>C</b>Fission</a>
+      <a href="#reactor"><b>D</b>Reactor</a>
+      <a href="#wind"><b>E</b>Wind</a>
+      <a href="#hydro"><b>F</b>Hydroelectric</a>
+      <a href="#solar"><b>G</b>Solar</a>
+    </nav>
+
+    <section class="idea" id="fossil" data-chip="Fossil fuels">
+      <header>
+        <h2><span class="sec-num">A</span>Fossil fuels</h2>
+      </header>
+      <ul class="points">
+        <li><b>Coal, oil and natural gas</b> formed from plants and animals buried for around 100 million years. They are burnt to boil water for power stations and to run vehicles.</li>
+        <li>They still supply most of the world's energy, and world energy use keeps rising.</li>
+        <li>They cannot be replaced on any human timescale, so other sources matter more and more.</li>
+      </ul>
+      <div class="check" id="fossil-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="fossil-tf-renewable" data-answer="false">
+          <p>Natural gas is renewable because new gas is always forming underground.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>It forms over many millions of years, far slower than we burn it, so it counts as non-renewable.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="binding" data-chip="Binding energy">
+      <header>
+        <h2><span class="sec-num">B</span>Binding energy and mass defect</h2>
+      </header>
+      <ul class="points">
+        <li>Protons repel each other, yet a nucleus holds together. A <b>strong, short-range attractive force</b> binds all the nucleons (protons and neutrons).</li>
+        <li>Pulling a nucleus apart into separate nucleons takes work. That work is its <b>binding energy</b> \( E_b \).</li>
+      </ul>
+      <div class="def" id="binding-def-1">
+        <span class="tag">Definition</span>
+        <p>The <b>binding energy</b> \( E_b \) of a nucleus is the energy needed to separate it into its individual protons and neutrons. The <b>average binding energy per nucleon</b> is \( E_b/A \), where \( A \) is the mass number.</p>
+      </div>
+      <figure class="fig" id="binding-fig-1">
+        <div class="visual play stage" id="binding-vis" data-scene="binding-curve">
+          <canvas class="scene-canvas" aria-label="Average binding energy per nucleon against mass number. It rises steeply from hydrogen, peaks at about 8.8 MeV near iron-56, then falls slowly for heavier nuclei such as uranium-235. Light nuclei release energy by fusing; heavy nuclei release energy by splitting."></canvas>
+        </div>
+        <div class="seg" role="group" aria-label="Nucleus to mark on the curve">
+          <button type="button" data-param="nuc" data-value="0" aria-pressed="false">H-2</button>
+          <button type="button" data-param="nuc" data-value="1" aria-pressed="false">He-4</button>
+          <button type="button" data-param="nuc" data-value="2" aria-pressed="true">Fe-56</button>
+          <button type="button" data-param="nuc" data-value="3" aria-pressed="false">U-235</button>
+        </div>
+        <p class="readouts"><span class="readout"><b>Nucleus</b><span data-out="name">iron-56</span></span><span class="readout"><b>\( E_b/A \)</b><span data-out="eb">8.79 MeV</span></span><span class="readout"><b>Releases energy by</b><span data-out="way">neither: most stable</span></span></p>
+        <figcaption><b>Fig. 4.2</b> Both sides climb towards iron: light nuclei by fusion, heavy nuclei by fission.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>The higher \( E_b/A \), the more stable the nucleus. \( E_b/A \) rises from hydrogen to a peak at iron, then falls gently.</li>
+        <li>Energy is released whenever the products sit higher on the curve: <b>fusion</b> of light nuclei, or <b>fission</b> of a heavy nucleus.</li>
+        <li>The products have less mass than the reactants. The lost mass \( \Delta m \) is the <b>mass defect</b>, and it appears as energy.</li>
+      </ul>
+      <div class="eq" id="binding-eq-1">\[ \begin{gathered} \Delta E = \Delta m\,c^2 \\ 1\ \text{u} \equiv 931\ \text{MeV} \\ 1\ \text{eV} = 1.60 \times 10^{-19}\ \text{J} \end{gathered} \]</div>
+      <div class="tip"><span class="tag">Common mistake</span> Less stable does not mean it reacts more easily. Hydrogen nuclei are less stable than uranium, but fusing them needs a huge temperature to push them together.</div>
+      <div class="worked" id="binding-worked-deuteron">
+        <h3>Worked example</h3>
+        <p>A deuteron (hydrogen-2 nucleus) has mass 2.01355 u. A proton has mass 1.00728 u and a neutron 1.00866 u. Find the binding energy of the deuteron in MeV, and its binding energy per nucleon.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Mass of the separate nucleons: \( 1.00728 + 1.00866 = 2.01594\ \text{u} \).</li>
+            <li>Mass defect: \( \Delta m = 2.01594 - 2.01355 = 0.00239\ \text{u} \).</li>
+            <li>\( E_b = 0.00239 \times 931 = 2.23\ \text{MeV} \); with \( A = 2 \), \( E_b/A = 1.11\ \text{MeV} \).</li>
+          </ol>
+          <p class="answer">About 2.2 MeV, or 1.1 MeV per nucleon: the low left end of Fig. 4.2.</p>
+        </details>
+      </div>
+      <div class="check" id="binding-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Which nucleus is the most stable?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">hydrogen-2</button>
+          <button type="button" data-choice="B">helium-4</button>
+          <button type="button" data-choice="C">iron-56</button>
+          <button type="button" data-choice="D">uranium-235</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Iron-56 sits at the peak of the curve: it has the largest binding energy per nucleon. D confuses a large total binding energy with a large value per nucleon.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="fission" data-chip="Fission">
+      <header>
+        <h2><span class="sec-num">C</span>Fission and the chain reaction</h2>
+      </header>
+      <ul class="points">
+        <li>A uranium-235 nucleus captures a <b>slow</b> neutron, becomes unstable and splits into two smaller nuclei. It also releases 2 or 3 <b>fast</b> neutrons and about 200 MeV.</li>
+        <li>Those neutrons can split more U-235 nuclei: a <b>chain reaction</b>.</li>
+        <li>Natural uranium is only about 0.7% U-235, so reactor fuel is <b>enriched</b> to about 3–4% U-235.</li>
+      </ul>
+      <figure class="fig" id="fission-fig-1">
+        <div class="visual play stage" id="chain-vis" data-autoplay data-scene="chain">
+          <canvas class="scene-canvas" aria-label="A neutron hits a uranium-235 nucleus, which splits into two fragments and releases more neutrons. Each new neutron can split another nucleus. Without control the number of fissions grows each step. With control rods, extra neutrons are absorbed and exactly one neutron from each fission goes on, so the rate stays steady."></canvas>
+          <button type="button" class="stage-replay" data-replay="chain-vis">Replay</button>
+        </div>
+        <div class="seg" role="group" aria-label="Control rods">
+          <button type="button" data-param="ctrl" data-value="0" aria-pressed="true">No control rods</button>
+          <button type="button" data-param="ctrl" data-value="1" aria-pressed="false">Control rods in</button>
+        </div>
+        <p class="readouts"><span class="readout"><b>Fissions in the last step</b><span data-out="last">8</span></span></p>
+        <figcaption><b>Fig. 4.3</b> Each fission frees neutrons; control rods soak up the extras.</figcaption>
+      </figure>
+      <div class="worked" id="fission-worked-rate">
+        <h3>Worked example</h3>
+        <p>One possible fission is \( ^{235}_{92}\text{U} + {}^{1}_{0}\text{n} \rightarrow {}^{141}_{56}\text{Ba} + {}^{92}_{36}\text{Kr} + 3\,{}^{1}_{0}\text{n} \). The masses are U-235: 235.0439 u, Ba-141: 140.9144 u, Kr-92: 91.9262 u, neutron: 1.0087 u, with 1 u ≡ 931 MeV and 1 MeV = 1.60 × 10⁻¹³ J. (a) Find the energy released by one fission. (b) A reactor produces heat at 3000 MW. How many fissions happen each second?</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Mass before: \( 235.0439 + 1.0087 = 236.0526\ \text{u} \). Mass after: \( 140.9144 + 91.9262 + 3(1.0087) = 235.8667\ \text{u} \).</li>
+            <li>\( \Delta m = 0.1859\ \text{u} \), so \( \Delta E = 0.1859 \times 931 = 173\ \text{MeV} = 2.77 \times 10^{-11}\ \text{J} \).</li>
+            <li>Fissions per second \( = \dfrac{3000 \times 10^{6}}{2.77 \times 10^{-11}} = 1.08 \times 10^{20} \).</li>
+          </ol>
+          <p class="answer">(a) About 173 MeV per fission. (b) About 1.1 × 10²⁰ fissions each second.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="reactor" data-chip="Reactor">
+      <header>
+        <h2><span class="sec-num">D</span>Inside a nuclear power station</h2>
+      </header>
+      <figure class="fig" id="reactor-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 520 340" role="img" aria-labelledby="reactor-title">
+            <title id="reactor-title">A pressurized water reactor has three separate water loops. Loop 1, pressurized water, carries heat from the fuel rods in the reactor to the boiler. Loop 2 boils into steam in the boiler, turns the turbine and generator, then is condensed back into water. Loop 3 is seawater that cools the condenser and carries the waste heat away. Control rods sit between the fuel rods inside a concrete shield.</title>
+            <text x="94" y="30" text-anchor="middle">concrete shield</text>
+            <rect x="14" y="44" width="160" height="266" rx="14" fill="#ECEAE4" stroke="#17212B" stroke-width="2.5"/>
+            <text x="94" y="68" text-anchor="middle" class="m">control rods</text>
+            <rect x="34" y="104" width="120" height="176" rx="10" fill="#FFFFFF" stroke="#17212B" stroke-width="2"/>
+            <g fill="#E8A317">
+              <rect x="48" y="160" width="14" height="108" rx="3"/>
+              <rect x="87" y="160" width="14" height="108" rx="3"/>
+              <rect x="126" y="160" width="14" height="108" rx="3"/>
+            </g>
+            <g fill="#4A5562">
+              <rect x="68" y="78" width="12" height="130" rx="3"/>
+              <rect x="108" y="78" width="12" height="130" rx="3"/>
+            </g>
+            <text x="94" y="300" text-anchor="middle" class="m">fuel rods</text>
+            <path d="M154 134 H 216" stroke="#D64545" stroke-width="5" fill="none"/>
+            <path d="M216 250 H 154" stroke="#2A62A8" stroke-width="5" fill="none"/>
+            <text x="186" y="124" text-anchor="middle" class="m">1</text>
+            <rect x="216" y="104" width="78" height="176" rx="12" fill="#FFFFFF" stroke="#17212B" stroke-width="2.5"/>
+            <path d="M226 160 q 10 -10 20 0 t 20 0 t 20 0" stroke="#D64545" stroke-width="3" fill="none"/>
+            <text x="255" y="210" text-anchor="middle">boiler</text>
+            <path d="M294 134 H 330" stroke="#F26B3A" stroke-width="5" fill="none"/>
+            <text x="312" y="124" text-anchor="middle" class="m">2</text>
+            <path d="M330 116 L 370 104 L 370 164 L 330 152 Z" fill="#FFFFFF" stroke="#17212B" stroke-width="2.5"/>
+            <text x="350" y="88" text-anchor="middle" class="m">turbine</text>
+            <line x1="370" y1="134" x2="408" y2="134" stroke="#17212B" stroke-width="4"/>
+            <circle cx="440" cy="134" r="30" fill="#E8F4F1" stroke="#1F9585" stroke-width="2.5"/>
+            <text x="440" y="139" text-anchor="middle" class="m">G</text>
+            <text x="440" y="88" text-anchor="middle" class="m">generator</text>
+            <path d="M470 134 H 506" stroke="#1F9585" stroke-width="4"/>
+            <path d="M350 164 V 206" stroke="#F26B3A" stroke-width="5" fill="none"/>
+            <rect x="306" y="206" width="110" height="52" rx="10" fill="#FFFFFF" stroke="#17212B" stroke-width="2.5"/>
+            <text x="361" y="237" text-anchor="middle" class="m">condenser</text>
+            <path d="M306 240 H 294" stroke="#2A62A8" stroke-width="5" fill="none"/>
+            <path d="M336 258 V 300 H 300" stroke="#2A8FA8" stroke-width="4" fill="none"/>
+            <path d="M386 258 V 300 H 420" stroke="#2A8FA8" stroke-width="4" fill="none"/>
+            <text x="361" y="326" text-anchor="middle" class="m">3: seawater in and out</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 4.4</b> Three separate water loops: reactor heat, steam, seawater cooling.</figcaption>
+      </figure>
+      <table class="notes" id="reactor-notes-parts">
+        <thead><tr><th>Part</th><th>Job</th></tr></thead>
+        <tbody>
+          <tr><th>Fuel rods</th><td>Hold the enriched uranium (as uranium dioxide) where fission happens.</td></tr>
+          <tr><th>Control rods</th><td>Absorb spare neutrons. Pushing them deeper slows the chain reaction, so they set the power output.</td></tr>
+          <tr><th>Moderator</th><td>Slows fast neutrons so that U-235 can capture them. Without it the chain reaction dies out.</td></tr>
+          <tr><th>Pressurized water (loop 1)</th><td>Acts as the moderator and carries heat from the fuel rods to the boiler. It stays liquid at about 300 °C and is radioactive.</td></tr>
+          <tr><th>Boiler, turbine, generator (loop 2)</th><td>Steam turns the turbine, which drives the generator. A condenser turns the steam back into water.</td></tr>
+          <tr><th>Seawater (loop 3)</th><td>Cools the condenser and carries the waste heat away. It never touches the fuel.</td></tr>
+        </tbody>
+      </table>
+      <div class="tip"><span class="tag">Common mistake</span> A moderator speeds up the chain reaction by slowing neutrons down. A control rod slows the chain reaction by absorbing neutrons. Do not swap them.</div>
+      <ul class="points">
+        <li><b>Safety</b>: the reactor can be shut down in more than one way (drop all control rods, or inject a neutron absorber). Independent sensors monitor it. A thick reinforced building isolates it. Radiation outside is monitored.</li>
+        <li><b>Waste</b>: spent fuel stays on site until its activity falls, then is sealed and buried deep underground.</li>
+        <li><b>Fusion</b> reactors are still experimental: so far they need about as much energy in as they give out.</li>
+      </ul>
+      <table class="notes" id="reactor-notes-proscons">
+        <thead><tr><th>Advantages</th><th>Drawbacks</th></tr></thead>
+        <tbody>
+          <tr><td>No carbon dioxide or smoke while running; small volume of waste</td><td>Waste is radioactive with long half-lives, so disposal is costly</td></tr>
+          <tr><td>Huge energy from a small mass of fuel</td><td>Closing down a plant is slow and expensive</td></tr>
+          <tr><td>Output is steady, controllable and weather-independent</td><td>An accident can spread radiation over a wide area</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="reactor-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="reactor-tf-moderator" data-answer="false">
+          <p>The moderator is used to stop the chain reaction.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The moderator keeps the chain reaction going by slowing neutrons. Control rods are what slow or stop it.</p></div>
+        </div>
+        <div class="tf-item" id="reactor-tf-rods" data-answer="true">
+          <p>Control rods must be made of a material that absorbs neutrons without splitting.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>If a control rod split when hit, it would release more neutrons and feed the chain reaction instead of slowing it.</p></div>
+        </div>
+        <div class="tf-item" id="reactor-tf-fusion" data-answer="false">
+          <p>Energy is released in fission but must be supplied in fusion.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Both release energy, because both move nuclei up the binding energy curve. Fusion needs a high temperature to start, but it gives out far more than that.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="wind" data-chip="Wind">
+      <header>
+        <h2><span class="sec-num">E</span>Wind power</h2>
+      </header>
+      <ul class="points">
+        <li>The Sun heats the Earth unevenly, which sets up pressure differences that drive the wind. Wind power is solar energy at second hand.</li>
+        <li>Wind turns the blades and rotor; a gearbox raises the speed for the generator.</li>
+      </ul>
+      <figure class="fig" id="wind-fig-1">
+        <div class="visual play stage" id="wind-vis" data-autoplay data-scene="wind">
+          <canvas class="scene-canvas" aria-label="Air moving at speed v passes through the circle swept by the blades, of area A equals pi r squared. The mass of air arriving each second is rho A v, and its kinetic energy per second is half rho A v cubed. The turbine captures only a fraction eta of it."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Wind speed v<input type="range" min="2" max="16" step="1" value="8" data-param="v" aria-label="Wind speed in metres per second"><output data-out="v">8 m/s</output></label>
+          <label class="ctl">Blade length r<input type="range" min="5" max="60" step="5" value="30" data-param="r" aria-label="Blade length in metres"><output data-out="r">30 m</output></label>
+          <label class="ctl">Efficiency η<input type="range" min="0.1" max="0.55" step="0.05" value="0.4" data-param="eta" aria-label="Efficiency"><output data-out="eta">0.40</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Swept area A</b><span data-out="A">2830 m²</span></span><span class="readout"><b>Power in the wind</b><span data-out="Pmax">869 kW</span></span><span class="readout"><b>Electrical output</b><span data-out="P">347 kW</span></span></p>
+        <figcaption><b>Fig. 4.5</b> Double the wind speed and the power rises eight times.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>In time \( t \), a cylinder of air of volume \( Avt \) reaches the blades. Its mass is \( m = \rho A v t \), so the mass per second is \( \rho A v \).</li>
+        <li>Its kinetic energy per second is \( \tfrac12 (\rho A v) v^2 \). That is the most power the wind could give.</li>
+      </ul>
+      <div class="eq" id="wind-eq-1">\[ \begin{gathered} P_\text{max} = \tfrac12 \rho A v^3 \\ P = \eta P_\text{max} = \tfrac12 \eta \rho A v^3 \\ A = \pi r^2 \end{gathered} \]</div>
+      <ul class="points">
+        <li>The air must keep moving after the blades, so \( \eta \) can never pass about 0.6. Friction and electrical resistance lower it further; good turbines reach about 0.45–0.5.</li>
+        <li>\( P \propto v^3 \) and \( P \propto r^2 \): a windy site and long blades matter most.</li>
+      </ul>
+      <div class="tip"><span class="tag">Common mistake</span> \( A \) is the area of the circle swept by the blades, with the blade length as the radius. It is not the area of the blades themselves.</div>
+      <div class="worked" id="wind-worked-turbine">
+        <h3>Worked example</h3>
+        <p>A turbine has blades 30 m long. Wind of speed 8 m s⁻¹ blows straight at them. Air has density 1.2 kg m⁻³ and the turbine efficiency is 0.40. Find the electrical power output.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>\( A = \pi r^2 = \pi (30)^2 = 2830\ \text{m}^2 \).</li>
+            <li>\( P_\text{max} = \tfrac12 (1.2)(2830)(8)^3 = 8.69 \times 10^{5}\ \text{W} \).</li>
+            <li>\( P = 0.40 \times 8.69 \times 10^{5} = 3.47 \times 10^{5}\ \text{W} \).</li>
+          </ol>
+          <p class="answer">About 350 kW.</p>
+        </details>
+      </div>
+      <table class="notes" id="wind-notes-proscons">
+        <thead><tr><th>Advantages</th><th>Drawbacks</th></tr></thead>
+        <tbody>
+          <tr><td>No harmful by-products while running</td><td>A wind farm needs a lot of land or sea</td></tr>
+          <tr><td>One of the cheapest renewable technologies</td><td>Output depends on the weather and the site</td></tr>
+          <tr><td></td><td>Can harm birds and bats; noise disturbs nearby life</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="wind-check-1" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>The wind speed at a turbine rises from 5 m s⁻¹ to 10 m s⁻¹. The efficiency stays the same. Its power output becomes</p>
+        <div class="choices">
+          <button type="button" data-choice="A">2 times as large</button>
+          <button type="button" data-choice="B">4 times as large</button>
+          <button type="button" data-choice="C">6 times as large</button>
+          <button type="button" data-choice="D">8 times as large</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( P \propto v^3 \), and \( 2^3 = 8 \). B forgets that the mass of air per second also doubles.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="hydro" data-chip="Hydroelectric">
+      <header>
+        <h2><span class="sec-num">F</span>Hydroelectric power</h2>
+      </header>
+      <ul class="points">
+        <li>A dam holds a reservoir high up. Water falls through pipes to turbines below, so its gravitational PE becomes KE and then electrical energy.</li>
+        <li>The Sun evaporates the water that falls as rain on high ground, so this is also indirect solar energy.</li>
+      </ul>
+      <figure class="fig" id="hydro-fig-1">
+        <div class="visual play stage" id="hydro-vis" data-autoplay data-scene="hydro">
+          <canvas class="scene-canvas" aria-label="Water from a high reservoir behind a dam falls through a pipe to a turbine and generator at the bottom. The height difference between the water levels is h. The power output is the efficiency times the mass of water per second times g times h."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Flow rate<input type="range" min="50" max="300" step="25" value="150" data-param="q" aria-label="Flow rate in cubic metres per second"><output data-out="q">150 m³/s</output></label>
+          <label class="ctl">Height h<input type="range" min="20" max="300" step="10" value="80" data-param="h" aria-label="Height difference in metres"><output data-out="h">80 m</output></label>
+          <label class="ctl">Efficiency η<input type="range" min="0.4" max="0.9" step="0.05" value="0.8" data-param="eta" aria-label="Efficiency"><output data-out="eta">0.80</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Mass per second</b><span data-out="m">1.5 × 10⁵ kg</span></span><span class="readout"><b>PE lost per second</b><span data-out="pe">118 MW</span></span><span class="readout"><b>Electrical output</b><span data-out="P">94 MW</span></span></p>
+        <figcaption><b>Fig. 4.6</b> More water, a greater drop or a better turbine: more power.</figcaption>
+      </figure>
+      <div class="eq" id="hydro-eq-1">\[ \begin{gathered} P = \eta \times \frac{m}{t}\,g h \\ \frac{m}{t} = \rho \times (\text{volume flow rate}) \end{gathered} \]</div>
+      <ul class="points">
+        <li>Use the difference between the water levels on the two sides of the dam as \( h \).</li>
+      </ul>
+      <div class="worked" id="hydro-worked-dam">
+        <h3>Worked example</h3>
+        <p>A hydroelectric plant receives 150 m³ of water each second. The reservoir surface is 80 m above the turbine, and the generator system converts 80% of the falling water's lost gravitational energy. Use water density 1000 kg m⁻³ and g = 9.81 m s⁻² to calculate its electrical power.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Mass per second: \( 150 \times 1000 = 1.5 \times 10^{5}\ \text{kg s}^{-1} \).</li>
+            <li>PE lost per second: \( (1.5 \times 10^{5})(9.81)(80) = 1.18 \times 10^{8}\ \text{W} \).</li>
+            <li>Output: \( 0.80 \times 1.18 \times 10^{8} = 9.4 \times 10^{7}\ \text{W} \).</li>
+          </ol>
+          <p class="answer">About 94 MW. Do not forget the efficiency.</p>
+        </details>
+      </div>
+      <table class="notes" id="hydro-notes-proscons">
+        <thead><tr><th>Advantages</th><th>Drawbacks</th></tr></thead>
+        <tbody>
+          <tr><td>No harmful by-products while running</td><td>Changes river flow and harms fish and other river life</td></tr>
+          <tr><td>Cheap to run (though the dam is costly to build)</td><td>Flooding the reservoir drowns forests, farmland and habitats; a dam failure is a disaster</td></tr>
+          <tr><td>Reliable, steady output</td><td>A drought cuts the output</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="hydro-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Which describes the overall energy change in a hydroelectric power station?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">gravitational PE → internal energy</button>
+          <button type="button" data-choice="B">gravitational PE → electrical energy</button>
+          <button type="button" data-choice="C">kinetic energy → internal energy</button>
+          <button type="button" data-choice="D">kinetic energy → electrical energy</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>The water starts high and still and ends low; KE is only an in-between stage. D names that middle step, not the overall change.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="solar" data-chip="Solar">
+      <header>
+        <h2><span class="sec-num">G</span>Solar power</h2>
+      </header>
+      <div class="def" id="solar-def-1">
+        <span class="tag">Definition</span>
+        <p>At the top of Earth's atmosphere, a surface held perpendicular to sunlight receives about 1360 W m⁻². This near-constant irradiance is called the <b>solar constant</b>; it changes a little during the year.</p>
+      </div>
+      <ul class="points">
+        <li>Clouds and the atmosphere reflect or absorb a lot, so roughly half reaches the ground directly.</li>
+        <li>A surface tilted away from the rays catches less: multiply by \( \cos\theta \), where \( \theta \) is the angle of incidence (Lambert's cosine law, Section 1.3).</li>
+      </ul>
+      <figure class="fig" id="solar-fig-1">
+        <div class="visual play stage" id="panel-vis" data-scene="panel">
+          <canvas class="scene-canvas" aria-label="Parallel sunlight falls on a solar panel. As the angle of incidence between the rays and the normal to the panel grows, the rays spread over the panel and the power it receives falls with the cosine of the angle."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Angle of incidence θ<input type="range" min="0" max="80" step="5" value="30" data-param="th" aria-label="Angle of incidence in degrees"><output data-out="th">30°</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>cos θ</b><span data-out="cos">0.866</span></span><span class="readout"><b>Power reaching the panel</b><span data-out="Pin">1250 W</span></span><span class="readout"><b>Electrical output (18%)</b><span data-out="P">224 W</span></span></p>
+        <figcaption><b>Fig. 4.7</b> A 1.6 m² panel in 900 W m⁻² sunlight. Tilting it away spreads the light thinner.</figcaption>
+      </figure>
+      <div class="eq" id="solar-eq-1">\[ P_\text{out} = \eta \times I A \cos\theta \]</div>
+      <ul class="points">
+        <li><b>Solar heating</b>: a solar water heater has blackened tubes inside clear glass. They absorb the radiation, and hot water rises out by convection. It is simple, cheap and over 60% efficient.</li>
+        <li><b>Solar thermal electricity</b>: curved mirrors focus sunlight on a pipe of oil. The hot oil boils water to drive a turbine, converting about 40–60% of the sunlight.</li>
+      </ul>
+      <figure class="fig" id="solar-fig-pv">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 280" role="img" aria-labelledby="pv-title">
+            <title id="pv-title">A photovoltaic cell is an n-type layer on top of a p-type layer. An electric field at the junction points from the n side to the p side. Light frees an electron, leaving a hole. The field pushes the electron to the n side and the hole to the p side. Through an external resistor, electrons flow from the n side round to the p side, so the conventional current leaves the p side.</title>
+            <rect x="80" y="70" width="240" height="60" fill="#E6EEF8" stroke="#17212B" stroke-width="2"/>
+            <rect x="80" y="130" width="240" height="70" fill="#FBE8EC" stroke="#17212B" stroke-width="2"/>
+            <text x="300" y="104" text-anchor="end">n-type</text>
+            <text x="300" y="170" text-anchor="end">p-type</text>
+            <path d="M120 22 L 150 66" stroke="#E8A317" stroke-width="3"/>
+            <path d="M142 58 l10 12 l2 -16 z" fill="#E8A317"/>
+            <text x="112" y="18" text-anchor="middle" class="m">light</text>
+            <circle cx="170" cy="134" r="7" fill="#2A62A8"/>
+            <path d="M170 124 V 92" stroke="#2A62A8" stroke-width="2.5"/>
+            <path d="M164 96 l6 -10 l6 10 z" fill="#2A62A8"/>
+            <circle cx="210" cy="140" r="7" fill="#FFFFFF" stroke="#C0392B" stroke-width="2.5"/>
+            <path d="M210 150 V 180" stroke="#C0392B" stroke-width="2.5"/>
+            <path d="M204 176 l6 10 l6 -10 z" fill="#C0392B"/>
+            <text x="150" y="88" text-anchor="end" class="m">electron</text>
+            <text x="222" y="186" text-anchor="start" class="m">hole</text>
+            <path d="M262 100 V 160" stroke="#1F9585" stroke-width="2.5"/>
+            <path d="M256 156 l6 10 l6 -10 z" fill="#1F9585"/>
+            <text x="270" y="152" text-anchor="start" class="m">E</text>
+            <path d="M320 80 H 420 V 120" stroke="#17212B" stroke-width="2.5" fill="none"/>
+            <rect x="406" y="120" width="28" height="50" fill="#FFFFFF" stroke="#17212B" stroke-width="2.5"/>
+            <path d="M420 170 V 240 H 200 V 200" stroke="#17212B" stroke-width="2.5" fill="none"/>
+            <path d="M380 74 l14 6 l-14 6 z" fill="#2A62A8"/>
+            <text x="370" y="64" text-anchor="middle" class="m">electrons</text>
+            <path d="M340 246 l-14 -6 l14 -6 z" fill="#17212B"/>
+            <text x="350" y="264" text-anchor="middle" class="m">electrons return</text>
+            <text x="450" y="150" text-anchor="start" class="m">R</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 4.8</b> The junction field drives freed electrons one way and holes the other: a dc source.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>A <b>photovoltaic (solar) cell</b> is an n-type layer on a p-type layer, like an LED working backwards. The junction has an electric field from the n side to the p side.</li>
+        <li>Light gives an electron enough energy to leave its atom, leaving a <b>hole</b>. The field drives the electron to the n side and the hole to the p side.</li>
+        <li>In an external circuit, electrons flow from the n side round to the p side and fill the holes. The cell gives <b>direct current</b>; an anti-reflection coating on the glass lets more light in.</li>
+      </ul>
+      <div class="worked" id="solar-worked-panel">
+        <h3>Worked example</h3>
+        <p>A 1.6 m² solar panel has efficiency 18%. Sunlight of intensity 900 W m⁻² meets it at an angle of incidence of 35°. (a) Find its power output. (b) It works like this for 5 hours a day for 30 days. How much does it save if electricity costs $1.20 per kW h?</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>\( P = 0.18 \times 900 \times 1.6 \times \cos 35^\circ = 212\ \text{W} \).</li>
+            <li>Energy \( = 0.212\ \text{kW} \times 5 \times 30 = 31.8\ \text{kW h} \).</li>
+            <li>Saving \( = 31.8 \times 1.20 = \$38.2 \).</li>
+          </ol>
+          <p class="answer">(a) About 210 W. (b) About $38.</p>
+        </details>
+      </div>
+      <table class="notes" id="solar-notes-proscons">
+        <thead><tr><th>Advantages</th><th>Drawbacks</th></tr></thead>
+        <tbody>
+          <tr><td>No harmful by-products while running</td><td>Depends on the weather and the time of day</td></tr>
+          <tr><td>Sunlight is abundant: huge potential</td><td>Panels or mirrors need a large area</td></tr>
+          <tr><td>Solar cells are silent and need little maintenance</td><td>Cells are costly, fairly inefficient, and making them can pollute</td></tr>
+          <tr><td></td><td>Cells give dc, which must be converted to ac for the grid</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="solar-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="solar-tf-constant" data-answer="false">
+          <p>The solar constant is the solar power per unit area received at the Earth's surface.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>It is measured at the top of the atmosphere, on a surface facing the Sun. Much less reaches the ground.</p></div>
+        </div>
+        <div class="tf-item" id="solar-tf-only" data-answer="false">
+          <p>Photovoltaic cells are the only way to generate electricity from sunlight.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Solar thermal power stations focus sunlight to boil water and drive turbines.</p></div>
+        </div>
+      </div>
+      <div class="check" id="solar-check-2" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A panel gives power \( P_0 \) when light falls along its normal. The same light now meets it at an angle of incidence of 60°. The output becomes</p>
+        <div class="choices">
+          <button type="button" data-choice="A">\( 0.87P_0 \)</button>
+          <button type="button" data-choice="B">\( 0.67P_0 \)</button>
+          <button type="button" data-choice="C">\( 0.50P_0 \)</button>
+          <button type="button" data-choice="D">\( 0.33P_0 \)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( \cos 60^\circ = 0.5 \). A uses \( \sin 60^\circ \), which treats 60° as the angle to the panel surface.</p></div>
+      </div>
+    </section>
+
+    <p class="next"><a href="4-3.html">Next: 4.3 Energy, society and environment →</a></p>
+  </main>
+  <script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>
