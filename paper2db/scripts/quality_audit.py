@@ -13,8 +13,13 @@ Not counted as failures (documented separately):
   missing_answer_png - LQ answer crop absent (often no ans PDF for that year)
   very_tall_lq       - LQ whole-page stacks are often tall (not a failure)
 
+A paper with no crops and no classification rows is not audited: it has no
+questions to divide failures by, so its rate is null (never a number invented
+from a denominator of one) and `summary.built` says which papers were audited.
+
 Exit code 0 always when writing a report; use --strict to exit 1 if the
-manual-tuning rate exceeds --max-rate (default 0.05).
+manual-tuning rate exceeds --max-rate (default 0.05), or if nothing was built
+to audit.
 """
 from __future__ import annotations
 
@@ -275,6 +280,22 @@ def override_stats() -> dict:
     return {"total_questions": total, "by_year": by_year, "items": items}
 
 
+def rate(failure_count: int, denominator: int) -> float | None:
+    """Failures per question, or None when nothing was audited for that paper."""
+    if denominator <= 0:
+        return None
+    return round(failure_count / denominator, 4)
+
+
+def format_rate(value: float | None) -> str:
+    return "not measured" if value is None else f"({100 * value:.2f}%)"
+
+
+def print_rate(label: str, row: dict) -> None:
+    audited = f"{row['failure_count']}/{row['questions']} {format_rate(row['manual_tuning_rate'])}"
+    print(f"{label:<3} failures={audited if row['questions'] else 'not audited (not built)'}")
+
+
 def summarize(
     mc_crops: dict,
     lq_crops: dict,
@@ -282,6 +303,8 @@ def summarize(
     lq_class: dict,
     overrides: dict,
 ) -> dict:
+    mc_audited = bool(mc_class["row_count"] or mc_crops["crop_count"])
+    lq_audited = bool(lq_class["row_count"] or lq_crops["crop_count"])
     mc_failure_events = (
         list(mc_crops["failures"])
         + [{"kind": "uncertain", **item} for item in mc_class["uncertain"]]
@@ -303,16 +326,24 @@ def summarize(
             for item in lq_class["missing_classified"]
         ]
     )
+    # An unaudited paper has no denominator, so its failure events (override
+    # tuning above all) would inflate a rate that cannot be computed.
+    if not mc_audited:
+        mc_failure_events = []
+    if not lq_audited:
+        lq_failure_events = []
 
-    mc_denom = max(mc_class["row_count"], mc_crops["crop_count"], 1)
-    lq_denom = max(lq_class["row_count"], lq_crops["crop_count"], 1)
-    mc_rate = len(mc_failure_events) / mc_denom
-    lq_rate = len(lq_failure_events) / lq_denom
+    mc_denom = max(mc_class["row_count"], mc_crops["crop_count"]) if mc_audited else 0
+    lq_denom = max(lq_class["row_count"], lq_crops["crop_count"]) if lq_audited else 0
+    mc_rate = rate(len(mc_failure_events), mc_denom)
+    lq_rate = rate(len(lq_failure_events), lq_denom)
     combined_fail = len(mc_failure_events) + len(lq_failure_events)
     combined_denom = mc_denom + lq_denom
-    combined_rate = combined_fail / combined_denom
+    combined_rate = rate(combined_fail, combined_denom)
+    audited_rates = [value for value in (mc_rate, lq_rate, combined_rate) if value is not None]
 
     return {
+        "built": {"mc": mc_audited, "lq": lq_audited, "any": mc_audited or lq_audited},
         "failure_definitions": {
             "counted": [
                 "missing_crop",
@@ -331,14 +362,14 @@ def summarize(
         "mc": {
             "questions": mc_denom,
             "failure_count": len(mc_failure_events),
-            "manual_tuning_rate": round(mc_rate, 4),
+            "manual_tuning_rate": mc_rate,
             "failures": mc_failure_events,
             "book_order_inversions": mc_class["book_order_inversions"],
         },
         "lq": {
             "questions": lq_denom,
             "failure_count": len(lq_failure_events),
-            "manual_tuning_rate": round(lq_rate, 4),
+            "manual_tuning_rate": lq_rate,
             "failures": lq_failure_events,
             "missing_answer_png_count": len(lq_class["missing_answer_png"]),
             "missing_answer_by_year": dict(
@@ -348,13 +379,15 @@ def summarize(
         "combined": {
             "questions": combined_denom,
             "failure_count": combined_fail,
-            "manual_tuning_rate": round(combined_rate, 4),
+            "manual_tuning_rate": combined_rate,
         },
         "overrides_historical": {
             "total_questions": overrides["total_questions"],
             "by_year": overrides["by_year"],
         },
-        "passes_5pct_bar": combined_rate <= 0.05 and mc_rate <= 0.05 and lq_rate <= 0.05,
+        "passes_5pct_bar": None
+        if not audited_rates
+        else all(value <= 0.05 for value in audited_rates),
     }
 
 
@@ -430,20 +463,12 @@ def main() -> None:
     except ValueError:
         displayed = output_path
     print(f"Wrote {displayed}")
-    print(
-        f"MC  failures={summary['mc']['failure_count']}/"
-        f"{summary['mc']['questions']} "
-        f"({100 * summary['mc']['manual_tuning_rate']:.2f}%)"
-    )
-    print(
-        f"LQ  failures={summary['lq']['failure_count']}/"
-        f"{summary['lq']['questions']} "
-        f"({100 * summary['lq']['manual_tuning_rate']:.2f}%)"
-    )
+    for label, key in (("MC", "mc"), ("LQ", "lq")):
+        print_rate(label, summary[key])
     print(
         f"All failures={summary['combined']['failure_count']}/"
         f"{summary['combined']['questions']} "
-        f"({100 * summary['combined']['manual_tuning_rate']:.2f}%)"
+        f"{format_rate(summary['combined']['manual_tuning_rate'])}"
     )
     print(
         f"LQ missing answer crops (not counted): "
@@ -453,14 +478,21 @@ def main() -> None:
         f"Override-tuned qs (counted toward budget): "
         f"{summary['overrides_historical']['total_questions']}"
     )
-    print(f"Passes <=5% bar: {summary['passes_5pct_bar']}")
+    if not summary["built"]["any"]:
+        print("Not built: no crops and no classification rows to audit. Run ./pipeline --force --yes.")
+        print("Passes <=5% bar: not measured")
+    else:
+        print(f"Passes <=5% bar: {summary['passes_5pct_bar']}")
     if args.strict:
+        if not summary["built"]["any"]:
+            print("Nothing audited, so the manual-tuning budget cannot be verified.", file=sys.stderr)
+            raise SystemExit(1)
         rates = [
             summary["mc"]["manual_tuning_rate"],
             summary["lq"]["manual_tuning_rate"],
             summary["combined"]["manual_tuning_rate"],
         ]
-        if any(rate > args.max_rate for rate in rates):
+        if any(value > args.max_rate for value in rates if value is not None):
             raise SystemExit(1)
 
 

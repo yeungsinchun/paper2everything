@@ -1,17 +1,20 @@
-# Standalone paper2db unit tests for the dse-items stage and the answer-pointer
-# join it consumes. These modules build their own temp-tree fixtures, so no
-# PDFs, crops or other generated data are required.
+# Standalone paper2db unit tests for the dse-items stage, the answer-pointer
+# join it consumes, and the tracked question-bank data the harness resolves
+# against. These modules build their own temp-tree fixtures or read tracked
+# files, so no PDFs, crops or other generated data are required.
 name: ci-paper2db
 
 on:
   pull_request:
     paths:
       - "paper2db/**"
+      - "paper2notes/notes/qb/**"
       - ".github/workflows/ci-paper2db.yml"
   push:
     branches: [main]
     paths:
       - "paper2db/**"
+      - "paper2notes/notes/qb/**"
       - ".github/workflows/ci-paper2db.yml"
 
 jobs:
@@ -26,4 +29,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: python3 -m pip install "Pillow>=10,<12"
-      - run: python3 -m unittest tests.test_dse_items tests.test_pointers
+      - run: python3 -m unittest tests.test_dse_items tests.test_pointers tests.test_qb_harness

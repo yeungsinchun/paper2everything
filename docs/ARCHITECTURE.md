@@ -248,14 +248,15 @@ no path filter.
 |---|---|---|
 | [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Anchor, quiz-key, DSE availability and crop-publication checks; the quiz audit also checks keys against the DSE MC answer store. See [the static check](../paper2notes/scripts/ci-check.mjs), [the quiz audit](../paper2notes/scripts/quiz-audit.mjs), [the store audit](../paper2notes/scripts/quiz-store-audit.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
 | `.github/workflows/ci-pointers.yml` | PR / push to main touching `paper2db/metadata/pointers/**`, `paper2db/schemas/answer-pointer.v1.json`, `paper2db/scripts/pointers.py`, `paper2db/tests/test_pointers.py`, `paper2db/qb-web-ui-staging/**`, `paper2db/metadata/qb/banks.json`, itself | `python3 scripts/pointers.py check`, then `coverage` and `python3 -m unittest tests.test_pointers`: answer-pointer store and resolver (`paper2db/README.md` answer pointers) |
-| `.github/workflows/ci-paper2db.yml` | PR / push to main touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items record join and answer-pointer tests |
+| `.github/workflows/ci-paper2db.yml` | PR / push to main touching `paper2db/**`, `paper2notes/notes/qb/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers tests.test_qb_harness`: dse-items record join, answer-pointer tests, and the tracked question-bank data checks (staging index vs bank census, pointer resolution, shipped QB page records and crops) |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
 | `.github/workflows/deploy-notes.yml` | push to main touching notes / deploy / `.dockerignore` | `google-github-actions/auth` via WIF (`GCP_WORKLOAD_IDENTITY_PROVIDER` / `GCP_DEPLOYER_SERVICE_ACCOUNT`) then `paper2notes/deploy/cloudrun/deploy.sh` → `asia-east2/paper2notes` (`paper2notes-site`) |
 
 Not run in CI: the paper2db pipeline itself and most of its `unittest`
-suite (only `test_dse_items` and `test_pointers` run, in `ci-paper2db` and
-`ci-pointers`), the Book 5 Puppeteer interactive tests (`notes.interactives.test.mjs`,
-hardcoded macOS Chrome path), and `sync-dse.sh`. The nested
+suite (only `test_dse_items`, `test_pointers` and `test_qb_harness` run, in
+`ci-paper2db` and `ci-pointers`), the Book 5 Puppeteer interactive tests
+(`notes.interactives.test.mjs`, hardcoded macOS Chrome path), and
+`sync-dse.sh`. The nested
 `paper2notes/.github/workflows/{ci,deploy}.yml` and
 `paper2mock/.github/workflows/compile-mocks.yml` are copies GitHub never runs.
 
