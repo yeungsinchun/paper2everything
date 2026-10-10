@@ -24,10 +24,10 @@
     <section class="idea" id="formula-sheet">
       <h2>Formula sheet</h2>
       <div class="formula-sheet">
-      <p class="eq">Series: \(R = R_1+R_2+\cdots,\ V = V_1+V_2,\ I\) same</p>
-      <p class="eq">Parallel: \(\dfrac{1}{R}=\dfrac{1}{R_1}+\dfrac{1}{R_2}+\cdots,\ I = I_1+I_2,\ V\) same</p>
-      <p class="eq">\(V = \varepsilon - I r\) — terminal vs e.m.f.</p>
-      <p class="eq">Ammeter \(\approx 0\ \Omega\) series; voltmeter \(\gg R\) parallel</p>
+      <p class="eq" id="series-combination-eq">Series: \(R = R_1+R_2+\cdots,\ V = V_1+V_2,\ I\) same</p>
+      <p class="eq" id="parallel-combination-eq">Parallel: \(\dfrac{1}{R}=\dfrac{1}{R_1}+\dfrac{1}{R_2}+\cdots,\ I = I_1+I_2,\ V\) same</p>
+      <p class="eq" id="terminal-voltage-eq">\(V = \varepsilon - I r\) — terminal vs e.m.f.</p>
+      <p class="eq" id="meter-connection-eq">Ammeter \(\approx 0\ \Omega\) series; voltmeter \(\gg R\) parallel</p>
       </div>
     </section>
 
@@ -47,12 +47,12 @@
 
     <section class="idea" id="visual-comparison">
       <h2>Visual comparison</h2>
-      <figure class="fig">
+      <figure class="fig" id="visual-comparison-fig-1">
         <div class="visual play stage" data-scene="summary-ch03-series-parallel-and-internal-resistance" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Summary visual for Series, Parallel and Internal Resistance"></canvas>
         </div>
       </figure>
-      <table class="notes">
+      <table class="notes" id="visual-comparison-notes-1">
         <thead><tr><th>Quantity</th><th>Expression</th><th>When it applies</th></tr></thead>
         <tbody>
           <tr><th>Definition</th><td>See formula sheet above</td><td>Always: definitions are not the special case.</td></tr>
@@ -61,7 +61,7 @@
       </table>
     </section>
 
-    <div class="check" data-check="mc" data-answer="B">
+    <div class="check" id="recap-definition-vs-law-check" data-check="mc" data-answer="B">
       <h3>Quick check</h3>
       <p>Which statement best fits this chapter's theme?</p>
       <div class="choices">

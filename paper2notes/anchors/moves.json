@@ -1,0 +1,14 @@
+{
+  "moves": [
+    {
+      "page": "book4/ch01-electrostatics/20-1.html",
+      "from": "dse-lq-20-sample",
+      "to": "dse-lq-2013-11"
+    },
+    {
+      "page": "book4/ch01-electrostatics/20-2.html",
+      "from": "dse-lq-20-sample",
+      "to": "dse-lq-2013-11"
+    }
+  ]
+}

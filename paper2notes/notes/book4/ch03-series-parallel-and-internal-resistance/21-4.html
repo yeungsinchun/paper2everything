@@ -25,25 +25,25 @@
       <header>
         <h2><span class="sec-num">A</span>Terminal voltage</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="internal-fig-1">
         <div class="visual play stage" data-scene="internal-r" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Terminal voltage \(V = \varepsilon - I r\)"></canvas>
           <span class="hud-label" data-hud="a">Terminal vol</span>
         </div>
         <figcaption><b>Fig. 21.4</b> Terminal voltage falls as current rises.</figcaption>
       </figure>
-      <div class="def">
+      <div class="def" id="internal-def-1">
         <span class="tag">Key idea</span>
         <p>Real source: \(\varepsilon\) internal, \(r\) in series. Closed loop: \(\varepsilon = I(R+r)\), terminal \(V = I R = \varepsilon - I r\). Open circuit I=0 → V=ε. Short R→0 → I=ε/r. Measuring V vs I gives slope −r, intercept ε.</p>
       </div>
-      <table class="notes">
+      <table class="notes" id="internal-notes-1">
         <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
         <tbody>
           <tr><th>Graph</th><td>V vs I is straight line downwards; r = −slope.</td></tr>
           <tr><th>Power</th><td>Max power to load when \(R = r\) (matching).</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="A">
+      <div class="check" id="internal-check-1" data-check="mc" data-answer="A">
         <h3>Quick check</h3>
         <p>A 6 V cell with r=1 Ω feeds a 2 Ω load. Current and terminal voltage are</p>
         <div class="choices">
@@ -63,25 +63,25 @@
       <header>
         <h2><span class="sec-num">B</span>Meters and earthing</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="meters-fig-1">
         <div class="visual play stage" data-scene="meter-effect" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Meters and earthing"></canvas>
           <span class="hud-label" data-hud="a">Meters and e</span>
         </div>
         <figcaption><b>Fig. 21.4</b> Ammeter in series; voltmeter in parallel.</figcaption>
       </figure>
-      <div class="def">
+      <div class="def" id="meters-def-1">
         <span class="tag">Key idea</span>
         <p>Ammeter in series should have ~0 resistance (otherwise lowers I). Voltmeter in parallel should have >>R (otherwise shunts current and reads low). Earthed point sets 0 V reference; any voltage is measured relative to earth.</p>
       </div>
-      <table class="notes">
+      <table class="notes" id="meters-notes-1">
         <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
         <tbody>
           <tr><th>Loading</th><td>Voltmeter 1 kΩ across 10 kΩ divider reads noticeably low; 1 MΩ reads nearly true.</td></tr>
           <tr><th>Earth</th><td>Chassis earthed for safety; touching live while earthed completes path.</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="meters-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>A voltmeter of 1 kΩ across a 10 kΩ resistor in a 10 V divider (another 10 kΩ) reads</p>
         <div class="choices">

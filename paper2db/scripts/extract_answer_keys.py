@@ -132,11 +132,34 @@ def load_manual_keys() -> dict[str, dict[int, dict]]:
     }
 
 
+def load_derived_keys() -> dict[str, dict[int, dict]]:
+    """Unanimous Muse-derived MC options for years with no ans PDF.
+
+    Returns {year: {question: {"Correct Option": "A", "Correct percentage": None,
+    "derived": True}}}. Only 3/3 unanimous entries are returned.
+    """
+    path = Path(__file__).resolve().parents[1] / "metadata" / "derived_keys.json"
+    if not path.is_file():
+        return {}
+    raw = json.loads(path.read_text(encoding="utf-8")).get("mc", {})
+    out: dict[str, dict[int, dict]] = {}
+    for year, questions in raw.items():
+        for q, entry in questions.items():
+            if entry.get("unanimous") and entry.get("option") in ("A", "B", "C", "D"):
+                out.setdefault(year, {})[int(q)] = {
+                    "Correct Option": entry["option"],
+                    "Correct percentage": None,
+                    "derived": True,
+                }
+    return out
+
+
 def main() -> None:
     args = parse_args()
     answers = args.answers
     result: dict[str, dict[str, dict]] = {}
     manual_keys = load_manual_keys()
+    derived_keys = load_derived_keys()
 
     for pdf in sorted(answers.glob("*ans.pdf")):
         year = pdf.name.replace("ans.pdf", "")
@@ -157,6 +180,23 @@ def main() -> None:
         }
         result[year] = cleaned
         print(f"  -> {len(cleaned)} keys", flush=True)
+
+    # Years with no ans PDF get unanimous derived keys (manual still wins).
+    for year in sorted(set(derived_keys) - set(result)):
+        keys = dict(derived_keys[year])
+        if year in manual_keys:
+            keys.update(manual_keys[year])
+        result[year] = {
+            str(n): {
+                "Correct Option": payload.get("Correct Option"),
+                "Correct percentage": payload.get("Correct percentage"),
+                **({"derived": True} if payload.get("derived") else {}),
+                **({"deleted": True} if payload.get("deleted") else {}),
+            }
+            for n, payload in sorted(keys.items())
+            if payload.get("Correct Option") or payload.get("deleted")
+        }
+        print(f"  -> {len(result[year])} derived keys for {year}", flush=True)
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")

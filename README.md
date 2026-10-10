@@ -13,20 +13,20 @@ Goals, users, UI rules and data contracts are in the [PRD](docs/PRD.md).
 | `paper2notes/` | Visual HKDSE Physics notes (Books 2, 4, 5), static site, `/qb` question-bank UI | HTML/CSS/JS, vendored three.js and KaTeX, no build | [`paper2notes/README.md`](paper2notes/README.md), [`paper2notes/AGENTS.md`](paper2notes/AGENTS.md) |
 | `paper2db/` | Past-paper (MC, LQ) and question-bank (QB) pipeline, classified by syllabus section | Python 3, PyMuPDF, Pillow, tesseract, optional LLM API | [`paper2db/README.md`](paper2db/README.md), [`paper2db/AGENTS.md`](paper2db/AGENTS.md) |
 | `paper2mock/` | F.1 maths mock papers and marking schemes, 10 sets | LaTeX (LuaLaTeX via latexmk) | [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) |
-| `docs/` | PRD, architecture map, board notes, screenshots | Markdown | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
+| `docs/` | PRD, architecture map, board notes | Markdown | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
 | `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML/CSS/JS | its own `readme.md` |
-| `data/` | Working notes only (`p2e-book2-ch01-usability-mistakes.md`) | Markdown | none |
 
 ## Repository layout
 
 ```
 paper2everything/
 ├── AGENTS.md, CONTRIBUTING.md   agent map and contribution rules
-├── docs/                        PRD.md, ARCHITECTURE.md, screenshots
+├── docs/                        PRD.md, ARCHITECTURE.md, lavish-notes-boards.md
 ├── paper2notes/
 │   ├── notes/                   the site: landing, book2/, book4/, book5/, qb/, dse/ snapshot
 │   │   └── _source/<book-ch>/   intake (ocr.md, outline.md, problems.md, images/, INDEX.md)
-│   ├── scripts/                 ci-check.mjs, leak-check.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
+│   ├── scripts/                 ci-check.mjs, leak-check.mjs, anchor-lint.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
+│   ├── anchors/                 ids.lock.json, moves.json (anchor-id rules; see anchors/README.md)
 │   └── deploy/cloudrun/         Dockerfile, nginx.conf, deploy.sh, provision.sh
 ├── paper2db/
 │   ├── pipeline                 entry point: 12 past-paper stages + 4 QB stages (`--list-stages`)
@@ -116,12 +116,12 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|
-| `paper2db/paper/**` source PDFs | `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
+| `paper2db/paper/**` source PDFs | `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json` and `lq/*/ans_starts.json`) |
 | `paper2db/metadata/` inputs (see [authoritative inventory](paper2db/README.md#layout)) | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
-| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
-| `paper2db/tests/reconstructed/lq/*/starts.json` | `paper2notes/notes/**/_local/` |
+| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
+| `paper2db/tests/reconstructed/lq/*/starts.json`, `paper2db/tests/reconstructed/lq/*/ans_starts.json` | `paper2notes/notes/**/_local/` |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `.audit/` harness output |
-| `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (82 files) | compiled mock PDFs (built and released by CI) |
+| `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (see [publication rules](docs/ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync)) | compiled mock PDFs (built and released by CI) |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
 | `paper2mock/**` LaTeX sources | |
 
@@ -129,7 +129,7 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, the leak generator, or its staging inputs | Notes and leak checks (`ci-check.mjs`, `leak-check.test.mjs`, `leak_fingerprints.py --check`); scope in [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci) |
+| [`ci-notes`](.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Notes and DSE availability checks; see [the static check](paper2notes/scripts/ci-check.mjs) and [anchor rules](paper2notes/anchors/README.md). |
 | [`ci-pointers`](.github/workflows/ci-pointers.yml) | PR and push to `main`; path filters in the workflow | Answer-pointer checks; see [paper2db usage](paper2db/README.md#answer-pointers) |
 | [`ci-paper2db`](.github/workflows/ci-paper2db.yml) | PR and push to `main` touching `paper2db/**`, `paper2notes/notes/qb/**` or itself | `python -m unittest tests.test_dse_items tests.test_pointers tests.test_qb_harness` (dse-items records, answer-pointer join, tracked question-bank data) |
 | `compile-mocks` | PR touching `paper2mock/**`; every push to `main` | LaTeX build of all 20 mock documents; `main` pushes release two zips |

@@ -11,8 +11,8 @@
     "total_questions": 170,
     "crops_exist": 170,
     "crops_missing": 0,
-    "answers_exist": 122,
-    "answers_missing": 48,
+    "answers_exist": 144,
+    "answers_missing": 26,
     "candidate_performance_exist": 144,
     "candidate_performance_missing": 26,
     "sections_used": 26
@@ -20,28 +20,6 @@
   "missing": {
     "crops": [],
     "answers": [
-      "2013-q11",
-      "2013-q8",
-      "2013-q9",
-      "2014-q7",
-      "2014-q8",
-      "2015-q10",
-      "2015-q7",
-      "2015-q8",
-      "2017-q10",
-      "2017-q3",
-      "2017-q4",
-      "2017-q6",
-      "2017-q7",
-      "2017-q8",
-      "2022-q10",
-      "2022-q8",
-      "2022-q9",
-      "2023-q5",
-      "2023-q6",
-      "2024-q11",
-      "2024-q12",
-      "2024-q13",
       "2026-q1",
       "2026-q10",
       "2026-q11",
@@ -349,7 +327,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2012/q1.png",
-      "answer_png": "output/lq/2012/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q1.png"
     },
     {
       "id": "2012-q2",
@@ -381,7 +359,7 @@
       "page_from": 2,
       "page_to": 2,
       "png": "output/lq/2012/q2.png",
-      "answer_png": "output/lq/2012/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q2.png"
     },
     {
       "id": "2012-q3",
@@ -413,7 +391,7 @@
       "page_from": 3,
       "page_to": 3,
       "png": "output/lq/2012/q3.png",
-      "answer_png": "output/lq/2012/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q3.png"
     },
     {
       "id": "2012-q4",
@@ -445,7 +423,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2012/q4.png",
-      "answer_png": "output/lq/2012/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q4.png"
     },
     {
       "id": "2012-q5",
@@ -477,7 +455,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2012/q5.png",
-      "answer_png": "output/lq/2012/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q5.png"
     },
     {
       "id": "2012-q6",
@@ -509,7 +487,7 @@
       "page_from": 8,
       "page_to": 8,
       "png": "output/lq/2012/q6.png",
-      "answer_png": "output/lq/2012/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q6.png"
     },
     {
       "id": "2012-q7",
@@ -541,7 +519,7 @@
       "page_from": 9,
       "page_to": 11,
       "png": "output/lq/2012/q7.png",
-      "answer_png": "output/lq/2012/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q7.png"
     },
     {
       "id": "2012-q8",
@@ -573,7 +551,7 @@
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2012/q8.png",
-      "answer_png": "output/lq/2012/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q8.png"
     },
     {
       "id": "2012-q9",
@@ -607,7 +585,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2012/q9.png",
-      "answer_png": "output/lq/2012/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q9.png"
     },
     {
       "id": "2012-q10",
@@ -639,7 +617,7 @@
       "page_from": 16,
       "page_to": 16,
       "png": "output/lq/2012/q10.png",
-      "answer_png": "output/lq/2012/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q10.png"
     },
     {
       "id": "2012-q11",
@@ -671,7 +649,7 @@
       "page_from": 17,
       "page_to": 17,
       "png": "output/lq/2012/q11.png",
-      "answer_png": "output/lq/2012/ans/q11.png"
+      "answer_png": "tests/reconstructed/lq/2012/ans/q11.png"
     },
     {
       "id": "2013-q1",
@@ -703,7 +681,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2013/q1.png",
-      "answer_png": "output/lq/2013/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q1.png"
     },
     {
       "id": "2013-q2",
@@ -735,7 +713,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2013/q2.png",
-      "answer_png": "output/lq/2013/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q2.png"
     },
     {
       "id": "2013-q3",
@@ -767,7 +745,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2013/q3.png",
-      "answer_png": "output/lq/2013/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q3.png"
     },
     {
       "id": "2013-q4",
@@ -799,7 +777,7 @@
       "page_from": 6,
       "page_to": 6,
       "png": "output/lq/2013/q4.png",
-      "answer_png": "output/lq/2013/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q4.png"
     },
     {
       "id": "2013-q5",
@@ -831,7 +809,7 @@
       "page_from": 7,
       "page_to": 7,
       "png": "output/lq/2013/q5.png",
-      "answer_png": "output/lq/2013/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q5.png"
     },
     {
       "id": "2013-q6",
@@ -863,7 +841,7 @@
       "page_from": 8,
       "page_to": 8,
       "png": "output/lq/2013/q6.png",
-      "answer_png": "output/lq/2013/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q6.png"
     },
     {
       "id": "2013-q7",
@@ -895,7 +873,7 @@
       "page_from": 9,
       "page_to": 11,
       "png": "output/lq/2013/q7.png",
-      "answer_png": "output/lq/2013/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q7.png"
     },
     {
       "id": "2013-q8",
@@ -913,21 +891,21 @@
       ],
       "crop": "crops/2013-q8.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2013-q8-ans.png",
+      "answer_exists": true,
       "candidate_performance": "Part (a) was well answered. In (b), most candidates were able to find the position of the lens and locate the focus correctly although mistakes in drawing light rays, like incorrect use of dotted/solid lines or wrong direction of rays, were common. Some candidates made mistakes in finding the focal length from the ray diagram. In (c), many seemed to be drawing light rays randomly or did not even attempt this part.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: lens",
       "page_from": 12,
       "page_to": 12,
       "png": "output/lq/2013/q8.png",
-      "answer_png": "output/lq/2013/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q8.png"
     },
     {
       "id": "2013-q9",
@@ -945,21 +923,21 @@
       ],
       "crop": "crops/2013-q9.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2013-q9-ans.png",
+      "answer_exists": true,
       "candidate_performance": "In (a), candidates knew how to find the decay constant and the number of C-14 nuclei by different methods. In (c), some candidates confused N and N₀ or A and A₀, thus wrongly substituted the number of C-14 nuclei into the formula and failing to find the correct age of the wood sample.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: half-life, activity, decay constant",
       "page_from": 13,
       "page_to": 13,
       "png": "output/lq/2013/q9.png",
-      "answer_png": "output/lq/2013/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q9.png"
     },
     {
       "id": "2013-q10",
@@ -991,7 +969,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2013/q10.png",
-      "answer_png": "output/lq/2013/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q10.png"
     },
     {
       "id": "2013-q11",
@@ -1009,21 +987,21 @@
       ],
       "crop": "crops/2013-q11.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2013-q11-ans.png",
+      "answer_exists": true,
       "candidate_performance": "In (a), although many candidates were able to quote the formula for calculating the electrostatic force, common mistakes included halving the electrostatic force, wrongly taking 4πε₀ = 9 × 10⁹ N m² C⁻² or r = 5 cm in substitution, drawing incorrect free-body diagrams, etc. In (b)(i), quite a number of candidates omitted this part. Some sketched the whole electric field pattern while a few wrongly identified the resultant field was pointing upwards to the positive charges. In (b)(ii), many mistook the electric potential as a vector quantity. In (b)(iii), less than half of the candidates answered this item correctly. This suggests that many candidates failed to understand the induction of charges on a conductor, and the effect of nearby charges or an electric field.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: point charge",
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2013/q11.png",
-      "answer_png": "output/lq/2013/ans/q11.png"
+      "answer_png": "tests/reconstructed/lq/2013/ans/q11.png"
     },
     {
       "id": "2014-q1",
@@ -1055,7 +1033,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2014/q1.png",
-      "answer_png": "output/lq/2014/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q1.png"
     },
     {
       "id": "2014-q2",
@@ -1087,7 +1065,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2014/q2.png",
-      "answer_png": "output/lq/2014/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q2.png"
     },
     {
       "id": "2014-q3",
@@ -1119,7 +1097,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2014/q3.png",
-      "answer_png": "output/lq/2014/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q3.png"
     },
     {
       "id": "2014-q4",
@@ -1151,7 +1129,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2014/q4.png",
-      "answer_png": "output/lq/2014/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q4.png"
     },
     {
       "id": "2014-q5",
@@ -1183,7 +1161,7 @@
       "page_from": 8,
       "page_to": 8,
       "png": "output/lq/2014/q5.png",
-      "answer_png": "output/lq/2014/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q5.png"
     },
     {
       "id": "2014-q6",
@@ -1215,7 +1193,7 @@
       "page_from": 9,
       "page_to": 9,
       "png": "output/lq/2014/q6.png",
-      "answer_png": "output/lq/2014/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q6.png"
     },
     {
       "id": "2014-q7",
@@ -1233,21 +1211,21 @@
       ],
       "crop": "crops/2014-q7.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2014-q7-ans.png",
+      "answer_exists": true,
       "candidate_performance": "Candidates performed well in parts (a)(i) and (ii) involving the calculations of diffraction grating. Many did not have a clear concept of percentage error in x or θ and therefore failed to score marks in (a)(iii). It seems that most candidates did not understand what part (b) asked for and gave answers like using a grating with more lines per mm.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: diffraction",
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2014/q7.png",
-      "answer_png": "output/lq/2014/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q7.png"
     },
     {
       "id": "2014-q8",
@@ -1265,21 +1243,21 @@
       ],
       "crop": "crops/2014-q8.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2014-q8-ans.png",
+      "answer_exists": true,
       "candidate_performance": "Part (a) was well answered. In (b), some weaker candidates failed to identify the resistance network involved in mode X. In (c), many candidates were able to identify overall resistance least for parallel connections but did not state that the power dissipation is inversely proportional to the resistance under the same voltage. In (d)(i), quite a number of them failed to identify the mode that corresponds to the largest operating current. In (d)(ii), most candidates knew that the switch S should be installed in the live wire, however, not many were able to point out the hazards of not doing so. Part (d)(iii) was well answered.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: mains, fuse, a.c.",
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2014/q8.png",
-      "answer_png": "output/lq/2014/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q8.png"
     },
     {
       "id": "2014-q9",
@@ -1311,7 +1289,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2014/q9.png",
-      "answer_png": "output/lq/2014/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q9.png"
     },
     {
       "id": "2014-q10",
@@ -1345,7 +1323,7 @@
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2014/q10.png",
-      "answer_png": "output/lq/2014/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2014/ans/q10.png"
     },
     {
       "id": "2015-q1",
@@ -1377,7 +1355,7 @@
       "page_from": 0,
       "page_to": 0,
       "png": "output/lq/2015/q1.png",
-      "answer_png": "output/lq/2015/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q1.png"
     },
     {
       "id": "2015-q2",
@@ -1409,7 +1387,7 @@
       "page_from": 1,
       "page_to": 1,
       "png": "output/lq/2015/q2.png",
-      "answer_png": "output/lq/2015/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q2.png"
     },
     {
       "id": "2015-q3",
@@ -1441,7 +1419,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2015/q3.png",
-      "answer_png": "output/lq/2015/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q3.png"
     },
     {
       "id": "2015-q4",
@@ -1473,7 +1451,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2015/q4.png",
-      "answer_png": "output/lq/2015/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q4.png"
     },
     {
       "id": "2015-q5",
@@ -1505,7 +1483,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2015/q5.png",
-      "answer_png": "output/lq/2015/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q5.png"
     },
     {
       "id": "2015-q6",
@@ -1539,7 +1517,7 @@
       "page_from": 8,
       "page_to": 9,
       "png": "output/lq/2015/q6.png",
-      "answer_png": "output/lq/2015/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q6.png"
     },
     {
       "id": "2015-q7",
@@ -1557,21 +1535,21 @@
       ],
       "crop": "crops/2015-q7.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2015-q7-ans.png",
+      "answer_exists": true,
       "candidate_performance": "Part (a) was well answered. Some candidates made mistakes in converting units when calculating the fringe separation. In (b), few candidates realized that interference did occur but was unobservable as the sources were incoherent. Many thought that an interference pattern with smaller fringe separation formed would occur as the source separation was greater. Some confused phase and coherence, and stated 'the interference was unobservable because they were out of phase'. Quite a number of them sketched straight lines instead of curves for the antinodal lines in (c). In (d)(i), more than half of the candidates incorrectly read the value of y even though correct antinodal lines were drawn as they might have overlooked the scale (10 mm per division) given. Part (d)(ii) was poorly answered as most candidates did not know the geometrical constraints in estimating the fringe separation.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: interference",
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2015/q7.png",
-      "answer_png": "output/lq/2015/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q7.png"
     },
     {
       "id": "2015-q8",
@@ -1589,21 +1567,21 @@
       ],
       "crop": "crops/2015-q8.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2015-q8-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question was well answered. In (a), a significant number of candidates misunderstood the phrase 'per km' and therefore wrongly divided the resistance by 1000 m. Some confused surface area with cross-sectional area and thus failed to find the correct answer. In (a)(iii), many candidates did not realise that electric shock is essentially due to the large amount of current passing through the body but not merely because of high voltage. Few were able to mention that negligible current would pass through the bird's body. Quite a number of them wrongly thought that the cable was covered with insulating material. Answers like 'The potential difference across the bird is zero' or 'There is no current passing through the bird's body' were common. Part (b) was well answered. A few candidates forgot to multiply the resistance per km (0.05 Ω km⁻¹) by 10 km in (b)(ii). In (b)(iii), the terms stated by some candidates were not precise, for example, 'cable' was used instead of 'wire', 'sliced iron' was used instead of 'laminated core' etc.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: resistance",
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2015/q8.png",
-      "answer_png": "output/lq/2015/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q8.png"
     },
     {
       "id": "2015-q9",
@@ -1635,7 +1613,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2015/q9.png",
-      "answer_png": "output/lq/2015/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q9.png"
     },
     {
       "id": "2015-q10",
@@ -1653,21 +1631,21 @@
       ],
       "crop": "crops/2015-q10.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2015-q10-ans.png",
+      "answer_exists": true,
       "candidate_performance": "Candidates only did well in (a). A few candidates had difficulty in dealing with the units eV and J. In (b)(i), not many knew that the energy used for overcoming the repulsion between the two positive nuclei became electrical potential energy. Some wrongly thought that it turned into kinetic energy, heat or nuclear energy. In (b)(iii), most candidates failed to relate the average kinetic energy of the nuclei to the large amount of work done needed. A few even wrongly employed E = 17.58 MeV in (a) in their calculations.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: fusion, energy released, mev, nucleus",
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2015/q10.png",
-      "answer_png": "output/lq/2015/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2015/ans/q10.png"
     },
     {
       "id": "2016-q1",
@@ -1699,7 +1677,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2016/q1.png",
-      "answer_png": "output/lq/2016/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q1.png"
     },
     {
       "id": "2016-q2",
@@ -1731,7 +1709,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2016/q2.png",
-      "answer_png": "output/lq/2016/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q2.png"
     },
     {
       "id": "2016-q3",
@@ -1763,7 +1741,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2016/q3.png",
-      "answer_png": "output/lq/2016/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q3.png"
     },
     {
       "id": "2016-q4",
@@ -1795,7 +1773,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2016/q4.png",
-      "answer_png": "output/lq/2016/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q4.png"
     },
     {
       "id": "2016-q5",
@@ -1827,7 +1805,7 @@
       "page_from": 8,
       "page_to": 9,
       "png": "output/lq/2016/q5.png",
-      "answer_png": "output/lq/2016/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q5.png"
     },
     {
       "id": "2016-q6",
@@ -1859,7 +1837,7 @@
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2016/q6.png",
-      "answer_png": "output/lq/2016/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q6.png"
     },
     {
       "id": "2016-q7",
@@ -1891,7 +1869,7 @@
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2016/q7.png",
-      "answer_png": "output/lq/2016/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q7.png"
     },
     {
       "id": "2016-q8",
@@ -1923,7 +1901,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2016/q8.png",
-      "answer_png": "output/lq/2016/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q8.png"
     },
     {
       "id": "2016-q9",
@@ -1957,7 +1935,7 @@
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2016/q9.png",
-      "answer_png": "output/lq/2016/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2016/ans/q9.png"
     },
     {
       "id": "2017-q1",
@@ -1989,7 +1967,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2017/q1.png",
-      "answer_png": "output/lq/2017/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q1.png"
     },
     {
       "id": "2017-q2",
@@ -2021,7 +1999,7 @@
       "page_from": 2,
       "page_to": 2,
       "png": "output/lq/2017/q2.png",
-      "answer_png": "output/lq/2017/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q2.png"
     },
     {
       "id": "2017-q3",
@@ -2039,21 +2017,21 @@
       ],
       "crop": "crops/2017-q3.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2017-q3-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question was on the microscopic properties of gases. Candidates' performance was fair. In (a), most candidates knew that the root-mean-square speed of gas molecules was related to the gas temperature, but some forgot to take the square root of the ratio of temperatures. Quite a number of them had a misconception in part (b) that the collisions among gas molecules themselves would contribute to the gas pressure.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: gas molecules, monatomic gas, avogadro",
       "page_from": 3,
       "page_to": 3,
       "png": "output/lq/2017/q3.png",
-      "answer_png": "output/lq/2017/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q3.png"
     },
     {
       "id": "2017-q4",
@@ -2071,21 +2049,21 @@
       ],
       "crop": "crops/2017-q4.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2017-q4-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' knowledge and understanding on projectiles. In general, candidates' performance was fair. Most answered part (a)(i) correctly. However, some failed to distinguish the horizontal uniform motion and the vertical uniformly accelerated motion of a projectile in (a)(ii). Weaker ones even employed v² = u² + 2as to compute the resultant speed of the projected bearing. Part (b) revealed that quite a number of the candidates had misconceptions about Newton's third law of motion - taking weight and air resistance as an action-and-reaction pair in this case.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: resistance",
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2017/q4.png",
-      "answer_png": "output/lq/2017/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q4.png"
     },
     {
       "id": "2017-q5",
@@ -2117,7 +2095,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2017/q5.png",
-      "answer_png": "output/lq/2017/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q5.png"
     },
     {
       "id": "2017-q6",
@@ -2137,21 +2115,21 @@
       ],
       "crop": "crops/2017-q6.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2017-q6-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' basic knowledge of wave motion. Candidates' performance was satisfactory. Part (a) was well answered. In (b)(i), some candidates only stated 'crest meets trough at Q' to explain why a minimum occurred there. Quite a number of them did not know that in (b)(iii) the amplitude of the water waves would decrease gradually with the distance from the source.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: wave speed, frequency; dual with S5 (significant earlier part)",
       "page_from": 8,
       "page_to": 9,
       "png": "output/lq/2017/q6.png",
-      "answer_png": "output/lq/2017/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q6.png"
     },
     {
       "id": "2017-q7",
@@ -2169,21 +2147,21 @@
       ],
       "crop": "crops/2017-q7.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2017-q7-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question was well answered. Most were able to obtain the correct answers in parts (a)(i)(ii). Some candidates failed to recognise that in (a)(iii) the light ray would eventually emerge from the plastic block as the incident angle within the block becomes smaller than the critical angle. Weaker ones drew a light ray bending towards the normal when the light ray emerged from the block to the air. Part (b) was in general well answered.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: refractive index, critical angle",
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2017/q7.png",
-      "answer_png": "output/lq/2017/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q7.png"
     },
     {
       "id": "2017-q8",
@@ -2201,21 +2179,21 @@
       ],
       "crop": "crops/2017-q8.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2017-q8-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of the relationship among voltage, current and resistance in a circuit. Candidates' performance was poor. Part (a) was well answered. In (b), few were able to state explicitly that the temperature increase led to the increase in resistance. Not many pointed out that by definition R = V/I in part (c). Although most were able to obtain the correct resistances in (d), not many realised that the one corresponding to room temperature should be employed to find the length of the tungsten filament in part (e).",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: resistance, circuit",
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2017/q8.png",
-      "answer_png": "output/lq/2017/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q8.png"
     },
     {
       "id": "2017-q9",
@@ -2247,7 +2225,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2017/q9.png",
-      "answer_png": "output/lq/2017/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q9.png"
     },
     {
       "id": "2017-q10",
@@ -2265,21 +2243,21 @@
       ],
       "crop": "crops/2017-q10.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2017-q10-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question on radioactivity was in general well answered. Candidates did well in parts (a) and (c). In (b), quite a number of candidates wrongly thought that the α particles neutralised the charged dust directly. Most candidates knew how to calculate the activity in part (d), only some of them made mistakes in the unit.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: nuclear equation, nucleus; primary=max(S20,S25,S27)",
       "page_from": 16,
       "page_to": 16,
       "png": "output/lq/2017/q10.png",
-      "answer_png": "output/lq/2017/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2017/ans/q10.png"
     },
     {
       "id": "2018-q1",
@@ -2311,7 +2289,7 @@
       "page_from": 0,
       "page_to": 0,
       "png": "output/lq/2018/q1.png",
-      "answer_png": "output/lq/2018/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q1.png"
     },
     {
       "id": "2018-q2",
@@ -2343,7 +2321,7 @@
       "page_from": 1,
       "page_to": 1,
       "png": "output/lq/2018/q2.png",
-      "answer_png": "output/lq/2018/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q2.png"
     },
     {
       "id": "2018-q3",
@@ -2375,7 +2353,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2018/q3.png",
-      "answer_png": "output/lq/2018/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q3.png"
     },
     {
       "id": "2018-q4",
@@ -2407,7 +2385,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2018/q4.png",
-      "answer_png": "output/lq/2018/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q4.png"
     },
     {
       "id": "2018-q5",
@@ -2439,7 +2417,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2018/q5.png",
-      "answer_png": "output/lq/2018/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q5.png"
     },
     {
       "id": "2018-q6",
@@ -2471,7 +2449,7 @@
       "page_from": 8,
       "page_to": 9,
       "png": "output/lq/2018/q6.png",
-      "answer_png": "output/lq/2018/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q6.png"
     },
     {
       "id": "2018-q7",
@@ -2503,7 +2481,7 @@
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2018/q7.png",
-      "answer_png": "output/lq/2018/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q7.png"
     },
     {
       "id": "2018-q8",
@@ -2535,7 +2513,7 @@
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2018/q8.png",
-      "answer_png": "output/lq/2018/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q8.png"
     },
     {
       "id": "2018-q9",
@@ -2567,7 +2545,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2018/q9.png",
-      "answer_png": "output/lq/2018/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q9.png"
     },
     {
       "id": "2018-q10",
@@ -2599,7 +2577,7 @@
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2018/q10.png",
-      "answer_png": "output/lq/2018/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2018/ans/q10.png"
     },
     {
       "id": "2019-q1",
@@ -2633,7 +2611,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2019/q1.png",
-      "answer_png": "output/lq/2019/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q1.png"
     },
     {
       "id": "2019-q2",
@@ -2665,7 +2643,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2019/q2.png",
-      "answer_png": "output/lq/2019/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q2.png"
     },
     {
       "id": "2019-q3",
@@ -2697,7 +2675,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2019/q3.png",
-      "answer_png": "output/lq/2019/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q3.png"
     },
     {
       "id": "2019-q4",
@@ -2729,7 +2707,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2019/q4.png",
-      "answer_png": "output/lq/2019/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q4.png"
     },
     {
       "id": "2019-q5",
@@ -2761,7 +2739,7 @@
       "page_from": 8,
       "page_to": 8,
       "png": "output/lq/2019/q5.png",
-      "answer_png": "output/lq/2019/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q5.png"
     },
     {
       "id": "2019-q6",
@@ -2793,7 +2771,7 @@
       "page_from": 9,
       "page_to": 9,
       "png": "output/lq/2019/q6.png",
-      "answer_png": "output/lq/2019/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q6.png"
     },
     {
       "id": "2019-q7",
@@ -2825,7 +2803,7 @@
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2019/q7.png",
-      "answer_png": "output/lq/2019/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q7.png"
     },
     {
       "id": "2019-q8",
@@ -2857,7 +2835,7 @@
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2019/q8.png",
-      "answer_png": "output/lq/2019/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q8.png"
     },
     {
       "id": "2019-q9",
@@ -2889,7 +2867,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2019/q9.png",
-      "answer_png": "output/lq/2019/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q9.png"
     },
     {
       "id": "2019-q10",
@@ -2921,7 +2899,7 @@
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2019/q10.png",
-      "answer_png": "output/lq/2019/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2019/ans/q10.png"
     },
     {
       "id": "2020-q1",
@@ -2953,7 +2931,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2020/q1.png",
-      "answer_png": "output/lq/2020/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q1.png"
     },
     {
       "id": "2020-q2",
@@ -2985,7 +2963,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2020/q2.png",
-      "answer_png": "output/lq/2020/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q2.png"
     },
     {
       "id": "2020-q3",
@@ -3017,7 +2995,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2020/q3.png",
-      "answer_png": "output/lq/2020/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q3.png"
     },
     {
       "id": "2020-q4",
@@ -3049,7 +3027,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2020/q4.png",
-      "answer_png": "output/lq/2020/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q4.png"
     },
     {
       "id": "2020-q5",
@@ -3081,7 +3059,7 @@
       "page_from": 8,
       "page_to": 8,
       "png": "output/lq/2020/q5.png",
-      "answer_png": "output/lq/2020/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q5.png"
     },
     {
       "id": "2020-q6",
@@ -3113,7 +3091,7 @@
       "page_from": 9,
       "page_to": 9,
       "png": "output/lq/2020/q6.png",
-      "answer_png": "output/lq/2020/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q6.png"
     },
     {
       "id": "2020-q7",
@@ -3145,7 +3123,7 @@
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2020/q7.png",
-      "answer_png": "output/lq/2020/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q7.png"
     },
     {
       "id": "2020-q8",
@@ -3177,7 +3155,7 @@
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2020/q8.png",
-      "answer_png": "output/lq/2020/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q8.png"
     },
     {
       "id": "2020-q9",
@@ -3209,7 +3187,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2020/q9.png",
-      "answer_png": "output/lq/2020/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q9.png"
     },
     {
       "id": "2020-q10",
@@ -3241,7 +3219,7 @@
       "page_from": 16,
       "page_to": 16,
       "png": "output/lq/2020/q10.png",
-      "answer_png": "output/lq/2020/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2020/ans/q10.png"
     },
     {
       "id": "2021-q1",
@@ -3275,7 +3253,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2021/q1.png",
-      "answer_png": "output/lq/2021/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q1.png"
     },
     {
       "id": "2021-q2",
@@ -3307,7 +3285,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2021/q2.png",
-      "answer_png": "output/lq/2021/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q2.png"
     },
     {
       "id": "2021-q3",
@@ -3339,7 +3317,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2021/q3.png",
-      "answer_png": "output/lq/2021/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q3.png"
     },
     {
       "id": "2021-q4",
@@ -3371,7 +3349,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2021/q4.png",
-      "answer_png": "output/lq/2021/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q4.png"
     },
     {
       "id": "2021-q5",
@@ -3403,7 +3381,7 @@
       "page_from": 8,
       "page_to": 10,
       "png": "output/lq/2021/q5.png",
-      "answer_png": "output/lq/2021/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q5.png"
     },
     {
       "id": "2021-q6",
@@ -3437,7 +3415,7 @@
       "page_from": 11,
       "page_to": 13,
       "png": "output/lq/2021/q6.png",
-      "answer_png": "output/lq/2021/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q6.png"
     },
     {
       "id": "2021-q7",
@@ -3469,7 +3447,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2021/q7.png",
-      "answer_png": "output/lq/2021/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q7.png"
     },
     {
       "id": "2021-q8",
@@ -3501,7 +3479,7 @@
       "page_from": 16,
       "page_to": 16,
       "png": "output/lq/2021/q8.png",
-      "answer_png": "output/lq/2021/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q8.png"
     },
     {
       "id": "2021-q9",
@@ -3533,7 +3511,7 @@
       "page_from": 17,
       "page_to": 17,
       "png": "output/lq/2021/q9.png",
-      "answer_png": "output/lq/2021/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2021/ans/q9.png"
     },
     {
       "id": "2022-q1",
@@ -3565,7 +3543,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2022/q1.png",
-      "answer_png": "output/lq/2022/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q1.png"
     },
     {
       "id": "2022-q2",
@@ -3599,7 +3577,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2022/q2.png",
-      "answer_png": "output/lq/2022/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q2.png"
     },
     {
       "id": "2022-q3",
@@ -3631,7 +3609,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2022/q3.png",
-      "answer_png": "output/lq/2022/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q3.png"
     },
     {
       "id": "2022-q4",
@@ -3663,7 +3641,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2022/q4.png",
-      "answer_png": "output/lq/2022/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q4.png"
     },
     {
       "id": "2022-q5",
@@ -3695,7 +3673,7 @@
       "page_from": 8,
       "page_to": 9,
       "png": "output/lq/2022/q5.png",
-      "answer_png": "output/lq/2022/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q5.png"
     },
     {
       "id": "2022-q6",
@@ -3727,7 +3705,7 @@
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2022/q6.png",
-      "answer_png": "output/lq/2022/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q6.png"
     },
     {
       "id": "2022-q7",
@@ -3759,7 +3737,7 @@
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2022/q7.png",
-      "answer_png": "output/lq/2022/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q7.png"
     },
     {
       "id": "2022-q8",
@@ -3777,21 +3755,21 @@
       ],
       "crop": "crops/2022-q8.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2022-q8-ans.png",
+      "answer_exists": true,
       "candidate_performance": "Candidates' performance was fair. Most were able to comprehend the circuit in (a) for finding the I-V characteristics of the light bulb. Many candidates correctly calculated the bulb's rated resistance in (b)(i). In (b)(ii), most knew that the bulb's resistance increased with the applied voltage but few pointed out that there was an increase in current/power. Candidates did poorly in (c). Many did not realise that in the circuit concerned the bulb was not working at its rated values. Thus even for those who correctly drew the required straight line on the I-V characteristics graph, not many were able to utilize the pair of current and voltage readings to find the power in (c)(ii).",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: resistance, circuit",
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2022/q8.png",
-      "answer_png": "output/lq/2022/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q8.png"
     },
     {
       "id": "2022-q9",
@@ -3809,21 +3787,21 @@
       ],
       "crop": "crops/2022-q9.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2022-q9-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' knowledge and understanding of electromagnetic induction in the context of a metal loop entering a magnetic field. The performance of candidates was unsatisfactory. Most were able to indicate the direction of the induced current in (a). A few wrongly drew currents flowing inside or around the magnetic field. In (b), quite a number of the candidates mistook that the induced e.m.f. (ε = Blv) only applied to the wire cutting the magnetic field and not the loop (i.e. the complete circuit). A few wrongly equated magnetic force on current-carrying wire with magnetic and/or electric forces on moving charges. Weaker candidates considered 'induced e.m.f.' (Blv) to be the 'magnetic force' exerted on a current-carrying wire. In (c)(i), candidates often mistook the IR drop within the wire YZ as the potential difference (p.d.) across it. Some considered the induced e.m.f. or one-quarter of it to be the p.d. across YZ. (c)(ii) revealed that candidates did not have a clear understanding of the relationship between induced e.m.f., p.d. and IR drop across a resistor.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: magnetic field; primary=max(S21,S23)",
       "page_from": 16,
       "page_to": 16,
       "png": "output/lq/2022/q9.png",
-      "answer_png": "output/lq/2022/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q9.png"
     },
     {
       "id": "2022-q10",
@@ -3841,21 +3819,21 @@
       ],
       "crop": "crops/2022-q10.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2022-q10-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' knowledge and understanding of nuclear fission and fusion. The performance of candidates was far from satisfactory. In (a), most were able to calculate the mass defect correctly. Quite a number of them mistook this mass defect for two deuterium nuclides as the maximum energy produced by one mole of hydrogen/deuterium nuclides. In their calculations, some did not realise that two deuterium nuclides were required for each reaction. A few weaker candidates mistook the mass of a deuterium nuclide or the total mass of helium and neutron as the energy produced. About one-third of the candidates correctly gave an alternate fusion reaction in (b). Many candidates employed general terms in (c) to explain the advantages of fusion over fission: e.g. more stable/safe, less harmful/pollution, higher efficiency, cleaner, etc., without further elaboration. Their answers also revealed a misconception that the energy released by one fusion reaction was greater than that released by one fission reaction.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: fusion, mev",
       "page_from": 17,
       "page_to": 17,
       "png": "output/lq/2022/q10.png",
-      "answer_png": "output/lq/2022/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2022/ans/q10.png"
     },
     {
       "id": "2023-q1",
@@ -3887,7 +3865,7 @@
       "page_from": 0,
       "page_to": 1,
       "png": "output/lq/2023/q1.png",
-      "answer_png": "output/lq/2023/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q1.png"
     },
     {
       "id": "2023-q2",
@@ -3919,7 +3897,7 @@
       "page_from": 2,
       "page_to": 3,
       "png": "output/lq/2023/q2.png",
-      "answer_png": "output/lq/2023/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q2.png"
     },
     {
       "id": "2023-q3",
@@ -3951,7 +3929,7 @@
       "page_from": 4,
       "page_to": 5,
       "png": "output/lq/2023/q3.png",
-      "answer_png": "output/lq/2023/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q3.png"
     },
     {
       "id": "2023-q4",
@@ -3983,7 +3961,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2023/q4.png",
-      "answer_png": "output/lq/2023/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q4.png"
     },
     {
       "id": "2023-q5",
@@ -4001,21 +3979,21 @@
       ],
       "crop": "crops/2023-q5.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2023-q5-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' basic understanding of longitudinal waves. The overall performance was good. Candidates did well in (a). A few made rudimentary mistakes in the calculations in (b)(i)(ii), e.g. wrongly converting 200 cm to 0.2 m. More than half of the candidates correctly deduced the displacement-time graph for particle m in (b)(iii). Some failed to state clearly the change on the position of particle h in (c).",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: centripetal, angular speed",
       "page_from": 8,
       "page_to": 9,
       "png": "output/lq/2023/q5.png",
-      "answer_png": "output/lq/2023/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q5.png"
     },
     {
       "id": "2023-q6",
@@ -4033,21 +4011,21 @@
       ],
       "crop": "crops/2023-q6.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2023-q6-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' knowledge and understanding of wave motion in the context of a rainbow. Candidates' performance was satisfactory. Most were able to find the angle of refraction in (a)(i). Although candidates were able to obtain the critical angle c in (a)(ii), some did not compare it with the angle of incidence within the water droplet or wrongly compared it with the angle in the air, i.e. 45°. Not many candidates obtained full marks in (b)(i) as quite a number of them failed to draw the normal (through O) correctly and thus failed to sketch the light rays properly. The performance of candidates in (b)(ii) was poor. Candidates did mention points related to energy loss in their answers, however, few were able to give concise explanations including energy absorbed by water droplet via a longer path or leakage of light (energy) due to one more reflection.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: refractive index, total internal reflection, critical angle",
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2023/q6.png",
-      "answer_png": "output/lq/2023/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q6.png"
     },
     {
       "id": "2023-q7",
@@ -4079,7 +4057,7 @@
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2023/q7.png",
-      "answer_png": "output/lq/2023/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q7.png"
     },
     {
       "id": "2023-q8",
@@ -4111,7 +4089,7 @@
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2023/q8.png",
-      "answer_png": "output/lq/2023/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q8.png"
     },
     {
       "id": "2023-q9",
@@ -4145,7 +4123,7 @@
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2023/q9.png",
-      "answer_png": "output/lq/2023/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2023/ans/q9.png"
     },
     {
       "id": "2024-q1",
@@ -4177,7 +4155,7 @@
       "page_from": 0,
       "page_to": 0,
       "png": "output/lq/2024/q1.png",
-      "answer_png": "output/lq/2024/ans/q1.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q1.png"
     },
     {
       "id": "2024-q2",
@@ -4209,7 +4187,7 @@
       "page_from": 1,
       "page_to": 1,
       "png": "output/lq/2024/q2.png",
-      "answer_png": "output/lq/2024/ans/q2.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q2.png"
     },
     {
       "id": "2024-q3",
@@ -4241,7 +4219,7 @@
       "page_from": 2,
       "page_to": 2,
       "png": "output/lq/2024/q3.png",
-      "answer_png": "output/lq/2024/ans/q3.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q3.png"
     },
     {
       "id": "2024-q4",
@@ -4273,7 +4251,7 @@
       "page_from": 3,
       "page_to": 3,
       "png": "output/lq/2024/q4.png",
-      "answer_png": "output/lq/2024/ans/q4.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q4.png"
     },
     {
       "id": "2024-q5",
@@ -4305,7 +4283,7 @@
       "page_from": 4,
       "page_to": 4,
       "png": "output/lq/2024/q5.png",
-      "answer_png": "output/lq/2024/ans/q5.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q5.png"
     },
     {
       "id": "2024-q6",
@@ -4337,7 +4315,7 @@
       "page_from": 5,
       "page_to": 5,
       "png": "output/lq/2024/q6.png",
-      "answer_png": "output/lq/2024/ans/q6.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q6.png"
     },
     {
       "id": "2024-q7",
@@ -4369,7 +4347,7 @@
       "page_from": 6,
       "page_to": 7,
       "png": "output/lq/2024/q7.png",
-      "answer_png": "output/lq/2024/ans/q7.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q7.png"
     },
     {
       "id": "2024-q8",
@@ -4401,7 +4379,7 @@
       "page_from": 8,
       "page_to": 8,
       "png": "output/lq/2024/q8.png",
-      "answer_png": "output/lq/2024/ans/q8.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q8.png"
     },
     {
       "id": "2024-q9",
@@ -4433,7 +4411,7 @@
       "page_from": 9,
       "page_to": 9,
       "png": "output/lq/2024/q9.png",
-      "answer_png": "output/lq/2024/ans/q9.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q9.png"
     },
     {
       "id": "2024-q10",
@@ -4467,7 +4445,7 @@
       "page_from": 10,
       "page_to": 11,
       "png": "output/lq/2024/q10.png",
-      "answer_png": "output/lq/2024/ans/q10.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q10.png"
     },
     {
       "id": "2024-q11",
@@ -4485,21 +4463,21 @@
       ],
       "crop": "crops/2024-q11.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2024-q11-ans.png",
+      "answer_exists": true,
       "candidate_performance": "This question tested candidates' understanding of simple circuits in the context of a kind of deformation sensors known as strain gauge. The overall performance was satisfactory. Candidates knew that the metal foil's resistance increases in (a), however, many overlooked that the cross-sectional area *A* of the foil decreased when the foil was stretched. (b)(i) was well answered while some candidates were not careful enough in substituting the resistance values into the given equation in (b)(ii). Less than half of the candidates made a correct deduction in (b)(iii)(II).",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: resistance, circuit",
       "page_from": 12,
       "page_to": 13,
       "png": "output/lq/2024/q11.png",
-      "answer_png": "output/lq/2024/ans/q11.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q11.png"
     },
     {
       "id": "2024-q12",
@@ -4517,21 +4495,21 @@
       ],
       "crop": "crops/2024-q12.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2024-q12-ans.png",
+      "answer_exists": true,
       "candidate_performance": "Candidates did poorly in this question. Most knew the direction of the magnetic field in (a) but failed to sketch precisely the field pattern. In explaining the electromagnetic induction between the transmitting and receiving coils in (b)(i), quite a number of the candidates failed to spell out explicitly that the transmitting coil produced a changing magnetic field. In (b)(ii), very few candidates realised that the amplitude of the voltage induced in coil *R* would double when the frequency was doubled. In (c), not many candidates realised that the use of non-metallic back covers for mobile phones was to facilitate the passage of magnetic field between the transmitting and receiving coils. Some wrongly thought that 'electric shock may occur as metals are conductors' or 'current may flow through the metallic cover and cause a heating effect'.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: magnetic field; primary=max(S22,S23)",
       "page_from": 14,
       "page_to": 15,
       "png": "output/lq/2024/q12.png",
-      "answer_png": "output/lq/2024/ans/q12.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q12.png"
     },
     {
       "id": "2024-q13",
@@ -4549,21 +4527,21 @@
       ],
       "crop": "crops/2024-q13.png",
       "crop_exists": true,
-      "answer_crop": null,
-      "answer_exists": false,
+      "answer_crop": "crops/2024-q13-ans.png",
+      "answer_exists": true,
       "candidate_performance": "Candidates' performance was satisfactory. Many obtained the correct numerical answers in (a)(i)(ii). In (a)(iii), not many candidates realised that radon, being a gas and an α-emitter, would be harmful to human when inhaled since α particles have limited penetrating power. A few wrongly held that it was the α particles being inhaled instead of radon. Part (b) was well answered except for the omission of arrows for indication by some candidates.",
       "has_candidate_performance": true,
       "missing_flags": {
         "crop": false,
-        "answer": true,
+        "answer": false,
         "candidate_performance": false
       },
-      "has_missing": true,
+      "has_missing": false,
       "reason": "keywords: half-life, activity, decay constant",
       "page_from": 16,
       "page_to": 17,
       "png": "output/lq/2024/q13.png",
-      "answer_png": "output/lq/2024/ans/q13.png"
+      "answer_png": "tests/reconstructed/lq/2024/ans/q13.png"
     },
     {
       "id": "2025-q1",

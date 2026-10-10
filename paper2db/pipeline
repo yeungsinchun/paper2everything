@@ -200,6 +200,21 @@ def lq_answers_ready(year: str) -> bool:
     return ans_dir.is_dir() and len(list(ans_dir.glob("q*.png"))) >= 8
 
 
+def lq_expected_max() -> dict[str, int]:
+    """Max LQ question number per year from the tracked classifications."""
+    path = ROOT / "metadata" / "lq" / "llm_classifications.json"
+    if not path.is_file():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, int] = {}
+    for key in data:
+        year, _, suffix = key.partition("-q")
+        if not suffix.isdigit():
+            continue
+        out[year] = max(out.get(year, 0), int(suffix))
+    return out
+
+
 def intermediate_dir(year: str) -> Path:
     """intermediate/mc/<year>/ - MC anchor review PDF + OCR meta, ahead of split."""
     return ROOT / "intermediate" / "mc" / year
@@ -329,6 +344,7 @@ def stage_lq_answers(years: list[str] | None, *, force: bool) -> None:
     if not answers:
         print("No answer PDFs found under paper/ans.")
         return
+    expected_max = lq_expected_max()
     for pdf, year in answers:
         out = lq_dir() / year / "ans"
         if lq_answers_ready(year) and not force:
@@ -341,7 +357,8 @@ def stage_lq_answers(years: list[str] | None, *, force: bool) -> None:
             continue
         print(f"\n=== LQ answers: {year} ({pdf.name}) ===")
         out.mkdir(parents=True, exist_ok=True)
-        run_script("preprocess_lq_answers.py", str(pdf), str(out))
+        extra = ["--max-questions", str(expected_max[year])] if year in expected_max else []
+        run_script("preprocess_lq_answers.py", str(pdf), str(out), *extra)
 
 
 def answer_keys_path() -> Path:
@@ -352,17 +369,20 @@ def stage_keys(*, force: bool) -> None:
     dest = answer_keys_path()
     if dest.is_file() and not force:
         print(f"skip keys: {dest.relative_to(ROOT)} exists (use --force to refresh)")
-        return
-    ans_dir = ROOT / "paper" / "ans"
-    if not ans_dir.is_dir():
-        raise SystemExit(f"Missing {ans_dir}. Place marking-scheme PDFs there.")
-    run_script(
-        "extract_answer_keys.py",
-        "--answers",
-        str(ans_dir),
-        "--output",
-        str(dest),
-    )
+    else:
+        ans_dir = ROOT / "paper" / "ans"
+        if not ans_dir.is_dir():
+            raise SystemExit(f"Missing {ans_dir}. Place marking-scheme PDFs there.")
+        run_script(
+            "extract_answer_keys.py",
+            "--answers",
+            str(ans_dir),
+            "--output",
+            str(dest),
+        )
+    # Years without ans PDFs contribute unanimous derived keys (tracked
+    # metadata/derived_keys.json); fail here if any target has no attempt.
+    run_script("derive_keys.py", "verify")
 
 
 def stage_classify_mc(years: list[str] | None, *, force: bool, yes: bool) -> None:
@@ -520,6 +540,8 @@ def stage_lavish() -> None:
     run_script("build_mc_lavish_review.py")
     run_script("build_lq_lavish_review.py")
     run_script("build_pipeline_lavish_review.py")
+    if (ROOT / "metadata" / "derived_keys.json").is_file():
+        run_script("build_derived_keys_review.py")
 
 
 def parse_stage_list(raw: str | None) -> list[str] | None:

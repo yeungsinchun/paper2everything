@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.3 Ways of heat transfer</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Temperature and heat transfer</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="1-1.html">1.1</a>
+      <a href="1-2.html">1.2</a>
+      <a href="1-3.html" aria-current="page">1.3</a>
+      <a href="1-4.html">1.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.3</p>
+    <h1>Ways of heat transfer</h1>
+    <p class="lede">Convection moves the fluid, conduction passes energy along, radiation needs nothing in between.</p>
+
+    <aside class="quick-digest" id="transfer-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Convection</b><span>warm fluid rises, cool fluid sinks: the fluid itself carries the energy</span></p>
+        <p><b>Conduction</b><span>collisions pass energy particle to particle; free electrons make metals fast</span></p>
+        <p><b>Radiation</b><span>infrared waves; no medium needed; crosses a vacuum</span></p>
+        <p><b>Surfaces</b><span>dull black: good absorber and emitter · shiny: good reflector</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#convection"><b>A</b>Convection</a>
+      <a href="#conduction"><b>B</b>Conduction</a>
+      <a href="#radiation"><b>C</b>Radiation</a>
+      <a href="#mc-quiz"><b>MC</b>DSE practice</a>
+    </nav>
+
+    <details class="lo-block" id="transfer-goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>identify the means of energy transfer in terms of conduction, convection and radiation</p></li>
+        <li><p>interpret energy transfer by conduction in terms of molecular motion</p></li>
+        <li><p>realise the emission of infra-red radiation by hot objects</p></li>
+        <li><p>determine the factors affecting the emission and absorption of radiation</p></li>
+      </ul>
+    </details>
+
+    <section class="idea" id="convection">
+      <header>
+        <h2><span class="sec-num">A</span>Convection: the fluid moves</h2>
+      </header>
+      <figure class="fig" id="convection-fig-tank">
+        <div class="visual play stage" id="convection-vis" data-autoplay data-scene="convection">
+          <canvas class="scene-canvas" aria-label="A tank of water is heated under its left side. Warm water rises above the heater, flows across the top, cools, sinks down the far side and returns along the bottom: a convection current."></canvas>
+          <span class="hud-label" data-hud="heater" style="left:30%;top:94%">heater</span>
+          <span class="hud-label" data-hud="rise" style="left:38%;top:9%">warm water rises (less dense)</span>
+          <span class="hud-label" data-hud="sink" style="left:72%;top:78%">cool water sinks (denser)</span>
+        </div>
+        <figcaption><b>Convection current.</b> The loop keeps going while one part is heated.</figcaption>
+      </figure>
+      <div class="def" id="convection-def-convection">
+        <span class="tag">Convection</span>
+        <p><b>Convection</b> is heat transfer by the flow of a fluid (liquid or gas). Heated fluid expands, becomes less dense and rises; cooler, denser fluid sinks to take its place, setting up a <b>convection current</b>.</p>
+      </div>
+      <ul class="points">
+        <li>Only fluids convect: the particles must be free to flow. Solids cannot.</li>
+        <li>It depends on gravity: less dense fluid rises only because denser fluid is pulled down. In orbit a flame is round.</li>
+        <li>Heat from the bottom (kettle element), cool from the top (freezer coil, air conditioner high on a wall).</li>
+        <li>A fan or pump moving the fluid is <b>forced</b> convection; it is not caused by density differences.</li>
+      </ul>
+      <figure class="fig" id="convection-fig-breeze">
+        <div class="visual play stage" id="breeze-vis" data-autoplay data-scene="breeze">
+          <canvas class="scene-canvas" aria-label="At a seashore, air rises over whichever side is warmer and sinks over the cooler side. By day the land is warmer, so the low wind blows from the sea to the land. At night the sea is warmer, so it blows from the land to the sea."></canvas>
+          <span class="hud-label" data-hud="wind" style="left:50%;top:62%">sea breeze: towards the land</span>
+          <span class="hud-label" data-hud="land" style="left:25%;top:90%">land warms quickly</span>
+          <span class="hud-label" data-hud="sea" style="left:75%;top:90%">sea stays cooler</span>
+        </div>
+        <div class="ctrl">
+          <span class="row-btns" role="group" aria-label="Time of day">
+            <button type="button" data-stage-ctrl="breeze-vis" data-key="mode" data-value="day" aria-pressed="true">Day</button>
+            <button type="button" data-stage-ctrl="breeze-vis" data-key="mode" data-value="night" aria-pressed="false">Night</button>
+          </span>
+        </div>
+        <figcaption><b>Sea and land breezes.</b> Air rises over the warmer side; the low wind blows from the cooler side.</figcaption>
+      </figure>
+      <div class="check" id="convection-check-element" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Why is the heating element of an electric kettle placed at the bottom?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Water is a good conductor, so heat spreads up from the bottom quickly.</button>
+          <button type="button" data-choice="B">Water heated at the bottom rises and cooler water sinks to the element, so all the water is heated by convection.</button>
+          <button type="button" data-choice="C">Heat always travels upwards in any material.</button>
+          <button type="button" data-choice="D">The element would radiate heat out of the kettle if placed at the top.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> <b>A</b> is false: water is a poor conductor; heated at the top, only the top would get hot. <b>C</b> mixes up heat with hot fluid: warm fluid rises, but conduction goes in every direction. <b>D</b> is not the reason; radiation is small here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="conduction">
+      <header>
+        <h2><span class="sec-num">B</span>Conduction: passed on by collisions</h2>
+      </header>
+      <figure class="fig" id="conduction-fig-rods">
+        <div class="pane-pair">
+          <div class="visual play stage" id="cond-glass-vis" data-autoplay data-scene="conduction" data-material="glass">
+            <canvas class="scene-canvas" aria-label="A glass rod is heated at its left end. The atoms there vibrate harder and knock their neighbours, so the vibration spreads slowly along the rod; the far end is still cool after the clip."></canvas>
+            <span class="hud-label" data-hud="kind" style="left:55%;top:12%">glass: atom to atom only, slow</span>
+            <span class="hud-label" data-hud="end" style="left:8%;top:86%">heated end</span>
+            <button type="button" class="stage-replay" data-replay="cond-glass-vis">Replay</button>
+          </div>
+          <div class="visual play stage" id="cond-metal-vis" data-autoplay data-scene="conduction" data-material="metal">
+            <canvas class="scene-canvas" aria-label="A metal rod is heated at its left end. Free electrons move quickly through the metal and carry energy along, so the far end warms much sooner."></canvas>
+            <span class="hud-label" data-hud="kind" style="left:55%;top:12%">metal: free electrons carry energy fast</span>
+            <span class="hud-label" data-hud="end" style="left:8%;top:86%">heated end</span>
+            <button type="button" class="stage-replay" data-replay="cond-metal-vis">Replay</button>
+          </div>
+        </div>
+        <figcaption><b>Conduction in a poor and a good conductor.</b> Same heating, same time; the metal's far end warms first.</figcaption>
+      </figure>
+      <div class="def" id="conduction-def-conduction">
+        <span class="tag">Conduction</span>
+        <p><b>Conduction</b> is heat transfer through a material by collisions between its particles: faster-vibrating particles in the hot part pass energy to slower neighbours, layer by layer. In metals, <b>free electrons</b> also carry energy quickly through the material.</p>
+      </div>
+      <table class="notes" id="conduction-notes-ladder">
+        <thead><tr><th>Good conductors</th><th>Poor conductors (insulators)</th></tr></thead>
+        <tbody>
+          <tr><td>Metals: silver, copper, aluminium, steel (many free electrons)</td><td>Glass, wood, plastic, water, and above all air</td></tr>
+          <tr><td>Used to move heat: pans, heat sinks, skewers</td><td>Materials with trapped air (wool, feathers, foam, glass wool) insulate best</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>Conduction happens in solids, liquids and gases, but liquids and gases conduct poorly; in fluids, convection does most of the work.</li>
+        <li>Metal at room temperature feels colder than wood at the same temperature: the metal conducts heat away from your hand faster. Your hand senses the rate of heat loss, not the temperature.</li>
+      </ul>
+      <div class="check" id="conduction-check-metal-feel" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A metal tray and a wooden board have been in the same room all night. The tray feels colder to touch because</p>
+        <div class="choices">
+          <button type="button" data-choice="A">the tray is at a lower temperature than the board.</button>
+          <button type="button" data-choice="B">cold flows from the tray into your hand.</button>
+          <button type="button" data-choice="C">metal conducts heat away from your hand faster than wood does.</button>
+          <button type="button" data-choice="D">metal has less internal energy than wood.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> Both are at room temperature (<b>A</b> is false). There is no such thing as "cold" flowing (<b>B</b>): heat flows from your warmer hand into the tray. <b>D</b> is irrelevant; the rate of heat flow decides the feeling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="radiation">
+      <header>
+        <h2><span class="sec-num">C</span>Radiation: infrared needs no medium</h2>
+      </header>
+      <figure class="fig" id="radiation-fig-cans">
+        <div class="visual play stage" id="radiation-vis" data-autoplay data-scene="radiation">
+          <canvas class="scene-canvas" aria-label="A dull black can and a shiny silver can. When they are hotter than the room, both give out infrared and the black can gives out much more. When they are colder than the room, infrared from the room falls on both; the black can absorbs it and the shiny can reflects most of it."></canvas>
+          <span class="hud-label" data-hud="net" style="left:50%;top:8%">cans hotter than the room: net emitters, black cools faster</span>
+          <span class="hud-label" data-hud="black" style="left:28%;top:94%">dull black</span>
+          <span class="hud-label" data-hud="shiny" style="left:72%;top:94%">shiny silver</span>
+        </div>
+        <div class="ctrl">
+          <span class="row-btns" role="group" aria-label="Can temperature">
+            <button type="button" data-stage-ctrl="radiation-vis" data-key="mode" data-value="hotter" aria-pressed="true">Hotter than room</button>
+            <button type="button" data-stage-ctrl="radiation-vis" data-key="mode" data-value="colder" aria-pressed="false">Colder than room</button>
+          </span>
+        </div>
+        <figcaption><b>Emitters and absorbers.</b> Switch the cans from hotter to colder than the room.</figcaption>
+      </figure>
+      <div class="def" id="radiation-def-radiation">
+        <span class="tag">Radiation</span>
+        <p><b>Radiation</b> is heat transfer by electromagnetic waves, mainly <b>infrared</b>. It needs no medium, so it is the only way heat crosses a vacuum (Sun to Earth).</p>
+      </div>
+      <ul class="points">
+        <li>Every object emits infrared, hot or cold. A hotter object emits at a higher rate, and when hot enough it also glows (red from about 500 °C).</li>
+        <li>Every object also absorbs radiation. Hotter than the surroundings → it emits more than it absorbs (net emitter, it cools). Colder → net absorber, it warms.</li>
+        <li>An infrared thermometer reads temperature from the infrared a surface gives out, without touching it.</li>
+      </ul>
+      <table class="notes" id="radiation-notes-surfaces">
+        <thead><tr><th>Surface</th><th>Absorber</th><th>Emitter</th><th>Reflector</th><th>Uses</th></tr></thead>
+        <tbody>
+          <tr><th>Dull black</th><td>good</td><td>good</td><td>poor</td><td>solar water heaters, cooling fins and radiators</td></tr>
+          <tr><th>Shiny, light-coloured</th><td>poor</td><td>poor</td><td>good</td><td>survival blankets, flask linings, sunshields</td></tr>
+        </tbody>
+      </table>
+      <div class="tip" id="radiation-tip-pairs">
+        <span class="tag">Exam tip</span>
+        <p>Good absorbers are good emitters. A black road gets hotter by day and also cools faster at night.</p>
+      </div>
+      <div class="check" id="radiation-check-blanket" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>A shiny foil blanket is wrapped around a runner after a race. It keeps the runner warm mainly because</p>
+        <div class="choices">
+          <button type="button" data-choice="A">the shiny surface absorbs radiation from the surroundings well.</button>
+          <button type="button" data-choice="B">foil is a metal, so it conducts heat into the body.</button>
+          <button type="button" data-choice="C">the shiny surface is a good emitter, giving heat back to the runner.</button>
+          <button type="button" data-choice="D">the shiny surface is a poor emitter and reflects the body's infrared back, cutting heat loss by radiation.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> Shiny surfaces are poor emitters and good reflectors. <b>A</b> and <b>C</b> give the shiny surface black-surface properties. <b>B</b>: a blanket supplies no energy; it only slows the loss (it also traps a layer of still air).</p>
+        </div>
+      </div>
+      <div class="check" id="radiation-check-net" data-check="tf">
+        <h3>Quick check</h3>
+        <div class="tf-item" id="radiation-tf-cold-emits" data-answer="true">
+          <p>(a) A block of ice gives out infrared radiation.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. Every object emits infrared. Ice in a warm room absorbs more than it emits, so it is a net absorber.</p></div>
+        </div>
+        <div class="tf-item" id="radiation-tf-vacuum" data-answer="false">
+          <p>(b) Radiation cannot pass through a vacuum because there are no particles to carry it.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. Radiation is electromagnetic waves and needs no particles; conduction and convection need a medium.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../../_local/dse/mc/01/combined.pdf" data-quiz-section-pdf="../../_local/dse/mc/01/1.3.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the goals</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2020-1">
+          <h3>Heater in a tank of water</h3>
+          <p>Follow where the warm water goes first, a short time after switching on.</p>
+          <figure class="dse-paper">
+            <figcaption>2020/1 MC</figcaption>
+            <img src="../../_local/dse/mc/01/2020_q1.png" alt="HKDSE 2020/1 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2018-2">
+          <h3>Ice on a lake</h3>
+          <p>Decide which transfer process the ice layer slows down.</p>
+          <figure class="dse-paper">
+            <figcaption>2018/2 MC</figcaption>
+            <img src="../../_local/dse/mc/01/2018_q2.png" alt="HKDSE 2018/2 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2023-1">
+          <h3>Statements about radiation</h3>
+          <p>Remember that every body absorbs and emits; check each surface against the table above.</p>
+          <figure class="dse-paper">
+            <figcaption>2023/1 MC</figcaption>
+            <img src="../../_local/dse/mc/01/2023_q1.png" alt="HKDSE 2023/1 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2026-1">
+          <h3>Black and silvery flasks in sunlight</h3>
+          <p>The flasks start colder than their surroundings: which surface property matters?</p>
+          <figure class="dse-paper">
+            <figcaption>2026/1 MC</figcaption>
+            <img src="../../_local/dse/mc/01/2026_q1.png" alt="HKDSE 2026/1 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../../_local/dse/lq/01/combined.pdf" data-quiz-section-pdf="../../_local/dse/lq/01/1.3.pdf">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2024-1">
+          <h3>A cold bottle on the table</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/1 LQ</figcaption>
+            <img src="../../_local/dse/lq/01/2024-q1.png" alt="HKDSE 2024/1 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="1-4.html">Next: 1.4 Devices controlling heat flow →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="../js/notes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span></footer>
+</body>
+</html>

@@ -25,18 +25,18 @@
       <header>
         <h2><span class="sec-num">A</span>Field as force per charge</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="field-def-fig-1">
         <div class="visual play stage" data-scene="efield-point" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Field strength as force per unit charge"></canvas>
           <span class="hud-label" data-hud="a">Field streng</span>
         </div>
         <figcaption><b>Fig. 20.2</b> Arrow = force on a positive test charge.</figcaption>
       </figure>
-      <div class="def">
+      <div class="def" id="field-def-def-1">
         <span class="tag">Key idea</span>
         <p>Electric field strength at a point is \(E = F/q\) (vector) for a small positive test charge \(q\) placed there. Around an isolated point charge \(Q\): \(E = \dfrac{Q}{4\pi\varepsilon_0 r^2}\) radially outward if \(Q>0\), inward if \(Q<0\). The field exists whether a test charge is there or not.</p>
       </div>
-      <table class="notes">
+      <table class="notes" id="field-def-notes-1">
         <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
         <tbody>
           <tr><th>Units</th><td>\([E]=\mathrm{N\,C^{-1}}=\mathrm{V\,m^{-1}}\).</td></tr>
@@ -44,7 +44,7 @@
           <tr><th>Test charge sign</th><td>Defined for \(+\). Electron feels \(F = qE\) opposite to \(E\).</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="field-def-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>Where can \(E=0\) for a fixed \(-4Q\) at \(x=0\) and \(+Q\) at \(x=L\) on the line beyond them?</p>
         <div class="choices">
@@ -64,18 +64,18 @@
       <header>
         <h2><span class="sec-num">B</span>Uniform field between plates</h2>
       </header>
-      <figure class="fig">
+      <figure class="fig" id="plates-fig-1">
         <div class="visual play stage" data-scene="efield-plates" data-autoplay>
           <canvas class="scene-canvas" width="960" height="360" aria-label="Uniform field between plates"></canvas>
           <span class="hud-label" data-hud="a">Uniform fiel</span>
         </div>
         <figcaption><b>Fig. 20.2</b> Parallel, equally spaced lines: \(E = V/d\).</figcaption>
       </figure>
-      <div class="def">
+      <div class="def" id="plates-def-1">
         <span class="tag">Key idea</span>
         <p>Between large, close, parallel plates with p.d. \(V\) and separation \(d\): \(E = V/d\) uniform (same vector everywhere). A charge between them feels constant \(F = qE\). For an electron: accelerates toward the positive plate; kinematics with \(a = qE/m\) is constant, so projectile-like if entering sideways.</p>
       </div>
-      <table class="notes">
+      <table class="notes" id="plates-notes-1">
         <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
         <tbody>
           <tr><th>Uniform</th><td>Lines parallel, equally spaced. Charge projected perpendicular to \(E\) traces a parabola.</td></tr>
@@ -83,7 +83,7 @@
           <tr><th>Units check</th><td>\(V/d = (\mathrm{J/C})/\mathrm{m}=\mathrm{N/C}\), consistent.</td></tr>
         </tbody>
       </table>
-      <div class="check" data-check="mc" data-answer="B">
+      <div class="check" id="plates-check-1" data-check="mc" data-answer="B">
         <h3>Quick check</h3>
         <p>An electron enters a uniform \(E\) region (plates) horizontally with speed \(v\). Its path is</p>
         <div class="choices">
@@ -133,11 +133,32 @@
         <h2 id="lq-quiz-heading">Long questions</h2>
       </header>
       <div class="quiz-slides">
-        <article class="quiz-slide is-current" id="dse-lq-20-sample">
-          <h3>Syllabus 20 LQ sample</h3>
+        <article class="quiz-slide is-current" id="dse-lq-2013-11">
+          <h3>Charged spheres on threads</h3>
           <figure class="dse-paper">
-            <figcaption>Section 20 LQ</figcaption>
-            <img src="../_local/dse/lq/20/sample.png" alt="HKDSE LQ section 20">
+            <figcaption>2013/11 LQ &mdash; section 20</figcaption>
+            <img src="../_local/dse/lq/20/2013-q11.png" alt="HKDSE 2013/11 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2020-9">
+          <h3>Spheres between parallel plates</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/9 LQ &mdash; section 20</figcaption>
+            <img src="../_local/dse/lq/20/2020-q9.png" alt="HKDSE 2020/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2024-9">
+          <h3>Electrostatic induction</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/9 LQ &mdash; section 20</figcaption>
+            <img src="../_local/dse/lq/20/2024-q9.png" alt="HKDSE 2024/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2026-7">
+          <h3>Electrostatic adhesive wallpaper</h3>
+          <figure class="dse-paper">
+            <figcaption>2026/7 LQ &mdash; section 20</figcaption>
+            <img src="../_local/dse/lq/20/2026-q7.png" alt="HKDSE 2026/7 LQ">
           </figure>
         </article>
       </div>
