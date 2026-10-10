@@ -1,6 +1,5 @@
-/* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
-/* Ch.3 hud positions are defined in ../../css/notes.css to unstack bottom-left cluster.
-   Keep this file as fallback placement for local preview if shared css is cached. */
+/* Chapter overrides — keep minimal. Shared rules in ../../../css/notes.css */
+/* Ch.3 hud positions: one left/top per label so the bottom-left cluster never stacks. */
 #add-vis [data-hud="net"] { left: 58%; top: 18%; }
 #add-vis [data-hud="resolve"] { left: 78%; top: 28%; }
 #inertia-vis [data-hud="friction"] { left: 32%; top: 72%; }

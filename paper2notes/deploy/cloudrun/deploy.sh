@@ -68,7 +68,8 @@ gcloud run deploy "$SERVICE" --project "$PROJECT_ID" --region "$REGION" \
 
 url="$(gcloud run services describe "$SERVICE" --project "$PROJECT_ID" --region "$REGION" \
   --format='value(status.url)')"
-for path in "/" "/book2/" "/book4/" "/book5/"; do
+# Book entries, then one file from each shared folder every book links.
+for path in "/" "/book2/" "/book4/" "/book5/" "/css/notes.css" "/js/checks.js" "/vendor/katex/katex.min.js" "/vendor/three/three.min.js"; do
   echo "deploy: verifying $url$path"
   ok=0
   for _ in 1 2 3 4 5; do
