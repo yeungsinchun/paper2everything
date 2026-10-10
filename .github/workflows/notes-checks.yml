@@ -36,81 +36,128 @@ on:
 # workflow files would only duplicate them.
 jobs:
   anchor-lint-tests:
-    name: anchor-lint tests
+    name: anchor-lint-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node --test paper2notes/tests/anchor-lint.test.mjs
+      # Unit tests for the anchor linter. They cover required, unique and
+      # non-positional ids on answer-bearing blocks, moves.json rename chains,
+      # and the answer-pointer store shape.
+      # Breaking them costs every deep link into the notes and stops
+      # paper2db/metadata/pointers from validating.
+      - name: run-anchor-lint-tests
+        run: node --test paper2notes/tests/anchor-lint.test.mjs
 
-  ci-check:
-    name: ci-check
+  notes-consistency-check:
+    name: notes-consistency-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node paper2notes/scripts/ci-check.mjs
+      # The full notes gate. It verifies the book and chapter indexes, that
+      # in-repo relative links resolve on disk, that books share one copy of
+      # the assets, the lavish notes-refactor board contract, the
+      # deploy-commit footer on every deployed HTML page, the protected-text
+      # leak check, anchor ids, and the DSE availability record.
+      # Breaking it costs a broken site, a missing footer, leaked question
+      # text, or a published DSE crop the papers do not hold.
+      - name: run-notes-consistency-check
+        run: node paper2notes/scripts/ci-check.mjs
 
   leak-check-tests:
-    name: leak-check tests
+    name: leak-check-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node --test paper2notes/tests/leak-check.test.mjs
+      # Unit tests for the protected-text scan. They cover the L1-L4 levels,
+      # the baseline allowances, and the fingerprint coverage of every
+      # published identity.
+      # Breaking them costs a pasted stem, a reworded stem, or a worked
+      # solution reaching students unnoticed.
+      - name: run-leak-check-tests
+        run: node --test paper2notes/tests/leak-check.test.mjs
 
   dse-availability-tests:
-    name: dse-availability tests
+    name: dse-availability-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node --test paper2notes/tests/dse-availability.test.mjs
+      # Unit tests for the DSE availability record. They cover that every
+      # published crop is a real question of the right kind, that an
+      # incomplete section carries a written reason, and that the reference
+      # counts quoted in docs/ARCHITECTURE.md are counted from the pages.
+      # Breaking them costs a slide naming a question the paper does not hold.
+      - name: run-dse-availability-tests
+        run: node --test paper2notes/tests/dse-availability.test.mjs
 
   quiz-audit-tests:
-    name: quiz-audit tests
+    name: quiz-audit-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node --test paper2notes/tests/quiz-audit.test.mjs
+      # Unit tests for the audit itself: every shipped page is covered, every
+      # multiple-choice key matches an option, every true/false key is true or
+      # false, every DSE slide points at a published crop, and the audit still
+      # finds a broken quiz.
+      # Breaking them costs an audit that passes a page it never inspects.
+      - name: run-quiz-audit-tests
+        run: node --test paper2notes/tests/quiz-audit.test.mjs
 
   quiz-store-audit-tests:
-    name: quiz-store-audit tests
+    name: quiz-store-audit-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node --test paper2notes/tests/quiz-store-audit.test.mjs
+      # Unit tests for the answer-store cross-check. They cover a missing
+      # crop, a key the store marks missing, and a key that disagrees with the
+      # store on option or percentage.
+      # Breaking them costs a deck that tells a student a wrong answer.
+      - name: run-quiz-store-audit-tests
+        run: node --test paper2notes/tests/quiz-store-audit.test.mjs
 
-  quiz-audit:
-    name: quiz audit
+  quiz-audit-check:
+    name: quiz-audit-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node paper2notes/scripts/quiz-audit.mjs
+      # Static audit of every shipped notes page: quiz keys match an option,
+      # each graded quiz loads its checks script, every DSE slide points at a
+      # published crop, every section is recorded in the availability file,
+      # and each key agrees with the paper2db answer store.
+      # Breaking it costs a student marking their own work wrongly.
+      - name: run-quiz-audit
+        run: node paper2notes/scripts/quiz-audit.mjs
 
   leak-fingerprint-check:
-    name: leak fingerprint check
+    name: leak-fingerprint-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python3 paper2db/scripts/leak_fingerprints.py --check
+      # The leak check reads fingerprints rebuilt from the staging records,
+      # so a stale committed file silently weakens every leak finding.
+      # This rebuilds them and fails on any difference.
+      - name: check-leak-fingerprints-are-current
+        run: python3 paper2db/scripts/leak_fingerprints.py --check

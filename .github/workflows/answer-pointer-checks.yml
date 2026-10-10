@@ -25,7 +25,7 @@ on:
 
 jobs:
   pointers-check:
-    name: pointers check
+    name: pointers-check
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -35,10 +35,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python3 scripts/pointers.py check
+      # Resolves every stored answer pointer against the item universes.
+      # A malformed pointer, two conflicting targets at the same tier, or a
+      # target that is missing on disk fails here.
+      - name: check-answer-pointer-store
+        run: python3 scripts/pointers.py check
 
   pointers-coverage:
-    name: pointers coverage
+    name: pointers-coverage
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -48,10 +52,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python3 scripts/pointers.py coverage
+      # Prints how many items each corpus resolves per tier, so a work-in-
+      # progress pointer store stays visible in the run log.
+      - name: report-answer-pointer-coverage
+        run: python3 scripts/pointers.py coverage
 
   pointers-unit-tests:
-    name: pointers unit tests
+    name: pointers-unit-tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -61,4 +68,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python3 -m unittest tests.test_pointers
+      # Unit tests for the pointer store: schema validation, tier merge with
+      # conflicts, the item join, coverage counting, and the CI resolver.
+      # Breaking them costs a pointer store that resolves to the wrong crop or
+      # silently drops an item.
+      - name: run-answer-pointer-unit-tests
+        run: python3 -m unittest tests.test_pointers

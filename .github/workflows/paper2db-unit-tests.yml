@@ -16,8 +16,8 @@ on:
       - ".github/workflows/paper2db-unit-tests.yml"
 
 jobs:
-  test-dse-items:
-    name: dse-items unit tests
+  dse-items-unit-tests:
+    name: dse-items-unit-tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -27,11 +27,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python3 -m pip install "Pillow>=10,<12"
-      - run: python3 -m unittest tests.test_dse_items
+      - name: install-pillow
+        run: python3 -m pip install "Pillow>=10,<12"
+      # Unit tests for the dse-items stage. They cover record joining, schema
+      # validation, and image gating on temp-tree fixtures, with no PDFs or
+      # crops required.
+      # Breaking them costs published crops for a question the source papers
+      # do not hold, or a section that silently loses its records.
+      - name: run-dse-items-unit-tests
+        run: python3 -m unittest tests.test_dse_items
 
-  test-pointers:
-    name: pointers unit tests
+  pointers-unit-tests:
+    name: pointers-unit-tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,4 +48,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python3 -m unittest tests.test_pointers
+      # Unit tests for the answer-pointer store this stage joins against.
+      # Breaking them costs a crop or page pointer that resolves to the wrong
+      # question, or a conflicting pointer passing merge.
+      - name: run-answer-pointer-unit-tests
+        run: python3 -m unittest tests.test_pointers

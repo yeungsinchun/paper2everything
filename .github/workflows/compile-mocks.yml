@@ -13,7 +13,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  compile-all-mocks:
+    name: compile-all-mocks
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -46,14 +47,17 @@ jobs:
           root_file: main.tex
           args: -interaction=nonstopmode -halt-on-error
           latexmk_use_lualatex: true
-      - run: cp "${{ matrix.dir }}/main.pdf" "${{ matrix.name }}.pdf"
+      # Names the PDF after the matrix entry so each mock keeps its own
+      # artifact instead of overwriting the previous one.
+      - name: copy-built-pdf
+        run: cp "${{ matrix.dir }}/main.pdf" "${{ matrix.name }}.pdf"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.name }}
           path: ${{ matrix.name }}.pdf
 
-  release:
-    needs: build
+  release-mock-pdfs:
+    needs: compile-all-mocks
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
@@ -69,7 +73,10 @@ jobs:
           pattern: mock*-marking-scheme
           merge-multiple: true
           path: ms/
-      - run: |
+      # The release job never builds: it only repackages the artifacts the
+      # matrix jobs produced, so a mock that fails to compile has no PDF here.
+      - name: zip-question-papers-and-marking-schemes
+        run: |
           cd qp && zip ../question-papers.zip mock*-question-paper.pdf && cd ..
           cd ms && zip ../marking-schemes.zip mock*-marking-scheme.pdf && cd ..
       - uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd
