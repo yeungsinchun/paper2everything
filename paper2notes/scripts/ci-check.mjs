@@ -2,8 +2,9 @@
 // Minimal CI check for paper2notes.
 //
 // When `notes/` does not exist yet (bare `main`), this is a no-op skip.
-// Checks Book 5's three chapter indexes, Book 2's ten chapters, and Book 4's
-// eight chapters when present, plus in-repo relative links (href/src) that
+// Checks Book 5's three chapter indexes, Book 2's ten chapters, Book 4's
+// eight chapters, Book 1's four chapters and Book 8's four chapters when
+// present, plus in-repo relative links (href/src) that
 // can be resolved on disk without a browser, plus shared assets (books link
 // notes/css/notes.css, notes/js and notes/vendor and keep no copies), plus lavish notes-refactor boards
 // (before/after side-by-side and readable prose — enforced only on boards
@@ -11,13 +12,18 @@
 // plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
 // plus leak-check (notes must not reproduce protected question/answer text;
 // see scripts/leak-check.mjs),
-// plus anchor ids / moves.json / answer pointers (see scripts/anchor-lint.mjs).
+// plus anchor ids / moves.json / answer pointers (see scripts/anchor-lint.mjs),
+// plus the DSE availability record: every published DSE section must be
+// recorded in notes/dse/availability.json with a reason, and every published
+// crop must be a question the papers really hold (see
+// scripts/dse-availability.mjs).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runLeakCheck } from "./leak-check.mjs";
 import { lintAnchors } from "./anchor-lint.mjs";
+import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource, referenceCounts, checkDocumentedReferenceCounts } from "./dse-availability.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
@@ -96,6 +102,36 @@ function checkBook4Structure() {
     const chapterIndex = join(book4Dir, entry.name, "index.html");
     if (!isNonEmptyFile(chapterIndex)) {
       fail(`Missing or empty chapter index: ${relative(repoRoot, chapterIndex)}`);
+    }
+  }
+}
+
+// Book 1 (Heat and Gases): four chapters in the Book 4/5 shape. Each chapter
+// needs its map, every syllabus subsection page and a summary.
+const BOOK1_CHAPTERS = {
+  "ch01-": ["1-1.html", "1-2.html", "1-3.html", "1-4.html"],
+  "ch02-": ["2-1.html", "2-2.html", "2-3.html", "2-4.html"],
+  "ch03-": ["3-1.html", "3-2.html", "3-3.html"],
+  "ch04-": ["4-1.html", "4-2.html", "4-3.html"],
+};
+
+function checkBook1Structure() {
+  const book1Dir = join(notesDir, "book1");
+  if (!existsSync(book1Dir)) return;
+  const bookIndex = join(book1Dir, "index.html");
+  if (!isNonEmptyFile(bookIndex)) {
+    fail(`Missing or empty book1 index: ${relative(repoRoot, bookIndex)}`);
+  }
+  const entries = readdirSync(book1Dir, { withFileTypes: true });
+  for (const [prefix, pages] of Object.entries(BOOK1_CHAPTERS)) {
+    const match = entries.find((e) => e.isDirectory() && e.name.startsWith(prefix));
+    if (!match) {
+      fail(`Missing chapter directory matching "${prefix}*" under ${relative(repoRoot, book1Dir)}`);
+      continue;
+    }
+    for (const page of ["index.html", ...pages, "summary.html"]) {
+      const file = join(book1Dir, match.name, page);
+      if (!isNonEmptyFile(file)) fail(`Missing or empty Book 1 page: ${relative(repoRoot, file)}`);
     }
   }
 }
@@ -430,6 +466,40 @@ function checkLeaks() {
   for (const e of leaks) fail(`leak-check: ${e}`);
 }
 
+/* notes/dse/availability.json must match what notes/dse/ holds, what the
+   source papers hold, and what each page shows or states, so a section with no
+   published long question stays a recorded decision instead of drifting back
+   into a silent gap. quiz-audit.mjs runs the same rules and prints them per
+   page with the rest of the quiz contracts. */
+function checkDseAvailability() {
+  if (!existsSync(notesDir)) return;
+  for (const p of checkSnapshot({ repoRoot }).problems) fail(`dse-availability: ${p.detail}`);
+
+  const availability = { ...loadAvailability(repoRoot), repoRoot };
+  const source = loadSource(repoRoot);
+  for (const file of walkHtmlFiles(notesDir)) {
+    if (file.includes("/_source/") || file.includes("/_local/") || file.includes("/.lavish/")) continue;
+    const page = relative(repoRoot, file);
+    const html = readFileSync(file, "utf8");
+    for (const p of checkPage(html, { page, availability, source }).problems) {
+      fail(`dse-availability: ${page}: ${p.detail}`);
+    }
+    for (const p of checkAbsencePanels(html, { page, availability }).problems) {
+      fail(`dse-availability: ${page}: ${p.detail}`);
+    }
+  }
+
+  /* docs/ARCHITECTURE.md quotes how many DSE references the pages load. Count
+     them from the pages and refuse the quote when it drifts, so the number is
+     never a hand-copied value again. */
+  const doc = join(repoRoot, "..", "docs", "ARCHITECTURE.md");
+  if (existsSync(doc)) {
+    for (const p of checkDocumentedReferenceCounts(readFileSync(doc, "utf8"), referenceCounts(repoRoot))) {
+      fail(`dse-availability: ${p.detail}`);
+    }
+  }
+}
+
 checkSiteRegionConsistency();
 checkLavishBoards();
 
@@ -437,6 +507,7 @@ if (existsSync(book5Dir)) {
   checkBook5Structure();
 }
 
+checkBook1Structure();
 checkBook2Structure();
 checkBook4Structure();
 
@@ -444,6 +515,7 @@ checkRelativeLinks();
 checkSharedAssets();
 checkDeployFooter();
 checkLeaks();
+checkDseAvailability();
 errors.push(...lintAnchors({ repoRoot }).errors);
 
 if (errors.length > 0) {

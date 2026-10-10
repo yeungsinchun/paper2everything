@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.1 Gas pressure</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Gas Laws</small></a>
+    <nav>
+      <a href="index.html">Map</a><a href="4-1.html" aria-current="page">4.1</a><a href="4-2.html">4.2</a><a href="4-3.html">4.3</a><a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 4.1</p>
+    <h1>Gas pressure</h1>
+    <p class="lede">A gas pushes on its container because its moving molecules collide with the walls.</p>
+    <aside class="quick-digest" id="pressure-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Pressure</b><span>normal force per unit area</span></p>
+        <p><b>Gas pressure</b><span>many molecular collisions on each wall</span></p>
+        <p><b>Increase pressure</b><span>harder impacts or more frequent impacts</span></p>
+        <p><b>Atmosphere</b><span>air pressure acts in every direction</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#pressure"><b>A</b>Definition</a><a href="#gas"><b>B</b>Molecules</a><a href="#atmosphere"><b>C</b>Air pressure</a><a href="#piston"><b>D</b>Force balance</a>
+    </nav>
+    <section class="idea" id="pressure">
+      <header>
+        <h2><span class="sec-num">A</span>Pressure is force spread over area</h2>
+      </header>
+      <div class="def" id="pressure-def">
+        <span class="tag">Pressure</span>
+        <p><b>Pressure</b> is the component of force perpendicular to a surface divided by the area it acts on.</p>
+      </div>
+      <div class="eq" id="pressure-eq">
+        \[p=\frac{F_\perp}{A}\]
+      </div>
+      <p class="note">\(p\): pressure in pascals (Pa); \(F_\perp\): normal force in newtons; \(A\): area in square metres. \(1\,\mathrm{Pa}=1\,\mathrm{N\,m^{-2}}\).</p>
+      <div class="worked" id="pressure-worked">
+        <h3>Worked example · contact area</h3>
+        <ol class="steps">
+          <li>A 600 N load acts over \(0.030\,\mathrm{m^2}\).</li>
+          <li>Use \(p=F/A=600/0.030\).</li>
+          <li><b>Pressure = 20 kPa.</b></li>
+        </ol>
+      </div>
+      <div class="check" id="pressure-check-area" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>The same force acts on a smaller area. What happens to the pressure?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">It increases.</button><button type="button" data-choice="B">It decreases.</button><button type="button" data-choice="C">It stays fixed.</button><button type="button" data-choice="D">It becomes zero.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> With force fixed, reducing area increases force per unit area.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="gas">
+      <header>
+        <h2><span class="sec-num">B</span>Molecular collisions make gas pressure</h2>
+      </header>
+      <figure class="fig" id="gas-pressure-fig">
+        <div class="visual">
+          <svg viewbox="0 0 600 260" role="img" aria-label="Gas molecules move randomly and collide with container walls, transferring momentum and exerting perpendicular force." xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="260" fill="white"></rect>
+          <rect x="100" y="35" width="400" height="185" fill="#fffdf8" stroke="#1b2129" stroke-width="4"></rect>
+          <g fill="#0f5c54">
+            <circle cx="165" cy="90" r="8"></circle>
+            <circle cx="275" cy="155" r="8"></circle>
+            <circle cx="405" cy="85" r="8"></circle>
+            <circle cx="360" cy="190" r="8"></circle>
+            <circle cx="220" cy="200" r="8"></circle>
+          </g>
+          <g stroke="#a8690a" stroke-width="3">
+            <path d="M165 90L115 55"></path>
+            <path d="M275 155L340 185"></path>
+            <path d="M405 85L485 52"></path>
+            <path d="M360 190L395 215"></path>
+            <path d="M220 200L145 190"></path>
+          </g>
+          <text x="190" y="244" fill="#1b2129" font-size="17">
+            collisions push perpendicular to each wall
+          </text></svg>
+        </div>
+        <figcaption>
+          <b>Wall collisions exert force.</b> Their average force per area is the gas pressure.
+        </figcaption>
+      </figure>
+      <p>Each impact changes a molecule's momentum and exerts an opposite force on the wall. Enormous numbers of impacts produce a steady average pressure. Faster molecules hit harder and more often; a greater number density also raises collision frequency.</p>
+      <ul class="points">
+        <li>Heating a gas increases average molecular speed.</li>
+        <li>Compressing a fixed amount of gas crowds molecules into less volume.</li>
+        <li>Adding gas molecules increases collision frequency.</li>
+      </ul>
+      <div class="check" id="gas-pressure-check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A sealed rigid container is heated. Why does its gas pressure rise?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Molecules become heavier.</button><button type="button" data-choice="B">The container's volume must increase.</button><button type="button" data-choice="C">Molecules hit the walls harder and more often.</button><button type="button" data-choice="D">Molecules stop colliding.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> Higher temperature means greater average molecular speed, increasing impact and collision rate.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="atmosphere">
+      <header>
+        <h2><span class="sec-num">C</span>Atmospheric pressure</h2>
+      </header>
+      <p>Air molecules collide with objects around us. At sea level, standard atmospheric pressure is about \(100\,\mathrm{kPa}\). Pressure generally falls at higher altitude as the air becomes less dense.</p>
+      <figure class="fig" id="atmosphere-fig">
+        <div class="visual">
+          <svg viewbox="0 0 600 220" role="img" aria-label="Atmospheric pressure pushes on all sides of an object; pressure imbalance produces a net force." xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="220" fill="white"></rect>
+          <rect x="250" y="65" width="100" height="90" rx="8" fill="#e4efec" stroke="#0f5c54" stroke-width="3"></rect>
+          <g stroke="#0f5c54" stroke-width="4">
+            <path d="M80 110H225"></path>
+            <path d="M520 110H375"></path>
+            <path d="M300 25V55"></path>
+            <path d="M300 195V165"></path>
+          </g>
+          <g fill="#1b2129" font-size="18" text-anchor="middle">
+            <text x="300" y="120">
+              object
+            </text>
+            <text x="300" y="215">
+              air pushes from every direction
+            </text>
+          </g></svg>
+        </div>
+        <figcaption>
+          <b>Pressure acts in all directions.</b> A pressure difference creates a net force.
+        </figcaption>
+      </figure>
+      <div class="check" id="atmosphere-check" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>A straw contains lower pressure than the drink outside it. What pushes liquid up the straw?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">A pulling force from the student's mouth.</button><button type="button" data-choice="B">Gravity acting upwards.</button><button type="button" data-choice="C">Atmospheric pressure disappears.</button><button type="button" data-choice="D">The higher pressure on the drink surface pushes liquid toward the lower-pressure straw.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> Pressure differences produce the net push. The liquid is not pulled upward by a vacuum.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="piston">
+      <header>
+        <h2><span class="sec-num">D</span>Use force balance on a piston</h2>
+      </header>
+      <p>A stationary piston has zero resultant force. Gas pressure, outside pressure and piston weight must balance. Compare forces on the piston, not pressures alone.</p>
+      <div class="eq" id="piston-eq">
+        \[p_{in}A=p_{out}A+W\]
+      </div>
+      <p>For a freely moving piston with negligible friction, this relation applies in equilibrium. Divide each force by the same piston area to obtain the pressure relation.</p>
+    </section>
+    <p class="next"><a href="index.html">← Chapter map</a> · <a href="4-2.html">Next: Gas laws →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/notes.js"></script>
+  <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">
+    deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span>
+  </footer>
+</body>
+</html>
