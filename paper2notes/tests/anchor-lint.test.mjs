@@ -1,3 +1,5 @@
+// Guards stable semantic anchors, required ids, recorded moves, and answer-pointer shapes.
+// Missing or unsafe ids and malformed pointer records must fail the notes checks.
 import test from "node:test";
 import assert from "node:assert/strict";
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";

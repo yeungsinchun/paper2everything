@@ -1,3 +1,7 @@
+# Runs for mock changes in pull requests and on pushes to main. It compiles
+# every tracked question paper and marking scheme, publishes PR artifacts, and
+# attaches ZIP files to a commit-specific release after a main-branch build.
+# This catches LaTeX errors and preserves compiled mock PDFs for review and release.
 # Compile-check for every tracked mock (Sets 1-10).
 # Builds each question paper and marking scheme with latexmk.
 # PDFs are never committed: PRs get per-document artifacts, and merges to

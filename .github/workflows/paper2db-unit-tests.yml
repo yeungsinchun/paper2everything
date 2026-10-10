@@ -1,3 +1,6 @@
+# Runs the paper2db DSE-items and answer-pointer unit tests for pull requests and
+# pushes to main that change paper2db files. It protects DSE item extraction and
+# the pointer join that links those items to stored answers.
 # Standalone paper2db unit tests for the dse-items stage and the answer-pointer
 # join it consumes. These modules build their own temp-tree fixtures, so no
 # PDFs, crops or other generated data are required. One job per test module,

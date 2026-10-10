@@ -1,4 +1,5 @@
-// Acceptance tests for leak-check.mjs: node --test paper2notes/tests/leak-check.test.mjs
+// Guards protected text detection, fingerprint matching, and safe allow-list handling.
+// Protected source leaks or invalid fingerprint behavior must fail the notes checks.
 import { after, test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync, spawnSync } from "node:child_process";

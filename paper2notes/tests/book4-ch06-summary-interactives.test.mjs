@@ -5,7 +5,7 @@
  * quick check, the Show/Hide written answer, and no page-level overflow at the
  * two review viewports (1280x800 and 390x844).
  *
- * Needs Google Chrome, like the Book 5 harness: node --test js/summary.interactives.test.mjs
+ * Needs Google Chrome. Run: node --test paper2notes/tests/book4-ch06-summary-interactives.test.mjs
  */
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
@@ -17,7 +17,7 @@ import { after, before, describe, test } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const chapterDir = path.resolve(here, "..");
+const chapterDir = path.resolve(here, "../notes/book4/ch06-magnetic-force-and-dc-motor");
 const chromePath = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 function pageUrl(name) {

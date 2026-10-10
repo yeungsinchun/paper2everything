@@ -8,8 +8,7 @@
      5. a concise visible digest, plus wrong-to-retry-to-right checks and the
         DSE deck Prev/Next contract.
 
-   Chrome is required. Run from this directory:
-     node --test js/notes.r4.test.mjs
+   Chrome is required. Run: node --test paper2notes/tests/book5-ch02-notes-r4.test.mjs
    The stale notes.interactives.test.mjs suite predates the #84 design-system
    migration and is red on origin/main; this file is the gate for R4. */
 
@@ -23,7 +22,7 @@ import { after, before, describe, test } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const notesDir = path.resolve(here, "..");
+const notesDir = path.resolve(here, "../notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides");
 const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 function pageUrl(name) {

@@ -1,3 +1,6 @@
+# Runs notes and audit checks for pull requests that touch notes, scripts, tests,
+# anchors, or tracked source data, and on matching pushes to main. It protects
+# page contracts, quiz keys, protected text, and published notes consistency.
 name: notes-checks
 
 on:

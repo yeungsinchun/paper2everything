@@ -1,3 +1,5 @@
+/* Guards the Book 4 Ch.4 circuit controls, their displayed values, and responsive layout.
+   A broken circuit interaction or overflowing page must fail before publication. */
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import fs from "node:fs";
@@ -8,7 +10,7 @@ import { after, before, describe, test } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const notesDir = path.resolve(here, "..");
+const notesDir = path.resolve(here, "../notes/book4/ch04-power-and-domestic-electricity");
 const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const evidenceDir = process.env.EVIDENCE_DIR || "";
 

@@ -1,3 +1,6 @@
+# Deploys notes to the production Cloud Run service after main changes to notes
+# or deployment files. Manual dispatch also runs it. The workflow protects the
+# published notes site by deploying through short-lived workload identity auth.
 name: deploy-notes
 
 # Publishes paper2notes/notes to Cloud Run after every merge to main.

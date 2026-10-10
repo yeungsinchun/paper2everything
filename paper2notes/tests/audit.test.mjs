@@ -1,3 +1,5 @@
+// Guards the shared audit modules' bank, page, image, and answer-pointer contracts.
+// Broken mappings or audit checks fail before the command can publish bad results.
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -5,16 +7,17 @@ import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { repoRoot, auditRoot } from "./paths.mjs";
-import { allBanks, pagesForBank, sectionPagesForBank, sectionIdForPage, cumulativePagesForBank, bankForSection } from "./bank-pages.mjs";
-import { loadDseSection, dseItemsForPage } from "./dse.mjs";
-import { runPi } from "./map.mjs";
-import { extractFigures, stripDseBlocks } from "./bundle.mjs";
-import { pointerCandidates, ideaAnchors, parseAnchorHeading } from "./pointers.mjs";
-import { deterministicQuoteCheck } from "./judge.mjs";
-import { verify } from "./verify.mjs";
+import { repoRoot, auditRoot } from "../scripts/audit/paths.mjs";
+import { allBanks, pagesForBank, sectionPagesForBank, sectionIdForPage, cumulativePagesForBank, bankForSection } from "../scripts/audit/bank-pages.mjs";
+import { loadDseSection, dseItemsForPage } from "../scripts/audit/dse.mjs";
+import { runPi } from "../scripts/audit/map.mjs";
+import { extractFigures, stripDseBlocks } from "../scripts/audit/bundle.mjs";
+import { pointerCandidates, ideaAnchors, parseAnchorHeading } from "../scripts/audit/pointers.mjs";
+import { deterministicQuoteCheck } from "../scripts/audit/judge.mjs";
+import { verify } from "../scripts/audit/verify.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
+const auditCli = path.resolve(here, "../scripts/audit/audit.mjs");
 const chrome = fs.existsSync("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
 
 test("books.json lists all 21 banks", () => {
@@ -197,7 +200,7 @@ EOT
     const env = { ...process.env, PI_BIN: fake, P2E_AUDIT_ROOT: root };
     const [d] = loadDseSection(repoRoot, "25.1");
     const id = d.items[0].id;
-    const run = spawnSync(process.execPath, [path.join(here, "audit.mjs"), "run", "--dse-section", "25.1", "--items", id, "--k", "1", "--concurrency", "1"], { env, encoding: "utf8" });
+    const run = spawnSync(process.execPath, [auditCli, "run", "--dse-section", "25.1", "--items", id, "--k", "1", "--concurrency", "1"], { env, encoding: "utf8" });
     assert.equal(run.status, 0, run.stdout + run.stderr);
     const result = JSON.parse(fs.readFileSync(path.join(root, "results/DSE_25-1", `${id}.json`), "utf8"));
     assert.equal(result.section, "25-1");
@@ -205,7 +208,7 @@ EOT
     // the mapping file keeps every deck item, not just the selected one
     const mapping = JSON.parse(fs.readFileSync(path.join(root, "mapping/DSE_25-1.json"), "utf8"));
     assert.equal(mapping.mappings.length, d.items.length);
-    const v = spawnSync(process.execPath, [path.join(here, "audit.mjs"), "verify"], { env, encoding: "utf8" });
+    const v = spawnSync(process.execPath, [auditCli, "verify"], { env, encoding: "utf8" });
     assert.equal(v.status, 0, v.stdout + v.stderr);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });

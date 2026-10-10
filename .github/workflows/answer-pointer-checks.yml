@@ -1,3 +1,6 @@
+# Checks answer-pointer shape, coverage, and unit behavior when pointer data, its
+# schema, tooling, or related QB staging files change. Failures protect stored
+# answers from invalid or incomplete references.
 # One job per distinct answer-pointer check, so a failure names the test
 # that broke. Triggers and path filters stay defined once per workflow.
 name: answer-pointer-checks

@@ -1,3 +1,5 @@
+/* Guards the Book 5 Ch.2 lesson interactions, decay calculations, and page layout.
+   Broken controls or inconsistent decay values must fail before publication. */
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import fs from "node:fs";
@@ -8,7 +10,7 @@ import { after, before, describe, test } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const notesDir = path.resolve(here, "..");
+const notesDir = path.resolve(here, "../notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides");
 const book5Dir = path.resolve(notesDir, "..");
 const ch1Dir = path.resolve(book5Dir, "ch01-radiation-and-radioactivity");
 const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";

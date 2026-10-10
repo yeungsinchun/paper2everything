@@ -5,7 +5,7 @@
    - Pause / Replay / scrub / reduced-motion terminal frame;
    - a retryable check with the full working behind Show answer;
    - side-by-side figures that stack on phones.
-   Run: node --test paper2notes/notes/book2/ch01-position-and-displacement/js/notes.interactives.test.mjs */
+   Run: node --test paper2notes/tests/book2-ch01-notes-interactives.test.mjs */
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import fs from "node:fs";
@@ -16,7 +16,7 @@ import { after, before, describe, test } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const notesDir = path.resolve(here, "..", "..", "..");
+const notesDir = path.resolve(here, "../notes");
 const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const evidenceDir = process.env.EVIDENCE_DIR || "";
 
