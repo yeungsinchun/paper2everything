@@ -36,6 +36,7 @@ jobs:
         with:
           node-version: '20'
       - run: node --test paper2notes/scripts/anchor-lint.test.mjs
+      - run: node --test paper2notes/notes/mock/js/mock-engine.test.mjs
       - run: node --test paper2notes/scripts/dse-availability.test.mjs
       - run: node --test paper2notes/scripts/quiz-audit.test.mjs
       - run: node --test paper2notes/scripts/quiz-store-audit.test.mjs

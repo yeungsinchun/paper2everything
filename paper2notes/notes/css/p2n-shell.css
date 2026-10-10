@@ -113,6 +113,7 @@ a{text-decoration:none}
 [data-ic="zap"]{--src:url(../assets/icons/zap.svg)}
 [data-ic="radiation"]{--src:url(../assets/icons/radiation.svg)}
 [data-ic="library"]{--src:url(../assets/icons/library.svg)}
+[data-ic="hourglass"]{--src:url(../assets/icons/hourglass.svg)}
 [data-ic="chevron-right"]{--src:url(../assets/icons/chevron-right.svg)}
 /* Book 2 chapter glyphs (icon-map.json) */
 [data-ic="move-up-right"]{--src:url(../assets/icons/move-up-right.svg)}

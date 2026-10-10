@@ -10,7 +10,7 @@ paper2everything turns Hong Kong secondary-school source material (HKDSE Physics
 
 | Subproject | What it is | Audience-facing output |
 |---|---|---|
-| `paper2notes/` | Visual, interactive HKDSE Physics notes (Book 2 Force and Motion, Book 4 Electricity and Magnetism, Book 5 Radioactivity and Nuclear Energy), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb` |
+| `paper2notes/` | Visual, interactive HKDSE Physics notes (Book 2 Force and Motion, Book 4 Electricity and Magnetism, Book 5 Radioactivity and Nuclear Energy), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb`, mock-exam builder at `/mock` |
 | `paper2db/` | Pipeline that splits HKDSE Paper 1A (MC) and 1B (LQ) PDFs into per-question crops, classifies each to a syllabus section, pairs answers and candidate-performance notes, and ingests the QB DOCX banks | Per-section MC and LQ banks, section PDFs, whole-paper reconstructions, QB item data |
 | `paper2mock/` | LaTeX F.1 maths mock papers: 10 tests, each with question paper and marking scheme | 20 PDFs, released as two zips on each push to `main` |
 
@@ -72,7 +72,8 @@ Versus a plain past-paper archive: questions are cut per item, labelled by secti
 - Notes: Book 2 (10 chapters), Book 4 (8), Book 5 (3).
 - DSE banks: 27 syllabus sections, MC and LQ; tracked published snapshot ships in the image; see [the publication contract](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
 - QB: 46 banks, 169 DOCX, 3,847 items (1,881 in scope), surfaced in `/qb` with topic filters and real crops.
-- Mocks: F.1 maths, 10 tests.
+- Mock exams: `/mock` builds a multiple-choice paper to the teacher's topic, question-count and target-score choices. Each question's difficulty is the recorded pass rate of the real exam question it rewrites.
+- F.1 maths mocks: 10 tests, built by `paper2mock`.
 
 ## 4. Content model (paper2notes)
 
@@ -90,6 +91,7 @@ notes/book<N>/ch<NN>-<slug>/          one chapter
     css/notes.css, js/                chapter overrides
 notes/book<N>/{css,js,vendor}/        shared per-book assets (notes.css, checks.js, diagrams3d.js, math.js, KaTeX)
 notes/qb/                             question-bank UI (index.html, crops/, data/)
+notes/mock/                           mock-exam builder (index.html, css/, js/; reads qb/data/)
 notes/dse/{mc,lq}/<section>/          published DSE snapshot (tracked, from paper2db)
 notes/_source/<book-ch>/              intake; never shown to students, not shipped in the image
 ```
@@ -481,7 +483,7 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Notes and DSE availability checks; see [the static check](../paper2notes/scripts/ci-check.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
+| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, `paper2notes/anchors/**`, `paper2db/metadata/pointers/**`, `paper2db/metadata/{lq,mc}/llm_classifications.json`, `paper2db/tests/reconstructed/lq/**`, nested workflow path, or itself | Node 20; notes checks, the mock-exam engine tests, and the quiz-key / DSE-availability / crop-publication audits — the quiz audit also checks keys against the DSE MC answer store. Exact command sequence and scope in [`ARCHITECTURE.md` §5](ARCHITECTURE.md#5-ci) |
 | `ci-pointers` | PR and push to `main`; path filters in the workflow | `python3 scripts/pointers.py check`, `coverage` and `python3 -m unittest tests.test_pointers` |
 | `ci-paper2db` | PR and push to `main` touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items records and answer-pointer join |
 | `compile-mocks` | PR touching `paper2mock/**` or itself; every push to `main` | Matrix LaTeX build of 20 documents; artifacts per PR; release on `main` |
