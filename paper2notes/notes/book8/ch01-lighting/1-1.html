@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.1 Domestic electricity</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Lighting</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="1-1.html" aria-current="page">1.1</a>
+      <a href="1-2.html">1.2</a>
+      <a href="1-3.html">1.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.1</p>
+    <h1>Domestic electricity</h1>
+    <p class="lede">How much of an appliance's electrical input becomes useful energy, and how labels and simple devices cut waste.</p>
+    <aside class="quick-digest" id="11-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>\( \eta = \dfrac{E_\text{out}}{E_\text{in}} \times 100\% \)</b><span>end-use efficiency: useful output over electrical input</span></p>
+        <p><b>Overall efficiency</b><span>multiply the efficiencies of every stage, from power station to appliance</span></p>
+        <p><b>Grading label</b><span>grade 1 is the most efficient model, grade 5 the least</span></p>
+        <p><b>Saving devices</b><span>switch appliances off when not needed; they do not raise \( \eta \)</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#energy-at-home"><b>A</b>Energy at home</a>
+      <a href="#end-use-efficiency"><b>B</b>End-use efficiency</a>
+      <a href="#overall-efficiency"><b>C</b>Overall efficiency</a>
+      <a href="#energy-labels"><b>D</b>Energy labels</a>
+      <a href="#saving-devices"><b>E</b>Saving devices</a>
+    </nav>
+
+    <section class="idea" id="energy-at-home" data-chip="Energy at home">
+      <header>
+        <h2><span class="sec-num">A</span>Electricity in the home</h2>
+      </header>
+      <figure class="fig" id="energy-at-home-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 300" role="img" aria-labelledby="energy-at-home-title">
+            <title id="energy-at-home-title">Electrical energy from the mains feeds four appliances. Each turns it into one useful form: a lamp into light, a kettle into internal energy of the water, a fan into kinetic energy of the air and a speaker into sound.</title>
+            <rect x="12" y="104" width="128" height="92" rx="14" fill="#E8F4F1" stroke="#1F9585" stroke-width="2.5"/>
+            <text x="76" y="140" text-anchor="middle">electrical</text>
+            <text x="76" y="166" text-anchor="middle">energy</text>
+            <g fill="none" stroke="#1F9585" stroke-width="4" stroke-linecap="round">
+              <path d="M140 150 C 176 150 176 46 210 46"/>
+              <path d="M140 150 C 176 150 176 116 210 116"/>
+              <path d="M140 150 C 176 150 176 186 210 186"/>
+              <path d="M140 150 C 176 150 176 256 210 256"/>
+            </g>
+            <g fill="#1F9585">
+              <path d="M210 38 l14 8 l-14 8 z"/>
+              <path d="M210 108 l14 8 l-14 8 z"/>
+              <path d="M210 178 l14 8 l-14 8 z"/>
+              <path d="M210 248 l14 8 l-14 8 z"/>
+            </g>
+            <text x="232" y="40" text-anchor="start">lamp</text>
+            <text x="232" y="62" text-anchor="start" class="m">→ light</text>
+            <text x="232" y="110" text-anchor="start">kettle</text>
+            <text x="232" y="132" text-anchor="start" class="m">→ internal energy of water</text>
+            <text x="232" y="180" text-anchor="start">fan</text>
+            <text x="232" y="202" text-anchor="start" class="m">→ kinetic energy of air</text>
+            <text x="232" y="250" text-anchor="start">speaker</text>
+            <text x="232" y="272" text-anchor="start" class="m">→ sound</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.1</b> One input, many useful outputs.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>Electricity supplies more than 70% of the energy used in Hong Kong homes, because one supply can be turned into almost any form we need.</li>
+        <li>Each appliance has one <b>useful</b> output. Whatever else it produces, mostly heat in the appliance and its surroundings, is wasted.</li>
+      </ul>
+      <div class="check" id="energy-at-home-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="energy-at-home-tf-fan" data-answer="true">
+          <p>The useful output of an electric fan is the kinetic energy of the moving air.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>A fan exists to move air. The warm motor and the hum are wasted outputs.</p></div>
+        </div>
+        <div class="tf-item" id="energy-at-home-tf-kettle" data-answer="false">
+          <p>All the electrical energy taken in by a kettle ends up in the water.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Some energy also warms the kettle body and escapes to the air, so less than 100% reaches the water.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="end-use-efficiency" data-chip="End-use efficiency">
+      <header>
+        <h2><span class="sec-num">B</span>End-use energy efficiency</h2>
+      </header>
+      <figure class="fig" id="end-use-efficiency-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 260" role="img" aria-labelledby="bulb-sankey-title">
+            <title id="bulb-sankey-title">Energy flow in a filament bulb: 100 joules of electrical energy enter; 2 joules leave as visible light and 98 joules leave as heat.</title>
+            <rect x="20" y="46" width="232" height="100" fill="#1F9585"/>
+            <path d="M250 97 A 61 61 0 0 1 311 158 V 214" fill="none" stroke="#F26B3A" stroke-width="98"/>
+            <path d="M250 214 H 372 L 311 252 Z" fill="#F26B3A"/>
+            <path d="M250 47 H 262 A 26 26 0 0 0 288 21 V 18" fill="none" stroke="#E8A317" stroke-width="3"/>
+            <path d="M280 20 L 288 4 L 296 20 Z" fill="#E8A317"/>
+            <text x="120" y="91" text-anchor="middle" class="w">electrical in</text>
+            <text x="120" y="117" text-anchor="middle" class="w num">100 J</text>
+            <text x="304" y="18" text-anchor="start">light 2 J</text>
+            <text x="378" y="176" text-anchor="start">heat</text>
+            <text x="378" y="200" text-anchor="start" class="num">98 J</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.2</b> A filament bulb: almost all of the input leaves as heat.</figcaption>
+      </figure>
+      <div class="def" id="end-use-efficiency-def-1">
+        <span class="tag">Definition</span>
+        <p>The <b>end-use energy efficiency</b> \( \eta \) of an appliance is the useful energy it gives out as a percentage of the electrical energy it takes in.</p>
+      </div>
+      <div class="eq" id="end-use-efficiency-eq-1">\[ \eta = \frac{E_\text{out}}{E_\text{in}} \times 100\% = \frac{P_\text{out}}{P_\text{in}} \times 100\% \]</div>
+      <ul class="points">
+        <li>\( E_\text{out} \): useful energy output (J); \( E_\text{in} \): electrical energy input (J). Dividing both by time gives the power form (W).</li>
+        <li>The filament bulb in Fig. 1.2 has \( \eta = 2\% \). A kettle or an induction cooker is far higher, because heat is its useful output.</li>
+      </ul>
+      <div class="tip"><span class="tag">Exam tip</span> You pay for all of \( E_\text{in} \), not just the useful part. A low \( \eta \) means paying for energy you cannot use.</div>
+      <div class="check" id="end-use-efficiency-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A 1200 W kettle delivers 900 W to the water. What is its end-use energy efficiency?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">25%</button>
+          <button type="button" data-choice="B">75%</button>
+          <button type="button" data-choice="C">133%</button>
+          <button type="button" data-choice="D">300 W</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( \eta = 900 / 1200 \times 100\% = 75\% \). 25% is the share that is wasted. 133% puts the input on top; no appliance gives out more than it takes in. 300 W is the wasted power, not an efficiency.</p></div>
+      </div>
+      <div class="worked" id="end-use-efficiency-worked-fan">
+        <h3>Worked example</h3>
+        <p>A 50 W ceiling fan gives the air kinetic energy at 32 W. It runs for 6 hours. Find its efficiency and the energy it wastes, in kW h.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Efficiency: \( \eta = 32 / 50 \times 100\% = 64\% \).</li>
+            <li>Wasted power: \( 50 - 32 = 18\ \text{W} = 0.018\ \text{kW} \).</li>
+            <li>Wasted energy: \( 0.018\ \text{kW} \times 6\ \text{h} = 0.108\ \text{kW h} \).</li>
+          </ol>
+          <p class="answer">\( \eta = 64\% \); about 0.11 kW h is wasted.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="overall-efficiency" data-chip="Overall efficiency">
+      <header>
+        <h2><span class="sec-num">C</span>Overall efficiency: every stage counts</h2>
+      </header>
+      <figure class="fig" id="overall-efficiency-fig-1">
+        <div class="visual play stage" id="chain-vis" data-autoplay data-scene="efficiency-chain">
+          <canvas class="scene-canvas" aria-label="Energy flow from fuel to useful output. Each stage, the power station, the transmission lines and the appliance, passes on only a fraction of what it receives; the rest drops away as waste."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Power station<input type="range" min="20" max="60" step="1" value="40" data-param="plant" aria-label="Power station efficiency in percent"><output data-out="plant">40%</output></label>
+          <label class="ctl">Transmission<input type="range" min="80" max="100" step="1" value="95" data-param="line" aria-label="Transmission efficiency in percent"><output data-out="line">95%</output></label>
+          <label class="ctl">Appliance<input type="range" min="10" max="95" step="1" value="75" data-param="app" aria-label="Appliance end-use efficiency in percent"><output data-out="app">75%</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Overall</b><span data-out="overall">28.5%</span></span></p>
+        <figcaption><b>Fig. 1.3</b> Move a slider: the overall efficiency is the product of the three.</figcaption>
+      </figure>
+      <div class="eq" id="overall-efficiency-eq-1">\[ \eta_\text{overall} = \eta_\text{station} \times \eta_\text{transmission} \times \eta_\text{appliance} \]</div>
+      <ul class="points">
+        <li>A typical fossil-fuel station turns only about 40% of the fuel's chemical energy into electrical energy; about 5% more is lost in transmission.</li>
+        <li>So an induction cooker with \( \eta = 75\% \) uses only \( 0.40 \times 0.95 \times 0.75 = 28.5\% \) of the fuel's energy to heat food.</li>
+        <li>An appliance's label states only its end-use efficiency, the last stage of the chain.</li>
+      </ul>
+      <div class="check" id="overall-efficiency-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A power station is 45% efficient, transmission is 90% efficient and a cooker is 80% efficient. What fraction of the fuel's energy heats the food?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">32.4%</button>
+          <button type="button" data-choice="B">45%</button>
+          <button type="button" data-choice="C">72%</button>
+          <button type="button" data-choice="D">215%</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Multiply the stages: \( 0.45 \times 0.90 \times 0.80 = 0.324 \). 45% ignores two stages; 72% ignores the power station; 215% adds the percentages, which can never exceed 100%.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="energy-labels" data-chip="Energy labels">
+      <header>
+        <h2><span class="sec-num">D</span>Reading an energy label</h2>
+      </header>
+      <figure class="fig" id="energy-labels-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 330" role="img" aria-labelledby="label-title">
+            <title id="label-title">A grading-type energy label. Five bars from grade 1, most efficient, to grade 5, least efficient; this model is grade 2. Below the bars: the annual energy consumption in kilowatt hours and the performance data of the model.</title>
+            <rect x="8" y="8" width="464" height="314" rx="16" fill="#ffffff" stroke="#17212B" stroke-width="2.5"/>
+            <text x="240" y="40" text-anchor="middle">ENERGY LABEL (grading type)</text>
+            <text x="22" y="72" text-anchor="start" class="m">more efficient</text>
+            <rect x="22" y="84" width="120" height="26" fill="#1F9D5C"/>
+            <rect x="22" y="114" width="160" height="26" fill="#1F9585"/>
+            <rect x="22" y="144" width="200" height="26" fill="#F5B83D"/>
+            <rect x="22" y="174" width="240" height="26" fill="#F26B3A"/>
+            <rect x="22" y="204" width="280" height="26" fill="#D64545"/>
+            <text class="w" x="34" y="104" text-anchor="start">1</text><text class="w" x="34" y="134" text-anchor="start">2</text>
+            <text x="34" y="164" text-anchor="start">3</text>
+            <text class="w" x="34" y="194" text-anchor="start">4</text><text class="w" x="34" y="224" text-anchor="start">5</text>
+            <text x="22" y="252" text-anchor="start" class="m">less efficient</text>
+            <path d="M330 127 l24 -14 h104 v28 h-104 z" fill="#17212B"/>
+            <text x="406" y="133" text-anchor="middle" class="w">grade 2</text>
+            <line x1="22" y1="266" x2="458" y2="266" stroke="#E6E0D2" stroke-width="2"/>
+            <text x="22" y="290" text-anchor="start" class="m">Annual energy consumption</text>
+            <text x="458" y="290" text-anchor="end" class="num">1250 kW h</text>
+            <text x="22" y="312" text-anchor="start" class="m">Cooling capacity</text>
+            <text x="458" y="312" text-anchor="end" class="num">3.5 kW</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.4</b> Grade, yearly energy use and performance data on one label.</figcaption>
+      </figure>
+      <table class="notes" id="energy-labels-notes-1">
+        <thead><tr><th>Label type</th><th>What it tells you</th></tr></thead>
+        <tbody>
+          <tr><th>Recognition type</th><td>Only that the model meets the minimum efficiency and performance standard</td></tr>
+          <tr><th>Grading type</th><td>A grade from 1 (most efficient) to 5 (least); the annual energy consumption under standard use, for comparing models of the same kind; performance data such as cooling capacity or efficacy</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>In Hong Kong the labels belong to the Energy Efficiency Labelling Scheme, run by the Electrical and Mechanical Services Department.</li>
+        <li>Annual cost = annual energy consumption (kW h) × price per kW h. Your own use differs from the standard hours on the label.</li>
+      </ul>
+      <div class="check" id="energy-labels-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A refrigerator label shows an annual energy consumption of 300 kW h. Electricity costs $1.20 per kW h. What does it cost to run for a year under standard use?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">$250</button>
+          <button type="button" data-choice="B">$300</button>
+          <button type="button" data-choice="C">$360</button>
+          <button type="button" data-choice="D">$3600</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( 300 \times 1.20 = \$360 \). $250 divides instead of multiplying; $300 forgets the price; $3600 slips a power of ten.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="saving-devices" data-chip="Saving devices">
+      <header>
+        <h2><span class="sec-num">E</span>Energy-saving devices</h2>
+      </header>
+      <table class="notes" id="saving-devices-notes-1">
+        <thead><tr><th>Device</th><th>What it does</th><th>Why it saves energy</th></tr></thead>
+        <tbody>
+          <tr><th>Thermostat</th><td>Cuts the power when the room or water reaches the set temperature</td><td>No energy is spent going past the target</td></tr>
+          <tr><th>Timer</th><td>Switches an appliance off after a set time</td><td>Nothing runs longer than needed</td></tr>
+          <tr><th>Motion sensor</th><td>Switches lights on only when someone is there</td><td>Empty rooms stay dark</td></tr>
+          <tr><th>Standby mode</th><td>Drops the appliance to a low-power state when idle</td><td>Idle power falls, though switching off at the wall saves more</td></tr>
+        </tbody>
+      </table>
+      <div class="tip"><span class="tag">Common mistake</span> Saving devices cut the <em>time</em> an appliance runs. They do not change its end-use efficiency. Rechargeable batteries cut waste, but they are not energy-saving devices.</div>
+      <div class="check" id="saving-devices-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="saving-devices-tf-thermostat" data-answer="false">
+          <p>Fitting a thermostat raises the end-use energy efficiency of an air conditioner.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The air conditioner converts energy exactly as before; the thermostat only stops it running once the room is cool enough.</p></div>
+        </div>
+        <div class="tf-item" id="saving-devices-tf-standby" data-answer="true">
+          <p>An appliance on standby still uses some electrical energy.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Standby keeps a clock, a remote-control receiver or a display alive. Only switching off at the wall stops it completely.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="next"><a href="1-2.html">Next: 1.2 Lighting →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>

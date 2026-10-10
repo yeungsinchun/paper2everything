@@ -3,7 +3,8 @@
 //
 // When `notes/` does not exist yet (bare `main`), this is a no-op skip.
 // Checks Book 5's three chapter indexes, Book 2's ten chapters, Book 4's
-// eight chapters and Book 1's four chapters (map, section pages, summary) when present, plus in-repo relative links (href/src) that
+// eight chapters, Book 1's four chapters and Book 8's four chapters when
+// present, plus in-repo relative links (href/src) that
 // can be resolved on disk without a browser, plus lavish notes-refactor boards
 // (before/after side-by-side and readable prose — enforced only on boards
 // carrying the notes-refactor marker; see .agents/skills/paper2everything-lavish-board/SKILL.md),
@@ -27,6 +28,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
 const notesDir = join(repoRoot, "notes");
 const book5Dir = join(notesDir, "book5");
+const book8Dir = join(notesDir, "book8");
 
 const errors = [];
 
@@ -81,6 +83,35 @@ function checkBook2Structure() {
     if (!isNonEmptyFile(chapterIndex)) {
       fail(`Missing or empty chapter index: ${relative(repoRoot, chapterIndex)}`);
     }
+  }
+}
+
+function checkBook8Structure() {
+  if (!existsSync(book8Dir)) return;
+  const bookIndex = join(book8Dir, "index.html");
+  if (!isNonEmptyFile(bookIndex)) {
+    fail(`Missing or empty book8 index: ${relative(repoRoot, bookIndex)}`);
+  }
+  const chapters = {
+    "ch01-lighting": ["1-1.html", "1-2.html", "1-3.html"],
+    "ch02-cooking-and-air-conditioning": ["2-1.html", "2-2.html"],
+    "ch03-buildings-and-transportation": ["3-1.html", "3-2.html"],
+    "ch04-different-sources-of-energy": ["4-1.html", "4-2.html", "4-3.html"],
+  };
+  for (const [name, sections] of Object.entries(chapters)) {
+    const chapterDir = join(book8Dir, name);
+    const chapterIndex = join(chapterDir, "index.html");
+    if (!isNonEmptyFile(chapterIndex)) {
+      fail(`Missing or empty chapter index: ${relative(repoRoot, chapterIndex)}`);
+    }
+    for (const page of [...sections, "summary.html"]) {
+      const path = join(chapterDir, page);
+      if (!isNonEmptyFile(path)) fail(`Missing or empty Book 8 page: ${relative(repoRoot, path)}`);
+    }
+  }
+  const landing = readFileSync(join(notesDir, "index.html"), "utf8");
+  if (!landing.includes('href="book8/index.html"')) {
+    fail(`Book 8 is missing from the notes landing page: ${relative(repoRoot, join(notesDir, "index.html"))}`);
   }
 }
 
@@ -448,6 +479,7 @@ if (existsSync(book5Dir)) {
 checkBook1Structure();
 checkBook2Structure();
 checkBook4Structure();
+checkBook8Structure();
 
 checkRelativeLinks();
 checkDeployFooter();
