@@ -1,28 +1,36 @@
-/* Book 1 additions on top of notes.css + p2n.css (both copied from Book 5).
-   Book-level only: no chapter loads its own layout sheet. These are the
-   quick-digest parts of PRD 6.8 that the Book 5 sheet does not carry yet:
-   the one-screen recap, the idea chips, collapsed worked examples, plain SVG
-   figures and slider controls. Tokens only; no new colours. */
+/* Book 1 sheet: loaded after ../../css/notes.css (the shared sheet for every book).
+   Carries Book 1's own rules that the shared sheet does not hold yet: its
+   spectrum, track and imaging figures, the one-screen recap, the idea chips,
+   the collapsed worked examples and its slider controls. Remove a rule here
+   once the shared sheet carries it for every book. */
 
-/* ---------- one-screen recap (PRD 6.8.1) ---------- */
+#spectrum-vis { padding: 0.6rem 0.4rem 0.2rem; }
 
-.quick-digest > div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
-  gap: var(--space-3);
+.spectrum-svg { display: block; width: 100%; height: auto; }
+
+.spectrum-svg text {
+  font-family: var(--sans);
+  fill: var(--ink);
 }
 
-.quick-digest p {
-  margin: 0;
-  padding: 0 var(--space-3) 0 0;
+.spectrum-svg .bracket-label { font-size: 15px; font-weight: 600; }
+
+.spectrum-svg .band-name { font-size: 14px; }
+
+.spectrum-svg .threshold-label { font-size: 12.5px; fill: var(--muted); }
+
+.spectrum-svg .axis-label { font-size: 12.5px; fill: var(--muted); }
+
+#track-vis canvas.scene-canvas { background: #11150f; }
+
+#track-vis .hud-label {
+  color: #f4f0e4;
+  text-shadow: 0 0 6px #11150f;
 }
+
+#imaging-vis canvas.scene-canvas { height: 440px; }
 
 .quick-digest p:last-child { border-right: 0; }
-.quick-digest p > b,
-.quick-digest p > span { display: block; }
-.quick-digest p > span { margin-top: 2px; line-height: 1.35; }
-
-/* ---------- idea chips (PRD 6.8.2) ---------- */
 
 .idea-nav {
   display: flex;
@@ -63,17 +71,13 @@
   color: var(--teal-700);
 }
 
-@media (min-width: 621px) {
+@media (min-width: 621px){
   .idea-nav {
     position: sticky;
     top: var(--topbar-h, 56px);
     z-index: 10;
   }
 }
-
-.idea { scroll-margin-top: calc(var(--topbar-h, 56px) + 64px); }
-
-/* ---------- worked examples, collapsed by default (PRD 6.8.5) ---------- */
 
 details.worked { padding: 0; }
 
@@ -105,8 +109,11 @@ details.worked > summary::after {
 }
 
 details.worked[open] > summary::after { transform: rotate(-135deg); }
+
 details.worked > summary span { text-transform: none; letter-spacing: 0; color: var(--ink); font: 600 var(--text-md)/1.3 var(--font-display); }
+
 details.worked > .worked-body { padding: 0 var(--space-4) var(--space-4); }
+
 details.worked > .worked-body > p:first-child { margin-top: 0; }
 
 .worked .answer {
@@ -118,8 +125,6 @@ details.worked > .worked-body > p:first-child { margin-top: 0; }
   font-weight: 700;
 }
 
-/* ---------- plain SVG figures ---------- */
-
 .visual.svg-fig svg { max-width: 540px; margin: 0 auto; }
 
 .fig-svg text {
@@ -130,15 +135,20 @@ details.worked > .worked-body > p:first-child { margin-top: 0; }
 }
 
 .fig-svg text:not([text-anchor]) { text-anchor: middle; }
-.fig-svg .muted { fill: var(--ink-3); font-weight: 600; }
-.fig-svg .small { font-size: 16px; }
-.fig-svg .axis { stroke: var(--fig-ink); stroke-width: 2; fill: none; }
-.fig-svg .guide { stroke: var(--fig-guide); stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
-.fig-svg .energy { stroke: var(--fig-energy); }
-.fig-svg .hot { fill: var(--fig-force); }
-.fig-svg .cold { fill: var(--fig-velocity); }
 
-/* ---------- slider controls under a stage ---------- */
+.fig-svg .muted { fill: var(--ink-3); font-weight: 600; }
+
+.fig-svg .small { font-size: 16px; }
+
+.fig-svg .axis { stroke: var(--fig-ink); stroke-width: 2; fill: none; }
+
+.fig-svg .guide { stroke: var(--fig-guide); stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+
+.fig-svg .energy { stroke: var(--fig-energy); }
+
+.fig-svg .hot { fill: var(--fig-force); }
+
+.fig-svg .cold { fill: var(--fig-velocity); }
 
 .ctrl {
   display: flex;
@@ -150,12 +160,14 @@ details.worked > .worked-body > p:first-child { margin-top: 0; }
 }
 
 .ctrl label { font: 700 var(--text-sm)/1.2 var(--font-body); color: var(--ink-2); }
-.ctrl input[type="range"] { flex: 1 1 12rem; min-height: 40px; margin: 0; }
-.ctrl .readout { min-width: 6.5rem; text-align: center; }
-.ctrl .row-btns { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-.ctrl .row-btns button { min-height: 40px; }
 
-/* ---------- WebGL missing: keep the description, never a blank box ---------- */
+.ctrl input[type="range"] { flex: 1 1 12rem; min-height: 40px; margin: 0; }
+
+.ctrl .readout { min-width: 6.5rem; text-align: center; }
+
+.ctrl .row-btns { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+.ctrl .row-btns button { min-height: 40px; }
 
 .stage .stage-fallback {
   display: none;
@@ -169,15 +181,10 @@ details.worked > .worked-body > p:first-child { margin-top: 0; }
 .stage.no-webgl canvas.scene-canvas,
 .stage.no-webgl .hud-label,
 .stage.no-webgl .stage-replay { display: none; }
+
 .stage.no-webgl .stage-fallback { display: block; }
 
-/* HUD coordinates are the label centre (PRD 6.3). */
-.stage .hud-label { transform: translate(-50%, -50%); z-index: 4; }
-
-/* Taller stages for the few scenes that need the room. */
-.stage canvas.scene-canvas.tall { height: 400px; }
-
-@media (max-width: 620px) {
+@media (max-width: 620px){
   .quick-digest p { padding: 0 0 var(--space-2); border-right: 0; border-bottom: var(--border-w) solid var(--line-soft); }
   .quick-digest p:last-child { padding-bottom: 0; border-bottom: 0; }
   .stage canvas.scene-canvas { height: 260px; }
@@ -185,7 +192,7 @@ details.worked > .worked-body > p:first-child { margin-top: 0; }
   .pane-pair .stage canvas.scene-canvas { height: 240px; }
 }
 
-@media print {
+@media print{
   .idea-nav, .ctrl { display: none; }
   details.worked > .worked-body { display: block; }
 }

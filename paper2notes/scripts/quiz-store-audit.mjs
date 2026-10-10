@@ -93,7 +93,9 @@ export function pages(dir, out = []) {
    key stores, so a book that still ships the old form is still checked. */
 export function quizKeys(scriptHtml) {
   const inline = scriptHtml.match(/var\s+QUIZ_KEYS\s*=\s*(\{[\s\S]*?\});\s*\n/);
-  const shared = scriptHtml.match(/\bquizKeys\s*:\s*(\{[^{}\n]*\})/);
+  /* quiz-data.js sets one `quizKeys: { "id": { option, pct }, ... }` entry on one
+     line, so its table is two brace levels deep. */
+  const shared = scriptHtml.match(/\bquizKeys\s*:\s*(\{(?:[^{}]|\{[^{}]*\})*\})/);
   const raw = inline ? inline[1] : shared ? shared[1] : null;
   if (!raw) return null;
   try {

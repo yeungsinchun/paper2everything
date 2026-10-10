@@ -140,13 +140,13 @@ function audit(file) {
   const checkRefs = scripts.filter((s) => /(^|\/)checks\.js(\?|$)/.test(s));
   const resolved = checkRefs.filter((s) => existsSync(resolve(dirname(file), s)));
   const hasQuizMarkup =
-    /class="[^"]*\bcheck\b/.test(html) ||
-    /class="[^"]*\btf-item\b/.test(html) ||
-    /class="[^"]*quiz-slide/.test(html) ||
-    /data-quiz=/.test(html);
+    /class="[^"]*\bcheck\b/.test(page) ||
+    /class="[^"]*\btf-item\b/.test(page) ||
+    /class="[^"]*quiz-slide/.test(page) ||
+    /data-quiz=/.test(page);
   const dataRefs = scripts.filter((s) => /(^|\/)quiz-data\.js(\?|$)/.test(s));
-  const hasDseMc = /<article\b[^>]*class="[^"]*quiz-slide[^"]*"[^>]*\bid="dse-mc-/.test(html) ||
-    /<article\b[^>]*\bid="dse-mc-[^>]*class="[^"]*quiz-slide/.test(html);
+  const hasDseMc = /<article\b[^>]*class="[^"]*quiz-slide[^"]*"[^>]*\bid="dse-mc-/.test(page) ||
+    /<article\b[^>]*\bid="dse-mc-[^>]*class="[^"]*quiz-slide/.test(page);
   let keys = null;
   if (!checkRefs.length) {
     /* A landing page with no quiz markup needs no grading script. */
