@@ -246,8 +246,14 @@ test("a slide that names one question and shows another fails", () => {
 });
 
 test("a placeholder slide passes only where the record says placeholder", () => {
-  /* Section 21 still publishes only its placeholder; section 20 publishes real crops. */
-  assert.deepEqual(kinds(pageCheck(lqPanel("dse-lq-21-sample", 21))), []);
+  const placeholder = fakeRepo({
+    manifest: { placeholderFiles: ["sample.png"], sections: { 30: { lq: { state: "placeholder", reason: "a sample" } } } },
+    sections: [["lq", "30", ["sample.png"]]],
+    lq: {},
+    mc: [],
+    starts: {},
+  });
+  assert.deepEqual(kinds(pageCheck(lqPanel("dse-lq-30-sample", 30), { repoRoot: placeholder })), []);
 
   const real = fakeRepo({
     manifest: { placeholderFiles: ["sample.png"], sections: { 30: { lq: { state: "real-crop", reason: "a crop" } } } },
@@ -306,6 +312,21 @@ test("none-in-source is refused when the source papers do hold such a question",
   });
   const { problems } = checkSnapshot({ repoRoot: repo });
   assert.ok(problems.some((p) => p.kind === "dse-availability-contradicts-source"), JSON.stringify(problems));
+});
+
+test("a page cannot claim no long questions when source records contain one", () => {
+  const note = '<p class="dse-lq-none" data-lq-none="21">No long question is published for this section.</p>';
+  const repo = fakeRepo({
+    manifest: { placeholderFiles: ["sample.png"], sections: { 21: { lq: { state: "placeholder", reason: "the page shows a sample" } } } },
+    sections: [["lq", "21", ["sample.png"]]],
+    lq: { "2013-q10": { sections: [21] } },
+    mc: [],
+    starts: { 2013: [10] },
+  });
+
+  assert.deepEqual(loadSource(repo).lqBySection.get(21), ["2013-q10"]);
+  assert.ok(kinds(absenceCheck(note, { repoRoot: repo })).includes("dse-lq-none-contradicts-record"));
+  assert.ok(checkSnapshot({ repoRoot: repo }).informational.some((p) => p.kind === "dse-questions-not-published"));
 });
 
 test("a crop file that names a question the source has not got fails", () => {

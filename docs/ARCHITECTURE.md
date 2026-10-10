@@ -219,11 +219,11 @@ Local preview (`sync-dse.sh`, developer machine): `paper2notes/scripts/sync-dse.
 Book 1 chapter pages use `../../_local/dse/{mc,lq}/<NN>/<file>`, which resolves
 to `notes/_local/dse/`. Book 2, 4 and 5 section pages use
 `../_local/dse/{mc,lq}/<NN>/<file>`, and their indexes use `_local/dse/...`;
-those paths resolve to each book's local mirror. 227 distinct `_local` references
-are used (Book 1: 108 = 78 PNG + 30 PDFs; Book 2: 8 = 0 PNG + 8 PDFs; Book 4:
-23 = 18 PNG + 5 PDFs; Book 5: 88 = 71 PNG + 17 PDFs). The standalone run of
-`paper2notes/scripts/dse-availability.mjs` reports references the snapshot does
-not hold as `dse-crop-not-published`.
+those paths resolve to each book's local mirror. 262 distinct `_local`
+references are used (Book 1: 108 = 78 PNG + 30 PDFs; Book 2: 8 = 0 PNG + 8
+PDFs; Book 4: 58 = 53 PNG + 5 PDFs; Book 5: 88 = 71 PNG + 17 PDFs). The
+standalone run of `paper2notes/scripts/dse-availability.mjs` reports references
+the snapshot does not hold as `dse-crop-not-published`.
 
 ### 3. QB banks: DOCX → PDF → notes intake
 
