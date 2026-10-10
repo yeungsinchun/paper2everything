@@ -216,15 +216,15 @@ Local preview (`sync-dse.sh`, developer machine): `paper2notes/scripts/sync-dse.
    `notes/book4/` and `notes/book5/` `_local/dse/` with `rsync -a` (no
    `--delete`).
 
-Book 1 chapter pages use `../../_local/dse/{mc,lq}/<NN>/<file>`, which resolves
-to `notes/_local/dse/`. Book 2, 4 and 5 section pages use
-`../_local/dse/{mc,lq}/<NN>/<file>`, and their indexes use `_local/dse/...`;
-those paths resolve to each book's local mirror. 262 distinct `_local`
-references are used (Book 1: 108 = 78 PNG + 30 PDFs; Book 2: 8 = 0 PNG + 8
-PDFs; Book 4: 58 = 53 PNG + 5 PDFs; Book 5: 88 = 71 PNG + 17 PDFs). The
-standalone run of `paper2notes/scripts/dse-availability.mjs` reports references
-the snapshot does not hold as `dse-crop-not-published`.
-
+Pages then load crops by relative path: Book 1 chapter pages use
+`../../_local/dse/{mc,lq}/<NN>/<file>`, which resolves to `notes/_local/dse/`.
+Book 2, 3, 4 and 5 section pages use `../_local/dse/{mc,lq}/<NN>/<file>`, and
+their indexes use `_local/dse/...`; those paths resolve to each book's local
+mirror. 504 distinct `_local` references are used (Book 1: 108 = 78 PNG + 30
+PDFs, Book 2: 8 = 0 PNG + 8 PDFs, Book 3: 242 = 195 PNG + 47 PDFs, Book 4: 58 =
+53 PNG + 5 PDFs, Book 5: 88 = 71 PNG + 17 PDFs). The standalone run of
+`paper2notes/scripts/dse-availability.mjs` reports references the snapshot does
+not hold as `dse-crop-not-published`.
 ### 3. QB banks: DOCX → PDF → notes intake
 
 `paper2db/scripts/convert-qb-to-pdf.sh` converts `paper2db/qb/**/*.docx` into

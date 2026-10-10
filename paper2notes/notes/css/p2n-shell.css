@@ -16,7 +16,7 @@
 --fig-energy:#C89A10;--fig-field:#1F9585;--fig-ink:#17212B;--fig-guide:#B9B2A1;--fig-bg:#FFFFFF;
 --fig-alpha:#C0392B;--fig-beta:#1D4F91;--fig-gamma:#B8901A;--fig-proton:#C0392B;--fig-neutron:#2F7A4A;--fig-electron:#2A62A8;
 /* book identity: one hue per book, used for ring + icon tint only */
---book2:#2A62A8;--book2-soft:#E6EEF8;--book4:#7A4FC2;--book4-soft:#F0EAFA;--book5:#C2415E;--book5-soft:#FBE8EC;--bookqb:#17212B;--bookqb-soft:#ECEAE4;
+--book2:#2A62A8;--book2-soft:#E6EEF8;--book3:#0E7490;--book3-soft:#E0F2F7;--book4:#7A4FC2;--book4-soft:#F0EAFA;--book5:#C2415E;--book5-soft:#FBE8EC;--bookqb:#17212B;--bookqb-soft:#ECEAE4;
 /* tiers */
 --tier-bronze:#C9793A;--tier-silver:#9AA7B4;--tier-gold:#F5B83D;
 /* semantic aliases */
@@ -110,6 +110,7 @@ a{text-decoration:none}
 
 /* Lucide glyphs (vendored, lucide-static@0.468.0) */
 [data-ic="rocket"]{--src:url(../assets/icons/rocket.svg)}
+[data-ic="audio-waveform"]{--src:url(../assets/icons/audio-waveform.svg)}
 [data-ic="zap"]{--src:url(../assets/icons/zap.svg)}
 [data-ic="radiation"]{--src:url(../assets/icons/radiation.svg)}
 [data-ic="library"]{--src:url(../assets/icons/library.svg)}
