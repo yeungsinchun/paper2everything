@@ -39,6 +39,10 @@ Pull requests and pushes to `main` run the root `.github/workflows/notes-checks.
 - `anchor-lint tests` — `node --test paper2notes/tests/anchor-lint.test.mjs`
 - `ci-check` — `node paper2notes/scripts/ci-check.mjs`
 - `leak-check tests` — `node --test paper2notes/tests/leak-check.test.mjs`
+- `dse-availability tests` — `node --test paper2notes/tests/dse-availability.test.mjs`
+- `quiz-audit tests` — `node --test paper2notes/tests/quiz-audit.test.mjs`
+- `quiz-store-audit tests` — `node --test paper2notes/tests/quiz-store-audit.test.mjs`
+- `quiz audit` — `node paper2notes/scripts/quiz-audit.mjs`
 - `leak fingerprint check` — `python3 paper2db/scripts/leak_fingerprints.py --check`
 
 For what each job checks, see `../docs/ARCHITECTURE.md` §5.
