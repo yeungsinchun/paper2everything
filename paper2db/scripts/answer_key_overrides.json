@@ -145,6 +145,152 @@
       "Correct percentage": 51
     }
   },
+  "2013": {
+    "1": {
+      "Correct Option": "B",
+      "Correct percentage": 54
+    },
+    "2": {
+      "Correct Option": "B",
+      "Correct percentage": 49
+    },
+    "3": {
+      "Correct Option": "C",
+      "Correct percentage": 53
+    },
+    "4": {
+      "Correct Option": "D",
+      "Correct percentage": 48
+    },
+    "5": {
+      "Correct Option": "A",
+      "Correct percentage": 44
+    },
+    "6": {
+      "Correct Option": "D",
+      "Correct percentage": 56
+    },
+    "7": {
+      "Correct Option": "A",
+      "Correct percentage": 25
+    },
+    "8": {
+      "Correct Option": "D",
+      "Correct percentage": 41
+    },
+    "9": {
+      "Correct Option": "D",
+      "Correct percentage": 64
+    },
+    "10": {
+      "Correct Option": "D",
+      "Correct percentage": 61
+    },
+    "11": {
+      "Correct Option": "B",
+      "Correct percentage": 48
+    },
+    "12": {
+      "Correct Option": "A",
+      "Correct percentage": 52
+    },
+    "13": {
+      "Correct Option": "D",
+      "Correct percentage": 35
+    },
+    "14": {
+      "Correct Option": "A",
+      "Correct percentage": 82
+    },
+    "15": {
+      "Correct Option": "B",
+      "Correct percentage": 66
+    },
+    "16": {
+      "Correct Option": "B",
+      "Correct percentage": 71
+    },
+    "17": {
+      "Correct Option": "A",
+      "Correct percentage": 63
+    },
+    "18": {
+      "Correct Option": "D",
+      "Correct percentage": 52
+    },
+    "19": {
+      "Correct Option": "C",
+      "Correct percentage": 53
+    },
+    "20": {
+      "Correct Option": "C",
+      "Correct percentage": 64
+    },
+    "21": {
+      "Correct Option": "A",
+      "Correct percentage": 56
+    },
+    "22": {
+      "Correct Option": "C",
+      "Correct percentage": 40
+    },
+    "23": {
+      "Correct Option": "A",
+      "Correct percentage": 46
+    },
+    "24": {
+      "Correct Option": "D",
+      "Correct percentage": 53
+    },
+    "25": {
+      "Correct Option": "C",
+      "Correct percentage": 58
+    },
+    "26": {
+      "Correct Option": "C",
+      "Correct percentage": 42
+    },
+    "27": {
+      "Correct Option": "C",
+      "Correct percentage": 59
+    },
+    "28": {
+      "Correct Option": "C",
+      "Correct percentage": 42
+    },
+    "29": {
+      "Correct Option": "D",
+      "Correct percentage": 42
+    },
+    "30": {
+      "Correct Option": "B",
+      "Correct percentage": 40
+    },
+    "31": {
+      "Correct Option": "A",
+      "Correct percentage": 43
+    },
+    "32": {
+      "Correct Option": "C",
+      "Correct percentage": 46
+    },
+    "33": {
+      "Correct Option": "B",
+      "Correct percentage": 49
+    },
+    "34": {
+      "Correct Option": "A",
+      "Correct percentage": 76
+    },
+    "35": {
+      "Correct Option": "B",
+      "Correct percentage": 56
+    },
+    "36": {
+      "Correct Option": "B",
+      "Correct percentage": 63
+    }
+  },
   "2014": {
     "1": {
       "Correct Option": "D",
@@ -263,9 +409,17 @@
     "11": {
       "Correct Option": "A",
       "Correct percentage": 49
+    },
+    "23": {
+      "Correct Option": "C",
+      "Correct percentage": 71
     }
   },
   "2017": {
+    "7": {
+      "Correct Option": "C",
+      "Correct percentage": 93
+    },
     "11": {
       "Correct Option": "B",
       "Correct percentage": 57
@@ -675,9 +829,137 @@
     }
   },
   "2021": {
+    "1": {
+      "Correct Option": "A",
+      "Correct percentage": 62
+    },
+    "2": {
+      "Correct Option": "A",
+      "Correct percentage": 78
+    },
+    "3": {
+      "Correct Option": "C",
+      "Correct percentage": 53
+    },
+    "4": {
+      "Correct Option": "B",
+      "Correct percentage": 43
+    },
+    "5": {
+      "Correct Option": "D",
+      "Correct percentage": 35
+    },
+    "6": {
+      "Correct Option": "D",
+      "Correct percentage": 62
+    },
+    "7": {
+      "Correct Option": "C",
+      "Correct percentage": 58
+    },
+    "8": {
+      "Correct Option": "A",
+      "Correct percentage": 44
+    },
+    "9": {
+      "Correct Option": "A",
+      "Correct percentage": 53
+    },
+    "10": {
+      "Correct Option": "C",
+      "Correct percentage": 75
+    },
     "11": {
       "Correct Option": "B",
       "Correct percentage": 85
+    },
+    "12": {
+      "Correct Option": "C",
+      "Correct percentage": 68
+    },
+    "13": {
+      "Correct Option": "B",
+      "Correct percentage": 63
+    },
+    "14": {
+      "Correct Option": "D",
+      "Correct percentage": 47
+    },
+    "15": {
+      "Correct Option": "B",
+      "Correct percentage": 61
+    },
+    "16": {
+      "Correct Option": "B",
+      "Correct percentage": 63
+    },
+    "17": {
+      "Correct Option": "D",
+      "Correct percentage": 61
+    },
+    "18": {
+      "Correct Option": "C",
+      "Correct percentage": 56
+    },
+    "19": {
+      "Correct Option": "A",
+      "Correct percentage": 56
+    },
+    "20": {
+      "Correct Option": "C",
+      "Correct percentage": 33
+    },
+    "21": {
+      "Correct Option": "D",
+      "Correct percentage": 76
+    },
+    "22": {
+      "Correct Option": "A",
+      "Correct percentage": 28
+    },
+    "23": {
+      "Correct Option": "B",
+      "Correct percentage": 47
+    },
+    "24": {
+      "Correct Option": "A",
+      "Correct percentage": 45
+    },
+    "25": {
+      "Correct Option": "C",
+      "Correct percentage": 63
+    },
+    "26": {
+      "Correct Option": "C",
+      "Correct percentage": 35
+    },
+    "27": {
+      "Correct Option": "B",
+      "Correct percentage": 51
+    },
+    "28": {
+      "Correct Option": "A",
+      "Correct percentage": 62
+    },
+    "29": {
+      "Correct Option": "C",
+      "Correct percentage": 70
+    },
+    "30": {
+      "Correct Option": "D",
+      "Correct percentage": 69
+    },
+    "31": {
+      "Correct Option": "B",
+      "Correct percentage": 84
+    },
+    "32": {
+      "Correct Option": "D",
+      "Correct percentage": 76
+    },
+    "33": {
+      "Correct Option": "D",
+      "Correct percentage": 48
     }
   },
   "2022": {
@@ -925,6 +1207,14 @@
     }
   },
   "2024": {
+    "8": {
+      "Correct Option": "D",
+      "Correct percentage": 38
+    },
+    "10": {
+      "Correct Option": "A",
+      "Correct percentage": 33
+    },
     "11": {
       "Correct Option": "C",
       "Correct percentage": 55
@@ -933,6 +1223,10 @@
       "Correct Option": "A",
       "Correct percentage": 83
     },
+    "13": {
+      "Correct Option": "D",
+      "Correct percentage": 49
+    },
     "18": {
       "Correct Option": "D",
       "Correct percentage": 63
@@ -940,6 +1234,14 @@
     "21": {
       "Correct Option": "B",
       "Correct percentage": 90
+    },
+    "22": {
+      "Correct Option": "B",
+      "Correct percentage": 57
+    },
+    "30": {
+      "Correct Option": "A",
+      "Correct percentage": 58
     }
   },
   "2025": {
@@ -954,6 +1256,10 @@
     "19": {
       "Correct Option": "C",
       "Correct percentage": 67
+    },
+    "23": {
+      "Correct Option": "D",
+      "Correct percentage": 63
     },
     "26": {
       "Correct Option": "B",

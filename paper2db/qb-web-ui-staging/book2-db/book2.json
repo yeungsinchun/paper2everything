@@ -580,8 +580,8 @@
   "answer_crop": {
    "path": "dse-lq/crops/2018-q5-ans.png",
    "exists": true,
-   "width": 1155,
-   "height": 1657
+   "width": 1657,
+   "height": 1155
   },
   "key": null,
   "key_percentage": null,
@@ -686,8 +686,8 @@
   "answer_crop": {
    "path": "dse-lq/crops/2018-q3-ans.png",
    "exists": true,
-   "width": 1155,
-   "height": 1657
+   "width": 1657,
+   "height": 1155
   },
   "key": null,
   "key_percentage": null,
@@ -1141,8 +1141,8 @@
   "answer_crop": {
    "path": "dse-lq/crops/2018-q4-ans.png",
    "exists": true,
-   "width": 1155,
-   "height": 1657
+   "width": 1657,
+   "height": 1155
   },
   "key": null,
   "key_percentage": null,
@@ -2103,14 +2103,12 @@
    "height": 522
   },
   "answer_crop": null,
-  "key": "D",
-  "key_percentage": null,
+  "key": "C",
+  "key_percentage": 58,
   "key_deleted": false,
   "reason": "Distance from velocity-time graph for motion on incline - Motion",
   "preview": "At time ¢ = 0, a small sphere is projected up along a smooth incline with a certain initial velocity. It travels a distance L and becomes momentarily at rest after a time 27. The c",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2022-4",
@@ -2408,14 +2406,12 @@
    "height": 463
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "A",
+  "key_percentage": 44,
   "key_deleted": false,
   "reason": "Suspended weight held at angle; resolve forces for F - Force (single-body; not moments/systems).",
   "preview": "\\ ‘25 F 20N  A block of weight 20 N is suspended by a light string from the ceiling. A force F is applied such that the block is displaced to one side with the string making an ang",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2013-6",
@@ -2464,14 +2460,12 @@
    "height": 394
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "A",
+  "key_percentage": 25,
   "key_deleted": false,
   "reason": "Constant-speed block; net force instantly after removing one force.",
   "preview": "constant speed —— 2N— —_ 12N Vp A block on a rough horizontal surface is moving to the left with constant speed under two horizontal forces 2 N and 12 N indicated as shown. If the ",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2014-4",
@@ -2602,13 +2596,11 @@
   },
   "answer_crop": null,
   "key": "C",
-  "key_percentage": null,
+  "key_percentage": 93,
   "key_deleted": false,
   "reason": "Free-body diagram of block at rest on rough incline (weight, normal, friction).",
   "preview": "A block of mass m stays at rest on a rough inclined plane as shown.  Which of the following diagrams correctly shows the forces acting on the block ?  (Nis the normal reaction from",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2018-8",
@@ -2711,14 +2703,12 @@
    "height": 518
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "B",
+  "key_percentage": 43,
   "key_deleted": false,
   "reason": "Weight and normal reaction; action-reaction pair misconception - Force",
   "preview": "A block of weight W is at rest on a horizontal ground as shown. round Ww The force acting on the block by the ground is R. Which of the following statements is/are correct ? (1) Ra",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2021-5",
@@ -2740,8 +2730,8 @@
    "height": 472
   },
   "answer_crop": null,
-  "key": "B",
-  "key_percentage": 43,
+  "key": "D",
+  "key_percentage": 35,
   "key_deleted": false,
   "reason": "Resultant contact force (normal+friction) on rough incline at constant speed - Force (single-body; not moments/systems).",
   "preview": "the indicates 1] ‘Ow Which sistance ir resi wn. arr ity as ? Neglect loci ine ? t veloc cli stant he in: ith const by t fe cost Sliding 12 iy ugh sting on tl B. Stay Clociny rol ti",
@@ -3011,13 +3001,11 @@
   },
   "answer_crop": null,
   "key": "D",
-  "key_percentage": null,
+  "key_percentage": 38,
   "key_deleted": false,
   "reason": "Atwood-like pulley blocks; dynamics then time to reach ground.",
   "preview": "Block X and Y of mass 3.0 kg and 1.0 kg respectively are connected by a light inextensible string passing over a smooth light pulley fixed to the ceiling as shown. The blocks are r",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2024-9",
@@ -3644,13 +3632,11 @@
   },
   "answer_crop": null,
   "key": "A",
-  "key_percentage": null,
+  "key_percentage": 33,
   "key_deleted": false,
   "reason": "Toppling wrestler about contact point; moments for minimum push F.",
   "preview": "A child tries to push a 150 kg (sumo) wrestler in order to topple him backwards in a game. The simplified diagram indicates the weight W of the wrestler and the horizontal pushing ",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2025-7",
@@ -4573,14 +4559,12 @@
    "height": 349
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "A",
+  "key_percentage": 44,
   "key_deleted": false,
   "reason": "Momentum and KE of Th and alpha after nuclear decay - Momentum",
   "preview": "A stationary uranium nucleus °33U decays to give a thorium nucleus 733Th and an particle $He. 233U ——> 733Th + jHe Which of the following correctly describes the situation about th",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2022-7",
@@ -5583,14 +5567,12 @@
    "height": 187
   },
   "answer_crop": null,
-  "key": "C",
-  "key_percentage": null,
+  "key": "D",
+  "key_percentage": 49,
   "key_deleted": false,
   "reason": "Satellite circular orbits; period vs orbital radius (Kepler/gravitation).",
   "preview": "A satellite orbits the Earth in a circular orbit of radius r with a period of 24 hours. The period of another satellite which orbits the Earth in a circular orbit of radius 2r is",
-  "warnings": [
-   "missing_percentage"
-  ]
+  "warnings": []
  },
  {
   "id": "dse-mc-2025-12",
