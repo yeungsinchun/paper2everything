@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.2 Atomic spectra</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">paper<i>2</i>notes<small>Atoms and spectra</small></a>
+    <nav aria-label="Chapter 2 pages">
+      <a href="index.html">Map</a>
+      <a href="2-1.html">2.1</a>
+      <a href="2-2.html" aria-current="page">2.2</a>
+      <a href="2-3.html">2.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.2</p>
+    <h1>Atomic spectra</h1>
+    <p class="lede">A hot, thin gas glows at a few sharp wavelengths only. Those lines reveal that an atom's energy comes in fixed levels.</p>
+    <aside class="quick-digest" aria-label="Atomic spectra in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>Continuous or line</b><span>hot solids give every colour; thin gases give sharp lines</span></p>
+        <p><b>Emission and absorption match</b><span>a gas absorbs exactly the lines it emits</span></p>
+        <p><b>Lines are fingerprints</b><span>each element has its own set of wavelengths</span></p>
+        <p><b>\( hf = E_{\text{upper}} - E_{\text{lower}} \)</b><span>one photon per jump between energy levels</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#spectra-types"><b>A</b>Three spectra</a>
+      <a href="#fingerprint"><b>B</b>Fingerprints</a>
+      <a href="#absorption"><b>C</b>Absorption</a>
+      <a href="#levels"><b>D</b>Energy levels</a>
+    </nav>
+<section class="idea" id="spectra-types" data-chip="Three spectra">
+      <header>
+        <h2><span class="sec-num">A</span>Continuous, emission and absorption spectra</h2>
+      </header>
+      <figure id="spectra-types-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 194" role="img" aria-labelledby="three-spectra-title">
+            <title id="three-spectra-title">Three spectra across the visible range. Top: a continuous band with every colour. Middle: the emission spectrum of hydrogen, four bright lines on a black background. Bottom: the absorption spectrum of hydrogen, the continuous band with four dark lines at the same wavelengths.</title>
+            <text x="100" y="32" text-anchor="end" class="small">continuous</text>
+            <rect x="110.0" y="10" width="2.9" height="34" style="fill:rgb(206,0,209)"/>
+            <rect x="112.2" y="10" width="2.9" height="34" style="fill:rgb(199,0,209)"/>
+            <rect x="114.5" y="10" width="2.9" height="34" style="fill:rgb(192,0,209)"/>
+            <rect x="116.8" y="10" width="2.9" height="34" style="fill:rgb(185,0,209)"/>
+            <rect x="119.0" y="10" width="2.9" height="34" style="fill:rgb(178,0,209)"/>
+            <rect x="121.2" y="10" width="2.9" height="34" style="fill:rgb(171,0,209)"/>
+            <rect x="123.5" y="10" width="2.9" height="34" style="fill:rgb(164,0,209)"/>
+            <rect x="125.8" y="10" width="2.9" height="34" style="fill:rgb(157,0,209)"/>
+            <rect x="128.0" y="10" width="2.9" height="34" style="fill:rgb(150,0,209)"/>
+            <rect x="130.2" y="10" width="2.9" height="34" style="fill:rgb(143,0,209)"/>
+            <rect x="132.5" y="10" width="2.9" height="34" style="fill:rgb(136,0,209)"/>
+            <rect x="134.8" y="10" width="2.9" height="34" style="fill:rgb(129,0,209)"/>
+            <rect x="137.0" y="10" width="2.9" height="34" style="fill:rgb(122,0,209)"/>
+            <rect x="139.2" y="10" width="2.9" height="34" style="fill:rgb(115,0,209)"/>
+            <rect x="141.5" y="10" width="2.9" height="34" style="fill:rgb(108,0,209)"/>
+            <rect x="143.8" y="10" width="2.9" height="34" style="fill:rgb(101,0,209)"/>
+            <rect x="146.0" y="10" width="2.9" height="34" style="fill:rgb(94,0,209)"/>
+            <rect x="148.2" y="10" width="2.9" height="34" style="fill:rgb(87,0,209)"/>
+            <rect x="150.5" y="10" width="2.9" height="34" style="fill:rgb(80,0,209)"/>
+            <rect x="152.8" y="10" width="2.9" height="34" style="fill:rgb(73,0,209)"/>
+            <rect x="155.0" y="10" width="2.9" height="34" style="fill:rgb(66,0,209)"/>
+            <rect x="157.2" y="10" width="2.9" height="34" style="fill:rgb(59,0,209)"/>
+            <rect x="159.5" y="10" width="2.9" height="34" style="fill:rgb(52,0,209)"/>
+            <rect x="161.8" y="10" width="2.9" height="34" style="fill:rgb(45,0,209)"/>
+            <rect x="164.0" y="10" width="2.9" height="34" style="fill:rgb(38,0,209)"/>
+            <rect x="166.2" y="10" width="2.9" height="34" style="fill:rgb(31,0,209)"/>
+            <rect x="168.5" y="10" width="2.9" height="34" style="fill:rgb(24,0,209)"/>
+            <rect x="170.8" y="10" width="2.9" height="34" style="fill:rgb(17,0,209)"/>
+            <rect x="173.0" y="10" width="2.9" height="34" style="fill:rgb(10,0,209)"/>
+            <rect x="175.2" y="10" width="2.9" height="34" style="fill:rgb(3,0,209)"/>
+            <rect x="177.5" y="10" width="2.9" height="34" style="fill:rgb(0,4,209)"/>
+            <rect x="179.8" y="10" width="2.9" height="34" style="fill:rgb(0,12,209)"/>
+            <rect x="182.0" y="10" width="2.9" height="34" style="fill:rgb(0,19,209)"/>
+            <rect x="184.2" y="10" width="2.9" height="34" style="fill:rgb(0,27,209)"/>
+            <rect x="186.5" y="10" width="2.9" height="34" style="fill:rgb(0,35,209)"/>
+            <rect x="188.8" y="10" width="2.9" height="34" style="fill:rgb(0,42,209)"/>
+            <rect x="191.0" y="10" width="2.9" height="34" style="fill:rgb(0,50,209)"/>
+            <rect x="193.2" y="10" width="2.9" height="34" style="fill:rgb(0,58,209)"/>
+            <rect x="195.5" y="10" width="2.9" height="34" style="fill:rgb(0,66,209)"/>
+            <rect x="197.8" y="10" width="2.9" height="34" style="fill:rgb(0,73,209)"/>
+            <rect x="200.0" y="10" width="2.9" height="34" style="fill:rgb(0,81,209)"/>
+            <rect x="202.2" y="10" width="2.9" height="34" style="fill:rgb(0,89,209)"/>
+            <rect x="204.5" y="10" width="2.9" height="34" style="fill:rgb(0,96,209)"/>
+            <rect x="206.8" y="10" width="2.9" height="34" style="fill:rgb(0,104,209)"/>
+            <rect x="209.0" y="10" width="2.9" height="34" style="fill:rgb(0,112,209)"/>
+            <rect x="211.2" y="10" width="2.9" height="34" style="fill:rgb(0,119,209)"/>
+            <rect x="213.5" y="10" width="2.9" height="34" style="fill:rgb(0,127,209)"/>
+            <rect x="215.8" y="10" width="2.9" height="34" style="fill:rgb(0,135,209)"/>
+            <rect x="218.0" y="10" width="2.9" height="34" style="fill:rgb(0,143,209)"/>
+            <rect x="220.2" y="10" width="2.9" height="34" style="fill:rgb(0,150,209)"/>
+            <rect x="222.5" y="10" width="2.9" height="34" style="fill:rgb(0,158,209)"/>
+            <rect x="224.8" y="10" width="2.9" height="34" style="fill:rgb(0,166,209)"/>
+            <rect x="227.0" y="10" width="2.9" height="34" style="fill:rgb(0,173,209)"/>
+            <rect x="229.2" y="10" width="2.9" height="34" style="fill:rgb(0,181,209)"/>
+            <rect x="231.5" y="10" width="2.9" height="34" style="fill:rgb(0,189,209)"/>
+            <rect x="233.8" y="10" width="2.9" height="34" style="fill:rgb(0,193,199)"/>
+            <rect x="236.0" y="10" width="2.9" height="34" style="fill:rgb(0,193,178)"/>
+            <rect x="238.2" y="10" width="2.9" height="34" style="fill:rgb(0,193,157)"/>
+            <rect x="240.5" y="10" width="2.9" height="34" style="fill:rgb(0,193,136)"/>
+            <rect x="242.8" y="10" width="2.9" height="34" style="fill:rgb(0,193,115)"/>
+            <rect x="245.0" y="10" width="2.9" height="34" style="fill:rgb(0,193,94)"/>
+            <rect x="247.2" y="10" width="2.9" height="34" style="fill:rgb(0,193,73)"/>
+            <rect x="249.5" y="10" width="2.9" height="34" style="fill:rgb(0,193,52)"/>
+            <rect x="251.8" y="10" width="2.9" height="34" style="fill:rgb(0,193,31)"/>
+            <rect x="254.0" y="10" width="2.9" height="34" style="fill:rgb(0,193,10)"/>
+            <rect x="256.2" y="10" width="2.9" height="34" style="fill:rgb(3,193,0)"/>
+            <rect x="258.5" y="10" width="2.9" height="34" style="fill:rgb(9,193,0)"/>
+            <rect x="260.8" y="10" width="2.9" height="34" style="fill:rgb(15,193,0)"/>
+            <rect x="263.0" y="10" width="2.9" height="34" style="fill:rgb(21,193,0)"/>
+            <rect x="265.2" y="10" width="2.9" height="34" style="fill:rgb(27,193,0)"/>
+            <rect x="267.5" y="10" width="2.9" height="34" style="fill:rgb(33,193,0)"/>
+            <rect x="269.8" y="10" width="2.9" height="34" style="fill:rgb(39,193,0)"/>
+            <rect x="272.0" y="10" width="2.9" height="34" style="fill:rgb(45,193,0)"/>
+            <rect x="274.2" y="10" width="2.9" height="34" style="fill:rgb(51,193,0)"/>
+            <rect x="276.5" y="10" width="2.9" height="34" style="fill:rgb(57,193,0)"/>
+            <rect x="278.8" y="10" width="2.9" height="34" style="fill:rgb(63,193,0)"/>
+            <rect x="281.0" y="10" width="2.9" height="34" style="fill:rgb(69,193,0)"/>
+            <rect x="283.2" y="10" width="2.9" height="34" style="fill:rgb(75,193,0)"/>
+            <rect x="285.5" y="10" width="2.9" height="34" style="fill:rgb(81,193,0)"/>
+            <rect x="287.8" y="10" width="2.9" height="34" style="fill:rgb(87,193,0)"/>
+            <rect x="290.0" y="10" width="2.9" height="34" style="fill:rgb(93,193,0)"/>
+            <rect x="292.2" y="10" width="2.9" height="34" style="fill:rgb(99,193,0)"/>
+            <rect x="294.5" y="10" width="2.9" height="34" style="fill:rgb(105,193,0)"/>
+            <rect x="296.8" y="10" width="2.9" height="34" style="fill:rgb(111,193,0)"/>
+            <rect x="299.0" y="10" width="2.9" height="34" style="fill:rgb(116,193,0)"/>
+            <rect x="301.2" y="10" width="2.9" height="34" style="fill:rgb(122,193,0)"/>
+            <rect x="303.5" y="10" width="2.9" height="34" style="fill:rgb(128,193,0)"/>
+            <rect x="305.8" y="10" width="2.9" height="34" style="fill:rgb(134,193,0)"/>
+            <rect x="308.0" y="10" width="2.9" height="34" style="fill:rgb(140,193,0)"/>
+            <rect x="310.2" y="10" width="2.9" height="34" style="fill:rgb(146,193,0)"/>
+            <rect x="312.5" y="10" width="2.9" height="34" style="fill:rgb(152,193,0)"/>
+            <rect x="314.8" y="10" width="2.9" height="34" style="fill:rgb(158,193,0)"/>
+            <rect x="317.0" y="10" width="2.9" height="34" style="fill:rgb(164,193,0)"/>
+            <rect x="319.2" y="10" width="2.9" height="34" style="fill:rgb(170,193,0)"/>
+            <rect x="321.5" y="10" width="2.9" height="34" style="fill:rgb(176,193,0)"/>
+            <rect x="323.8" y="10" width="2.9" height="34" style="fill:rgb(182,193,0)"/>
+            <rect x="326.0" y="10" width="2.9" height="34" style="fill:rgb(188,193,0)"/>
+            <rect x="328.2" y="10" width="2.9" height="34" style="fill:rgb(194,193,0)"/>
+            <rect x="330.5" y="10" width="2.9" height="34" style="fill:rgb(200,193,0)"/>
+            <rect x="332.8" y="10" width="2.9" height="34" style="fill:rgb(206,193,0)"/>
+            <rect x="335.0" y="10" width="2.9" height="34" style="fill:rgb(209,190,0)"/>
+            <rect x="337.2" y="10" width="2.9" height="34" style="fill:rgb(209,184,0)"/>
+            <rect x="339.5" y="10" width="2.9" height="34" style="fill:rgb(209,178,0)"/>
+            <rect x="341.8" y="10" width="2.9" height="34" style="fill:rgb(209,172,0)"/>
+            <rect x="344.0" y="10" width="2.9" height="34" style="fill:rgb(209,166,0)"/>
+            <rect x="346.2" y="10" width="2.9" height="34" style="fill:rgb(209,160,0)"/>
+            <rect x="348.5" y="10" width="2.9" height="34" style="fill:rgb(209,154,0)"/>
+            <rect x="350.8" y="10" width="2.9" height="34" style="fill:rgb(209,148,0)"/>
+            <rect x="353.0" y="10" width="2.9" height="34" style="fill:rgb(209,142,0)"/>
+            <rect x="355.2" y="10" width="2.9" height="34" style="fill:rgb(209,136,0)"/>
+            <rect x="357.5" y="10" width="2.9" height="34" style="fill:rgb(209,130,0)"/>
+            <rect x="359.8" y="10" width="2.9" height="34" style="fill:rgb(209,125,0)"/>
+            <rect x="362.0" y="10" width="2.9" height="34" style="fill:rgb(209,119,0)"/>
+            <rect x="364.2" y="10" width="2.9" height="34" style="fill:rgb(209,113,0)"/>
+            <rect x="366.5" y="10" width="2.9" height="34" style="fill:rgb(209,107,0)"/>
+            <rect x="368.8" y="10" width="2.9" height="34" style="fill:rgb(209,101,0)"/>
+            <rect x="371.0" y="10" width="2.9" height="34" style="fill:rgb(209,95,0)"/>
+            <rect x="373.2" y="10" width="2.9" height="34" style="fill:rgb(209,89,0)"/>
+            <rect x="375.5" y="10" width="2.9" height="34" style="fill:rgb(209,83,0)"/>
+            <rect x="377.8" y="10" width="2.9" height="34" style="fill:rgb(209,77,0)"/>
+            <rect x="380.0" y="10" width="2.9" height="34" style="fill:rgb(209,71,0)"/>
+            <rect x="382.2" y="10" width="2.9" height="34" style="fill:rgb(209,65,0)"/>
+            <rect x="384.5" y="10" width="2.9" height="34" style="fill:rgb(209,59,0)"/>
+            <rect x="386.8" y="10" width="2.9" height="34" style="fill:rgb(209,53,0)"/>
+            <rect x="389.0" y="10" width="2.9" height="34" style="fill:rgb(209,47,0)"/>
+            <rect x="391.2" y="10" width="2.9" height="34" style="fill:rgb(209,42,0)"/>
+            <rect x="393.5" y="10" width="2.9" height="34" style="fill:rgb(209,36,0)"/>
+            <rect x="395.8" y="10" width="2.9" height="34" style="fill:rgb(209,30,0)"/>
+            <rect x="398.0" y="10" width="2.9" height="34" style="fill:rgb(209,24,0)"/>
+            <rect x="400.2" y="10" width="2.9" height="34" style="fill:rgb(209,18,0)"/>
+            <rect x="402.5" y="10" width="2.9" height="34" style="fill:rgb(209,12,0)"/>
+            <rect x="404.8" y="10" width="2.9" height="34" style="fill:rgb(209,6,0)"/>
+            <rect x="407.0" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="409.2" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="411.5" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="413.8" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="416.0" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="418.2" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="420.5" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="422.8" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="425.0" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="427.2" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="429.5" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="431.8" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="434.0" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="436.2" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="438.5" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="440.8" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="443.0" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="445.2" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="447.5" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="449.8" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="452.0" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="454.2" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="456.5" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="458.8" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="461.0" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="463.2" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="465.5" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="467.8" y="10" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <text x="100" y="82" text-anchor="end" class="small">H emission</text>
+            <rect x="110" y="60" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="419.3" y="60" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="227.9" y="60" width="3" height="34" style="fill:rgb(0,178,209)"/>
+            <rect x="169.2" y="60" width="3" height="34" style="fill:rgb(21,0,209)"/>
+            <rect x="142.5" y="60" width="3" height="34" style="fill:rgb(104,0,209)"/>
+            <text x="100" y="132" text-anchor="end" class="small">H absorption</text>
+            <rect x="110.0" y="110" width="2.9" height="34" style="fill:rgb(206,0,209)"/>
+            <rect x="112.2" y="110" width="2.9" height="34" style="fill:rgb(199,0,209)"/>
+            <rect x="114.5" y="110" width="2.9" height="34" style="fill:rgb(192,0,209)"/>
+            <rect x="116.8" y="110" width="2.9" height="34" style="fill:rgb(185,0,209)"/>
+            <rect x="119.0" y="110" width="2.9" height="34" style="fill:rgb(178,0,209)"/>
+            <rect x="121.2" y="110" width="2.9" height="34" style="fill:rgb(171,0,209)"/>
+            <rect x="123.5" y="110" width="2.9" height="34" style="fill:rgb(164,0,209)"/>
+            <rect x="125.8" y="110" width="2.9" height="34" style="fill:rgb(157,0,209)"/>
+            <rect x="128.0" y="110" width="2.9" height="34" style="fill:rgb(150,0,209)"/>
+            <rect x="130.2" y="110" width="2.9" height="34" style="fill:rgb(143,0,209)"/>
+            <rect x="132.5" y="110" width="2.9" height="34" style="fill:rgb(136,0,209)"/>
+            <rect x="134.8" y="110" width="2.9" height="34" style="fill:rgb(129,0,209)"/>
+            <rect x="137.0" y="110" width="2.9" height="34" style="fill:rgb(122,0,209)"/>
+            <rect x="139.2" y="110" width="2.9" height="34" style="fill:rgb(115,0,209)"/>
+            <rect x="141.5" y="110" width="2.9" height="34" style="fill:rgb(108,0,209)"/>
+            <rect x="143.8" y="110" width="2.9" height="34" style="fill:rgb(101,0,209)"/>
+            <rect x="146.0" y="110" width="2.9" height="34" style="fill:rgb(94,0,209)"/>
+            <rect x="148.2" y="110" width="2.9" height="34" style="fill:rgb(87,0,209)"/>
+            <rect x="150.5" y="110" width="2.9" height="34" style="fill:rgb(80,0,209)"/>
+            <rect x="152.8" y="110" width="2.9" height="34" style="fill:rgb(73,0,209)"/>
+            <rect x="155.0" y="110" width="2.9" height="34" style="fill:rgb(66,0,209)"/>
+            <rect x="157.2" y="110" width="2.9" height="34" style="fill:rgb(59,0,209)"/>
+            <rect x="159.5" y="110" width="2.9" height="34" style="fill:rgb(52,0,209)"/>
+            <rect x="161.8" y="110" width="2.9" height="34" style="fill:rgb(45,0,209)"/>
+            <rect x="164.0" y="110" width="2.9" height="34" style="fill:rgb(38,0,209)"/>
+            <rect x="166.2" y="110" width="2.9" height="34" style="fill:rgb(31,0,209)"/>
+            <rect x="168.5" y="110" width="2.9" height="34" style="fill:rgb(24,0,209)"/>
+            <rect x="170.8" y="110" width="2.9" height="34" style="fill:rgb(17,0,209)"/>
+            <rect x="173.0" y="110" width="2.9" height="34" style="fill:rgb(10,0,209)"/>
+            <rect x="175.2" y="110" width="2.9" height="34" style="fill:rgb(3,0,209)"/>
+            <rect x="177.5" y="110" width="2.9" height="34" style="fill:rgb(0,4,209)"/>
+            <rect x="179.8" y="110" width="2.9" height="34" style="fill:rgb(0,12,209)"/>
+            <rect x="182.0" y="110" width="2.9" height="34" style="fill:rgb(0,19,209)"/>
+            <rect x="184.2" y="110" width="2.9" height="34" style="fill:rgb(0,27,209)"/>
+            <rect x="186.5" y="110" width="2.9" height="34" style="fill:rgb(0,35,209)"/>
+            <rect x="188.8" y="110" width="2.9" height="34" style="fill:rgb(0,42,209)"/>
+            <rect x="191.0" y="110" width="2.9" height="34" style="fill:rgb(0,50,209)"/>
+            <rect x="193.2" y="110" width="2.9" height="34" style="fill:rgb(0,58,209)"/>
+            <rect x="195.5" y="110" width="2.9" height="34" style="fill:rgb(0,66,209)"/>
+            <rect x="197.8" y="110" width="2.9" height="34" style="fill:rgb(0,73,209)"/>
+            <rect x="200.0" y="110" width="2.9" height="34" style="fill:rgb(0,81,209)"/>
+            <rect x="202.2" y="110" width="2.9" height="34" style="fill:rgb(0,89,209)"/>
+            <rect x="204.5" y="110" width="2.9" height="34" style="fill:rgb(0,96,209)"/>
+            <rect x="206.8" y="110" width="2.9" height="34" style="fill:rgb(0,104,209)"/>
+            <rect x="209.0" y="110" width="2.9" height="34" style="fill:rgb(0,112,209)"/>
+            <rect x="211.2" y="110" width="2.9" height="34" style="fill:rgb(0,119,209)"/>
+            <rect x="213.5" y="110" width="2.9" height="34" style="fill:rgb(0,127,209)"/>
+            <rect x="215.8" y="110" width="2.9" height="34" style="fill:rgb(0,135,209)"/>
+            <rect x="218.0" y="110" width="2.9" height="34" style="fill:rgb(0,143,209)"/>
+            <rect x="220.2" y="110" width="2.9" height="34" style="fill:rgb(0,150,209)"/>
+            <rect x="222.5" y="110" width="2.9" height="34" style="fill:rgb(0,158,209)"/>
+            <rect x="224.8" y="110" width="2.9" height="34" style="fill:rgb(0,166,209)"/>
+            <rect x="227.0" y="110" width="2.9" height="34" style="fill:rgb(0,173,209)"/>
+            <rect x="229.2" y="110" width="2.9" height="34" style="fill:rgb(0,181,209)"/>
+            <rect x="231.5" y="110" width="2.9" height="34" style="fill:rgb(0,189,209)"/>
+            <rect x="233.8" y="110" width="2.9" height="34" style="fill:rgb(0,193,199)"/>
+            <rect x="236.0" y="110" width="2.9" height="34" style="fill:rgb(0,193,178)"/>
+            <rect x="238.2" y="110" width="2.9" height="34" style="fill:rgb(0,193,157)"/>
+            <rect x="240.5" y="110" width="2.9" height="34" style="fill:rgb(0,193,136)"/>
+            <rect x="242.8" y="110" width="2.9" height="34" style="fill:rgb(0,193,115)"/>
+            <rect x="245.0" y="110" width="2.9" height="34" style="fill:rgb(0,193,94)"/>
+            <rect x="247.2" y="110" width="2.9" height="34" style="fill:rgb(0,193,73)"/>
+            <rect x="249.5" y="110" width="2.9" height="34" style="fill:rgb(0,193,52)"/>
+            <rect x="251.8" y="110" width="2.9" height="34" style="fill:rgb(0,193,31)"/>
+            <rect x="254.0" y="110" width="2.9" height="34" style="fill:rgb(0,193,10)"/>
+            <rect x="256.2" y="110" width="2.9" height="34" style="fill:rgb(3,193,0)"/>
+            <rect x="258.5" y="110" width="2.9" height="34" style="fill:rgb(9,193,0)"/>
+            <rect x="260.8" y="110" width="2.9" height="34" style="fill:rgb(15,193,0)"/>
+            <rect x="263.0" y="110" width="2.9" height="34" style="fill:rgb(21,193,0)"/>
+            <rect x="265.2" y="110" width="2.9" height="34" style="fill:rgb(27,193,0)"/>
+            <rect x="267.5" y="110" width="2.9" height="34" style="fill:rgb(33,193,0)"/>
+            <rect x="269.8" y="110" width="2.9" height="34" style="fill:rgb(39,193,0)"/>
+            <rect x="272.0" y="110" width="2.9" height="34" style="fill:rgb(45,193,0)"/>
+            <rect x="274.2" y="110" width="2.9" height="34" style="fill:rgb(51,193,0)"/>
+            <rect x="276.5" y="110" width="2.9" height="34" style="fill:rgb(57,193,0)"/>
+            <rect x="278.8" y="110" width="2.9" height="34" style="fill:rgb(63,193,0)"/>
+            <rect x="281.0" y="110" width="2.9" height="34" style="fill:rgb(69,193,0)"/>
+            <rect x="283.2" y="110" width="2.9" height="34" style="fill:rgb(75,193,0)"/>
+            <rect x="285.5" y="110" width="2.9" height="34" style="fill:rgb(81,193,0)"/>
+            <rect x="287.8" y="110" width="2.9" height="34" style="fill:rgb(87,193,0)"/>
+            <rect x="290.0" y="110" width="2.9" height="34" style="fill:rgb(93,193,0)"/>
+            <rect x="292.2" y="110" width="2.9" height="34" style="fill:rgb(99,193,0)"/>
+            <rect x="294.5" y="110" width="2.9" height="34" style="fill:rgb(105,193,0)"/>
+            <rect x="296.8" y="110" width="2.9" height="34" style="fill:rgb(111,193,0)"/>
+            <rect x="299.0" y="110" width="2.9" height="34" style="fill:rgb(116,193,0)"/>
+            <rect x="301.2" y="110" width="2.9" height="34" style="fill:rgb(122,193,0)"/>
+            <rect x="303.5" y="110" width="2.9" height="34" style="fill:rgb(128,193,0)"/>
+            <rect x="305.8" y="110" width="2.9" height="34" style="fill:rgb(134,193,0)"/>
+            <rect x="308.0" y="110" width="2.9" height="34" style="fill:rgb(140,193,0)"/>
+            <rect x="310.2" y="110" width="2.9" height="34" style="fill:rgb(146,193,0)"/>
+            <rect x="312.5" y="110" width="2.9" height="34" style="fill:rgb(152,193,0)"/>
+            <rect x="314.8" y="110" width="2.9" height="34" style="fill:rgb(158,193,0)"/>
+            <rect x="317.0" y="110" width="2.9" height="34" style="fill:rgb(164,193,0)"/>
+            <rect x="319.2" y="110" width="2.9" height="34" style="fill:rgb(170,193,0)"/>
+            <rect x="321.5" y="110" width="2.9" height="34" style="fill:rgb(176,193,0)"/>
+            <rect x="323.8" y="110" width="2.9" height="34" style="fill:rgb(182,193,0)"/>
+            <rect x="326.0" y="110" width="2.9" height="34" style="fill:rgb(188,193,0)"/>
+            <rect x="328.2" y="110" width="2.9" height="34" style="fill:rgb(194,193,0)"/>
+            <rect x="330.5" y="110" width="2.9" height="34" style="fill:rgb(200,193,0)"/>
+            <rect x="332.8" y="110" width="2.9" height="34" style="fill:rgb(206,193,0)"/>
+            <rect x="335.0" y="110" width="2.9" height="34" style="fill:rgb(209,190,0)"/>
+            <rect x="337.2" y="110" width="2.9" height="34" style="fill:rgb(209,184,0)"/>
+            <rect x="339.5" y="110" width="2.9" height="34" style="fill:rgb(209,178,0)"/>
+            <rect x="341.8" y="110" width="2.9" height="34" style="fill:rgb(209,172,0)"/>
+            <rect x="344.0" y="110" width="2.9" height="34" style="fill:rgb(209,166,0)"/>
+            <rect x="346.2" y="110" width="2.9" height="34" style="fill:rgb(209,160,0)"/>
+            <rect x="348.5" y="110" width="2.9" height="34" style="fill:rgb(209,154,0)"/>
+            <rect x="350.8" y="110" width="2.9" height="34" style="fill:rgb(209,148,0)"/>
+            <rect x="353.0" y="110" width="2.9" height="34" style="fill:rgb(209,142,0)"/>
+            <rect x="355.2" y="110" width="2.9" height="34" style="fill:rgb(209,136,0)"/>
+            <rect x="357.5" y="110" width="2.9" height="34" style="fill:rgb(209,130,0)"/>
+            <rect x="359.8" y="110" width="2.9" height="34" style="fill:rgb(209,125,0)"/>
+            <rect x="362.0" y="110" width="2.9" height="34" style="fill:rgb(209,119,0)"/>
+            <rect x="364.2" y="110" width="2.9" height="34" style="fill:rgb(209,113,0)"/>
+            <rect x="366.5" y="110" width="2.9" height="34" style="fill:rgb(209,107,0)"/>
+            <rect x="368.8" y="110" width="2.9" height="34" style="fill:rgb(209,101,0)"/>
+            <rect x="371.0" y="110" width="2.9" height="34" style="fill:rgb(209,95,0)"/>
+            <rect x="373.2" y="110" width="2.9" height="34" style="fill:rgb(209,89,0)"/>
+            <rect x="375.5" y="110" width="2.9" height="34" style="fill:rgb(209,83,0)"/>
+            <rect x="377.8" y="110" width="2.9" height="34" style="fill:rgb(209,77,0)"/>
+            <rect x="380.0" y="110" width="2.9" height="34" style="fill:rgb(209,71,0)"/>
+            <rect x="382.2" y="110" width="2.9" height="34" style="fill:rgb(209,65,0)"/>
+            <rect x="384.5" y="110" width="2.9" height="34" style="fill:rgb(209,59,0)"/>
+            <rect x="386.8" y="110" width="2.9" height="34" style="fill:rgb(209,53,0)"/>
+            <rect x="389.0" y="110" width="2.9" height="34" style="fill:rgb(209,47,0)"/>
+            <rect x="391.2" y="110" width="2.9" height="34" style="fill:rgb(209,42,0)"/>
+            <rect x="393.5" y="110" width="2.9" height="34" style="fill:rgb(209,36,0)"/>
+            <rect x="395.8" y="110" width="2.9" height="34" style="fill:rgb(209,30,0)"/>
+            <rect x="398.0" y="110" width="2.9" height="34" style="fill:rgb(209,24,0)"/>
+            <rect x="400.2" y="110" width="2.9" height="34" style="fill:rgb(209,18,0)"/>
+            <rect x="402.5" y="110" width="2.9" height="34" style="fill:rgb(209,12,0)"/>
+            <rect x="404.8" y="110" width="2.9" height="34" style="fill:rgb(209,6,0)"/>
+            <rect x="407.0" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="409.2" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="411.5" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="413.8" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="416.0" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="418.2" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="420.5" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="422.8" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="425.0" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="427.2" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="429.5" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="431.8" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="434.0" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="436.2" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="438.5" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="440.8" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="443.0" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="445.2" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="447.5" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="449.8" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="452.0" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="454.2" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="456.5" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="458.8" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="461.0" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="463.2" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="465.5" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="467.8" y="110" width="2.9" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="419.6" y="110" width="2.4" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="228.2" y="110" width="2.4" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="169.6" y="110" width="2.4" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="142.8" y="110" width="2.4" height="34" style="fill:var(--fig-ink)"/>
+            <line x1="132.5" y1="146" x2="132.5" y2="152" class="axis"/>
+            <text x="132.5" y="168" text-anchor="middle" class="small">400</text>
+            <line x1="245.0" y1="146" x2="245.0" y2="152" class="axis"/>
+            <text x="245.0" y="168" text-anchor="middle" class="small">500</text>
+            <line x1="357.5" y1="146" x2="357.5" y2="152" class="axis"/>
+            <text x="357.5" y="168" text-anchor="middle" class="small">600</text>
+            <line x1="470.0" y1="146" x2="470.0" y2="152" class="axis"/>
+            <text x="470.0" y="168" text-anchor="middle" class="small">700</text>
+            <text x="470" y="186" text-anchor="end" class="small">wavelength / nm</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.4</b> The dark lines of hydrogen sit exactly where its bright lines are.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>A diffraction grating or prism spreads light out by wavelength. Glowing solids, liquids and dense gases give an unbroken band. A low-pressure gas, whose atoms are far apart and act alone, gives separate bright lines. White light passed through a cooler sample of the same gas loses exactly those wavelengths.</p></details>
+      </figure>
+      <table id="spectra-types-table-1" class="notes">
+        <thead><tr><th>Spectrum</th><th>Source</th><th>Looks like</th></tr></thead>
+        <tbody>
+          <tr><th>Continuous</th><td>Hot solid, liquid or high-pressure gas (filament lamp, candle flame)</td><td>Unbroken band of every colour</td></tr>
+          <tr><th>Emission line</th><td>Hot low-pressure gas (gas discharge tube)</td><td>A few bright lines on a dark background</td></tr>
+          <tr><th>Absorption line</th><td>White light passed through a cooler low-pressure gas</td><td>Continuous band crossed by dark lines</td></tr>
+        </tbody>
+      </table>
+      <div id="spectra-types-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>A <b>line spectrum</b> contains only certain separate wavelengths, the <b>spectral lines</b>. Bright lines form an <b>emission spectrum</b>; dark lines on a continuous band form an <b>absorption spectrum</b>.</p>
+      </div>
+      <div id="spectra-types-check-1" class="check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Which source gives a line spectrum?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">A tungsten filament lamp</button>
+          <button type="button" data-choice="B">A candle flame</button>
+          <button type="button" data-choice="C">A low-pressure sodium lamp</button>
+          <button type="button" data-choice="D">Molten iron</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> A sodium lamp holds a thin vapour whose atoms emit on their own, so it shows sodium's bright yellow lines. <b>A</b>, <b>B</b> and <b>D</b> are hot dense matter, which glows with a continuous spectrum.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="fingerprint" data-chip="Fingerprints">
+      <header>
+        <h2><span class="sec-num">B</span>Every element has its own lines</h2>
+      </header>
+      <figure id="fingerprint-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 244" role="img" aria-labelledby="element-lines-title">
+            <title id="element-lines-title">Visible emission lines of four elements. Hydrogen: four lines from red to violet. Helium: six lines spread across the range. Neon: many lines crowded in the orange and red. Sodium: a close yellow pair near 589 nanometres.</title>
+            <text x="100" y="32" text-anchor="end" class="small">hydrogen</text>
+            <rect x="110" y="10" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="419.3" y="10" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="227.9" y="10" width="3" height="34" style="fill:rgb(0,178,209)"/>
+            <rect x="169.2" y="10" width="3" height="34" style="fill:rgb(21,0,209)"/>
+            <rect x="142.5" y="10" width="3" height="34" style="fill:rgb(104,0,209)"/>
+            <text x="100" y="82" text-anchor="end" class="small">helium</text>
+            <rect x="110" y="60" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="184.0" y="60" width="3" height="34" style="fill:rgb(0,27,209)"/>
+            <rect x="211.2" y="60" width="3" height="34" style="fill:rgb(0,121,209)"/>
+            <rect x="234.7" y="60" width="3" height="34" style="fill:rgb(0,193,186)"/>
+            <rect x="245.3" y="60" width="3" height="34" style="fill:rgb(0,193,88)"/>
+            <rect x="342.1" y="60" width="3" height="34" style="fill:rgb(209,170,0)"/>
+            <rect x="432.3" y="60" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <text x="100" y="132" text-anchor="end" class="small">neon</text>
+            <rect x="110" y="110" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="339.4" y="110" width="3" height="34" style="fill:rgb(209,177,0)"/>
+            <rect x="342.7" y="110" width="3" height="34" style="fill:rgb(209,168,0)"/>
+            <rect x="359.4" y="110" width="3" height="34" style="fill:rgb(209,125,0)"/>
+            <rect x="364.3" y="110" width="3" height="34" style="fill:rgb(209,111,0)"/>
+            <rect x="374.4" y="110" width="3" height="34" style="fill:rgb(209,85,0)"/>
+            <rect x="385.9" y="110" width="3" height="34" style="fill:rgb(209,55,0)"/>
+            <rect x="393.6" y="110" width="3" height="34" style="fill:rgb(209,34,0)"/>
+            <rect x="401.2" y="110" width="3" height="34" style="fill:rgb(209,14,0)"/>
+            <rect x="413.0" y="110" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="423.4" y="110" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="460.5" y="110" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <text x="100" y="182" text-anchor="end" class="small">sodium</text>
+            <rect x="110" y="160" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="343.6" y="160" width="3" height="34" style="fill:rgb(209,166,0)"/>
+            <rect x="344.3" y="160" width="3" height="34" style="fill:rgb(209,164,0)"/>
+            <line x1="132.5" y1="196" x2="132.5" y2="202" class="axis"/>
+            <text x="132.5" y="218" text-anchor="middle" class="small">400</text>
+            <line x1="245.0" y1="196" x2="245.0" y2="202" class="axis"/>
+            <text x="245.0" y="218" text-anchor="middle" class="small">500</text>
+            <line x1="357.5" y1="196" x2="357.5" y2="202" class="axis"/>
+            <text x="357.5" y="218" text-anchor="middle" class="small">600</text>
+            <line x1="470.0" y1="196" x2="470.0" y2="202" class="axis"/>
+            <text x="470.0" y="218" text-anchor="middle" class="small">700</text>
+            <text x="470" y="236" text-anchor="end" class="small">wavelength / nm</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.5</b> No two elements share the same pattern of lines.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>These patterns let astronomers find what a star is made of without visiting it. Neon's crowded orange-red lines give neon signs their colour; sodium's yellow pair gives old street lamps theirs.</p></details>
+      </figure>
+      <div id="fingerprint-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p><b>Spectral analysis</b> identifies the elements in a glowing gas by matching its lines to the known line patterns of elements.</p>
+      </div>
+      <p>An element is present in a mixture only if <em>all</em> of its lines appear in the mixture's spectrum. One missing line rules it out.</p>
+      <figure id="fingerprint-fig-2" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 244" role="img" aria-labelledby="mixture-lines-title">
+            <title id="mixture-lines-title">Emission spectrum of an unknown gas mixture, compared with gases X, Y and Z. The mixture shows four lines at 410, 434, 486 and 656 nanometres and a yellow pair at 589. Gas X has the yellow pair only. Gas Y has six lines including 447 and 588 nanometres. Gas Z has the four lines at 410, 434, 486 and 656.</title>
+            <text x="100" y="32" text-anchor="end" class="small">mixture</text>
+            <rect x="110" y="10" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="142.5" y="10" width="3" height="34" style="fill:rgb(104,0,209)"/>
+            <rect x="169.2" y="10" width="3" height="34" style="fill:rgb(21,0,209)"/>
+            <rect x="227.9" y="10" width="3" height="34" style="fill:rgb(0,178,209)"/>
+            <rect x="343.6" y="10" width="3" height="34" style="fill:rgb(209,166,0)"/>
+            <rect x="344.3" y="10" width="3" height="34" style="fill:rgb(209,164,0)"/>
+            <rect x="419.3" y="10" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <text x="100" y="82" text-anchor="end" class="small">gas X</text>
+            <rect x="110" y="60" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="343.6" y="60" width="3" height="34" style="fill:rgb(209,166,0)"/>
+            <rect x="344.3" y="60" width="3" height="34" style="fill:rgb(209,164,0)"/>
+            <text x="100" y="132" text-anchor="end" class="small">gas Y</text>
+            <rect x="110" y="110" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="184.0" y="110" width="3" height="34" style="fill:rgb(0,27,209)"/>
+            <rect x="211.2" y="110" width="3" height="34" style="fill:rgb(0,121,209)"/>
+            <rect x="234.7" y="110" width="3" height="34" style="fill:rgb(0,193,186)"/>
+            <rect x="245.3" y="110" width="3" height="34" style="fill:rgb(0,193,88)"/>
+            <rect x="342.1" y="110" width="3" height="34" style="fill:rgb(209,170,0)"/>
+            <rect x="432.3" y="110" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <text x="100" y="182" text-anchor="end" class="small">gas Z</text>
+            <rect x="110" y="160" width="360" height="34" style="fill:var(--fig-ink)"/>
+            <rect x="419.3" y="160" width="3" height="34" style="fill:rgb(209,0,0)"/>
+            <rect x="227.9" y="160" width="3" height="34" style="fill:rgb(0,178,209)"/>
+            <rect x="169.2" y="160" width="3" height="34" style="fill:rgb(21,0,209)"/>
+            <rect x="142.5" y="160" width="3" height="34" style="fill:rgb(104,0,209)"/>
+            <line x1="132.5" y1="196" x2="132.5" y2="202" class="axis"/>
+            <text x="132.5" y="218" text-anchor="middle" class="small">400</text>
+            <line x1="245.0" y1="196" x2="245.0" y2="202" class="axis"/>
+            <text x="245.0" y="218" text-anchor="middle" class="small">500</text>
+            <line x1="357.5" y1="196" x2="357.5" y2="202" class="axis"/>
+            <text x="357.5" y="218" text-anchor="middle" class="small">600</text>
+            <line x1="470.0" y1="196" x2="470.0" y2="202" class="axis"/>
+            <text x="470.0" y="218" text-anchor="middle" class="small">700</text>
+            <text x="470" y="236" text-anchor="end" class="small">wavelength / nm</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.6</b> Match each gas against the mixture, line by line.</figcaption>
+      </figure>
+      <div id="fingerprint-check-1" class="check" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>The combined spectrum contains every line from two reference samples. Which pair best fits the plotted lines?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Reference sample X by itself</button>
+          <button type="button" data-choice="B">Reference samples X and Z together</button>
+          <button type="button" data-choice="C">Reference samples Y and Z together</button>
+          <button type="button" data-choice="D">All three reference samples</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> The observed lines agree with the X and Z references. Including Y would add spectral features that the plot does not show.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="absorption" data-chip="Absorption">
+      <header>
+        <h2><span class="sec-num">C</span>Absorption lines and the Sun</h2>
+      </header>
+      <figure id="absorption-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 210" role="img" aria-labelledby="absorb-setup-title">
+            <title id="absorb-setup-title">Seeing an absorption spectrum. A filament lamp sends white light through a glass vessel of cool low-pressure gas, then through a diffraction grating to the observer. The spectrum seen is continuous with dark lines.</title>
+            <circle cx="50" cy="90" r="22" class="fill-soft"/>
+            <path d="M40,98 q10,-26 20,0" class="energy-line"/>
+            <text x="50" y="135" text-anchor="middle" class="small">filament lamp</text>
+            <line x1="74" y1="90" x2="170" y2="90" class="energy-line"/>
+            <path d="M160,84 L172,90 L160,96" class="energy-line"/>
+            <rect x="175" y="55" width="100" height="70" rx="12" class="fill-soft"/>
+            <circle cx="200" cy="80" r="4" class="electron"/>
+            <circle cx="240" cy="100" r="4" class="electron"/>
+            <circle cx="255" cy="70" r="4" class="electron"/>
+            <circle cx="215" cy="108" r="4" class="electron"/>
+            <text x="225" y="145" text-anchor="middle" class="small">cool low-pressure gas</text>
+            <line x1="275" y1="90" x2="345" y2="90" class="energy-line"/>
+            <path d="M335,84 L347,90 L335,96" class="energy-line"/>
+            <line x1="352" y1="55" x2="352" y2="125" class="ink"/>
+            <text x="352" y="145" text-anchor="middle" class="small">grating</text>
+            <circle cx="430" cy="90" r="14" class="fill-soft"/>
+            <circle cx="424" cy="90" r="4" style="fill:var(--fig-ink)"/>
+            <text x="430" y="125" text-anchor="middle" class="small">observer</text>
+            <text x="240" y="190" text-anchor="middle">continuous band with dark lines</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.7</b> White light through a cool gas loses that gas's own wavelengths.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>The atoms that absorbed light re-emit it a moment later, but in every direction. Very little of it continues towards the observer, so those wavelengths look dark against the bright background.</p></details>
+      </figure>
+      <ul class="points">
+        <li>A gas absorbs only the wavelengths it can emit: its absorption lines match its emission lines exactly (Fig. 2.4).</li>
+        <li>Sunlight shows hundreds of dark <b>Fraunhofer lines</b>. Cooler gas in the Sun's outer layers, mostly hydrogen, absorbs those wavelengths from the light of the hot surface below.</li>
+        <li>Matching Fraunhofer lines to laboratory spectra showed that the Sun is mostly hydrogen and helium.</li>
+      </ul>
+      <div id="absorption-check-1" class="check" data-check="tf">
+        <h3>Quick check</h3>
+        <div id="absorption-tf-1" class="tf-item" data-answer="true">
+          <p>(a) A gas whose emission spectrum has a line at 589 nm will absorb light of wavelength 589 nm.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. Emission and absorption use the same energy gaps, so the lines sit at the same wavelengths.</p></div>
+        </div>
+        <div id="absorption-tf-2" class="tf-item" data-answer="false">
+          <p>(b) Dark lines appear because the absorbed light is destroyed and never re-emitted.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. The atoms do re-emit, but in all directions, so little of that light travels on in the original beam.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="levels" data-chip="Energy levels">
+      <header>
+        <h2><span class="sec-num">D</span>Line spectra mean energy levels</h2>
+      </header>
+      <figure id="levels-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 250" role="img" aria-labelledby="jumps-title">
+            <title id="jumps-title">Energy levels of an atom drawn as horizontal lines E1, E2 and E3. Left: emission. The atom drops from E3 to E2 or E2 to E1 and sends out one photon each time. Right: absorption. A photon whose energy matches a gap lifts the atom from E1 to E2. A jump to a value between the levels is not allowed.</title>
+            <text x="120" y="24" text-anchor="middle">emission</text>
+            <text x="360" y="24" text-anchor="middle">absorption</text>
+            <line x1="40" y1="60" x2="200" y2="60" class="level"/>
+            <line x1="40" y1="130" x2="200" y2="130" class="level"/>
+            <line x1="40" y1="225" x2="200" y2="225" class="level"/>
+            <line x1="280" y1="60" x2="440" y2="60" class="level"/>
+            <line x1="280" y1="130" x2="440" y2="130" class="level"/>
+            <line x1="280" y1="225" x2="440" y2="225" class="level"/>
+            <text x="34" y="65" text-anchor="end" class="sym">E₃</text>
+            <text x="34" y="135" text-anchor="end" class="sym">E₂</text>
+            <text x="34" y="230" text-anchor="end" class="sym">E₁</text>
+            <line x1="80" y1="60" x2="80" y2="118" class="electron-line"/>
+            <path d="M73,114 L80,128 L87,114" class="electron-line"/>
+            <path d="M88,95 q6,-10 12,0 t12,0 t12,0" class="energy-line"/>
+            <line x1="150" y1="130" x2="150" y2="213" class="electron-line"/>
+            <path d="M143,209 L150,223 L157,209" class="electron-line"/>
+            <path d="M158,178 q6,-10 12,0 t12,0 t12,0" class="energy-line"/>
+            <line x1="330" y1="225" x2="330" y2="142" class="electron-line"/>
+            <path d="M323,146 L330,132 L337,146" class="electron-line"/>
+            <path d="M282,186 q6,-10 12,0 t12,0 t12,0" class="energy-line"/>
+            <line x1="372" y1="225" x2="372" y2="175" class="guide"/>
+            <path d="M365,180 L372,166 L379,180" class="nudge-mark"/>
+            <text x="382" y="190" class="small">no level here:</text>
+            <text x="382" y="205" class="small">not allowed</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.8</b> Each line is one jump between two fixed energy levels.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Think of a ball on a staircase: it can rest on a step but never between steps, so its potential energy takes only certain values. An atom's energy is the same. Every jump changes it by a fixed amount, so the photon emitted or absorbed has a fixed energy and a fixed wavelength.</p></details>
+      </figure>
+      <div id="levels-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>An atom can have only certain separate energies, its <b>energy levels</b>. It emits or absorbs a photon only when it jumps between two levels, and the photon carries exactly the energy difference.</p>
+      </div>
+      <div id="levels-eq-1" class="eq">\[ hf = \frac{hc}{\lambda} = E_{\text{upper}} - E_{\text{lower}} \]</div>
+      <p>A larger gap gives a higher-frequency, shorter-wavelength photon. A photon whose energy matches no gap passes through the gas untouched.</p>
+      <div id="levels-check-1" class="check" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>What do line spectra tell us directly about atoms?</p>
+        <ol class="stem-list">
+          <li>An atom's energy takes only certain separate values.</li>
+          <li>An atom emits and absorbs light as photons.</li>
+          <li>An atom has electrons orbiting a nucleus.</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) and (2) only</button>
+          <button type="button" data-choice="B">(1) and (3) only</button>
+          <button type="button" data-choice="C">(2) and (3) only</button>
+          <button type="button" data-choice="D">(1), (2) and (3)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> Sharp lines mean fixed photon energies, which need both photons and fixed atomic energies. A spectrum says nothing about where the charges sit; the orbiting picture came from α scattering, so (3) is out.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example: a hydrogen line and a grating</summary>
+        <div id="levels-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>Hydrogen emits a red line of wavelength 656 nm. (a) How much energy does an atom lose when it emits this photon? (b) The light falls on a grating with 600 lines per mm. At what angle is the first-order red line seen?</p>
+          <ol class="steps">
+            <li>\(E = hc/\lambda = (6.63 \times 10^{-34})(3.00 \times 10^{8}) / (656 \times 10^{-9}) = 3.03 \times 10^{-19}\ \mathrm{J}\).</li>
+            <li>In eV: \(3.03 \times 10^{-19} / 1.60 \times 10^{-19} = 1.89\ \mathrm{eV}\).</li>
+            <li>Grating spacing \(d = 10^{-3} / 600 = 1.67 \times 10^{-6}\ \mathrm{m}\).</li>
+            <li>\(d \sin\theta = m\lambda\): \(\sin\theta = (1)(656 \times 10^{-9}) / 1.67 \times 10^{-6} = 0.394\).</li>
+          </ol>
+          <p class="answer">(a) 1.89 eV (\(3.03 \times 10^{-19}\) J); (b) \(\theta = 23.2^\circ\)</p>
+        </div>
+      </details>
+    </section>
+    <nav class="next" aria-label="Previous and next page">
+      <a class="prev" href="2-1.html">← 2.1 Rutherford's atomic model</a>
+      <a href="2-3.html">Next: 2.3 Bohr's model of the hydrogen atom →</a>
+    </nav>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/notes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="05f377">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">05f377</code></footer>
+</body>
+</html>

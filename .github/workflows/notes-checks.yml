@@ -10,6 +10,9 @@ on:
       - "paper2db/qb-web-ui-staging/**/*.json"
       - "paper2notes/anchors/**"
       - "paper2db/metadata/pointers/**"
+      - "paper2db/metadata/lq/llm_classifications.json"
+      - "paper2db/metadata/mc/llm_classifications.json"
+      - "paper2db/tests/reconstructed/lq/**"
       - "paper2notes/.github/workflows/**"
       - ".github/workflows/notes-checks.yml"
   push:
@@ -22,6 +25,9 @@ on:
       - "paper2db/qb-web-ui-staging/**/*.json"
       - "paper2notes/anchors/**"
       - "paper2db/metadata/pointers/**"
+      - "paper2db/metadata/lq/llm_classifications.json"
+      - "paper2db/metadata/mc/llm_classifications.json"
+      - "paper2db/tests/reconstructed/lq/**"
       - "paper2notes/.github/workflows/**"
       - ".github/workflows/notes-checks.yml"
 
@@ -58,6 +64,46 @@ jobs:
         with:
           node-version: '20'
       - run: node --test paper2notes/tests/leak-check.test.mjs
+
+  dse-availability-tests:
+    name: dse-availability tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node --test paper2notes/tests/dse-availability.test.mjs
+
+  quiz-audit-tests:
+    name: quiz-audit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node --test paper2notes/tests/quiz-audit.test.mjs
+
+  quiz-store-audit-tests:
+    name: quiz-store-audit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node --test paper2notes/tests/quiz-store-audit.test.mjs
+
+  quiz-audit:
+    name: quiz audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node paper2notes/scripts/quiz-audit.mjs
 
   leak-fingerprint-check:
     name: leak fingerprint check

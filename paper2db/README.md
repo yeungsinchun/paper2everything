@@ -43,7 +43,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 ./pipeline --years 2025 --force --yes   # one past-paper year; QB stages still process the QB corpus
 ```
 
-`tests/sections/` is the generated curriculum-section bank (PNG copies, CSVs, section PDFs, `quality_audit.json`, OCR caches, `items/`) - named alongside `tests/reconstructed/` since both are pipeline output trees under `tests/`, not fixtures. The only files under `tests/reconstructed/` that git tracks are durable inputs: `tests/reconstructed/lq/<year>/starts.json` (LQ page ranges, preserved by normal `lq-pages` runs). Everything under `tests/sections/` is reproducible from `paper/` with `./pipeline`, so never `git add` crops, section PDFs or `.lavish/` HTML.
+`tests/sections/` is the generated curriculum-section bank (PNG copies, CSVs, section PDFs, `quality_audit.json`, OCR caches, `items/`) - named alongside `tests/reconstructed/` since both are pipeline output trees under `tests/`, not fixtures. The only files under `tests/reconstructed/` that git tracks are durable inputs: `tests/reconstructed/lq/<year>/starts.json` (LQ page ranges, preserved by normal `lq-pages` runs) and `tests/reconstructed/lq/<year>/ans_starts.json` (marking-scheme page maps, read by `lq-answers`). Everything under `tests/sections/` is reproducible from `paper/` with `./pipeline`, so never `git add` crops, section PDFs or `.lavish/` HTML.
 
 `metadata/{mc,lq}/llm_classifications.json` holds the classification decisions themselves (which section(s) each question belongs to, and why) - the one output that costs paid, nondeterministic LLM calls to reproduce, so it stays tracked and is replayed by default (or applied explicitly with `--from-json`) even when nothing else in `tests/sections/` is rebuilt.
 
@@ -76,7 +76,11 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `metadata/qb/source-manifest.json` | Tracked QB source manifest (sha256 per DOCX) — verified by `scripts/qb_manifest.py verify` |
 | `scripts/` | Stage implementations (called by `./pipeline`) plus standalone tools (`pointers.py`, `leak_fingerprints.py`) |
 | `scripts/answer_key_overrides.json` | Hand-verified MC answer-key patches where OCR is unreliable |
-| `scripts/lq_answer_pages.json` | Hand-verified LQ marking-scheme page map where OCR orientation or label detection fails |
+| `tests/reconstructed/lq/<year>/ans_starts.json` | Per-year marking-scheme page map for LQ answer crops (whole 1-based PDF pages per question; replaces OCR label detection) |
+| `scripts/build_ans_starts.py` | Generate `ans_starts.json` candidates from an ans PDF (human-verified before tracking) |
+| `scripts/derive_keys.py` | 3/3 unanimous Muse key-maker deriving keys for years with no ans PDF → tracked `metadata/derived_keys.json`; LQ subparts that the three runs do not all agree on numerically stay withheld for hand adjudication on the Lavish board |
+| `metadata/derived_keys.json` | Tracked derived MC options + LQ worked solutions for 2026/pp/sap (3/3 unanimous or hand-adjudicated on the Lavish board; replayed by `keys`) |
+| `scripts/build_derived_keys_review.py` | Lavish review board for derived keys (`.lavish/derived-keys-review/`); records the three key-maker runs, the per-subpart fact (always "not comparable" - the parser cannot read explanation prose, so the board verifies nothing about the answers), and the human adjudication (settled finals or the withheld reason) |
 | `segment.py` | Low-level single-PDF tool (prefer `./pipeline`) |
 | `.lavish/pipeline-review/` | Step-by-step HTML evidence for captain review |
 | `.lavish/classified-review/` | MC section bank HTML |
@@ -89,15 +93,15 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 1. **mc-anchors** - blue dots on each MC paper; **you must review** `intermediate/mc/<year>/anchor.pdf`
 2. **mc-split** - crop clean `qN.png` into `tests/reconstructed/mc/<year>/` + A4 `combined.pdf`; then joins every year into `tests/reconstructed/mc/combined.pdf`
 3. **lq-pages** - export LQ pages + `starts.json`
-4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `combined.pdf` of those stacks from the source paper (no cover, no within-page crop; trailing data/formulae sheets excluded); then joins every year into `tests/reconstructed/lq/combined.pdf`
-5. **lq-answers** - marking-scheme answer crops under `ans/`
-6. **keys** - MC keys + correct-% → `tests/sections/mc/answer_keys.json`
+4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `combined.pdf` of those stacks from the source paper (no cover, no within-page crop; trailing data/formulae sheets excluded); then joins every year into `tests/reconstructed/lq/combined.pdf`. For checks before publishing crops, see [the publication contract](../docs/ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
+5. **lq-answers** - marking-scheme answer crops under `ans/` (whole pages per `tests/reconstructed/lq/<year>/ans_starts.json`; fails loudly on coverage mismatch instead of writing partial crops)
+6. **keys** - MC keys + correct-% → `tests/sections/mc/answer_keys.json` (OCR of ans PDFs, `answer_key_overrides.json` patches, unanimous or board-adjudicated `metadata/derived_keys.json` entries for years without ans PDFs; `derive_keys.py verify` fails when a target has no recorded attempt)
 7. **classify-mc** - 27 syllabus sections; replays `metadata/mc/llm_classifications.json`, calls the LLM only for years missing from it, keyword fallback on error
 8. **lq-performance** - candidate-performance notes → `tests/sections/lq/candidate_performance.json` (free, local, deterministic; `scripts/extract_lq_performance.py`)
 9. **classify-lq** - same sections for LQ; same metadata replay / LLM-only-for-missing-years / keyword-fallback behavior as classify-mc. Either backend then lists every Book 5 section a radioactivity LQ tests (e.g. 2014 Q10: ch26 activity + ch25 alpha handling; 2012 Q11 keeps 25+26+27), primary = latest section. Both backends OCR the whole page stack (cache keyed by PNG size under `tests/sections/lq/ocr_cache/`)
 10. **section-pdfs** - per-section A4 `combined.pdf` (+ LQ `answers.pdf` / `performance.pdf`); an LQ appears in every section it is listed under, not only its primary
 11. **dse-items** - join crops, tracked classifications, MC keys, LQ candidate performance and tier-resolved answer pointers from `metadata/pointers/dse.json` into `paper2db.dse-item.v1` records (`schemas/dse-item.v1.json`): `tests/sections/items/<section>.json` per section (a question appears under every section it is listed under) plus `index.json`. A record is in-scope when its primary section is in Books 2, 4 or 5 (366 MC + 104 LQ = 470); the stage fails if any record is schema-invalid or an in-scope question crop is missing. Without `--years`, rebuilds the whole corpus. With `--years`, processes and validates only selected years, replaces their section records and index entries, and preserves other years without requiring their crops
-12. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
+12. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks, derived-keys board when `metadata/derived_keys.json` exists)
 13. **qb-pdf** - verify `metadata/qb/source-manifest.json` (sha256 per DOCX, plus `banks.json` agreement) then convert QB DOCX files to PDF with LibreOffice; copy PDF-only sources
 14. **qb-ocr** - OCR QB PDFs with `pdftoppm` and Tesseract
 15. **qb-items** - extract `paper2db.qb-item.v2` JSON (`scope` from `banks.json`, `source_manifest` provenance) and per-item PNG crops

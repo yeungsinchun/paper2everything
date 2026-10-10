@@ -46,7 +46,12 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path, help="Marking-scheme PDF (e.g. paper/ans/2019ans.pdf)")
     parser.add_argument("output_dir", type=Path)
-    parser.add_argument("--max-questions", type=int, default=12)
+    parser.add_argument(
+        "--max-questions",
+        type=int,
+        default=None,
+        help="Total LQ questions for this year (default: from metadata/lq/llm_classifications.json)",
+    )
     parser.add_argument("--scale", type=float, default=2.0)
     return parser.parse_args()
 
@@ -528,18 +533,40 @@ def strip_answer_chrome(image: Image.Image) -> Image.Image:
     return trim_whitespace(image.crop((0, top, w, bottom)))
 
 
-def load_page_map(year: str) -> dict[int, list[int]]:
-    path = Path(__file__).with_name("lq_answer_pages.json")
+def load_ans_starts(year: str) -> dict[int, list[int]] | None:
+    """Per-year marking-scheme page map (tests/reconstructed/lq/<year>/ans_starts.json).
+
+    Returns {question: [1-based pdf pages]} or None when the year has no map.
+    """
+    path = Path(__file__).resolve().parents[1] / "tests" / "reconstructed" / "lq" / year / "ans_starts.json"
     if not path.is_file():
-        return {}
-    raw = json.loads(path.read_text(encoding="utf-8")).get(year, {})
+        return None
+    raw = json.loads(path.read_text(encoding="utf-8")).get("questions", {})
     return {int(q): [int(p) for p in pages] for q, pages in raw.items()}
+
+
+def load_expected_questions(year: str) -> list[int]:
+    """Year's LQ inventory from the tracked classifications (exam truth)."""
+    path = Path(__file__).resolve().parents[1] / "metadata" / "lq" / "llm_classifications.json"
+    if not path.is_file():
+        return []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return sorted(int(k.split("-q", 1)[1]) for k in data if k.startswith(f"{year}-q"))
+
+
+def resolve_max_questions(year: str, explicit: int | None) -> int:
+    if explicit is not None:
+        return explicit
+    expected = load_expected_questions(year)
+    if expected:
+        return max(expected)
+    return 14
 
 
 def process_page_map(
     source: Path, output_dir: Path, page_map: dict[int, list[int]], scale: float
 ) -> int:
-    """Crop whole marking-scheme pages per the hand-verified map (no orientation guess)."""
+    """Crop whole marking-scheme pages per the per-year ans_starts.json map."""
     doc = fitz.open(source)
     output_dir.mkdir(parents=True, exist_ok=True)
     for old in output_dir.glob("q*.png"):
@@ -547,6 +574,12 @@ def process_page_map(
     written = 0
     try:
         for qn, pdf_pages in sorted(page_map.items()):
+            for p in pdf_pages:
+                if not 1 <= p <= len(doc):
+                    raise SystemExit(
+                        f"ans_starts.json for {output_dir.parent.name} Q{qn}: "
+                        f"pdf page {p} out of range (1..{len(doc)} in {source.name})"
+                    )
             parts = [render_page(doc[p - 1], scale) for p in pdf_pages]
             # Whole pages, header row kept: chrome stripping guesses where the header ends
             # and cut (a)(i) off Q11 on a verified page.
@@ -565,17 +598,25 @@ def process_answers(
     source: Path,
     output_dir: Path,
     *,
-    max_questions: int = 12,
+    max_questions: int | None = None,
     scale: float = 2.0,
-) -> int:
-    page_map = load_page_map(output_dir.parent.name)
+) -> tuple[int, list[int]]:
+    year = output_dir.parent.name
+    expected = load_expected_questions(year)
+    max_q = resolve_max_questions(year, max_questions)
+    page_map = load_ans_starts(year)
     if page_map:
-        print(f"  using hand-verified page map ({len(page_map)} questions)")
-        return process_page_map(source, output_dir, page_map, scale)
+        if expected and sorted(page_map) != expected:
+            print(
+                f"  ERROR: ans_starts.json Q{sorted(page_map)} != "
+                f"classifications Q{expected} for {year}; fix the map first."
+            )
+            return 0, []
+        print(f"  using per-year ans_starts.json ({len(page_map)} questions)")
+        written = process_page_map(source, output_dir, page_map, scale)
+        return written, sorted(page_map)
     doc = fitz.open(source)
     output_dir.mkdir(parents=True, exist_ok=True)
-    for old in output_dir.glob("q*.png"):
-        old.unlink()
 
     pages: list[Image.Image] = []
     # Parallel list: (pdf_page_index, x0_frac, x1_frac) for native-text Q finding.
@@ -665,7 +706,7 @@ def process_answers(
     if not pages:
         doc.close()
         print(f"  WARNING: no Section B pages found in {source.name}")
-        return 0
+        return 0, []
 
     candidates: list[tuple[int, int, int]] = []
     for page_index, image in enumerate(pages):
@@ -674,12 +715,12 @@ def process_answers(
         if doc_rot == 0:
             pdf_hits = find_main_question_ys_pdf(
                 doc[pdf_i],
-                max_questions=max_questions,
+                max_questions=max_q,
                 scale=scale,
                 x0_frac=x0_frac,
                 x1_frac=x1_frac,
             )
-        ocr_hits = find_main_question_ys(image, max_questions)
+        ocr_hits = find_main_question_ys(image, max_q)
         # Prefer embedded text when present; fall back to OCR.
         merged: dict[int, int] = {qn: y for qn, y in ocr_hits}
         for qn, y in pdf_hits:
@@ -693,9 +734,20 @@ def process_answers(
     starts = fill_single_gaps(starts, pages)
     if not starts:
         print(f"  WARNING: no LQ answer labels found in {source.name}")
-        return 0
+        return 0, []
 
     print(f"  detected answers Q{starts[0][0]}-Q{starts[-1][0]} ({len(starts)})")
+    found = sorted(qn for qn, _, _ in starts)
+    if expected and found != expected:
+        print(
+            f"  ERROR: detected Q{found} != classifications Q{expected}; "
+            f"keeping existing crops - write tests/reconstructed/lq/{year}/ans_starts.json "
+            f"(scripts/build_ans_starts.py) and re-run."
+        )
+        return 0, []
+
+    for old in output_dir.glob("q*.png"):
+        old.unlink()
 
     ends: list[tuple[int | None, int, int]] = [
         (qn, page_i, y) for qn, page_i, y in starts[1:]
@@ -732,7 +784,7 @@ def process_answers(
         written += 1
 
     combine_pngs_to_pdf(output_dir, overwrite=True)
-    return written
+    return written, found
 
 
 def main() -> None:
@@ -740,13 +792,19 @@ def main() -> None:
     if not args.source.is_file():
         raise SystemExit(f"Missing {args.source}")
     print(f"Answers: {args.source.name}")
-    count = process_answers(
+    count, written = process_answers(
         args.source,
         args.output_dir,
         max_questions=args.max_questions,
         scale=args.scale,
     )
     print(f"Wrote {count} answer crops -> {args.output_dir}")
+    expected = load_expected_questions(args.output_dir.parent.name)
+    if expected and sorted(written) != expected:
+        raise SystemExit(
+            f"Answer coverage Q{sorted(written)} != classifications Q{expected}; "
+            "see ERROR above."
+        )
 
 
 if __name__ == "__main__":

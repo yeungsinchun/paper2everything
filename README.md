@@ -116,12 +116,12 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|
-| `paper2db/paper/**` source PDFs | `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
+| `paper2db/paper/**` source PDFs | `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json` and `lq/*/ans_starts.json`) |
 | `paper2db/metadata/` inputs (see [authoritative inventory](paper2db/README.md#layout)) | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
-| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
-| `paper2db/tests/reconstructed/lq/*/starts.json` | `paper2notes/notes/**/_local/` |
+| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
+| `paper2db/tests/reconstructed/lq/*/starts.json`, `paper2db/tests/reconstructed/lq/*/ans_starts.json` | `paper2notes/notes/**/_local/` |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `.audit/` harness output |
-| `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (82 files) | compiled mock PDFs (built and released by CI) |
+| `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (see [publication rules](docs/ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync)) | compiled mock PDFs (built and released by CI) |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
 | `paper2mock/**` LaTeX sources | |
 
@@ -129,7 +129,7 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| [`notes-checks`](.github/workflows/notes-checks.yml) | PR and push to `main` touching notes, scripts, tests, anchors, pointers or the leak generator | Notes, leak and anchor checks; scope and local commands in [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci) |
+| [`notes-checks`](.github/workflows/notes-checks.yml) | PR and push to `main` touching notes, scripts, tests, anchors, pointers, the tracked classifications, or the leak generator | Notes, DSE availability and anchor checks; see [the static check](paper2notes/scripts/ci-check.mjs), [the quiz audit](paper2notes/scripts/quiz-audit.mjs) and [anchor rules](paper2notes/anchors/README.md); scope and local commands in [`docs/ARCHITECTURE.md` §5](docs/ARCHITECTURE.md#5-ci) |
 | [`answer-pointer-checks`](.github/workflows/answer-pointer-checks.yml) | PR and push to `main`; path filters in the workflow | Answer-pointer checks; see [paper2db usage](paper2db/README.md#answer-pointers) |
 | [`paper2db-unit-tests`](.github/workflows/paper2db-unit-tests.yml) | PR and push to `main` touching `paper2db/**` or itself | `python -m unittest tests.test_dse_items tests.test_pointers` (dse-items records and answer-pointer join) |
 | `compile-mocks` | PR touching `paper2mock/**`; every push to `main` | LaTeX build of all 20 mock documents; `main` pushes release two zips |
