@@ -1,8 +1,14 @@
 {
-  "_comment": "DSE MC papers the answer store has no answer for, so their slides cannot be graded. checks.js shows 'Answer key not available for this paper.' when one of these is picked. Remove an entry once paper2db/qb-web-ui-staging/dse-mc/index.json carries its answer, then quiz-audit.mjs will pass on it again.",
+  "_comment": "DSE MC papers the answer store has no answer for, so their slides cannot be graded. checks.js shows 'Answer key not available for this paper.' when one of these is picked. Remove an entry once paper2db/qb-web-ui-staging/dse-mc/index.json carries its answer, then quiz-audit.mjs and quiz-store-audit.mjs will pass on it again.",
+  "_sources": "Keys come from paper2db/paper/ans/<year>ans.pdf only. The repo has no answer PDF for the sample paper, the practice paper or 2026, so no key for those papers is supported by a marking scheme. A QUIZ_KEYS entry for one of these is a defect: quiz-store-audit.mjs fails on it.",
   "papers": {
-    "dse-mc-2026-33": "index.json marks answer.missing = true",
-    "dse-mc-pp-36": "index.json marks answer.missing = true",
-    "dse-mc-sap-34": "not present in index.json at all"
+    "dse-mc-2026-32": "index.json marks answer.missing = true; no paper/ans/2026ans.pdf in the repo",
+    "dse-mc-2026-33": "index.json marks answer.missing = true; no paper/ans/2026ans.pdf in the repo",
+    "dse-mc-pp-34": "index.json marks answer.missing = true; no answer PDF for the practice paper",
+    "dse-mc-pp-35": "index.json marks answer.missing = true; no answer PDF for the practice paper",
+    "dse-mc-pp-36": "index.json marks answer.missing = true; no answer PDF for the practice paper",
+    "dse-mc-sap-34": "not present in index.json at all; no answer PDF for the sample paper",
+    "dse-mc-sap-35": "not present in index.json at all; no answer PDF for the sample paper",
+    "dse-mc-sap-36": "not present in index.json at all; no answer PDF for the sample paper"
   }
 }

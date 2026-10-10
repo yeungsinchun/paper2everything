@@ -1,0 +1,591 @@
+{
+ "_comment": "Which real DSE item is shown on which Book 1 page, and the syllabus outcomes (verbatim C&A Guide wording, as listed in that page's Goals block) it tests. build_snapshot.py reads this.",
+ "outcomes": {
+  "hot": "realise temperature as the degree of hotness of an object",
+  "avg": "interpret temperature as a quantity associated with the average kinetic energy due to the random motion of molecules in a system",
+  "prop": "explain the use of temperature-dependent properties in measuring temperature",
+  "cel": "define and use degree Celsius as a unit of temperature",
+  "heat": "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+  "ie": "describe the effect of mass, temperature and state of matter on the internal energy of a system",
+  "kepe": "relate internal energy to the sum of the kinetic energy of random motion and the potential energy of molecules in the system",
+  "means": "identify the means of energy transfer in terms of conduction, convection and radiation",
+  "cond": "interpret energy transfer by conduction in terms of molecular motion",
+  "ir": "realise the emission of infra-red radiation by hot objects",
+  "rad": "determine the factors affecting the emission and absorption of radiation",
+  "C": "define heat capacity as \\( C = \\dfrac{Q}{\\Delta T} \\) and specific heat capacity as \\( c = \\dfrac{Q}{m\\Delta T} \\)",
+  "det": "determine the specific heat capacity of a substance",
+  "water": "discuss the practical importance of the high specific heat capacity of water",
+  "solve": "solve problems involving heat capacity and specific heat capacity"
+ },
+ "pages": {
+  "1.1": {
+   "mc": [
+    {
+     "id": "pp-1",
+     "los": [
+      "explain the use of temperature-dependent properties in measuring temperature"
+     ]
+    },
+    {
+     "id": "2026-2",
+     "los": [
+      "explain the use of temperature-dependent properties in measuring temperature",
+      "define and use degree Celsius as a unit of temperature"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2013-2",
+     "los": [
+      "explain the use of temperature-dependent properties in measuring temperature",
+      "define and use degree Celsius as a unit of temperature"
+     ]
+    }
+   ]
+  },
+  "1.2": {
+   "mc": [
+    {
+     "id": "2015-3",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects"
+     ]
+    },
+    {
+     "id": "2021-2",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "describe the effect of mass, temperature and state of matter on the internal energy of a system"
+     ]
+    }
+   ]
+  },
+  "1.3": {
+   "mc": [
+    {
+     "id": "2020-1",
+     "los": [
+      "identify the means of energy transfer in terms of conduction, convection and radiation"
+     ]
+    },
+    {
+     "id": "2018-2",
+     "los": [
+      "identify the means of energy transfer in terms of conduction, convection and radiation"
+     ]
+    },
+    {
+     "id": "2023-1",
+     "los": [
+      "determine the factors affecting the emission and absorption of radiation"
+     ]
+    },
+    {
+     "id": "2026-1",
+     "los": [
+      "determine the factors affecting the emission and absorption of radiation"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2024-1",
+     "los": [
+      "identify the means of energy transfer in terms of conduction, convection and radiation"
+     ]
+    }
+   ]
+  },
+  "1.4": {
+   "mc": [
+    {
+     "id": "2014-1",
+     "los": [
+      "identify the means of energy transfer in terms of conduction, convection and radiation"
+     ]
+    },
+    {
+     "id": "2016-1",
+     "los": [
+      "identify the means of energy transfer in terms of conduction, convection and radiation",
+      "determine the factors affecting the emission and absorption of radiation"
+     ]
+    },
+    {
+     "id": "2015-1",
+     "los": [
+      "identify the means of energy transfer in terms of conduction, convection and radiation"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2022-1",
+     "los": [
+      "identify the means of energy transfer in terms of conduction, convection and radiation"
+     ]
+    }
+   ]
+  },
+  "2.1": {
+   "mc": [
+    {
+     "id": "2020-2",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "pp-9",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2018-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ]
+  },
+  "2.2": {
+   "mc": [
+    {
+     "id": "2025-1",
+     "los": [
+      "define heat capacity as \\( C = \\dfrac{Q}{\\Delta T} \\) and specific heat capacity as \\( c = \\dfrac{Q}{m\\Delta T} \\)"
+     ]
+    },
+    {
+     "id": "2015-2",
+     "los": [
+      "define heat capacity as \\( C = \\dfrac{Q}{\\Delta T} \\) and specific heat capacity as \\( c = \\dfrac{Q}{m\\Delta T} \\)",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "pp-2",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2014-1",
+     "los": [
+      "determine the specific heat capacity of a substance",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2013-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ]
+  },
+  "2.3": {
+   "mc": [
+    {
+     "id": "2012-1",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "pp-3",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2017-1",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2018-3",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2019-1",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2022-1",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2026-3",
+     "los": [
+      "realise that heat is the energy transferred as a result of the temperature difference between two objects",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2016-1",
+     "los": [
+      "determine the specific heat capacity of a substance",
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2020-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2023-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    },
+    {
+     "id": "2025-1",
+     "los": [
+      "solve problems involving heat capacity and specific heat capacity"
+     ]
+    }
+   ]
+  },
+  "3.1": {
+   "mc": [
+    {
+     "id": "2012-2",
+     "los": [
+      "explain the cooling effect of evaporation",
+      "explain evaporation in terms of molecular motion"
+     ]
+    },
+    {
+     "id": "2013-1",
+     "los": [
+      "realise the occurrence of evaporation below boiling point"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2012-1",
+     "los": [
+      "realise latent heat as the energy transferred during the change of state without temperature change",
+      "define specific latent heat of vaporization as λ_v = Q/m",
+      "solve problems involving latent heat"
+     ]
+    }
+   ]
+  },
+  "3.2": {
+   "mc": [
+    {
+     "id": "2012-4",
+     "los": [
+      "interpret latent heat in terms of the change of potential energy of the molecules during a change of state"
+     ]
+    },
+    {
+     "id": "2014-2",
+     "los": [
+      "realise latent heat as the energy transferred during the change of state without temperature change"
+     ]
+    },
+    {
+     "id": "2017-2",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m"
+     ]
+    },
+    {
+     "id": "2017-3",
+     "los": [
+      "interpret latent heat in terms of the change of potential energy of the molecules during a change of state"
+     ]
+    },
+    {
+     "id": "2019-2",
+     "los": [
+      "realise latent heat as the energy transferred during the change of state without temperature change",
+      "interpret latent heat in terms of the change of potential energy of the molecules during a change of state"
+     ]
+    },
+    {
+     "id": "2021-1",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m"
+     ]
+    },
+    {
+     "id": "2022-2",
+     "los": [
+      "interpret latent heat in terms of the change of potential energy of the molecules during a change of state"
+     ]
+    },
+    {
+     "id": "2024-1",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m"
+     ]
+    }
+   ]
+  },
+  "3.3": {
+   "mc": [
+    {
+     "id": "pp-4",
+     "los": [
+      "explain the cooling effect of evaporation",
+      "define specific latent heat of vaporization as λ_v = Q/m"
+     ]
+    },
+    {
+     "id": "2013-2",
+     "los": [
+      "define specific latent heat of vaporization as λ_v = Q/m",
+      "solve problems involving latent heat"
+     ]
+    },
+    {
+     "id": "2016-2",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m",
+      "solve problems involving latent heat"
+     ]
+    },
+    {
+     "id": "2023-2",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m",
+      "solve problems involving latent heat"
+     ]
+    },
+    {
+     "id": "2024-2",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m",
+      "solve problems involving latent heat"
+     ]
+    },
+    {
+     "id": "2025-2",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2019-1",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m",
+      "solve problems involving latent heat"
+     ]
+    },
+    {
+     "id": "2021-1",
+     "los": [
+      "define specific latent heat of vaporization as λ_v = Q/m",
+      "solve problems involving latent heat"
+     ]
+    },
+    {
+     "id": "2026-1",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m",
+      "solve problems involving latent heat"
+     ]
+    },
+    {
+     "id": "2026-2",
+     "los": [
+      "define specific latent heat of fusion as λ_f = Q/m",
+      "solve problems involving latent heat"
+     ]
+    }
+   ]
+  },
+  "4.2": {
+   "mc": [
+    {
+     "id": "2012-3",
+     "los": [
+      "determine pressure-temperature and volume-temperature relationships of a gas",
+      "determine absolute zero by the extrapolation of pressure-temperature or volume-temperature relationships"
+     ]
+    },
+    {
+     "id": "2013-4",
+     "los": [
+      "apply the general gas law pV= nRT to solve problems"
+     ]
+    },
+    {
+     "id": "2017-4",
+     "los": [
+      "combine the three relationships (p-V, p-T and V-T) of a gas to obtain the relationship pV/T = constant"
+     ]
+    },
+    {
+     "id": "2018-4",
+     "los": [
+      "verify Boyle’s law"
+     ]
+    },
+    {
+     "id": "2019-3",
+     "los": [
+      "realise the existence of gas pressure",
+      "determine pressure-temperature and volume-temperature relationships of a gas"
+     ]
+    },
+    {
+     "id": "2020-3",
+     "los": [
+      "combine the three relationships (p-V, p-T and V-T) of a gas to obtain the relationship pV/T = constant"
+     ]
+    },
+    {
+     "id": "2022-3",
+     "los": [
+      "apply the general gas law pV= nRT to solve problems"
+     ]
+    },
+    {
+     "id": "2023-3",
+     "los": [
+      "determine pressure-temperature and volume-temperature relationships of a gas"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2012-2",
+     "los": [
+      "verify Boyle’s law"
+     ]
+    },
+    {
+     "id": "2015-2",
+     "los": [
+      "apply the general gas law pV= nRT to solve problems"
+     ]
+    },
+    {
+     "id": "2016-2",
+     "los": [
+      "verify Boyle’s law"
+     ]
+    },
+    {
+     "id": "2018-2",
+     "los": [
+      "apply the general gas law pV= nRT to solve problems"
+     ]
+    },
+    {
+     "id": "2019-2",
+     "los": [
+      "combine the three relationships (p-V, p-T and V-T) of a gas to obtain the relationship pV/T = constant"
+     ]
+    },
+    {
+     "id": "2020-2",
+     "los": [
+      "realise the existence of gas pressure"
+     ]
+    },
+    {
+     "id": "2023-2",
+     "los": [
+      "apply the general gas law pV= nRT to solve problems",
+      "realise the gas pressure resulted from molecular bombardment"
+     ]
+    },
+    {
+     "id": "2025-9",
+     "los": [
+      "apply the general gas law pV= nRT to solve problems"
+     ]
+    }
+   ]
+  },
+  "4.3": {
+   "mc": [
+    {
+     "id": "pp-5",
+     "los": [
+      "determine pressure-temperature and volume-temperature relationships of a gas",
+      "realise the random motion of molecules in a gas"
+     ]
+    },
+    {
+     "id": "2013-3",
+     "los": [
+      "interpret temperature of an ideal gas using KE_average = 3RT/(2N_A)"
+     ]
+    },
+    {
+     "id": "2016-3",
+     "los": [
+      "interpret temperature of an ideal gas using KE_average = 3RT/(2N_A)"
+     ]
+    },
+    {
+     "id": "2021-3",
+     "los": [
+      "realize pV = Nmc²/3 that connects microscopic and macroscopic quantities of an ideal gas and solve problems"
+     ]
+    },
+    {
+     "id": "2024-3",
+     "los": [
+      "realize pV = Nmc²/3 that connects microscopic and macroscopic quantities of an ideal gas and solve problems"
+     ]
+    },
+    {
+     "id": "2025-3",
+     "los": [
+      "interpret temperature of an ideal gas using KE_average = 3RT/(2N_A)",
+      "realise the gas pressure resulted from molecular bombardment"
+     ]
+    }
+   ],
+   "lq": [
+    {
+     "id": "2017-3",
+     "los": [
+      "interpret temperature of an ideal gas using KE_average = 3RT/(2N_A)"
+     ]
+    },
+    {
+     "id": "2024-2",
+     "los": [
+      "realize pV = Nmc²/3 that connects microscopic and macroscopic quantities of an ideal gas and solve problems",
+      "solve problems involving kinetic theory"
+     ]
+    }
+   ]
+  }
+ }
+}
