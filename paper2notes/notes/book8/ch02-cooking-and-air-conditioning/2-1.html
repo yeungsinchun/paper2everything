@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.1 Cooking without fire</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Cooking and air-conditioning</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="2-1.html" aria-current="page">2.1</a>
+      <a href="2-2.html">2.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.1</p>
+    <h1>Cooking without fire</h1>
+    <p class="lede">Three electric cookers that each heat food a different way, and how to measure which one wastes least.</p>
+    <aside class="quick-digest" id="21-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>Hotplate: \( P = I^2R \)</b><span>the element gets hot and heat conducts into the pot (up to ~70%)</span></p>
+        <p><b>Induction cooker</b><span>ac in a coil → changing field → eddy currents heat the pot itself (over 80%)</span></p>
+        <p><b>Microwave oven</b><span>a 2.45 GHz field flips water molecules in the food (~60%)</span></p>
+        <p><b>\( \eta = \dfrac{mc\Delta T}{Pt} \)</b><span>energy gained by the food over electrical energy used</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#hotplate"><b>A</b>Hotplate</a>
+      <a href="#induction-cooker"><b>B</b>Induction cooker</a>
+      <a href="#microwave-oven"><b>C</b>Microwave oven</a>
+      <a href="#compare-cookers"><b>D</b>Compare cookers</a>
+    </nav>
+
+    <section class="idea" id="hotplate" data-chip="Hotplate">
+      <header>
+        <h2><span class="sec-num">A</span>Electric hotplate</h2>
+      </header>
+      <figure class="fig" id="hotplate-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 270" role="img" aria-labelledby="hotplate-title">
+            <title id="hotplate-title">An electric hotplate. A current heats a coiled element until it glows. Heat conducts from the hot plate into the pot and then the food; some heat escapes from the hot plate to the air by convection and radiation.</title>
+            <path d="M150 64 h180 v86 a8 8 0 0 1 -8 8 h-164 a8 8 0 0 1 -8 -8 z" fill="#FFFFFF" stroke="#17212B" stroke-width="3"/>
+            <path d="M156 110 q 40 -10 84 0 t 84 0 v 42 h-168 z" fill="#E8F4F1"/>
+            <line x1="120" y1="72" x2="150" y2="72" stroke="#17212B" stroke-width="5" stroke-linecap="round"/>
+            <rect x="110" y="164" width="260" height="22" rx="6" fill="#4A5562"/>
+            <path d="M126 196 q 12 12 24 0 t 24 0 t 24 0 t 24 0 t 24 0 t 24 0 t 24 0 t 24 0 t 24 0" fill="none" stroke="#F26B3A" stroke-width="6" stroke-linecap="round"/>
+            <g fill="#F26B3A">
+              <path d="M200 152 l-8 -14 h16 z"/>
+              <path d="M240 152 l-8 -14 h16 z"/>
+              <path d="M280 152 l-8 -14 h16 z"/>
+            </g>
+            <path d="M96 170 q -10 -12 0 -24 t 0 -24" fill="none" stroke="#F26B3A" stroke-width="3"/>
+            <path d="M384 170 q 10 -12 0 -24 t 0 -24" fill="none" stroke="#F26B3A" stroke-width="3"/>
+            <text x="240" y="98" text-anchor="middle">food in pot</text>
+            <text x="240" y="236" text-anchor="middle">heating element: P = I²R</text>
+            <text x="20" y="104" text-anchor="start" class="m">heat lost</text>
+            <text x="460" y="104" text-anchor="end" class="m">heat lost</text>
+            <text x="240" y="262" text-anchor="middle" class="m">heat conducts up into the pot</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.1</b> The plate itself is hot; the pot is heated from below.</figcaption>
+      </figure>
+      <div class="eq" id="hotplate-eq-1">\[ P = I^2 R = \frac{V^2}{R} \]</div>
+      <ul class="points">
+        <li>A current \( I \) through a heating element of resistance \( R \) gives heat at a rate \( P \). The hot element heats the plate, and heat conducts into the pot and food.</li>
+        <li>An electric oven uses the same kind of element; it heats the food by convection and radiation.</li>
+        <li>A good hotplate reaches about 70%. The very hot plate loses heat to the room by convection and radiation, and stays hot after it is switched off.</li>
+      </ul>
+      <div class="check" id="hotplate-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="hotplate-tf-resistance" data-answer="false">
+          <p>On the same mains voltage, a hotplate with a higher power rating has an element of higher resistance.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>\( P = V^2/R \) with \( V \) fixed: a higher power needs a <em>lower</em> resistance.</p></div>
+        </div>
+        <div class="tf-item" id="hotplate-tf-dc" data-answer="true">
+          <p>A hotplate would also work on a dc supply.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The heating effect of a current does not depend on its direction, so dc heats the element too. An induction cooker, by contrast, needs a changing current.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="induction-cooker" data-chip="Induction cooker">
+      <header>
+        <h2><span class="sec-num">B</span>Induction cooker</h2>
+      </header>
+      <figure class="fig" id="induction-cooker-fig-1">
+        <div class="visual play stage" id="induction-vis" data-autoplay data-scene="induction">
+          <canvas class="scene-canvas" aria-label="An induction cooker in cross-section. A high-frequency alternating current in a flat coil under the glass top makes a magnetic field that keeps reversing. The changing field induces eddy currents in the metal base of the pot, which heat the pot. The glass top only gets warm from the pot."></canvas>
+        </div>
+        <figcaption><b>Fig. 2.2</b> The reversing field induces eddy currents, and the pot heats itself.</figcaption>
+      </figure>
+      <ol class="points">
+        <li>A high-frequency ac (about 25 kHz) flows in a flat coil under the cooking surface.</li>
+        <li>It makes a magnetic field that changes rapidly through the base of the pot.</li>
+        <li>The changing field induces <b>eddy currents</b> in the metal base; their heating effect heats the pot, and the pot cooks the food.</li>
+      </ol>
+      <ul class="points">
+        <li>The pot must conduct electricity. A glass or ceramic dish has no eddy currents and stays cold.</li>
+        <li>Efficiency is above 80%, because the heat is made in the pot itself. The main loss is heat in the cooker's own circuit, which a fan carries away.</li>
+      </ul>
+      <div class="tip"><span class="tag">Common mistake</span> The cooking surface does not make heat. It only gets warm from the hot pot sitting on it.</div>
+      <div class="check" id="induction-cooker-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Which of these cannot be heated on an induction cooker?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">A stainless-steel pot</button>
+          <button type="button" data-choice="B">An iron wok</button>
+          <button type="button" data-choice="C">A glass casserole dish</button>
+          <button type="button" data-choice="D">A cast-iron frying pan</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Glass does not conduct electricity, so no eddy currents flow in it and it is not heated. The metal pots all carry eddy currents.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="microwave-oven" data-chip="Microwave oven">
+      <header>
+        <h2><span class="sec-num">C</span>Microwave oven</h2>
+      </header>
+      <figure class="fig" id="microwave-oven-fig-1">
+        <div class="visual play stage" id="microwave-vis" data-autoplay data-scene="microwave">
+          <canvas class="scene-canvas" aria-label="Water molecules in food inside a microwave oven. The electric field of the microwaves points up, then down, billions of times a second. Each polar water molecule turns to line up with the field, so the molecules flip back and forth and the food heats up."></canvas>
+        </div>
+        <figcaption><b>Fig. 2.3</b> Each water molecule turns to follow the reversing field.</figcaption>
+      </figure>
+      <div class="def" id="microwave-oven-def-1">
+        <span class="tag">Definition</span>
+        <p>A water molecule is <b>polar</b>: its oxygen end is slightly negative and its hydrogen end slightly positive, so an electric field can turn it.</p>
+      </div>
+      <ul class="points">
+        <li>Microwaves of 2.45 GHz (wavelength \( c/f = 12.2 \) cm) have an electric field that reverses billions of times a second. Polar water molecules flip back and forth with it, and their energy becomes internal energy of the food.</li>
+        <li>The waves reach a few centimetres into the food, so it heats throughout rather than only at the surface. A turntable evens out the heating.</li>
+        <li>It suits food rich in water; the dish is not heated directly. Efficiency is about 60%: most of the waste is heat in the circuit that makes the microwaves.</li>
+      </ul>
+      <div class="check" id="microwave-oven-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="microwave-oven-tf-eddy" data-answer="false">
+          <p>A microwave oven heats food by inducing eddy currents in it.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>That is the induction cooker. A microwave oven makes polar water molecules flip in an oscillating electric field.</p></div>
+        </div>
+        <div class="tf-item" id="microwave-oven-tf-warm" data-answer="true">
+          <p>An electric cooker warms the kitchen far less than a gas stove does.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>A gas flame transfers only about 40% of its energy to the pot; most of the rest heats the room. Electric cookers waste much less.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="compare-cookers" data-chip="Compare cookers">
+      <header>
+        <h2><span class="sec-num">D</span>Comparing the three cookers</h2>
+      </header>
+      <table class="notes" id="compare-cookers-notes-1">
+        <thead><tr><th></th><th>Hotplate</th><th>Induction cooker</th><th>Microwave oven</th></tr></thead>
+        <tbody>
+          <tr><th>How it heats</th><td>Heating effect of a current in an element</td><td>Induced eddy currents heat the pot</td><td>Field flips polar water molecules</td></tr>
+          <tr><th>Efficiency</th><td>Medium (up to ~70%)</td><td>High (over 80%)</td><td>Medium (~60%)</td></tr>
+          <tr><th>Strength</th><td>Cheap; any pot</td><td>Efficient; surface stays cool</td><td>Heats food throughout, quickly</td></tr>
+          <tr><th>Weakness</th><td>Surface very hot, stays hot</td><td>Pot must conduct electricity</td><td>Only for food with plenty of water</td></tr>
+        </tbody>
+      </table>
+      <div class="eq" id="compare-cookers-eq-1">\[ \eta = \frac{mc\,\Delta T}{P\,t} \times 100\% \]</div>
+      <ul class="points">
+        <li>To compare cookers, heat the same mass \( m \) of water through the same \( \Delta T \) on each and time it; \( c = 4200\ \text{J kg}^{-1}\,^\circ\text{C}^{-1} \) for water.</li>
+        <li>Real efficiencies depend on the pot, the food and how the cooker is used.</li>
+      </ul>
+      <div class="check" id="compare-cookers-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A hotplate (40% efficient) and an induction cooker (90% efficient) have the same power rating. The hotplate takes 9 minutes to boil some water. How long does the induction cooker take for the same water?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">2 min</button>
+          <button type="button" data-choice="B">4 min</button>
+          <button type="button" data-choice="C">9 min</button>
+          <button type="button" data-choice="D">20 min</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>The water needs the same energy, and the useful power is \( \eta P \), so time \( \propto 1/\eta \): \( 9 \times 0.40/0.90 = 4 \) min. 20 min inverts the ratio.</p></div>
+      </div>
+      <div class="worked" id="compare-cookers-worked-test">
+        <h3>Worked example</h3>
+        <p>1.5 kg of water is heated from 20 °C to 90 °C. A 1500 W hotplate takes 480 s; an 1800 W induction cooker takes 290 s. Find each efficiency.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Energy to the water: \( mc\Delta T = 1.5 \times 4200 \times 70 = 4.41 \times 10^{5}\ \text{J} \).</li>
+            <li>Hotplate: \( Pt = 1500 \times 480 = 7.20 \times 10^{5}\ \text{J} \), so \( \eta = 61\% \).</li>
+            <li>Induction: \( Pt = 1800 \times 290 = 5.22 \times 10^{5}\ \text{J} \), so \( \eta = 84\% \).</li>
+          </ol>
+          <p class="answer">Hotplate 61%, induction cooker 84%: the induction cooker wastes less.</p>
+        </details>
+      </div>
+    </section>
+
+    <p class="next"><a href="2-2.html">Next: 2.2 Moving heat around →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>

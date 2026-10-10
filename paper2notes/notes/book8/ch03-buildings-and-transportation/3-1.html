@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.1 Energy efficiency in buildings</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Buildings and transport</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="3-1.html" aria-current="page">3.1</a>
+      <a href="3-2.html">3.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 3.1</p>
+    <h1>Energy efficiency in buildings</h1>
+    <p class="lede">How heat gets into a building, how to measure it, and how designers keep it out.</p>
+    <aside class="quick-digest" id="31-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>Building envelope</b><span>roof, walls and windows; heat enters by conduction and radiation</span></p>
+        <p><b>\( P = \dfrac{\kappa A \Delta T}{d} = UA\Delta T \)</b><span>rate of heat conduction through one layer</span></p>
+        <p><b>\( U = \kappa / d \) (W m⁻² K⁻¹)</b><span>the lower the U-value, the better the insulation</span></p>
+        <p><b>\( \text{OTTV} = P_\text{total}/A_\text{total} \)</b><span>heat gain per m² of envelope; lower means less air-conditioning</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#envelope"><b>A</b>Building envelope</a>
+      <a href="#conduction"><b>B</b>Law of conduction</a>
+      <a href="#u-value"><b>C</b>U-value</a>
+      <a href="#ottv"><b>D</b>OTTV</a>
+      <a href="#keeping-heat-out"><b>E</b>Keeping heat out</a>
+    </nav>
+
+    <section class="idea" id="envelope" data-chip="Building envelope">
+      <header>
+        <h2><span class="sec-num">A</span>How heat gets into a building</h2>
+      </header>
+      <figure class="fig" id="envelope-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 300" role="img" aria-labelledby="envelope-title">
+            <title id="envelope-title">Cross-section of a building in sunshine. The sun heats the roof, and heat conducts down through it into the top floor. Sunlight through a west-facing window brings heat in by radiation. Heat also conducts through the walls.</title>
+            <circle cx="56" cy="46" r="24" fill="#F5B83D"/>
+            <path d="M88 60 L 170 92" stroke="#E8A317" stroke-width="3"/>
+            <path d="M160 82 l14 12 l-18 4 z" fill="#E8A317"/>
+            <path d="M84 84 L 196 196" stroke="#E8A317" stroke-width="3"/>
+            <path d="M184 182 l14 16 l-20 -2 z" fill="#E8A317"/>
+            <rect x="180" y="96" width="270" height="16" fill="#4A5562"/>
+            <rect x="180" y="112" width="12" height="170" fill="#4A5562"/>
+            <rect x="438" y="112" width="12" height="170" fill="#4A5562"/>
+            <rect x="180" y="170" width="12" height="60" fill="#CFE8E2" stroke="#17212B" stroke-width="1.5"/>
+            <line x1="180" y1="282" x2="460" y2="282" stroke="#17212B" stroke-width="3"/>
+            <g fill="#F26B3A">
+              <path d="M260 116 v24 h-6 l10 12 l10 -12 h-6 v-24 z"/>
+              <path d="M340 116 v24 h-6 l10 12 l10 -12 h-6 v-24 z"/>
+            </g>
+            <path d="M206 200 q 12 -8 24 0 t 24 0" stroke="#F26B3A" stroke-width="3" fill="none"/>
+            <text x="315" y="84" text-anchor="middle">roof: conduction</text>
+            <text x="240" y="252" text-anchor="start">window: radiation</text>
+            <text x="315" y="176" text-anchor="middle" class="m">top floor</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 3.1</b> A sunny roof conducts heat in; a west window lets radiation in.</figcaption>
+      </figure>
+      <div class="def" id="envelope-def-1">
+        <span class="tag">Definition</span>
+        <p>The <b>building envelope</b> is the outer shell of a building: its roofs, walls and windows. All heat entering or leaving passes through it.</p>
+      </div>
+      <ul class="points">
+        <li><b>Conduction</b>: a sun-baked roof or wall passes heat inwards, so top-floor flats run hotter.</li>
+        <li><b>Radiation</b>: sunlight through glass heats a room directly; a large west-facing window makes a room hot in the late afternoon.</li>
+      </ul>
+      <div class="check" id="envelope-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="envelope-tf-roof" data-answer="true">
+          <p>A top-floor flat gains extra heat by conduction through the sunlit roof.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>The roof is heated directly by the sun, so a large temperature difference drives heat down through it.</p></div>
+        </div>
+        <div class="tf-item" id="envelope-tf-glass" data-answer="true">
+          <p>Glass lets heat into a building by radiation as well as by conduction.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Glass conducts about as well as concrete, but it also lets sunlight and infrared straight through. Concrete blocks radiation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="conduction" data-chip="Law of conduction">
+      <header>
+        <h2><span class="sec-num">B</span>The law of conduction</h2>
+      </header>
+      <figure class="fig" id="conduction-fig-1">
+        <div class="visual play stage" id="conduction-vis" data-autoplay data-scene="conduction">
+          <canvas class="scene-canvas" aria-label="A one square metre layer with a hot side and a cold side. Heat flows through it at a rate that grows with the temperature difference and the thermal conductivity of the material, and falls as the layer gets thicker."></canvas>
+        </div>
+        <div class="seg" role="group" aria-label="Material of the layer">
+          <button type="button" data-param="kappa" data-value="1" aria-pressed="false">Glass</button>
+          <button type="button" data-param="kappa" data-value="0.8" aria-pressed="true">Concrete</button>
+          <button type="button" data-param="kappa" data-value="0.14" aria-pressed="false">Wood</button>
+          <button type="button" data-param="kappa" data-value="0.04" aria-pressed="false">Glass wool</button>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Thickness d<input type="range" min="1" max="30" step="1" value="15" data-param="d" aria-label="Thickness in centimetres"><output data-out="d">15 cm</output></label>
+          <label class="ctl">ΔT<input type="range" min="1" max="20" step="1" value="10" data-param="dT" aria-label="Temperature difference in kelvin"><output data-out="dT">10 K</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>U-value</b><span data-out="U">5.33 W m⁻² K⁻¹</span></span><span class="readout"><b>Heat flow through 1 m²</b><span data-out="P">53.3 W</span></span></p>
+        <figcaption><b>Fig. 3.2</b> Thinner, more conductive or a bigger ΔT: more heat gets through.</figcaption>
+      </figure>
+      <div class="def" id="conduction-def-1">
+        <span class="tag">Definition</span>
+        <p><b>Thermal conductivity</b> \( \kappa \) measures how well a material conducts heat. Its unit is W m⁻¹ K⁻¹; it depends only on the material.</p>
+      </div>
+      <div class="eq" id="conduction-eq-1">\[ P = \frac{Q}{t} = \frac{\kappa A \,\Delta T}{d} \]</div>
+      <ul class="points">
+        <li>\( P \): rate of heat flow (W); \( A \): area of the layer (m²); \( \Delta T = T_\text{hot} - T_\text{cold} \) across it (K or °C); \( d \): thickness (m).</li>
+        <li>Metals conduct well (large \( \kappa \)); non-metals and trapped gases conduct poorly.</li>
+      </ul>
+      <table class="notes" id="conduction-notes-kappa">
+        <thead><tr><th>Material</th><th>\( \kappa \) / W m⁻¹ K⁻¹</th></tr></thead>
+        <tbody>
+          <tr><td>Copper</td><td>about 400</td></tr>
+          <tr><td>Aluminium</td><td>about 240</td></tr>
+          <tr><td>Steel</td><td>about 45</td></tr>
+          <tr><td>Glass</td><td>about 1.0</td></tr>
+          <tr><td>Concrete</td><td>about 0.8–1.2</td></tr>
+          <tr><td>Wood</td><td>about 0.14</td></tr>
+          <tr><td>Glass wool</td><td>about 0.04</td></tr>
+          <tr><td>Air</td><td>about 0.026</td></tr>
+          <tr><td>Argon</td><td>about 0.018</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="conduction-check-1" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>A layer keeps the same temperature difference across it. Its area is doubled and its thickness halved. The rate of heat flow becomes</p>
+        <div class="choices">
+          <button type="button" data-choice="A">unchanged</button>
+          <button type="button" data-choice="B">2 times as large</button>
+          <button type="button" data-choice="C">3 times as large</button>
+          <button type="button" data-choice="D">4 times as large</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( P \propto A/d \): doubling \( A \) doubles it and halving \( d \) doubles it again, so ×4. A assumes the two changes cancel.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="u-value" data-chip="U-value">
+      <header>
+        <h2><span class="sec-num">C</span>U-value: how well a layer insulates</h2>
+      </header>
+      <div class="def" id="u-value-def-1">
+        <span class="tag">Definition</span>
+        <p>The <b>U-value</b> (thermal transmittance) of a layer is \( \kappa/d \). It says how readily that particular layer conducts heat; its unit is W m⁻² K⁻¹.</p>
+      </div>
+      <div class="eq" id="u-value-eq-1">\[ \begin{gathered} U = \frac{\kappa}{d} \\ P = UA\,\Delta T \end{gathered} \]</div>
+      <ul class="points">
+        <li>Good insulation means a small \( U \): a thick layer of a low-conductivity material.</li>
+        <li>\( U \) depends on the material and the thickness only, not on the area or the temperature difference.</li>
+      </ul>
+      <div class="tip"><span class="tag">Common mistake</span> \( \kappa \) belongs to a material; \( U \) belongs to a layer. Two concrete walls have the same \( \kappa \) but different \( U \) if their thicknesses differ.</div>
+      <div class="check" id="u-value-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Which of these affect the U-value of a wall?</p>
+        <ol class="stem-list">
+          <li>its area</li>
+          <li>its thickness</li>
+          <li>the material it is made of</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(3) only</button>
+          <button type="button" data-choice="C">(2) and (3) only</button>
+          <button type="button" data-choice="D">(1), (2) and (3)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( U = \kappa/d \): the material sets \( \kappa \) and the thickness is \( d \). Area changes the total heat flow \( P = UA\Delta T \), but not \( U \).</p></div>
+      </div>
+      <div class="worked" id="u-value-worked-wall">
+        <h3>Worked example</h3>
+        <p>A brick wall of area 12 m² is 0.20 m thick, with \( \kappa = 0.70 \) W m⁻¹ K⁻¹. Its inner surface is at 22 °C and its outer surface at 6 °C. Find its U-value and the rate of heat flow. Which way does the heat go?</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>\( U = 0.70 / 0.20 = 3.5\ \text{W m}^{-2}\,\text{K}^{-1} \).</li>
+            <li>\( P = UA\Delta T = 3.5 \times 12 \times 16 = 672\ \text{W} \).</li>
+            <li>Heat flows from hot to cold: out of the building.</li>
+          </ol>
+          <p class="answer">U = 3.5 W m⁻² K⁻¹; about 670 W lost through the wall.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="ottv" data-chip="OTTV">
+      <header>
+        <h2><span class="sec-num">D</span>Overall Thermal Transfer Value (OTTV)</h2>
+      </header>
+      <figure class="fig" id="ottv-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 280" role="img" aria-labelledby="ottv-title">
+            <title id="ottv-title">The envelope of a building split into roof, walls and windows. Each part has its own area and its own rate of heat gain. The OTTV adds all the heat gains and divides by the total area of the envelope.</title>
+            <path d="M60 80 L 240 40 L 420 80 Z" fill="#FDF1D3" stroke="#17212B" stroke-width="2"/>
+            <rect x="80" y="80" width="320" height="150" fill="#FFFFFF" stroke="#17212B" stroke-width="2"/>
+            <rect x="120" y="98" width="70" height="50" fill="#CFE8E2" stroke="#17212B" stroke-width="2"/>
+            <rect x="290" y="98" width="70" height="50" fill="#CFE8E2" stroke="#17212B" stroke-width="2"/>
+            <text x="240" y="70" text-anchor="middle">roof: P₁, A₁</text>
+            <text x="240" y="214" text-anchor="middle">walls: P₂, A₂</text>
+            <text x="240" y="178" text-anchor="middle" class="m">windows: P₃, A₃</text>
+            <text x="240" y="266" text-anchor="middle">OTTV = (P₁ + P₂ + P₃) ÷ (A₁ + A₂ + A₃)</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 3.3</b> Add every heat gain, divide by the whole envelope area.</figcaption>
+      </figure>
+      <div class="def" id="ottv-def-1">
+        <span class="tag">Definition</span>
+        <p>The <b>Overall Thermal Transfer Value</b> (OTTV) describes yearly heat entering through a building envelope, divided by the envelope area. Measure it in W m⁻².</p>
+      </div>
+      <div class="eq" id="ottv-eq-1">\[ \text{OTTV} = \frac{P_\text{total}}{A_\text{total}} = \frac{P_1 + P_2 + \cdots + P_n}{A_1 + A_2 + \cdots + A_n} \]</div>
+      <ul class="points">
+        <li>It counts heat gained through the envelope only, by conduction and by radiation through windows. It ignores heat from people, lamps and appliances, and from the ground, and it assumes the windows are shut.</li>
+        <li>A lower OTTV means heat enters more slowly, so less air-conditioning is needed. Hong Kong sets upper limits on OTTV for new commercial buildings.</li>
+      </ul>
+      <div class="check" id="ottv-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>Does each change lower the OTTV of an office building?</p>
+        <div class="tf-item" id="ottv-tf-led" data-answer="false">
+          <p>Replacing every filament lamp inside with an LED lamp lowers the OTTV.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Heat from lamps is inside the building, not through the envelope, so the OTTV is unchanged. It does cut the air-conditioning load.</p></div>
+        </div>
+        <div class="tf-item" id="ottv-tf-windows" data-answer="false">
+          <p>Replacing part of a sunlit concrete wall with clear glass lowers the OTTV.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Glass lets in solar radiation that concrete blocks, so the heat gain, and the OTTV, go up.</p></div>
+        </div>
+      </div>
+      <div class="worked" id="ottv-worked-hut">
+        <h3>Worked example</h3>
+        <p>A site hut has walls and roof of total area 60 m² with \( U = 2.0 \) W m⁻² K⁻¹, and their outer surfaces are 5 °C warmer than the inner ones. Its windows, of total area 6 m², gain 900 W by radiation (ignore conduction through them). Find the OTTV.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>Conduction through walls and roof: \( UA\Delta T = 2.0 \times 60 \times 5 = 600\ \text{W} \).</li>
+            <li>Total gain \( = 600 + 900 = 1500\ \text{W} \); total envelope area \( = 60 + 6 = 66\ \text{m}^2 \).</li>
+            <li>\( \text{OTTV} = 1500 / 66 \approx 22.7\ \text{W m}^{-2} \).</li>
+          </ol>
+          <p class="answer">About 23 W m⁻². The small windows supply most of the gain.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="keeping-heat-out" data-chip="Keeping heat out">
+      <header>
+        <h2><span class="sec-num">E</span>Keeping heat out</h2>
+      </header>
+      <figure class="fig" id="keeping-heat-out-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 270" role="img" aria-labelledby="lowe-title">
+            <title id="lowe-title">Transmission of a low-emissivity coated window against wavelength. It lets most visible light through, from 400 to 700 nanometres, but transmits little infrared beyond that.</title>
+            <line x1="56" y1="210" x2="462" y2="210" stroke="#4A5562" stroke-width="2"/>
+            <line x1="56" y1="210" x2="56" y2="24" stroke="#4A5562" stroke-width="2"/>
+            <rect x="96" y="30" width="96" height="180" fill="#FDF1D3"/>
+            <path d="M56 200 C 80 196 88 60 110 50 L 180 48 C 200 50 210 150 240 182 C 280 200 380 204 460 204" fill="none" stroke="#1F9585" stroke-width="3.5"/>
+            <text x="144" y="80" text-anchor="middle" class="m">visible</text>
+            <text x="320" y="170" text-anchor="middle" class="m">infrared</text>
+            <text x="62" y="20" text-anchor="start" class="m">transmission</text>
+            <text x="460" y="240" text-anchor="end" class="m">wavelength →</text>
+            <text x="96" y="232" text-anchor="middle" class="num">400</text>
+            <text x="192" y="232" text-anchor="middle" class="num">700 nm</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 3.4</b> A low-e coating lets daylight in and keeps infrared out.</figcaption>
+      </figure>
+      <table class="notes" id="keeping-heat-out-notes-1">
+        <thead><tr><th>Measure</th><th>Cuts</th><th>How</th></tr></thead>
+        <tbody>
+          <tr><th>Insulation in walls and roof</th><td>Conduction</td><td>Materials full of trapped air, \( \kappa \) about 0.1 or less, lower \( U \)</td></tr>
+          <tr><th>Double glazing</th><td>Conduction</td><td>A layer of air or argon between two panes</td></tr>
+          <tr><th>Low-e coating, solar film</th><td>Radiation</td><td>Reflects most infrared, lets most visible light through</td></tr>
+          <tr><th>External shades and fins</th><td>Radiation</td><td>Block direct sunlight before it reaches the glass</td></tr>
+          <tr><th>Orientation</th><td>Radiation</td><td>Few west-facing windows; south-facing windows admit the low winter sun</td></tr>
+          <tr><th>Plants on walls and roofs</th><td>Heat from the surroundings</td><td>Water evaporating from leaves cools the air</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="keeping-heat-out-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A film for office windows should cut air-conditioning without darkening the rooms. Which transmission does it need?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">High for visible light, low for infrared</button>
+          <button type="button" data-choice="B">Low for visible light, high for infrared</button>
+          <button type="button" data-choice="C">Low for both</button>
+          <button type="button" data-choice="D">High for both</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Infrared carries heat in, so block it; visible light gives daylight, so let it through. C would keep heat out but also force the lights on.</p></div>
+      </div>
+    </section>
+
+    <p class="next"><a href="3-2.html">Next: 3.2 Energy efficiency in transportation →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>
