@@ -28,10 +28,10 @@
       "height": 687
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -39,7 +39,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -72,10 +71,10 @@
       "height": 562
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -83,7 +82,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -116,10 +114,10 @@
       "height": 232
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -127,7 +125,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -160,10 +157,10 @@
       "height": 510
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -171,7 +168,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -204,10 +200,10 @@
       "height": 449
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -215,7 +211,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -248,10 +243,10 @@
       "height": 410
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -259,7 +254,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -292,10 +286,10 @@
       "height": 186
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -303,7 +297,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -336,10 +329,10 @@
       "height": 465
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -347,7 +340,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -380,10 +372,10 @@
       "height": 458
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -391,7 +383,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -424,10 +415,10 @@
       "height": 904
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -435,7 +426,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -468,10 +458,10 @@
       "height": 457
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -479,7 +469,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -512,10 +501,10 @@
       "height": 536
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -523,7 +512,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -556,10 +544,10 @@
       "height": 737
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -567,7 +555,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -600,10 +587,10 @@
       "height": 505
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -611,7 +598,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -644,10 +630,10 @@
       "height": 531
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -655,7 +641,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -688,10 +673,10 @@
       "height": 167
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -699,7 +684,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -776,10 +760,10 @@
       "height": 677
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -787,7 +771,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -820,10 +803,10 @@
       "height": 416
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -831,7 +814,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -864,10 +846,10 @@
       "height": 438
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -875,7 +857,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -908,10 +889,10 @@
       "height": 1032
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -919,7 +900,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -952,10 +932,10 @@
       "height": 439
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -963,7 +943,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -996,10 +975,10 @@
       "height": 193
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1007,7 +986,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1084,10 +1062,10 @@
       "height": 438
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1095,7 +1073,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1128,10 +1105,10 @@
       "height": 211
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1139,7 +1116,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1172,10 +1148,10 @@
       "height": 439
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1183,7 +1159,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1216,10 +1191,10 @@
       "height": 472
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1227,7 +1202,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1260,10 +1234,10 @@
       "height": 427
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1271,7 +1245,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1304,10 +1277,10 @@
       "height": 428
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1315,7 +1288,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1348,10 +1320,10 @@
       "height": 523
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1359,7 +1331,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1392,10 +1363,10 @@
       "height": 238
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1403,7 +1374,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1436,10 +1406,10 @@
       "height": 572
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1447,7 +1417,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1480,10 +1449,10 @@
       "height": 264
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1491,7 +1460,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1524,10 +1492,10 @@
       "height": 419
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1535,7 +1503,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -1568,10 +1535,10 @@
       "height": 427
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -1579,7 +1546,6 @@
     },
     "sourcePdf": "paper/mc/ppp1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -10020,7 +9986,7 @@
     "answer": {
       "option": null,
       "percentage": null,
-      "deleted": false,
+      "deleted": true,
       "missing": true
     },
     "classification": {
@@ -10029,8 +9995,7 @@
     },
     "sourcePdf": "paper/mc/2018p1a.pdf",
     "warnings": [
-      "missing_answer",
-      "missing_percentage"
+      "missing_answer"
     ]
   },
   {
@@ -20893,10 +20858,10 @@
       "height": 208
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -20904,7 +20869,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -20937,10 +20901,10 @@
       "height": 187
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -20948,7 +20912,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -20981,10 +20944,10 @@
       "height": 473
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -20992,7 +20955,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21025,10 +20987,10 @@
       "height": 577
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21036,7 +20998,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21069,10 +21030,10 @@
       "height": 510
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21080,7 +21041,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21113,10 +21073,10 @@
       "height": 499
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21124,7 +21084,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21157,10 +21116,10 @@
       "height": 666
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21168,7 +21127,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21201,10 +21159,10 @@
       "height": 807
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21212,7 +21170,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21245,10 +21202,10 @@
       "height": 543
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21256,7 +21213,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21289,10 +21245,10 @@
       "height": 401
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21300,7 +21256,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21333,10 +21288,10 @@
       "height": 882
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21344,7 +21299,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21377,10 +21331,10 @@
       "height": 724
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21388,7 +21342,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21421,10 +21374,10 @@
       "height": 549
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21432,7 +21385,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21465,10 +21417,10 @@
       "height": 286
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21476,7 +21428,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21509,10 +21460,10 @@
       "height": 588
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21520,7 +21471,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21553,10 +21503,10 @@
       "height": 517
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21564,7 +21514,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21641,10 +21590,10 @@
       "height": 546
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21652,7 +21601,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21685,10 +21633,10 @@
       "height": 283
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21696,7 +21644,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21729,10 +21676,10 @@
       "height": 418
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21740,7 +21687,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21773,10 +21719,10 @@
       "height": 239
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21784,7 +21730,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21817,10 +21762,10 @@
       "height": 392
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21828,7 +21773,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21861,10 +21805,10 @@
       "height": 553
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21872,7 +21816,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21905,10 +21848,10 @@
       "height": 605
     },
     "answer": {
-      "option": null,
+      "option": "B",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21916,7 +21859,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21949,10 +21891,10 @@
       "height": 163
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -21960,7 +21902,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -21993,10 +21934,10 @@
       "height": 527
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -22004,7 +21945,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -22037,10 +21977,10 @@
       "height": 568
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -22048,7 +21988,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -22081,10 +22020,10 @@
       "height": 212
     },
     "answer": {
-      "option": null,
+      "option": "C",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -22092,7 +22031,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -22125,10 +22063,10 @@
       "height": 785
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -22136,7 +22074,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -22169,10 +22106,10 @@
       "height": 535
     },
     "answer": {
-      "option": null,
+      "option": "D",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -22180,7 +22117,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -22213,10 +22149,10 @@
       "height": 632
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -22224,7 +22160,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -22257,10 +22192,10 @@
       "height": 195
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -22268,7 +22203,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   },
@@ -22301,10 +22235,10 @@
       "height": 497
     },
     "answer": {
-      "option": null,
+      "option": "A",
       "percentage": null,
       "deleted": false,
-      "missing": true
+      "missing": false
     },
     "classification": {
       "uncertain": false,
@@ -22312,7 +22246,6 @@
     },
     "sourcePdf": "paper/mc/2026p1a.pdf",
     "warnings": [
-      "missing_answer",
       "missing_percentage"
     ]
   }

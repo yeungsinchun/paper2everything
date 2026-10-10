@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.2 Observing at nanoscale · Book 7</title>
+<link rel="stylesheet" href="../css/notes.css">
+<link rel="stylesheet" href="../css/p2n.css">
+<link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="../index.html">paper<i>2</i>notes<small>Nanotechnology</small>
+</a>
+<nav aria-label="Chapter 3 pages">
+<a href="index.html">Map</a>
+<a href="3-1.html">3.1</a>
+<a href="3-2.html" aria-current="page">3.2</a>
+<a href="3-3.html">3.3</a>
+<a href="3-4.html">3.4</a>
+<a href="summary.html">Summary</a>
+</nav>
+</header>
+<main>
+<p class="page-tools">
+<button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button>
+</p>
+<p class="kicker">Section 3.2</p>
+<h1>Observing at nanoscale</h1>
+<p class="lede">Resolving smaller structures requires finer resolution. Electron and scanning-probe methods reveal detail beyond visible-light microscopy.</p>
+<aside class="quick-digest" aria-label="Observing at nanoscale in short">
+<h2>In short</h2>
+<div>
+<p>
+<b>Nanoscale commonly covers dimensions from about 1 nm to 100 nm.</b>
+</p>
+<p>
+<b>Resolution is the smallest separation at which two objects appear distinct.</b>
+</p>
+<p>
+<b>Choose an instrument based on the scale, sample and signal.</b>
+</p>
+</div>
+</aside>
+<nav class="idea-nav" aria-label="Ideas on this page">
+<a href="#resolution">
+<b>A</b>Resolution and diffraction</a>
+<a href="#instruments">
+<b>B</b>Electron and probe microscopes</a>
+<a href="#method">
+<b>C</b>Select an imaging method</a>
+</nav>
+<section class="idea" id="resolution" data-chip="Resolution and diffraction">
+<header>
+<h2>
+<span class="sec-num">A</span>Resolution and diffraction</h2>
+</header>
+<figure id="resolution-figure" class="fig">
+<div class="visual svg-fig">
+<svg class="fig-svg" viewBox="0 0 480 220" role="img" aria-label="Resolution and diffraction: original schematic showing the concept">
+<g fill="none" stroke="var(--accent)" stroke-width="4">
+<path d="M35 178 C85 176 95 75 140 70 C185 75 195 176 235 178 C275 176 285 75 330 70 C375 75 385 176 445 178"/>
+<path d="M35 178 C108 177 118 45 148 42 C180 45 188 177 235 178 C282 177 290 45 322 42 C354 45 362 177 445 178"/>
+</g>
+<text x="240" y="205" text-anchor="middle">Concept schematic</text>
+</svg>
+</div>
+<figcaption>Broader overlapping peaks hide two nearby points; narrower peaks separate them.</figcaption>
+</figure>
+<p>Diffraction spreads the image of each object. When two patterns overlap too much, the objects cannot be distinguished.</p>
+<div class="def" id="resolution-def-1">
+<span class="tag">Definition</span>
+<p>
+<b>Resolving power</b> is the ability to distinguish two nearby objects. Better resolution means a smaller minimum resolvable separation.</p>
+</div>
+<details class="worked-disclosure">
+<summary>Worked example</summary>
+<div class="worked" id="resolution-worked-1">
+<h3>Apply the idea</h3>
+<p>An instrument resolves 0.25 μm separation but not 0.10 μm. Its resolution lies between those values; it cannot claim 0.10 μm.</p>
+</div>
+</details>
+<div id="resolution-check" class="check" data-check="mc" data-answer="A">
+<h3>Quick check</h3>
+<p>What happens when diffraction makes each point image wider?</p>
+<div class="choices">
+<button type="button" data-choice="A">The minimum resolvable separation increases.</button>
+<button type="button" data-choice="B">It decreases.</button>
+<button type="button" data-choice="C">Magnification guarantees finer detail.</button>
+<button type="button" data-choice="D">Diffraction disappears.</button>
+</div>
+<p class="feedback">
+</p>
+<div class="explain" hidden>
+<p>
+<b>A.</b> Overlap increases, so the minimum resolvable separation becomes larger.</p>
+</div>
+</div>
+</section>
+<section class="idea" id="instruments" data-chip="Electron and probe microscopes">
+<header>
+<h2>
+<span class="sec-num">B</span>Electron and probe microscopes</h2>
+</header>
+<figure id="instruments-figure" class="fig">
+<div class="visual svg-fig">
+<svg class="fig-svg" viewBox="0 0 480 220" role="img" aria-label="Electron and probe microscopes: original schematic showing the concept">
+<g fill="none" stroke="var(--accent)" stroke-width="4">
+<path d="M100 40v55m-45 8h90m-70 0v42m50-42v42M290 145h140m-110 0 48-56 20 56"/>
+</g>
+<text x="240" y="205" text-anchor="middle">Concept schematic</text>
+</svg>
+</div>
+<figcaption>TEM uses transmitted electrons; SEM detects scattered electrons; STM measures tunnelling current; AFM senses force.</figcaption>
+</figure>
+<p>Electron microscopes use electron beams. Scanning-probe instruments move a sharp tip across a surface and measure its interaction.</p>
+<table class="notes" id="instrument-compare">
+<thead>
+<tr>
+<th>Tool</th>
+<th>Signal</th>
+<th>Useful view</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>TEM</th>
+<td>Transmitted electrons</td>
+<td>Internal structure</td>
+</tr>
+<tr>
+<th>SEM</th>
+<td>Scattered electrons</td>
+<td>Surface form</td>
+</tr>
+<tr>
+<th>STM</th>
+<td>Tunnelling current</td>
+<td>Conducting surface</td>
+</tr>
+<tr>
+<th>AFM</th>
+<td>Tip–surface force</td>
+<td>Conducting or insulating surface</td>
+</tr>
+</tbody>
+</table>
+<details class="worked-disclosure">
+<summary>Worked example</summary>
+<div class="worked" id="instruments-worked-2">
+<h3>Apply the idea</h3>
+<p>For an insulating sample, use AFM to map surface topography. STM requires a tunnelling current between tip and sample.</p>
+</div>
+</details>
+<div id="instruments-check" class="check" data-check="mc" data-answer="A">
+<h3>Quick check</h3>
+<p>Which signal does an STM use?</p>
+<div class="choices">
+<button type="button" data-choice="A">Tunnelling current.</button>
+<button type="button" data-choice="B">Visible-light colour.</button>
+<button type="button" data-choice="C">Sample mass.</button>
+<button type="button" data-choice="D">Sound transmission.</button>
+</div>
+<p class="feedback">
+</p>
+<div class="explain" hidden>
+<p>
+<b>A.</b> STM records tunnelling current as the tip scans.</p>
+</div>
+</div>
+</section>
+<section class="idea" id="method" data-chip="Select an imaging method">
+<header>
+<h2>
+<span class="sec-num">C</span>Select an imaging method</h2>
+</header>
+<figure id="method-figure" class="fig">
+<div class="visual svg-fig">
+<svg class="fig-svg" viewBox="0 0 480 220" role="img" aria-label="Select an imaging method: original schematic showing the concept">
+<g fill="none" stroke="var(--accent)" stroke-width="4">
+<path d="M45 135h390M75 125v20m100-25v30m110-36v42m110-48v54"/>
+</g>
+<text x="240" y="205" text-anchor="middle">Concept schematic</text>
+</svg>
+</div>
+<figcaption>Moving from larger structures to atoms requires shorter wavelengths or a local probe.</figcaption>
+</figure>
+<p>Magnification enlarges an image; resolution reveals separate details. The best instrument depends on what property needs measuring.</p>
+<div class="tip">
+<span class="tag">Selection rule</span>
+<p>Name the target scale, whether it is internal or surface detail, and whether the sample conducts.</p>
+</div>
+<details class="worked-disclosure">
+<summary>Worked example</summary>
+<div class="worked" id="method-worked-3">
+<h3>Apply the idea</h3>
+<p>To map an insulating surface at nanoscale, choose AFM. STM would need measurable tunnelling current.</p>
+</div>
+</details>
+<div id="method-check" class="check" data-check="mc" data-answer="C">
+<h3>Quick check</h3>
+<p>Does greater magnification guarantee better resolution?</p>
+<div class="choices">
+<button type="button" data-choice="A">Use optical magnification only.</button>
+<button type="button" data-choice="B">Assume larger magnification resolves more.</button>
+<button type="button" data-choice="C">Choose based on sample and required signal.</button>
+<button type="button" data-choice="D">Assume every microscope measures force.</button>
+</div>
+<p class="feedback">
+</p>
+<div class="explain" hidden>
+<p>
+<b>C.</b> Enlarging a blurred image cannot reveal details the instrument did not resolve.</p>
+</div>
+</div>
+</section>
+<aside class="section-dse" id="dse-status">
+<h2>Exam practice</h2>
+<p>No classified DSE questions or question-bank items are available for this elective section in the repository.</p>
+</aside>
+<nav class="next" aria-label="Previous and next page">
+<a class="prev" href="3-1.html">← Previous section</a>
+<a href="3-3.html">Next section →</a>
+</nav>
+</main>
+<script src="../vendor/katex/katex.min.js">
+</script>
+<script src="../vendor/katex/auto-render.min.js">
+</script>
+<script src="../js/math.js">
+</script>
+<script src="../js/checks.js">
+</script>
+<script src="../js/notes.js">
+</script>
+<footer class="deploy-commit-footer" data-commit="05f377">deployed commit: <code>05f377</code>
+</footer>
+</body>
+</html>

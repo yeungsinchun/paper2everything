@@ -5,27 +5,7 @@
   "answer_crop_path_missing": [],
   "topic_outside_book2": [],
   "mc_key_missing": [],
-  "mc_key_no_marking_scheme": [
-    "dse-mc-2026-10",
-    "dse-mc-2026-11",
-    "dse-mc-2026-12",
-    "dse-mc-2026-4",
-    "dse-mc-2026-5",
-    "dse-mc-2026-6",
-    "dse-mc-2026-7",
-    "dse-mc-2026-8",
-    "dse-mc-2026-9",
-    "dse-mc-pp-10",
-    "dse-mc-pp-11",
-    "dse-mc-pp-12",
-    "dse-mc-pp-13",
-    "dse-mc-pp-14",
-    "dse-mc-pp-15",
-    "dse-mc-pp-6",
-    "dse-mc-pp-7",
-    "dse-mc-pp-8",
-    "dse-mc-pp-9"
-  ],
+  "mc_key_no_marking_scheme": [],
   "mc_key_not_abcd": [],
   "qb_count_not_873": [],
   "qb_bank_chapter_mismatch": [],
@@ -70,9 +50,7 @@
     "dse-lq-2026-q4",
     "dse-lq-pp-q11"
   ],
-  "dse_lq_answer_missing": [
-    "dse-lq-2017-q4"
-  ],
+  "dse_lq_answer_missing": [],
   "dse_lq_no_marking_scheme": [
     "dse-lq-2026-q11",
     "dse-lq-2026-q3",

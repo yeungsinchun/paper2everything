@@ -19,6 +19,7 @@ tests/reconstructed/lq/*
 !tests/reconstructed/lq/*/
 tests/reconstructed/lq/*/*
 !tests/reconstructed/lq/*/starts.json
+!tests/reconstructed/lq/*/ans_starts.json
 tests/sections/
 .lavish/
 
