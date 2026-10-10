@@ -163,6 +163,7 @@ export function checkSnapshot({ repoRoot, availability }) {
 
   if (manifest) {
     const placeholderFiles = new Set(Array.isArray(manifest.placeholderFiles) ? manifest.placeholderFiles : []);
+    const book1Sections = new Set(Array.isArray(manifest.book1Sections) ? manifest.book1Sections.map(String) : []);
     const snapshotDir = join(repoRoot, SNAPSHOT_REL);
 
     /* What the snapshot holds, read from disk. */
@@ -238,7 +239,8 @@ export function checkSnapshot({ repoRoot, availability }) {
             });
             continue;
           }
-          if (!srcSections.includes(Number(section))) {
+          /* Book 1 regroups questions by textbook chapter, not pipeline section. */
+          if (!book1Sections.has(section) && !srcSections.includes(Number(section))) {
             problems.push({
               kind: "dse-question-wrong-section",
               detail: `${where}/${name} is filed under section ${section}, but the source files it under ${srcSections.join(", ")}`,
@@ -271,6 +273,7 @@ export function checkSnapshot({ repoRoot, availability }) {
       if (source.ok) {
         const known = kind === "lq" ? source.lqBySection.get(Number(section)) : source.mcBySection.get(Number(section));
         const available = known || [];
+        if (book1Sections.has(section)) continue;
         if (entry.state === "none-in-source" && available.length) {
           problems.push({
             kind: "dse-availability-contradicts-source",
@@ -336,7 +339,7 @@ export function referenceCounts(root) {
    purpose, and tolerant of the line wrapping a paragraph editor introduces:
    the check is about the numbers agreeing, not about the prose. */
 const DOC_TOTAL_RE = /(\d+)\s+distinct\s+`_local(?:\/dse)?`\s+references\s+are/;
-const DOC_BOOK_RE = /\bBook\s+([245]):\s*(\d+)\s*=\s*(\d+)\s*PNG\s*\+\s*(\d+)\s*PDFs?/g;
+const DOC_BOOK_RE = /\bBook\s+([1-9]):\s*(\d+)\s*=\s*(\d+)\s*PNG\s*\+\s*(\d+)\s*PDFs?/g;
 
 export function checkDocumentedReferenceCounts(docText, counts) {
   const problems = [];
@@ -394,6 +397,8 @@ export function checkPage(html, { page, availability, source }) {
   const manifest = availability?.manifest || null;
   const manifestRel = availability?.repoRoot ? relative(availability.repoRoot, availability.file) : availability?.file || "notes/dse/availability.json";
   const entryFor = (kind, section) => manifest?.sections?.[section]?.[kind] || null;
+  /* Book 1 uses its textbook chapter grouping for shared DSE scans. */
+  const isBook1Page = typeof page === "string" && /(?:^|\/)book1\//.test(page);
 
   for (const ref of cropRefs(html)) {
     const where = `${ref.kind}/${ref.section}/${ref.file}`;
@@ -450,7 +455,7 @@ export function checkPage(html, { page, availability, source }) {
             }`,
           });
         } else {
-          if (section && !sections.includes(Number(section))) {
+          if (!isBook1Page && section && !sections.includes(Number(section))) {
             problems.push({
               kind: "dse-lq-wrong-section",
               detail: `slide ${slide.id} is shown under section ${section}, but the source files it under ${sections.join(", ")}`,
