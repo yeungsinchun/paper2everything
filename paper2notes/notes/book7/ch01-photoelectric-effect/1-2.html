@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.2 The quantum theory of light</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">paper<i>2</i>notes<small>Photoelectric effect</small></a>
+    <nav aria-label="Chapter 1 pages">
+      <a href="index.html">Map</a>
+      <a href="1-1.html">1.1</a>
+      <a href="1-2.html" aria-current="page">1.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.2</p>
+    <h1>The quantum theory of light</h1>
+    <p class="lede">Light arrives in packets called photons. One photon frees at most one electron.</p>
+    <aside class="quick-digest" aria-label="The quantum theory of light in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>\( E = hf = \dfrac{hc}{\lambda} \)</b><span>energy of one photon</span></p>
+        <p><b>\( K_{\max} = hf - \varphi \)</b><span>Einstein's photoelectric equation</span></p>
+        <p><b>\( \varphi = hf_0 \)</b><span>work function sets the threshold</span></p>
+        <p><b>\( V_s \)–\( f \) graph</b><span>slope \( h/e \), meets the f-axis at \( f_0 \)</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#photons"><b>A</b>Photons</a>
+      <a href="#einstein"><b>B</b>Einstein's equation</a>
+      <a href="#features"><b>C</b>Four features explained</a>
+      <a href="#planck"><b>D</b>Measuring h</a>
+    </nav>
+<section class="idea" id="photons" data-chip="Photons">
+      <header>
+        <h2><span class="sec-num">A</span>Light comes in photons</h2>
+      </header>
+      <figure id="photons-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 200" role="img" aria-labelledby="photon-title">
+            <title id="photon-title">Two pictures of a light beam. Left: a continuous wave whose energy spreads over the wavefront. Right: the same beam as separate packets, each carrying energy h f.</title>
+            <path d="M20,100 q15,-40 30,0 t30,0 t30,0 t30,0 t30,0 t30,0" class="energy-line"/>
+            <text x="110" y="170" text-anchor="middle">wave: energy spread out</text>
+            <g class="energy-line">
+              <path d="M260,60 q6,-12 12,0 t12,0 t12,0" class="energy-line"/>
+              <path d="M320,100 q6,-12 12,0 t12,0 t12,0" class="energy-line"/>
+              <path d="M290,135 q6,-12 12,0 t12,0 t12,0" class="energy-line"/>
+              <path d="M380,72 q6,-12 12,0 t12,0 t12,0" class="energy-line"/>
+              <path d="M400,125 q6,-12 12,0 t12,0 t12,0" class="energy-line"/>
+            </g>
+            <text x="350" y="170" text-anchor="middle">photons: packets of energy hf</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.5</b> The same beam as a wave and as a stream of photons.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Planck first showed that light is emitted and absorbed in whole-number multiples of a basic packet. Einstein went further: the beam itself is a stream of these packets, now called photons. A photon cannot be split; the energy of a beam is always a whole number of photon energies.</p></details>
+      </figure>
+      <div id="photons-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>A <b>photon</b> is a packet (quantum) of electromagnetic energy. Its energy depends only on the frequency of the light: higher frequency, more energy per photon.</p>
+      </div>
+      <div id="photons-eq-1" class="eq">\[ E = hf = \frac{hc}{\lambda} \]</div>
+      <p>\(h = 6.63 \times 10^{-34}\ \mathrm{J\,s}\) (Planck constant), \(c = 3.00 \times 10^{8}\ \mathrm{m\,s^{-1}}\). Convert with \(1\ \mathrm{eV} = 1.60 \times 10^{-19}\ \mathrm{J}\). A handy shortcut: \(E\) in eV \(= 1243 / \lambda\) in nm.</p>
+      <table id="photons-table-1" class="notes">
+        <thead><tr><th>Light</th><th>Wavelength</th><th>Frequency</th><th>Photon energy</th></tr></thead>
+        <tbody>
+          <tr><th>Red</th><td>700 nm</td><td>\(4.3 \times 10^{14}\) Hz</td><td>1.8 eV</td></tr>
+          <tr><th>Green</th><td>530 nm</td><td>\(5.7 \times 10^{14}\) Hz</td><td>2.3 eV</td></tr>
+          <tr><th>Violet</th><td>400 nm</td><td>\(7.5 \times 10^{14}\) Hz</td><td>3.1 eV</td></tr>
+          <tr><th>Ultraviolet</th><td>250 nm</td><td>\(1.2 \times 10^{15}\) Hz</td><td>5.0 eV</td></tr>
+        </tbody>
+      </table>
+      <div id="photons-eq-2" class="eq">\[ P = N\,hf \]</div>
+      <p>A beam of power \(P\) delivers \(N\) photons per second. Intensity is power per unit area.</p>
+      <div id="photons-check-1" class="check" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A red beam and a blue beam have the same power. Which statement is correct?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The red beam delivers more photons per second.</button>
+          <button type="button" data-choice="B">The blue beam delivers more photons per second.</button>
+          <button type="button" data-choice="C">Both deliver the same number of photons per second.</button>
+          <button type="button" data-choice="D">Each red photon carries more energy than each blue photon.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> Same power, \(P = Nhf\): red photons have lower \(f\), so more of them are needed. <b>B</b> reverses this. <b>C</b> forgets that photon energy depends on frequency. <b>D</b> is backwards: blue has the higher frequency.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example: photons from a laser pointer</summary>
+        <div id="photons-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>A laser pointer emits 1.0 mW of light of wavelength 650 nm. How many photons does it emit per second?</p>
+          <ol class="steps">
+            <li>Photon energy \(E = hc/\lambda = (6.63 \times 10^{-34})(3.00 \times 10^{8}) / (650 \times 10^{-9}) = 3.06 \times 10^{-19}\ \mathrm{J}\) (1.91 eV).</li>
+            <li>\(N = P/E = 1.0 \times 10^{-3} / 3.06 \times 10^{-19}\).</li>
+          </ol>
+          <p class="answer">\(N = 3.3 \times 10^{15}\) photons per second</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="einstein" data-chip="Einstein's equation">
+      <header>
+        <h2><span class="sec-num">B</span>Einstein's photoelectric equation</h2>
+      </header>
+      <figure id="einstein-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 250" role="img" aria-labelledby="well-title">
+            <title id="well-title">Energy diagram. Electrons in the metal sit below the escape level. A surface electron needs the work function phi to escape. A photon of energy h f lifts it; whatever is left over, h f minus phi, becomes its kinetic energy.</title>
+            <line x1="40" y1="60" x2="440" y2="60" class="guide"/>
+            <text x="440" y="50" text-anchor="end" class="small">escape level (outside the metal)</text>
+            <rect x="40" y="130" width="200" height="90" class="fill-soft"/>
+            <text x="140" y="240" text-anchor="middle" class="small">electrons in the metal</text>
+            <circle cx="90" cy="140" r="7" class="electron"/>
+            <circle cx="140" cy="160" r="7" class="electron"/>
+            <circle cx="190" cy="140" r="7" class="electron"/>
+            <circle cx="115" cy="195" r="7" class="electron"/>
+            <circle cx="170" cy="195" r="7" class="electron"/>
+            <line x1="260" y1="140" x2="260" y2="60" class="ink"/>
+            <path d="M254,128 L260,140 L266,128" class="ink"/>
+            <path d="M254,72 L260,60 L266,72" class="ink"/>
+            <text x="270" y="105" class="sym">φ</text>
+            <line x1="330" y1="140" x2="330" y2="20" class="energy-line"/>
+            <path d="M322,32 L330,18 L338,32" class="energy-line"/>
+            <text x="340" y="130" class="sym">hf</text>
+            <line x1="380" y1="60" x2="380" y2="20" class="electron-line"/>
+            <path d="M374,32 L380,20 L386,32" class="electron-line"/>
+            <text x="390" y="44" class="small">left over = K</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.6</b> The photon pays the work function; the rest is kinetic energy.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>One photon gives all its energy to one electron, at once. A surface electron needs only \(\varphi\) to escape, so it leaves with the most kinetic energy, \(hf - \varphi\). An electron from deeper inside loses more on the way out, so photoelectrons leave with a range of energies from zero up to \(K_{\max}\).</p></details>
+      </figure>
+      <div id="einstein-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>The <b>work function</b> \(\varphi\) of a metal is the minimum energy needed to remove an electron from its surface.</p>
+      </div>
+      <div id="einstein-eq-1" class="eq">\[ K_{\max} = hf - \varphi \qquad \varphi = hf_0 \qquad \lambda_0 = \frac{hc}{\varphi} \]</div>
+      <p>If \(hf &lt; \varphi\) (\(f &lt; f_0\), or \(\lambda &gt; \lambda_0\)), no electron escapes. \(\lambda_0\) is the threshold wavelength: the longest wavelength that still emits.</p>
+      <table id="einstein-table-1" class="notes">
+        <caption>Approximate work functions (they depend on how clean the surface is)</caption>
+        <thead><tr><th>Metal</th><th>\(\varphi\)</th><th>Threshold wavelength</th><th>Visible light works?</th></tr></thead>
+        <tbody>
+          <tr><th>Caesium</th><td>2.1 eV</td><td>590 nm</td><td>Yes, most colours</td></tr>
+          <tr><th>Sodium</th><td>2.3 eV</td><td>540 nm</td><td>Green to violet</td></tr>
+          <tr><th>Calcium</th><td>2.9 eV</td><td>430 nm</td><td>Violet only</td></tr>
+          <tr><th>Zinc</th><td>4.3 eV</td><td>290 nm</td><td>No, ultraviolet needed</td></tr>
+          <tr><th>Copper</th><td>4.7 eV</td><td>260 nm</td><td>No</td></tr>
+        </tbody>
+      </table>
+      <div id="einstein-check-1" class="check" data-check="tf">
+        <h3>Quick check</h3>
+        <div id="einstein-tf-1" class="tf-item" data-answer="true">
+          <p>(a) One photon can free at most one electron.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. A photon is absorbed whole by a single electron and then no longer exists.</p></div>
+        </div>
+        <div id="einstein-tf-2" class="tf-item" data-answer="false">
+          <p>(b) Every photoelectron leaves the metal with kinetic energy \(hf - \varphi\).</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. \(\varphi\) is the minimum escape energy. Electrons from deeper inside need more, so most leave with less than \(K_{\max}\).</p></div>
+        </div>
+      </div>
+      <div id="einstein-check-2" class="check" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Photons of energy 6.0 eV fall on a metal of work function 4.0 eV. What is the stopping potential?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">2.0 V</button>
+          <button type="button" data-choice="B">4.0 V</button>
+          <button type="button" data-choice="C">6.0 V</button>
+          <button type="button" data-choice="D">10 V</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> \(K_{\max} = 6.0 - 4.0 = 2.0\) eV, so \(V_s = 2.0\) V. <b>B</b> is the work function, <b>C</b> the photon energy, <b>D</b> adds them.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example: sodium in violet light</summary>
+        <div id="einstein-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>Sodium has work function 2.3 eV. Find its threshold frequency and wavelength. Violet light of wavelength 400 nm then falls on it: find \(K_{\max}\) and the fastest electron's speed.</p>
+          <ol class="steps">
+            <li>\(f_0 = \varphi / h = (2.3 \times 1.60 \times 10^{-19}) / 6.63 \times 10^{-34} = 5.55 \times 10^{14}\ \mathrm{Hz}\).</li>
+            <li>\(\lambda_0 = c / f_0 = 3.00 \times 10^{8} / 5.55 \times 10^{14} = 5.4 \times 10^{-7}\ \mathrm{m}\) (540 nm).</li>
+            <li>Photon energy \(= 1243 / 400 = 3.11\ \mathrm{eV}\). \(K_{\max} = 3.11 - 2.3 = 0.81\ \mathrm{eV} = 1.29 \times 10^{-19}\ \mathrm{J}\).</li>
+            <li>\(v_{\max} = \sqrt{2 \times 1.29 \times 10^{-19} / 9.11 \times 10^{-31}}\).</li>
+          </ol>
+          <p class="answer">\(f_0 = 5.55 \times 10^{14}\) Hz, \(\lambda_0 = 540\) nm, \(K_{\max} = 0.81\) eV, \(v_{\max} = 5.3 \times 10^{5}\ \mathrm{m\,s^{-1}}\)</p>
+          <p class="note">Keep units consistent: subtract eV from eV or J from J, never a mix.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="features" data-chip="Four features explained">
+      <header>
+        <h2><span class="sec-num">C</span>Photons explain all four features</h2>
+      </header>
+      <figure id="features-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 280" role="img" aria-labelledby="kf-title">
+            <title id="kf-title">Maximum kinetic energy against frequency for sodium and zinc. Both are straight lines with the same slope, h. Each starts at its own threshold frequency. Extended backwards, each line meets the energy axis at minus its work function.</title>
+            <line x1="60" y1="170" x2="460" y2="170" class="axis"/>
+            <line x1="60" y1="268" x2="60" y2="20" class="axis"/>
+            <text x="455" y="190" text-anchor="end" class="sym">f</text>
+            <text x="68" y="30" class="small">K max</text>
+            <line x1="60" y1="215" x2="132" y2="170" class="guide"/>
+            <line x1="132" y1="170" x2="324" y2="50" class="curve"/>
+            <line x1="60" y1="254.4" x2="195" y2="170" class="guide"/>
+            <line x1="195" y1="170" x2="395" y2="45" class="curve-2"/>
+            <text x="132" y="188" text-anchor="middle" class="small">f₀ (Na)</text>
+            <text x="200" y="188" text-anchor="middle" class="small">f₀ (Zn)</text>
+            <text x="54" y="219" text-anchor="end" class="small">−φ(Na)</text>
+            <text x="54" y="258" text-anchor="end" class="small">−φ(Zn)</text>
+            <text x="290" y="70" text-anchor="end">sodium</text>
+            <text x="410" y="75" text-anchor="end">zinc</text>
+            <text x="300" y="140" class="small">same slope = h</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.7</b> Every metal gives a line of slope \(h\); only the threshold changes.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>\(K_{\max} = hf - \varphi\) is a straight line in \(f\). The slope is the Planck constant for every metal. The line meets the \(f\)-axis at \(f_0\), and its backward extension meets the energy axis at \(-\varphi\).</p></details>
+      </figure>
+      <table id="features-table-1" class="notes">
+        <thead><tr><th>Feature</th><th>Photon explanation</th></tr></thead>
+        <tbody>
+          <tr><th>Threshold frequency</th><td>Below \(f_0\), one photon has less energy than \(\varphi\). Electrons cannot add up several photons, so none escape.</td></tr>
+          <tr><th>\(K_{\max}\) rises with \(f\)</th><td>\(K_{\max} = hf - \varphi\): a higher frequency means a bigger photon and more energy left over.</td></tr>
+          <tr><th>\(K_{\max}\) ignores intensity</th><td>Brighter light means more photons, not bigger ones.</td></tr>
+          <tr><th>No delay</th><td>One photon delivers its whole energy at once; nothing needs to build up.</td></tr>
+          <tr><th>Rate \(\propto\) intensity</th><td>More photons per second free more electrons per second.</td></tr>
+        </tbody>
+      </table>
+      <div id="features-check-1" class="check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>\(K_{\max}\) is plotted against frequency for two different metals. Which feature is the same for both lines?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The intercept on the frequency axis</button>
+          <button type="button" data-choice="B">The intercept on the energy axis</button>
+          <button type="button" data-choice="C">The slope</button>
+          <button type="button" data-choice="D">None of them</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> The slope is \(h\), a universal constant. The intercepts \(f_0\) and \(-\varphi\) belong to each metal, so <b>A</b> and <b>B</b> differ.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="planck" data-chip="Measuring h">
+      <header>
+        <h2><span class="sec-num">D</span>Measuring \(h\), reading I–V curves</h2>
+      </header>
+      <figure id="planck-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 240" role="img" aria-labelledby="vsf-title">
+            <title id="vsf-title">Stopping potential against frequency: a straight line of slope h over e that meets the frequency axis at the threshold frequency; extended backwards it meets the voltage axis at minus phi over e.</title>
+            <line x1="70" y1="150" x2="460" y2="150" class="axis"/>
+            <line x1="70" y1="225" x2="70" y2="20" class="axis"/>
+            <text x="455" y="170" text-anchor="end" class="sym">f</text>
+            <text x="78" y="30" class="small">stopping potential</text>
+            <line x1="70" y1="205" x2="170" y2="150" class="guide"/>
+            <line x1="170" y1="150" x2="420" y2="12" class="curve"/>
+            <circle cx="245" cy="108.6" r="5" class="electron"/>
+            <circle cx="320" cy="67.2" r="5" class="electron"/>
+            <circle cx="395" cy="25.8" r="5" class="electron"/>
+            <text x="170" y="170" text-anchor="middle" class="small">f₀</text>
+            <text x="62" y="209" text-anchor="end" class="small">−φ/e</text>
+            <text x="300" y="120" class="small">slope = h/e</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.8</b> Plot \(V_s\) against \(f\): slope gives \(h\), intercept gives \(f_0\).</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Divide Einstein's equation by \(e\): \(V_s = \dfrac{h}{e} f - \dfrac{\varphi}{e}\). Measure the stopping potential for several frequencies, draw the best straight line, and read \(h\) from its slope multiplied by \(e\). This is one of the cleanest measurements of the Planck constant.</p></details>
+      </figure>
+      <div id="planck-eq-1" class="eq">\[ V_s = \frac{h}{e}\, f - \frac{\varphi}{e} \]</div>
+      <figure id="planck-fig-2" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 220" role="img" aria-labelledby="ivs-title">
+            <title id="ivs-title">Three current against voltage curves. Curve P is the reference. Curve Q has a higher saturation current but the same stopping potential: brighter light of the same frequency. Curve R has the same saturation current but a larger stopping potential: light of higher frequency.</title>
+            <line x1="30" y1="190" x2="460" y2="190" class="axis"/>
+            <line x1="300" y1="200" x2="300" y2="20" class="axis"/>
+            <text x="455" y="210" text-anchor="end" class="sym">V</text>
+            <text x="308" y="30" class="small">I</text>
+            <path d="M30,190 L220,190 C250,190 270,120 300,108 C330,98 360,96 450,96" class="curve"/>
+            <path d="M30,190 L220,190 C255,190 270,70 300,52 C330,40 360,38 450,38" class="curve-2"/>
+            <path d="M30,190 L140,190 C200,190 250,120 300,108 C330,98 360,96 450,96" class="curve-3" stroke-dasharray="8 6"/>
+            <text x="455" y="112" text-anchor="end">P</text>
+            <text x="455" y="32" text-anchor="end">Q</text>
+            <text x="190" y="150" class="small">R</text>
+            <text x="220" y="208" text-anchor="middle" class="small">−V_s (P, Q)</text>
+            <text x="140" y="208" text-anchor="middle" class="small">−V_s (R)</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.9</b> Q: brighter, same colour. R: higher frequency, same photon rate.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Read the two ends of the curve separately. The left end (where the current reaches zero) is set by frequency only. The flat right end (saturation) is set by how many electrons are freed per second, which rises with intensity.</p></details>
+      </figure>
+      <div class="tip">
+        <span class="tag">Exam tip</span>
+        <p>Light behaves as a wave when it interferes and as particles when it is absorbed or emitted. Both pictures are needed.</p>
+      </div>
+      <div id="planck-check-1" class="check" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>In Fig. 1.9, curve R was taken after a single change to the light used for curve P. What was the change?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Same frequency, higher intensity</button>
+          <button type="button" data-choice="B">Higher frequency, same number of photons per second</button>
+          <button type="button" data-choice="C">Lower frequency, same number of photons per second</button>
+          <button type="button" data-choice="D">Same frequency, lower intensity</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> R reaches zero at a more negative voltage, so its stopping potential, and hence its frequency, is larger. Its saturation current is unchanged, so the photon rate is the same. <b>A</b> and <b>D</b> would change only the saturation level.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example: h and φ from two readings</summary>
+        <div id="planck-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>Light of \(6.0 \times 10^{14}\) Hz gives a stopping potential of 0.20 V; light of \(8.0 \times 10^{14}\) Hz gives 1.03 V. Find \(h\) and the work function.</p>
+          <ol class="steps">
+            <li>Slope \(= (1.03 - 0.20) / (8.0 - 6.0) \times 10^{14} = 4.15 \times 10^{-15}\ \mathrm{V\,s}\).</li>
+            <li>\(h = e \times \text{slope} = 1.60 \times 10^{-19} \times 4.15 \times 10^{-15} = 6.6 \times 10^{-34}\ \mathrm{J\,s}\).</li>
+            <li>\(\varphi / e = \text{slope} \times f - V_s = 4.15 \times 10^{-15} \times 6.0 \times 10^{14} - 0.20 = 2.29\ \mathrm{V}\).</li>
+          </ol>
+          <p class="answer">\(h \approx 6.6 \times 10^{-34}\ \mathrm{J\,s}\), \(\varphi \approx 2.3\ \mathrm{eV}\)</p>
+        </div>
+      </details>
+      <details class="worked-more">
+        <summary>Worked example: not every photon frees an electron</summary>
+        <div id="planck-worked-2" class="worked">
+          <span class="tag">Worked example</span>
+          <p>2.0 mW of 400 nm light falls on a cathode and the saturation current is 1.6 μA. What fraction of the photons free an electron?</p>
+          <ol class="steps">
+            <li>Photons per second \(= P / (hc/\lambda) = 2.0 \times 10^{-3} / 4.97 \times 10^{-19} = 4.0 \times 10^{15}\).</li>
+            <li>Electrons per second \(= I/e = 1.6 \times 10^{-6} / 1.60 \times 10^{-19} = 1.0 \times 10^{13}\).</li>
+          </ol>
+          <p class="answer">\(1.0 \times 10^{13} / 4.0 \times 10^{15} = 0.25\%\): about 1 photon in 400. The rest are reflected or absorbed without freeing an electron.</p>
+        </div>
+      </details>
+    </section>
+    <nav class="next" aria-label="Previous and next page">
+      <a class="prev" href="1-1.html">← 1.1 Photoelectric effect</a>
+      <a href="summary.html">Next: Chapter summary →</a>
+    </nav>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/notes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="05f377">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">05f377</code></footer>
+</body>
+</html>

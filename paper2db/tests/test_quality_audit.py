@@ -164,6 +164,37 @@ class TestPipelineLavishWiring(unittest.TestCase):
                 "build_mc_lavish_review.py",
                 "build_lq_lavish_review.py",
                 "build_pipeline_lavish_review.py",
+            ]
+            + (
+                ["build_derived_keys_review.py"]
+                if (pipe.ROOT / "metadata" / "derived_keys.json").is_file()
+                else []
+            ),
+        )
+
+    def test_stage_lavish_builds_derived_board_when_keys_exist(self) -> None:
+        pipe = load_module("paper2db_pipeline", ROOT / "pipeline")
+        calls: list[str] = []
+
+        def fake_run(script_name: str, *args: str) -> None:
+            calls.append(script_name)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            (tmp_path / "metadata").mkdir(parents=True)
+            (tmp_path / "metadata" / "derived_keys.json").write_text("{}")
+            with mock.patch.object(pipe, "ensure_lq_performance"):
+                with mock.patch.object(pipe, "ROOT", tmp_path):
+                    with mock.patch.object(pipe, "run_script", side_effect=fake_run):
+                        pipe.stage_lavish()
+        self.assertEqual(
+            calls,
+            [
+                "quality_audit.py",
+                "build_mc_lavish_review.py",
+                "build_lq_lavish_review.py",
+                "build_pipeline_lavish_review.py",
+                "build_derived_keys_review.py",
             ],
         )
 

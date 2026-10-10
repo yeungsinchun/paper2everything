@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.3 Bohr's model of the hydrogen atom</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">paper<i>2</i>notes<small>Atoms and spectra</small></a>
+    <nav aria-label="Chapter 2 pages">
+      <a href="index.html">Map</a>
+      <a href="2-1.html">2.1</a>
+      <a href="2-2.html">2.2</a>
+      <a href="2-3.html" aria-current="page">2.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.3</p>
+    <h1>Bohr's model of the hydrogen atom</h1>
+    <p class="lede">Bohr kept Rutherford's orbiting electron but allowed only certain orbits. That one rule explains the hydrogen spectrum.</p>
+    <aside class="quick-digest" aria-label="Bohr&#x27;s model of the hydrogen atom in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>\( E_n = -\dfrac{13.6}{n^2}\ \text{eV} \)</b><span>energy levels of hydrogen; ground state n = 1</span></p>
+        <p><b>\( hf = E_b - E_a \)</b><span>one photon per jump, emitted or absorbed</span></p>
+        <p><b>Ionization energy 13.6 eV</b><span>lifts the electron from n = 1 to n = ∞</span></p>
+        <p><b>Lyman, Balmer, Paschen</b><span>jumps ending at n = 1, 2, 3: ultraviolet, visible, infrared</span></p>
+        <p><b>Photon: exact match; electron: enough</b><span>an electron can give part of its energy</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#postulates"><b>A</b>Bohr's postulates</a>
+      <a href="#energy-levels"><b>B</b>Energy levels</a>
+      <a href="#series"><b>C</b>Spectral series</a>
+      <a href="#excitation"><b>D</b>Photon or electron</a>
+      <a href="#models"><b>E</b>Three models</a>
+    </nav>
+<section class="idea" id="postulates" data-chip="Bohr's postulates">
+      <header>
+        <h2><span class="sec-num">A</span>Bohr's four postulates</h2>
+      </header>
+      <figure id="postulates-fig-1" class="fig">
+        <div class="visual play stage" id="bohr-vis" data-autoplay data-scene="bohr-jump">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Bohr hydrogen atom with allowed orbits n = 1, 2 and 3. The electron circles in the n = 3 orbit without radiating, then jumps to the n = 2 orbit and sends out one red photon."></canvas>
+          <span class="hud-label" data-hud="n1">n = 1</span>
+          <span class="hud-label" data-hud="n2">n = 2</span>
+          <span class="hud-label" data-hud="n3">n = 3</span>
+          <span class="hud-label" data-hud="photon">one photon, hf = E₃ − E₂</span>
+          <button type="button" class="stage-replay" data-replay="bohr-vis">Replay</button>
+        </div>
+        <figcaption><b>Fig. 2.9</b> No radiation while in an orbit; one photon per jump.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>The electron keeps its energy while it moves in an allowed orbit, so the atom is stable. When it drops from the n = 3 orbit to the n = 2 orbit, the atom loses exactly \(E_3 - E_2 = 1.89\) eV and that energy leaves as a single photon of wavelength 656 nm, the red hydrogen line.</p></details>
+      </figure>
+      <table id="postulates-table-1" class="notes">
+        <thead><tr><th>Postulate</th><th>What it says</th><th>Classical or quantum</th></tr></thead>
+        <tbody>
+          <tr><th>1. Circular orbit</th><td>The electron moves in a circle round the nucleus; the electric attraction provides the centripetal force.</td><td>Classical (from Rutherford)</td></tr>
+          <tr><th>2. Stationary orbits</th><td>Only certain orbits are allowed. In them the electron does not radiate, so each orbit has a fixed energy.</td><td>Quantum</td></tr>
+          <tr><th>3. Transitions</th><td>The atom emits or absorbs one photon only when the electron jumps between allowed orbits: \(hf = E_{\text{upper}} - E_{\text{lower}}\).</td><td>Quantum</td></tr>
+          <tr><th>4. Quantized angular momentum</th><td>The allowed orbits are those with \(m_e v r = \dfrac{nh}{2\pi}\), \(n = 1, 2, 3, \ldots\)</td><td>Quantum</td></tr>
+        </tbody>
+      </table>
+      <div id="postulates-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>A quantity is <b>quantized</b> when it can take only certain separate values. The whole number \(n\) that labels an allowed orbit and its energy is the <b>quantum number</b>.</p>
+      </div>
+      <div id="postulates-check-1" class="check" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Which of these is <em>not</em> one of Bohr's postulates?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The electron does not radiate while it stays in an allowed orbit.</button>
+          <button type="button" data-choice="B">The electron's angular momentum can take any value.</button>
+          <button type="button" data-choice="C">The atom absorbs a photon only if the electron can jump to another allowed orbit.</button>
+          <button type="button" data-choice="D">The electric force from the nucleus keeps the electron in a circular orbit.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> Bohr required the angular momentum to be quantized, \(nh/2\pi\). <b>A</b> is postulate 2, <b>C</b> postulate 3 and <b>D</b> postulate 1.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="energy-levels" data-chip="Energy levels">
+      <header>
+        <h2><span class="sec-num">B</span>Energy levels of hydrogen</h2>
+      </header>
+      <figure id="energy-levels-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 300" role="img" aria-labelledby="hlevels-title">
+            <title id="hlevels-title">Energy level diagram of hydrogen. Levels at minus 13.6 electronvolts for n equals 1, minus 3.40 for n equals 2, minus 1.51 for n equals 3, minus 0.85 for n equals 4, crowding up towards 0 electronvolts at n equals infinity. Above zero is the ionized state. An upward arrow from n equals 1 to n equals 2 is marked excitation energy 10.2 electronvolts. A longer arrow from n equals 1 to infinity is marked ionization energy 13.6 electronvolts.</title>
+            <rect x="120" y="14" width="250" height="20" class="fill-soft"/>
+            <text x="245" y="29" text-anchor="middle" class="small">ionized: any energy above 0</text>
+            <line x1="120" y1="40" x2="370" y2="40" class="guide"/>
+            <line x1="120" y1="58" x2="370" y2="58" class="level"/>
+            <line x1="120" y1="78" x2="370" y2="78" class="level"/>
+            <line x1="120" y1="112" x2="370" y2="112" class="level"/>
+            <line x1="120" y1="270" x2="370" y2="270" class="level"/>
+            <text x="112" y="45" text-anchor="end" class="small">0 eV</text>
+            <text x="112" y="62" text-anchor="end" class="small">−0.85 eV</text>
+            <text x="112" y="82" text-anchor="end" class="small">−1.51 eV</text>
+            <text x="112" y="116" text-anchor="end" class="small">−3.40 eV</text>
+            <text x="112" y="274" text-anchor="end" class="small">−13.6 eV</text>
+            <text x="378" y="45" class="small">n = ∞</text>
+            <text x="378" y="62" class="small">n = 4</text>
+            <text x="378" y="82" class="small">n = 3</text>
+            <text x="378" y="116" class="small">n = 2 (1st excited)</text>
+            <text x="378" y="274" class="small">n = 1 (ground)</text>
+            <line x1="180" y1="270" x2="180" y2="124" class="electron-line"/>
+            <path d="M173,128 L180,114 L187,128" class="electron-line"/>
+            <text x="190" y="200" class="small">excitation</text>
+            <text x="190" y="215" class="small">10.2 eV</text>
+            <line x1="300" y1="270" x2="300" y2="52" class="energy-line"/>
+            <path d="M293,56 L300,42 L307,56" class="energy-line"/>
+            <text x="310" y="200" class="small">ionization</text>
+            <text x="310" y="215" class="small">13.6 eV</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.10</b> All levels are negative and crowd together towards 0 eV.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Zero energy means the electron is just free of the nucleus. A bound electron has less energy than that, so every bound level is negative. The deeper the level, the more energy it takes to pull the electron out. Above zero the electron is free and may have any energy, so the ionized state is not quantized.</p></details>
+      </figure>
+      <div id="energy-levels-eq-1" class="eq">\[ E_n = -\frac{13.6}{n^{2}}\ \mathrm{eV} \qquad r_n = n^{2} r_1, \quad r_1 = 5.29 \times 10^{-11}\ \mathrm{m} \]</div>
+      <p>Both formulas apply to hydrogen only. \(r_1\), the radius of the smallest orbit, is the <b>Bohr radius</b>.</p>
+      <table id="energy-levels-table-1" class="notes">
+        <thead><tr><th>Term</th><th>Meaning</th><th>Hydrogen</th></tr></thead>
+        <tbody>
+          <tr><th>Ground state</th><td>Lowest level, \(n = 1\); the most stable state</td><td>\(-13.6\) eV</td></tr>
+          <tr><th>Excited states</th><td>Every level with \(n &gt; 1\); \(n = 2\) is the first excited state</td><td>\(-3.40, -1.51, -0.85, \ldots\) eV</td></tr>
+          <tr><th>Excitation energy</th><td>Energy to raise the atom from one level to a higher one: \(E_b - E_a\)</td><td>\(n = 1 \to 2\): 10.2 eV</td></tr>
+          <tr><th>Ionization energy</th><td>Least energy to remove the electron from the ground state: \(E_\infty - E_1 = -E_1\)</td><td>13.6 eV</td></tr>
+        </tbody>
+      </table>
+      <div id="energy-levels-check-1" class="check" data-check="tf">
+        <h3>Quick check</h3>
+        <div id="energy-levels-tf-1" class="tf-item" data-answer="false">
+          <p>(a) The gap between neighbouring levels grows as \(n\) increases.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. The levels crowd together near 0 eV: \(n = 1 \to 2\) needs 10.2 eV but \(n = 3 \to 4\) only 0.66 eV.</p></div>
+        </div>
+        <div id="energy-levels-tf-2" class="tf-item" data-answer="false">
+          <p>(b) A ground-state hydrogen atom can be ionized only by exactly 13.6 eV.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. 13.6 eV is the minimum. Any extra energy becomes the kinetic energy of the freed electron, since free energies are not quantized.</p></div>
+        </div>
+      </div>
+      <div id="energy-levels-check-2" class="check" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Why are the energy levels of a hydrogen atom negative?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The electron carries a negative charge.</button>
+          <button type="button" data-choice="B">The electron is bound: energy must be supplied to free it.</button>
+          <button type="button" data-choice="C">The electron's kinetic energy is negative.</button>
+          <button type="button" data-choice="D">The atom loses energy all the time.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> A free electron at rest has zero energy; a bound one has less. <b>A</b> confuses charge with energy. <b>C</b> is impossible: kinetic energy is never negative. <b>D</b> contradicts Bohr's stationary orbits.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example: exciting and ionizing hydrogen</summary>
+        <div id="energy-levels-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>Find (a) the energy to raise a hydrogen atom from \(n = 2\) to \(n = 3\), and (b) the least energy to ionize an atom in the \(n = 4\) state.</p>
+          <ol class="steps">
+            <li>\(E_3 - E_2 = \left(-\dfrac{13.6}{9}\right) - \left(-\dfrac{13.6}{4}\right) = -1.51 + 3.40\).</li>
+            <li>Ionizing means reaching \(n = \infty\), where \(E = 0\): energy \(= 0 - E_4 = 13.6 / 16\).</li>
+          </ol>
+          <p class="answer">(a) 1.89 eV; (b) 0.85 eV</p>
+          <p class="note">The final state for ionization is \(n = \infty\), not \(n = 1\).</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="series" data-chip="Spectral series">
+      <header>
+        <h2><span class="sec-num">C</span>The hydrogen spectrum explained</h2>
+      </header>
+      <figure id="series-fig-1" class="fig">
+        <div class="sim-controls" data-levels>
+          <div class="row" role="group" aria-label="Upper level">
+            <span class="row-label">From n =</span>
+            <button type="button" data-up="2">2</button>
+            <button type="button" data-up="3" aria-pressed="true">3</button>
+            <button type="button" data-up="4">4</button>
+            <button type="button" data-up="5">5</button>
+            <button type="button" data-up="6">6</button>
+          </div>
+          <div class="row" role="group" aria-label="Lower level">
+            <span class="row-label">Down to n =</span>
+            <button type="button" data-low="1">1</button>
+            <button type="button" data-low="2" aria-pressed="true">2</button>
+            <button type="button" data-low="3">3</button>
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="readout" data-out="dE">photon energy = 1.89 eV</span>
+            <span class="readout" data-out="lambda">wavelength = 658 nm</span>
+            <span class="readout" data-out="series">Balmer series, visible</span>
+          </div>
+          <svg class="fig-svg" viewBox="0 0 480 320" role="img" aria-labelledby="levels-sim-title">
+            <title id="levels-sim-title">Hydrogen energy levels n = 1 to 6 with the chosen downward jump drawn as an arrow in the colour of the emitted light.</title>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.11</b> Pick a jump: the readout gives the photon and its series.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Try every jump down to n = 2: all land in or near the visible range, the Balmer lines. Jumps down to n = 1 release much more energy (ultraviolet), and jumps down to n = 3 much less (infrared). The model's wavelengths differ from measured ones by less than 1%, because the readout uses the rounded value 13.6 eV.</p></details>
+      </figure>
+      <div id="series-eq-1" class="eq">\[ \frac{1}{\lambda} = R\left(\frac{1}{a^{2}} - \frac{1}{b^{2}}\right) \]</div>
+      <div id="series-eq-2" class="eq">\[ R = \frac{13.6\ \mathrm{eV}}{hc} = 1.097 \times 10^{7}\ \mathrm{m^{-1}} \]</div>
+      <p>\(a\) is the lower level and \(b\) the upper level, \(b &gt; a\). Rydberg found this formula from the measured lines; Bohr's levels explain it, since \(hc/\lambda = E_b - E_a\).</p>
+      <table id="series-table-1" class="notes">
+        <thead><tr><th>Series</th><th>Jumps end at</th><th>Region</th><th>Wavelengths</th></tr></thead>
+        <tbody>
+          <tr><th>Lyman</th><td>\(n = 1\)</td><td>Ultraviolet</td><td>122 nm down to 91 nm</td></tr>
+          <tr><th>Balmer</th><td>\(n = 2\)</td><td>Visible (and near ultraviolet)</td><td>656 nm down to 365 nm</td></tr>
+          <tr><th>Paschen</th><td>\(n = 3\)</td><td>Infrared</td><td>1880 nm down to 820 nm</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>Each series has a longest wavelength (the smallest jump, \(b = a + 1\)) and a shortest one, the <b>series limit</b> (\(b = \infty\)). Lines crowd together towards the limit.</li>
+        <li>Absorption uses the same gaps upwards, so absorption lines sit at exactly the emission wavelengths.</li>
+        <li>An atom in level \(n\) can emit by several routes. From \(n = 4\) there are six possible lines.</li>
+      </ul>
+      <div id="series-check-1" class="check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Hydrogen atoms are all in the \(n = 4\) state. How many different spectral lines can they emit as they fall back to the ground state?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">3</button>
+          <button type="button" data-choice="B">4</button>
+          <button type="button" data-choice="C">6</button>
+          <button type="button" data-choice="D">10</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> Count every pair of levels from 1 to 4: 4→3, 4→2, 4→1, 3→2, 3→1, 2→1. <b>A</b> counts only the jumps from \(n = 4\); <b>D</b> would need five levels.</p>
+        </div>
+      </div>
+      <div id="series-check-2" class="check" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Hydrogen emits a photon when its electron moves from level n = 5 to n = 3. Which spectral band contains the photon?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Infrared</button>
+          <button type="button" data-choice="B">Visible</button>
+          <button type="button" data-choice="C">Ultraviolet</button>
+          <button type="button" data-choice="D">X-ray</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> The fourth excited state is \(n = 5\) and the second is \(n = 3\). A jump ending at \(n = 3\) is in the Paschen series: \(1.51 - 0.54 = 0.97\) eV, about 1280 nm. Choosing <b>B</b> usually means reading "second excited" as \(n = 2\).</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example: naming a line</summary>
+        <div id="series-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>Hydrogen emits an ultraviolet line of wavelength 97.3 nm in the Lyman series. Which level does the jump start from?</p>
+          <ol class="steps">
+            <li>Lyman means \(a = 1\): \(\dfrac{1}{97.3 \times 10^{-9}} = 1.097 \times 10^{7}\left(1 - \dfrac{1}{b^{2}}\right)\).</li>
+            <li>\(1 - \dfrac{1}{b^{2}} = \dfrac{1.028 \times 10^{7}}{1.097 \times 10^{7}} = 0.937\), so \(\dfrac{1}{b^{2}} = 0.063\).</li>
+            <li>\(b^{2} = 15.9\).</li>
+          </ol>
+          <p class="answer">\(b = 4\): the jump is from \(n = 4\) to \(n = 1\).</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="excitation" data-chip="Photon or electron">
+      <header>
+        <h2><span class="sec-num">D</span>Exciting an atom: photons and electrons</h2>
+      </header>
+      <figure id="excitation-fig-1" class="fig">
+        <div class="sim-controls" data-excite>
+          <div class="row" role="group" aria-label="What hits the atom">
+            <span class="row-label">Hit with</span>
+            <button type="button" data-excite-mode="photon" aria-pressed="true">Photon</button>
+            <button type="button" data-excite-mode="electron">Electron</button>
+          </div>
+          <div class="row">
+            <label class="row-label" for="ex-e">Energy</label>
+            <input id="ex-e" type="range" min="5" max="16" step="0.1" value="10.2">
+            <output class="readout" for="ex-e" data-out="energy">photon energy 10.2 eV</output>
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="readout" data-out="result">Absorbed: the photon's energy matches n = 1 → 2 exactly. The photon disappears.</span>
+          </div>
+          <svg class="fig-svg" viewBox="0 30 300 262" role="img" aria-labelledby="excite-title">
+            <title id="excite-title">Hydrogen levels measured up from the ground state: n = 2 at 10.2 eV, n = 3 at 12.1 eV, n = 4 at 12.8 eV, ionized above 13.6 eV. The axis is broken below 9 eV. An arrow from n = 1 shows the energy brought in and which level, if any, the atom reaches.</title>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.12</b> A ground-state hydrogen atom hit by a photon or an electron.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Try 11.0 eV with each. The photon passes through, because 11.0 eV matches no gap. The electron excites the atom to n = 2 and carries on with the remaining 0.8 eV. Above 13.6 eV both ionize the atom.</p></details>
+      </figure>
+      <table id="excitation-table-1" class="notes">
+        <thead><tr><th>Incoming</th><th>Excites the atom when</th><th>Afterwards</th></tr></thead>
+        <tbody>
+          <tr><th>Photon</th><td>Its energy equals a gap exactly (or exceeds the ionization energy)</td><td>The photon is absorbed whole and disappears</td></tr>
+          <tr><th>Electron</th><td>Its kinetic energy is at least a gap</td><td>It gives up exactly the gap and keeps the rest: an inelastic collision</td></tr>
+          <tr><th>Either, too little energy</th><td>Never</td><td>Photon passes through; electron bounces off with no loss of KE: an elastic collision</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <span class="tag">Exam tip</span>
+        <p>A photon is all or nothing. An electron can share its energy. Check which one the question uses.</p>
+      </div>
+      <div id="excitation-check-1" class="check" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Which of these can excite a hydrogen atom in its ground state? (Levels: \(-13.6\), \(-3.40\), \(-1.51\) eV.)</p>
+        <ol class="stem-list">
+          <li>A photon of energy 11.0 eV</li>
+          <li>An electron of kinetic energy 11.0 eV</li>
+          <li>A photon of energy 12.09 eV</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(2) only</button>
+          <button type="button" data-choice="C">(1) and (3) only</button>
+          <button type="button" data-choice="D">(2) and (3) only</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> 12.09 eV equals \(E_3 - E_1\) exactly, so that photon is absorbed. The electron needs only at least 10.2 eV. The 11.0 eV photon matches no gap, so (1) fails.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example: an atom with three levels</summary>
+        <div id="excitation-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>An atom has levels \(-15.0\) eV (ground), \(-7.0\) eV and \(-3.2\) eV. (a) Can it absorb a photon of wavelength 105 nm? (b) An electron of 10.0 eV hits the ground-state atom. What can happen?</p>
+          <ol class="steps">
+            <li>Photon energy \(= 1243 / 105 = 11.8\) eV. Gaps from the ground state: \(-7.0 - (-15.0) = 8.0\) eV and \(-3.2 - (-15.0) = 11.8\) eV.</li>
+            <li>11.8 eV matches the second gap, so the photon is absorbed and the atom goes to the \(-3.2\) eV level.</li>
+            <li>10.0 eV is enough for the 8.0 eV gap but not the 11.8 eV gap.</li>
+          </ol>
+          <p class="answer">(a) Yes, to the top level; (b) the atom can rise to \(-7.0\) eV, leaving the electron 2.0 eV of KE (or the collision is elastic and the electron keeps 10.0 eV).</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="models" data-chip="Three models">
+      <header>
+        <h2><span class="sec-num">E</span>Three atomic models, and transitions at work</h2>
+      </header>
+      <table id="models-table-1" class="notes">
+        <thead><tr><th>Model</th><th>Picture</th><th>Explains</th><th>Fails to explain</th></tr></thead>
+        <tbody>
+          <tr><th>Thomson (1904)</th><td>Electrons scattered through a sphere of positive charge</td><td>Atoms contain electrons and are neutral</td><td>α particles bouncing back</td></tr>
+          <tr><th>Rutherford (1911)</th><td>Tiny dense nucleus; electrons orbit; mostly empty</td><td>α scattering</td><td>Stable atoms; line spectra</td></tr>
+          <tr><th>Bohr (1913)</th><td>Allowed orbits with fixed energies; photons only in jumps</td><td>Hydrogen line spectrum; stable atoms</td><td>Why orbits do not radiate; why angular momentum is quantized; atoms with more than one electron</td></tr>
+        </tbody>
+      </table>
+      <table id="models-table-2" class="notes">
+        <thead><tr><th>Effect</th><th>Transition at work</th></tr></thead>
+        <tbody>
+          <tr><th>Fluorescence</th><td>Ultraviolet photons lift atoms several levels; the atoms fall back in smaller steps and emit visible light.</td></tr>
+          <tr><th>Laser</th><td>Many atoms are pumped to one excited level and fall together, giving many photons of one wavelength.</td></tr>
+          <tr><th>LED</th><td>Electrons fall to lower energy levels inside a semiconductor and emit photons.</td></tr>
+          <tr><th>Aurora</th><td>Fast particles from space excite oxygen and nitrogen in the air, which glow green, red and blue.</td></tr>
+        </tbody>
+      </table>
+      <div id="models-check-1" class="check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A fluorescent paint glows green under ultraviolet light. Why is the emitted light of longer wavelength than the light absorbed?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The paint slows the light down.</button>
+          <button type="button" data-choice="B">Each green photon carries more energy than an ultraviolet photon.</button>
+          <button type="button" data-choice="C">The atoms return to lower levels in several smaller jumps.</button>
+          <button type="button" data-choice="D">The ultraviolet photons are split into two green photons of equal energy.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> Smaller jumps release smaller photons, so the wavelength is longer. <b>B</b> is backwards. <b>A</b> confuses speed with wavelength. <b>D</b> has the right idea of sharing energy, but the steps are set by the levels and need not be equal.</p>
+        </div>
+      </div>
+    </section>
+    <nav class="next" aria-label="Previous and next page">
+      <a class="prev" href="2-2.html">← 2.2 Atomic spectra</a>
+      <a href="summary.html">Next: Chapter summary →</a>
+    </nav>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/lib/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="05f377">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">05f377</code></footer>
+</body>
+</html>

@@ -70,7 +70,7 @@ Versus a plain past-paper archive: questions are cut per item, labelled by secti
 ### 3.4 Current scope
 
 - Notes: Book 2 (10 chapters), Book 4 (8), Book 5 (3).
-- DSE banks: 27 syllabus sections, MC and LQ; tracked published snapshot of 82 files ships in the image.
+- DSE banks: 27 syllabus sections, MC and LQ; tracked published snapshot ships in the image; see [the publication contract](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
 - QB: 46 banks, 169 DOCX, 3,847 items (1,881 in scope), surfaced in `/qb` with topic filters and real crops.
 - Mocks: F.1 maths, 10 tests.
 
@@ -343,13 +343,13 @@ Run at **1280x800** and **390x844**, top of page plus the affected section, wait
 
 Source PDFs live in `paper/{mc,lq,ans,performance}/`.
 
-- **MC (Paper 1A):** `mc-anchors` (blue dots, human review of `intermediate/mc/<year>/anchor.pdf`), `mc-split` (per-question `qN.png`), `keys` (answer letters and correct-% into `tests/sections/mc/answer_keys.json`, patched by `scripts/answer_key_overrides.json`), `classify-mc`.
-- **LQ (Paper 1B):** `lq-pages`, `lq-crops` (whole exam-page stack per question, `page_from` to `page_to` from `starts.json`; no within-page crop; trailing data and formula sheets excluded), `lq-answers` (marking-scheme crops), `lq-performance` (candidate-performance notes from `paper/performance/*.md`), `classify-lq`.
+- **MC (Paper 1A):** `mc-anchors` (blue dots, human review of `intermediate/mc/<year>/anchor.pdf`), `mc-split` (per-question `qN.png`), `keys` (answer letters and correct-% into `tests/sections/mc/answer_keys.json`: OCR of ans PDFs, patched by `scripts/answer_key_overrides.json`, plus 3/3 unanimous or board-adjudicated keys from `metadata/derived_keys.json` for years with no ans PDF), `classify-mc`.
+- **LQ (Paper 1B):** `lq-pages`, `lq-crops` (whole exam-page stack per question, `page_from` to `page_to` from `starts.json`; no within-page crop; trailing data and formula sheets excluded), `lq-answers` (marking-scheme crops, whole marking-scheme pages per question from per-year `tests/reconstructed/lq/<year>/ans_starts.json`), `lq-performance` (candidate-performance notes from `paper/performance/*.md`), `classify-lq`.
 - **Both:** `section-pdfs` (per-section A4 `combined.pdf`, plus LQ `answers.pdf` and `performance.pdf`), then `dse-items` (join crops, classifications, MC keys, LQ candidate performance and answer pointers into `paper2db.dse-item.v1` records under `tests/sections/items/`), then `lavish` (quality audit and review HTML).
 
 **Classification.** 27 syllabus sections across Books 1 to 5 (Heat and Gases, Force and Motion, Wave Motion, Ray Optics, Electricity and Magnetism, Radioactivity and Nuclear Energy). Each paper type has an LLM backend (`classify_*_llm.py`, needs `LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`, optional `LLM_BASE_URL`, `LLM_MODEL`) and a keyword fallback (`classify_mc_sections.py`, `classify_lq_keywords.py`). An LQ can belong to several sections; `apply_book5_listings()` lists every Book 5 section a radioactivity LQ tests, and section PDFs include non-primary listings. Decisions are tracked because they are paid and nondeterministic: `metadata/mc/llm_classifications.json` (573 MC items across 2012 to 2026 plus `pp` and `sap`) and `metadata/lq/llm_classifications.json`. `classify-mc` and `classify-lq` replay those decisions by default and call the LLM only for years missing from the metadata; a precomputed JSON can still be applied explicitly with `--from-json`.
 
-**Hand-tuned tracked inputs:** `scripts/overrides_*.json` (MC anchor overrides for 2012, 2015, 2016, 2018, 2019, 2020 and the sample paper `sap`), `scripts/answer_key_overrides.json`, `scripts/lq_answer_pages.json` (hand-verified marking-scheme page map used when OCR orientation or label detection fails), `tests/reconstructed/lq/<year>/starts.json`. Quality bar: at most 5% of questions need manual tuning; `scripts/quality_audit.py --strict` writes `tests/sections/quality_audit.json` counting missing crops, missing classified copies, uncertain flags, tiny crops, incomplete years and override-tuned questions.
+**Hand-tuned tracked inputs:** `scripts/overrides_*.json` (MC anchor overrides for 2012, 2015, 2016, 2018, 2019, 2020 and the sample paper `sap`), `scripts/answer_key_overrides.json`, `tests/reconstructed/lq/<year>/ans_starts.json` (per-year hand-verified marking-scheme page map used when OCR orientation or label detection fails), `tests/reconstructed/lq/<year>/starts.json`. Quality bar: at most 5% of questions need manual tuning; `scripts/quality_audit.py --strict` writes `tests/sections/quality_audit.json` counting missing crops, missing classified copies, uncertain flags, tiny crops, incomplete years and override-tuned questions.
 
 **Output.** `section-pdfs` writes `paper2db/tests/sections/{mc,lq}/<NN_Book>/<NN_Section>/` with PNG crops (`YYYY_qN.png` for MC; `YYYY-qN.png` and `YYYY-qN-ans.png` for LQ) and `combined.pdf`, plus CSVs, `answer_keys.json`, `quality_audit.json`. Everything is reproducible from `paper/` with `./pipeline --force --yes`.
 
@@ -383,12 +383,12 @@ Variants of one item code merge. Answer precedence: `_ans`/`_answer`/`_yes_ans` 
 |---|---|---|
 | `qb/` | `items/<bank>.json`, `items/index.json`, palette-optimised `crops/*.png`, `manifest.json` (per-bank counts and sizes, warnings, tool versions, missing crops) | 3,847 items, 46 banks (generated 2026-09-29) |
 | `dse-mc/` (`stage_dse_mc.py`) | `crops/<year>/qNN.png` and `.webp`, `index.json` (year, question, sections, reason, answer option and %, image paths, warnings), `sections.json`, `stats.json`, `manifest.json` | 537 items, 2012 to 2026 plus `pp` (36 for 2012, 2013 and `pp`, 33 otherwise); the classification file covers 573, and only `sap` is not staged |
-| `dse-lq/` (`stage_lq_qb_web_ui.py`) | whole-page question PNGs `YYYY-qN.png`, answer crops `YYYY-qN-ans.png`, per-section copies, `candidate_performance.json`, `manifest.json`, `index.json`, `raw/` | 170 questions; 122 with answer crops (48 missing); 144 with performance notes (26 missing) |
+| `dse-lq/` (`stage_lq_qb_web_ui.py`) | whole-page question PNGs `YYYY-qN.png`, answer crops `YYYY-qN-ans.png`, per-section copies, `candidate_performance.json`, `manifest.json`, `index.json`, `raw/` | 170 questions; 144 with answer crops (26 missing); 144 with performance notes (26 missing) |
 | `book2-db/` (`build_book2_db.py`) | `book2.json` (every in-scope problem, one record each, MC vs LQ and by topic), `summary.json` (counts per topic, kind and source), `audit.json` (every integrity check with its failing ids) | 1,068 records: DSE 150 MC + 45 LQ, QB 502 MC + 371 written (`sq` 203, `rq` 13, `lq` 155) |
 
 Missing data is flagged per item (`warnings`, `missing_flags`), never silently dropped. MC warnings: `missing_answer`, `missing_percentage`, `uncertain_classification`, `missing_crop`. Missing performance notes are expected for 2026, `pp`, and any question whose performance markdown has no Section B note.
 
-Separately, `paper2notes/notes/dse/{mc,lq}/<section>/` (82 files) is the published snapshot that ships to Cloud Run and renders the in-page DSE decks.
+For the published DSE snapshot and its availability guard, see [the publication contract](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
 
 ### 7.4 Answerability harness (`paper2notes/scripts/audit/`)
 
@@ -466,17 +466,16 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 | `paper2notes/` | Student site (`notes/`), CI check, deploy scripts, Cloud Run config | Static HTML/CSS/JS (vendored three.js, KaTeX); Node for checks; Docker and nginx for hosting |
 | `paper2mock/` | `f1/test1/<1..10>/{question-paper,marking-scheme}/` | LuaLaTeX via latexmk |
 | `.github/workflows/` | `ci-notes`, `ci-pointers`, `ci-paper2db`, `compile-mocks`, `deploy-notes` | GitHub Actions |
-| `docs/` | `ARCHITECTURE.md`, this PRD, board notes, screenshots | Markdown |
+| `docs/` | `ARCHITECTURE.md`, this PRD, board notes | Markdown |
 | `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML, CSS, JS |
-| `data/` | Working notes (`p2e-book2-ch01-usability-mistakes.md`) | Markdown |
 
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|
-| `paper2db/paper/**` source PDFs | `paper2db/intermediate/`, `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json`) |
+| `paper2db/paper/**` source PDFs | `paper2db/intermediate/`, `paper2db/tests/sections/**`, `paper2db/tests/reconstructed/**` (except `lq/*/starts.json` and `lq/*/ans_starts.json`) |
 | `paper2db/metadata/*/llm_classifications.json`, `metadata/qb/{banks,source-manifest}.json` | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
-| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `lq_answer_pages.json`, `tests/reconstructed/lq/*/starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
+| `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `tests/reconstructed/lq/*/starts.json`, `tests/reconstructed/lq/*/ans_starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
-| `paper2notes/notes/` including the `dse/` snapshot (82 files) and `_source/` | `.audit/` harness output |
+| `paper2notes/notes/` including the `dse/` snapshot and `_source/` | `.audit/` harness output |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
 | `paper2mock/**` LaTeX sources | Compiled mock PDFs (built and released by CI) |
 
@@ -484,7 +483,7 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| `ci-notes` | PR and push to `main` touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, `paper2notes/anchors/**`, `paper2db/metadata/pointers/**`, nested workflow path, or itself | Node 20, `node --test paper2notes/scripts/anchor-lint.test.mjs` then `node paper2notes/scripts/ci-check.mjs` (includes the leak check and the anchor/pointer checks), `node --test paper2notes/scripts/leak-check.test.mjs`, `python3 paper2db/scripts/leak_fingerprints.py --check` |
+| [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Notes and DSE availability checks; see [the static check](../paper2notes/scripts/ci-check.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
 | `ci-pointers` | PR and push to `main`; path filters in the workflow | `python3 scripts/pointers.py check`, `coverage` and `python3 -m unittest tests.test_pointers` |
 | `ci-paper2db` | PR and push to `main` touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items records and answer-pointer join |
 | `compile-mocks` | PR touching `paper2mock/**` or itself; every push to `main` | Matrix LaTeX build of 20 documents; artifacts per PR; release on `main` |
@@ -492,7 +491,11 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 
 Only the workflows under `.github/workflows/` run; nested copies under `paper2notes/` and `paper2mock/` never do.
 
-**`ci-check.mjs`** (a no-op skip if `notes/` is absent) checks: Book 5, 2, 4 structure; relative `href`/`src` links resolve on disk (links via `_local/` skipped through `isKnownLocalOnly`); site region consistency; Lavish notes-refactor boards (before/after at 1280 and 390 widths and the readable-measure contract); `deploy-commit-footer` on every deployed HTML (excluding `_source`, `_local`): `<footer class="deploy-commit-footer" data-commit="<6-char>">deployed commit: <code>…</code></footer>`; the leak check (`scripts/leak-check.mjs`, L1–L4 protected-text findings against the tracked fingerprints, minus the pinned allowances in `scripts/leak/baseline.json`; level definitions in the script header); and the anchor checks (required, unique, non-positional ids, `anchors/moves.json` renames, and `paper2db/metadata/pointers/*.json` shape — see `paper2notes/anchors/README.md`). Not in CI: the Book 5 Puppeteer interactive tests (hard-coded macOS Chrome path), the DSE-quiz test (needs local scans), `sync-dse.sh`, the paper2db pipeline and the rest of its suite (`ci-paper2db` runs only `test_dse_items` and `test_pointers`), the audit harness.
+**Static notes checks:** [`ci-check.mjs`](../paper2notes/scripts/ci-check.mjs) owns the check inventory.
+Publication and DSE availability rules belong to [Architecture §2](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
+Anchor rules belong to the [anchors README](../paper2notes/anchors/README.md).
+
+Not in CI: the Book 5 Puppeteer interactive tests (hard-coded macOS Chrome path), the DSE-quiz test (needs local scans), `sync-dse.sh`, the paper2db pipeline and the rest of its suite (`ci-paper2db` runs only `test_dse_items` and `test_pointers`), the audit harness.
 
 **Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/`, `**/_local/`, `*.test.mjs`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
 

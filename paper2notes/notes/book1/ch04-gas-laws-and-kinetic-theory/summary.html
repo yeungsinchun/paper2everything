@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book 1 Ch.4 · Summary</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Gas Laws</small></a>
+    <nav>
+      <a href="index.html">Map</a><a href="4-1.html">4.1</a><a href="4-2.html">4.2</a><a href="4-3.html">4.3</a><a href="summary.html" aria-current="page">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="kicker">Book 1 · Chapter 4 · Extension</p>
+    <h1>Gas Laws and Kinetic Theory · Summary</h1>
+    <p class="lede">Select a gas relation by checking what stays fixed. Use Kelvin temperatures.</p>
+    <section class="idea" id="gas-summary-definitions">
+      <header>
+        <h2><span class="sec-num">A</span>Definitions</h2>
+      </header>
+      <dl class="formula-list">
+        <dt>Pressure</dt>
+        <dd>Normal force per unit area; for a gas, caused by molecular collisions on container walls.</dd>
+        <dt>Absolute temperature</dt>
+        <dd>Temperature in kelvins, measured from absolute zero.</dd>
+        <dt>Ideal gas</dt>
+        <dd>A model gas with negligible molecular size and intermolecular forces.</dd>
+        <dt>Atmospheric pressure</dt>
+        <dd>Pressure due to air; standard value near sea level is about 100 kPa.</dd>
+      </dl>
+    </section>
+    <section class="idea" id="gas-summary-laws">
+      <header>
+        <h2><span class="sec-num">B</span>Choose the law</h2>
+      </header>
+      <table class="notes" id="gas-laws-table">
+        <thead>
+          <tr>
+            <th>Fixed condition</th>
+            <th>Relation</th>
+            <th>Paired states</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Temperature and gas amount</th>
+            <td>Boyle: \(pV=\text{constant}\)</td>
+            <td>\(p_1V_1=p_2V_2\)</td>
+          </tr>
+          <tr>
+            <th>Volume and gas amount</th>
+            <td>Pressure: \(p/T=\text{constant}\)</td>
+            <td>\(p_1/T_1=p_2/T_2\)</td>
+          </tr>
+          <tr>
+            <th>Pressure and gas amount</th>
+            <td>Charles: \(V/T=\text{constant}\)</td>
+            <td>\(V_1/T_1=V_2/T_2\)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="eq" id="gas-summary-combined">
+        \[\frac{p_1V_1}{T_1}=\frac{p_2V_2}{T_2}\qquad pV=nRT\]
+      </div>
+      <p class="note">Convert Celsius to kelvins: \(T(\mathrm K)=\theta(^{\circ}\mathrm C)+273\). Use SI units with \(R=8.31\,\mathrm{J\,K^{-1}\,mol^{-1}}\).</p>
+    </section>
+    <section class="idea" id="gas-summary-model">
+      <header>
+        <h2><span class="sec-num">C</span>Kinetic explanation</h2>
+      </header>
+      <ul class="points">
+        <li>Pressure comes from molecule-wall collisions and momentum transfer.</li>
+        <li>At fixed volume, heating raises speed and collision rate, increasing pressure.</li>
+        <li>At fixed pressure, heating causes expansion so collision rate per area stays balanced.</li>
+        <li>At fixed temperature, compression increases collision frequency and pressure.</li>
+      </ul>
+    </section>
+    <section class="idea" id="gas-summary-traps">
+      <header>
+        <h2><span class="sec-num">D</span>Common traps</h2>
+      </header>
+      <ul class="points">
+        <li>Check fixed conditions and constant gas amount before applying a law.</li>
+        <li>Use kelvins in all temperature ratios.</li>
+        <li>Pressure acts in all directions; force from pressure acts perpendicular to a surface.</li>
+        <li>Do not confuse molecular speed with average kinetic energy: at the same temperature, lighter molecules move faster on average.</li>
+        <li>Ideal-gas assumptions work best at high temperature and low pressure.</li>
+      </ul>
+    </section>
+    <p class="next"><a href="index.html">Back to chapter map ↑</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">
+    deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span>
+  </footer>
+</body>
+</html>
