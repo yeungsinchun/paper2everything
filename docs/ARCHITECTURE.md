@@ -35,6 +35,8 @@ The leak edge has a drift check (`python3 paper2db/scripts/leak_fingerprints.py 
 | `paper2db/scripts/convert-qb-to-pdf.sh` | Bash + LibreOffice | run by hand | `paper2db/qb-pdf/` PDFs from `paper2db/qb/` DOCX |
 | `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book1/`, `/book2/`, `/book4/`, `/book5/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` staged to `_local/dse/` by `Dockerfile` |
+| `paper2notes/scripts/quiz-audit.mjs` | Node | `ci-notes` workflow | pass/fail for quiz keys, DSE availability and crop paths, plus answer-store agreement |
+| `paper2notes/scripts/quiz-store-audit.mjs` | Node | imported by `quiz-audit.mjs`; runnable on its own; tested in `ci-notes` | pass/fail for published DSE crops and MC keys backed by `paper2db/qb-web-ui-staging/dse-mc/index.json` |
 | `paper2notes/scripts/sync-dse.sh` | Bash (+ inline Python for placeholders) | run by hand from the repo root | `paper2notes/notes/_local/dse/` and `paper2notes/notes/book{2,4,5}/_local/dse/` (local dev) |
 | `paper2notes/scripts/ci-check.mjs` | Node | `ci-notes` workflow | pass/fail; check inventory in the script header, DSE publication contract in §2, anchor rules in `paper2notes/anchors/README.md` |
 | `paper2notes/scripts/leak-check.mjs` | Node | imported by `ci-check.mjs`; `node --test` in `ci-notes` | L1–L4 protected-text findings, minus `scripts/leak/baseline.json` allowances; level definitions in the script header |
@@ -244,7 +246,7 @@ no path filter.
 
 | Workflow | Trigger | Does |
 |---|---|---|
-| [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Notes and DSE availability checks; see [the static check](../paper2notes/scripts/ci-check.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
+| [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Anchor, quiz-key, DSE availability and crop-publication checks; the quiz audit also checks keys against the DSE MC answer store. See [the static check](../paper2notes/scripts/ci-check.mjs), [the quiz audit](../paper2notes/scripts/quiz-audit.mjs), [the store audit](../paper2notes/scripts/quiz-store-audit.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
 | `.github/workflows/ci-pointers.yml` | PR / push to main touching `paper2db/metadata/pointers/**`, `paper2db/schemas/answer-pointer.v1.json`, `paper2db/scripts/pointers.py`, `paper2db/tests/test_pointers.py`, `paper2db/qb-web-ui-staging/**`, `paper2db/metadata/qb/banks.json`, itself | `python3 scripts/pointers.py check`, then `coverage` and `python3 -m unittest tests.test_pointers`: answer-pointer store and resolver (`paper2db/README.md` answer pointers) |
 | `.github/workflows/ci-paper2db.yml` | PR / push to main touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items record join and answer-pointer tests |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
