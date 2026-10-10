@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.3 Measuring illumination</title>
+  <link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Lighting</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="1-1.html">1.1</a>
+      <a href="1-2.html">1.2</a>
+      <a href="1-3.html" aria-current="page">1.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.3</p>
+    <h1>Measuring illumination</h1>
+    <p class="lede">How much light lands on a surface, and how that depends on the angle of the surface and its distance from the lamp.</p>
+    <aside class="quick-digest" id="13-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>\( E = \Phi / A \)</b><span>illuminance in lux (lx = lm m⁻²): light falling on each square metre</span></p>
+        <p><b>\( E = E_0 \cos\theta \)</b><span>tilt a surface and the same beam spreads over more area</span></p>
+        <p><b>\( E = \dfrac{\Phi}{4\pi r^2} \)</b><span>small source, surface facing it: double the distance, a quarter of the light</span></p>
+        <p><b>\( E = \dfrac{\Phi\cos\theta}{4\pi r^2} \)</b><span>a surface on the floor below a lamp, with \( \cos\theta = d/r \)</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#illuminance"><b>A</b>Illuminance</a>
+      <a href="#cosine-law"><b>B</b>Cosine law</a>
+      <a href="#inverse-square"><b>C</b>Inverse square</a>
+      <a href="#oblique"><b>D</b>Lamp above a floor</a>
+      <a href="#using-the-laws"><b>E</b>Using the laws</a>
+    </nav>
+
+    <section class="idea" id="illuminance" data-chip="Illuminance">
+      <header>
+        <h2><span class="sec-num">A</span>Illuminance: light on a surface</h2>
+      </header>
+      <figure class="fig" id="illuminance-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 250" role="img" aria-labelledby="lux-title">
+            <title id="lux-title">Light from a lamp falls on a surface of area A. The illuminance is the luminous flux reaching the surface divided by its area: one lumen spread over one square metre is one lux.</title>
+            <circle cx="120" cy="40" r="16" fill="#F5B83D" stroke="#17212B" stroke-width="2"/>
+            <g stroke="#E8A317" stroke-width="2.5">
+              <line x1="112" y1="56" x2="60" y2="190"/>
+              <line x1="120" y1="56" x2="120" y2="190"/>
+              <line x1="128" y1="56" x2="180" y2="190"/>
+            </g>
+            <path d="M24 190 L 196 190 L 220 226 L 0 226 Z" fill="#FDF1D3" stroke="#17212B" stroke-width="2"/>
+            <text x="110" y="216" text-anchor="middle">area A</text>
+            <text x="148" y="110" text-anchor="start">flux Φ</text>
+            <text x="250" y="96" text-anchor="start"> </text>
+            <text x="252" y="104" text-anchor="start">E = Φ / A</text>
+            <text x="252" y="140" text-anchor="start" class="m">1 lm on 1 m²</text>
+            <text x="252" y="166" text-anchor="start" class="m">= 1 lx</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.12</b> Illuminance is flux per unit area of the lit surface.</figcaption>
+      </figure>
+      <div class="def" id="illuminance-def-1">
+        <span class="tag">Definition</span>
+        <p><b>Illuminance</b> \( E \) measures how much luminous flux lands on each square metre of a surface. Its unit is the <b>lux</b> (lx); \( 1\ \text{lx} = 1\ \text{lm m}^{-2} \). A lux meter measures it.</p>
+      </div>
+      <div class="eq" id="illuminance-eq-1">\[ E = \frac{\Phi}{A} \]</div>
+      <table class="notes" id="illuminance-notes-1">
+        <thead><tr><th>Situation</th><th>Typical illuminance</th></tr></thead>
+        <tbody>
+          <tr><td>Outdoors, bright sunshine</td><td>about 100 000 lx</td></tr>
+          <tr><td>Outdoors, heavy cloud</td><td>about 1000 lx</td></tr>
+          <tr><td>Office desk</td><td>about 500 lx</td></tr>
+          <tr><td>Street at night, under a lamp</td><td>about 10 lx</td></tr>
+          <tr><td>Full moonlight</td><td>about 0.1 lx</td></tr>
+        </tbody>
+      </table>
+      <div class="tip"><span class="tag">Common mistake</span> Three units, three quantities: luminous flux in lumens (lm), efficacy in lm W⁻¹, illuminance in lux (lx).</div>
+      <div class="check" id="illuminance-check-1" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Which is a unit of illuminance?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">lm</button>
+          <button type="button" data-choice="B">lm W⁻¹</button>
+          <button type="button" data-choice="C">W m⁻¹</button>
+          <button type="button" data-choice="D">lm m⁻²</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Illuminance is flux per area: lm m⁻², which is the lux. The lumen is for flux, lm W⁻¹ for efficacy, and W m⁻¹ is not a lighting unit.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="cosine-law" data-chip="Cosine law">
+      <header>
+        <h2><span class="sec-num">B</span>Lambert's cosine law</h2>
+      </header>
+      <figure class="fig" id="cosine-law-fig-1">
+        <div class="visual play stage" id="lambert-vis" data-scene="lambert">
+          <canvas class="scene-canvas" aria-label="A parallel beam of light falls on a surface that can be tilted. As the angle between the beam and the normal grows, the same beam covers a longer strip of the surface, so the illuminance falls."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Angle θ<input type="range" min="0" max="80" step="1" value="30" data-param="theta" aria-label="Angle between the beam and the normal, in degrees"><output data-out="theta">30°</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Lit area</b><span data-out="area">× 1.15</span></span><span class="readout"><b>E (500 lx face-on)</b><span data-out="E">433 lx</span></span></p>
+        <figcaption><b>Fig. 1.13</b> Tilt the surface: the beam spreads over \( 1/\cos\theta \) times the area.</figcaption>
+      </figure>
+      <div class="def" id="cosine-law-def-1">
+        <span class="tag">Definition</span>
+        <p><b>Lambert's cosine law</b>: when a parallel beam strikes a surface at an angle \( \theta \) to the normal, the illuminance is \( \cos\theta \) times its value at normal incidence.</p>
+      </div>
+      <div class="eq" id="cosine-law-eq-1">\[ \begin{gathered} E = E_0 \cos\theta \\ A = \frac{A_0}{\cos\theta} \end{gathered} \]</div>
+      <ul class="points">
+        <li>\( E_0 \): illuminance with the surface facing the beam; \( \theta \): angle between the beam and the <b>normal</b> to the surface, not the surface itself.</li>
+        <li>The illuminance is greatest when the light strikes the surface normally (\( \theta = 0 \)).</li>
+      </ul>
+      <div class="check" id="cosine-law-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A surface facing a parallel beam has an illuminance of 500 lx. It is turned so the beam makes 60° with its normal. What is the illuminance now?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">0 lx</button>
+          <button type="button" data-choice="B">250 lx</button>
+          <button type="button" data-choice="C">433 lx</button>
+          <button type="button" data-choice="D">500 lx</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( 500 \cos 60^\circ = 250 \) lx. 433 lx uses \( \sin 60^\circ \), measuring the angle from the surface instead of the normal. The flux reaching the surface is unchanged only if it stays face-on.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="inverse-square" data-chip="Inverse square">
+      <header>
+        <h2><span class="sec-num">C</span>The inverse-square law</h2>
+      </header>
+      <figure class="fig" id="inverse-square-fig-1">
+        <div class="visual play stage" id="isq-vis" data-scene="inverse-square">
+          <canvas class="scene-canvas" aria-label="Side view of light from a small source falling on a screen at distances from 1 to 4 metres, and a front view of the screen. At twice the distance the same light covers four unit squares; at three times, nine."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Distance r<input type="range" min="1" max="4" step="0.1" value="1" data-param="r" aria-label="Distance from the source in metres"><output data-out="r">1.0 m</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Area lit</b><span data-out="spread">× 1.00</span></span><span class="readout"><b>E for a 1200 lm source</b><span data-out="E">95.5 lx</span></span></p>
+        <figcaption><b>Fig. 1.14</b> Twice as far, four times the area, a quarter of the illuminance.</figcaption>
+      </figure>
+      <div class="eq" id="inverse-square-eq-1">\[ E = \frac{\Phi}{4\pi r^2} \]</div>
+      <ul class="points">
+        <li>A small source spreads its flux \( \Phi \) evenly over a sphere of area \( 4\pi r^2 \), so \( E \propto 1/r^2 \).</li>
+        <li>It holds only for a small (point-like) source and a surface facing the light. It fails for a parallel beam, which does not spread, and for a long tube lamp close to the surface.</li>
+      </ul>
+      <div class="check" id="inverse-square-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A small surface 10 m from a small lamp has an illuminance of 1000 lx. It is moved to 30 m, still facing the lamp. What is the illuminance now?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">333 lx</button>
+          <button type="button" data-choice="B">250 lx</button>
+          <button type="button" data-choice="C">111 lx</button>
+          <button type="button" data-choice="D">37 lx</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Three times the distance gives \( 1/3^2 = 1/9 \): \( 1000/9 \approx 111 \) lx. 333 lx treats the fall as linear; 37 lx uses \( 1/3^3 \).</p></div>
+      </div>
+      <div class="worked" id="inverse-square-worked-meter">
+        <h3>Worked example</h3>
+        <p>A lux meter facing a small lamp reads 48 lx at 2.0 m. Find the lamp's luminous flux, and the reading at 6.0 m.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>\( \Phi = 4\pi r^2 E = 4\pi (2.0)^2 (48) \approx 2410\ \text{lm} \).</li>
+            <li>Three times the distance: \( E = 48 / 3^2 \approx 5.3\ \text{lx} \).</li>
+          </ol>
+          <p class="answer">About 2400 lm; 5.3 lx at 6.0 m.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="oblique" data-chip="Lamp above a floor">
+      <header>
+        <h2><span class="sec-num">D</span>A lamp above a floor: both laws together</h2>
+      </header>
+      <figure class="fig" id="oblique-fig-1">
+        <div class="visual play stage" id="oblique-vis" data-scene="oblique">
+          <canvas class="scene-canvas" aria-label="A small lamp 2.5 metres above a floor. A small surface X lies on the floor a chosen distance from the point below the lamp. Moving X away makes the distance r longer and the angle theta larger, so the illuminance falls quickly."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">X from below lamp<input type="range" min="0" max="4" step="0.1" value="1.5" data-param="x" aria-label="Horizontal distance of X from the point below the lamp, in metres"><output data-out="x">1.5 m</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>r</b><span data-out="r">2.92 m</span></span><span class="readout"><b>cos θ</b><span data-out="cos">0.857</span></span><span class="readout"><b>E at X</b><span data-out="E">16.0 lx</span></span></p>
+        <figcaption><b>Fig. 1.15</b> Farther and more slanted: the floor dims fast away from the lamp.</figcaption>
+      </figure>
+      <div class="eq" id="oblique-eq-1">\[ \begin{gathered} E = \frac{\Phi}{4\pi r^2}\cos\theta = \frac{\Phi}{4\pi d^2}\cos^3\theta \\ \cos\theta = \frac{d}{r} \end{gathered} \]</div>
+      <ul class="points">
+        <li>\( d \): height of the lamp above the floor; \( r \): distance from lamp to X; \( \theta \): angle between the ray and the normal at X.</li>
+        <li>The point directly below the lamp is brightest; the edge of a table or a room corner is the dimmest.</li>
+        <li>Real readings come out higher than these values, because walls and ceiling reflect extra light onto the surface.</li>
+      </ul>
+      <div class="check" id="oblique-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A small 3000 lm lamp is 3.0 m above the floor. Point X on the floor is 4.0 m (horizontally) from the point below the lamp. What is the illuminance at X?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">5.7 lx</button>
+          <button type="button" data-choice="B">9.5 lx</button>
+          <button type="button" data-choice="C">15.9 lx</button>
+          <button type="button" data-choice="D">26.5 lx</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( r = 5.0 \) m and \( \cos\theta = 3/5 = 0.6 \), so \( E = 3000 \times 0.6 / (4\pi \times 5^2) \approx 5.7 \) lx. 9.5 lx forgets the cosine; 15.9 lx puts \( d^2 \) in place of \( r^2 \); 26.5 lx is the value directly below the lamp.</p></div>
+      </div>
+      <div class="worked" id="oblique-worked-table">
+        <h3>Worked example</h3>
+        <p>A lamp hangs 1.5 m above the centre of a round table of radius 1.0 m. Every part of the table needs at least 30 lx. Find the smallest flux the lamp must give, and its power if its efficacy is 80 lm W⁻¹.</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>The edge is dimmest: \( r = \sqrt{1.5^2 + 1.0^2} = 1.80\ \text{m} \), \( \cos\theta = 1.5/1.80 = 0.832 \).</li>
+            <li>\( \Phi = \dfrac{4\pi r^2 E}{\cos\theta} = \dfrac{4\pi (3.25)(30)}{0.832} \approx 1470\ \text{lm} \).</li>
+            <li>Power \( = 1470 / 80 \approx 18\ \text{W} \). Reflections from walls would make this an overestimate.</li>
+          </ol>
+          <p class="answer">About 1470 lm from an 18 W lamp.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="using-the-laws" data-chip="Using the laws">
+      <header>
+        <h2><span class="sec-num">E</span>Using the laws in practice</h2>
+      </header>
+      <table class="notes" id="using-the-laws-notes-1">
+        <thead><tr><th>To check</th><th>Do this</th></tr></thead>
+        <tbody>
+          <tr><th>Inverse-square law</th><td>Darken the room, keep a lux meter facing a small lamp, and record \( E \) at several distances \( r \). A graph of \( E \) against \( 1/r^2 \) is a straight line through the origin.</td></tr>
+          <tr><th>Cosine law</th><td>Keep \( r \) fixed and turn the meter through measured angles \( \theta \). A graph of \( E \) against \( \cos\theta \) is a straight line through the origin.</td></tr>
+          <tr><th>Precautions</th><td>Measure \( r \) to the filament; cut reflections with dark surroundings; keep stray light off the meter.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="using-the-laws-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="using-the-laws-tf-linear" data-answer="false">
+          <p>Doubling the distance from a small lamp halves the illuminance.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>It quarters it: \( E \propto 1/r^2 \).</p></div>
+        </div>
+        <div class="tf-item" id="using-the-laws-tf-equidistant" data-answer="false">
+          <p>Two small surfaces the same distance from a lamp always have the same illuminance.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>Their angles to the light can differ, and \( E \) also depends on \( \cos\theta \).</p></div>
+        </div>
+        <div class="tf-item" id="using-the-laws-tf-beam" data-answer="true">
+          <p>The inverse-square law does not apply to a parallel beam of light.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>A parallel beam does not spread out, so its illuminance does not fall with distance.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+  </main>
+  <script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>

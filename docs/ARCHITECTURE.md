@@ -220,9 +220,9 @@ Pages then load crops by relative path: Book 1 chapter pages use
 `../../_local/dse/{mc,lq}/<NN>/<file>`, which resolves to `notes/_local/dse/`.
 Book 2, 3, 4 and 5 section pages use `../_local/dse/{mc,lq}/<NN>/<file>`, and
 their indexes use `_local/dse/...`; those paths resolve to each book's local
-mirror. 469 distinct `_local` references are used (Book 1: 108 = 78 PNG + 30
-PDFs, Book 2: 8 = 0 PNG + 8 PDFs, Book 3: 242 = 195 PNG + 47 PDFs, Book 4: 23 =
-18 PNG + 5 PDFs, Book 5: 88 = 71 PNG + 17 PDFs). The standalone run of
+mirror. 504 distinct `_local` references are used (Book 1: 108 = 78 PNG + 30
+PDFs, Book 2: 8 = 0 PNG + 8 PDFs, Book 3: 242 = 195 PNG + 47 PDFs, Book 4: 58 =
+53 PNG + 5 PDFs, Book 5: 88 = 71 PNG + 17 PDFs). The standalone run of
 `paper2notes/scripts/dse-availability.mjs` reports references the snapshot does
 not hold as `dse-crop-not-published`.
 ### 3. QB banks: DOCX → PDF → notes intake
@@ -246,7 +246,7 @@ no path filter.
 
 | Workflow | Trigger | Does |
 |---|---|---|
-| [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Anchor, quiz-key, DSE availability and crop-publication checks; the quiz audit also checks keys against the DSE MC answer store. See [the static check](../paper2notes/scripts/ci-check.mjs), [the quiz audit](../paper2notes/scripts/quiz-audit.mjs), [the store audit](../paper2notes/scripts/quiz-store-audit.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
+| `.github/workflows/ci-notes.yml` | PR / push to main touching `paper2notes/notes/**`, `paper2notes/scripts/**`, `paper2db/scripts/leak_fingerprints.py`, `paper2db/qb-web-ui-staging/**/*.json`, `paper2notes/anchors/**`, `paper2db/metadata/pointers/**`, `paper2notes/.github/workflows/**`, itself | `node --test paper2notes/scripts/anchor-lint.test.mjs` then `node paper2notes/scripts/ci-check.mjs`: book2/4/5 structure, relative `href`/`src` resolution (links through `_local/` skipped), shared assets (books link `notes/css/notes.css`, `notes/js/`, `notes/vendor/` and keep no copies), lavish notes-refactor boards (before/after side-by-side at 1280 + 390 and readable-measure contract — see `.agents/skills/paper2everything-lavish-board/SKILL.md` and `docs/lavish-notes-boards.md`), `deploy-commit-footer` (`deployed commit: <6-char>` per `paper2notes/notes/**/*.html`; see `paper2notes/deploy/cloudrun/README.md`), the leak check (`paper2notes/scripts/leak-check.mjs`, L1–L4 against the tracked fingerprints), and anchor ids/`moves.json`/answer-pointer shape (`paper2notes/anchors/README.md`); then `node --test paper2notes/scripts/leak-check.test.mjs` and `python3 paper2db/scripts/leak_fingerprints.py --check` |
 | `.github/workflows/ci-pointers.yml` | PR / push to main touching `paper2db/metadata/pointers/**`, `paper2db/schemas/answer-pointer.v1.json`, `paper2db/scripts/pointers.py`, `paper2db/tests/test_pointers.py`, `paper2db/qb-web-ui-staging/**`, `paper2db/metadata/qb/banks.json`, itself | `python3 scripts/pointers.py check`, then `coverage` and `python3 -m unittest tests.test_pointers`: answer-pointer store and resolver (`paper2db/README.md` answer pointers) |
 | `.github/workflows/ci-paper2db.yml` | PR / push to main touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items record join and answer-pointer tests |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |
@@ -261,7 +261,7 @@ hardcoded macOS Chrome path), and `sync-dse.sh`. The nested
 
 ### 6. Cloud Run deploy
 
-`paper2notes/deploy/cloudrun/deploy.sh` resolves the 6-char `HEAD` (or `local`), injects/updates a muted `deploy-commit-footer` (`deployed commit: <code>`) into every `paper2notes/notes/**/*.html` via `paper2notes/scripts/inject-commit-footer.mjs --commit <sha>` and passes `--build-arg GIT_COMMIT=<sha>` before building `paper2notes/deploy/cloudrun/Dockerfile` with the repo root as context (it detects the monorepo by looking for `paper2notes/notes/book5` at the git top level), pushes to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, runs `gcloud run deploy`, and curls `/`, `/book2/`, `/book4/`, `/book5/`. The root `.dockerignore` admits `paper2notes/notes/` (including `notes/dse/`) and `nginx.conf`, minus `_source/`, `**/_local/` and `*.test.mjs`. The `Dockerfile` re-injects/updates the same footer at image-build time via `ARG GIT_COMMIT` (fallback so standalone `docker build -f paper2notes/deploy/cloudrun/Dockerfile .` without `deploy.sh` still gets a footer) and then `RUN cp -r dse/* → _local/dse/` (and into each `book*/_local/dse/`) as `root` and `chown`s to `nginx`, so the shipped image serves `_local/dse/…` paths from the tracked snapshot without needing `_local` in context. nginx serves the notes as static files on port 8080 with `absolute_redirect off`. `provision.sh` creates the GCP project, registry, runtime and deployer service accounts, the Cloud Run service and a Workload Identity Federation provider scoped to one GitHub repository. Footer details are owned by `paper2notes/deploy/cloudrun/README.md` and the injector `paper2notes/scripts/inject-commit-footer.mjs`.
+`paper2notes/deploy/cloudrun/deploy.sh` resolves the 6-char `HEAD` (or `local`), injects/updates a muted `deploy-commit-footer` (`deployed commit: <code>`) into every `paper2notes/notes/**/*.html` via `paper2notes/scripts/inject-commit-footer.mjs --commit <sha>` and passes `--build-arg GIT_COMMIT=<sha>` before building `paper2notes/deploy/cloudrun/Dockerfile` with the repo root as context (it detects the monorepo by looking for `paper2notes/notes/book5` at the git top level), pushes to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, runs `gcloud run deploy`, and curls `/`, `/book2/`, `/book4/`, `/book5/` plus one file from each shared folder (`/css/notes.css`, `/js/checks.js`, `/vendor/katex/katex.min.js`, `/vendor/three/three.min.js`). The root `.dockerignore` admits `paper2notes/notes/` (including `notes/dse/`) and `nginx.conf`, minus `_source/`, `**/_local/` and `*.test.mjs`. The `Dockerfile` re-injects/updates the same footer at image-build time via `ARG GIT_COMMIT` (fallback so standalone `docker build -f paper2notes/deploy/cloudrun/Dockerfile .` without `deploy.sh` still gets a footer) and then `RUN cp -r dse/* → _local/dse/` (and into each `book*/_local/dse/`) as `root` and `chown`s to `nginx`, so the shipped image serves `_local/dse/…` paths from the tracked snapshot without needing `_local` in context. nginx serves the notes as static files on port 8080 with `absolute_redirect off`. `provision.sh` creates the GCP project, registry, runtime and deployer service accounts, the Cloud Run service and a Workload Identity Federation provider scoped to one GitHub repository. Footer details are owned by `paper2notes/deploy/cloudrun/README.md` and the injector `paper2notes/scripts/inject-commit-footer.mjs`.
 
 ## Design findings
 
@@ -340,11 +340,13 @@ Local sync still relies on the layout described in A3/A4.
 captures that used to be tracked under `paper2notes/.lavish/` are gone from git.
 The ~283 MB of source PDFs are still in plain git, not LFS.
 
-**A11. Vendored code is copied per chapter.** `three.min.js` has 21 identical
-copies (13 MB), `checks.js` 11, `notes.js` 11, and KaTeX 3. Figure renderers
-are shared within Books 2 and 4, while Book 5 retains one per chapter. The
-landing page and `book2/index.html` load `book5/css/notes.css`, coupling other
-books to Book 5's stylesheet.
+**A11. Vendored code was copied per chapter (resolved).** Books now link one
+shared copy each of `notes/css/notes.css`, `notes/js/checks.js`, `math.js`,
+`scene-kit.js`, `notes/vendor/katex/` and `notes/vendor/three/three.min.js`
+(previously 21 `three.min.js` copies, 11 `checks.js`, 3 KaTeX trees). A book
+keeps only `css/book.css`, `js/quiz-data.js` and its own scene scripts;
+`ci-check.mjs` fails a book that copies a shared file. Figure renderers stay per
+book (Books 2 and 4) or per chapter (Book 5, on the shared scene kit).
 
 **A12. Dead or duplicated config left from the merge.** Nested
 `.github/workflows/` in paper2notes and paper2mock never run, yet `ci-notes.yml`
@@ -397,5 +399,6 @@ not show provenance. `paper2notes/README.md` now points to `../docs/ARCHITECTURE
    `compile-mocks`, and add a paper2db `unittest` workflow (A12, A13).
 6. Decide QB ownership: either version the DOCX (LFS) with the converter as a
    pipeline stage, or move QB handling to paper2notes intake (A8).
-7. Share vendored libraries at `notes/vendor/` and one notes stylesheet across
-   books (A11).
+7. Done: vendored libraries live at `notes/vendor/` and one notes stylesheet
+   serves every book (A11). Next: move Book 4 off its "Book 4 look" overrides and
+   Books 2 and 4 scene scripts onto `notes/js/scene-kit.js`.

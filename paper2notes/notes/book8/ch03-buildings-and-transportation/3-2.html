@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.2 Energy efficiency in transportation</title>
+  <link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Buildings and transport</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="3-1.html">3.1</a>
+      <a href="3-2.html" aria-current="page">3.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 3.2</p>
+    <h1>Energy efficiency in transportation</h1>
+    <p class="lede">Why electric and hybrid vehicles waste less energy than petrol and diesel ones, and why buses and trains beat cars.</p>
+    <aside class="quick-digest" id="32-digest" aria-label="What to remember">
+      <h2>What to remember</h2>
+      <div>
+        <p><b>Petrol or diesel car</b><span>engine turns chemical energy into mechanical; only about one-fifth is useful</span></p>
+        <p><b>Electric car</b><span>battery → motor; far less waste, but batteries store little energy per kg</span></p>
+        <p><b>Regenerative braking</b><span>the motor runs as a generator: KE → electrical → chemical in the battery</span></p>
+        <p><b>\( P = Fv = (f_r + kv^2)v \)</b><span>driving power grows steeply with speed</span></p>
+      </div>
+    </aside>
+    <nav class="idea-chips" aria-label="On this page">
+      <a href="#ice-vs-ev"><b>A</b>Petrol vs electric</a>
+      <a href="#regenerative-braking"><b>B</b>Regenerative braking</a>
+      <a href="#hybrid"><b>C</b>Hybrid vehicles</a>
+      <a href="#mass-transport"><b>D</b>Mass transport</a>
+      <a href="#driving-power"><b>E</b>Driving power</a>
+    </nav>
+
+    <section class="idea" id="ice-vs-ev" data-chip="Petrol vs electric">
+      <header>
+        <h2><span class="sec-num">A</span>Engines and motors</h2>
+      </header>
+      <figure class="fig" id="ice-vs-ev-fig-1">
+        <div class="visual svg-fig">
+          <svg class="diagram" viewBox="0 0 480 300" role="img" aria-labelledby="car-flow-title">
+            <title id="car-flow-title">Energy flow in two cars, per 100 units of stored energy. In a petrol car the engine passes on about 20 units as kinetic energy and loses about 80 as heat. In an electric car the battery and motor pass on about 80 units and lose about 20.</title>
+            <text x="12" y="30" text-anchor="start">petrol car</text>
+            <rect x="12" y="44" width="120" height="80" fill="#2A8FA8"/>
+            <text x="72" y="90" text-anchor="middle" class="w">fuel 100</text>
+            <rect x="132" y="44" width="100" height="16" fill="#7A4FC2"/>
+            <path d="M232 36 l20 16 l-20 16 z" fill="#7A4FC2"/>
+            <text x="260" y="58" text-anchor="start">KE 20</text>
+            <path d="M132 60 H 172 A 36 36 0 0 1 208 96 V 120 H 136 V 124 H 132 Z" fill="#F26B3A"/>
+            <path d="M126 120 h 92 l -46 26 z" fill="#F26B3A"/>
+            <text x="230" y="112" text-anchor="start">heat 80</text>
+            <text x="12" y="186" text-anchor="start">electric car</text>
+            <rect x="12" y="200" width="120" height="80" fill="#2A8FA8"/>
+            <text x="72" y="246" text-anchor="middle" class="w">battery 100</text>
+            <rect x="132" y="200" width="220" height="64" fill="#7A4FC2"/>
+            <path d="M352 192 l26 40 l-26 40 z" fill="#7A4FC2"/>
+            <text x="386" y="238" text-anchor="start">KE 80</text>
+            <path d="M132 264 h 24 v 16 h -24 z" fill="#F26B3A"/>
+            <path d="M126 280 h 36 l -18 14 z" fill="#F26B3A"/>
+            <text x="172" y="290" text-anchor="start">heat 20</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 3.5</b> Rough shares for each 100 units of stored energy.</figcaption>
+      </figure>
+      <ul class="points">
+        <li>Most vehicles burn petrol, diesel or LPG in an <b>internal combustion engine</b>; most of the chemical energy ends up as heat. Diesel vehicles also emit particulates and nitrogen oxides.</li>
+        <li>An <b>electric vehicle</b> runs a motor from a battery. It gives off no exhaust where it is used, and the battery-to-wheel conversion is far more efficient.</li>
+        <li>A battery is heavy (hundreds of kilograms) and stores far less energy per kilogram than fuel, so an electric car has a shorter range. Fast chargers refill it in about half an hour.</li>
+      </ul>
+      <table class="notes" id="ice-vs-ev-notes-energy">
+        <thead><tr><th>Energy store</th><th>Energy per kilogram</th></tr></thead>
+        <tbody>
+          <tr><td>Petrol, diesel, LPG</td><td>about 45–50 MJ kg⁻¹</td></tr>
+          <tr><td>Lithium-ion battery</td><td>below 1 MJ kg⁻¹</td></tr>
+          <tr><td>Lead-acid battery</td><td>about 0.1 MJ kg⁻¹</td></tr>
+        </tbody>
+      </table>
+      <div class="tip"><span class="tag">Common mistake</span> A battery stores <em>chemical</em> energy, not electrical energy. It becomes electrical energy only as the battery discharges.</div>
+      <div class="check" id="ice-vs-ev-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Why does an electric car usually travel a shorter distance on a full charge than a petrol car on a full tank?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Its motor is less efficient than an engine</button>
+          <button type="button" data-choice="B">Its battery stores much less energy per kilogram than fuel</button>
+          <button type="button" data-choice="C">It has no gearbox</button>
+          <button type="button" data-choice="D">Its regenerative braking wastes energy</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>The motor is the more efficient converter (not A), and regenerative braking recovers energy (not D). The limit is how little energy a battery holds for its mass.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="regenerative-braking" data-chip="Regenerative braking">
+      <header>
+        <h2><span class="sec-num">B</span>Regenerative braking</h2>
+      </header>
+      <figure class="fig" id="regenerative-braking-fig-1">
+        <div class="visual play stage" id="regen-vis" data-autoplay data-scene="regen">
+          <canvas class="scene-canvas" aria-label="An electric car speeds up, cruises, then brakes. Speeding up, energy flows from the battery to the motor and becomes kinetic energy. Braking, the motor works as a generator: part of the kinetic energy goes back into the battery and the rest becomes heat."></canvas>
+          <button type="button" class="stage-replay" data-replay="regen-vis">Replay</button>
+        </div>
+        <figcaption><b>Fig. 3.6</b> Braking turns the motor into a generator that recharges the battery.</figcaption>
+      </figure>
+      <div class="def" id="regenerative-braking-def-1">
+        <span class="tag">Definition</span>
+        <p>In <b>regenerative braking</b> the motor works as a generator while the car slows, turning part of its kinetic energy into electrical energy that recharges the battery.</p>
+      </div>
+      <ul class="points">
+        <li>Speeding up: chemical (battery) → electrical → kinetic energy (motor drives the wheels).</li>
+        <li>Braking: kinetic → electrical (generator) → chemical (battery). An ordinary car turns all of its kinetic energy into heat in the brakes.</li>
+      </ul>
+      <div class="check" id="regenerative-braking-check-1" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Which describes the energy changes in regenerative braking?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">electrical → kinetic</button>
+          <button type="button" data-choice="B">chemical → kinetic</button>
+          <button type="button" data-choice="C">kinetic → chemical → electrical</button>
+          <button type="button" data-choice="D">kinetic → electrical → chemical</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>The generator makes electrical energy from the car's KE, and the battery stores it as chemical energy. A and B describe speeding up; C has the last two steps reversed.</p></div>
+      </div>
+      <div class="worked" id="regenerative-braking-worked-car">
+        <h3>Worked example</h3>
+        <p>A 1200 kg electric car brakes from 20 m s⁻¹ to rest, and 40% of its kinetic energy is returned to the battery. How much energy is recovered?</p>
+        <details>
+          <summary>Show solution</summary>
+          <ol class="steps">
+            <li>\( \text{KE} = \tfrac{1}{2}mv^2 = \tfrac{1}{2}(1200)(20)^2 = 2.4 \times 10^{5}\ \text{J} \).</li>
+            <li>Recovered \( = 0.40 \times 2.4 \times 10^{5} = 9.6 \times 10^{4}\ \text{J} \).</li>
+          </ol>
+          <p class="answer">About 96 kJ goes back into the battery.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="idea" id="hybrid" data-chip="Hybrid vehicles">
+      <header>
+        <h2><span class="sec-num">C</span>Hybrid electric vehicles</h2>
+      </header>
+      <figure class="fig" id="hybrid-fig-1">
+        <div class="visual play stage" id="hev-vis" data-autoplay data-scene="hev">
+          <canvas class="scene-canvas" aria-label="Power paths in a hybrid car: fuel tank to engine to wheels, and battery to motor to wheels. Starting off, only the motor drives. Cruising, the engine drives. Accelerating or climbing, both drive. Braking, the wheels drive the motor as a generator that charges the battery."></canvas>
+        </div>
+        <div class="seg" role="group" aria-label="Driving situation">
+          <button type="button" data-param="mode" data-value="start" aria-pressed="true">Starting off</button>
+          <button type="button" data-param="mode" data-value="cruise" aria-pressed="false">Cruising</button>
+          <button type="button" data-param="mode" data-value="boost" aria-pressed="false">Climbing a hill</button>
+          <button type="button" data-param="mode" data-value="brake" aria-pressed="false">Braking</button>
+        </div>
+        <figcaption><b>Fig. 3.7</b> A computer chooses engine, motor or both for each situation.</figcaption>
+      </figure>
+      <div class="def" id="hybrid-def-1">
+        <span class="tag">Definition</span>
+        <p>A <b>hybrid electric vehicle</b> (HEV) has an engine and an electric motor with its own battery; a computer decides which to use.</p>
+      </div>
+      <ul class="points">
+        <li>The motor helps at high load, so a smaller engine will do, and less energy is wasted moving its parts and against its internal friction.</li>
+        <li>The battery is charged by the engine and by regenerative braking, so an HEV never needs plugging in; all its energy comes from fuel.</li>
+        <li>Hybrid buses in Hong Kong use the engine only to drive a generator, which charges the battery and powers the motor; the engine can stop in stop-start traffic.</li>
+      </ul>
+      <table class="notes" id="hybrid-notes-1">
+        <thead><tr><th></th><th>Petrol / diesel</th><th>Electric</th><th>Hybrid</th></tr></thead>
+        <tbody>
+          <tr><th>Energy store</th><td>Fuel</td><td>Battery (heavy)</td><td>Fuel and a small battery</td></tr>
+          <tr><th>Converter</th><td>Engine</td><td>Motor</td><td>Engine and motor</td></tr>
+          <tr><th>Refill time</th><td>Short</td><td>Long</td><td>Short</td></tr>
+          <tr><th>Range</th><td>Long</td><td>Short</td><td>Medium to long</td></tr>
+          <tr><th>Regenerative braking</th><td>No</td><td>Yes</td><td>Yes</td></tr>
+          <tr><th>Drawback</th><td>Exhaust where it drives; burns fossil fuel</td><td>Charging time; range; cost</td><td>Cost; complex design</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="hybrid-check-1" data-check="tf">
+        <h3>Quick check</h3>
+        <p>True or false?</p>
+        <div class="tf-item" id="hybrid-tf-emissions" data-answer="false">
+          <p>A hybrid electric vehicle gives off no exhaust.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>It still burns fuel in its engine; it simply burns less of it.</p></div>
+        </div>
+        <div class="tf-item" id="hybrid-tf-battery" data-answer="true">
+          <p>The battery of a hybrid is usually much smaller than that of an electric car.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>It only has to help the engine and store braking energy, not drive the whole journey.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="mass-transport" data-chip="Mass transport">
+      <header>
+        <h2><span class="sec-num">D</span>Mass transport</h2>
+      </header>
+      <ul class="points">
+        <li>A double-decker bus is about ten times as massive as a car but carries dozens of times as many people, so the energy used per passenger is far smaller.</li>
+        <li>Fewer vehicles also means less exhaust and less congestion.</li>
+        <li>Electric trains and trams give off nothing where they run, and a power station converts fuel to useful energy more efficiently than a vehicle engine does.</li>
+        <li>Energy per passenger depends on how full the vehicle is: a crowded train at rush hour uses much less per person than a near-empty one.</li>
+      </ul>
+      <div class="check" id="mass-transport-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A train uses more energy per passenger-kilometre off-peak than at rush hour. Why?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">It runs faster when it is empty</button>
+          <button type="button" data-choice="B">Its motors are less efficient off-peak</button>
+          <button type="button" data-choice="C">The energy to move the train is shared among fewer passengers</button>
+          <button type="button" data-choice="D">It stops at more stations off-peak</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>Most of the energy moves the heavy train itself, whoever is on board. Fewer passengers means a bigger share each.</p></div>
+      </div>
+    </section>
+
+    <section class="idea" id="driving-power" data-chip="Driving power">
+      <header>
+        <h2><span class="sec-num">E</span>The power needed to drive</h2>
+      </header>
+      <figure class="fig" id="driving-power-fig-1">
+        <div class="visual play stage" id="drag-vis" data-scene="resistance">
+          <canvas class="scene-canvas" aria-label="Resistive forces on a car against speed. Rolling friction is constant. Air resistance grows with the square of the speed and dominates at high speed. The total force times the speed gives the driving power."></canvas>
+        </div>
+        <div class="ctl-row">
+          <label class="ctl">Speed v<input type="range" min="0" max="40" step="1" value="15" data-param="v" aria-label="Speed in metres per second"><output data-out="v">15 m/s</output></label>
+        </div>
+        <p class="readouts"><span class="readout"><b>Total resistive force</b><span data-out="F">390 N</span></span><span class="readout"><b>Power to keep going</b><span data-out="P">5.9 kW</span></span></p>
+        <figcaption><b>Fig. 3.8</b> At high speed air resistance dominates and the power soars.</figcaption>
+      </figure>
+      <div class="eq" id="driving-power-eq-1">\[ \begin{gathered} f_r = k_r N \\ f_a = k_a v^2 \\ P = (f_r + f_a)\,v \end{gathered} \]</div>
+      <ul class="points">
+        <li>\( f_r \): rolling friction on the tyres, set by the tyres and the normal reaction \( N \), and independent of speed. \( f_a \): air resistance, set by the car's shape and size, \( \propto v^2 \).</li>
+        <li>At a steady speed the engine or motor must supply \( P = Fv \), and more again for its own losses and the air conditioner.</li>
+        <li>Hybrids help most in town: at low speed and in stop-start traffic the motor drives and braking energy is recovered.</li>
+      </ul>
+      <div class="check" id="driving-power-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>For the car in Fig. 3.8 (\( f_r = 300 \) N, \( k_a = 0.40 \) N s² m⁻²), the speed rises from 15 m s⁻¹ to 30 m s⁻¹. The power needed becomes about</p>
+        <div class="choices">
+          <button type="button" data-choice="A">2 times as large</button>
+          <button type="button" data-choice="B">3.4 times as large</button>
+          <button type="button" data-choice="C">4 times as large</button>
+          <button type="button" data-choice="D">8 times as large</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden><p>\( P = (300 + 0.4v^2)v \): 5850 W at 15 m s⁻¹ and 19 800 W at 30 m s⁻¹, about 3.4 times. 8 times would be true only with air resistance alone (\( P \propto v^3 \)).</p></div>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+  </main>
+  <script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="js/figures.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code></footer>
+</body>
+</html>

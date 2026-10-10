@@ -121,6 +121,46 @@ test("a checks.js no page loads is not checked", () => {
   assert.equal(r.keyStores, 0);
 });
 
+/* The shared-asset refactor moved each book's key table out of js/checks.js
+   into its own js/quiz-data.js. The store cross-check must read both shapes,
+   or the refactor would silently stop auditing every key. */
+const dataScript = (table) =>
+  `/* Book 5 DSE data. */\nwindow.P2N_QUIZ = {\n  paperLos: {},\n  quizKeys: ${JSON.stringify(table)}\n};\n`;
+
+test("a quiz-data.js key the store marks missing fails", () => {
+  const r = run({
+    "paper2notes/notes/book5/ch01/25-3.html": `<!doctype html>${slide("dse-mc-pp-34", "../_local/dse/mc/25/pp_q34.png")}<script src="../../js/checks.js"></script><script src="../js/quiz-data.js"></script>`,
+    "paper2notes/notes/book5/_local/dse/mc/25/pp_q34.png": true,
+    "paper2notes/notes/book5/js/quiz-data.js": dataScript({ "dse-mc-pp-34": { option: "C" } }),
+    "paper2notes/notes/dse/mc/25/pp_q34.png": true,
+    "paper2db/qb-web-ui-staging/dse-mc/index.json": [mcRecord("dse-mc-pp-34", null, null)],
+  });
+  assert.deepEqual(kinds(r), ["dse-mc-key-unsupported"]);
+  assert.match(r.problems[0].detail, /quizKeys grades dse-mc-pp-34/);
+  assert.equal(r.keys, 1);
+});
+
+test("a quiz-data.js key the store agrees with passes", () => {
+  const r = run({
+    "paper2notes/notes/book5/ch01/25-3.html": `<!doctype html>${slide("dse-mc-2024-32", "../_local/dse/mc/25/2024_q32.png")}<script src="../../js/checks.js"></script><script src="../js/quiz-data.js"></script>`,
+    "paper2notes/notes/book5/js/quiz-data.js": dataScript({ "dse-mc-2024-32": { option: "D", pct: 68 } }),
+    "paper2notes/notes/dse/mc/25/2024_q32.png": true,
+    "paper2db/qb-web-ui-staging/dse-mc/index.json": [mcRecord("dse-mc-2024-32", "D", 68)],
+  });
+  assert.deepEqual(r.problems, []);
+  assert.equal(r.keys, 1);
+});
+
+test("a quiz-data.js no page loads is not checked", () => {
+  const r = run({
+    "paper2notes/notes/index.html": "<!doctype html><p>landing</p>",
+    "paper2notes/notes/book5/js/quiz-data.js": dataScript({ "dse-mc-sap-35": { option: "D" } }),
+    "paper2db/qb-web-ui-staging/dse-mc/index.json": [],
+  });
+  assert.deepEqual(r.problems, []);
+  assert.equal(r.keyStores, 0);
+});
+
 test("a slide with no image at all fails, so no page can claim a question it does not show", () => {
   const r = run({
     "paper2notes/notes/book5/ch01/25-1.html": `<!doctype html><article class="quiz-slide" id="dse-lq-2024-13"><h3>Radon</h3></article>`,
