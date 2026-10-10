@@ -11,7 +11,7 @@ Generated from `paper2db` pipeline stages `mc-anchors` + `mc-split` + `keys`.
   - Combined staged: 36.8 MB (both formats kept; WebP alone is ~13.0 MB)
 - **Metadata:** `index.json` per-question (year, question, paper 1A, type MC, marks 1, sections + reason, statementPreview, answer option + percentage, image paths, warnings)
 - **Sections:** `sections.json` 27 sections with counts; see `stats.json` for per-year/section breakdown
-- **Answer keys:** from `tests/sections/mc/answer_keys.json` (OCR + manual overrides); missing keys flagged as `warnings: ["missing_answer"]` and `missing_percentage`
+- **Answer keys:** from `tests/sections/mc/answer_keys.json` (OCR + manual overrides) plus unanimous entries merged from `metadata/derived_keys.json`; missing keys flagged as `warnings: ["missing_answer"]` and `missing_percentage`
 - **PDFs excluded:** Full DSE PDFs (`paper/mc/*.pdf`, `tests/reconstructed/mc/combined.pdf`, per-year `combined.pdf`) are NOT staged; `.gitignore` keeps `*.pdf` out
 
 ## File types and counts

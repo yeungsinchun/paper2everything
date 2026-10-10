@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.1 Photoelectric effect</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">paper<i>2</i>notes<small>Photoelectric effect</small></a>
+    <nav aria-label="Chapter 1 pages">
+      <a href="index.html">Map</a>
+      <a href="1-1.html" aria-current="page">1.1</a>
+      <a href="1-2.html">1.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.1</p>
+    <h1>Photoelectric effect</h1>
+    <p class="lede">Light can knock electrons out of a metal. How it does so breaks the wave picture of light.</p>
+    <aside class="quick-digest" aria-label="Photoelectric effect in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>Light in, electrons out</b><span>only above a threshold frequency</span></p>
+        <p><b>Current \( \propto \) electrons per second</b><span>brighter light, larger saturation current</span></p>
+        <p><b>\( eV_s = K_{\max} \)</b><span>the stopping potential measures the fastest electron</span></p>
+        <p><b>Waves fail three tests</b><span>threshold, KE rises with f, no delay</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#emission"><b>A</b>Light in, electrons out</a>
+      <a href="#photocell"><b>B</b>Photocell</a>
+      <a href="#stopping"><b>C</b>Stopping potential</a>
+      <a href="#wave-fails"><b>D</b>Wave theory fails</a>
+    </nav>
+<section class="idea" id="emission" data-chip="Light in, electrons out">
+      <header>
+        <h2><span class="sec-num">A</span>Light in, electrons out</h2>
+      </header>
+      <figure id="emission-fig-1" class="fig">
+        <div class="visual play stage" id="emission-vis" data-autoplay data-scene="photoemission">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Light falls on a metal surface. Each time light is absorbed at a point, one electron leaves the surface from that point."></canvas>
+          <span class="hud-label" data-hud="light">light</span>
+          <span class="hud-label" data-hud="metal">metal surface</span>
+          <span class="hud-label" data-hud="electrons">photoelectrons</span>
+        </div>
+        <figcaption><b>Fig. 1.1</b> Light of high enough frequency frees electrons from a metal.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>The electrons come from the metal itself: they are the free electrons that normally drift between the metal ions. "Light" in this chapter means any electromagnetic radiation, so ultraviolet and X-rays count too.</p></details>
+      </figure>
+      <div id="emission-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>In the <b>photoelectric effect</b>, electromagnetic radiation of high enough frequency falls on a metal surface and electrons are emitted from the surface. The emitted electrons are called <b>photoelectrons</b>; they are ordinary electrons.</p>
+      </div>
+      <table id="emission-table-1" class="notes">
+        <caption>A charged zinc plate under ultraviolet light</caption>
+        <thead><tr><th>Plate</th><th>What happens</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><th>Negative</th><td>Loses its charge</td><td>Ultraviolet frees electrons; the negative plate repels them, so they leave for good.</td></tr>
+          <tr><th>Positive</th><td>Keeps its charge</td><td>Electrons are still freed, but the positive plate attracts them straight back.</td></tr>
+          <tr><th>Conclusion</th><td colspan="2">The light ejects electrons from the metal. If it only ionized the air, both plates would lose charge.</td></tr>
+        </tbody>
+      </table>
+      <div id="emission-check-1" class="check" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>An insulated zinc plate carries a positive charge. Ultraviolet light shines on it. What happens to the charge on the plate?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">It falls quickly to zero.</button>
+          <button type="button" data-choice="B">It stays about the same.</button>
+          <button type="button" data-choice="C">It becomes negative.</button>
+          <button type="button" data-choice="D">It keeps increasing as long as the light is on.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> Electrons are freed, but the positive plate pulls them back, so the charge hardly changes. <b>A</b> is what a negative plate does. <b>C</b> would need the plate to gain electrons. <b>D</b> fails because any electron that escapes makes the plate more positive and pulls the next one back harder.</p>
+        </div>
+      </div>
+      <div id="emission-check-2" class="check" data-check="tf">
+        <h3>Quick check</h3>
+        <div id="emission-tf-1" class="tf-item" data-answer="false">
+          <p>(a) Photoelectrons are a different kind of particle from electrons.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. "Photo" only says how they were freed. They are ordinary electrons.</p></div>
+        </div>
+        <div id="emission-tf-2" class="tf-item" data-answer="true">
+          <p>(b) X-rays falling on a metal can also cause the photoelectric effect.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. X-rays have a higher frequency than ultraviolet, so they free electrons even more easily.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="photocell" data-chip="Photocell">
+      <header>
+        <h2><span class="sec-num">B</span>The photocell and its current</h2>
+      </header>
+      <figure id="photocell-fig-1" class="fig">
+        <div class="visual play stage" id="photocell-vis" data-autoplay data-scene="photocell">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="A photocell: light falls on the metal cathode on the left; photoelectrons cross the vacuum to the anode on the right when they have enough energy."></canvas>
+          <span class="hud-label" data-hud="light">light</span>
+          <span class="hud-label" data-hud="cathode">cathode (metal)</span>
+          <span class="hud-label" data-hud="anode">anode</span>
+          <span class="hud-label" data-hud="none" hidden>no electrons leave</span>
+        </div>
+        <div class="sim-controls" data-photocell>
+          <div class="row" role="group" aria-label="Cathode metal">
+            <span class="row-label">Cathode</span>
+            <button type="button" data-pc-metal="caesium">Caesium</button>
+            <button type="button" data-pc-metal="sodium" aria-pressed="true">Sodium</button>
+            <button type="button" data-pc-metal="zinc">Zinc</button>
+          </div>
+          <div class="row">
+            <label class="row-label" for="pc-f">Frequency</label>
+            <input id="pc-f" type="range" min="4" max="15" step="0.1" value="7" data-pc="f">
+            <output class="readout" for="pc-f" data-out="f">7.0 × 10¹⁴ Hz</output>
+          </div>
+          <div class="row">
+            <label class="row-label" for="pc-i">Intensity</label>
+            <input id="pc-i" type="range" min="1" max="5" step="1" value="3" data-pc="intensity">
+            <output class="readout" for="pc-i" data-out="intensity">×3</output>
+          </div>
+          <div class="row">
+            <label class="row-label" for="pc-v">Anode voltage</label>
+            <input id="pc-v" type="range" min="-4" max="3" step="0.1" value="1" data-pc="V">
+            <output class="readout" for="pc-v" data-out="V">+1.0 V</output>
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="readout" data-out="E">photon energy hf = 2.90 eV</span>
+            <span class="readout" data-out="phi">work function φ = 2.3 eV</span>
+            <span class="readout" data-out="K">Kmax = 0.60 eV</span>
+            <span class="readout" data-out="Vs">stopping potential = 0.60 V</span>
+            <span class="readout" data-out="I">current = 0.59 μA</span>
+          </div>
+          <svg class="fig-svg" data-iv-graph viewBox="0 0 480 250" role="img" aria-labelledby="iv-title">
+            <title id="iv-title">Photocurrent against anode voltage for the light and metal chosen above. The current is constant (saturated) for positive voltages and falls to zero at minus the stopping potential.</title>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.2</b> Change the light and the anode voltage; the graph shows the current.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Try: raise the intensity (only the flat part of the graph rises); raise the frequency (the curve reaches further left, so the stopping potential grows); switch to zinc with visible light (no current at any voltage).</p></details>
+      </figure>
+      <div id="photocell-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>A <b>photocell</b> is an evacuated tube holding a metal <b>cathode</b>, which emits photoelectrons, and an <b>anode</b>, which collects them. The <b>photocurrent</b> is proportional to the number of photoelectrons reaching the anode each second.</p>
+      </div>
+      <div id="photocell-eq-1" class="eq">\[ I = n e \]</div>
+      <p>\(I\) = photocurrent (A), \(n\) = photoelectrons reaching the anode per second, \(e = 1.60 \times 10^{-19}\ \mathrm{C}\).</p>
+      <table id="photocell-table-1" class="notes">
+        <thead><tr><th>Anode voltage</th><th>Current</th><th>Reason</th></tr></thead>
+        <tbody>
+          <tr><th>Positive, large</th><td>Constant: the <b>saturation current</b></td><td>Every photoelectron is pulled to the anode.</td></tr>
+          <tr><th>Negative, small</th><td>Smaller</td><td>The anode repels electrons; only the faster ones arrive.</td></tr>
+          <tr><th>\(-V_s\) or below</th><td>Zero</td><td>Not even the fastest electron arrives.</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <span class="tag">Exam tip</span>
+        <p>Brighter light of the same frequency raises only the saturation current. The stopping potential stays the same.</p>
+      </div>
+      <div id="photocell-check-1" class="check" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Light of fixed frequency falls on a photocell. The intensity is doubled. Which quantities increase?</p>
+        <ol class="stem-list">
+          <li>The saturation photocurrent</li>
+          <li>The stopping potential</li>
+          <li>The maximum kinetic energy of the photoelectrons</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(2) only</button>
+          <button type="button" data-choice="C">(1) and (3) only</button>
+          <button type="button" data-choice="D">(1), (2) and (3)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> More light per second frees more electrons per second, so only the current rises. The fastest electron is no faster, so (2) and (3) stay the same. <b>C</b> and <b>D</b> are the wave-theory guess that brighter light gives faster electrons.</p>
+        </div>
+      </div>
+      <div id="photocell-check-2" class="check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>The saturation current of a photocell is 0.32 μA. How many photoelectrons leave the cathode each second?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">\(5.1 \times 10^{-26}\)</button>
+          <button type="button" data-choice="B">\(2.0 \times 10^{6}\)</button>
+          <button type="button" data-choice="C">\(2.0 \times 10^{12}\)</button>
+          <button type="button" data-choice="D">\(3.2 \times 10^{12}\)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> \(n = I/e = 0.32 \times 10^{-6} / 1.60 \times 10^{-19} = 2.0 \times 10^{12}\) per second. At saturation every emitted electron arrives. <b>A</b> multiplies instead of dividing; <b>B</b> drops the "micro"; <b>D</b> forgets to divide by 1.60.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="stopping" data-chip="Stopping potential">
+      <header>
+        <h2><span class="sec-num">C</span>Stopping potential measures the fastest electron</h2>
+      </header>
+      <figure id="stopping-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 260" role="img" aria-labelledby="stop-title">
+            <title id="stop-title">Kinetic energy of three photoelectrons against distance from the cathode when the anode is negative. Each loses kinetic energy at the same rate. The fastest electron has just zero kinetic energy at the anode; the slower two stop part way and turn back.</title>
+            <rect x="40" y="30" width="14" height="190" class="metal"/>
+            <rect x="420" y="30" width="10" height="190" fill="var(--fig-ink)"/>
+            <text x="47" y="22" text-anchor="middle" class="small">cathode</text>
+            <text x="425" y="22" text-anchor="middle" class="small">anode (−)</text>
+            <line x1="60" y1="220" x2="414" y2="220" class="axis"/>
+            <line x1="60" y1="220" x2="60" y2="40" class="axis"/>
+            <text x="68" y="48" class="small">kinetic energy</text>
+            <text x="300" y="242" class="small">distance from cathode →</text>
+            <line x1="60" y1="70" x2="414" y2="218" class="electron-line"/>
+            <line x1="60" y1="130" x2="273" y2="218" class="electron-line" stroke-dasharray="6 5"/>
+            <line x1="60" y1="175" x2="168" y2="218" class="electron-line" stroke-dasharray="6 5"/>
+            <circle cx="414" cy="218" r="6" class="electron"/>
+            <text x="70" y="64" class="small">fastest: K = eV, just arrives</text>
+            <text x="190" y="150" class="small">slower: turn back</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.3</b> A repelling anode takes \(eV\) of kinetic energy from each electron.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Crossing a potential difference \(V\) against the field costs an electron energy \(eV\). Raise the reverse voltage until the fastest electron just fails to arrive: that voltage is the stopping potential, and the energy it removes equals the fastest electron's kinetic energy.</p></details>
+      </figure>
+      <div id="stopping-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>The <b>stopping potential</b> \(V_s\) is the smallest reverse voltage that stops every photoelectron from reaching the anode. The cathode still emits electrons; they just cannot arrive.</p>
+      </div>
+      <div id="stopping-eq-1" class="eq">\[ eV_s = K_{\max} = \tfrac{1}{2} m v_{\max}^{2} \]</div>
+      <p>\(V_s\) in V, \(K_{\max}\) in J, \(m = 9.11 \times 10^{-31}\ \mathrm{kg}\). In electronvolts the numbers match: a stopping potential of 2.1 V means \(K_{\max} = 2.1\ \mathrm{eV}\).</p>
+      <div class="tip">
+        <span class="tag">Exam tip</span>
+        <p>With an accelerating (positive) anode voltage \(V\), the fastest electron arrives with \(K_{\max} + eV\).</p>
+      </div>
+      <div id="stopping-check-1" class="check" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Photoelectrons leave a cathode with maximum kinetic energy 1.2 eV. The anode is at +2.0 V. What is the greatest kinetic energy of an electron reaching the anode?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">0.8 eV</button>
+          <button type="button" data-choice="B">1.2 eV</button>
+          <button type="button" data-choice="C">2.0 eV</button>
+          <button type="button" data-choice="D">3.2 eV</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> An attracting anode adds \(eV = 2.0\) eV to the 1.2 eV the electron leaves with. <b>A</b> treats the anode as repelling. <b>B</b> ignores the field. <b>C</b> forgets the starting energy.</p>
+        </div>
+      </div>
+      <div id="stopping-check-2" class="check" data-check="tf">
+        <h3>Quick check</h3>
+        <div id="stopping-tf-1" class="tf-item" data-answer="false">
+          <p>(a) At the stopping potential, no photoelectrons are emitted from the cathode.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. Emission depends on the light, not the anode. The electrons are emitted but turned back before the anode.</p></div>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div id="stopping-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>The stopping potential in a photocell is 2.10 V. Find the maximum kinetic energy of the photoelectrons in eV and in J, and their maximum speed.</p>
+          <ol class="steps">
+            <li>\(K_{\max} = eV_s\), so \(K_{\max} = 2.10\ \mathrm{eV}\).</li>
+            <li>In joules: \(2.10 \times 1.60 \times 10^{-19} = 3.36 \times 10^{-19}\ \mathrm{J}\).</li>
+            <li>\(v_{\max} = \sqrt{2K_{\max}/m} = \sqrt{2 \times 3.36 \times 10^{-19} / 9.11 \times 10^{-31}}\).</li>
+          </ol>
+          <p class="answer">\(v_{\max} = 8.59 \times 10^{5}\ \mathrm{m\,s^{-1}}\)</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="wave-fails" data-chip="Wave theory fails">
+      <header>
+        <h2><span class="sec-num">D</span>Where the wave theory fails</h2>
+      </header>
+      <figure id="wave-fails-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 220" role="img" aria-labelledby="bright-red-title">
+            <title id="bright-red-title">Left: very bright red light on sodium frees no electrons. Right: dim violet light on the same sodium frees electrons at once.</title>
+            <g>
+              <rect x="20" y="150" width="200" height="40" class="metal"/>
+              <path d="M40,30 q8,-8 16,0 t16,0 t16,0 t16,0 L130,140" class="ink" stroke="rgb(209,0,0)"/>
+              <path d="M80,30 q8,-8 16,0 t16,0 t16,0 t16,0 L170,140" class="ink" stroke="rgb(209,0,0)"/>
+              <path d="M120,30 q8,-8 16,0 t16,0 t16,0 t16,0 L210,140" class="ink" stroke="rgb(209,0,0)"/>
+              <text x="120" y="212" text-anchor="middle">bright red</text>
+              <path d="M94,100 l24,24 m0,-24 l-24,24" class="nudge-mark"/>
+              <text x="120" y="174" text-anchor="middle" class="small">no electrons</text>
+            </g>
+            <g>
+              <rect x="260" y="150" width="200" height="40" class="metal"/>
+              <path d="M300,30 q5,-6 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 L390,140" class="ink" stroke="rgb(124,0,209)"/>
+              <text x="360" y="212" text-anchor="middle">dim violet</text>
+              <circle cx="404" cy="118" r="6" class="electron"/>
+              <line x1="404" y1="118" x2="440" y2="80" class="electron-line"/>
+              <text x="360" y="174" text-anchor="middle" class="small">electrons at once</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.4</b> Frequency decides whether electrons leave; brightness does not.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Sodium needs light above about \(5.6 \times 10^{14}\) Hz. Red light (about \(4.5 \times 10^{14}\) Hz) frees nothing however bright it is or however long it shines. Violet light (about \(7.5 \times 10^{14}\) Hz) frees electrons even when it is very dim.</p></details>
+      </figure>
+      <div id="wave-fails-def-1" class="def">
+        <span class="tag">Definition</span>
+        <p>The <b>threshold frequency</b> \(f_0\) of a metal is the lowest frequency of light that can emit photoelectrons from it. Below \(f_0\) nothing is emitted, however intense the light.</p>
+      </div>
+      <table id="wave-fails-table-1" class="notes">
+        <thead><tr><th>Test</th><th>Wave theory predicts</th><th>Experiment shows</th></tr></thead>
+        <tbody>
+          <tr><th>Which light works</th><td>Any frequency, if bright enough or given enough time</td><td>Only \(f > f_0\); below it, no emission at any intensity</td></tr>
+          <tr><th>Fastest electron</th><td>Faster in brighter light; frequency does not matter</td><td>\(K_{\max}\) does not depend on intensity; it rises with frequency</td></tr>
+          <tr><th>Delay</th><td>Dim light needs time to build up enough energy</td><td>Emission starts at once, even in dim light</td></tr>
+          <tr><th>Number emitted</th><td>More in brighter light</td><td>More in brighter light (the only agreement)</td></tr>
+        </tbody>
+      </table>
+      <div id="wave-fails-check-1" class="check" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Which observation of the photoelectric effect can the wave theory of light explain?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">No electrons are emitted below a certain frequency.</button>
+          <button type="button" data-choice="B">The maximum kinetic energy does not depend on intensity.</button>
+          <button type="button" data-choice="C">Electrons are emitted with no delay in dim light.</button>
+          <button type="button" data-choice="D">Brighter light emits more electrons per second.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> More wave energy per second can free more electrons. Waves predict the opposite of <b>A</b>, <b>B</b> and <b>C</b>: any frequency should work, brighter light should give faster electrons, and dim light should need time.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example: the wave-theory delay</summary>
+        <div id="wave-fails-worked-1" class="worked">
+          <span class="tag">Worked example</span>
+          <p>Light of intensity \(0.05\ \mathrm{W\,m^{-2}}\) falls on sodium. Suppose, as the wave theory says, that one atom collects energy over an area of \(1 \times 10^{-20}\ \mathrm{m^2}\). An electron needs 2.3 eV to escape. How long must it wait?</p>
+          <ol class="steps">
+            <li>Power reaching the atom \(= 0.05 \times 1 \times 10^{-20} = 5 \times 10^{-22}\ \mathrm{W}\).</li>
+            <li>Energy needed \(= 2.3 \times 1.60 \times 10^{-19} = 3.68 \times 10^{-19}\ \mathrm{J}\).</li>
+            <li>Time \(= 3.68 \times 10^{-19} / 5 \times 10^{-22}\).</li>
+          </ol>
+          <p class="answer">About 740 s, over 12 minutes. Experiments find no measurable delay, so the wave picture fails.</p>
+        </div>
+      </details>
+    </section>
+    <nav class="next" aria-label="Previous and next page">
+      <a class="prev" href="index.html">← Chapter map</a>
+      <a href="1-2.html">Next: 1.2 The quantum theory of light →</a>
+    </nav>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/lib/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="05f377">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">05f377</code></footer>
+</body>
+</html>

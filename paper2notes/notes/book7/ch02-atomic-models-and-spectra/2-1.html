@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.1 Rutherford's atomic model</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">paper<i>2</i>notes<small>Atoms and spectra</small></a>
+    <nav aria-label="Chapter 2 pages">
+      <a href="index.html">Map</a>
+      <a href="2-1.html" aria-current="page">2.1</a>
+      <a href="2-2.html">2.2</a>
+      <a href="2-3.html">2.3</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.1</p>
+    <h1>Rutherford's atomic model</h1>
+    <p class="lede">Fire α particles at gold foil, and the atom turns out to be almost empty.</p>
+    <aside class="quick-digest" aria-label="Rutherford&#x27;s atomic model in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>Most α go straight through</b><span>the atom is mostly empty space</span></p>
+        <p><b>A few bounce back</b><span>a tiny, dense, positive nucleus</span></p>
+        <p><b>Electrons orbit the nucleus</b><span>held by electric attraction</span></p>
+        <p><b>Two failures</b><span>atoms should collapse; spectra should be continuous</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#experiment"><b>A</b>The experiment</a>
+      <a href="#results"><b>B</b>Results</a>
+      <a href="#limits"><b>C</b>Limits</a>
+      <a href="#probes"><b>D</b>Scattering today</a>
+    </nav>
+<section class="idea" id="experiment" data-chip="The experiment">
+      <header>
+        <h2><span class="sec-num">A</span>From plum pudding to the α-scattering experiment</h2>
+      </header>
+      <figure id="experiment-fig-1" class="fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 480 250" role="img" aria-labelledby="setup-title">
+            <title id="setup-title">The α-scattering set-up seen from above, inside an evacuated chamber. An α source in a lead block sends a narrow beam at a thin gold foil. A zinc sulphide screen with a microscope can be turned to any angle around the foil to count flashes.</title>
+            <rect x="10" y="10" width="460" height="230" rx="18" class="fill-soft"/>
+            <text x="460" y="30" text-anchor="end" class="small">vacuum chamber</text>
+            <rect x="30" y="100" width="70" height="50" fill="var(--lead)" style="fill:var(--lead)"/>
+            <circle cx="80" cy="125" r="6" class="alpha"/>
+            <text x="65" y="168" text-anchor="middle" class="small">α source in lead</text>
+            <line x1="100" y1="125" x2="230" y2="125" class="ink" stroke-dasharray="8 6"/>
+            <rect x="232" y="75" width="6" height="100" style="fill:var(--fig-energy)"/>
+            <text x="235" y="65" text-anchor="middle" class="small">thin gold foil</text>
+            <circle cx="235" cy="125" r="140" class="guide"/>
+            <line x1="238" y1="125" x2="345" y2="40" class="ink" stroke-dasharray="4 5"/>
+            <rect x="340" y="22" width="40" height="18" transform="rotate(-38 360 31)" class="fill-soft"/>
+            <text x="392" y="70" class="small">zinc sulphide screen</text>
+            <text x="392" y="86" class="small">+ microscope</text>
+            <path d="M330,200 a120,120 0 0,0 60,-60" class="ink"/>
+            <path d="M384,150 l6,-10 l2,12" class="ink"/>
+            <text x="360" y="216" class="small">turns to any angle θ</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 2.1</b> α particles hit a thin gold foil; a turning screen counts where they go.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Each α particle striking the zinc sulphide screen makes a tiny flash, counted through the microscope. The chamber is evacuated because α particles travel only a few centimetres in air. The foil is very thin so that most α particles meet at most one gold nucleus.</p></details>
+      </figure>
+      <table id="experiment-table-1" class="notes">
+        <thead><tr><th>Model before 1911</th><th>Picture</th><th>Prediction for α particles</th></tr></thead>
+        <tbody>
+          <tr><th>Thomson's plum-pudding model</th><td>A sphere of spread-out positive charge with electrons dotted through it</td><td>Every α particle passes through with at most a tiny deflection</td></tr>
+        </tbody>
+      </table>
+      <div id="experiment-check-1" class="check" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Why is the α-scattering experiment done in a vacuum, with a very thin foil?</p>
+        <ol class="stem-list">
+          <li>α particles have a short range in air.</li>
+          <li>A thin foil means each α particle is scattered by at most one nucleus.</li>
+          <li>A vacuum stops the gold foil from oxidising.</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(3) only</button>
+          <button type="button" data-choice="C">(2) and (3) only</button>
+          <button type="button" data-choice="D">(1) and (2) only</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> Air would stop the α particles within centimetres, and a thick foil would mix many small deflections together. Gold does not oxidise, so (3) is not a reason.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="results" data-chip="Results">
+      <header>
+        <h2><span class="sec-num">B</span>What the α particles did</h2>
+      </header>
+      <figure id="results-fig-1" class="fig">
+        <div class="pane-pair">
+          <div class="visual play stage" id="pudding-vis" data-autoplay data-scene="scatter-pudding">
+            <canvas class="scene-canvas" width="480" height="360" aria-label="Plum-pudding prediction: α particles pass straight through atoms of spread-out positive charge with almost no deflection."></canvas>
+            <span class="hud-label" data-hud="source">α beam</span>
+            <span class="hud-label" data-hud="target">spread-out charge</span>
+          </div>
+          <div class="visual play stage" id="nucleus-vis" data-autoplay data-scene="scatter-nucleus">
+            <canvas class="scene-canvas" width="480" height="360" aria-label="Nuclear atom: α particles far from the tiny nucleus go straight; the closer one passes, the more it is repelled; a head-on α particle bounces back."></canvas>
+            <span class="hud-label" data-hud="source">α beam</span>
+            <span class="hud-label" data-hud="target">nucleus</span>
+            <span class="hud-label" data-hud="back">bounces back</span>
+          </div>
+        </div>
+        <figcaption><b>Fig. 2.2</b> Left: the plum-pudding prediction. Right: what really happens.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Each α particle is repelled by the positive nucleus along a curved path. The deflection is largest for the particles aimed closest to the nucleus; a head-on one stops and comes straight back. Because the nucleus is so small, very few particles pass close to it.</p></details>
+      </figure>
+      <table id="results-table-1" class="notes">
+        <thead><tr><th>Observation</th><th>Conclusion</th></tr></thead>
+        <tbody>
+          <tr><th>Most α particles pass straight through</th><td>Most of the atom is empty space.</td></tr>
+          <tr><th>Some are deflected through large angles</th><td>The positive charge is concentrated in a very small region.</td></tr>
+          <tr><th>A very few (about 1 in 8000) bounce back</th><td>That region, the nucleus, also holds almost all the mass: a light electron could not turn an α particle round.</td></tr>
+        </tbody>
+      </table>
+      <div id="results-def-1" class="def">
+        <span class="tag">Rutherford's model (1911)</span>
+        <p>An atom has a tiny, dense, positively charged <b>nucleus</b> holding almost all its mass. Electrons orbit the nucleus, held by electric attraction, as planets orbit the Sun. Most of the atom is empty space: the nucleus is about \(10^{-15}\) m across, the atom about \(10^{-10}\) m.</p>
+      </div>
+      <div id="results-check-1" class="check" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>An α particle is fired at a gold nucleus. Which statement about its path is correct?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">It curves towards the nucleus because opposite charges attract.</button>
+          <button type="button" data-choice="B">The closer it is aimed to the nucleus, the larger its deflection.</button>
+          <button type="button" data-choice="C">It is deflected only after it hits the nucleus.</button>
+          <button type="button" data-choice="D">Its deflection does not depend on how close it passes.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> The repulsion grows as the α particle gets closer, so a closer approach means a sharper turn. <b>A</b> gets the force direction wrong: both are positive. <b>C</b> is wrong because the repulsion acts at a distance; the α particle never touches the nucleus. <b>D</b> contradicts the observations.</p>
+        </div>
+      </div>
+      <div id="results-check-2" class="check" data-check="tf">
+        <h3>Quick check</h3>
+        <div id="results-tf-1" class="tf-item" data-answer="false">
+          <p>(a) The experiment showed that the nucleus contains protons and neutrons.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. It showed only a small, dense, positive centre. Protons and neutrons were found in later experiments.</p></div>
+        </div>
+        <div id="results-tf-2" class="tf-item" data-answer="true">
+          <p>(b) Most of the volume of an atom is empty.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. That is why most α particles pass straight through the foil.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="limits" data-chip="Limits">
+      <header>
+        <h2><span class="sec-num">C</span>Where Rutherford's model fails</h2>
+      </header>
+      <figure id="limits-fig-1" class="fig">
+        <div class="visual play stage" id="spiral-vis" data-autoplay data-scene="spiral">
+          <canvas class="scene-canvas" width="960" height="420" aria-label="Classical prediction: an orbiting electron accelerates, radiates electromagnetic waves, loses energy and spirals into the nucleus."></canvas>
+          <span class="hud-label" data-hud="nucleus">nucleus</span>
+          <span class="hud-label" data-hud="electron">electron spirals in</span>
+          <span class="hud-label" data-hud="radiation">radiates all the way</span>
+          <button type="button" class="stage-replay" data-replay="spiral-vis">Replay</button>
+        </div>
+        <figcaption><b>Fig. 2.3</b> Classical physics predicts the orbit collapses in a fraction of a second.</figcaption>
+        <details class="fig-more"><summary>More</summary><p>Motion in a circle is accelerated motion. Classical electromagnetism says an accelerating charge radiates EM waves, so the orbiting electron should lose energy and spiral inwards. Its orbital frequency would change smoothly, so the radiation would cover a continuous range of frequencies.</p></details>
+      </figure>
+      <table id="limits-table-1" class="notes">
+        <thead><tr><th>Classical prediction for Rutherford's atom</th><th>Observation</th></tr></thead>
+        <tbody>
+          <tr><th>Electrons radiate and spiral into the nucleus: atoms collapse</th><td>Atoms are stable.</td></tr>
+          <tr><th>Atoms emit a continuous spectrum as electrons spiral in</th><td>A hot gas emits only certain wavelengths: a line spectrum (section 2.2).</td></tr>
+        </tbody>
+      </table>
+      <div id="limits-check-1" class="check" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Why should an electron orbiting a nucleus lose energy, according to classical physics?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">It collides with the nucleus on every orbit.</button>
+          <button type="button" data-choice="B">Its speed keeps decreasing because of friction.</button>
+          <button type="button" data-choice="C">It is accelerating, and an accelerating charge emits EM radiation.</button>
+          <button type="button" data-choice="D">The nucleus repels it outwards.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> Circular motion has a centripetal acceleration even at constant speed, and accelerating charges radiate. <b>A</b> and <b>B</b> invent contact and friction. <b>D</b> has the force the wrong way: the nucleus attracts the electron.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="probes" data-chip="Scattering today">
+      <header>
+        <h2><span class="sec-num">D</span>Scattering experiments today</h2>
+      </header>
+      <p>Firing fast particles at a target and watching how they scatter is still the main way to see inside matter.</p>
+      <table id="probes-table-1" class="notes">
+        <thead><tr><th>Experiment</th><th>Discovery</th></tr></thead>
+        <tbody>
+          <tr><th>α particles on gold foil (1909–1911)</th><td>The nucleus</td></tr>
+          <tr><th>α particles on nitrogen (1919)</th><td>The proton, knocked out of nuclei</td></tr>
+          <tr><th>α particles on beryllium (1932)</th><td>The neutron, a neutral particle in the nucleus</td></tr>
+          <tr><th>High-energy electrons on protons (1960s)</th><td>Quarks: protons and neutrons have smaller parts</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <span class="tag">Why bigger machines</span>
+        <p>To see smaller details, a probe needs more energy. Particle accelerators are giant scattering experiments.</p>
+      </div>
+      <div id="probes-check-1" class="check" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Which particles were discovered in scattering experiments?</p>
+        <ol class="stem-list">
+          <li>Protons</li>
+          <li>Neutrons</li>
+          <li>Quarks</li>
+        </ol>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(1) and (2) only</button>
+          <button type="button" data-choice="C">(2) and (3) only</button>
+          <button type="button" data-choice="D">(1), (2) and (3)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> All three were found by firing particles at targets: protons and neutrons with α particles, quarks with high-energy electrons.</p>
+        </div>
+      </div>
+    </section>
+    <nav class="next" aria-label="Previous and next page">
+      <a class="prev" href="index.html">← Chapter map</a>
+      <a href="2-2.html">Next: 2.2 Atomic spectra →</a>
+    </nav>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/lib/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="05f377">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">05f377</code></footer>
+</body>
+</html>
