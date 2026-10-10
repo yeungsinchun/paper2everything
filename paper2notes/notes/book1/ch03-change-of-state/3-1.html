@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.1 Change of state</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Change of State</small></a>
+    <nav>
+      <a href="index.html">Map</a><a href="3-1.html" aria-current="page">3.1</a><a href="3-2.html">3.2</a><a href="3-3.html">3.3</a><a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 3.1</p>
+    <h1>Change of state</h1>
+    <p class="lede">A phase change rearranges molecules. Energy transfer changes their bonds, not necessarily their average speed.</p>
+    <aside class="quick-digest" id="change-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Evaporation</b><span>liquid to gas at the surface, at temperatures below boiling too</span></p>
+        <p><b>Boiling</b><span>rapid vaporization throughout the liquid at its boiling point</span></p>
+        <p><b>Energy</b><span>melting and vaporization absorb energy; freezing and condensation release it</span></p>
+        <p><b>Evaporation</b><span>fast molecules escape, leaving the liquid cooler</span></p>
+      </div>
+    </aside>
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#evaporation"><b>A</b>Evaporation</a><a href="#rate"><b>B</b>Rate</a><a href="#boiling"><b>C</b>Boiling</a><a href="#solid-liquid"><b>D</b>Melting & freezing</a>
+    </nav>
+    <section class="idea" id="evaporation">
+      <header>
+        <h2><span class="sec-num">A</span>Surface changes and energy</h2>
+      </header>
+      <figure class="fig" id="evaporation-fig-particles">
+        <div class="visual">
+          <svg viewbox="0 0 600 260" role="img" aria-label="Liquid molecules move randomly; a fast molecule escapes from the surface into the gas, leaving lower average kinetic energy in the liquid." xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="260" fill="white"></rect>
+          <path d="M45 156 Q110 147 175 156T305 156T435 156T555 156V220H45Z" fill="#e4efec" stroke="#0f5c54" stroke-width="3"></path>
+          <g fill="#0f5c54">
+            <circle cx="100" cy="188" r="8"></circle>
+            <circle cx="154" cy="177" r="8"></circle>
+            <circle cx="211" cy="198" r="8"></circle>
+            <circle cx="265" cy="179" r="8"></circle>
+            <circle cx="324" cy="196" r="8"></circle>
+            <circle cx="382" cy="177" r="8"></circle>
+            <circle cx="443" cy="195" r="8"></circle>
+            <circle cx="500" cy="177" r="8"></circle>
+          </g>
+          <circle cx="324" cy="103" r="9" fill="#a8690a"></circle>
+          <path d="M324 153V117" stroke="#a8690a" stroke-width="4" marker-end="url(#arrow)"></path>
+          <defs>
+            <marker id="arrow" markerwidth="8" markerheight="8" refx="5" refy="3" orient="auto">
+              <path d="M0 0L6 3L0 6" fill="none" stroke="#a8690a" stroke-width="1.5"></path>
+            </marker>
+          </defs>
+          <text x="52" y="45" fill="#1b2129" font-size="18">
+            gas above liquid
+          </text>
+          <text x="52" y="246" fill="#1b2129" font-size="18">
+            liquid: remaining molecules have lower average KE
+          </text>
+          <text x="348" y="104" fill="#1b2129" font-size="18">
+            escaping molecule
+          </text></svg>
+        </div>
+        <figcaption>
+          <b>Evaporation cools the liquid.</b> More energetic molecules escape from its surface.
+        </figcaption>
+      </figure>
+      <div class="def" id="evaporation-def">
+        <span class="tag">Evaporation</span>
+        <p><b>Evaporation</b> is the change from liquid to gas at the liquid surface. Molecules have a range of speeds; some surface molecules have enough energy to escape.</p>
+      </div>
+      <p>Those escaping molecules carry energy away. The remaining liquid has lower average molecular kinetic energy, so its temperature falls unless energy flows in from elsewhere. Condensation is the reverse: gas molecules join the liquid and release energy.</p>
+      <div class="check" id="evaporation-check-cooling" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A damp cloth dries in moving air. Why can the cloth cool?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">The liquid molecules gain speed as they escape.</button><button type="button" data-choice="B">The faster molecules escape and carry energy away.</button><button type="button" data-choice="C">Airflow stops energy transfer from the cloth.</button><button type="button" data-choice="D">Condensation absorbs energy from the cloth.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> Escaping molecules remove energy, reducing the average kinetic energy left in the liquid. <b>A</b> reverses the change; <b>C</b> ignores evaporation; <b>D</b> condensation releases energy.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="rate">
+      <header>
+        <h2><span class="sec-num">B</span>What changes the evaporation rate?</h2>
+      </header>
+      <table class="notes" id="evaporation-factors">
+        <thead>
+          <tr>
+            <th>Condition</th>
+            <th>Effect on net evaporation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Higher temperature</th>
+            <td>More molecules can escape each second.</td>
+          </tr>
+          <tr>
+            <th>Larger exposed surface</th>
+            <td>More molecules are at the surface.</td>
+          </tr>
+          <tr>
+            <th>Lower humidity</th>
+            <td>Fewer vapour molecules return to the liquid.</td>
+          </tr>
+          <tr>
+            <th>Moving air</th>
+            <td>Air carries vapour away, reducing its return.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>In a sealed space, vapour molecules also return to the liquid. At equilibrium, escape and return rates match; there is no net change of state.</p>
+      <div class="check" id="evaporation-check-rate" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>Which change most directly reduces the return of water molecules to a drying surface?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Reduce the exposed area.</button><button type="button" data-choice="B">Cool the water.</button><button type="button" data-choice="C">Increase the humidity.</button><button type="button" data-choice="D">Move air across the surface.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>D.</b> Moving air removes nearby vapour. <b>A</b> and <b>B</b> lower escape; <b>C</b> increases vapour return.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="boiling">
+      <header>
+        <h2><span class="sec-num">C</span>Boiling is not evaporation</h2>
+      </header>
+      <figure class="fig" id="boiling-fig-compare">
+        <div class="visual">
+          <svg viewbox="0 0 600 250" role="img" aria-label="Comparison: evaporation has molecules leaving only the liquid surface; boiling has vapour bubbles forming throughout the liquid." xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="250" fill="white"></rect>
+          <g stroke="#0f5c54" stroke-width="3">
+            <path d="M35 100Q100 94 165 100T295 100V210H35Z" fill="#e4efec"></path>
+            <path d="M325 100Q390 94 455 100T565 100V210H325Z" fill="#e4efec"></path>
+          </g>
+          <g fill="#0f5c54">
+            <circle cx="90" cy="150" r="7"></circle>
+            <circle cx="155" cy="174" r="7"></circle>
+            <circle cx="250" cy="154" r="7"></circle>
+            <circle cx="395" cy="165" r="7"></circle>
+            <circle cx="500" cy="180" r="7"></circle>
+          </g>
+          <g fill="white" stroke="#0f5c54" stroke-width="3">
+            <circle cx="385" cy="130" r="14"></circle>
+            <circle cx="445" cy="150" r="17"></circle>
+            <circle cx="520" cy="123" r="12"></circle>
+          </g>
+          <g stroke="#a8690a" stroke-width="3">
+            <path d="M120 94V47"></path>
+            <path d="M220 94V42"></path>
+          </g>
+          <text x="78" y="235" font-size="18" fill="#1b2129">
+            evaporation: surface only
+          </text>
+          <text x="355" y="235" font-size="18" fill="#1b2129">
+            boiling: bubbles throughout
+          </text></svg>
+        </div>
+        <figcaption>
+          <b>Both form vapour.</b> Only boiling forms vapour bubbles throughout the liquid.
+        </figcaption>
+      </figure>
+      <div class="def" id="boiling-def">
+        <span class="tag">Boiling point</span>
+        <p><b>Boiling</b> is rapid vaporization throughout a liquid at its boiling point. Evaporation occurs at the surface and can happen below that temperature.</p>
+      </div>
+      <p>During boiling, energy continues to enter the liquid. It enables molecules to separate rather than raising their average kinetic energy, so the temperature remains steady while the phase change continues.</p>
+      <div class="check" id="boiling-check-location" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Which observation distinguishes boiling from evaporation?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Vapour bubbles form within the liquid.</button><button type="button" data-choice="B">Liquid changes into gas.</button><button type="button" data-choice="C">Energy is needed for the change.</button><button type="button" data-choice="D">Molecules leave the liquid.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> Boiling creates bubbles throughout. The other descriptions can also apply to evaporation.</p>
+        </div>
+      </div>
+    </section>
+    <section class="idea" id="solid-liquid">
+      <header>
+        <h2><span class="sec-num">D</span>Melting and freezing</h2>
+      </header>
+      <div class="def" id="melting-def">
+        <span class="tag">Energy and bonds</span>
+        <p><b>Melting</b> absorbs energy as molecules break from fixed positions. <b>Freezing</b> releases energy as molecules form a solid arrangement.</p>
+      </div>
+      <p>At the melting or freezing point, energy transfer changes the fraction of solid and liquid. The temperature remains constant until the phase change ends. The melting point of a pure substance equals its freezing point.</p>
+      <div class="check" id="solid-check-energy" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Ice melts at its melting point while heat enters it. What happens to the average molecular kinetic energy during the phase change?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">It rises because energy enters.</button><button type="button" data-choice="B">It falls because bonds break.</button><button type="button" data-choice="C">It stays constant while molecular potential energy rises.</button><button type="button" data-choice="D">It becomes zero.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> Temperature and average kinetic energy stay constant during melting; the energy raises molecular potential energy.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../../_local/dse/mc/03/combined.pdf" data-quiz-section-pdf="../../_local/dse/mc/03/3.1.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">DSE practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-2">
+          <h3>Alcohol evaporating from skin</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2012/2 MC
+            </figcaption><img src="../../_local/dse/mc/03/2012_q2.png" alt="HKDSE 2012 question 2">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2013-1">
+          <h3>Boiling and evaporation</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2013/1 MC
+            </figcaption><img src="../../_local/dse/mc/03/2013_q1.png" alt="HKDSE 2013 question 1">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev="">Prev</button>
+        <p class="quiz-status" aria-live="polite"></p><button type="button" data-quiz-next="">Next</button>
+      </div>
+    </section>
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../../_local/dse/lq/03/combined.pdf" data-quiz-section-pdf="../../_local/dse/lq/03/3.1.pdf">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2012-1">
+          <h3>Steam and a hot drink</h3>
+          <figure class="dse-paper">
+            <figcaption>
+              2012/1 LQ
+            </figcaption><img src="../../_local/dse/lq/03/2012-q1.png" alt="HKDSE 2012 long question 1">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev="">Prev</button>
+        <p class="quiz-status" aria-live="polite"></p><button type="button" data-quiz-next="">Next</button>
+      </div>
+    </section>
+    <p class="next"><a href="index.html">← Chapter map</a> · <a href="3-2.html">Next: Latent heat →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/notes.js"></script>
+  <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">
+    deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span>
+  </footer>
+</body>
+</html>

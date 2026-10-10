@@ -5,13 +5,14 @@
     "node paper2notes/scripts/quiz-audit.mjs",
     "node paper2notes/scripts/ci-check.mjs"
   ],
-  "why": "One DSE paper numbers its multiple-choice part and its long-question part separately, so a bare '2012/24' does not say which kind of question it is. HKDSE 2012 Paper 1A Section A is questions 1 to 36 and every one of them is multiple choice; Paper 1B is questions 1 to 11 and every one of them is a long question. A number that reads like a long question can therefore be a Section A multiple-choice question. This file records, for every section the published snapshot carries, what actually ships and why, so an absent question reads as a decision instead of a bug.",
+  "why": "One DSE paper numbers its multiple-choice part and its long-question part separately, so a bare '2012/24' does not say which kind of question it is. HKDSE 2012 Paper 1A Section A is questions 1 to 36 and every one of them is multiple choice; Paper 1B is questions 1 to 11 and every one of them is a long question. A number that reads like a long question can therefore be a Section A multiple-choice question. This file records, for every section the published snapshot carries, what actually ships and why, so an absent question reads as a decision instead of a bug. Book 1 sections 01–04 are textbook chapter groupings, not the paper2db category numbers. The audit checks that their question scans exist and match their slide labels, but it does not compare these Book 1 groupings with paper2db category numbers.",
   "states": {
     "real-crop": "Every published file for this section is a real question image, or the real combined PDF built from paper scans. Nothing here is hand-written.",
     "placeholder": "Every published file for this section is a hand-written placeholder, not a scan of a paper. The reason says which file, and what the source papers really contain.",
     "none-in-source": "The source papers contain no such question for this section, so no crop can exist and none may be invented. The reason names the paper and the question range that paper does have."
   },
   "placeholderFiles": ["sample.png"],
+  "book1Sections": ["01", "02", "03", "04"],
   "sources": {
     "lqClassifications": "paper2db/metadata/lq/llm_classifications.json - which long question belongs to which section",
     "lqQuestionStarts": "paper2db/tests/reconstructed/lq/<year>/starts.json - the long-question numbers each year's paper contains",
@@ -19,6 +20,46 @@
     "note": "These tracked inputs are the evidence behind every state below. When paper2db is not beside paper2notes, the source cross-checks are skipped and reported as skipped; they are never replaced by a guess."
   },
   "sections": {
+    "01": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "Book 1 publishes real multiple-choice scan crops, combined.pdf, and subsection PDFs 1.1–1.4. The PDFs contain scans of classified questions; none is a hand-written placeholder."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "Book 1 publishes real long-question scan crops, combined.pdf, and subsection PDFs 1.1, 1.3 and 1.4. The PDFs contain scans of classified questions; none is a hand-written placeholder."
+      }
+    },
+    "02": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "Book 1 publishes real multiple-choice scan crops, combined.pdf, and subsection PDFs 2.1–2.3. The PDFs contain scans of classified questions; none is a hand-written placeholder."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "Book 1 publishes real long-question scan crops, combined.pdf, and subsection PDFs 2.1–2.3. The PDFs contain scans of classified questions; none is a hand-written placeholder."
+      }
+    },
+    "03": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "Book 1 publishes real multiple-choice scan crops, combined.pdf, and subsection PDFs 3.1–3.3. The PDFs contain scans of classified questions; none is a hand-written placeholder."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "Book 1 publishes real long-question scan crops, combined.pdf, and subsection PDFs 3.1 and 3.3. The PDFs contain scans of classified questions; none is a hand-written placeholder."
+      }
+    },
+    "04": {
+      "mc": {
+        "state": "real-crop",
+        "reason": "Book 1 publishes real multiple-choice scan crops, combined.pdf, and subsection PDFs 4.2–4.3. The PDFs contain scans of classified questions; none is a hand-written placeholder."
+      },
+      "lq": {
+        "state": "real-crop",
+        "reason": "Book 1 publishes real long-question scan crops, combined.pdf, and subsection PDFs 4.2–4.3. The PDFs contain scans of classified questions; none is a hand-written placeholder."
+      }
+    },
     "05": {
       "mc": {
         "state": "real-crop",

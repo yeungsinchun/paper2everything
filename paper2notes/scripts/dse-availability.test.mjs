@@ -214,6 +214,26 @@ test("a slide naming a real long question of another section fails", () => {
   assert.ok(kinds(r).includes("dse-lq-wrong-section"), `expected dse-lq-wrong-section, got ${JSON.stringify(r)}`);
 });
 
+test("Book 1 textbook groupings are distinct from pipeline classification numbers", () => {
+  const root = fakeRepo({
+    manifest: {
+      book1Sections: ["01"],
+      sections: { "01": { lq: { state: "real-crop", reason: "Book 1 publishes this real scan in its chapter grouping." } } },
+    },
+    sections: [["lq", "01", ["2012-q1.png"]]],
+    lq: { "2012-q1": { sections: [3] } },
+    mc: [],
+    starts: { 2012: [1] },
+  });
+  const snapshot = checkSnapshot({ repoRoot: root });
+  assert.deepEqual(snapshot.problems, [], JSON.stringify(snapshot.problems));
+
+  const page = `<article class="quiz-slide" id="dse-lq-2012-1"><img src="../../_local/dse/lq/01/2012-q1.png" alt=""></article>`;
+  const availability = { ...loadAvailability(root), repoRoot: root };
+  const checked = checkPage(page, { page: "notes/book1/chapter.html", availability, source: loadSource(root) });
+  assert.deepEqual(checked.problems, [], JSON.stringify(checked.problems));
+});
+
 test("a slide that names one question and shows another fails", () => {
   const slide = (id, crop) => `<section class="section-dse lo-quiz" id="lq-quiz" data-quiz="lq">
   <div class="quiz-slides"><article class="quiz-slide is-current" id="${id}">

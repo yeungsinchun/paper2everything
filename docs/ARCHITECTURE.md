@@ -33,8 +33,10 @@ The leak edge has a drift check (`python3 paper2db/scripts/leak_fingerprints.py 
 |---|---|---|---|
 | `paper2db/` | Python 3 (PyMuPDF, Pillow, OCR, optional LLM API) | `./paper2db/pipeline` (12 stages, `--list-stages`) | MC/LQ crops per year and per syllabus section, section PDFs, answer keys, `dse-item.v1` records, audit JSON, review HTML |
 | `paper2db/scripts/convert-qb-to-pdf.sh` | Bash + LibreOffice | run by hand | `paper2db/qb-pdf/` PDFs from `paper2db/qb/` DOCX |
-| `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book2/`, `/book4/`, `/book5/`) |
+| `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book1/`, `/book2/`, `/book4/`, `/book5/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` staged to `_local/dse/` by `Dockerfile` |
+| `paper2notes/scripts/quiz-audit.mjs` | Node | `ci-notes` workflow | pass/fail for quiz keys, DSE availability and crop paths, plus answer-store agreement |
+| `paper2notes/scripts/quiz-store-audit.mjs` | Node | imported by `quiz-audit.mjs`; runnable on its own; tested in `ci-notes` | pass/fail for published DSE crops and MC keys backed by `paper2db/qb-web-ui-staging/dse-mc/index.json` |
 | `paper2notes/scripts/sync-dse.sh` | Bash (+ inline Python for placeholders) | run by hand from the repo root | `paper2notes/notes/_local/dse/` and `paper2notes/notes/book{2,4,5}/_local/dse/` (local dev) |
 | `paper2notes/scripts/ci-check.mjs` | Node | `ci-notes` workflow | pass/fail; check inventory in the script header, DSE publication contract in §2, anchor rules in `paper2notes/anchors/README.md` |
 | `paper2notes/scripts/leak-check.mjs` | Node | imported by `ci-check.mjs`; `node --test` in `ci-notes` | L1–L4 protected-text findings, minus `scripts/leak/baseline.json` allowances; level definitions in the script header |
@@ -188,6 +190,7 @@ The snapshot copies crops from the paper2db output (`tests/sections/`).
 Run `paper2db/scripts/check_lq_crop_orientation.py` before publishing LQ crops; its docstring owns the checks and command options.
 The record covers each published section and question kind (`mc` or `lq`), plus any declared source absences.
 Each entry states whether it holds real crops, placeholders, or no source questions, with a reason.
+Book 1 codes 01–04 group questions by textbook chapter, so `book1Sections` exempts those groups from global category comparisons while still checking question identity and paper range.
 `paper2notes/scripts/dse-availability.mjs` reads that record alongside tracked paper2db inputs.
 Both `ci-check.mjs` and `quiz-audit.mjs` check the snapshot, page references, and absence statements.
 A `data-lq-none` statement requires a `none-in-source` entry whose reason names source evidence.
@@ -213,15 +216,15 @@ Local preview (`sync-dse.sh`, developer machine): `paper2notes/scripts/sync-dse.
    `notes/book4/` and `notes/book5/` `_local/dse/` with `rsync -a` (no
    `--delete`).
 
-Pages then load crops by relative path: section pages at
-`notes/bookX/chYY/NN-N.html` use `../_local/dse/{mc,lq}/<NN>/<file>`, and book
-indexes use `_local/dse/...`. Both resolve to `notes/bookX/_local/dse/`. No page
-references `notes/_local/dse/` directly. 361 distinct `_local` references are
-used (Book 2: 8 = 0 PNG + 8 PDFs, Book 3: 242 = 195 PNG + 47 PDFs, Book 4: 23 =
-18 PNG + 5 PDFs, Book 5: 88 = 71 PNG + 17 PDFs); the standalone run of
-`paper2notes/scripts/dse-availability.mjs`
-reports the ones the snapshot does not hold as `dse-crop-not-published`.
-
+Pages then load crops by relative path: Book 1 chapter pages use
+`../../_local/dse/{mc,lq}/<NN>/<file>`, which resolves to `notes/_local/dse/`.
+Book 2, 3, 4 and 5 section pages use `../_local/dse/{mc,lq}/<NN>/<file>`, and
+their indexes use `_local/dse/...`; those paths resolve to each book's local
+mirror. 469 distinct `_local` references are used (Book 1: 108 = 78 PNG + 30
+PDFs, Book 2: 8 = 0 PNG + 8 PDFs, Book 3: 242 = 195 PNG + 47 PDFs, Book 4: 23 =
+18 PNG + 5 PDFs, Book 5: 88 = 71 PNG + 17 PDFs). The standalone run of
+`paper2notes/scripts/dse-availability.mjs` reports references the snapshot does
+not hold as `dse-crop-not-published`.
 ### 3. QB banks: DOCX → PDF → notes intake
 
 `paper2db/scripts/convert-qb-to-pdf.sh` converts `paper2db/qb/**/*.docx` into
@@ -243,7 +246,7 @@ no path filter.
 
 | Workflow | Trigger | Does |
 |---|---|---|
-| [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Notes and DSE availability checks; see [the static check](../paper2notes/scripts/ci-check.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
+| [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Anchor, quiz-key, DSE availability and crop-publication checks; the quiz audit also checks keys against the DSE MC answer store. See [the static check](../paper2notes/scripts/ci-check.mjs), [the quiz audit](../paper2notes/scripts/quiz-audit.mjs), [the store audit](../paper2notes/scripts/quiz-store-audit.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
 | `.github/workflows/ci-pointers.yml` | PR / push to main touching `paper2db/metadata/pointers/**`, `paper2db/schemas/answer-pointer.v1.json`, `paper2db/scripts/pointers.py`, `paper2db/tests/test_pointers.py`, `paper2db/qb-web-ui-staging/**`, `paper2db/metadata/qb/banks.json`, itself | `python3 scripts/pointers.py check`, then `coverage` and `python3 -m unittest tests.test_pointers`: answer-pointer store and resolver (`paper2db/README.md` answer pointers) |
 | `.github/workflows/ci-paper2db.yml` | PR / push to main touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items record join and answer-pointer tests |
 | `.github/workflows/compile-mocks.yml` | every PR, every push to main | LaTeX build + release (above) |

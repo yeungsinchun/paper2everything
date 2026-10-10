@@ -2,8 +2,8 @@
 // Minimal CI check for paper2notes.
 //
 // When `notes/` does not exist yet (bare `main`), this is a no-op skip.
-// Checks Book 5's three chapter indexes, Book 2's ten chapters, and Book 4's
-// eight chapters when present, plus in-repo relative links (href/src) that
+// Checks Book 5's three chapter indexes, Book 2's ten chapters, Book 4's
+// eight chapters and Book 1's four chapters (map, section pages, summary) when present, plus in-repo relative links (href/src) that
 // can be resolved on disk without a browser, plus lavish notes-refactor boards
 // (before/after side-by-side and readable prose — enforced only on boards
 // carrying the notes-refactor marker; see .agents/skills/paper2everything-lavish-board/SKILL.md),
@@ -100,6 +100,36 @@ function checkBook4Structure() {
     const chapterIndex = join(book4Dir, entry.name, "index.html");
     if (!isNonEmptyFile(chapterIndex)) {
       fail(`Missing or empty chapter index: ${relative(repoRoot, chapterIndex)}`);
+    }
+  }
+}
+
+// Book 1 (Heat and Gases): four chapters in the Book 4/5 shape. Each chapter
+// needs its map, every syllabus subsection page and a summary.
+const BOOK1_CHAPTERS = {
+  "ch01-": ["1-1.html", "1-2.html", "1-3.html", "1-4.html"],
+  "ch02-": ["2-1.html", "2-2.html", "2-3.html", "2-4.html"],
+  "ch03-": ["3-1.html", "3-2.html", "3-3.html"],
+  "ch04-": ["4-1.html", "4-2.html", "4-3.html"],
+};
+
+function checkBook1Structure() {
+  const book1Dir = join(notesDir, "book1");
+  if (!existsSync(book1Dir)) return;
+  const bookIndex = join(book1Dir, "index.html");
+  if (!isNonEmptyFile(bookIndex)) {
+    fail(`Missing or empty book1 index: ${relative(repoRoot, bookIndex)}`);
+  }
+  const entries = readdirSync(book1Dir, { withFileTypes: true });
+  for (const [prefix, pages] of Object.entries(BOOK1_CHAPTERS)) {
+    const match = entries.find((e) => e.isDirectory() && e.name.startsWith(prefix));
+    if (!match) {
+      fail(`Missing chapter directory matching "${prefix}*" under ${relative(repoRoot, book1Dir)}`);
+      continue;
+    }
+    for (const page of ["index.html", ...pages, "summary.html"]) {
+      const file = join(book1Dir, match.name, page);
+      if (!isNonEmptyFile(file)) fail(`Missing or empty Book 1 page: ${relative(repoRoot, file)}`);
     }
   }
 }
@@ -415,6 +445,7 @@ if (existsSync(book5Dir)) {
   checkBook5Structure();
 }
 
+checkBook1Structure();
 checkBook2Structure();
 checkBook4Structure();
 
