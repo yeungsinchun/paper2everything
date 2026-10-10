@@ -8,6 +8,9 @@ on:
       - "paper2db/qb-web-ui-staging/**/*.json"
       - "paper2notes/anchors/**"
       - "paper2db/metadata/pointers/**"
+      - "paper2db/metadata/lq/llm_classifications.json"
+      - "paper2db/metadata/mc/llm_classifications.json"
+      - "paper2db/tests/reconstructed/lq/**"
       - "paper2notes/.github/workflows/**"
       - ".github/workflows/ci-notes.yml"
   push:
@@ -19,6 +22,9 @@ on:
       - "paper2db/qb-web-ui-staging/**/*.json"
       - "paper2notes/anchors/**"
       - "paper2db/metadata/pointers/**"
+      - "paper2db/metadata/lq/llm_classifications.json"
+      - "paper2db/metadata/mc/llm_classifications.json"
+      - "paper2db/tests/reconstructed/lq/**"
       - "paper2notes/.github/workflows/**"
       - ".github/workflows/ci-notes.yml"
 jobs:
@@ -30,6 +36,7 @@ jobs:
         with:
           node-version: '20'
       - run: node --test paper2notes/scripts/anchor-lint.test.mjs
+      - run: node --test paper2notes/scripts/dse-availability.test.mjs
       - run: node --test paper2notes/scripts/quiz-audit.test.mjs
       - run: node --test paper2notes/scripts/quiz-store-audit.test.mjs
       - run: node paper2notes/scripts/quiz-audit.mjs

@@ -3,6 +3,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
+import { mkdtempSync, mkdirSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -11,6 +13,11 @@ const AUDIT = join(ROOT, "paper2notes", "scripts", "quiz-audit.mjs");
 
 function audit() {
   const out = execFileSync(process.execPath, [AUDIT, "--json"], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+  return JSON.parse(out);
+}
+
+function auditRoot(root) {
+  const out = execFileSync(process.execPath, [AUDIT, "--root", root, "--json"], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
   return JSON.parse(out);
 }
 
@@ -69,4 +76,30 @@ test("every graded DSE MC key is one paper2db's answer store backs", () => {
 test("the audit still finds the quizzes it is meant to guard", () => {
   const total = pages.reduce((a, p) => a + p.mc + p.tf + p.sa + p.dseMc, 0);
   assert.ok(total > 200, `expected the audit to see the full quiz set, saw ${total}`);
+});
+
+test("every DSE question a page shows is one the papers hold", () => {
+  const kinds = ["dse-lq-not-in-source", "dse-lq-wrong-section", "dse-lq-outside-paper-range", "dse-lq-slide-crop-mismatch", "dse-question-not-in-source", "dse-availability-undeclared", "dse-availability-real-with-placeholder", "dse-lq-placeholder-undeclared", "dse-lq-none-undeclared", "dse-lq-none-contradicts-record", "dse-lq-none-no-evidence"];
+  const bad = [
+    ...report.snapshot.problems.filter((x) => kinds.includes(x.kind)),
+    ...pages.flatMap((p) => p.problems.filter((x) => kinds.includes(x.kind)).map((x) => `${p.page}: ${x.detail}`)),
+  ];
+  assert.deepEqual(bad, [], `DSE slides or notes that drift from notes/dse/availability.json:\n${bad.join("\n")}`);
+});
+
+test("the audit ignores a slide that sits inside an HTML comment", () => {
+  const root = mkdtempSync(join(tmpdir(), "p2e-quiz-audit-"));
+  mkdirSync(join(root, "scripts"), { recursive: true });
+  mkdirSync(join(root, "notes", "dse"), { recursive: true });
+  writeFileSync(join(root, "scripts", "quiz-keys-unavailable.json"), JSON.stringify({ papers: {} }));
+  writeFileSync(join(root, "notes", "dse", "availability.json"), JSON.stringify({ placeholderFiles: ["sample.png"], sections: {} }));
+  writeFileSync(
+    join(root, "notes", "commented.html"),
+    `<!-- <article class="quiz-slide" id="dse-mc-2012-24"><img src="../_local/dse/mc/05/2012_q24.png" alt=""></article> -->`,
+  );
+  const report = auditRoot(root);
+  const page = report.pages.find((p) => p.page.endsWith("commented.html"));
+  assert.ok(page, `audit did not visit commented.html: ${JSON.stringify(report.pages.map((p) => p.page))}`);
+  assert.equal(page.dseMc, 0, "a commented-out DSE MC slide must not count as present");
+  assert.ok(!page.problems.some((p) => p.kind === "dse-mc-no-key"), JSON.stringify(page.problems));
 });

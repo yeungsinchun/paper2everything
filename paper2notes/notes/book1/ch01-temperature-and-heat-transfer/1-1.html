@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.1 Temperature and thermometers</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../css/book1.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Temperature and heat transfer</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="1-1.html" aria-current="page">1.1</a>
+      <a href="1-2.html">1.2</a>
+      <a href="1-3.html">1.3</a>
+      <a href="1-4.html">1.4</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.1</p>
+    <h1>Temperature and thermometers</h1>
+    <p class="lede">How hot something is, and how a thermometer turns that into a number.</p>
+
+    <aside class="quick-digest" id="thermometers-digest" aria-label="What to remember">
+      <h2>Remember</h2>
+      <div>
+        <p><b>Temperature</b><span>how hot or cold a body is</span></p>
+        <p><b>Thermometric property</b><span>anything that changes steadily with temperature</span></p>
+        <p><b>Celsius fixed points</b><span>ice point 0 °C, steam point 100 °C, 100 equal steps</span></p>
+        <p><b>Linear property</b><span>\( \theta = \dfrac{X_\theta - X_0}{X_{100} - X_0} \times 100\ ^\circ\mathrm{C} \)</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-nav" aria-label="Ideas on this page">
+      <a href="#hotness"><b>A</b>Temperature</a>
+      <a href="#fixed-points"><b>B</b>Celsius scale</a>
+      <a href="#calibration"><b>C</b>Calibration</a>
+      <a href="#mc-quiz"><b>MC</b>DSE practice</a>
+    </nav>
+
+    <details class="lo-block" id="thermometers-goals">
+      <summary>Goals</summary>
+      <p class="lo-stem">Students should be able to:</p>
+      <ul class="lo-list">
+        <li><p>realise temperature as the degree of hotness of an object</p></li>
+        <li><p>explain the use of temperature-dependent properties in measuring temperature</p></li>
+        <li><p>define and use degree Celsius as a unit of temperature</p></li>
+      </ul>
+    </details>
+
+    <section class="idea" id="hotness">
+      <header>
+        <h2><span class="sec-num">A</span>Temperature and thermometric properties</h2>
+      </header>
+      <figure class="fig" id="hotness-fig-ladder">
+        <div class="visual svg-fig" id="ladder-vis">
+          <svg class="fig-svg" viewBox="0 0 440 350" role="img" aria-labelledby="ladder-title">
+            <title id="ladder-title">A temperature ladder from absolute zero at minus 273 degrees Celsius, through liquid nitrogen, a freezer, melting ice, the human body and boiling water, up to a red-hot coal, lava and the surface of the Sun at about 6000 degrees Celsius. The spacing is not to scale.</title>
+            <defs>
+              <linearGradient id="ladder-grad" x1="0" x2="0" y1="1" y2="0">
+                <stop offset="0" stop-color="#2A62A8"/>
+                <stop offset="0.45" stop-color="#9AA7B4"/>
+                <stop offset="1" stop-color="#F26B3A"/>
+              </linearGradient>
+            </defs>
+            <rect x="172" y="34" width="20" height="296" rx="10" fill="url(#ladder-grad)"/>
+            <line x1="168" y1="318" x2="196" y2="318" stroke="#17212B" stroke-width="2"/><text x="156" y="323" text-anchor="end">−273 °C</text><text x="210" y="323" text-anchor="start" class="muted">absolute zero</text><line x1="168" y1="284" x2="196" y2="284" stroke="#17212B" stroke-width="2"/><text x="156" y="289" text-anchor="end">−196 °C</text><text x="210" y="289" text-anchor="start" class="muted">liquid nitrogen boils</text><line x1="168" y1="250" x2="196" y2="250" stroke="#17212B" stroke-width="2"/><text x="156" y="255" text-anchor="end">−18 °C</text><text x="210" y="255" text-anchor="start" class="muted">freezer</text><line x1="168" y1="216" x2="196" y2="216" stroke="#17212B" stroke-width="2"/><text x="156" y="221" text-anchor="end">0 °C</text><text x="210" y="221" text-anchor="start" class="muted">ice melts</text><line x1="168" y1="182" x2="196" y2="182" stroke="#17212B" stroke-width="2"/><text x="156" y="187" text-anchor="end">37 °C</text><text x="210" y="187" text-anchor="start" class="muted">human body</text><line x1="168" y1="148" x2="196" y2="148" stroke="#17212B" stroke-width="2"/><text x="156" y="153" text-anchor="end">100 °C</text><text x="210" y="153" text-anchor="start" class="muted">water boils</text><line x1="168" y1="114" x2="196" y2="114" stroke="#17212B" stroke-width="2"/><text x="156" y="119" text-anchor="end">500 °C</text><text x="210" y="119" text-anchor="start" class="muted">coal glows red</text><line x1="168" y1="80" x2="196" y2="80" stroke="#17212B" stroke-width="2"/><text x="156" y="85" text-anchor="end">1000 °C</text><text x="210" y="85" text-anchor="start" class="muted">lava</text><line x1="168" y1="46" x2="196" y2="46" stroke="#17212B" stroke-width="2"/><text x="156" y="51" text-anchor="end">6000 °C</text><text x="210" y="51" text-anchor="start" class="muted">Sun's surface</text>
+            <text x="182" y="22" class="muted small">hotter ↑ (not to scale)</text>
+          </svg>
+        </div>
+        <figcaption><b>Temperature ladder.</b> Temperature says how hot or cold a body is.</figcaption>
+      </figure>
+      <div class="def" id="hotness-def-temperature">
+        <span class="tag">Definition</span>
+        <p><b>Temperature</b> tells how hot or how cold a body is. In daily life we measure it in degrees Celsius (°C).</p>
+      </div>
+      <div class="def" id="hotness-def-property">
+        <span class="tag">Thermometric property</span>
+        <p>A <b>thermometric property</b> is any property that changes steadily as a body gets hotter, so its value can stand for the temperature.</p>
+      </div>
+      <table class="notes" id="hotness-notes-properties">
+        <thead><tr><th>Thermometer</th><th>Property that changes</th><th>Good for</th></tr></thead>
+        <tbody>
+          <tr><th>Liquid-in-glass</th><td>length of a mercury or alcohol column (thermal expansion)</td><td>everyday use, cheap, easy to read</td></tr>
+          <tr><th>Resistance</th><td>resistance of a platinum wire or a thermistor</td><td>electronic read-out, data logging</td></tr>
+          <tr><th>Thermocouple</th><td>current (voltage) from two joined metals at different temperatures</td><td>very hot places such as flames and furnaces</td></tr>
+          <tr><th>Gas</th><td>pressure or volume of a fixed mass of gas</td><td>the standard scale (Ch. 4)</td></tr>
+          <tr><th>Infrared</th><td>infrared radiation given off by the surface</td><td>no contact, e.g. body temperature at a gate</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="hotness-check-graphs" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Three electrical parts are tested over the same temperature range. Part (1): its resistance stays the same. Part (2): its resistance rises steadily. Part (3): its resistance falls steadily. Which part(s) could be used to make a thermometer?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">(1) only</button>
+          <button type="button" data-choice="B">(2) only</button>
+          <button type="button" data-choice="C">(2) and (3) only</button>
+          <button type="button" data-choice="D">(1), (2) and (3)</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>C.</b> A property works if each temperature gives its own value. Rising or falling does not matter: a thermistor's resistance falls with temperature and it still makes a good thermometer. Part (1) is useless because every temperature gives the same reading.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="fixed-points">
+      <header>
+        <h2><span class="sec-num">B</span>The Celsius scale: two fixed points</h2>
+      </header>
+      <figure class="fig" id="fixed-points-fig-celsius">
+        <div class="visual play stage" id="celsius-vis" data-autoplay data-scene="celsius">
+          <canvas class="scene-canvas" aria-label="A liquid-in-glass thermometer is put in pure melting ice and the column top is marked 0 degrees Celsius. It is moved to pure boiling water and the column top is marked 100 degrees Celsius. The gap is then split into 100 equal steps."></canvas>
+          <span class="hud-label" data-hud="ice" style="left:16%;top:57%">ice point · 0 °C</span>
+          <span class="hud-label" data-hud="steam" style="left:66%;top:14%">steam point · 100 °C</span>
+          <span class="hud-label" data-hud="div" style="left:88%;top:36%">100 equal steps</span>
+          <span class="hud-label" data-hud="melt" style="left:24%;top:92%">pure melting ice</span>
+          <span class="hud-label" data-hud="boil" style="left:76%;top:92%">pure boiling water</span>
+          <button type="button" class="stage-replay" data-replay="celsius-vis">Replay</button>
+        </div>
+        <figcaption><b>Defining the Celsius scale.</b> Mark the column in melting ice and in boiling water, then divide.</figcaption>
+      </figure>
+      <div class="def" id="fixed-points-def-celsius">
+        <span class="tag">Celsius scale</span>
+        <p>The <b>ice point</b> (0 °C) is the temperature of pure melting ice, and the <b>steam point</b> (100 °C) is the temperature of pure boiling water, both at normal atmospheric pressure. The gap between them is split into 100 equal divisions; each is one degree Celsius.</p>
+      </div>
+      <ul class="points">
+        <li>Both fixed points are good references: they stay constant and anyone can set them up again.</li>
+        <li>Impurities (salt in the ice, dissolved substances in the water) and a different air pressure shift both points, so the scale insists on pure water at 1 atm.</li>
+        <li>A <b>narrow capillary</b> and a <b>large bulb</b> make a sensitive thermometer: a small expansion of a lot of liquid shows as a long movement in a thin tube.</li>
+      </ul>
+      <div class="tip" id="fixed-points-tip-sensitivity">
+        <span class="tag">Exam tip</span>
+        <p>Sensitive means a large change in reading for a small change in temperature. It is not the same as accurate.</p>
+      </div>
+      <div class="check" id="fixed-points-check-bulb" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Two liquid-in-glass thermometers are identical except that thermometer Q has a bigger bulb holding more liquid. Both columns are the same length in melting ice. When both are put in warm water,</p>
+        <div class="choices">
+          <button type="button" data-choice="A">both columns rise by the same length.</button>
+          <button type="button" data-choice="B">Q's column rises further, so Q is more sensitive.</button>
+          <button type="button" data-choice="C">Q's column rises less, because more liquid must be heated.</button>
+          <button type="button" data-choice="D">Q reads a higher temperature than the water.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>B.</b> More liquid expands by a larger volume for the same temperature rise, and the same narrow tube turns that into a longer movement. <b>C</b> mixes up how much liquid there is with how far it moves. <b>D</b> is wrong: once calibrated, both read the true temperature; Q just has longer degree marks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="calibration">
+      <header>
+        <h2><span class="sec-num">C</span>Calibration and reading by proportion</h2>
+      </header>
+      <figure class="fig" id="calibration-fig-graph">
+        <div class="visual play stage" id="calibrate-vis" data-scene="calibrate">
+          <canvas class="scene-canvas" aria-label="Calibration graph of liquid column length against temperature: a straight line from 4.0 centimetres at 0 degrees Celsius to 22.0 centimetres at 100 degrees Celsius. A dashed guide reads the temperature for the chosen length, and two similar triangles show the proportion."></canvas>
+          <span class="hud-label metric" data-hud="theta" style="left:55%;top:80%">θ = 50.0 °C</span>
+          <span class="hud-label" data-hud="fixed0" style="left:40%;top:75%">ice point</span>
+          <span class="hud-label" data-hud="fixed100" style="left:85%;top:12%">steam point</span>
+        </div>
+        <div class="ctrl">
+          <label for="calibrate-len">Column length</label>
+          <input id="calibrate-len" type="range" min="4" max="22" step="0.1" value="13" data-stage-ctrl="calibrate-vis" data-key="len">
+          <output class="readout" data-readout="calibrate-vis:len">ℓ = 13.0 cm</output>
+        </div>
+        <figcaption><b>Calibration graph.</b> Move the length; the two shaded triangles stay similar.</figcaption>
+      </figure>
+      <div class="def" id="calibration-def-calibration">
+        <span class="tag">Calibration</span>
+        <p><b>Calibration</b> means finding how a thermometric property varies with temperature (against a standard thermometer or the fixed points) and marking a scale from it.</p>
+      </div>
+      <p>If the property \(X\) varies <b>linearly</b> with temperature, two points fix the whole line, and similar triangles give any temperature:</p>
+      <div class="eq" id="calibration-eq-proportion">\[ \frac{\theta - 0}{100 - 0} = \frac{X_\theta - X_0}{X_{100} - X_0} \quad\Rightarrow\quad \theta = \frac{X_\theta - X_0}{X_{100} - X_0}\times 100\ ^\circ\mathrm{C} \]</div>
+      <p class="note">\(X_0\), \(X_{100}\): the property at the ice and steam points. \(X_\theta\): the property at the unknown temperature \(\theta\). \(X\) can be a length (cm), a resistance (Ω) or a current (mA).</p>
+      <ul class="points">
+        <li>Subtract the ice-point value first. The column is not zero length at 0 °C.</li>
+        <li>Draw a calibration graph when the property is not linear or when you have many readings: a best-fit line or curve beats two points.</li>
+      </ul>
+      <div class="check" id="calibration-check-wrong-marks" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A thermometer with a linear scale was marked badly. It reads 6 °C in pure melting ice and 106 °C in pure boiling water. It now reads 46 °C. The true temperature is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">40 °C</button>
+          <button type="button" data-choice="B">46 °C</button>
+          <button type="button" data-choice="C">43.4 °C</button>
+          <button type="button" data-choice="D">52 °C</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p><b>A.</b> The gap between the fixed points is still 100 scale divisions (106 − 6), so each division is 1 °C and only the zero is shifted: \(46 - 6 = 40\) °C. <b>B</b> ignores the offset. <b>C</b> divides by 106 instead of 100. <b>D</b> adds the offset instead of subtracting it.</p>
+        </div>
+      </div>
+      <details class="worked" id="calibration-worked-column">
+        <summary>Worked example <span>Column length to temperature</span></summary>
+        <div class="worked-body">
+          <p>A liquid column is 4.0 cm long at 5 °C and 22.0 cm long at 95 °C, and it expands linearly. (a) How long is it at 35 °C? (b) What is the temperature when it is 13.0 cm long?</p>
+          <ol class="steps">
+            <li>Length per degree: \( \dfrac{22.0 - 4.0}{95 - 5} = 0.20\ \mathrm{cm\ ^\circ C^{-1}} \).</li>
+            <li>(a) From 5 °C to 35 °C is 30 °C, so the column grows by \(30 \times 0.20 = 6.0\) cm: length \(= 4.0 + 6.0 = 10.0\) cm.</li>
+            <li>(b) From 4.0 cm to 13.0 cm is 9.0 cm, which is \(9.0 / 0.20 = 45\) °C above 5 °C.</li>
+          </ol>
+          <p class="answer">(a) 10.0 cm &nbsp;·&nbsp; (b) 50 °C</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-pdf="../../_local/dse/mc/01/combined.pdf" data-quiz-section-pdf="../../_local/dse/mc/01/1.1.pdf">
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">Check the goals</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-pp-1">
+          <h3>Which parts can measure temperature</h3>
+          <p>Ask whether each graph gives a different resistance for each temperature.</p>
+          <figure class="dse-paper">
+            <figcaption>PP/1 MC</figcaption>
+            <img src="../../_local/dse/mc/01/pp_q1.png" alt="HKDSE practice paper Q1 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-mc-2026-2">
+          <h3>Resistance thermometer</h3>
+          <p>Use the linear change of resistance per degree from the ice point.</p>
+          <figure class="dse-paper">
+            <figcaption>2026/2 MC</figcaption>
+            <img src="../../_local/dse/mc/01/2026_q2.png" alt="HKDSE 2026/2 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq" data-quiz-pdf="../../_local/dse/lq/01/combined.pdf" data-quiz-section-pdf="../../_local/dse/lq/01/1.1.pdf">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2013-2">
+          <h3>A trapped air column as a thermometer</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/2 LQ</figcaption>
+            <img src="../../_local/dse/lq/01/2013-q2.png" alt="HKDSE 2013/2 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="1-2.html">Next: 1.2 Heat and internal energy →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="../js/notes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="f62ef5">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">f62ef5</code> <span class="deploy-commit-subject">feat(book1): add Chapter 2 Heat Capacity notes</span></footer>
+</body>
+</html>
