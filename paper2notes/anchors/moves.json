@@ -9,6 +9,71 @@
       "page": "book4/ch01-electrostatics/20-2.html",
       "from": "dse-lq-20-sample",
       "to": "dse-lq-2013-11"
+    },
+    {
+      "page": "book4/ch02-circuit-fundamentals/21-1.html",
+      "from": "dse-lq-21-sample",
+      "to": "dse-lq-2013-10"
+    },
+    {
+      "page": "book4/ch02-circuit-fundamentals/21-2.html",
+      "from": "dse-lq-21-sample",
+      "to": "dse-lq-2013-10"
+    },
+    {
+      "page": "book4/ch03-series-parallel-and-internal-resistance/21-3.html",
+      "from": "dse-lq-21-sample",
+      "to": "dse-lq-2013-10"
+    },
+    {
+      "page": "book4/ch03-series-parallel-and-internal-resistance/21-4.html",
+      "from": "dse-lq-21-sample",
+      "to": "dse-lq-2013-10"
+    },
+    {
+      "page": "book4/ch04-power-and-domestic-electricity/22-1.html",
+      "from": "dse-lq-22-sample",
+      "to": "dse-lq-2012-8"
+    },
+    {
+      "page": "book4/ch04-power-and-domestic-electricity/22-2.html",
+      "from": "dse-lq-22-sample",
+      "to": "dse-lq-2012-8"
+    },
+    {
+      "page": "book4/ch05-magnetic-fields-and-electromagnets/23-1.html",
+      "from": "dse-lq-23-sample",
+      "to": "dse-lq-2012-10"
+    },
+    {
+      "page": "book4/ch06-magnetic-force-and-dc-motor/23-2.html",
+      "from": "dse-lq-23-sample",
+      "to": "dse-lq-2012-10"
+    },
+    {
+      "page": "book4/ch06-magnetic-force-and-dc-motor/23-3.html",
+      "from": "dse-lq-23-sample",
+      "to": "dse-lq-2012-10"
+    },
+    {
+      "page": "book4/ch07-electromagnetic-induction/24-1.html",
+      "from": "dse-lq-24-sample",
+      "to": "dse-lq-2014-9"
+    },
+    {
+      "page": "book4/ch07-electromagnetic-induction/24-2.html",
+      "from": "dse-lq-24-sample",
+      "to": "dse-lq-2014-9"
+    },
+    {
+      "page": "book4/ch08-ac-transformers-and-transmission/24-3.html",
+      "from": "dse-lq-24-sample",
+      "to": "dse-lq-2014-9"
+    },
+    {
+      "page": "book4/ch08-ac-transformers-and-transmission/24-4.html",
+      "from": "dse-lq-24-sample",
+      "to": "dse-lq-2014-9"
     }
   ]
 }

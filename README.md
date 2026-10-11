@@ -35,9 +35,9 @@ paper2everything/
 │   ├── metadata/                reviewed pipeline inputs (see paper2db/README.md)
 │   ├── schemas/                 JSON schemas
 │   ├── qb-web-ui-staging/       staged crops and metadata for the /qb UI
-│   └── tests/                   unittest suite; pipeline output trees (mostly gitignored)
+│   └── tests/                   pipeline output trees (mostly gitignored)
 ├── paper2mock/f1/test1/<1..10>/{question-paper,marking-scheme}/
-└── .github/workflows/           see CI and deploy below
+└── .github/workflows/           deploy-notes Cloud Run publication
 ```
 
 ## Prerequisites
@@ -48,9 +48,9 @@ paper2everything/
 | Python 3 and `pip` | paper2db | use a venv |
 | tesseract (on `PATH`) | paper2db OCR stages | |
 | LibreOffice (headless `soffice`), `pdftoppm` | QB stages | QB DOCX to PDF only |
-| Node.js 20 | `ci-check.mjs`, footer injection, audit harness | CI uses 20 |
+| Node.js 20 | `ci-check.mjs`, footer injection, audit harness | |
 | `python3 -m http.server` | notes preview | no build step |
-| TeX Live with LuaLaTeX and latexmk | paper2mock | compile check |
+| TeX Live with LuaLaTeX and latexmk | paper2mock | compile mock documents |
 | Docker, gcloud | Cloud Run deploy | maintainers only |
 | LLM API key (`LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`) | classifying years missing from tracked metadata | optional; tracked metadata is replayed first, keyword classifiers are the fallback |
 
@@ -88,13 +88,13 @@ Options (`--years`, `--from`, `--only`) are in [`paper2db/README.md`](paper2db/R
 # or the full QB track: ./paper2db/pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit
 ```
 
-**Compile a mock** (CI builds with LuaLaTeX; the `main.tex` header comments saying `pdflatex` are stale):
+**Compile a mock** (the `main.tex` header comments saying `pdflatex` are stale):
 
 ```bash
 cd paper2mock/f1/test1/1/question-paper && latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-**Run the CI check locally:**
+**Run the notes check locally:**
 
 ```bash
 node paper2notes/scripts/ci-check.mjs
@@ -121,19 +121,18 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 | `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
 | `paper2db/tests/reconstructed/lq/*/starts.json`, `paper2db/tests/reconstructed/lq/*/ans_starts.json` | `paper2notes/notes/**/_local/` |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `.audit/` harness output |
-| `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (see [publication rules](docs/ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync)) | compiled mock PDFs (built and released by CI) |
+| `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (see [publication rules](docs/ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync)) | compiled mock PDFs |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
 | `paper2mock/**` LaTeX sources | |
 
-## CI and deploy
+## Checks and deploy
 
-| Workflow | Trigger | What it does |
-|---|---|---|
-| [`ci-notes`](.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Notes and DSE availability checks; see [the static check](paper2notes/scripts/ci-check.mjs) and [anchor rules](paper2notes/anchors/README.md). |
-| [`ci-pointers`](.github/workflows/ci-pointers.yml) | PR and push to `main`; path filters in the workflow | Answer-pointer checks; see [paper2db usage](paper2db/README.md#answer-pointers) |
-| [`ci-paper2db`](.github/workflows/ci-paper2db.yml) | PR and push to `main` touching `paper2db/**` or itself | `python -m unittest tests.test_dse_items tests.test_pointers` (dse-items records and answer-pointer join) |
-| `compile-mocks` | PR touching `paper2mock/**`; every push to `main` | LaTeX build of all 20 mock documents; `main` pushes release two zips |
-| `deploy-notes` | push to `main` touching `paper2notes/notes/` or `paper2notes/deploy/cloudrun/`; manual | `paper2notes/deploy/cloudrun/deploy.sh` to Cloud Run (`asia-east2`) via Workload Identity Federation |
+The repository has no automated check workflows. The notes check remains available as
+`node paper2notes/scripts/ci-check.mjs`; it is not run by GitHub Actions.
+
+The `deploy-notes` workflow publishes `paper2notes` to Cloud Run when its configured
+paths change on `main`. See [`deploy-notes.yml`](.github/workflows/deploy-notes.yml)
+and [the deploy guide](paper2notes/deploy/cloudrun/README.md).
 
 Access model and rollback: [`paper2notes/deploy/cloudrun/README.md`](paper2notes/deploy/cloudrun/README.md).
 

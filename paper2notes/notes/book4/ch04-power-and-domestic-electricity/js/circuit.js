@@ -5,7 +5,7 @@
      reduced-motion static terminal frame).
    - fuse: working current -> standard fuse -> compatible cable as three steps
      selected on the figure.
-   Markup contract (also asserted in notes.interactives.test.mjs):
+   Markup contract for the circuit interactive:
    - .visual[data-circuit="wiring"] > svg with [data-part=live|neutral|earth|
      fuse|fuse-closed|fuse-open|case|earth-bond|branch-lamp|branch-heater|
      fault-*] groups, [data-circuit-state], [data-circuit-replay],

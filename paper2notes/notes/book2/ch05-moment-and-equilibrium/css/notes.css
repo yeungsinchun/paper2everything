@@ -1,4 +1,4 @@
-/* Chapter overrides — keep minimal. Shared rules in ../../css/notes.css */
+/* Chapter overrides — keep minimal. Shared rules in ../../../css/notes.css */
 /* Fix hud-label stack: give each label an explicit anchor so two labels never collapse to 0,0 */
 #seesaw-vis [data-hud="pivot"] { left: 50%; top: 64%; }
 #seesaw-vis [data-hud="moment"] { left: 74%; top: 16%; }

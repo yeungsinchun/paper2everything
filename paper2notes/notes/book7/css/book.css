@@ -1,0 +1,253 @@
+/* Book 7 sheet: loaded after ../../css/notes.css (the shared sheet for every book).
+   Carries Book 7's own rules that the shared sheet does not hold yet: its
+   spectrum, track and imaging figures, the fig-svg vocabulary, the idea
+   chips, the learn-more disclosures, the simulation controls and readouts.
+   Remove a rule here once the shared sheet carries it for every book. */
+
+#spectrum-vis { padding: 0.6rem 0.4rem 0.2rem; }
+
+.spectrum-svg { display: block; width: 100%; height: auto; }
+
+.spectrum-svg text {
+  font-family: var(--sans);
+  fill: var(--ink);
+}
+
+.spectrum-svg .bracket-label { font-size: 15px; font-weight: 600; }
+
+.spectrum-svg .band-name { font-size: 14px; }
+
+.spectrum-svg .threshold-label { font-size: 12.5px; fill: var(--muted); }
+
+.spectrum-svg .axis-label { font-size: 12.5px; fill: var(--muted); }
+
+#track-vis canvas.scene-canvas { background: #11150f; }
+
+#track-vis .hud-label {
+  color: #f4f0e4;
+  text-shadow: 0 0 6px #11150f;
+}
+
+#imaging-vis canvas.scene-canvas { height: 440px; }
+
+.idea-nav {
+  position: sticky;
+  top: 60px;
+  z-index: 15;
+  display: flex;
+  gap: var(--space-2);
+  margin: 0 calc(-1 * var(--space-4)) var(--space-5);
+  padding: var(--space-2) var(--space-4);
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: rgba(250, 247, 240, .92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: var(--border-w) solid var(--line-soft);
+}
+
+.idea-nav::-webkit-scrollbar { display: none; }
+
+.idea-nav a {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0 14px 0 6px;
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--card);
+  color: var(--ink-2);
+  font: 600 var(--text-sm)/1 var(--font-display);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.idea-nav a b {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--book-soft);
+  color: var(--book-tone);
+  font: 700 var(--text-sm)/1 var(--font-mono);
+}
+
+.idea-nav a:hover { border-color: var(--teal-300); background: var(--teal-50); color: var(--teal-700); }
+
+.idea-nav a[aria-current="true"] { border-color: var(--teal-600); background: var(--teal-600); color: #fff; }
+
+.idea-nav a[aria-current="true"] b { background: #fff; color: var(--teal-700); }
+
+.quick-digest p > b .katex { font-size: 1.05em; }
+
+.learn-more,
+.worked-more { margin: var(--space-3) 0 0; }
+
+.learn-more > summary,
+.worked-more > summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--hit);
+  padding: 0 var(--space-4);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--ink);
+  font: 600 var(--text-sm)/1 var(--font-display);
+  box-shadow: var(--edge);
+  cursor: pointer;
+}
+
+.learn-more > summary:hover,
+.worked-more > summary:hover { border-color: var(--teal-300); background: var(--teal-50); }
+
+.learn-more[open] > summary,
+.worked-more[open] > summary { margin-bottom: var(--space-3); }
+
+.worked-more .worked { margin: 0; }
+
+.worked > .tag { display: block; margin: 0 0 var(--space-2); color: var(--teal-600); }
+
+.worked .answer { margin-top: var(--space-3); padding-top: var(--space-2); border-top: var(--border-w) dashed var(--line); font-weight: 700; }
+
+.eq-stack p { margin: 0; font: 700 var(--text-sm)/1.5 var(--font-mono); }
+
+.eq-stack p + p { margin-top: var(--space-1); }
+
+.sim-controls { margin: var(--space-3) 0 0; display: grid; gap: var(--space-2); }
+
+.sim-controls .row { margin: 0; }
+
+.sim-controls .row-label { min-width: 6.5rem; font-weight: 700; color: var(--ink-2); }
+
+.sim-controls input[type="range"] { flex: 1 1 10rem; min-width: 0; min-height: var(--hit); max-width: 100%; }
+
+.sim-controls .readout { font-variant-numeric: tabular-nums; }
+
+.sim-readout { gap: var(--space-2); }
+
+.sim-controls .row > output.readout { flex: none; min-width: 12.5rem; text-align: center; }
+
+.sim-controls > svg.fig-svg,
+.visual-plain { padding: var(--space-3); background: var(--fig-bg); border: var(--border-w) solid var(--line); border-radius: var(--radius-lg); }
+
+.sim-readout .readout.is-off { color: var(--nudge-edge); border-color: var(--nudge); background: var(--nudge-soft); }
+
+.stage .stage-controls {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 6;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.stage .stage-controls .stage-replay { position: static; }
+
+.stage .stage-fallback { display: none; margin: 0; padding: var(--space-5) var(--space-4); color: var(--ink-2); font-weight: 600; }
+
+.stage.no-webgl .stage-fallback { display: block; }
+
+.stage.no-webgl canvas.scene-canvas,
+.stage.no-webgl .hud-label,
+.stage.no-webgl .stage-controls,
+.stage.no-webgl .stage-replay { display: none; }
+
+figure.fig > .visual.svg-fig { max-width: 720px; margin: 0 auto; }
+
+.fig-svg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font-body); }
+
+.fig-svg text { fill: var(--fig-ink); font-size: 14px; font-weight: 700; }
+
+.fig-svg text.small { font-size: 12px; font-weight: 600; fill: var(--ink-2); }
+
+.fig-svg text.halo { paint-order: stroke; stroke: var(--fig-bg); stroke-width: 4px; stroke-linejoin: round; }
+
+.fig-svg text.sym { font-family: "KaTeX_Math", "Times New Roman", serif; font-style: italic; font-weight: 400; font-size: 16px; }
+
+.fig-svg .axis { stroke: var(--fig-ink); stroke-width: 2; fill: none; }
+
+.fig-svg .guide { stroke: var(--fig-guide); stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+
+.fig-svg .ink { stroke: var(--fig-ink); stroke-width: 2.5; fill: none; }
+
+.fig-svg .electron { fill: var(--fig-electron); }
+
+.fig-svg .electron-line { stroke: var(--fig-electron); stroke-width: 2.5; fill: none; }
+
+.fig-svg .energy-line { stroke: var(--fig-energy); stroke-width: 2.5; fill: none; }
+
+.fig-svg .field-line { stroke: var(--fig-field); stroke-width: 2.5; fill: none; }
+
+.fig-svg .accent-line { stroke: var(--fig-accel); stroke-width: 2.5; fill: none; }
+
+.fig-svg .velocity-line { stroke: var(--fig-velocity); stroke-width: 2.5; fill: none; }
+
+.fig-svg .curve { stroke: var(--teal-600); stroke-width: 3; fill: none; }
+
+.fig-svg .curve-2 { stroke: var(--fig-displacement); stroke-width: 3; fill: none; }
+
+.fig-svg .curve-3 { stroke: var(--fig-accel); stroke-width: 3; fill: none; }
+
+.fig-svg .fill-soft { fill: var(--line-soft); stroke: var(--line); stroke-width: 2; }
+
+.fig-svg .metal { fill: var(--al); stroke: var(--fig-ink); stroke-width: 2; }
+
+.fig-svg .nucleus { fill: var(--fig-proton); }
+
+.fig-svg .alpha { fill: var(--fig-alpha); }
+
+.fig-svg .ok-mark { stroke: var(--ok); stroke-width: 3; fill: none; }
+
+.fig-svg .nudge-mark { stroke: var(--nudge-edge); stroke-width: 3; fill: none; }
+
+.fig-svg .level { stroke: var(--fig-ink); stroke-width: 2.5; }
+
+.fig-svg .level.is-on { stroke: var(--teal-600); stroke-width: 4; }
+
+nav.next {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+nav.next a.prev {
+  background: var(--card);
+  color: var(--ink);
+  border: var(--border-w) solid var(--line);
+  box-shadow: var(--edge);
+}
+
+nav.next a.prev:hover { background: var(--teal-50); border-color: var(--teal-300); }
+
+nav.next a:only-child { margin-left: auto; }
+
+dl.terms { display: grid; grid-template-columns: minmax(8rem, max-content) minmax(0, 1fr); gap: 0; margin: var(--space-3) 0; border: var(--border-w) solid var(--line); border-radius: var(--radius-md); background: var(--card); overflow: hidden; }
+
+dl.terms dt, dl.terms dd { margin: 0; padding: 10px var(--space-3); border-bottom: var(--border-w) solid var(--line-soft); font-size: var(--text-sm); }
+
+dl.terms dt { font-weight: 700; background: var(--paper); }
+
+dl.terms dt:last-of-type, dl.terms dd:last-of-type { border-bottom: 0; }
+
+.nb { white-space: nowrap; }
+
+@media (max-width: 620px){
+  .idea-nav { top: 0; margin: 0 calc(-1 * var(--space-4)) var(--space-4); }
+  .idea { scroll-margin-top: 72px; }
+  button, .idea-nav a { min-height: var(--hit); }
+  dl.terms { grid-template-columns: 1fr; }
+  .sim-controls .row > output.readout { min-width: 0; flex: 1 1 100%; }
+  .quick-digest > div { grid-template-columns: 1fr; }
+  dl.terms dt { border-bottom: 0; padding-bottom: 2px; }
+  dl.terms dd { padding-top: 2px; }
+}
+
+@media print{
+  .idea-nav, .sim-controls, .stage-controls { display: none; }
+}

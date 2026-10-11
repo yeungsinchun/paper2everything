@@ -1,5 +1,5 @@
 /* Book 2 Ch.4 — chapter overrides: hud layout, centred stage, per-figure tweaks.
-   Shared rules live in ../../css/notes.css. This file fixes the stacked hud-labels
+   Shared rules live in ../../../css/notes.css. This file fixes the stacked hud-labels
    (they previously sat at their static flow position, appearing as a pile at the
    bottom-left) and ensures the stage box is centred like Book 5's .visual.play.stage. */
 

@@ -1,0 +1,198 @@
+/* Book 1 sheet: loaded after ../../css/notes.css (the shared sheet for every book).
+   Carries Book 1's own rules that the shared sheet does not hold yet: its
+   spectrum, track and imaging figures, the one-screen recap, the idea chips,
+   the collapsed worked examples and its slider controls. Remove a rule here
+   once the shared sheet carries it for every book. */
+
+#spectrum-vis { padding: 0.6rem 0.4rem 0.2rem; }
+
+.spectrum-svg { display: block; width: 100%; height: auto; }
+
+.spectrum-svg text {
+  font-family: var(--sans);
+  fill: var(--ink);
+}
+
+.spectrum-svg .bracket-label { font-size: 15px; font-weight: 600; }
+
+.spectrum-svg .band-name { font-size: 14px; }
+
+.spectrum-svg .threshold-label { font-size: 12.5px; fill: var(--muted); }
+
+.spectrum-svg .axis-label { font-size: 12.5px; fill: var(--muted); }
+
+#track-vis canvas.scene-canvas { background: #11150f; }
+
+#track-vis .hud-label {
+  color: #f4f0e4;
+  text-shadow: 0 0 6px #11150f;
+}
+
+#imaging-vis canvas.scene-canvas { height: 440px; }
+
+.quick-digest p:last-child { border-right: 0; }
+
+.idea-nav {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-5);
+  padding: var(--space-2) 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  background: var(--paper);
+}
+
+.idea-nav a {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--card);
+  color: var(--ink-2);
+  font: 700 var(--text-sm)/1.1 var(--font-body);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.idea-nav a b {
+  font: 700 var(--text-xs)/1 var(--font-mono);
+  color: var(--book1);
+}
+
+.idea-nav a:hover { border-color: var(--teal-300); background: var(--teal-50); }
+
+.idea-nav a[aria-current="location"] {
+  border-color: var(--teal-600);
+  background: var(--teal-50);
+  color: var(--teal-700);
+}
+
+@media (min-width: 621px){
+  .idea-nav {
+    position: sticky;
+    top: var(--topbar-h, 56px);
+    z-index: 10;
+  }
+}
+
+details.worked { padding: 0; }
+
+details.worked > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  list-style: none;
+  color: var(--teal-700);
+  font: 700 var(--text-xs)/1.2 var(--font-body);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+details.worked > summary::-webkit-details-marker { display: none; }
+
+details.worked > summary::after {
+  content: "";
+  margin-left: auto;
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--ink-3);
+  border-bottom: 2px solid var(--ink-3);
+  transform: rotate(45deg);
+}
+
+details.worked[open] > summary::after { transform: rotate(-135deg); }
+
+details.worked > summary span { text-transform: none; letter-spacing: 0; color: var(--ink); font: 600 var(--text-md)/1.3 var(--font-display); }
+
+details.worked > .worked-body { padding: 0 var(--space-4) var(--space-4); }
+
+details.worked > .worked-body > p:first-child { margin-top: 0; }
+
+.worked .answer {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--teal-50);
+  color: var(--teal-700);
+  font-weight: 700;
+}
+
+.visual.svg-fig svg { max-width: 540px; margin: 0 auto; }
+
+.fig-svg text {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--ink);
+}
+
+.fig-svg text:not([text-anchor]) { text-anchor: middle; }
+
+.fig-svg .muted { fill: var(--ink-3); font-weight: 600; }
+
+.fig-svg .small { font-size: 16px; }
+
+.fig-svg .axis { stroke: var(--fig-ink); stroke-width: 2; fill: none; }
+
+.fig-svg .guide { stroke: var(--fig-guide); stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+
+.fig-svg .energy { stroke: var(--fig-energy); }
+
+.fig-svg .hot { fill: var(--fig-force); }
+
+.fig-svg .cold { fill: var(--fig-velocity); }
+
+.ctrl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  max-width: 720px;
+  margin: var(--space-3) auto 0;
+}
+
+.ctrl label { font: 700 var(--text-sm)/1.2 var(--font-body); color: var(--ink-2); }
+
+.ctrl input[type="range"] { flex: 1 1 12rem; min-height: 40px; margin: 0; }
+
+.ctrl .readout { min-width: 6.5rem; text-align: center; }
+
+.ctrl .row-btns { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+.ctrl .row-btns button { min-height: 40px; }
+
+.stage .stage-fallback {
+  display: none;
+  margin: 0;
+  padding: var(--space-5) var(--space-4);
+  color: var(--ink-2);
+  font-weight: 600;
+  text-align: center;
+}
+
+.stage.no-webgl canvas.scene-canvas,
+.stage.no-webgl .hud-label,
+.stage.no-webgl .stage-replay { display: none; }
+
+.stage.no-webgl .stage-fallback { display: block; }
+
+@media (max-width: 620px){
+  .quick-digest p { padding: 0 0 var(--space-2); border-right: 0; border-bottom: var(--border-w) solid var(--line-soft); }
+  .quick-digest p:last-child { padding-bottom: 0; border-bottom: 0; }
+  .stage canvas.scene-canvas { height: 260px; }
+  .stage canvas.scene-canvas.tall { height: 340px; }
+  .pane-pair .stage canvas.scene-canvas { height: 240px; }
+}
+
+@media print{
+  .idea-nav, .ctrl { display: none; }
+  details.worked > .worked-body { display: block; }
+}

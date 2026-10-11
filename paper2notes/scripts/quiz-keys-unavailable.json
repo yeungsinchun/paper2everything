@@ -9,6 +9,8 @@
     "dse-mc-pp-36": "index.json marks answer.missing = true; no answer PDF for the practice paper",
     "dse-mc-sap-34": "not present in index.json at all; no answer PDF for the sample paper",
     "dse-mc-sap-35": "not present in index.json at all; no answer PDF for the sample paper",
-    "dse-mc-sap-36": "not present in index.json at all; no answer PDF for the sample paper"
+    "dse-mc-sap-36": "not present in index.json at all; no answer PDF for the sample paper",
+    "dse-mc-2026-17": "index.json marks answer.missing = true; no paper/ans/2026ans.pdf in the repo",
+    "dse-mc-pp-17": "index.json marks answer.missing = true; no answer PDF for the practice paper"
   }
 }

@@ -1,4 +1,30 @@
-/* Chapter 1 overrides. Shared rules live in ../../css/notes.css. */
+/* Chapter 1 overrides. Shared rules live in ../../../css/notes.css, the book tone in ../../css/book.css. */
+
+/* Fig 25.5: 2D spectrum strip */
+
+#spectrum-vis { padding: 0.6rem 0.4rem 0.2rem; }
+
+.spectrum-svg { display: block; width: 100%; height: auto; }
+
+.spectrum-svg text {
+  font-family: var(--sans);
+  fill: var(--ink);
+}
+
+.spectrum-svg .bracket-label { font-size: 15px; font-weight: 600; }
+.spectrum-svg .band-name { font-size: 14px; }
+.spectrum-svg .threshold-label { font-size: 12.5px; fill: var(--muted); }
+.spectrum-svg .axis-label { font-size: 12.5px; fill: var(--muted); }
+
+#track-vis canvas.scene-canvas { background: #11150f; }
+
+#track-vis .hud-label {
+  color: #f4f0e4;
+  text-shadow: 0 0 6px #11150f;
+}
+
+#imaging-vis canvas.scene-canvas { height: 440px; }
+
 
 #pie-vis canvas.scene-canvas { height: 250px; }
 #kinds-vis canvas.scene-canvas,

@@ -87,8 +87,12 @@ notes/book<N>/ch<NN>-<slug>/          one chapter
     index.html                        chapter map (Book 2: the whole chapter)
     <sec>.html                        one page per syllabus subsection (Book 4 and 5, e.g. 25-1.html)
     summary.html                      chapter summary (Book 4 and 5)
-    css/notes.css, js/                chapter overrides
-notes/book<N>/{css,js,vendor}/        shared per-book assets (notes.css, checks.js, diagrams3d.js, math.js, KaTeX)
+    css/notes.css, js/                chapter overrides (that chapter's figures only)
+notes/book<N>/css/book.css            thin book sheet: --tone / --tone-soft and book-only rules
+notes/book<N>/js/                     quiz-data.js (DSE keys) and the book's own scene scripts
+notes/css/notes.css                   shared sheet for every book (tokens, layout, blocks, checks, decks)
+notes/js/                             shared checks.js, math.js, scene-kit.js
+notes/vendor/{katex,three}/           shared vendored KaTeX and three.js
 notes/qb/                             question-bank UI (index.html, crops/, data/)
 notes/dse/{mc,lq}/<section>/          published DSE snapshot (tracked, from paper2db)
 notes/_source/<book-ch>/              intake; never shown to students, not shipped in the image
@@ -113,7 +117,7 @@ Each chapter is produced from `notes/_source/<book-ch>/` holding `ocr.md`, `outl
 3. A sequence of `section.idea` blocks headed `A`, `B`, ... (`.sec-num`), each leading with a visual `figure.fig`, then minimal prose.
 4. Concept checks (`js/checks.js`).
 5. End-of-section DSE decks: separate MC and LQ quizzes, one item at a time, plus "This section" and "Whole chapter" PDF links. DSE items are not shown as year chips on bullets and not dumped on `summary.html`.
-6. `deploy-commit-footer` (injected at deploy, enforced by CI).
+6. `deploy-commit-footer` (injected at deploy, checked by `ci-check.mjs` when run by hand).
 
 ### 4.4 Prose building blocks
 
@@ -140,7 +144,7 @@ Each chapter is produced from `notes/_source/<book-ch>/` holding `ocr.md`, `outl
 
 ## 6. UI requirements
 
-Reference implementation: `paper2notes/notes/book5/css/notes.css` (tokens, `.def`, `.stage`, `table.notes`, quiz, breakpoints) and `paper2notes/notes/qb/index.html` (900px breakpoint). The `paper2notes/Paper2Notes Design System/` folder is a separate design-system proposal (friendlier, phone-first revamp); where it differs from this section, treat this section as the contract for the current site and the design system as a direction to reconcile (section 13).
+Reference implementation: `paper2notes/notes/css/notes.css`, the shared sheet every book links (tokens, `.def`, `.stage`, `table.notes`, quiz, breakpoints) and `paper2notes/notes/qb/index.html` (900px breakpoint). The `paper2notes/Paper2Notes Design System/` folder is a separate design-system proposal (friendlier, phone-first revamp); where it differs from this section, treat this section as the contract for the current site and the design system as a direction to reconcile (section 13).
 
 ### 6.1 Viewports and layout
 
@@ -169,7 +173,7 @@ Rules:
 
 ### 6.2 Design tokens
 
-Use these; do not invent colours per chapter. Source: `:root` in `notes/book5/css/notes.css`.
+Use these; do not invent colours per chapter. Source: the legacy-name `:root` block in `notes/css/notes.css`, which points these names at design-system tokens (the values below are the original document palette; Books 2, 4 and 5 now render the design-system values). A book sets only `--tone` and `--tone-soft` in its `css/book.css`.
 
 | Role | Token | Value |
 |---|---|---|
@@ -184,7 +188,7 @@ Use these; do not invent colours per chapter. Source: `:root` in `notes/book5/cs
 - Physics colours are semantic and consistent across books (alpha is always red). Never reuse them for decoration.
 - Text and UI labels meet WCAG AA (4.5:1). Colour is never the only carrier of meaning: right and wrong also show a mark and a word.
 - Figure boxes are plain white, not cream or yellow.
-- Shared rules (stage centering, `.hud-label`, `.def`, tables) belong in the book-level sheet, not per-chapter CSS. Today each book carries its own copy of `notes.css` (section 12).
+- Shared rules (stage centering, `.hud-label`, `.def`, tables) belong in the shared sheet `notes/css/notes.css`, not in a book sheet or per-chapter CSS. `paper2notes/README.md` (Shared assets) gives the link order, and `ci-check.mjs` fails a book that copies a shared file.
 
 ### 6.3 Alignment and centering
 
@@ -452,7 +456,7 @@ Review gates (MC anchors, optional LQ crops, uncertain classifications) pause fo
 - Production: the tracked snapshot `paper2notes/notes/dse/{mc,lq}/<NN>/` is staged to `_local/dse/` (and each `book*/_local/dse/`) by the `Dockerfile`. HTML decks render in production without running the pipeline.
 - Local preview: `./paper2db/pipeline --force --yes`, then `./paper2notes/scripts/sync-dse.sh`, then `python3 -m http.server --directory paper2notes/notes`. Pages reference `../_local/dse/...`.
 
-**Tests.** `paper2db/tests/test_*.py` is a `unittest` suite (run `python -m unittest discover -s paper2db/tests`, fixtures only). No workflow runs it.
+**Automated tests.** The Python test modules and browser test scripts were removed. The `paper2db/tests/fixtures/` and `paper2db/tests/reconstructed/` directories remain pipeline data.
 
 ## 9. Repository structure and tracked versus generated
 
@@ -461,9 +465,9 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 | Path | Purpose | Runtime |
 |---|---|---|
 | `paper2db/` | Past-paper crops, section banks, QB stages | Python 3 (PyMuPDF, Pillow, Tesseract, optional LLM API) |
-| `paper2notes/` | Student site (`notes/`), CI check, deploy scripts, Cloud Run config | Static HTML/CSS/JS (vendored three.js, KaTeX); Node for checks; Docker and nginx for hosting |
+| `paper2notes/` | Student site (`notes/`), manual check scripts, deploy scripts, Cloud Run config | Static HTML/CSS/JS (vendored three.js, KaTeX); Node for checks; Docker and nginx for hosting |
 | `paper2mock/` | `f1/test1/<1..10>/{question-paper,marking-scheme}/` | LuaLaTeX via latexmk |
-| `.github/workflows/` | `ci-notes`, `ci-pointers`, `ci-paper2db`, `compile-mocks`, `deploy-notes` | GitHub Actions |
+| `.github/workflows/` | `deploy-notes` | GitHub Actions Cloud Run deployment |
 | `docs/` | `ARCHITECTURE.md`, this PRD, board notes | Markdown |
 | `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML, CSS, JS |
 
@@ -475,56 +479,43 @@ One repository, three subprojects: paper2notes and paper2db are mutually depende
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
 | `paper2notes/notes/` including the `dse/` snapshot and `_source/` | `.audit/` harness output |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
-| `paper2mock/**` LaTeX sources | Compiled mock PDFs (built and released by CI) |
+| `paper2mock/**` LaTeX sources | Compiled mock PDFs |
 
-## 10. CI, deploy and mocks
+## 10. Checks, deploy and mocks
 
-| Workflow | Trigger | What it does |
-|---|---|---|
-| [`ci-notes`](../.github/workflows/ci-notes.yml) | Triggers and commands belong to the workflow | Notes and DSE availability checks; see [the static check](../paper2notes/scripts/ci-check.mjs) and [anchor rules](../paper2notes/anchors/README.md). |
-| `ci-pointers` | PR and push to `main`; path filters in the workflow | `python3 scripts/pointers.py check`, `coverage` and `python3 -m unittest tests.test_pointers` |
-| `ci-paper2db` | PR and push to `main` touching `paper2db/**` or itself | `python3 -m unittest tests.test_dse_items tests.test_pointers`: dse-items records and answer-pointer join |
-| `compile-mocks` | PR touching `paper2mock/**` or itself; every push to `main` | Matrix LaTeX build of 20 documents; artifacts per PR; release on `main` |
-| `deploy-notes` | Push to `main` touching `paper2notes/notes/**`, `paper2notes/deploy/cloudrun/**`, `.dockerignore`, or itself; manual dispatch | Cloud Run deploy |
+The repository has no automated check or test workflows. Notes checks, audits,
+and pipeline scripts remain available to run by hand. See [Architecture §5](ARCHITECTURE.md#5-automated-workflows).
 
-Only the workflows under `.github/workflows/` run; nested copies under `paper2notes/` and `paper2mock/` never do.
+**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
 
-**Static notes checks:** [`ci-check.mjs`](../paper2notes/scripts/ci-check.mjs) owns the check inventory.
-Publication and DSE availability rules belong to [Architecture §2](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
-Anchor rules belong to the [anchors README](../paper2notes/anchors/README.md).
-
-Not in CI: the Book 5 Puppeteer interactive tests (hard-coded macOS Chrome path), the DSE-quiz test (needs local scans), `sync-dse.sh`, the paper2db pipeline and the rest of its suite (`ci-paper2db` runs only `test_dse_items` and `test_pointers`), the audit harness.
-
-**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/`, `**/_local/`, `*.test.mjs`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
+**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
 
 **UI PRs.** A PR that changes paper2notes HTML, CSS, JS, visuals, animations or stage loads `.agents/skills/paper2everything-ui-screenshot/SKILL.md` first and includes before/after screenshots at **both** 1280x800 and 390x844 (one pair per size, same URL, scroll and viewport, attached with `gh --attach` so they render inline; one size only is incomplete). A demo video, if any, is also recorded at both sizes unless provably invisible at one (`.agents/skills/paper2everything-pr-video/SKILL.md` §5.1 and §6).
 
-**Mocks.** `paper2mock/f1/test1/<1..10>/` each hold two independent LaTeX projects, `question-paper/` (`main.tex`, `config.tex`, `style.tex`, `cover.tex`, `content.tex`, `marks-table.tex`, `questions/qN.tex`) and `marking-scheme/` (`main.tex`, `config.tex`, `style.tex`, `content.tex`, `questions/`). `compile-mocks.yml` runs one matrix job per project (20, named `mock<N>-question-paper` and `mock<N>-marking-scheme`) with `xu-cheng/latex-action@v3`, `root_file: main.tex`, `-interaction=nonstopmode -halt-on-error`, `latexmk_use_lualatex: true`, copies `main.pdf` to `<name>.pdf` and uploads an artifact. On push to `main` the `release` job zips `question-papers.zip` and `marking-schemes.zip` into release `build-<sha>` (`ncipollo/release-action`, pinned by SHA, needs `contents: write`); PRs get artifacts only. The `main.tex` headers mention `pdflatex`, but CI uses LuaLaTeX, so a new mock must build under LuaLaTeX. Adding a mock means adding the directory and two hand-listed matrix entries; a mock without an entry is never built.
+**Mocks.** `paper2mock/f1/test1/<1..10>/` each hold two independent LaTeX projects, `question-paper/` and `marking-scheme/`. Compile them manually with LuaLaTeX. Their `main.tex` headers mention `pdflatex`, so use LuaLaTeX instead.
 
 ## 11. Success criteria and acceptance
 
 1. Every DSE question in a covered year is reachable from at least one section bank; unclassified or low-confidence items are surfaced by audit output, not dropped.
-2. Every chapter page passes `ci-check.mjs` (structure, relative links, commit footer, leak check, anchor ids).
-3. Interactive checks give correct feedback for every authored problem.
+2. Chapter pages pass `ci-check.mjs` when maintainers run it by hand.
+3. Interactive feedback works for every authored problem under manual review.
 4. The pipeline rebuilds all generated artifacts from tracked inputs on a clean checkout.
 5. `./paper2db/pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit` passes the section 7.2 gate with counts from `banks.json`; `qb-web-ui-staging/qb/manifest.json` reports 3,847 items and 46 banks and lists every missing crop.
 6. DSE staging counts reconcile (537 MC for 2012 to 2026 plus `pp`, 170 LQ) with missing answers, notes and crops flagged per item.
 7. A harness run on a bank yields one result per inventory item and `report.mjs` applies the section 7.4 completeness rule.
-8. Mock PDFs compile in CI and release on each push to `main`.
+8. Maintainers can compile mock PDFs manually with LuaLaTeX.
 9. No QB stem, crop, DOCX, full PDF or `.audit/` output is tracked in git.
 10. Every UI change meets the section 6.9 checklist at both sizes.
 
 ## 12. Known gaps
 
 - **No automated layout check.** The alignment rules (stage centering, no stacked `.hud-label`, single `aria-current`, left-aligned `.def`, no `<br>` in prose, no fixed narrow prose widths) are written-down forms of existing CSS and the Book 2 fix series. A layout test or `ci-check.mjs` lint would enforce them.
-- **Per-book CSS copies.** Book 2, 4 and 5 each have their own `notes.css`; chapter overrides were the source of repeat bugs. Consolidate to one sheet or generate per-book copies from one source.
+- **Book 4 look.** Books 2, 4 and 5 link one shared sheet (`notes/css/notes.css`), shared scripts and one vendored KaTeX and three.js. Book 4 still keeps a "Book 4 look" section in `book4/css/book.css` that preserves where it differed from Books 2 and 5 (top bar, check headings, Show answer, deck buttons, section numbers). Removing those rules moves Book 4 onto the shared look and is a visual change to review. Book 2 and Book 4 scene scripts do not use `js/scene-kit.js` yet.
 - **Book 2 shape.** Book 2 is one long page per chapter; the quick-digest and anchor requirements (section 6.8) are the target and apply fully only to Book 4 and 5 style pages.
 - **Unchecked DSE contract.** Nothing verifies that notes references exist in the snapshot or agree with paper2db classification; the snapshot is synced by hand. `ci-check.mjs` skips `_local/` links.
-- **paper2db mostly untested in CI.** `ci-paper2db` runs only the dse-items and answer-pointer unit tests, and `ci-notes` runs `leak_fingerprints.py --check`; the pipeline itself and the rest of its suite are not run in CI.
-- **Interactive test coverage.** Book 5 ch. 1 to 2 have a browser test (needs Google Chrome); Book 4 and Book 5 ch. 3 have none.
-- **`compile-mocks` push-path cost.** All 20 LaTeX jobs and a release run on every push to `main`, including notes-only merges; the matrix is hand-written.
-- **Dead config.** Nested `paper2notes/.github/workflows/`, `paper2mock/.github/workflows/` and `paper2notes/.dockerignore` are unused; `ci-notes.yml` still path-filters on the nested workflow path.
-- **Harness scope.** Bank ids and bank-to-chapter mapping live in `scripts/audit/books.json`; the model id is hard-coded in the scripts; it is not in CI (paid LLM, `pi`, Chrome). DSE deck questions are audited only on the `--dse-section` path, and DSE LQ items have no marking scheme in the harness when no tracked answer crop exists. QB items carry no section classification beyond `bank` and `chapter`, and the harness mapping is not written back to `paper2db`.
+- **No automated checks.** The repository has no automated check or test workflows. Maintainers can run the notes check and pipeline tools by hand.
+- **Dead config.** Nested `paper2notes/.github/workflows/`, `paper2mock/.github/workflows/` and `paper2notes/.dockerignore` are unused.
+- **Harness scope.** Bank ids and bank-to-chapter mapping live in `scripts/audit/books.json`; the model id is hard-coded in the scripts; the harness requires a paid LLM, `pi` and Chrome. DSE deck questions are audited only on the `--dse-section` path, and DSE LQ items have no marking scheme in the harness when no tracked answer crop exists. QB items carry no section classification beyond `bank` and `chapter`, and the harness mapping is not written back to `paper2db`.
 - **DSE staging coverage.** `dse-mc` stages 537 of 573 classified MC items (2012 to 2026 plus `pp`); only `sap` is not staged (mc-anchors cannot locate its question labels).
 - **`/qb` UI** is described by requirements here but has no tracked automated test.
 
@@ -535,7 +526,6 @@ Not in CI: the Book 5 Puppeteer interactive tests (hard-coded macOS Chrome path)
 - **Syllabus scope.** Only Books 2, 4, 5 are covered; Books 1 and 3 and other subjects are undecided **(planned)**.
 - **Learner state.** Progress and accounts are out of scope; self-checks are stateless.
 - **F.1 maths mocks:** keep in this product or present as a separate offering for a different audience?
-- **Shared stylesheet:** one `notes/css/notes.css` for all books, or per-book copies generated from one source?
 - **Lint:** add mechanical-rule lint to `ci-check.mjs` (every `data-hud` has a position rule, no `<br>` in prose, no fixed narrow prose widths)?
 - **Phone quiz navigation:** sticky bottom bar, or inline under the item?
 - **Dark mode:** out of scope, or a required token pass?

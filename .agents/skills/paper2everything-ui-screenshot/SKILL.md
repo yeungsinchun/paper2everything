@@ -21,8 +21,8 @@ Load and follow this skill **before** launching any PR that touches UI.
 The trigger is any change to `paper2notes` UI - if you edited one of these, you must invoke this skill before `gh-axi pr create`:
 
 - `paper2notes/notes/**/*.html` (chapter pages, landing `notes/index.html`, book indexes `notes/book*/index.html`, summary pages).
-- `paper2notes/notes/**/*.css` (`notes/book*/css/notes.css`, shared `notes/css/`).
-- `paper2notes/notes/**/*.js` (`notes/book*/js/*`, `notes/js/diagrams3d.js`, `notes/js/checks.js`, `notes/js/lib/three.min.js` wrappers, stage/interactive scripts).
+- `paper2notes/notes/**/*.css` (shared `notes/css/notes.css`, book sheets `notes/book*/css/book.css`, chapter sheets).
+- `paper2notes/notes/**/*.js` (shared `notes/js/checks.js`, `notes/js/math.js`, `notes/js/scene-kit.js`; `notes/book*/js/*` and chapter `js/diagrams3d.js` stage/interactive scripts).
 - Visual assets or stage code: three.js scenes, `diagrams3d.js` `stage()`/`placeHud`, canvas sizing, KaTeX rendering, HUD labels, responsive breakpoints.
 - Lavish review boards under `.lavish/` that preview notes UI (these need the Lavish variant below).
 
@@ -181,7 +181,7 @@ To prove this skill would have caught missing screenshots, run a dry-run on `boo
 
 ```bash
 # simulate a UI PR without screenshots
-git diff --name-only origin/main | grep -E "paper2notes/notes/(book2/ch01|book2/css|book2/js|notes\.css)"
+git diff --name-only origin/main | grep -E "paper2notes/notes/(book2/ch01|book2/css|book2/js|css/|js/|notes\.css)"
 # if any output exists and PR body checklist/image URLs are absent at EITHER size → skill would block (both 1280 and 390 required)
 
 # positive dry-run - capture as §5.1 and attach via gh --attach at both sizes

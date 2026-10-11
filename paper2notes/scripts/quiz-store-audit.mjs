@@ -17,12 +17,15 @@
 
      2. dse-mc-key-not-in-store / dse-mc-key-unsupported /
         dse-mc-key-disagrees-with-store
-        A QUIZ_KEYS entry that paper2db/qb-web-ui-staging/dse-mc/index.json
+        A quizKeys entry that paper2db/qb-web-ui-staging/dse-mc/index.json
         does not back: no record, answer.missing = true, answer.option null, or
         an option/percentage that differs from the store. The store is derived
         from paper2db/paper/ans/<year>ans.pdf, so the page must follow it and
         never the other way round. A slide with no key says "Answer key not
         available for this paper.", which is the honest state.
+        The entry is read from whichever file carries it: a book's js/quiz-data.js
+        (quizKeys: {...}) or, before the shared-asset refactor, a per-book
+        js/checks.js (var QUIZ_KEYS = {...}).
 
    Wired into quiz-audit.mjs, so one command covers all of it:
      node paper2notes/scripts/quiz-audit.mjs
@@ -81,13 +84,24 @@ export function pages(dir, out = []) {
   }
   return out;
 }
+/* A page's DSE MC key table, in either of the two shapes the notes use.
+
+   Before the shared-asset refactor every book kept its own js/checks.js with
+   an inline `var QUIZ_KEYS = {...}`. The refactor moved the shared grading
+   code to notes/js/checks.js and each book's data to its own js/quiz-data.js,
+   which sets `quizKeys: {...}` inside window.P2N_QUIZ. Both shapes are real
+   key stores, so a book that still ships the old form is still checked. */
 export function quizKeys(scriptHtml) {
-  const m = scriptHtml.match(/var\s+QUIZ_KEYS\s*=\s*(\{[\s\S]*?\});\s*\n/);
-  if (!m) return null;
+  const inline = scriptHtml.match(/var\s+QUIZ_KEYS\s*=\s*(\{[\s\S]*?\});\s*\n/);
+  /* quiz-data.js sets one `quizKeys: { "id": { option, pct }, ... }` entry on one
+     line, so its table is two brace levels deep. */
+  const shared = scriptHtml.match(/\bquizKeys\s*:\s*(\{(?:[^{}]|\{[^{}]*\})*\})/);
+  const raw = inline ? inline[1] : shared ? shared[1] : null;
+  if (!raw) return null;
   try {
-    return JSON.parse(m[1]);
+    return JSON.parse(raw);
   } catch {
-    return { __parseError: m[1].slice(0, 80) };
+    return { __parseError: raw.slice(0, 80) };
   }
 }
 
@@ -127,12 +141,15 @@ export function loadStore(path = MC_STORE) {
   return byId;
 }
 
-/* Every js/checks.js that a shipped page actually loads, with its QUIZ_KEYS. */
+/* Every key store a shipped page actually loads: the shared notes/js/checks.js
+   that grades a book's decks, plus each book's js/quiz-data.js that carries
+   its keys. Both files are looked up from the page's own <script src>, so a
+   store no page loads is not checked. */
 export function loadedKeyStores(notesDir = NOTES_DIR) {
   const out = new Map();
   for (const file of pages(notesDir)) {
     const html = readFileSync(file, "utf8");
-    for (const m of html.matchAll(/<script\b[^>]*src="([^"]*checks\.js[^"]*)"[^>]*>/g)) {
+    for (const m of html.matchAll(/<script\b[^>]*src="([^"]*(?:checks|quiz-data)\.js[^"]*)"[^>]*>/g)) {
       const full = resolve(dirname(file), m[1]);
       if (!existsSync(full)) continue;
       const keys = quizKeys(readFileSync(full, "utf8"));
@@ -188,20 +205,20 @@ export function auditAgainstStore({ notesDir = NOTES_DIR, storePath = MC_STORE, 
       keys += 1;
       const record = store.get(id);
       if (!record) {
-        problems.push({ kind: "dse-mc-key-not-in-store", where, detail: `QUIZ_KEYS has ${id}, but ${storePath_} has no record for it, so no marking scheme backs the key` });
+        problems.push({ kind: "dse-mc-key-not-in-store", where, detail: `quizKeys has ${id}, but ${storePath_} has no record for it, so no marking scheme backs the key` });
         continue;
       }
       const answer = record.answer || {};
       if (answer.missing || !answer.option) {
         const why = (record.warnings || []).length ? ` (store warnings: ${record.warnings.join(", ")})` : "";
-        problems.push({ kind: "dse-mc-key-unsupported", where, detail: `QUIZ_KEYS grades ${id} but the store marks its answer missing${why}. Withhold the key instead of asserting one.` });
+        problems.push({ kind: "dse-mc-key-unsupported", where, detail: `quizKeys grades ${id} but the store marks its answer missing${why}. Withhold the key instead of asserting one.` });
         continue;
       }
       if (key.option && key.option !== answer.option) {
-        problems.push({ kind: "dse-mc-key-disagrees-with-store", where, detail: `QUIZ_KEYS grades ${id} as ${key.option}, the store says ${answer.option}` });
+        problems.push({ kind: "dse-mc-key-disagrees-with-store", where, detail: `quizKeys grades ${id} as ${key.option}, the store says ${answer.option}` });
       }
       if (key.pct != null && answer.percentage != null && key.pct !== answer.percentage) {
-        problems.push({ kind: "dse-mc-pct-disagrees-with-store", where, detail: `QUIZ_KEYS reports ${key.pct}% for ${id}, the store says ${answer.percentage}%` });
+        problems.push({ kind: "dse-mc-pct-disagrees-with-store", where, detail: `quizKeys reports ${key.pct}% for ${id}, the store says ${answer.percentage}%` });
       }
     }
   }
@@ -216,7 +233,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     console.log(JSON.stringify(report, null, 2));
   } else {
     const w = (s, n) => String(s).padEnd(n);
-    console.log(`DSE slides ${report.slides} | graded keys ${report.keys} in ${report.keyStores} checks.js | problems ${report.problems.length}`);
+    console.log(`DSE slides ${report.slides} | graded keys ${report.keys} in ${report.keyStores} key store(s) | problems ${report.problems.length}`);
     for (const p of report.problems) console.log(`  - [${p.kind}] ${p.where}: ${p.detail}`);
   }
   process.exit(report.problems.length ? 1 : 0);
