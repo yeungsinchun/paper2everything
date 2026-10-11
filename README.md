@@ -1,6 +1,6 @@
 # paper2everything
 
-HKDSE Physics study material from past papers: visual notes, classified question banks, practice mocks.
+HKDSE Physics study material from past papers: visual notes and classified question banks.
 
 **Live site:** https://paper2notes-152505675251.asia-east2.run.app/ (the landing page lists every book; no redirect).
 
@@ -12,7 +12,7 @@ Goals, users, UI rules and data contracts are in the [PRD](docs/PRD.md).
 |---|---|---|---|
 | `paper2notes/` | Visual HKDSE Physics notes (Books 2, 4, 5), static site, `/qb` question-bank UI | HTML/CSS/JS, vendored three.js and KaTeX, no build | [`paper2notes/README.md`](paper2notes/README.md), [`paper2notes/AGENTS.md`](paper2notes/AGENTS.md) |
 | `paper2db/` | Past-paper (MC, LQ) and question-bank (QB) pipeline, classified by syllabus section | Python 3, PyMuPDF, Pillow, tesseract, optional LLM API | [`paper2db/README.md`](paper2db/README.md), [`paper2db/AGENTS.md`](paper2db/AGENTS.md) |
-| `paper2mock/` | F.1 maths mock papers and marking schemes, 10 sets | LaTeX (LuaLaTeX via latexmk) | [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) |
+| `paper2mock/` | Reserved for possible future work; F.1 maths content was removed pending a HKDSE Physics decision | — | [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) |
 | `docs/` | PRD, architecture map, board notes | Markdown | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
 | `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML/CSS/JS | its own `readme.md` |
 
@@ -36,7 +36,6 @@ paper2everything/
 │   ├── schemas/                 JSON schemas
 │   ├── qb-web-ui-staging/       staged crops and metadata for the /qb UI
 │   └── tests/                   pipeline output trees (mostly gitignored)
-├── paper2mock/f1/test1/<1..10>/{question-paper,marking-scheme}/
 └── .github/workflows/           deploy-notes Cloud Run publication
 ```
 
@@ -50,7 +49,6 @@ paper2everything/
 | LibreOffice (headless `soffice`), `pdftoppm` | QB stages | QB DOCX to PDF only |
 | Node.js 20 | `ci-check.mjs`, footer injection, audit harness | |
 | `python3 -m http.server` | notes preview | no build step |
-| TeX Live with LuaLaTeX and latexmk | paper2mock | compile mock documents |
 | Docker, gcloud | Cloud Run deploy | maintainers only |
 | LLM API key (`LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`) | classifying years missing from tracked metadata | optional; tracked metadata is replayed first, keyword classifiers are the fallback |
 
@@ -88,12 +86,6 @@ Options (`--years`, `--from`, `--only`) are in [`paper2db/README.md`](paper2db/R
 # or the full QB track: ./paper2db/pipeline --only qb-pdf,qb-ocr,qb-items,qb-audit
 ```
 
-**Compile a mock** (the `main.tex` header comments saying `pdflatex` are stale):
-
-```bash
-cd paper2mock/f1/test1/1/question-paper && latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
-```
-
 **Run the notes check locally:**
 
 ```bash
@@ -110,7 +102,7 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 
 ## Data flow
 
-`paper2notes` is a read-only consumer of `paper2db`: pipeline output is published as the tracked snapshot `paper2notes/notes/dse/`, which ships in the Docker image. `paper2mock` is independent. Diagram and design findings: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+`paper2notes` is a read-only consumer of `paper2db`: pipeline output is published as the tracked snapshot `paper2notes/notes/dse/`, which ships in the Docker image. The `paper2mock/` directory remains for possible future work; its F.1 maths content was removed pending a HKDSE Physics decision. Diagram and design findings: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ## Tracked versus generated
 
@@ -121,9 +113,8 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 | `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json` | `paper2db/qb/`, `paper2db/qb-pdf/` |
 | `paper2db/tests/reconstructed/lq/*/starts.json`, `paper2db/tests/reconstructed/lq/*/ans_starts.json` | `paper2notes/notes/**/_local/` |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `.audit/` harness output |
-| `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (see [publication rules](docs/ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync)) | compiled mock PDFs |
+| `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (see [publication rules](docs/ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync)) | |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
-| `paper2mock/**` LaTeX sources | |
 
 ## Checks and deploy
 
@@ -141,7 +132,7 @@ Access model and rollback: [`paper2notes/deploy/cloudrun/README.md`](paper2notes
 Full rules: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 1. Branch from `main` and open a PR; never push to `main`.
-2. Run the relevant check before pushing: `node paper2notes/scripts/ci-check.mjs` for notes, a local `latexmk` build for mocks.
+2. Run the relevant check before pushing: `node paper2notes/scripts/ci-check.mjs` for notes.
 3. UI PRs (paper2notes HTML, CSS, JS, visuals, animations, stage): load `.agents/skills/paper2everything-ui-screenshot/SKILL.md` first. Before/after screenshots at both 1280×800 and 390×844 are required in the PR body, attached with `gh --attach`. Motion changes also need video at both sizes unless provably invisible at one (`.agents/skills/paper2everything-pr-video/SKILL.md`). The UI checklist is [PRD §6.9](docs/PRD.md#69-acceptance-checklist-per-ui-change).
 4. Keep generated files out of git: `_local/`, pipeline outputs, `.lavish/`, compiled PDFs.
 5. Do not hand-edit `deploy-commit-footer`; `scripts/inject-commit-footer.mjs` owns it.
@@ -158,4 +149,4 @@ Full rules: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 | [`paper2notes/README.md`](paper2notes/README.md) | Audit harness, sources, hosting pointer |
 | [`paper2db/README.md`](paper2db/README.md) | Pipeline stages, tracked inputs, QB census |
 | [`paper2notes/deploy/cloudrun/README.md`](paper2notes/deploy/cloudrun/README.md) | Hosting, access model, rollback |
-| [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) | Mock layout |
+| [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) | Project guidance retained for possible future work |
