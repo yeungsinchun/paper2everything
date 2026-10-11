@@ -7,5 +7,4 @@
 # Intake/OCR provenance and gitignored local material are never published.
 notes/_source/
 **/_local/
-**/*.test.mjs
 **/.DS_Store

@@ -80,6 +80,6 @@ Use `--bank QB_501` with the real item file, or `--all` when every bank's pages 
 
 See `deploy/cloudrun/README.md` for Cloud Run hosting and `../docs/ARCHITECTURE.md` (repo root) for the monorepo deploy path — the monorepo workflow is `.github/workflows/deploy-notes.yml` at the repo root (see `../docs/ARCHITECTURE.md` §6). Live site: https://paper2notes-152505675251.asia-east2.run.app/.
 
-## CI
+## Checks
 
-Pull requests and pushes to `main` run the root `.github/workflows/ci-notes.yml` check. For its scope and local check command, see `../docs/ARCHITECTURE.md` §5.
+The repository has no automated check workflows. Run `node scripts/ci-check.mjs` by hand; see `../docs/ARCHITECTURE.md` §5 for the remaining deploy workflow.

@@ -8,7 +8,6 @@ paper2notes/notes/_source/
 paper2notes/notes/**/_local/
 paper2notes/notes/_local/
 **/_local/
-**/*.test.mjs
 **/.DS_Store
 paper2notes/active-physics/
 paper2notes/dse-classified/
