@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.2 Hearing</title>
+  <link rel="stylesheet" href="../css/notes.css">
+  <link rel="stylesheet" href="../css/p2n.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">paper<i>2</i>notes<small>Vision and hearing</small></a>
+    <nav>
+      <a href="index.html">Map</a>
+      <a href="1-1.html">1.1</a>
+      <a href="1-2.html" aria-current="page">1.2</a>
+      <a href="summary.html">Summary</a>
+    </nav>
+  </header>
+  <main>
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">1.2</p>
+    <h1>Hearing</h1>
+    <p class="lede">The ear collects sound, amplifies its pressure, sorts it by frequency and sends nerve signals to the brain.</p>
+
+    <aside class="quick-digest" aria-label="Hearing in short">
+      <h2>In short</h2>
+      <div>
+        <p><b>Outer, middle, inner</b><span>collect, amplify, convert</span></p>
+        <p><b>Pressure × 22</b><span>lever × 1.3, area × 17</span></p>
+        <p><b>Base: high pitch</b><span>apex of the cochlea: low pitch</span></p>
+        <p><b>\( L = 10\log(I/I_0) \)</b><span>×2 is +3 dB, ×10 is +10 dB</span></p>
+        <p><b>Phon = dB at 1 kHz</b><span>ear is least sensitive at low and high f</span></p>
+      </div>
+    </aside>
+
+    <nav class="idea-chips" aria-label="Ideas on this page">
+      <a href="#ear-parts"><b>A</b>Parts of the ear</a>
+      <a href="#middle-ear"><b>B</b>Pressure gain</a>
+      <a href="#cochlea"><b>C</b>Cochlea</a>
+      <a href="#sound-level"><b>D</b>Decibels</a>
+      <a href="#loudness"><b>E</b>Loudness</a>
+      <a href="#hearing-loss"><b>F</b>Hearing loss</a>
+    </nav>
+
+    <section class="idea" id="ear-parts">
+      <header>
+        <h2><span class="sec-num">A</span>Parts of the ear</h2>
+      </header>
+      <figure class="fig" id="ear-parts-fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 440 236" role="img" aria-label="The ear as a chain of four stages. Outer ear (ear flap and ear canal) collects sound waves in air. Middle ear (eardrum, three ear bones, oval window) turns them into vibration and raises the pressure. Inner ear (cochlea) turns the vibration into electrical signals. The auditory nerve carries the signals to the brain.">
+            <g>
+              <rect x="2" y="56" width="96" height="70" rx="12" fill="var(--teal-50)" stroke="var(--teal-600)" stroke-width="2"/>
+              <rect x="116" y="56" width="96" height="70" rx="12" fill="var(--teal-50)" stroke="var(--teal-600)" stroke-width="2"/>
+              <rect x="230" y="56" width="96" height="70" rx="12" fill="var(--teal-50)" stroke="var(--teal-600)" stroke-width="2"/>
+              <rect x="344" y="56" width="94" height="70" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+              <path d="M98,91 L114,91 M212,91 L228,91 M326,91 L342,91" class="obj"/>
+              <path d="M108,85 L114,91 L108,97 M222,85 L228,91 L222,97 M336,85 L342,91 L336,97" class="obj"/>
+              <text x="50" y="86" text-anchor="middle">outer</text><text x="50" y="106" text-anchor="middle">ear</text>
+              <text x="164" y="86" text-anchor="middle">middle</text><text x="164" y="106" text-anchor="middle">ear</text>
+              <text x="278" y="86" text-anchor="middle">inner</text><text x="278" y="106" text-anchor="middle">ear</text>
+              <text x="391" y="86" text-anchor="middle">nerve</text><text x="391" y="106" text-anchor="middle">to brain</text>
+              <text x="50" y="30" text-anchor="middle" class="muted">collects</text>
+              <text x="164" y="30" text-anchor="middle" class="muted">amplifies</text>
+              <text x="278" y="30" text-anchor="middle" class="muted">converts</text>
+              <text x="391" y="30" text-anchor="middle" class="muted">carries</text>
+              <text x="50" y="156" text-anchor="middle" class="muted">ear flap,</text><text x="50" y="176" text-anchor="middle" class="muted">ear canal</text>
+              <text x="164" y="156" text-anchor="middle" class="muted">eardrum,</text><text x="164" y="176" text-anchor="middle" class="muted">ear bones,</text><text x="164" y="196" text-anchor="middle" class="muted">oval window</text>
+              <text x="278" y="156" text-anchor="middle" class="muted">cochlea</text>
+              <text x="391" y="156" text-anchor="middle" class="muted">auditory</text><text x="391" y="176" text-anchor="middle" class="muted">nerve</text>
+              <text x="220" y="228" text-anchor="middle">air wave → vibration → fluid wave → signals</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.7</b> Each stage hands the sound on in a new form.</figcaption>
+      </figure>
+      <table class="notes" id="ear-parts-notes-functions">
+        <thead><tr><th>Part</th><th>Contains</th><th>Job</th></tr></thead>
+        <tbody>
+          <tr><td>Outer ear</td><td>ear flap, ear canal</td><td>collects sound and guides it to the eardrum</td></tr>
+          <tr><td>Middle ear</td><td>eardrum, three small ear bones, oval window</td><td>turns sound into mechanical vibration and amplifies the pressure</td></tr>
+          <tr><td>Inner ear</td><td>cochlea</td><td>turns the vibration into electrical signals</td></tr>
+          <tr><td>Auditory nerve</td><td>nerve fibres</td><td>carries the signals to the brain</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>Humans hear about 20 Hz to 20 kHz.</li>
+        <li>The Eustachian tube joins the middle ear to the throat. It keeps the air pressure on both sides of the eardrum equal, which is why ears "pop" in an aeroplane.</li>
+      </ul>
+      <div class="check" id="ear-parts-check-convert" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>Which part of the ear turns mechanical vibration into electrical signals?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">the eardrum</button>
+          <button type="button" data-choice="B">the ear bones</button>
+          <button type="button" data-choice="C">the cochlea</button>
+          <button type="button" data-choice="D">the ear canal</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>The cochlea in the inner ear holds the hair cells that fire the nerve: <b>C</b>. <b>A</b> and <b>B</b> pass vibration on and amplify it but make no signals. <b>D</b> only guides sound to the eardrum.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="middle-ear">
+      <header>
+        <h2><span class="sec-num">B</span>Pressure amplification in the middle ear</h2>
+      </header>
+      <figure class="fig" id="middle-ear-fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 440 230" role="img" aria-label="A large eardrum on the left pushes a lever made of the ear bones, which presses on a small oval window on the right. The lever increases the force about 1.3 times and the oval window is about 17 times smaller in area, so the pressure rises about 22 times.">
+            <ellipse cx="60" cy="100" rx="14" ry="62" class="obj" style="fill:var(--teal-50)"/>
+            <ellipse cx="380" cy="100" rx="8" ry="16" class="obj" style="fill:var(--teal-50)"/>
+            <path d="M74,100 L190,82 L372,100" class="obj" style="stroke-width:4"/>
+            <path d="M178,92 L190,82 L202,92 Z" class="obj" style="fill:var(--line-soft)"/>
+            <path d="M190,82 L190,60" class="guide"/>
+            <text x="60" y="186" text-anchor="middle">eardrum</text>
+            <text x="60" y="206" text-anchor="middle" class="muted">area A</text>
+            <text x="380" y="140" text-anchor="middle">oval</text>
+            <text x="380" y="160" text-anchor="middle">window</text>
+            <text x="380" y="180" text-anchor="middle" class="muted">area A/17</text>
+            <text x="190" y="50" text-anchor="middle">ear bones: force × 1.3</text>
+            <text x="220" y="224" text-anchor="middle">pressure gain ≈ 1.3 × 17 ≈ 22</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.8</b> Two gains multiply: the lever raises the force, the small window concentrates it.</figcaption>
+      </figure>
+      <div class="formula-sheet">
+        <div class="eq" id="middle-ear-eq-gain" role="math" aria-label="Pressure on the oval window is about 22 times the pressure on the eardrum">\[ p_{\text{oval}} = \frac{1.3F}{A/17} \approx 22\,\frac{F}{A} = 22\,p_{\text{eardrum}} \]</div>
+      </div>
+      <ul class="points">
+        <li>The eardrum vibrates at the frequency of the sound. The three ear bones pass the vibration to the oval window.</li>
+        <li>The ear bones act as a lever and raise the force by about 1.3 times.</li>
+        <li>The eardrum is about 17 times larger in area than the oval window, so the same force gives a larger pressure.</li>
+        <li>The gain matters because the cochlea is full of liquid, which is much harder to set vibrating than air.</li>
+      </ul>
+      <div class="check" id="middle-ear-check-gain" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>In one ear the eardrum is 60 mm² and the oval window 3.0 mm², and the ear bones multiply the force by 1.3. By what factor does the pressure rise?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">15</button>
+          <button type="button" data-choice="B">26</button>
+          <button type="button" data-choice="C">20</button>
+          <button type="button" data-choice="D">1.3</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Area ratio \( 60/3.0 = 20 \); times the lever gain 1.3 gives 26: <b>B</b>. <b>A</b> divides by 1.3 instead of multiplying. <b>C</b> forgets the lever. <b>D</b> forgets the area ratio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="cochlea">
+      <header>
+        <h2><span class="sec-num">C</span>The cochlea sorts sound by frequency</h2>
+      </header>
+      <figure class="fig" id="cochlea-fig">
+        <div class="visual play stage" id="cochlea-vis" data-autoplay data-scene="cochlea">
+          <canvas class="scene-canvas" width="960" height="480" aria-label="The cochlea drawn uncoiled. A wave runs along the basilar membrane from the oval window. High frequencies make the membrane vibrate most near the base; low frequencies near the apex."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.9</b> Change the pitch: the place of largest vibration moves along the membrane.</figcaption>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="cochlea-f">Frequency</label>
+            <input id="cochlea-f" type="range" min="0" max="100" step="1" value="50" data-for="cochlea-vis" data-key="f" aria-label="Sound frequency, 20 Hz to 20 kHz">
+            <output class="readout" data-out-for="cochlea-vis" data-out="f">f = 632 Hz</output>
+          </div>
+          <p class="caption" aria-live="polite" data-out-for="cochlea-vis" data-out="where">resonates in the middle</p>
+        </div>
+      </figure>
+      <div class="def" id="cochlea-def">
+        <span class="tag">Definition</span>
+        <p>The <b>basilar membrane</b> runs along the cochlea. It is narrow and stiff at the <b>base</b> (near the oval window) and wide and floppy at the <b>apex</b>, so each part <b>resonates</b> at a different frequency.</p>
+      </div>
+      <ul class="points">
+        <li>The cochlea is a coiled tube filled with liquid. Vibration enters at the oval window, travels up to the apex and back, and leaves at the round window.</li>
+        <li>High frequencies make the base vibrate most; low frequencies make the apex vibrate most.</li>
+        <li>Hair cells on the membrane fire the auditory nerve where it vibrates. The brain reads the place as the pitch.</li>
+        <li>Between about 60 Hz and 1000 Hz the ear can tell apart tones only 2 Hz to 3 Hz apart.</li>
+      </ul>
+      <div class="check" id="cochlea-check-high" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A 15 kHz tone is played. Where does the basilar membrane vibrate most, and why?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">near the base, where the membrane is narrow and stiff and resonates at high frequency</button>
+          <button type="button" data-choice="B">near the apex, where the membrane is wide and resonates at high frequency</button>
+          <button type="button" data-choice="C">equally along its length</button>
+          <button type="button" data-choice="D">at the round window</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>A stiff, light strip has a high natural frequency, so high pitches resonate at the base: <b>A</b>. <b>B</b> swaps the ends. <b>C</b> would leave the ear no way to tell pitch. <b>D</b> is where vibration leaves, not where it is detected.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="sound-level">
+      <header>
+        <h2><span class="sec-num">D</span>Intensity and sound intensity level</h2>
+      </header>
+      <figure class="fig" id="sound-level-fig">
+        <div class="visual play stage" id="db-vis" data-scene="db-ladder">
+          <canvas class="scene-canvas tall" width="960" height="720" aria-label="A decibel scale from 0 dB, the threshold of hearing, to 140 dB, the threshold of pain, with the matching intensity from 10 to the minus 12 to 10 to the 2 watts per square metre. Each step of 10 dB is ten times the intensity."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.10</b> Every ×10 in intensity adds 10 dB.</figcaption>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="db-logI">Intensity</label>
+            <input id="db-logI" type="range" min="-12" max="2" step="0.1" value="-6" data-for="db-vis" data-key="logI" aria-label="Sound intensity, 10 to the minus 12 to 100 watts per square metre, logarithmic">
+          </div>
+          <div class="row sim-readout" aria-live="polite">
+            <span class="readout" data-out-for="db-vis" data-out="I">I = 1.0 × 10^-6 W m⁻²</span>
+            <span class="readout" data-out-for="db-vis" data-out="L">L = 60 dB</span>
+          </div>
+        </div>
+      </figure>
+      <div class="def" id="sound-level-def-intensity">
+        <span class="tag">Definition</span>
+        <p>The <b>intensity</b> \( I \) of a sound is the power passing through unit area at right angles to it, in W m⁻². From a point source it falls as \( 1/r^2 \).</p>
+      </div>
+      <div class="def" id="sound-level-def-level">
+        <span class="tag">Definition</span>
+        <p>The <b>sound intensity level</b> compares \( I \) with the threshold of hearing \( I_0 = 10^{-12} \) W m⁻² on a log scale. Its unit is the <b>decibel</b> (dB).</p>
+      </div>
+      <div class="formula-sheet">
+        <div class="eq" id="sound-level-eq-level" role="math" aria-label="Sound intensity level">\[ L = 10\log_{10}\frac{I}{I_0} \]</div>
+        <div class="eq" id="sound-level-eq-change" role="math" aria-label="Change in level between two intensities">\[ L_2 - L_1 = 10\log_{10}\frac{I_2}{I_1} \]</div>
+        <div class="eq" id="sound-level-eq-intensity" role="math" aria-label="Intensity is power over area">\[ I = \frac{P}{A} \]</div>
+      </div>
+      <ul class="points">
+        <li>The ear handles intensities from \( 10^{-12} \) to about \( 10^{2} \) W m⁻²: 14 powers of ten. A log scale squeezes this into 0 to 140 dB.</li>
+        <li>Doubling the intensity adds about 3 dB; halving takes off 3 dB.</li>
+        <li>×10 adds 10 dB; ×100 adds 20 dB.</li>
+        <li>Long exposure above about 85 dB can damage hearing.</li>
+      </ul>
+      <div class="tip" id="sound-level-tip">
+        <span class="tag">Watch out</span>
+        <p>Two sources together: add the intensities, then convert. Two 70 dB machines give 73 dB, not 140 dB.</p>
+      </div>
+      <div class="check" id="sound-level-check-two" data-check="mc" data-answer="D">
+        <h3>Quick check</h3>
+        <p>One hair dryer gives 76 dB at your ear. A second identical dryer is switched on beside it. What is the new level?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">152 dB</button>
+          <button type="button" data-choice="B">86 dB</button>
+          <button type="button" data-choice="C">76 dB</button>
+          <button type="button" data-choice="D">79 dB</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>The intensity doubles, and \( 10\log 2 \approx 3 \) dB, so 79 dB: <b>D</b>. <b>A</b> adds decibels. <b>B</b> treats doubling as ×10. <b>C</b> ignores the second source.</p>
+        </div>
+      </div>
+      <div class="check" id="sound-level-check-distance" data-check="sa">
+        <h3>Write it</h3>
+        <p>A small loudspeaker gives 80 dB at 2.0 m. Treat it as a point source. Find the level at 8.0 m.</p>
+        <button type="button" data-reveal>Show answer</button>
+        <div class="model" hidden>
+          <p>Four times the distance, so \( I \) falls to \( 1/4^2 = 1/16 \).</p>
+          <p>\( \Delta L = 10\log(1/16) = -12 \) dB, so the level is about 68 dB.</p>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked" id="sound-level-worked">
+          <h3>Worked example</h3>
+          <p>A sound has intensity \( 3.0 \times 10^{-6} \) W m⁻². (a) Find its level. (b) The source power is doubled. Find the new level.</p>
+          <ol class="steps">
+            <li>(a) \( L = 10\log(3.0 \times 10^{-6} / 10^{-12}) = 10\log(3.0 \times 10^{6}) \).</li>
+            <li>\( L = 10 \times 6.48 = 64.8 \) dB.</li>
+            <li>(b) Double power, double intensity: \( \Delta L = 10\log 2 = 3.0 \) dB.</li>
+            <li>New level \( \approx 67.8 \) dB.</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="loudness">
+      <header>
+        <h2><span class="sec-num">E</span>Hearing range, loudness and the phon</h2>
+      </header>
+      <figure class="fig" id="loudness-fig">
+        <div class="visual play stage" id="loudness-vis" data-scene="loudness">
+          <canvas class="scene-canvas tall" width="960" height="720" aria-label="Curves of equal loudness against frequency on a log scale. The lowest curve is the threshold of hearing, 0 phon. All curves rise at low and at high frequency, where the ear is less sensitive, and dip around 3 to 4 kHz. A movable dot reads off the loudness in phons."></canvas>
+        </div>
+        <figcaption><b>Fig. 1.11</b> Curves of equal loudness (schematic). Move the dot to read its loudness.</figcaption>
+        <div class="sim-controls">
+          <div class="row">
+            <label class="row-label" for="loud-f">Frequency</label>
+            <input id="loud-f" type="range" min="0" max="100" step="1" value="33" data-for="loudness-vis" data-key="f" aria-label="Frequency, 20 Hz to 20 kHz, logarithmic">
+            <output class="readout" data-out-for="loudness-vis" data-out="f">f = 196 Hz</output>
+          </div>
+          <div class="row">
+            <label class="row-label" for="loud-L">Level</label>
+            <input id="loud-L" type="range" min="0" max="120" step="1" value="60" data-for="loudness-vis" data-key="L" aria-label="Sound intensity level, 0 to 120 dB">
+            <output class="readout" data-out-for="loudness-vis" data-out="L">level = 60 dB</output>
+          </div>
+          <p class="caption" aria-live="polite" data-out-for="loudness-vis" data-out="p">loudness ≈ 50 phon</p>
+        </div>
+      </figure>
+      <div class="def" id="loudness-def-curve">
+        <span class="tag">Definition</span>
+        <p>A <b>curve of equal loudness</b> joins sounds of different frequency that a listener judges equally loud.</p>
+      </div>
+      <div class="def" id="loudness-def-phon">
+        <span class="tag">Definition</span>
+        <p>The loudness of a sound in <b>phons</b> is the level in dB of a 1000 Hz tone that sounds equally loud. At 1000 Hz, phons and dB are the same number.</p>
+      </div>
+      <ul class="points">
+        <li>The <b>threshold of hearing</b> is the 0 phon curve: the quietest sound heard at each frequency. It is lowest near 3 kHz to 4 kHz, where the ear is most sensitive.</li>
+        <li>The curves rise at low and high frequencies: there the ear needs a higher level to hear the same loudness.</li>
+        <li>The <b>threshold of discomfort</b> is about 120 dB and the <b>threshold of pain</b> about 140 dB. The audible range lies between the threshold of hearing and these limits.</li>
+        <li>Equal loudness is not equal intensity. Loud curves are flatter than quiet ones.</li>
+        <li>Sound meters often use a dB(A) scale, weighted to follow the ear's response.</li>
+      </ul>
+      <div class="check" id="loudness-check-phon" data-check="tf">
+        <h3>Quick check</h3>
+        <div class="tf-item" id="loudness-tf-reference" data-answer="true">
+          <p>(a) A 70 phon sound is as loud as a 70 dB tone at 1000 Hz.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>True. That is the definition of the phon, with 1000 Hz as the reference.</p></div>
+        </div>
+        <div class="tf-item" id="loudness-tf-intensity" data-answer="false">
+          <p>(b) Two tones of 40 phon at 100 Hz and at 3 kHz have the same intensity.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. They sound equally loud, but the ear is less sensitive at 100 Hz, so that tone needs a much higher level, and so a much higher intensity.</p></div>
+        </div>
+        <div class="tf-item" id="loudness-tf-sensitive" data-answer="false">
+          <p>(c) The ear is most sensitive at 1000 Hz.</p>
+          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+          <p class="feedback"></p>
+          <div class="explain" hidden><p>False. 1000 Hz is only the reference. The threshold curve is lowest near 3 kHz to 4 kHz.</p></div>
+        </div>
+      </div>
+      <details class="worked-more">
+        <summary>Worked example</summary>
+        <div class="worked" id="loudness-worked">
+          <h3>Worked example</h3>
+          <p>From the curves, a 100 Hz tone must be at about 75 dB to sound as loud as a 60 dB tone at 1000 Hz. (a) What is its loudness? (b) How many times more intense is it than the 1000 Hz tone?</p>
+          <ol class="steps">
+            <li>(a) It matches a 60 dB tone at 1000 Hz, so its loudness is 60 phon.</li>
+            <li>(b) Difference in level \( = 75 - 60 = 15 \) dB.</li>
+            <li>\( I_2/I_1 = 10^{15/10} = 10^{1.5} \approx 32 \) times.</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <section class="idea" id="hearing-loss">
+      <header>
+        <h2><span class="sec-num">F</span>Noise and hearing loss</h2>
+      </header>
+      <figure class="fig" id="hearing-loss-fig">
+        <div class="visual svg-fig">
+          <svg class="fig-svg" viewBox="0 0 440 280" role="img" aria-label="Threshold of hearing against frequency for three ears. A normal ear has the lowest curve. Age-related loss lifts the curve most at high frequencies. Noise-induced loss lifts the curve in a band of frequencies near 4 kHz, making a notch.">
+            <path d="M60,30 L60,220 L420,220" class="obj" style="stroke-width:2"/>
+            <path d="M143.9,220 L143.9,226 M263.9,220 L263.9,226 M383.9,220 L383.9,226" class="obj" style="stroke-width:2"/>
+            <text x="60" y="244" text-anchor="middle" class="muted">20</text>
+            <text x="143.9" y="244" text-anchor="middle" class="muted">100</text>
+            <text x="263.9" y="244" text-anchor="middle" class="muted">1k</text>
+            <text x="383.9" y="244" text-anchor="middle" class="muted">10k</text>
+            <text x="240" y="270" text-anchor="middle" class="muted">frequency / Hz</text>
+            <text x="52" y="206" text-anchor="end" class="muted">0</text>
+            <text x="52" y="137" text-anchor="end" class="muted">40</text>
+            <text x="52" y="68" text-anchor="end" class="muted">80</text>
+            <text x="64" y="22" class="muted">threshold / dB</text>
+            <path d="M60.0,73.2 L66.0,79.9 L72.0,86.6 L78.0,93.4 L84.0,100.1 L90.0,106.8 L96.0,113.5 L102.0,120.3 L108.0,126.9 L114.0,132.1 L120.0,137.3 L126.0,142.4 L132.0,147.6 L138.0,152.8 L144.0,157.9 L150.0,161.3 L156.0,164.8 L162.0,168.2 L168.0,171.7 L174.0,175.1 L180.0,178.5 L186.0,180.5 L192.0,182.5 L198.0,184.4 L204.0,186.4 L210.0,188.3 L216.0,190.3 L222.0,192.2 L228.0,194.2 L234.0,195.6 L240.0,197.0 L246.0,198.5 L252.0,199.9 L258.0,201.3 L264.0,202.7 L270.0,203.3 L276.0,203.9 L282.0,204.5 L288.0,205.0 L294.0,205.6 L300.0,206.2 L306.0,207.6 L312.0,209.0 L318.0,210.4 L324.0,211.9 L330.0,212.9 L336.0,211.2 L342.0,209.5 L348.0,207.7 L354.0,202.2 L360.0,196.7 L366.0,191.2 L372.0,185.7 L378.0,183.1 L384.0,180.7 L390.0,178.2 L396.0,172.3 L402.0,161.9 L408.0,151.5 L414.0,125.8 L420.0,99.1" fill="none" style="stroke:var(--ink);stroke-width:3"/>
+            <path d="M264.0,194.1 L270.0,193.7 L276.0,192.8 L282.0,191.8 L288.0,190.5 L294.0,189.1 L300.0,187.6 L306.0,186.8 L312.0,185.9 L318.0,184.9 L324.0,183.9 L330.0,182.3 L336.0,178.1 L342.0,173.7 L348.0,169.1 L354.0,160.8 L360.0,152.5 L366.0,144.0 L372.0,135.6 L378.0,130.0 L384.0,124.5 L390.0,118.9 L396.0,109.8 L402.0,96.3 L408.0,82.7 L414.0,53.7" fill="none" style="stroke:var(--teal-600);stroke-width:3;stroke-dasharray:9 6"/>
+            <path d="M264.0,197.6 L270.0,198.1 L276.0,198.7 L282.0,199.3 L288.0,199.7 L294.0,199.9 L300.0,199.1 L306.0,196.8 L312.0,190.3 L318.0,178.3 L324.0,162.6 L330.0,148.4 L336.0,140.4 L342.0,144.6 L348.0,157.7 L354.0,169.4 L360.0,177.5 L366.0,180.2 L372.0,178.5 L378.0,177.4 L384.0,175.3 L390.0,173.0 L396.0,167.1 L402.0,156.7 L408.0,146.4 L414.0,120.6 L420.0,93.9" fill="none" style="stroke:var(--sun-700);stroke-width:3"/>
+            <text x="190" y="166">normal</text>
+            <text x="300" y="120" style="fill:var(--sun-700)">noise</text>
+            <text x="360" y="44" text-anchor="end" style="fill:var(--teal-700)">age</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1.12</b> Higher threshold means worse hearing. Age lifts the high end; noise digs a notch near 4 kHz.</figcaption>
+      </figure>
+      <table class="notes" id="hearing-loss-notes-types">
+        <thead><tr><th>Type</th><th>Cause</th><th>Threshold of hearing</th></tr></thead>
+        <tbody>
+          <tr><td>Age-related</td><td>wear of the cochlea and nerves with age</td><td>rises, most at high frequencies</td></tr>
+          <tr><td>Noise-induced</td><td>long exposure to loud sound (85 dB for 8 hours or more; louder harms faster)</td><td>rises in a band of frequencies, often near 4 kHz</td></tr>
+        </tbody>
+      </table>
+      <ul class="points">
+        <li>Damage can be to the middle ear (eardrum, ear bones) or to the cochlea and nerves.</li>
+        <li>A hearing aid amplifies the frequency bands the person has lost. A cochlear implant skips a damaged cochlea and stimulates the auditory nerve directly.</li>
+      </ul>
+      <div class="check" id="hearing-loss-check-noise" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A factory worker's threshold of hearing is normal at 500 Hz and at 12 kHz, but 30 dB higher near 4 kHz. The most likely cause is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">ageing.</button>
+          <button type="button" data-choice="B">long exposure to loud noise.</button>
+          <button type="button" data-choice="C">a blocked Eustachian tube.</button>
+          <button type="button" data-choice="D">a broken ear bone.</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>A raised band with normal hearing on both sides is the noise notch: <b>B</b>. <b>A</b> would lift all the high frequencies, including 12 kHz. <b>C</b> and <b>D</b> affect the middle ear and reduce hearing across most frequencies, not one band.</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter 1 summary →</a></p>
+  </main>
+  <script src="../vendor/katex/katex.min.js"></script>
+  <script src="../vendor/katex/auto-render.min.js"></script>
+  <script src="../js/math.js"></script>
+  <script src="../js/checks.js"></script>
+  <script src="../js/stage.js"></script>
+  <script src="js/scenes.js"></script>
+<footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="local">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">local</code> <span class="deploy-commit-subject">Book 9 notes</span></footer>
+</body>
+</html>
