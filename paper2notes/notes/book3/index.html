@@ -9,10 +9,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
   <link rel="stylesheet" href="../css/p2n-shell.css">
   <style>
-    /* Book 3 chapter glyphs: Lucide icons vendored in ../assets/icons/
-       (lucide-static@0.468.0). audio-waveform and chevron-right are in
-       ../css/p2n-shell.css. */
-    [data-ic="waves"] { --src: url(../assets/icons/waves.svg); }
+    /* Book 3 chapter glyphs: Lucide icons vendored in ../assets/icons/.
+       Shared book glyphs are mapped in ../css/p2n-shell.css. */
     [data-ic="blend"] { --src: url(../assets/icons/blend.svg); }
     [data-ic="volume-2"] { --src: url(../assets/icons/volume-2.svg); }
     [data-ic="flip-horizontal-2"] { --src: url(../assets/icons/flip-horizontal-2.svg); }
@@ -21,9 +19,7 @@
   </style>
 </head>
 <body>
-  <header class="p2n-top">
-    <a class="p2n-top-brand" href="../index.html">paper<i>2</i>notes</a>
-    <nav class="p2n-top-nav" aria-label="Book 3 chapters">
+  <header class="p2n-top"><a class="p2n-top-brand p2n-book-brand" href="index.html" aria-label="Book 3 home"><span class="p2n-icon p2n-top-book-icon" data-ic="audio-waveform" aria-hidden="true"></span><span>paper<i>2</i>notes<small>Book 3</small></span></a><nav class="p2n-top-nav" aria-label="Site navigation"><a href="../index.html">All books</a><a href="../book1/index.html">Book 1</a><a href="../book2/index.html">Book 2</a><a href="../book3/index.html" aria-current="page">Book 3</a><a href="../book4/index.html">Book 4</a><a href="../book5/index.html">Book 5</a><a href="../book6/index.html">Book 6 · Elective</a><a href="../book7/index.html">Book 7 · Elective</a><a href="../book8/index.html">Book 8 · Elective</a><a href="../book9/index.html">Book 9 · Elective</a><a href="../qb/index.html">Question bank</a></nav><nav class="p2n-context-nav" aria-label="Book 3 chapters">
       <a href="index.html" aria-current="page">Chapters</a>
       <a href="ch01-wave-motion/index.html">Ch.1</a>
       <a href="ch02-reflection-refraction-and-diffraction/index.html">Ch.2</a>
@@ -32,11 +28,9 @@
       <a href="ch05-reflection-of-light/index.html">Ch.5</a>
       <a href="ch06-refraction-of-light/index.html">Ch.6</a>
       <a href="ch07-lenses/index.html">Ch.7</a>
-    </nav>
-  </header>
+    </nav></header>
   <main class="p2n-page">
     <div class="p2n-book-head">
-      <span class="p2n-book-tile" style="--tone:var(--book3);--soft:var(--book3-soft)"><span class="p2n-icon" style="--s:30px" data-ic="audio-waveform" aria-hidden="true"></span></span>
       <div class="p2n-page-head"><span class="p2n-label">Book 3</span><h1>Wave Motion</h1></div>
     </div>
     <p style="color:var(--text-muted);margin:0">HKDSE Physics compulsory part. Each chapter has one page per syllabus section, a summary with formulas and definitions, and topic-matched public-exam practice. All seven chapters have real DSE items; section pages show decks only where matching questions exist.</p>
@@ -48,7 +42,7 @@
         <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
       <a class="p2n-cc" href="ch02-reflection-refraction-and-diffraction/index.html" style="--tone:var(--book3);--soft:var(--book3-soft)">
-        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="waves" aria-hidden="true"></span></span>
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="audio-waveform" aria-hidden="true"></span></span>
         <span class="p2n-cc-t"><span class="p2n-label">Ch.2</span><b>Reflection, Refraction and Diffraction</b><small>14.1 Wavefronts · 14.2 Reflection · 14.3 Refraction · 14.4 Diffraction</small></span>
         <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
