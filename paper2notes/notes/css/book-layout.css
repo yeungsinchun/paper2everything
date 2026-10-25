@@ -1,0 +1,38 @@
+/* Shared book overview and contents layout for the static notes site. */
+.p2n-top-brand:not(.p2n-book-brand) { gap: 0; letter-spacing: -.045em; }
+.p2n-top-brand:not(.p2n-book-brand) i { margin-inline: .04em; }
+.p2n-book-brand { gap: 8px; }
+.p2n-book-brand > span:last-child { display: block; }
+.p2n-book-brand > span:last-child > span { letter-spacing: -.045em; }
+.p2n-book-brand i { display: inline-block; margin-inline: .04em; font-style: normal; }
+.p2n-top-book-icon { box-sizing: content-box; flex: 0 0 24px; width: 24px; height: 24px; }
+
+.p2n-book-index {
+  width: min(100% - 32px, 1040px);
+  margin-inline: auto;
+  padding-block: 32px 48px;
+}
+
+.chapter-cards, .toc, .p2n-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+}
+.chapter-cards > a, .toc > a, .chapter-card {
+  min-width: 0;
+}
+.chapter-cards .num, .toc .num, .chapter-card .num {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+}
+.chapter-cards .num .p2n-icon, .toc .num .p2n-icon, .chapter-card .num .p2n-icon {
+  width: 24px;
+  height: 24px;
+}
+.quick-digest { display: none; }
+@media (max-width: 600px) {
+  .p2n-book-index { width: 100%; padding: 24px 16px 40px; }
+}
