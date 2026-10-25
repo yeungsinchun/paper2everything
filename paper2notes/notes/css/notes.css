@@ -1637,14 +1637,6 @@ table.notes tr:last-child > td { border-bottom: 0; }
 table.notes th { background: var(--line-soft); font-weight: 700; }
 table.notes tbody th { background: var(--paper); }
 
-/* Keep wide comparison tables scrollable inside the page on narrow screens. */
-@media (max-width: 560px) {
-  table.notes { display: block; width: max-content; max-width: 100%; overflow-x: auto; overflow-y: hidden; }
-}
-
-/* Display equations stay inside the content column and scroll as equations. */
-.katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
-
 /* ---------- concept checks (QuickCheck) ---------- */
 
 .check {
