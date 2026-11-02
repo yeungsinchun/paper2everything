@@ -87,36 +87,89 @@ def score_keys(keys: dict[int, dict]) -> int:
     return sum(1 for v in keys.values() if v.get("Correct Option") or v.get("deleted"))
 
 
+SECTION_A_BONUS_RE = re.compile(r"section\s*A|Question\s*No|答案|Key", re.I)
+PAPER_2_RE = re.compile(r"paper\s*2\b|DSE-PHY\s*2\b", re.I)
+PAPER_2_TOPIC_RE = re.compile(
+    r"astronomy\s+and\s+space|atomic\s+world|"
+    r"energy\s+and\s+use\s+of\s+energy|medical\s+physics",
+    re.I,
+)
+
+
+def section_a_bonus(text: str) -> int:
+    """Prefer the page that carries the Paper 1 Section A key table."""
+    return 5 if SECTION_A_BONUS_RE.search(text) else 0
+
+
+def is_paper_2_page_text(text: str) -> bool:
+    """True for a Paper 2 page, headed either 'Paper 2' or by topic name only."""
+    if not text.strip():
+        return False
+    if PAPER_2_TOPIC_RE.search(text):
+        return True
+    return bool(PAPER_2_RE.search(text) and not re.search(r"paper\s*1\b", text, re.I))
+
+
 def extract_from_pdf(path: Path) -> dict[int, dict]:
+    """Read the Paper 1 Section A key table out of one marking scheme.
+
+    Two bounds keep Section B and Paper 2 pages out of the answer key:
+
+    - the page walk stops at the first Paper 2 page, which 2015 and 2021 head by
+      topic name ("Astronomy and Space Science") instead of the literal "Paper 2";
+    - a key found only on a later page is kept only when its number is one the
+      Section A key page itself shows, because the key page states how many items
+      the paper has. Without this a solution page could add a phantom Q34 (2015)
+      or Q36 (2016).
+    """
     document = fitz.open(path)
     best: dict[int, dict] = {}
-    best_text = ""
+    best_score = -1
+    merged: dict[int, dict] = {}
+    key_max = 0
     try:
-        for page in document:
+        for index, page in enumerate(document, start=1):
+            embedded = page.get_text("text")
+            if is_paper_2_page_text(embedded[:800]):
+                print(f"  stop at Paper 2 pdf page {index}/{len(document)}")
+                break
             image = render_page(page, scale=2.5)
             # Also try a contrast-boosted copy for faded scans.
             variants = [image, ImageOps.autocontrast(image)]
+            page_keys: dict[int, dict] = {}
+            page_text = ""
+            page_score = -1
             for variant in variants:
                 for psm in ("6", "4"):
                     text = ocr_image(variant, psm=psm)
-                    # Prefer pages that mention Section A / Key table.
-                    bonus = 5 if re.search(r"Section\s*A|Question\s*No|答案|Key", text, re.I) else 0
                     keys = parse_keys(text)
-                    if score_keys(keys) + bonus > score_keys(best) + (5 if "Section A" in best_text else 0):
-                        # Merge rather than replace if similar size — take denser.
-                        if score_keys(keys) >= score_keys(best):
-                            best = keys
-                            best_text = text
-            # Merge any additional high-confidence hits into best.
+                    score = score_keys(keys) + section_a_bonus(text)
+                    if score > page_score:
+                        page_score, page_keys, page_text = score, keys, text
+            if is_paper_2_page_text(page_text):
+                print(f"  stop at Paper 2 page {index}/{len(document)} (ocr)")
+                break
+            if page_score > best_score:
+                best_score, best = page_score, page_keys
+                key_max = max(page_keys, default=0)
+            # Collect additional hits; they are range-checked once key_max is known.
             for variant in variants[:1]:
-                keys = parse_keys(ocr_image(variant, psm="6"))
-                for number, payload in keys.items():
-                    if number not in best:
-                        best[number] = payload
-                    elif best[number].get("Correct percentage") is None and payload.get("Correct percentage") is not None:
-                        best[number] = payload
+                for number, payload in parse_keys(ocr_image(variant, psm="6")).items():
+                    prev = merged.get(number)
+                    if prev is None or (
+                        prev.get("Correct percentage") is None
+                        and payload.get("Correct percentage") is not None
+                    ):
+                        merged[number] = payload
     finally:
         document.close()
+    for number, payload in merged.items():
+        if number in best:
+            continue
+        if key_max and number > key_max:
+            print(f"  drop key Q{number}: beyond the {key_max} items on the key page")
+            continue
+        best[number] = payload
     return best
 
 

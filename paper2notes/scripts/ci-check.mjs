@@ -21,8 +21,9 @@
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { runLeakCheck } from "./leak-check.mjs";
+import { runLeakCheck, checkBlocks, loadFingerprints } from "./leak-check.mjs";
 import { lintAnchors } from "./anchor-lint.mjs";
+import { briefBlocks } from "./brief.mjs";
 import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource, referenceCounts, checkDocumentedReferenceCounts } from "./dse-availability.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -161,7 +162,26 @@ function checkBook1Structure() {
     }
     for (const page of ["index.html", ...pages, "summary.html"]) {
       const file = join(book1Dir, match.name, page);
-      if (!isNonEmptyFile(file)) fail(`Missing or empty Book 1 page: ${relative(repoRoot, file)}`);
+      if (!isNonEmptyFile(file)) {
+        fail(`Missing or empty Book 1 page: ${relative(repoRoot, file)}`);
+        continue;
+      }
+      const contents = readFileSync(file, "utf8");
+      if (contents.includes('class="p2n-context-nav"')) {
+        fail(`Book 1 chapter route retains secondary page navigation: ${relative(repoRoot, file)}`);
+      }
+    }
+  }
+
+  const book7Index = join(notesDir, "book7", "index.html");
+  const book7IndexStylesheet = join(notesDir, "book7", "css", "index.css");
+  if (isNonEmptyFile(book7Index) && !readFileSync(book7Index, "utf8").includes('href="css/index.css"')) {
+    fail(`Book 7 chapter map must load its description typography: ${relative(repoRoot, book7Index)}`);
+  }
+  if (isNonEmptyFile(book7IndexStylesheet)) {
+    const styles = readFileSync(book7IndexStylesheet, "utf8");
+    if (!styles.includes("font: 600 0.833333rem/1.45 var(--font-body)")) {
+      fail(`Book 7 chapter descriptions must match Book 1 prose typography: ${relative(repoRoot, book7IndexStylesheet)}`);
     }
   }
 }
@@ -496,6 +516,32 @@ function checkLeaks() {
   for (const e of leaks) fail(`leak-check: ${e}`);
 }
 
+// A committed brief must be clean too: brief.mjs leak-checks what it writes, and
+// this catches a hand-edited or stale one. Same rules, same fingerprints, same
+// block splitting as the generator (scripts/brief.mjs).
+function checkBriefLeaks() {
+  const briefsDir = join(repoRoot, "briefs");
+  if (!existsSync(briefsDir)) return;
+  const files = [];
+  const walk = dir => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (entry.isFile() && /\.md$|\.json$/i.test(entry.name) && entry.name !== "README.md") files.push(full);
+    }
+  };
+  walk(briefsDir);
+  if (!files.length) return;
+  const fp = loadFingerprints();
+  for (const file of files) {
+    for (const finding of checkBlocks(briefBlocks(readFileSync(file, "utf8")), fp)) {
+      const message = `${finding.level} ${relative(repoRoot, file)}: item ${finding.item}: ${finding.detail}`;
+      if (finding.severity === "warn") console.warn(`brief leak-check warning: ${message}`);
+      else fail(`brief leak-check: ${message}`);
+    }
+  }
+}
+
 /* notes/dse/availability.json must match what notes/dse/ holds, what the
    source papers hold, and what each page shows or states, so a section with no
    published long question stays a recorded decision instead of drifting back
@@ -546,6 +592,7 @@ checkRelativeLinks();
 checkSharedAssets();
 checkDeployFooter();
 checkLeaks();
+checkBriefLeaks();
 checkDseAvailability();
 errors.push(...lintAnchors({ repoRoot }).errors);
 

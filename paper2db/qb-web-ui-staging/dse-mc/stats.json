@@ -66,7 +66,7 @@
     "17": 4
   },
   "missingAnswer": 5,
-  "missingPercentage": 85,
+  "missingPercentage": 69,
   "uncertain": 0,
   "imageStats": {
     "count": 537,
@@ -86,7 +86,7 @@
   },
   "warningsSummary": {
     "missingAnswer": 5,
-    "missingPercentage": 85,
+    "missingPercentage": 69,
     "uncertain": 0
   }
 }
