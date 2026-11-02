@@ -7,8 +7,13 @@
 .p2n-book-brand i { display: inline-block; margin-inline: .04em; font-style: normal; }
 .p2n-top-book-icon { box-sizing: content-box; flex: 0 0 24px; width: 24px; height: 24px; }
 
-.p2n-book-index {
+/* Overview width lives here, not in p2n-shell.css.
+   .p2n-page caps main at --content-w (720px). Book sheets also set main max-width.
+   The book index rule is the wider overview: 1040px. The element+class selector
+   beats both .p2n-page and a bare main rule. */
+main.p2n-book-index {
   width: min(100% - 32px, 1040px);
+  max-width: min(100% - 32px, 1040px);
   margin-inline: auto;
   padding-block: 32px 48px;
 }
@@ -34,5 +39,5 @@
 }
 .quick-digest { display: none; }
 @media (max-width: 600px) {
-  .p2n-book-index { width: 100%; padding: 24px 16px 40px; }
+  main.p2n-book-index { width: 100%; max-width: none; padding: 24px 16px 40px; }
 }
