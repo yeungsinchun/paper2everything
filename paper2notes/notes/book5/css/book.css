@@ -1,0 +1,7 @@
+/* Book 5 sheet: loaded after ../../css/notes.css (the shared sheet for every book).
+   Sets the book's identity colour; every other rule is shared. */
+
+:root {
+  --tone: var(--book5);
+  --tone-soft: var(--book5-soft);
+}

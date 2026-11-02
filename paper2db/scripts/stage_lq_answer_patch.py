@@ -6,12 +6,16 @@ crops/<year>-qN-ans.png (and each section folder the question lives in), then
 updates manifest.json: item.answer_crop / answer_exists / missing_flags,
 counts.answers_exist/answers_missing and missing.answers.
 
+Each staged crop is put through preprocess_lq_answers.upright_answer_crop(), so a
+crop that reaches the tracked staging tree reads upright or the stage fails.
+
 Usage: python3 scripts/stage_lq_answer_patch.py --years 2025
 """
 from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from PIL import Image
@@ -19,12 +23,17 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 RECON_LQ = ROOT / "tests" / "reconstructed" / "lq"
 STAGING = ROOT / "qb-web-ui-staging" / "dse-lq"
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from preprocess_lq_answers import upright_answer_crop  # noqa: E402
 
 
-def save_optimized(src: Path, dest: Path) -> None:
+def save_optimized(src: Path, dest: Path, label: str = "") -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     with Image.open(src) as im:
-        im.convert("RGB").convert("P", palette=Image.ADAPTIVE, colors=256).save(dest, optimize=True)
+        upright_answer_crop(im.convert("RGB"), label or src.name).convert(
+            "P", palette=Image.ADAPTIVE, colors=256
+        ).save(dest, optimize=True)
 
 
 def main() -> None:
@@ -43,11 +52,11 @@ def main() -> None:
         if not src.is_file():
             continue
         name = f"{item['year']}-q{item['question']}-ans.png"
-        save_optimized(src, STAGING / "crops" / name)
+        save_optimized(src, STAGING / "crops" / name, name)
         for num in item["all_sections"]:
             folder = sections_by_num.get(num, {}).get("staging_dir")
             if folder and (STAGING / folder).is_dir():
-                save_optimized(src, STAGING / folder / name)
+                save_optimized(src, STAGING / folder / name, name)
         item["answer_crop"] = f"crops/{name}"
         item["answer_exists"] = True
         item["missing_flags"]["answer"] = False
