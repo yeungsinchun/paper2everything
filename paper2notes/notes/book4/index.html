@@ -8,63 +8,66 @@
 
   <link rel="stylesheet" href="css/book.css">
   <link rel="stylesheet" href="../css/book-layout.css">
+  <style>
+    /* Chapter glyphs already named in the design-system icon map.
+       zap and waves are mapped in ../css/p2n-shell.css. */
+    /* Root paths: book4/css/book.css applies mask: var(--src), so a relative
+       url() would resolve against that sheet, not this page. */
+    [data-ic="cable"] { --src: url(/assets/icons/cable.svg); }
+    [data-ic="split"] { --src: url(/assets/icons/split.svg); }
+    [data-ic="plug-zap"] { --src: url(/assets/icons/plug-zap.svg); }
+    [data-ic="magnet"] { --src: url(/assets/icons/magnet.svg); }
+    [data-ic="cog"] { --src: url(/assets/icons/cog.svg); }
+    [data-ic="waves"] { --src: url(/assets/icons/waves.svg); }
+    [data-ic="utility-pole"] { --src: url(/assets/icons/utility-pole.svg); }
+  </style>
 </head>
 <body>
-  <header class="p2n-top"><a class="p2n-top-brand p2n-book-brand" href="index.html" aria-label="Book 4 home"><span class="p2n-icon p2n-top-book-icon" data-ic="zap" aria-hidden="true"></span><span>paper<i>2</i>notes<small>Book 4</small></span></a><nav class="p2n-top-nav" aria-label="Site navigation"><a href="../index.html">All books</a><a href="../book1/index.html">Book 1</a><a href="../book2/index.html">Book 2</a><a href="../book3/index.html">Book 3</a><a href="../book4/index.html" aria-current="page">Book 4</a><a href="../book5/index.html">Book 5</a><a href="../book6/index.html">Book 6 · Elective</a><a href="../book7/index.html">Book 7 · Elective</a><a href="../book8/index.html">Book 8 · Elective</a><a href="../book9/index.html">Book 9 · Elective</a><a href="../qb/index.html">Question bank</a></nav><nav class="p2n-context-nav" aria-label="Page navigation">
-      <a href="index.html" aria-current="page">Chapters</a>
-      <a href="ch01-electrostatics/index.html">Ch.1</a>
-      <a href="ch02-circuit-fundamentals/index.html">Ch.2</a>
-      <a href="ch03-series-parallel-and-internal-resistance/index.html">Ch.3</a>
-      <a href="ch04-power-and-domestic-electricity/index.html">Ch.4</a>
-      <a href="ch05-magnetic-fields-and-electromagnets/index.html">Ch.5</a>
-      <a href="ch06-magnetic-force-and-dc-motor/index.html">Ch.6</a>
-      <a href="ch07-electromagnetic-induction/index.html">Ch.7</a>
-      <a href="ch08-ac-transformers-and-transmission/index.html">Ch.8</a>
-    </nav></header>
-  <main class="p2n-book-index">
+  <header class="p2n-top"><a class="p2n-top-brand p2n-book-brand" href="index.html" aria-label="Book 4 home"><span class="p2n-icon p2n-top-book-icon" data-ic="zap" aria-hidden="true"></span><span>paper<i>2</i>notes<small>Book 4</small></span></a><nav class="p2n-top-nav" aria-label="Site navigation"><a href="../index.html">All books</a><a href="../book1/index.html">Book 1</a><a href="../book2/index.html">Book 2</a><a href="../book3/index.html">Book 3</a><a href="../book4/index.html" aria-current="page">Book 4</a><a href="../book5/index.html">Book 5</a><a href="../book6/index.html">Book 6 · Elective</a><a href="../book7/index.html">Book 7 · Elective</a><a href="../book8/index.html">Book 8 · Elective</a><a href="../book9/index.html">Book 9 · Elective</a><a href="../qb/index.html">Question bank</a></nav></header>
+  <main class="p2n-page p2n-book-index">
     <p class="kicker">Book 4 · Electricity and Magnetism</p>
     <h1>Electricity and Magnetism</h1>
 
-    <div class="chapter-cards">
-      <a href="ch01-electrostatics/index.html">
-        <span class="num" aria-label="Ch.1"><i class="p2n-icon" style="--src:url(https://unpkg.com/lucide-static@0.468.0/icons/zap.svg)"></i></span>
-        <strong>Electrostatics</strong>
-        <span>Charge and Coulomb's law · Electric field and field lines</span>
+    <div class="p2n-cards">
+      <a class="p2n-cc" href="ch01-electrostatics/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="zap" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.1</span><b>Electrostatics</b><small>Charge and Coulomb's law · Electric field and field lines</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch02-circuit-fundamentals/index.html">
-        <span class="num" aria-label="Ch.2"><i class="p2n-icon" style="--src:url(https://unpkg.com/lucide-static@0.468.0/icons/cable.svg)"></i></span>
-        <strong>Circuit fundamentals</strong>
-        <span>Current, p.d. and e.m.f. · Resistance, Ohm's law and resistivity</span>
+      <a class="p2n-cc" href="ch02-circuit-fundamentals/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="cable" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.2</span><b>Circuit fundamentals</b><small>Current, p.d. and e.m.f. · Resistance, Ohm's law and resistivity</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch03-series-parallel-and-internal-resistance/index.html">
-        <span class="num" aria-label="Ch.3"><i class="p2n-icon" style="--src:url(https://unpkg.com/lucide-static@0.468.0/icons/split.svg)"></i></span>
-        <strong>Networks and internal resistance</strong>
-        <span>Series and parallel combinations · Internal resistance and meters</span>
+      <a class="p2n-cc" href="ch03-series-parallel-and-internal-resistance/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="split" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.3</span><b>Networks and internal resistance</b><small>Series and parallel combinations · Internal resistance and meters</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch04-power-and-domestic-electricity/index.html">
-        <span class="num" aria-label="Ch.4"><i class="p2n-icon" style="--src:url(https://unpkg.com/lucide-static@0.468.0/icons/plug-zap.svg)"></i></span>
-        <strong>Power and domestic electricity</strong>
-        <span>Heating and electrical power · Domestic wiring and safety</span>
+      <a class="p2n-cc" href="ch04-power-and-domestic-electricity/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="plug-zap" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.4</span><b>Power and domestic electricity</b><small>Heating and electrical power · Domestic wiring and safety</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch05-magnetic-fields-and-electromagnets/index.html">
-        <span class="num" aria-label="Ch.5"><i class="p2n-icon" style="--src:url(https://unpkg.com/lucide-static@0.468.0/icons/magnet.svg)"></i></span>
-        <strong>Magnetic fields</strong>
-        <span>Fields of magnets and currents</span>
+      <a class="p2n-cc" href="ch05-magnetic-fields-and-electromagnets/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="magnet" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.5</span><b>Magnetic fields</b><small>Fields of magnets and currents</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch06-magnetic-force-and-dc-motor/index.html">
-        <span class="num" aria-label="Ch.6"><i class="p2n-icon" style="--src:url(https://unpkg.com/lucide-static@0.468.0/icons/cog.svg)"></i></span>
-        <strong>Force and the DC motor</strong>
-        <span>Force on currents and charges · Turning effect and motor</span>
+      <a class="p2n-cc" href="ch06-magnetic-force-and-dc-motor/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="cog" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.6</span><b>Force and the DC motor</b><small>Force on currents and charges · Turning effect and motor</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch07-electromagnetic-induction/index.html">
-        <span class="num" aria-label="Ch.7"><i class="p2n-icon" style="--src:url(https://unpkg.com/lucide-static@0.468.0/icons/waves.svg)"></i></span>
-        <strong>Electromagnetic induction</strong>
-        <span>Flux, Lenz and Faraday · Generators and eddy currents</span>
+      <a class="p2n-cc" href="ch07-electromagnetic-induction/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="waves" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.7</span><b>Electromagnetic induction</b><small>Flux, Lenz and Faraday · Generators and eddy currents</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch08-ac-transformers-and-transmission/index.html">
-        <span class="num" aria-label="Ch.8"><i class="p2n-icon" style="--src:url(https://unpkg.com/lucide-static@0.468.0/icons/utility-pole.svg)"></i></span>
-        <strong>AC and transformers</strong>
-        <span>Alternating current and r.m.s. · Transformers and high-voltage transmission</span>
+      <a class="p2n-cc" href="ch08-ac-transformers-and-transmission/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="utility-pole" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.8</span><b>AC and transformers</b><small>Alternating current and r.m.s. · Transformers and high-voltage transmission</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
     </div>
     <p>

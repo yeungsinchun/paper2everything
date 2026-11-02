@@ -8,38 +8,39 @@
 
   <link rel="stylesheet" href="css/book.css">
   <link rel="stylesheet" href="../css/book-layout.css">
+  <style>
+    /* Existing Book 8 chapter glyphs. wind is the book copy, not a new icon. */
+    [data-ic="lightbulb"] { --src: url(/book8/assets/icons/lightbulb.svg); }
+    [data-ic="cooking-pot"] { --src: url(/book8/assets/icons/cooking-pot.svg); }
+    [data-ic="building-2"] { --src: url(/book8/assets/icons/building-2.svg); }
+    [data-ic="wind"] { --src: url(/book8/assets/icons/wind.svg); }
+  </style>
 </head>
 <body>
-  <header class="p2n-top"><a class="p2n-top-brand p2n-book-brand" href="index.html" aria-label="Book 8 · Elective home"><span class="p2n-icon p2n-top-book-icon" data-ic="battery-charging" aria-hidden="true"></span><span>paper<i>2</i>notes<small>Book 8 · Elective</small></span></a><nav class="p2n-top-nav" aria-label="Site navigation"><a href="../index.html">All books</a><a href="../book1/index.html">Book 1</a><a href="../book2/index.html">Book 2</a><a href="../book3/index.html">Book 3</a><a href="../book4/index.html">Book 4</a><a href="../book5/index.html">Book 5</a><a href="../book6/index.html">Book 6 · Elective</a><a href="../book7/index.html">Book 7 · Elective</a><a href="../book8/index.html" aria-current="page">Book 8 · Elective</a><a href="../book9/index.html">Book 9 · Elective</a><a href="../qb/index.html">Question bank</a></nav><nav class="p2n-context-nav" aria-label="Book 8 chapters">
-      <a href="index.html" aria-current="page">Chapters</a>
-      <a href="ch01-lighting/index.html">Ch.1</a>
-      <a href="ch02-cooking-and-air-conditioning/index.html">Ch.2</a>
-      <a href="ch03-buildings-and-transportation/index.html">Ch.3</a>
-      <a href="ch04-different-sources-of-energy/index.html">Ch.4</a>
-    </nav></header>
-  <main class="p2n-book-index">
+  <header class="p2n-top"><a class="p2n-top-brand p2n-book-brand" href="index.html" aria-label="Book 8 · Elective home"><span class="p2n-icon p2n-top-book-icon" data-ic="battery-charging" aria-hidden="true"></span><span>paper<i>2</i>notes<small>Book 8 · Elective</small></span></a><nav class="p2n-top-nav" aria-label="Site navigation"><a href="../index.html">All books</a><a href="../book1/index.html">Book 1</a><a href="../book2/index.html">Book 2</a><a href="../book3/index.html">Book 3</a><a href="../book4/index.html">Book 4</a><a href="../book5/index.html">Book 5</a><a href="../book6/index.html">Book 6 · Elective</a><a href="../book7/index.html">Book 7 · Elective</a><a href="../book8/index.html" aria-current="page">Book 8 · Elective</a><a href="../book9/index.html">Book 9 · Elective</a><a href="../qb/index.html">Question bank</a></nav></header>
+  <main class="p2n-page p2n-book-index">
     <p class="kicker">Book 8 · Energy and Use of Energy</p>
     <h1>Energy and Use of Energy</h1>
-    <div class="chapter-cards">
-      <a href="ch01-lighting/index.html">
-        <span class="num" aria-label="Chapter 1"><img src="assets/icons/lightbulb.svg" alt=""></span>
-        <strong>Lighting</strong>
-        <span>Domestic electricity · lamps · illumination</span>
+    <div class="p2n-cards">
+      <a class="p2n-cc" href="ch01-lighting/index.html" style="--tone:var(--book8);--soft:var(--book8-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="lightbulb" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.1</span><b>Lighting</b><small>Domestic electricity · lamps · illumination</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch02-cooking-and-air-conditioning/index.html">
-        <span class="num" aria-label="Chapter 2"><img src="assets/icons/cooking-pot.svg" alt=""></span>
-        <strong>Cooking and air-conditioning</strong>
-        <span>Electric cooking · cooling · heat transfer</span>
+      <a class="p2n-cc" href="ch02-cooking-and-air-conditioning/index.html" style="--tone:var(--book8);--soft:var(--book8-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="cooking-pot" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.2</span><b>Cooking and air-conditioning</b><small>Electric cooking · cooling · heat transfer</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch03-buildings-and-transportation/index.html">
-        <span class="num" aria-label="Chapter 3"><img src="assets/icons/building-2.svg" alt=""></span>
-        <strong>Buildings and transportation</strong>
-        <span>Energy efficiency in buildings and transport</span>
+      <a class="p2n-cc" href="ch03-buildings-and-transportation/index.html" style="--tone:var(--book8);--soft:var(--book8-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="building-2" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.3</span><b>Buildings and transportation</b><small>Energy efficiency in buildings and transport</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
-      <a href="ch04-different-sources-of-energy/index.html">
-        <span class="num" aria-label="Chapter 4"><img src="assets/icons/wind.svg" alt=""></span>
-        <strong>Different sources of energy</strong>
-        <span>Power generation · renewables · environmental impact</span>
+      <a class="p2n-cc" href="ch04-different-sources-of-energy/index.html" style="--tone:var(--book8);--soft:var(--book8-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="wind" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.4</span><b>Different sources of energy</b><small>Power generation · renewables · environmental impact</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
     </div>
     <p>This book has no classified DSE or question-bank items available for its chapters.</p>
