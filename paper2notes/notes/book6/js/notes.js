@@ -8,7 +8,7 @@
   var opened = [];
 
   window.addEventListener("beforeprint", function () {
-    opened = Array.prototype.filter.call(document.querySelectorAll("details.worked-more, details.fig-more"), function (d) {
+    opened = Array.prototype.filter.call(document.querySelectorAll("details.worked, details.fig-more"), function (d) {
       return !d.open;
     });
     opened.forEach(function (d) { d.open = true; });

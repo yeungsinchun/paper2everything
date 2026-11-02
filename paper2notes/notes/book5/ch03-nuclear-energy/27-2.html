@@ -17,6 +17,7 @@
 <a href="summary.html">Summary</a>
 </nav></header>
 <main class="p2n-page-frame p2n-page-frame--section">
+    <p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
 <p class="kicker">Section 3.2 <span class="lo-ext">extension</span></p>
 <h1>Mass–energy relation</h1>
 <p class="lede">Missing mass becomes energy: \( E = \Delta m c^{2} \).</p>
@@ -103,14 +104,16 @@
 <li>Typical masses: proton 1.007276 u, neutron 1.008665 u, He-4 nucleus 4.001506 u, electron 0.000549 u. The syllabus gives these where needed; do not memorize.</li>
 <li>Watch the particle: the table gives <b>nuclear</b> masses in some problems, <b>atomic</b> masses in others (the latter includes the electrons). The difference cancels only if both sides include the same number of electrons.</li>
 </ul>
-<div class="worked" id="units-worked-1">
-<span class="tag">Worked example</span>
-<p>Mass equivalent of 1000 MeV? (Given \(c = 3.00 \times 10^{8}\ \mathrm{m\,s^{-1}}\), \(1\ \mathrm{u}=931\) MeV.)</p>
-<ol class="steps">
-<li>\(1000\ \mathrm{MeV} = 1000/931 = 1.07\ \mathrm{u}\). In kg: \(1.07 \times 1.661 \times 10^{-27} = 1.78 \times 10^{-27}\ \mathrm{kg}\).</li>
-<li>Or directly: \(m = E/c^{2} = (1000 \times 10^{6} \times 1.60 \times 10^{-19})/(9 \times 10^{16}) = 1.78 \times 10^{-27}\ \mathrm{kg}\).</li>
-</ol>
-</div>
+<details class="worked" id="units-worked-1">
+  <summary>Worked example</summary>
+  <div class="worked-body">
+    <p>Mass equivalent of 1000 MeV? (Given \(c = 3.00 \times 10^{8}\ \mathrm{m\,s^{-1}}\), \(1\ \mathrm{u}=931\) MeV.)</p>
+    <ol class="steps">
+    <li>\(1000\ \mathrm{MeV} = 1000/931 = 1.07\ \mathrm{u}\). In kg: \(1.07 \times 1.661 \times 10^{-27} = 1.78 \times 10^{-27}\ \mathrm{kg}\).</li>
+    <li>Or directly: \(m = E/c^{2} = (1000 \times 10^{6} \times 1.60 \times 10^{-19})/(9 \times 10^{16}) = 1.78 \times 10^{-27}\ \mathrm{kg}\).</li>
+    </ol>
+  </div>
+</details>
 <div class="check" id="units-check-1" data-check="mc" data-answer="C">
 <h3>Quick check</h3>
 <p>The masses of a helium-4 nucleus, a proton and a neutron are 4.001506 u, 1.007276 u and 1.008665 u. How much mass is converted to energy when two protons and two neutrons fuse into one He-4 nucleus?</p>
@@ -136,35 +139,41 @@
 <p>1. Add the masses before. 2. Add the masses after. 3. Subtract → defect \(\Delta m\) (in u). 4. Energy = \(\Delta m \times 931\) MeV; × \(1.60 \times 10^{-13}\) → J. Watch nucleon number: balance \(A\) to find an unknown neutron count.</p>
 </div>
 
-<div class="worked" id="working-worked-1">
-<span class="tag">Worked example — fusion (Example 27.3)</span>
-<p>\( {}^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \rightarrow {}^{4}_{2}\mathrm{He} + {}^{1}_{0}\mathrm{n}\). Given masses: D 2.0136 u, T 3.0155 u, He-4 4.0015 u, neutron 1.0087 u. (a) Why high T? (b) Energy in MeV. (c) 5 g of equal D+T — reactions and total J.</p>
-<ol class="steps">
-<li>(a) Nuclei must overcome Coulomb repulsion; only at \(10^{7}\) K is the kinetic energy enough.</li>
-<li>(b) \(\Delta m = (2.0136+3.0155)-(4.0015+1.0087)=0.0189\) u. \(E = 0.0189 \times 931 = 17.6\) MeV (\(2.82 \times 10^{-12}\) J).</li>
-<li>(c) Mass per reaction = \((2.0136+3.0155) \times 1.661 \times 10^{-27}=8.35 \times 10^{-27}\) kg. Reactions in 5 g = \(0.005/8.35e-27 = 5.99 \times 10^{23}\). Total \(E = 17.6\ \mathrm{MeV} \times 5.99e23 = 1.05 \times 10^{25}\) MeV = \(1.7 \times 10^{12}\) J.</li>
-</ol>
-</div>
+<details class="worked" id="working-worked-1">
+  <summary>Worked example <span>fusion (Example 27.3)</span></summary>
+  <div class="worked-body">
+    <p>\( {}^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \rightarrow {}^{4}_{2}\mathrm{He} + {}^{1}_{0}\mathrm{n}\). Given masses: D 2.0136 u, T 3.0155 u, He-4 4.0015 u, neutron 1.0087 u. (a) Why high T? (b) Energy in MeV. (c) 5 g of equal D+T — reactions and total J.</p>
+    <ol class="steps">
+    <li>(a) Nuclei must overcome Coulomb repulsion; only at \(10^{7}\) K is the kinetic energy enough.</li>
+    <li>(b) \(\Delta m = (2.0136+3.0155)-(4.0015+1.0087)=0.0189\) u. \(E = 0.0189 \times 931 = 17.6\) MeV (\(2.82 \times 10^{-12}\) J).</li>
+    <li>(c) Mass per reaction = \((2.0136+3.0155) \times 1.661 \times 10^{-27}=8.35 \times 10^{-27}\) kg. Reactions in 5 g = \(0.005/8.35e-27 = 5.99 \times 10^{23}\). Total \(E = 17.6\ \mathrm{MeV} \times 5.99e23 = 1.05 \times 10^{25}\) MeV = \(1.7 \times 10^{12}\) J.</li>
+    </ol>
+  </div>
+</details>
 
-<div class="worked" id="working-worked-2">
-<span class="tag">Worked example — fission (Example 27.4)</span>
-<p>\( {}^{235}_{92}\mathrm{U} + {}^{1}_{0}\mathrm{n} \rightarrow {}^{148}_{57}\mathrm{La} + {}^{85}_{35}\mathrm{Br} + x\,{}^{1}_{0}\mathrm{n} + 166.37\ \mathrm{MeV}\). Masses: U-235 234.9934 u, La-148 147.9009 u, Br-85 84.8964 u.</p>
-<ol class="steps">
-<li>(a) Nucleon balance: \(235+1=148+85+x\) → \(x=3\).</li>
-<li>(b) Defect \(= 166.37/931 = 0.1787\) u. Balance masses: \(234.9934 + m_{n} = 147.9009+84.8964+3m_{n}+0.1787\) → \(m_{n}=1.0087\) u.</li>
-<li>(c) Mass of one U-235 = \(234.9934 \times 1.661e-27 = 3.90 \times 10^{-25}\) kg. Nuclei in 5 g = \(0.005/3.90e-25 = 1.28 \times 10^{22}\). Power = \(166.37\ \mathrm{MeV} \times 1.28e22\) reactions per s = \(3.4 \times 10^{11}\) W (340 GW thermal; electricity is less after efficiency).</li>
-</ol>
-<p class="note">Compare: single fission 166 MeV > single fusion 17.6 MeV, but per kilogram fusion gives more — the textbook ratio is about 5:1, because the light reactants pack more reactions per gram.</p>
-</div>
+<details class="worked" id="working-worked-2">
+  <summary>Worked example <span>fission (Example 27.4)</span></summary>
+  <div class="worked-body">
+    <p>\( {}^{235}_{92}\mathrm{U} + {}^{1}_{0}\mathrm{n} \rightarrow {}^{148}_{57}\mathrm{La} + {}^{85}_{35}\mathrm{Br} + x\,{}^{1}_{0}\mathrm{n} + 166.37\ \mathrm{MeV}\). Masses: U-235 234.9934 u, La-148 147.9009 u, Br-85 84.8964 u.</p>
+    <ol class="steps">
+    <li>(a) Nucleon balance: \(235+1=148+85+x\) → \(x=3\).</li>
+    <li>(b) Defect \(= 166.37/931 = 0.1787\) u. Balance masses: \(234.9934 + m_{n} = 147.9009+84.8964+3m_{n}+0.1787\) → \(m_{n}=1.0087\) u.</li>
+    <li>(c) Mass of one U-235 = \(234.9934 \times 1.661e-27 = 3.90 \times 10^{-25}\) kg. Nuclei in 5 g = \(0.005/3.90e-25 = 1.28 \times 10^{22}\). Power = \(166.37\ \mathrm{MeV} \times 1.28e22\) reactions per s = \(3.4 \times 10^{11}\) W (340 GW thermal; electricity is less after efficiency).</li>
+    </ol>
+    <p class="note">Compare: single fission 166 MeV > single fusion 17.6 MeV, but per kilogram fusion gives more — the textbook ratio is about 5:1, because the light reactants pack more reactions per gram.</p>
+  </div>
+</details>
 
-<div class="worked" id="working-worked-3">
-<span class="tag">Worked example — coal vs uranium (Example 27.2)</span>
-<p>0.08% of a U-235 nucleus's mass becomes energy. (a) Energy from 1 kg complete fission. (b) Coal needed for same energy (1 kg coal = \(2.8 \times 10^{7}\) J).</p>
-<ol class="steps">
-<li>(a) \(E = 0.0008 \times 1 \times c^{2} = 0.0008 \times 9e16 = 7.2 \times 10^{13}\) J.</li>
-<li>(b) Coal mass = \(7.2e13/2.8e7 = 2.6 \times 10^{6}\) kg (∼2600 tonnes). One kilogram of uranium replaces a lorries-load of coal.</li>
-</ol>
-</div>
+<details class="worked" id="working-worked-3">
+  <summary>Worked example <span>coal vs uranium (Example 27.2)</span></summary>
+  <div class="worked-body">
+    <p>0.08% of a U-235 nucleus's mass becomes energy. (a) Energy from 1 kg complete fission. (b) Coal needed for same energy (1 kg coal = \(2.8 \times 10^{7}\) J).</p>
+    <ol class="steps">
+    <li>(a) \(E = 0.0008 \times 1 \times c^{2} = 0.0008 \times 9e16 = 7.2 \times 10^{13}\) J.</li>
+    <li>(b) Coal mass = \(7.2e13/2.8e7 = 2.6 \times 10^{6}\) kg (∼2600 tonnes). One kilogram of uranium replaces a lorries-load of coal.</li>
+    </ol>
+  </div>
+</details>
 
 <div class="check" id="working-check-1" data-check="mc" data-answer="C">
 <h3>Quick check</h3>
@@ -210,16 +219,18 @@
 <figcaption><b>Fig. Example 27.5 &amp; Ch.10 Voyage: the radioisotope thermoelectric generator.</b> α energy becomes heat, then electricity.</figcaption>
 <details class="fig-more"><summary>More</summary><p>Pu-238 α-decays; the kinetic energy of the α particle becomes heat, then electricity. Because activity falls with half-life \(87.74\) y, the power does too.</p></details>
 </figure>
-<div class="worked" id="rtg-worked-1">
-<span class="tag">Worked example — RTG (Example 27.5)</span>
-<p>\( {}^{238}_{94}\mathrm{Pu} \rightarrow {}^{234}_{92}\mathrm{U} + {}^{4}_{2}\mathrm{He}\). Masses: Pu-238 237.9980 u, U-234 233.9905 u, α 4.0015 u.</p>
-<ol class="steps">
-<li>(a) \(\Delta m = 237.9980-(233.9905+4.0015)=0.0060\) u. \(E = 0.0060 \times 931 = 5.59\) MeV = \(8.94 \times 10^{-13}\) J.</li>
-<li>(b) If that becomes KE of the α: \(E = \tfrac12 m_{\alpha} v^{2}\) with \(m_{\alpha}=4.0015 \times 1.661e-27\) kg → \(v \approx 1.64 \times 10^{7}\ \mathrm{m\,s^{-1}}\).</li>
-<li>(c) Electrical output 300 W at 10% conversion: \(300 = 0.10 \times E \times A\) → \(A = 3.36 \times 10^{14}\) Bq. Mass needed ≈ \((A/k) \times (M/N_{A})\) — a few kg for a space probe.</li>
-<li>(d) Activity \(A = kN\) falls as \(N = N_{0}e^{-kt}\). As nuclei decay, fewer decays per second → less energy per second → power drops with the same half-life.</li>
-</ol>
-</div>
+<details class="worked" id="rtg-worked-1">
+  <summary>Worked example <span>RTG (Example 27.5)</span></summary>
+  <div class="worked-body">
+    <p>\( {}^{238}_{94}\mathrm{Pu} \rightarrow {}^{234}_{92}\mathrm{U} + {}^{4}_{2}\mathrm{He}\). Masses: Pu-238 237.9980 u, U-234 233.9905 u, α 4.0015 u.</p>
+    <ol class="steps">
+    <li>(a) \(\Delta m = 237.9980-(233.9905+4.0015)=0.0060\) u. \(E = 0.0060 \times 931 = 5.59\) MeV = \(8.94 \times 10^{-13}\) J.</li>
+    <li>(b) If that becomes KE of the α: \(E = \tfrac12 m_{\alpha} v^{2}\) with \(m_{\alpha}=4.0015 \times 1.661e-27\) kg → \(v \approx 1.64 \times 10^{7}\ \mathrm{m\,s^{-1}}\).</li>
+    <li>(c) Electrical output 300 W at 10% conversion: \(300 = 0.10 \times E \times A\) → \(A = 3.36 \times 10^{14}\) Bq. Mass needed ≈ \((A/k) \times (M/N_{A})\) — a few kg for a space probe.</li>
+    <li>(d) Activity \(A = kN\) falls as \(N = N_{0}e^{-kt}\). As nuclei decay, fewer decays per second → less energy per second → power drops with the same half-life.</li>
+    </ol>
+  </div>
+</details>
 <ul class="points">
 <li>RTG is not a reactor: no chain, no control rods, no critical mass. It is a <b>decaying source</b> whose power is proportional to its activity.</li>
 <li>Voyager 1 (launched with \(3.2 \times 10^{24}\) Pu-238 atoms, half-life 87.74 y) is the textbook Ch.10 case: launch power \(\sim 470\) W thermal, \(\sim 150\) W electric; after 36 y the remaining power is \((1/2)^{36/87.74} \approx 75\)% of launch — exactly the exponential fall shown above.</li>

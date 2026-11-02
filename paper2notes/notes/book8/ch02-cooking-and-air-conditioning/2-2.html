@@ -97,32 +97,30 @@
         <p class="feedback"></p>
         <div class="explain" hidden><p>Input power = cooling capacity ÷ COP = 2.0 / 2.5 = 0.8 kW. 5.0 kW multiplies instead; 2.8 kW is the heat given out outdoors per second.</p></div>
       </div>
-      <div class="worked" id="cop-worked-bill">
-        <h3>Worked example</h3>
-        <p>A bedroom air conditioner has a cooling capacity of 2.6 kW and a COP of 3.2. It runs 8 hours a day for 30 days at $1.10 per kW h. Find the cost.</p>
-        <details>
-          <summary>Show solution</summary>
-          <ol class="steps">
-            <li>Input power \( = 2.6 / 3.2 = 0.8125\ \text{kW} \).</li>
-            <li>Energy \( = 0.8125 \times 8 \times 30 = 195\ \text{kW h} \).</li>
-            <li>Cost \( = 195 \times 1.10 = \$214.50 \).</li>
-          </ol>
-          <p class="answer">About $215 for the month.</p>
-        </details>
-      </div>
-      <div class="worked" id="cop-worked-cooldown">
-        <h3>Worked example</h3>
-        <p>A room 4 m × 5 m × 2.8 m holds air of density 1.2 kg m⁻³ and specific heat capacity 1000 J kg⁻¹ °C⁻¹. Estimate how long a 2.0 kW air conditioner takes to cool the air by 6 °C, and say why the real time is longer.</p>
-        <details>
-          <summary>Show solution</summary>
-          <ol class="steps">
-            <li>Mass of air \( = 1.2 \times 56 = 67.2\ \text{kg} \).</li>
-            <li>Heat to remove \( = mc\Delta T = 67.2 \times 1000 \times 6 = 4.03 \times 10^{5}\ \text{J} \).</li>
-            <li>Time \( = 4.03 \times 10^{5} / 2000 \approx 200\ \text{s} \).</li>
-          </ol>
-          <p class="answer">About 200 s. In practice the walls, furniture and people must be cooled too, and heat keeps leaking in, so it takes longer.</p>
-        </details>
-      </div>
+            <details class="worked" id="cop-worked-bill">
+        <summary>Worked example</summary>
+        <div class="worked-body">
+          <p>A bedroom air conditioner has a cooling capacity of 2.6 kW and a COP of 3.2. It runs 8 hours a day for 30 days at $1.10 per kW h. Find the cost.</p>
+            <ol class="steps">
+              <li>Input power \( = 2.6 / 3.2 = 0.8125\ \text{kW} \).</li>
+              <li>Energy \( = 0.8125 \times 8 \times 30 = 195\ \text{kW h} \).</li>
+              <li>Cost \( = 195 \times 1.10 = \$214.50 \).</li>
+            </ol>
+            <p class="answer">About $215 for the month.</p>
+        </div>
+      </details>
+            <details class="worked" id="cop-worked-cooldown">
+        <summary>Worked example</summary>
+        <div class="worked-body">
+          <p>A room 4 m × 5 m × 2.8 m holds air of density 1.2 kg m⁻³ and specific heat capacity 1000 J kg⁻¹ °C⁻¹. Estimate how long a 2.0 kW air conditioner takes to cool the air by 6 °C, and say why the real time is longer.</p>
+            <ol class="steps">
+              <li>Mass of air \( = 1.2 \times 56 = 67.2\ \text{kg} \).</li>
+              <li>Heat to remove \( = mc\Delta T = 67.2 \times 1000 \times 6 = 4.03 \times 10^{5}\ \text{J} \).</li>
+              <li>Time \( = 4.03 \times 10^{5} / 2000 \approx 200\ \text{s} \).</li>
+            </ol>
+            <p class="answer">About 200 s. In practice the walls, furniture and people must be cooled too, and heat keeps leaking in, so it takes longer.</p>
+        </div>
+      </details>
     </section>
 
     <section class="idea" id="refrigeration-cycle" data-chip="Refrigeration cycle">
@@ -255,19 +253,18 @@
         <p class="feedback"></p>
         <div class="explain" hidden><p>\( I_c = 900/1000 = 90\% \), which lies between 85% and 95%: grade 2. Grade 1 needs 850 kW h or less.</p></div>
       </div>
-      <div class="worked" id="ac-labels-worked-cost">
-        <h3>Worked example</h3>
-        <p>A label shows an annual energy consumption of 1320 kW h and a cooling capacity of 3.3 kW. Find the COP, and the cost of running it 6 hours a day for 120 days at $1.20 per kW h.</p>
-        <details>
-          <summary>Show solution</summary>
-          <ol class="steps">
-            <li>Input power \( = 1320 / 1200 = 1.1\ \text{kW} \); \( \text{COP} = 3.3 / 1.1 = 3.0 \).</li>
-            <li>Hours \( = 6 \times 120 = 720\ \text{h} \); energy \( = 1.1 \times 720 = 792\ \text{kW h} \).</li>
-            <li>Cost \( = 792 \times 1.20 = \$950.40 \).</li>
-          </ol>
-          <p class="answer">COP 3.0; about $950.</p>
-        </details>
-      </div>
+            <details class="worked" id="ac-labels-worked-cost">
+        <summary>Worked example</summary>
+        <div class="worked-body">
+          <p>A label shows an annual energy consumption of 1320 kW h and a cooling capacity of 3.3 kW. Find the COP, and the cost of running it 6 hours a day for 120 days at $1.20 per kW h.</p>
+            <ol class="steps">
+              <li>Input power \( = 1320 / 1200 = 1.1\ \text{kW} \); \( \text{COP} = 3.3 / 1.1 = 3.0 \).</li>
+              <li>Hours \( = 6 \times 120 = 720\ \text{h} \); energy \( = 1.1 \times 720 = 792\ \text{kW h} \).</li>
+              <li>Cost \( = 792 \times 1.20 = \$950.40 \).</li>
+            </ol>
+            <p class="answer">COP 3.0; about $950.</p>
+        </div>
+      </details>
     </section>
 
     <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
