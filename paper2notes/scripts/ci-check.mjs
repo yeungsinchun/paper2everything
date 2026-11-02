@@ -161,7 +161,26 @@ function checkBook1Structure() {
     }
     for (const page of ["index.html", ...pages, "summary.html"]) {
       const file = join(book1Dir, match.name, page);
-      if (!isNonEmptyFile(file)) fail(`Missing or empty Book 1 page: ${relative(repoRoot, file)}`);
+      if (!isNonEmptyFile(file)) {
+        fail(`Missing or empty Book 1 page: ${relative(repoRoot, file)}`);
+        continue;
+      }
+      const contents = readFileSync(file, "utf8");
+      if (contents.includes('class="p2n-context-nav"')) {
+        fail(`Book 1 chapter route retains secondary page navigation: ${relative(repoRoot, file)}`);
+      }
+    }
+  }
+
+  const book7Index = join(notesDir, "book7", "index.html");
+  const book7IndexStylesheet = join(notesDir, "book7", "css", "index.css");
+  if (isNonEmptyFile(book7Index) && !readFileSync(book7Index, "utf8").includes('href="css/index.css"')) {
+    fail(`Book 7 chapter map must load its description typography: ${relative(repoRoot, book7Index)}`);
+  }
+  if (isNonEmptyFile(book7IndexStylesheet)) {
+    const styles = readFileSync(book7IndexStylesheet, "utf8");
+    if (!styles.includes("font: 600 0.833333rem/1.45 var(--font-body)")) {
+      fail(`Book 7 chapter descriptions must match Book 1 prose typography: ${relative(repoRoot, book7IndexStylesheet)}`);
     }
   }
 }
