@@ -37,7 +37,8 @@ main.p2n-book-index {
   width: 24px;
   height: 24px;
 }
-.quick-digest { display: none; }
+/* Book index pages only. Section pages do not load this sheet, so this rule must not hide their digests. */
+.p2n-book-index .quick-digest { display: none; }
 @media (max-width: 600px) {
   main.p2n-book-index { width: 100%; max-width: none; padding: 24px 16px 40px; }
 }
