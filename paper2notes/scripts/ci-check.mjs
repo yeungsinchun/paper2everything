@@ -3,8 +3,10 @@
 //
 // When `notes/` does not exist yet (bare `main`), this is a no-op skip.
 // Checks Book 5's three chapter indexes, Book 2's ten chapters, Book 4's
-// eight chapters and Book 1's four chapters (map, section pages, summary) when present, plus in-repo relative links (href/src) that
-// can be resolved on disk without a browser, plus lavish notes-refactor boards
+// eight chapters, Book 1's four chapters and Book 8's four chapters when
+// present, plus in-repo relative links (href/src) that can be resolved on disk
+// without a browser, plus shared assets (books link notes/css/notes.css,
+// notes/js and notes/vendor and keep no copies), plus lavish notes-refactor boards
 // (before/after side-by-side and readable prose — enforced only on boards
 // carrying the notes-refactor marker; see .agents/skills/paper2everything-lavish-board/SKILL.md),
 // plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
@@ -28,6 +30,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
 const notesDir = join(repoRoot, "notes");
 const book5Dir = join(notesDir, "book5");
+const book8Dir = join(notesDir, "book8");
 
 const errors = [];
 
@@ -85,6 +88,35 @@ function checkBook2Structure() {
   }
 }
 
+function checkBook8Structure() {
+  if (!existsSync(book8Dir)) return;
+  const bookIndex = join(book8Dir, "index.html");
+  if (!isNonEmptyFile(bookIndex)) {
+    fail(`Missing or empty book8 index: ${relative(repoRoot, bookIndex)}`);
+  }
+  const chapters = {
+    "ch01-lighting": ["1-1.html", "1-2.html", "1-3.html"],
+    "ch02-cooking-and-air-conditioning": ["2-1.html", "2-2.html"],
+    "ch03-buildings-and-transportation": ["3-1.html", "3-2.html"],
+    "ch04-different-sources-of-energy": ["4-1.html", "4-2.html", "4-3.html"],
+  };
+  for (const [name, sections] of Object.entries(chapters)) {
+    const chapterDir = join(book8Dir, name);
+    const chapterIndex = join(chapterDir, "index.html");
+    if (!isNonEmptyFile(chapterIndex)) {
+      fail(`Missing or empty chapter index: ${relative(repoRoot, chapterIndex)}`);
+    }
+    for (const page of [...sections, "summary.html"]) {
+      const path = join(chapterDir, page);
+      if (!isNonEmptyFile(path)) fail(`Missing or empty Book 8 page: ${relative(repoRoot, path)}`);
+    }
+  }
+  const landing = readFileSync(join(notesDir, "index.html"), "utf8");
+  if (!landing.includes('href="book8/index.html"')) {
+    fail(`Book 8 is missing from the notes landing page: ${relative(repoRoot, join(notesDir, "index.html"))}`);
+  }
+}
+
 function checkBook4Structure() {
   const book4Dir = join(notesDir, "book4");
   if (!existsSync(book4Dir)) return;
@@ -130,7 +162,26 @@ function checkBook1Structure() {
     }
     for (const page of ["index.html", ...pages, "summary.html"]) {
       const file = join(book1Dir, match.name, page);
-      if (!isNonEmptyFile(file)) fail(`Missing or empty Book 1 page: ${relative(repoRoot, file)}`);
+      if (!isNonEmptyFile(file)) {
+        fail(`Missing or empty Book 1 page: ${relative(repoRoot, file)}`);
+        continue;
+      }
+      const contents = readFileSync(file, "utf8");
+      if (contents.includes('class="p2n-context-nav"')) {
+        fail(`Book 1 chapter route retains secondary page navigation: ${relative(repoRoot, file)}`);
+      }
+    }
+  }
+
+  const book7Index = join(notesDir, "book7", "index.html");
+  const book7IndexStylesheet = join(notesDir, "book7", "css", "index.css");
+  if (isNonEmptyFile(book7Index) && !readFileSync(book7Index, "utf8").includes('href="css/index.css"')) {
+    fail(`Book 7 chapter map must load its description typography: ${relative(repoRoot, book7Index)}`);
+  }
+  if (isNonEmptyFile(book7IndexStylesheet)) {
+    const styles = readFileSync(book7IndexStylesheet, "utf8");
+    if (!styles.includes("font: 600 0.833333rem/1.45 var(--font-body)")) {
+      fail(`Book 7 chapter descriptions must match Book 1 prose typography: ${relative(repoRoot, book7IndexStylesheet)}`);
     }
   }
 }
@@ -400,6 +451,66 @@ function checkDeployFooter() {
   }
 }
 
+// Shared assets: every book links one copy in notes/css, notes/js and notes/vendor
+// (paper2notes/README.md "Shared assets"). A book keeps only its content, a thin
+// css/book.css, optional chapter sheets, js/quiz-data.js and its own scene scripts.
+const SHARED_ASSETS = {
+  "notes.css": "css/notes.css",
+  "checks.js": "js/checks.js",
+  "math.js": "js/math.js",
+  "katex.min.css": "vendor/katex/katex.min.css",
+  "katex.min.js": "vendor/katex/katex.min.js",
+  "auto-render.min.js": "vendor/katex/auto-render.min.js",
+  "three.min.js": "vendor/three/three.min.js",
+};
+const RETIRED_BOOK_SHEETS = new Set(["p2n.css", "p2n-tokens.css"]);
+
+function walkFiles(dir, out = []) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name === "_local") continue;
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) walkFiles(full, out);
+    else if (entry.isFile()) out.push(full);
+  }
+  return out;
+}
+
+function checkSharedAssets() {
+  const bookDirs = readdirSync(notesDir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && /^book\d+$/.test(e.name))
+    .map((e) => join(notesDir, e.name));
+  const howTo = "link the shared copy instead (see paper2notes/README.md, Shared assets)";
+  for (const bookDir of bookDirs) {
+    for (const file of walkFiles(bookDir)) {
+      const rel = relative(bookDir, file);
+      const name = rel.split("/").pop();
+      const isChapterSheet = /^[^/]+\/css\/notes\.css$/.test(rel);
+      if ((SHARED_ASSETS[name] && !isChapterSheet) || RETIRED_BOOK_SHEETS.has(name) || rel.split("/").includes("vendor")) {
+        fail(`Book copy of a shared asset: ${relative(repoRoot, file)}; ${howTo}`);
+      }
+      if (!name.endsWith(".html")) continue;
+      const html = readFileSync(file, "utf8");
+      const refs = [...html.matchAll(/<(?:link|script)\b[^>]*(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
+      let sharedSheetAt = -1;
+      refs.forEach((ref, i) => {
+        if (isSkippableLink(ref)) return;
+        const target = resolve(dirname(file), ref.split("?")[0]);
+        const base = target.split("/").pop();
+        const want = SHARED_ASSETS[base];
+        if (target === join(notesDir, "css/notes.css")) sharedSheetAt = i;
+        if (base === "book.css" && sharedSheetAt < 0) {
+          fail(`${relative(repoRoot, file)} loads ${ref} without loading the shared notes/css/notes.css before it`);
+        }
+        if (!want) return;
+        if (base === "notes.css" && target.startsWith(join(dirname(file), "css") + "/")) return; // chapter sheet
+        if (target !== join(notesDir, want)) {
+          fail(`${relative(repoRoot, file)} loads "${ref}", not the shared notes/${want}; ${howTo}`);
+        }
+      });
+    }
+  }
+}
+
 function checkLeaks() {
   const { errors: leaks } = runLeakCheck();
   for (const e of leaks) fail(`leak-check: ${e}`);
@@ -475,8 +586,10 @@ if (existsSync(book5Dir)) {
 checkBook1Structure();
 checkBook2Structure();
 checkBook4Structure();
+checkBook8Structure();
 
 checkRelativeLinks();
+checkSharedAssets();
 checkDeployFooter();
 checkLeaks();
 checkBriefLeaks();

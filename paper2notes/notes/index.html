@@ -8,24 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
   <link rel="stylesheet" href="css/p2n-shell.css">
+  <link rel="stylesheet" href="css/book-layout.css">
   <style>
-    /* Book 1 hue (design-system sun tokens) and glyph from assets/icons (lucide-static@0.468.0). */
+    /* Book 1 hue uses the design-system sun tokens. */
     :root { --book1: var(--sun-700); --book1-soft: var(--sun-100); }
-    [data-ic="thermometer"] { --src: url(assets/icons/thermometer.svg); }
   </style>
 </head>
 <body>
-  <header class="p2n-top">
-    <a class="p2n-top-brand" href="index.html">paper<i>2</i>notes</a>
-    <nav class="p2n-top-nav" aria-label="Books">
-      <a href="book1/index.html">Book 1</a>
-      <a href="book2/index.html">Book 2</a>
-      <a href="book4/index.html">Book 4</a>
-      <a href="book5/index.html">Book 5</a>
-      <a href="book7/index.html">Book 7</a>
-      <a href="qb/index.html">QB</a>
-    </nav>
-  </header>
+  <header class="p2n-top"><a class="p2n-top-brand" href="index.html" aria-label="paper2notes home"><span>paper</span><i>2</i><span>notes</span></a></header>
   <main class="p2n-page">
     <div class="p2n-page-head">
       <span class="p2n-label">HKDSE Physics</span>
@@ -42,6 +32,11 @@
         <span class="p2n-cc-t"><span class="p2n-label">Book 2</span><b>Force &amp; Motion</b></span>
         <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
+      <a class="p2n-cc" href="book3/index.html" style="--tone:var(--book3);--soft:var(--book3-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="audio-waveform" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 3</span><b>Wave Motion</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
       <a class="p2n-cc" href="book4/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
         <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="zap" aria-hidden="true"></span></span>
         <span class="p2n-cc-t"><span class="p2n-label">Book 4</span><b>Electricity &amp; Magnetism</b></span>
@@ -52,9 +47,24 @@
         <span class="p2n-cc-t"><span class="p2n-label">Book 5</span><b>Radioactivity</b></span>
         <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
+      <a class="p2n-cc" href="book6/index.html" style="--tone:var(--teal-600);--soft:var(--teal-50)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="telescope" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 6 · Elective</span><b>Astronomy &amp; Space Science</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
       <a class="p2n-cc" href="book7/index.html" style="--tone:var(--accent);--soft:var(--accent-soft)">
-        <span class="p2n-cc-ic"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="16" cy="16" r="2.4" fill="currentColor"/><ellipse cx="16" cy="16" rx="13" ry="5.5"/><ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(120 16 16)"/></svg></span>
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="atom" aria-hidden="true"></span></span>
         <span class="p2n-cc-t"><span class="p2n-label">Book 7 · Elective</span><b>Atomic World</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="book8/index.html" style="--tone:var(--teal-700);--soft:var(--teal-50)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="battery-charging" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 8 · Elective</span><b>Energy and Use of Energy</b></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="book9/index.html" style="--tone:var(--book5);--soft:var(--book5-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="target" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Book 9 · Elective</span><b>Medical Physics</b></span>
         <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
       </a>
       <a class="p2n-cc" href="qb/index.html" style="--tone:var(--bookqb);--soft:var(--bookqb-soft)">

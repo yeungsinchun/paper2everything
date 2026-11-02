@@ -221,8 +221,8 @@ def collect_assets() -> dict:
     return assets
 
 
-def pct(rate: float) -> str:
-    return f"{100 * rate:.2f}%"
+def pct(rate: float | None) -> str:
+    return "not measured" if rate is None else f"{100 * rate:.2f}%"
 
 
 def write_html(audit: dict, assets: dict) -> None:
@@ -288,8 +288,12 @@ def write_html(audit: dict, assets: dict) -> None:
         for year, count in sorted(overrides["by_year"].items())
     )
 
-    status_class = "ok" if passes else "bad"
-    status_text = "PASS (<=5% manual tuning)" if passes else "FAIL (above 5%)"
+    if passes is None:
+        status_class = "unknown"
+        status_text = "NOT MEASURED (run ./pipeline)"
+    else:
+        status_class = "ok" if passes else "bad"
+        status_text = "PASS (<=5% manual tuning)" if passes else "FAIL (above 5%)"
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -331,6 +335,7 @@ def write_html(audit: dict, assets: dict) -> None:
     }}
     .verdict-pill.ok {{ background: rgba(125,207,154,0.16); color: #9ee0b4; border: 1px solid rgba(125,207,154,0.35); }}
     .verdict-pill.bad {{ background: rgba(232,139,139,0.16); color: #f0b0b0; border: 1px solid rgba(232,139,139,0.35); }}
+    .verdict-pill.unknown {{ background: rgba(224,196,120,0.16); color: #e8cf94; border: 1px solid rgba(224,196,120,0.35); }}
     .rate-grid {{
       display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;
     }}
