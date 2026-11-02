@@ -19,6 +19,8 @@
 // scripts/dse-availability.mjs).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
+import { checkBooks } from "./build-books.mjs";
+import { execFileSync } from "node:child_process";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runLeakCheck, checkBlocks, loadFingerprints } from "./leak-check.mjs";
@@ -576,6 +578,12 @@ function checkDseAvailability() {
   }
 }
 
+errors.push(...checkBooks().errors);
+try {
+  execFileSync(process.execPath, ["--test", join(__dirname, "build-books.test.mjs")], { stdio: "pipe" });
+} catch (error) {
+  fail(`Shared book layout regression tests failed:\n${error.stdout?.toString() ?? error.message}`);
+}
 checkSiteRegionConsistency();
 checkLavishBoards();
 
