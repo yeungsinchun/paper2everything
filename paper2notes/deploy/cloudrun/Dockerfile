@@ -6,7 +6,7 @@
 FROM nginxinc/nginx-unprivileged:stable-alpine
 
 COPY paper2notes/deploy/cloudrun/nginx.conf /etc/nginx/conf.d/default.conf
-# .dockerignore (at repo root) keeps paper2notes/notes/_source, _local and *.test.mjs out of the image.
+# .dockerignore (at repo root) keeps paper2notes/notes/_source and _local out of the image.
 COPY paper2notes/notes/ /usr/share/nginx/html/
 # Inject / update the deploy-commit footer at image-build time for standalone
 # `docker build -f Dockerfile .` without deploy.sh. deploy.sh already injects
