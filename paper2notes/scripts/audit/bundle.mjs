@@ -13,7 +13,7 @@
  * Gate: extracting a bundle from notes/book5/.../25-1.html includes every
  * idea block and every figure (3 frames for animated ones), and no DSE deck.
  *
- * Copies the zero-dependency CDP pattern from notes.interactives.test.mjs
+ * Uses a zero-dependency CDP pattern for browser capture.
  * (node:net freePort, WebSocket, Page.captureScreenshot at DPR 2).
  */
 
@@ -45,7 +45,7 @@ function getGitSha() {
   }
 }
 
-/** Find a free TCP port (from notes.interactives.test.mjs) */
+/** Find a free TCP port for browser capture. */
 function freePort() {
   return new Promise((resolve, reject) => {
     const s = createServer();
