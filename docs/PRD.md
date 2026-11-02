@@ -10,7 +10,7 @@ paper2everything turns Hong Kong secondary-school source material (HKDSE Physics
 
 | Subproject | What it is | Audience-facing output |
 |---|---|---|
-| `paper2notes/` | Visual, interactive HKDSE Physics notes (Book 2 Force and Motion, Book 4 Electricity and Magnetism, Book 5 Radioactivity and Nuclear Energy), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb` |
+| `paper2notes/` | Visual, interactive HKDSE Physics notes (Book 2 Force and Motion, Book 4 Electricity and Magnetism, Book 5 Radioactivity and Nuclear Energy), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb`, mock-exam builder at `/mock` |
 | `paper2db/` | Pipeline that splits HKDSE Paper 1A (MC) and 1B (LQ) PDFs into per-question crops, classifies each to a syllabus section, pairs answers and candidate-performance notes, and ingests the QB DOCX banks | Per-section MC and LQ banks, section PDFs, whole-paper reconstructions, QB item data |
 | `paper2mock/` | Reserved for possible future work; F.1 maths content was removed pending a HKDSE Physics decision | None |
 
@@ -69,7 +69,9 @@ Versus a plain past-paper archive: questions are cut per item, labelled by secti
 - Notes: Book 2 (10 chapters), Book 4 (8), Book 5 (3).
 - DSE banks: 27 syllabus sections, MC and LQ; tracked published snapshot ships in the image; see [the publication contract](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
 - QB: 46 banks, 169 DOCX, 3,847 items (1,881 in scope), surfaced in `/qb` with topic filters and real crops.
+- Mock exams: `/mock` builds a multiple-choice paper to the teacher's topic, question-count and target-score choices. Each question's difficulty is the recorded pass rate of the real exam question it rewrites.
 - The F.1 maths content formerly in `paper2mock/` was removed pending a decision about its place in an HKDSE Physics project.
+
 
 ## 4. Content model (paper2notes)
 
@@ -91,6 +93,7 @@ notes/css/notes.css                   shared sheet for every book (tokens, layou
 notes/js/                             shared checks.js, math.js, scene-kit.js
 notes/vendor/{katex,three}/           shared vendored KaTeX and three.js
 notes/qb/                             question-bank UI (index.html, crops/, data/)
+notes/mock/                           mock-exam builder (index.html, css/, js/; reads qb/data/)
 notes/dse/{mc,lq}/<section>/          published DSE snapshot (tracked, from paper2db)
 notes/_source/<book-ch>/              intake; never shown to students, not shipped in the image
 ```
@@ -404,9 +407,11 @@ Stages:
 3. **Solve** (`solve.mjs`): a stateless, tool-less process sees only the bundle, the PRIOR allowlist (`P-FM-01` to `18`, `P-MA-01` to `06`, `P-GIVEN`) and the stem image, never the answer. Each step cites exactly one source (`given`, `math:`, `prior:`, or `notes:<anchor>` with a verbatim quote of 25 words or fewer). Missing facts go in `missing[]`; `self_verdict` is `solved | partial | blocked`. Logarithms and exponentials are deliberately not in PRIOR, so Book 5 must teach them.
 4. **Judge** (`judge.mjs`): a deterministic quote check (token coverage at least 0.9, prior ids exist); an LLM judge that sees the key and marking scheme and returns per-step `supported | unsupported | prior-leak`, per-point `earned | lost-knowledge | lost-reasoning | lost-arithmetic`, and `cause` in `ok | knowledge-gap | reasoning-error | item-defect | key-defect`; and a leakage check (8-gram and number-tuple overlap between stem and notes).
 5. **Orchestrate** (`run.mjs`): two tiers per item, **S** (mapped section plus `summary.html`) and **B** (cumulative bank bundle), K samples per tier (default 3). A tier passes when at least `ceil(2K/3)` samples have `cause == ok`, a passing quote check, all steps supported, and a correct MC answer or all marking points earned. `--dse-section 25.1|all` loads the section's deck questions as `DSE_<section>` items (MC items get marks 1; LQ items carry no marks); an item whose deck image cannot be resolved is skipped with `missing_evidence` and counted as must-fix by coverage.
-6. **Report** (`report.mjs`): `.audit/coverage.json` and a local coverage board `.audit/lavish/qb-audit/index.html`.
+6. **Report** (`report.mjs`): `.audit/coverage.json` and a local coverage board `.audit/lavish/qb-audit/index.html`. The item shape (`missing_concepts` from the tiers, the must-fix test) is exported so the brief stage reuses it unchanged.
 
 CLI: `node paper2notes/scripts/audit/audit.mjs <run|map|bundle|report|verify>`; `run` takes `[--bank QB_501 | --all | --dse-section 25.1|all] [--fixture <file>] [--items id,id] [--page 25-1] [--concurrency 8] [--k 3] [--regress]`, then `report` (`--coverage-only` skips the board). `--all` covers the 21 in-scope banks; `--items` and `--page` narrow which items are solved after mapping (the mapping file keeps the full inventory). `verify` checks the local artefacts for consistency: result verdicts and sections, mappings against the bank's pages, `pointer_candidates` whose anchors are real DOM ids, and bundles free of DSE decks and of anchors that are not DOM ids. The committed `fixtures/QB_501.json` is a small fixture, not a substitute for the real bank.
+
+7. **Brief** (`paper2notes/scripts/brief.mjs`): one brief per page, from the audit results only. `--page <path relative to paper2notes/notes>` (a section id such as `25.1`, `25-1` or `book2/ch03` also works) selects the page and, through `books.json`, the bank that owns it; every audit item whose `section` is that page's section is the page's evidence. One `pi` call groups the page's `missing_concepts` into named clusters; a concept the call does not name keeps its own cluster. Learning-objective ids are read from the page's own `lo-block` (its id, or the id its `aria-labelledby` names, plus the bullet position), chosen by the model's 1-based indices when they exist and otherwise by word overlap with the bullet; a concept with no matching objective, or a page with no `lo-block`, says so rather than dropping the concept. Clusters sort must-fix first (the rule above, applied to the page's items), then by the number of page items that miss them, then by concept count and label. `briefs/<page>.json` (`paper2everything.concept-brief.v1`) and `briefs/<page>.md` are rendered from one computation, and both are leak-checked with `paper2notes/scripts/leak-check.mjs` before anything is written: a finding prints the level and item and writes nothing. Item references are `BANK#<inventory index>`, because bank item ids and deck slide ids are protected ids for leak-check rule L4; the real ids stay in `.audit/results/<bank>/<id>.json`. `--no-model`, `--dry-run`, `--results`, `--out` and `--timeout` are documented in `--help`.
 
 | Verdict | Condition |
 |---|---|
@@ -429,7 +434,7 @@ CLI: `node paper2notes/scripts/audit/audit.mjs <run|map|bundle|report|verify>`; 
 | `paper2db` QB stages | harness, `/qb` UI | `paper2db.qb-item.v2`; `qb-pdf/items/<bank>.json`, `qb-web-ui-staging/qb/items/` |
 | `paper2db` MC and LQ stages | `/qb` UI, notes DSE decks | `qb-web-ui-staging/dse-{mc,lq}/index.json`, `sections.json`; `paper2notes/notes/dse/` snapshot |
 | notes HTML | harness | real DOM-id anchors read by `bundle.mjs`; `section-dse` decks stripped from bundles and parsed as items (`dse.mjs`); page layout per `books.json` — `notes/book2/chNN*/index.html` (chapter-index) or `notes/book*/chNN*/<n>-<n>.html` and `summary.html` — read by `bank-pages.mjs` |
-| harness | maintainers | `.audit/coverage.json`, verdict per item id, missing concepts with LO ids |
+| harness | maintainers | `.audit/coverage.json`, verdict per item id, `briefs/<page>.json` and `briefs/<page>.md` — missing concepts clustered and ranked, with learning-objective ids from the page |
 
 ## 8. Pipeline
 
@@ -482,6 +487,7 @@ One repository, with paper2notes and paper2db mutually dependent (paper2notes re
 The repository has no automated check or test workflows. Notes checks, audits,
 and pipeline scripts remain available to run by hand. See [Architecture §5](ARCHITECTURE.md#5-automated-workflows).
 
+
 **Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
 
 **Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
@@ -510,7 +516,7 @@ The F.1 maths content formerly in `paper2mock/` was removed pending a decision a
 - **Unchecked DSE contract.** Nothing verifies that notes references exist in the snapshot or agree with paper2db classification; the snapshot is synced by hand. `ci-check.mjs` skips `_local/` links.
 - **No automated checks.** The repository has no automated check or test workflows. Maintainers can run the notes check and pipeline tools by hand.
 - **Dead config.** Nested `paper2notes/.github/workflows/` and `paper2notes/.dockerignore` are unused.
-- **Harness scope.** Bank ids and bank-to-chapter mapping live in `scripts/audit/books.json`; the model id is hard-coded in the scripts; the harness requires a paid LLM, `pi` and Chrome. DSE deck questions are audited only on the `--dse-section` path, and DSE LQ items have no marking scheme in the harness when no tracked answer crop exists. QB items carry no section classification beyond `bank` and `chapter`, and the harness mapping is not written back to `paper2db`.
+- **Harness scope.** Bank ids and bank-to-chapter mapping live in `scripts/audit/books.json`; the model id is hard-coded in the scripts; the harness requires a paid LLM, `pi` and Chrome. The brief stage runs on `paper2notes/scripts/brief.mjs` and is covered by `paper2notes/scripts/brief.test.mjs` (no model call: the tests drive a fake `pi`). DSE deck questions are audited only on the `--dse-section` path, and DSE LQ items have no marking scheme in the harness when no tracked answer crop exists. QB items carry no section classification beyond `bank` and `chapter`, and the harness mapping is not written back to `paper2db`.
 - **DSE staging coverage.** `dse-mc` stages 537 of 573 classified MC items (2012 to 2026 plus `pp`); only `sap` is not staged (mc-anchors cannot locate its question labels).
 - **`/qb` UI** is described by requirements here but has no tracked automated test.
 

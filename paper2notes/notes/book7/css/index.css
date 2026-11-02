@@ -1,0 +1,5 @@
+/* Chapter descriptions are prose. Match Book 1 card typography. */
+.p2n-book-index .toc a > span:not(.num) {
+  color: var(--ink-3);
+  font: 600 0.833333rem/1.45 var(--font-body);
+}

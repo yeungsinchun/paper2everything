@@ -30,6 +30,7 @@ tests/reconstructed/mc/<year>/combined.pdf) are NOT copied; staging
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import sys
@@ -43,6 +44,9 @@ METADATA_MC = ROOT / "metadata" / "mc" / "llm_classifications.json"
 ANSWER_KEYS = ROOT / "tests" / "sections" / "mc" / "answer_keys.json"
 # Also fallback to older pipeline path if needed
 ALT_ANSWER_KEYS = ROOT / "classified" / "mc" / "answer_keys.json"
+# Hand-verified keys. extract_answer_keys.py lets these win over OCR, so they are
+# the last word on an answer and the freshness check reads them directly.
+ANSWER_OVERRIDES = ROOT / "scripts" / "answer_key_overrides.json"
 
 # 2012-2026 plus the practice paper "pp". "sap" (sample paper) is not staged: its question
 # labels are not detectable by mc-anchors (see README).
@@ -100,6 +104,62 @@ def load_answer_keys():
         for q_str, payload in qs.items():
             out[(str(year), int(q_str))] = payload
     return out
+
+def load_answer_overrides():
+    """Hand-verified answers by (year, question); these beat OCR in the keys stage."""
+    if not ANSWER_OVERRIDES.is_file():
+        return {}
+    raw = json.loads(ANSWER_OVERRIDES.read_text(encoding="utf-8"))
+    return {
+        (str(year), int(q_str)): payload
+        for year, qs in raw.items()
+        for q_str, payload in qs.items()
+    }
+
+def expected_answers():
+    """(year, question) -> answer payload a fresh keys run would publish."""
+    merged = load_answer_keys()
+    merged.update(load_answer_overrides())
+    return merged
+
+def verify_staged_answers_current():
+    """Report staged MC answers that a fresh keys run would not produce.
+
+    Staging used to drift from the keys (dse-mc-2018-1 lost its `deleted` flag)
+    because nothing compared the committed index with the keys. This compares
+    content, not timestamps: mtimes say nothing about content and are equal on a
+    fresh clone, so they cannot catch a stale stage.
+    """
+    index_path = STAGING / "index.json"
+    if not index_path.is_file():
+        print(f"verify: no staged index at {index_path}")
+        return True
+    if not (ANSWER_KEYS.is_file() or ALT_ANSWER_KEYS.is_file()):
+        print("verify: no tests/sections/mc/answer_keys.json; run ./pipeline --only keys first")
+        return True
+    expected = expected_answers()
+    drift = []
+    staged = json.loads(index_path.read_text(encoding="utf-8"))
+    for item in staged:
+        key = (str(item["year"]), int(item["question"]))
+        want = expected.get(key)
+        want_answer = {
+            "option": want.get("Correct Option") if want else None,
+            "percentage": want.get("Correct percentage") if want else None,
+            "deleted": bool(want.get("deleted")) if want else False,
+            "missing": not bool(want and want.get("Correct Option")),
+        }
+        if item["answer"] != want_answer:
+            drift.append((item["id"], item["answer"], want_answer))
+    for item_id, got, want_answer in drift:
+        print(f"  STALE {item_id}: staged {got} -> fresh keys {want_answer}")
+    print(f"verify: {len(drift)} of {len(staged)} staged answers differ from a fresh keys run")
+    if drift:
+        print(
+            "  re-run ./pipeline --only keys --force --yes then "
+            "python3 scripts/stage_dse_mc.py"
+        )
+    return not drift
 
 def optimize_images():
     from PIL import Image
@@ -351,10 +411,21 @@ Intermediate anchors: `intermediate/mc/<year>/anchor.pdf` (blue dots, not staged
     (STAGING / ".gitignore").write_text("# Never commit full PDFs, only crops\n*.pdf\n*.PDF\n# Keep staging metadata and crops\n!*.json\n!*.png\n!*.webp\n!*.md\n!crops/\n", encoding="utf-8")
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--verify-only",
+        action="store_true",
+        help="only check the staged answers against a fresh keys run; exit 1 on drift",
+    )
+    args = parser.parse_args()
+    if args.verify_only:
+        raise SystemExit(0 if verify_staged_answers_current() else 1)
     STAGING.mkdir(parents=True, exist_ok=True)
     count, total_orig, total_png, total_webp = optimize_images()
     build_metadata(count, total_orig, total_png, total_webp)
     print(f"Done staging to {STAGING}")
+    if not verify_staged_answers_current():
+        raise SystemExit(1)
 
 if __name__ == "__main__":
     main()
