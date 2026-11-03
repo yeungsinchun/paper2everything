@@ -1,13 +1,20 @@
 # Static image for the paper2notes site on Cloud Run.
 # Monorepo build: context is the repo root (paper2everything), not paper2notes/.
 #   docker build -f paper2notes/deploy/cloudrun/Dockerfile .
-# Standalone paper2notes checkouts can still build with:
-#   docker build -f deploy/cloudrun/Dockerfile paper2notes
+# The canonical teaching-reference store requires the monorepo build context.
+FROM python:3.12-alpine AS passages
+WORKDIR /build
+COPY paper2notes/scripts/publish-notes-passages.py /build/paper2notes/scripts/
+COPY paper2db/metadata/pointers/notes.json /build/paper2db/metadata/pointers/notes.json
+COPY paper2notes/notes/ /build/paper2notes/notes/
+RUN python3 paper2notes/scripts/publish-notes-passages.py --out /build/passages.json
+
 FROM nginxinc/nginx-unprivileged:stable-alpine
 
 COPY paper2notes/deploy/cloudrun/nginx.conf /etc/nginx/conf.d/default.conf
 # .dockerignore (at repo root) keeps paper2notes/notes/_source and _local out of the image.
 COPY paper2notes/notes/ /usr/share/nginx/html/
+COPY --from=passages /build/passages.json /usr/share/nginx/html/question-notes/passages.json
 # Inject / update the deploy-commit footer at image-build time for standalone
 # `docker build -f Dockerfile .` without deploy.sh. deploy.sh already injects
 # before build and passes --build-arg GIT_COMMIT; this is the fallback. A footer whose

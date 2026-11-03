@@ -104,7 +104,7 @@ def extract(html, anchor):
     if not in_main:
         raise ValueError("anchor is outside the notes")
     text = normalize(plain_text(node))
-    if not text or len(text) > 12000:
+    if not text or len(text.encode("utf-16-le")) // 2 > 12000:
         raise ValueError("notes passage is empty or too long")
     titles = [normalize(plain_text(n)) for n in nodes if n.tag == "title"]
     return text, titles[0] if titles else "Notes"
@@ -119,9 +119,18 @@ def utf16_slice(text, start, end):
 
 
 def check_ranges(text, highlights):
+    if (not isinstance(text, str) or not text or normalize(text) != text
+            or not isinstance(highlights, list) or not 1 <= len(highlights) <= 32):
+        raise ValueError("invalid passage text or highlights")
     previous = 0
     length = len(text.encode("utf-16-le")) // 2
+    if length > 12000:
+        raise ValueError("notes passage is too long")
     for h in highlights:
+        keys(h, "start end quote", "highlight")
+        if (type(h["start"]) is not int or type(h["end"]) is not int
+                or not isinstance(h["quote"], str) or not h["quote"]):
+            raise ValueError("invalid sentence range")
         start, end = h["start"], h["end"]
         if start < previous or start >= end or end > length:
             raise ValueError("invalid or overlapping sentence ranges")
@@ -214,6 +223,9 @@ def publish(store, notes_root):
                             result.update(status="available", text=text, title=title)
             except (ValueError, OSError) as exc:
                 result.update(status="unsafe", reason=str(exc))
+            if result["status"] != "available":
+                # Rejected references retain identity/provenance, never saved excerpt quotes.
+                result.pop("highlights", None)
             passages.append(result)
         rows.append({**item, "passages": passages})
     return {"schema": "paper2notes.question-notes.v1", "items": rows}
@@ -224,9 +236,18 @@ def main():
     parser.add_argument("--store", type=Path, default=ROOT / "paper2db/metadata/pointers/notes.json")
     parser.add_argument("--notes-root", type=Path, default=ROOT / "paper2notes/notes")
     parser.add_argument("--out", type=Path)
+    parser.add_argument("--check", action="store_true", help="validate references without writing a projection")
     args = parser.parse_args()
     try:
         data = publish(json.loads(args.store.read_text(encoding="utf-8")), args.notes_root)
+        if args.check:
+            rejected = [f"{i['corpus']}:{i['item_id']} {p['page']}#{p['anchor']}: {p['status']}"
+                        for i in data["items"] for p in i["passages"]
+                        if p["status"] not in ("available", "unverified")]
+            if rejected:
+                parser.exit(1, "notes-passages: " + "; ".join(rejected) + "\n")
+            print(f"notes-passages: checked {len(data['items'])} mapped questions")
+            return
         out = args.out or args.notes_root / "question-notes/passages.json"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

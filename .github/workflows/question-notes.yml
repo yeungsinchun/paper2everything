@@ -1,0 +1,59 @@
+name: question-notes
+on:
+  pull_request:
+    paths:
+      - 'paper2db/metadata/pointers/notes.json'
+      - 'paper2db/schemas/notes-pointer.v1.json'
+      - 'paper2notes/notes/**'
+      - 'paper2notes/scripts/*notes*'
+      - 'paper2notes/scripts/anchor-lint.mjs'
+      - 'paper2notes/deploy/cloudrun/**'
+      - '.dockerignore'
+      - '.github/workflows/question-notes.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'paper2db/metadata/pointers/notes.json'
+      - 'paper2db/schemas/notes-pointer.v1.json'
+      - 'paper2notes/**'
+      - '.dockerignore'
+      - '.github/workflows/question-notes.yml'
+permissions:
+  contents: read
+jobs:
+  passages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python3 -m unittest discover -s paper2notes/scripts -p 'test_publish_notes_passages.py' -v
+      - run: node --test paper2notes/scripts/question-notes.test.mjs paper2notes/scripts/question-notes-lint.test.mjs
+      - run: python3 paper2notes/scripts/publish-notes-passages.py
+      - name: Build the actual serving image
+        run: docker build -f paper2notes/deploy/cloudrun/Dockerfile -t question-notes:test .
+      - name: Check serving projection and module MIME type
+        run: |
+          docker run -d --rm --name question-notes -p 8080:8080 question-notes:test
+          trap 'docker stop question-notes' EXIT
+          for i in $(seq 1 30); do curl -fsS http://localhost:8080/question-notes/passages.json > /tmp/passages.json && break || sleep 1; done
+          python3 -c 'import json; d=json.load(open("/tmp/passages.json")); assert d["schema"] == "paper2notes.question-notes.v1"; assert sum(p["status"] == "available" for i in d["items"] for p in i["passages"]) >= 3'
+          curl -fsSI http://localhost:8080/js/question-notes.mjs | grep -i 'content-type: application/javascript'
+      - name: Test served interfaces in Chrome
+        env:
+          CHROME_DEVTOOLS_AXI_SESSION: question-notes-ci
+        run: |
+          npm install -g chrome-devtools-axi
+          python3 -m http.server 8768 --bind 127.0.0.1 > /tmp/notes-server.log 2>&1 &
+          server=$!
+          trap 'kill "$server"; chrome-devtools-axi stop' EXIT
+          chrome-devtools-axi open http://127.0.0.1:8768/paper2notes/notes/qb/ > /tmp/notes-open.txt
+          chrome-devtools-axi eval 'async () => (await import("/paper2notes/scripts/question-notes.browser.mjs")).run()'
+          mkdir -p paper2notes/notes/book5/_local
+          ln -s ../../dse paper2notes/notes/book5/_local/dse
+          chrome-devtools-axi open http://127.0.0.1:8768/paper2notes/notes/book5/ch03-nuclear-energy/27-1.html > /tmp/chapter-open.txt
+          chrome-devtools-axi eval 'async () => (await import("/paper2notes/scripts/question-notes-chapter.browser.mjs")).run()'

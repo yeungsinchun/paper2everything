@@ -2,6 +2,14 @@
 *
 !paper2notes/notes/
 !paper2notes/deploy/cloudrun/nginx.conf
+!paper2notes/scripts/publish-notes-passages.py
+!paper2db/
+paper2db/*
+!paper2db/metadata/
+paper2db/metadata/*
+!paper2db/metadata/pointers/
+paper2db/metadata/pointers/*
+!paper2db/metadata/pointers/notes.json
 
 # Intake/OCR provenance and gitignored local material are never published.
 paper2notes/notes/_source/
@@ -11,7 +19,7 @@ paper2notes/notes/_local/
 **/.DS_Store
 paper2notes/active-physics/
 paper2notes/dse-classified/
-paper2db/
+paper2notes/notes/question-notes/
 paper2mock/
 .git/
 .github/
