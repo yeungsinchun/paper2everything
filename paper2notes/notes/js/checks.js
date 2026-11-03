@@ -22,6 +22,7 @@
 
   var QUIZ_DATA = window.P2N_QUIZ || {};
   var PAPER_LOS = QUIZ_DATA.paperLos || {};
+  var questionNotesModule = new URL("question-notes.mjs", document.currentScript.src).href;
   var QUIZ_KEYS = QUIZ_DATA.quizKeys || {};
 
   function $(sel, root) {
@@ -481,6 +482,14 @@
     initReveals();
     initQuizDecks();
     initNotesExport();
+    // Keep the shared deck controls independent from the optional explanation module.
+    import(questionNotesModule).then(function (notes) {
+      $all(".quiz-slide").forEach(function (slide) {
+        notes.attachQuestionNotes(slide, { corpus: "dse", itemId: slide.id });
+      });
+    }).catch(function (error) {
+      console.error("Notes explanations could not load.", error);
+    });
   }
 
   window.NotesQuiz = { sectionPapersHtml: sectionPapersHtml };
