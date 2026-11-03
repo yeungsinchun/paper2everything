@@ -8,7 +8,7 @@ let sequence = 0;
 
 export const normalizeText = text => text.replace(/\s+/g, ' ').trim();
 export function canonicalId(corpus, id, kind) {
-  if (typeof id !== 'string') return null;
+  if (typeof id !== 'string' || id !== id.trim()) return null;
   if (corpus === 'qb') return /^PHY[0-9]+$/.test(id) ? id : null;
   if (corpus !== 'dse') return null;
   if (/^dse-mc-(?:[0-9]{4}|pp|sap)-[0-9]+$/.test(id)) return id;
@@ -20,14 +20,14 @@ export function canonicalId(corpus, id, kind) {
 }
 
 export function safeReference(p) {
-  return p && typeof p.page === 'string' && PAGE.test(p.page) &&
-    typeof p.anchor === 'string' && ANCHOR.test(p.anchor) &&
-    typeof p.text_sha256 === 'string' && /^[0-9a-f]{64}$/.test(p.text_sha256) &&
+  return p && typeof p.page === 'string' && p.page === p.page.trim() && PAGE.test(p.page) &&
+    typeof p.anchor === 'string' && p.anchor === p.anchor.trim() && ANCHOR.test(p.anchor) &&
+    typeof p.text_sha256 === 'string' && p.text_sha256.length === 64 && /^[0-9a-f]{64}$/.test(p.text_sha256) &&
     typeof p.source === 'string' && p.source.trim().length > 0 && p.source.length <= 2000;
 }
 
 export function validateRanges(text, highlights) {
-  if (typeof text !== 'string' || !text || text.length > 24000 ||
+  if (typeof text !== 'string' || !text || text.length > 12000 ||
       !Array.isArray(highlights) || !highlights.length || highlights.length > 32) return false;
   let previous = 0;
   return highlights.every(h => {
@@ -56,7 +56,7 @@ export function extractPassage(doc, anchor) {
     return space + [...node.childNodes].map(collect).join('') + space;
   }
   const text = normalizeText(collect(block));
-  if (!text || text.length > 24000) throw new Error('The notes passage is empty or too long.');
+  if (!text || text.length > 12000) throw new Error('The notes passage is empty or too long.');
   return text;
 }
 
@@ -201,6 +201,7 @@ export function attachQuestionNotes(container, { corpus, itemId, kind } = {}) {
   button.addEventListener('click', async () => {
     if (!panel.hidden) { close(); return; }
     panel.hidden = false;
+    panel.dataset.state = 'loading';
     button.setAttribute('aria-expanded', 'true');
     button.textContent = 'Hide notes explanation';
     const current = ++revision;
@@ -211,6 +212,8 @@ export function attachQuestionNotes(container, { corpus, itemId, kind } = {}) {
     dismiss.type = 'button';
     dismiss.addEventListener('click', () => { close(); button.focus(); });
     panel.replaceChildren(element('h3', '', 'Notes explanation'), status, content, dismiss);
+    // Move keyboard focus into the open region; Escape and Close restore it.
+    dismiss.focus({ preventScroll: true });
     try {
       if (!canonical) throw new Error('This question has no supported source identity.');
       const data = JSON.parse(await readResource(new URL('question-notes/passages.json', ROOT), 'application/json', 5000000));

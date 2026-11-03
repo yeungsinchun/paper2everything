@@ -16,5 +16,13 @@
 .question-notes-warning{padding:10px;border-left:3px solid #a76722;background:#fff4e5;color:#633b0f}
 .question-notes-close{margin-top:8px}
 @media(max-width:480px){.question-notes{padding:12px}.question-notes-control{margin:10px}}
+/* Give an open explanation readable space without leaving its question card. */
+.qb-card:has(> .question-notes-control > .question-notes:not([hidden])){grid-column:1/-1}
+@media(min-width:900px){
+  .qb-card:has(> .question-notes-control > .question-notes:not([hidden])){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto 1fr;align-items:start}
+  .qb-card:has(> .question-notes-control > .question-notes:not([hidden])) > :is(.qb-card-head,.qb-fig,.qb-card-foot){grid-column:1}
+  .qb-card:has(> .question-notes-control > .question-notes:not([hidden])) > .qb-card-foot{margin-top:0}
+  .qb-card:has(> .question-notes-control > .question-notes:not([hidden])) > .question-notes-control{grid-column:2;grid-row:1/4}
+}
 /* A notes export must not include a question's open explanation panel. */
-@media print{.question-notes-control{display:none!important}}
+@media print{.question-notes-control{display:none!important}.qb-card:has(> .question-notes-control > .question-notes:not([hidden])){display:flex;grid-column:auto}}

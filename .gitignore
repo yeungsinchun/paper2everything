@@ -22,6 +22,9 @@ paper2notes/notes/_source/**/_scratch/
 paper2notes/bk2-*.png
 paper2notes/bk4-*.png
 
+# Generated question-to-notes serving projection
+paper2notes/notes/question-notes/passages.json
+
 # paper2db generated
 paper2db/.venv/
 paper2db/__pycache__/
