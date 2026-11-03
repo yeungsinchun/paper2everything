@@ -6,6 +6,11 @@ way each subproject depends on the others. It closes with the design smells foun
 while mapping (section [Design findings](#design-findings)). It records them; it
 does not fix them.
 
+[Question coverage, exams, and shared book layout](sequence-architecture.md)
+records the intent and interactions of the related pull requests.
+It separates behavior already on main from proposed branch functionality.
+It also records exact comparison commits, inherited changes, examples, and evidence limits.
+
 A visual version of the same map is a Lavish board built locally at
 `.lavish/architecture-board/index.html` (open it with
 `lavish-axi .lavish/architecture-board/index.html`). `.lavish/` is gitignored, so
