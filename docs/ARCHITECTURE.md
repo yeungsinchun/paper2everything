@@ -35,7 +35,7 @@ The leak edge has a drift check (`python3 paper2db/scripts/leak_fingerprints.py 
 |---|---|---|---|
 | `paper2db/` | Python 3 (PyMuPDF, Pillow, OCR, optional LLM API) | `./paper2db/pipeline` (12 stages, `--list-stages`) | MC/LQ crops per year and per syllabus section, section PDFs, answer keys, `dse-item.v1` records, audit JSON, review HTML |
 | `paper2db/scripts/convert-qb-to-pdf.sh` | Bash + LibreOffice | run by hand | `paper2db/qb-pdf/` PDFs from `paper2db/qb/` DOCX |
-| `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book1/`, `/book2/`, `/book4/`, `/book5/`) |
+| `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | open in a browser; no build | the student site (landing `/`, `/book1/`, `/book2/`, `/book4/`, `/book5/`, `/qb/`, `/mock/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` staged to `_local/dse/` by `Dockerfile` |
 | `paper2notes/scripts/quiz-audit.mjs` | Node | run by hand | pass/fail for quiz keys, DSE availability and crop paths, plus answer-store agreement |
 | `paper2notes/scripts/quiz-store-audit.mjs` | Node | imported by `quiz-audit.mjs`; runnable on its own | pass/fail for published DSE crops and MC keys backed by `paper2db/qb-web-ui-staging/dse-mc/index.json` |
@@ -237,6 +237,7 @@ The only root workflow is `.github/workflows/deploy-notes.yml`. It publishes
 `paper2notes` to Cloud Run when its configured paths change on `main`.
 The notes check, quiz audits, leak checks and paper2db scripts remain runnable
 by hand. The repository has no automated test workflows.
+
 
 ### 6. Cloud Run deploy
 
