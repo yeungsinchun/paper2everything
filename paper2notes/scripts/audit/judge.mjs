@@ -19,6 +19,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { parseAnchorHeading } from "./pointers.mjs";
+import { jsonSha, sha256 } from "./corpus.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
@@ -306,7 +307,9 @@ async function main() {
     judge: judgeRes.parsed,
     error: judgeRes.error,
     raw: judgeRes.raw.slice(0, 8000),
-    run: { pi: (() => { try { return spawnSync(process.env.PI_BIN || "pi", ["--version"], { encoding: "utf8" }).stdout.trim(); } catch { return "unknown"; } })(), model: "meta/muse-spark-1.2-contributor", at: new Date().toISOString() },
+    run: { pi: (() => { try { return spawnSync(process.env.PI_BIN || "pi", ["--version"], { encoding: "utf8" }).stdout.trim(); } catch { return "unknown"; } })(), model: "meta/muse-spark-1.2-contributor", at: new Date().toISOString(),
+      item_sha: jsonSha(item), prompt_sha: sha256(readPrompt("judge.system.md")),
+      bundle_sha: (() => { try { return JSON.parse(fs.readFileSync(path.join(bundleDir, "manifest.json"))).bundle_sha; } catch { return null; } })() },
   };
   const outPath = out || path.join(path.dirname(solvePath), `${item.id}.judge.json`);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });

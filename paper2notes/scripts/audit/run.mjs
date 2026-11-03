@@ -27,6 +27,7 @@ import { repoRoot, auditDirs, resolveImagePath, qbItemsCandidates, parseList } f
 import { loadDseSection } from "./dse.mjs";
 import { mapBank, inventorySha } from "./map.mjs";
 import { pointerCandidates } from "./pointers.mjs";
+import { captureEvidence } from "./evidence.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execFileAsync = promisify(execFile);
@@ -165,7 +166,7 @@ async function processItem(item, bank, opts) {
   const imagePaths = [...(item.images?.stem || []), ...(item.images?.answer || [])].map(resolveImagePath).filter(Boolean);
   const imageSha = sha256Hex(imagePaths.map(p => { try { return sha256Hex(fs.readFileSync(p)); } catch { return "missing"; } }).join("|"));
   const mappingSha = sha256Hex(JSON.stringify(mapped || null));
-  const codeSha = sha256Hex(["run.mjs", "bundle.mjs", "map.mjs", "solve.mjs", "judge.mjs", "bank-pages.mjs", "paths.mjs", "dse.mjs", "pointers.mjs", "books.json"].map(name => sha256Hex(fs.readFileSync(path.join(__dirname, name)))).join("|"));
+  const codeSha = sha256Hex(["run.mjs", "bundle.mjs", "map.mjs", "solve.mjs", "judge.mjs", "bank-pages.mjs", "paths.mjs", "dse.mjs", "pointers.mjs", "evidence.mjs", "corpus.mjs", "books.json"].map(name => sha256Hex(fs.readFileSync(path.join(__dirname, name)))).join("|"));
   const key = cacheKey(itemSha, bundleSha, promptSha, model, [piVersion, mappingSha, imageSha, codeSha, chapterSha, k].join("|"));
   const cachePath = path.join(cacheDir, `${key}.json`);
   const resultPath = path.join(outDir, bank, `${item.id}.json`);
@@ -218,7 +219,8 @@ async function processItem(item, bank, opts) {
         try {
           const judgeData = JSON.parse(fs.readFileSync(judgeOut, "utf8"));
           if (judgeError || judgeData.error || judgeData.judge?.cause === "unjudged") throw new Error(String(judgeError?.stderr || judgeError || judgeData.error || "judge returned unjudged"));
-          tiers[tier].samples.push({ answer: solveData.solver || solveData, judge: judgeData.judge || judgeData, quote_check: judgeData.quote_check, leakage: judgeData.leakage });
+          tiers[tier].samples.push({ answer: solveData.solver || solveData, judge: judgeData.judge || judgeData, quote_check: judgeData.quote_check, leakage: judgeData.leakage,
+            provenance: { solver: solveData.run, judge: judgeData.run } });
           // cleanup tmp solve/judge
           try { fs.unlinkSync(solveOut); } catch {}
           try { fs.unlinkSync(judgeOut); } catch {}
@@ -265,6 +267,7 @@ async function processItem(item, bank, opts) {
     verdict,
     leaked,
     pointer_candidates,
+    evidence: { ...captureEvidence(item, { root: path.resolve(repoRoot, ".."), resolveImage: resolveImagePath }), mapping_sha256: mappingSha },
     chapter_pages_sha: chapterSha,
     bundle_sha: bundleSha,
     prompt_sha: promptSha,
