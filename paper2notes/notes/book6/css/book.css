@@ -70,6 +70,7 @@
 .visual.svg-fig svg text { font-family: var(--font-body); fill: var(--fig-ink); }
 .visual.svg-fig svg .muted { fill: var(--ink-2); }
 
+.next { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); }
 .next a.prev {
   background: var(--card);
   color: var(--ink);
@@ -77,6 +78,7 @@
   box-shadow: var(--edge);
 }
 .next a.prev:hover { background: var(--teal-50); border-color: var(--teal-300); }
+.next a:only-child { margin-left: auto; }
 
 .worked .answer { margin-top: var(--space-3); padding-top: var(--space-2); border-top: var(--border-w) dashed var(--line); font-weight: 700; }
 
