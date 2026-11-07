@@ -136,3 +136,21 @@ test('every generated page loads assets that resolve, and export pages load the 
   }
   assert.ok(exports > 0);
 });
+
+test('figures on every Book 6 and Book 9 page paint from classes their stylesheets define', () => {
+  const rulesIn = file => [...readFileSync(file, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]*)\{([^{}]*)\}/g)]
+    .map(([, selector, body]) => ({ selector, declared: new Set(body.split(';').map(d => d.split(':')[0].trim().toLowerCase()).filter(Boolean)) }));
+  const kind = token => (/^f-/.test(token) ? 'fill' : 'stroke');
+  for (const p of pages.filter(p => /^book[69]\//.test(p.route))) {
+    const html = readFileSync(join(notesDir, p.route), 'utf8');
+    const tokens = new Set([...html.matchAll(/<[a-z]+\b[^>]*\bclass="([^"]+)"/g)].flatMap(([, name]) => name.split(/\s+/))
+      .filter(t => /^[fs]-/.test(t) || t === 'obj' || t === 'guide'));
+    const rules = [...html.matchAll(/<link\s+rel="stylesheet"\s+href="([^"]+)"/g)].map(([, href]) => href)
+      .filter(href => !/^[a-z][a-z0-9+.-]*:/i.test(href) && !href.startsWith('//'))
+      .flatMap(href => rulesIn(resolve(notesDir, dirname(p.route), href)));
+    for (const token of tokens) {
+      const declared = rules.some(r => new RegExp(`\\.${token}(?![\\w-])`).test(r.selector) && r.declared.has(kind(token)));
+      assert.ok(declared, `${p.route}: .${token} has no ${kind(token)} rule in the stylesheets the page loads`);
+    }
+  }
+});

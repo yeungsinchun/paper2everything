@@ -24,8 +24,9 @@ The compiler maps page types to the existing classes for overviews, complete cha
 A page cannot supply its own header or secondary chapter row.
 No book has a switch for secondary navigation.
 
-Book accents remain in the existing stylesheets referenced by each `head` slot.
-This preserves the accepted styles and their order.
+Book accents remain in the existing book stylesheets referenced by each `head` slot.
+Each book sheet also carries the stage, control and figure rules that only that book uses.
+The shared sheet carries the SVG paint classes (`f-*`, `s-*`) and the shared figure shape classes those pages reference.
 The compiler preserves the existing deployment footer value when rebuilding a generated file.
 The shared template owns its markup and position outside the main page.
 
@@ -69,6 +70,7 @@ The nginx deployment still serves static files at unchanged addresses.
 
 The regression tests resolve every stylesheet and script in the generated routes, so a page that points at a missing asset fails.
 They also check that every page with an export button loads the shared `js/checks.js`.
+They check that every figure paint class on a Book 6 or Book 9 page has a fill or stroke rule in the stylesheets that page loads.
 They verify source/output parity and one template edit reaching every route.
 They compare lesson bytes, script bytes, anchor IDs, and lesson links against the migration contract.
 The byte comparisons ignore only empty-line whitespace and whitespace at slot boundaries.
@@ -86,6 +88,10 @@ The merged stack deleted the Book 6 and Book 9 copies of shared assets but left 
 This migration repoints those pages at `../../js/checks.js`, `../../js/math.js`, and `../../vendor/katex/…`.
 Only the `head` and `scripts` slots change; lesson content is untouched.
 These 13 routes therefore differ from the merged stack output, and the migration contract records their new script hashes, links, and stylesheets.
+The merged stack also deleted the Book 6 and Book 9 design sheets whose figure and stage rules those pages used.
+The static SVG paint classes (`f-*`, `s-*`) and the shared `fig-svg` stroke classes (`obj`, `guide`) now live in the shared sheet.
+The Book 9 figure text, stage, simulation-control and worked-example rules live in its book sheet, and so do the Book 6 stage fallback, figure sizing and print rules.
+Only stylesheets change for this repair; the generated routes stay byte-identical to this branch's previous commit.
 The site check reports one problem: the copied `js/checks.js` that Book 1 keeps and `notes/_source/book1-dse/build_snapshot.py` reads.
 The quiz audit reports no page problems and two disagreements between Book 1 quiz keys and the answer store.
 The pull request records the exact validation results and browser coverage separately.
