@@ -25,7 +25,7 @@ paper2everything/
 ├── paper2notes/
 │   ├── notes/                   the site: landing, book2/, book4/, book5/, qb/, dse/ snapshot
 │   │   └── _source/<book-ch>/   intake (ocr.md, outline.md, problems.md, images/, INDEX.md)
-│   ├── scripts/                 ci-check.mjs, leak-check.mjs, anchor-lint.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
+│   ├── scripts/                 checks/ (ci-check, leak-check, anchor-lint, quiz-audit, leak/), build/ (sync-dse.sh, inject-commit-footer.mjs), audit/
 │   ├── anchors/                 ids.lock.json, moves.json (anchor-id rules; see anchors/README.md)
 │   └── deploy/cloudrun/         Dockerfile, nginx.conf, deploy.sh, provision.sh
 ├── paper2db/
@@ -135,7 +135,7 @@ Full rules: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 2. Run the relevant check before pushing: `node paper2notes/scripts/checks/ci-check.mjs` for notes.
 3. UI PRs (paper2notes HTML, CSS, JS, visuals, animations, stage): load `.agents/skills/paper2everything-ui-screenshot/SKILL.md` first. Before/after screenshots at both 1280×800 and 390×844 are required in the PR body, attached with `gh --attach`. Motion changes also need video at both sizes unless provably invisible at one (`.agents/skills/paper2everything-pr-video/SKILL.md`). The UI checklist is [PRD §6.9](docs/PRD.md#69-acceptance-checklist-per-ui-change).
 4. Keep generated files out of git: `_local/`, pipeline outputs, `.lavish/`, compiled PDFs.
-5. Do not hand-edit `deploy-commit-footer`; `scripts/build/inject-commit-footer.mjs` owns it.
+5. Do not hand-edit `deploy-commit-footer`; `paper2notes/scripts/build/inject-commit-footer.mjs` owns it.
 6. Questions: issues on `yeungsinchun/paper2everything`.
 
 ## Documentation index
