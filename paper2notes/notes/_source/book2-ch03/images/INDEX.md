@@ -13,4 +13,4 @@ Source: `active-physics/Book 2.pdf` Ch.3 + `QB_203` DOCX renders. Method: `pdfto
 | fig03-07-placeholder.png | Fig. 3.7 | work/energy bar chart / diver | idea block G |
 | fig03-08-placeholder.png | Fig. 3.8 | momentum collision / hose | idea block H |
 
-OCR review: keep PNG crops in this folder for redraw reference only; final art is SVG/canvas/three.js (see `.cursor/skills/visual-html-notes/SKILL.md`).
+OCR review: keep PNG crops in this folder for redraw reference only; final art is SVG/canvas/three.js (see `.agents/skills/visual-html-notes/SKILL.md`).

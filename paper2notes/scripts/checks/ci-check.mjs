@@ -11,12 +11,12 @@
 // carrying the notes-refactor marker; see .agents/skills/paper2everything-lavish-board/SKILL.md),
 // plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
 // plus leak-check (notes must not reproduce protected question/answer text;
-// see scripts/leak-check.mjs),
-// plus anchor ids / moves.json / answer pointers (see scripts/anchor-lint.mjs),
+// see scripts/checks/leak-check.mjs),
+// plus anchor ids / moves.json / answer pointers (see scripts/checks/anchor-lint.mjs),
 // plus the DSE availability record: every published DSE section must be
 // recorded in notes/dse/availability.json with a reason, and every published
 // crop must be a question the papers really hold (see
-// scripts/dse-availability.mjs).
+// scripts/checks/dse-availability.mjs).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
@@ -26,7 +26,7 @@ import { lintAnchors } from "./anchor-lint.mjs";
 import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource, referenceCounts, checkDocumentedReferenceCounts } from "./dse-availability.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const repoRoot = resolve(__dirname, "..");
+const repoRoot = resolve(__dirname, "../..");
 const notesDir = join(repoRoot, "notes");
 const book5Dir = join(notesDir, "book5");
 const book8Dir = join(notesDir, "book8");
@@ -446,7 +446,7 @@ function checkDeployFooter() {
     // report first 10, then summary
     const preview = missing.slice(0, 10).join(", ");
     const more = missing.length > 10 ? ` and ${missing.length - 10} more` : "";
-    fail(`Missing deploy-commit footer in ${missing.length} HTML file(s): ${preview}${more}. Run: node paper2notes/scripts/inject-commit-footer.mjs --commit $(git rev-parse HEAD | cut -c1-6) (see paper2notes/deploy/cloudrun/Dockerfile)`);
+    fail(`Missing deploy-commit footer in ${missing.length} HTML file(s): ${preview}${more}. Run: node paper2notes/scripts/build/inject-commit-footer.mjs --commit $(git rev-parse HEAD | cut -c1-6) (see paper2notes/deploy/cloudrun/Dockerfile)`);
   }
 }
 

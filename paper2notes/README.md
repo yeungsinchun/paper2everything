@@ -19,7 +19,7 @@ HTML notes live under `notes/`. Follow textbook order; prefer visual animation o
 
 ## Shared assets
 
-Every book links one copy of the shared styles, scripts and vendored libraries. A book holds only its own content and a thin book sheet. `scripts/ci-check.mjs` fails a book that keeps its own copy of any of these files, or links a page to anything other than the shared copy.
+Every book links one copy of the shared styles, scripts and vendored libraries. A book holds only its own content and a thin book sheet. `scripts/checks/ci-check.mjs` fails a book that keeps its own copy of any of these files, or links a page to anything other than the shared copy.
 
 | Shared file (under `notes/`) | What it holds |
 |---|---|
@@ -82,4 +82,4 @@ See `deploy/cloudrun/README.md` for Cloud Run hosting and `../docs/ARCHITECTURE.
 
 ## Checks
 
-The repository has no automated check workflows. Run `node scripts/ci-check.mjs` by hand; see `../docs/ARCHITECTURE.md` §5 for the remaining deploy workflow.
+The repository has no automated check workflows. Run `node scripts/checks/ci-check.mjs` by hand; see `../docs/ARCHITECTURE.md` §5 for the remaining deploy workflow.

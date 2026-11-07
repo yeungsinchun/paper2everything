@@ -12,12 +12,12 @@
         papers really hold, and every section must be recorded in
         notes/dse/availability.json; a page that states in words that a section
         has no long question must match that record
-        (see scripts/dse-availability.mjs)
+        (see scripts/checks/dse-availability.mjs)
      6. Store-backed keys: every published crop must resolve, and each DSE MC key
         must agree with the paper2db marking-scheme answer store
-        (see scripts/quiz-store-audit.mjs)
+        (see scripts/checks/quiz-store-audit.mjs)
 
-   Run: node paper2notes/scripts/quiz-audit.mjs [--json] [--root <dir>]
+   Run: node paper2notes/scripts/checks/quiz-audit.mjs [--json] [--root <dir>]
    Exit code 1 when any page has a broken contract. */
 
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
@@ -27,7 +27,7 @@ import { auditAgainstStore } from "./quiz-store-audit.mjs";
 import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource, withoutComments } from "./dse-availability.mjs";
 
 const rootFlag = process.argv.indexOf("--root");
-const ROOT = rootFlag !== -1 && process.argv[rootFlag + 1] ? resolve(process.argv[rootFlag + 1]) : resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const ROOT = rootFlag !== -1 && process.argv[rootFlag + 1] ? resolve(process.argv[rootFlag + 1]) : resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const NOTES = join(ROOT, "notes");
 const SKIP = new Set(["_local", "vendor", "lib", "crops", "css", "data", "js"]);
 
@@ -36,7 +36,7 @@ const SKIP = new Set(["_local", "vendor", "lib", "crops", "css", "data", "js"]);
    unavailable instead of leaving a dead tile. */
 const UNAVAILABLE = new Set(
   Object.keys(
-    JSON.parse(readFileSync(join(ROOT, "scripts", "quiz-keys-unavailable.json"), "utf8")).papers || {},
+    JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), "quiz-keys-unavailable.json"), "utf8")).papers || {},
   ),
 );
 
@@ -243,7 +243,7 @@ function audit(file) {
     const key = keys[id];
     if (!key) {
       /* No key: either the answer store has no answer for this paper (known
-         gap, listed in scripts/quiz-keys-unavailable.json) or a key is
+         gap, listed in scripts/checks/quiz-keys-unavailable.json) or a key is
          missing and the slide is dead weight on a live page. */
       if (UNAVAILABLE.has(id)) {
         informational.push({ kind: "dse-mc-key-unavailable", detail: `slide ${id} has no answer in the store; the page says so on pick` });

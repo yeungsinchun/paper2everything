@@ -2,7 +2,7 @@
 
 Ordered to match the textbook. Quality over coverage. Paths are relative to the repo root.
 
-**Role:** `concept-check` = short interactive item on a notes page, written in our own words (never a copy of a QB or DSE stem; `scripts/leak-check.mjs` enforces this). `worked-example` = one guided solution with new numbers. `dse-deck` = the real paper scan, shown only in the end-of-section MC or LQ deck.
+**Role:** `concept-check` = short interactive item on a notes page, written in our own words (never a copy of a QB or DSE stem; `scripts/checks/leak-check.mjs` enforces this). `worked-example` = one guided solution with new numbers. `dse-deck` = the real paper scan, shown only in the end-of-section MC or LQ deck.
 
 Answer keys: `paper2db/qb-web-ui-staging/dse-mc/index.json` (option and percentage correct). QB banks for this chapter are `QB_101` (temperature, thermometers) and `QB_102` (internal energy, heat transfer); they are used for coverage only, never shown.
 
