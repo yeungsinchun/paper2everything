@@ -1,0 +1,234 @@
+<!-- page
+{
+  "type": "section",
+  "title": "Section 21.3 Series and parallel combinations"
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../../css/p2n-shell.css"><link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+<!-- slot:content -->
+<p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 3.3</p>
+    <h1>Series and parallel combinations</h1>
+
+    <section class="idea" id="series-parallel">
+      <header>
+        <h2><span class="sec-num">A</span>How p.d. and current share</h2>
+      </header>
+      <figure class="fig" id="series-parallel-fig-1">
+        <div class="visual play stage" data-scene="series-parallel" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="How p.d. and current share"></canvas>
+          <span class="hud-label" data-hud="a">How p.d. and</span>
+        </div>
+        <figcaption><b>Fig. 21.3</b> Series: same \(I\). Parallel: same \(V\).</figcaption>
+      </figure>
+      <div class="def" id="series-parallel-def-1">
+        <span class="tag">Key idea</span>
+        <p>Series: same I through each, V splits: \(V = V_1+V_2\), so \(R = R_1+R_2\) (more resistors always increase). Parallel: same V across each, I splits: \(I = I_1+I_2\), so \(1/R = 1/R_1+1/R_2\) (more branches always decrease). For two equal R in parallel, equivalent = R/2.</p>
+      </div>
+      <table class="notes" id="series-parallel-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Quick sums</th><td>3 Ω+4 Ω series=7 Ω. 3 Ω//6 Ω =2 Ω ( \(1/3+1/6=1/2\) ).</td></tr>
+          <tr><th>Identical n</th><td>n of R in parallel → R/n; in series → nR.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="series-parallel-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Three identical resistors R: one in series with two in parallel. Equivalent is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">1.5 R</button>
+          <button type="button" data-choice="B">2 R</button>
+          <button type="button" data-choice="C">3 R</button>
+          <button type="button" data-choice="D">2R/3</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Parallel pair R/2, plus series R → 1.5 R.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="networks">
+      <header>
+        <h2><span class="sec-num">B</span>Equivalent and potentials</h2>
+      </header>
+      <figure class="fig" id="networks-fig-1">
+        <div class="visual play stage" data-scene="network-potential" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Equivalent and potentials"></canvas>
+          <span class="hud-label" data-hud="a">Equivalent a</span>
+        </div>
+        <figcaption><b>Fig. 21.3</b> Follow the current; \(V\) drops along the way.</figcaption>
+      </figure>
+      <div class="def" id="networks-def-1">
+        <span class="tag">Key idea</span>
+        <p>Assign earthed point 0 V, walk along current: drop I·R across resistor in direction of current, rise ε when crossing source −→+. Between any two nodes, V = sum of drops/rises on a path.</p>
+      </div>
+      <table class="notes" id="networks-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Earthed</th><td>If point Y earthed (0 V), voltage at X = ±I·R or ε along path X→Y.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="networks-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>In a divider 6 Ω (top) +3 Ω (bottom) to 9 V, voltmeter at midpoint reads</p>
+        <div class="choices">
+          <button type="button" data-choice="A">3 V</button>
+          <button type="button" data-choice="B">6 V</button>
+          <button type="button" data-choice="C">9 V</button>
+          <button type="button" data-choice="D">2 V</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Current 1 A (9/9). Drop over top 6 Ω =6 V, so middle is 3 V above 0 (bottom). Or ratio 3/(6+3)=1/3 of 9.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-scan-export>
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">MC practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-26">
+          <h3>2012/26 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/26 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2012_q26.png" alt="HKDSE 2012/26 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2018-23">
+          <h3>2018/23 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/23 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2018_q23.png" alt="HKDSE 2018/23 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2013-10">
+          <h3>2013/10 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/10 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2013-q10.png" alt="HKDSE 2013/10 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2015-8">
+          <h3>2015/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2015/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2015-q8.png" alt="HKDSE 2015/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2016-7">
+          <h3>2016/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2016/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2016-q7.png" alt="HKDSE 2016/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2017-8">
+          <h3>2017/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2017/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2017-q8.png" alt="HKDSE 2017/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2019-7">
+          <h3>2019/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2019/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2019-q7.png" alt="HKDSE 2019/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2020-8">
+          <h3>2020/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2020-q8.png" alt="HKDSE 2020/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2021-8">
+          <h3>2021/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2021/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2021-q8.png" alt="HKDSE 2021/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2022-8">
+          <h3>2022/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2022/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2022-q8.png" alt="HKDSE 2022/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2023-7">
+          <h3>2023/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2023/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2023-q7.png" alt="HKDSE 2023/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2024-11">
+          <h3>2024/11 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/11 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2024-q11.png" alt="HKDSE 2024/11 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2025-7">
+          <h3>2025/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2025/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2025-q7.png" alt="HKDSE 2025/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2026-8">
+          <h3>2026/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2026/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2026-q8.png" alt="HKDSE 2026/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-pp-12">
+          <h3>pp/12 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>pp/12 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/pp-q12.png" alt="HKDSE pp/12 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="21-4.html">Next: Internal resistance and meters →</a></p>
+<!-- slot:scripts -->
+<script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../js/quiz-data.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../../vendor/three/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<!-- slot:trailing -->

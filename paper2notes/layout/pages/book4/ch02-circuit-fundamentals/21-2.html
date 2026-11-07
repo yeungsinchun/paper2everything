@@ -1,0 +1,236 @@
+<!-- page
+{
+  "type": "section",
+  "title": "Section 21.2 Resistance, Ohm's law and resistivity"
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../../css/p2n-shell.css"><link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+<!-- slot:content -->
+<p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.2</p>
+    <h1>Resistance, Ohm's law and resistivity</h1>
+
+    <section class="idea" id="iv">
+      <header>
+        <h2><span class="sec-num">A</span>I–V shapes</h2>
+      </header>
+      <figure class="fig" id="iv-fig-1">
+        <div class="visual play stage" data-scene="iv-curves" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="I–V shapes"></canvas>
+          <span class="hud-label" data-hud="a">I–V shapes</span>
+        </div>
+        <figcaption><b>Fig. 21.2</b> Ohmic: straight. Filament: flattens. Diode: one way.</figcaption>
+      </figure>
+      <div class="def" id="iv-def-1">
+        <span class="tag">Key idea</span>
+        <p>Resistance defined as \(R = V/I\) (gradient inverse). Ohm's law is the special case where \(R\) is constant (I ∝ V straight line). Filament: R rises with temperature → curve flattens. Diode: near-zero for reverse, turns on after threshold.</p>
+      </div>
+      <table class="notes" id="iv-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Ohmic</th><td>Metal at constant T: straight. Use R = slope inverse.</td></tr>
+          <tr><th>Filament</th><td>As V ↑, T ↑ → R ↑ → curve bends toward V axis.</td></tr>
+          <tr><th>Diode</th><td>Non-ohmic, not linear; resistance not meaningful in one number.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="iv-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Which conductor obeys Ohm's law?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Filament at increasing voltage</button>
+          <button type="button" data-choice="B">Metal wire kept at constant temperature</button>
+          <button type="button" data-choice="C">Diode in forward bias</button>
+          <button type="button" data-choice="D">Electrolyte at varying temperature</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Only constant-T metal is linear. Filament and diodes are non-ohmic.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="resistivity">
+      <header>
+        <h2><span class="sec-num">B</span>Resistivity and temperature</h2>
+      </header>
+      <figure class="fig" id="resistivity-fig-1">
+        <div class="visual play stage" data-scene="resistivity" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Resistivity and temperature"></canvas>
+          <span class="hud-label" data-hud="a">Resistivity </span>
+        </div>
+        <figcaption><b>Fig. 21.2</b> Longer, thinner wire → larger \(R\).</figcaption>
+      </figure>
+      <div class="def" id="resistivity-def-1">
+        <span class="tag">Key idea</span>
+        <p>For a uniform wire, \(R = \rho l/A\) with \(\rho\) resistivity (Ω m). \(\rho\) depends on material and T. Metals: ρ rises with T (lattice vibrations). Semiconductors: ρ falls sharply with T (more carriers freed).</p>
+      </div>
+      <table class="notes" id="resistivity-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Geometry</th><td>Double l → double R; double A → half R. For same volume, stretching thin raises R fast (R ∝ l^2).</td></tr>
+          <tr><th>Ratio example</th><td>Two wires same length, radii r and 2r, same ρ: R1/R2 = (1/πr^2)/(1/π(2r)^2)=4.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="resistivity-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>Parallel wires of same material and length, radii r and 2r, carry same total current. Ratio of current in thin to thick?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">1:4</button>
+          <button type="button" data-choice="B">1:1</button>
+          <button type="button" data-choice="C">4:1</button>
+          <button type="button" data-choice="D">Depends on voltage</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Same V so I ∝ 1/R ∝ A ∝ r^2. Thick has 4× area → 4× current, so thin:thick =1:4. Same total I splits 1/5 vs 4/5.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-scan-export>
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">MC practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-26">
+          <h3>2012/26 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/26 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2012_q26.png" alt="HKDSE 2012/26 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2018-23">
+          <h3>2018/23 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/23 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2018_q23.png" alt="HKDSE 2018/23 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2013-10">
+          <h3>2013/10 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/10 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2013-q10.png" alt="HKDSE 2013/10 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2015-8">
+          <h3>2015/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2015/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2015-q8.png" alt="HKDSE 2015/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2016-7">
+          <h3>2016/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2016/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2016-q7.png" alt="HKDSE 2016/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2017-8">
+          <h3>2017/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2017/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2017-q8.png" alt="HKDSE 2017/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2019-7">
+          <h3>2019/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2019/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2019-q7.png" alt="HKDSE 2019/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2020-8">
+          <h3>2020/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2020-q8.png" alt="HKDSE 2020/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2021-8">
+          <h3>2021/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2021/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2021-q8.png" alt="HKDSE 2021/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2022-8">
+          <h3>2022/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2022/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2022-q8.png" alt="HKDSE 2022/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2023-7">
+          <h3>2023/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2023/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2023-q7.png" alt="HKDSE 2023/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2024-11">
+          <h3>2024/11 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/11 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2024-q11.png" alt="HKDSE 2024/11 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2025-7">
+          <h3>2025/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2025/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2025-q7.png" alt="HKDSE 2025/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2026-8">
+          <h3>2026/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2026/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2026-q8.png" alt="HKDSE 2026/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-pp-12">
+          <h3>pp/12 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>pp/12 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/pp-q12.png" alt="HKDSE pp/12 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+<!-- slot:scripts -->
+<script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../js/quiz-data.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../../vendor/three/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<!-- slot:trailing -->

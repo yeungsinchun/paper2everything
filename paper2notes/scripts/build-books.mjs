@@ -1,0 +1,109 @@
+#!/usr/bin/env node
+// Compile every published book route from one layout. No browser-time rendering.
+import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
+import { dirname, join, relative, resolve, posix } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+export const project = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+export const layoutDir = join(project, 'layout');
+export const notesDir = join(project, 'notes');
+export const mainClasses = Object.freeze({
+  overview: 'p2n-page p2n-book-index',
+  chapter: 'p2n-page-frame p2n-page-frame--chapter',
+  map: 'p2n-page-frame p2n-page-frame--chapter-map',
+  section: 'p2n-page-frame p2n-page-frame--section',
+  summary: 'p2n-page-frame p2n-page-frame--summary',
+});
+const slotNames = ['head', 'content', 'scripts', 'trailing'];
+// Ignore only whitespace on empty lines and at slot boundaries, not text or code.
+export const normalizeSlot = s => s.replace(/^[ \t]+$/gm, '').trim();
+const escape = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+export function files(root, suffix = '.html') {
+  if (!existsSync(root)) return [];
+  return readdirSync(root, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name)).flatMap(e =>
+    e.isDirectory() && !e.name.startsWith('_') ? files(join(root, e.name), suffix) :
+      e.isFile() && e.name.endsWith(suffix) ? [join(root, e.name)] : []);
+}
+export function publishedRoutes(root = notesDir) {
+  return readdirSync(root).filter(n => /^book[1-9]\d*$/.test(n)).flatMap(n => files(join(root, n)))
+    .map(p => relative(root, p).split('\\').join('/')).sort();
+}
+export function loadPages(root = layoutDir) {
+  return files(join(root, 'pages')).map(file => {
+    const raw = readFileSync(file, 'utf8');
+    const match = /^<!-- page\n([\s\S]*?)\n-->\n/.exec(raw);
+    if (!match) throw new Error(`${file}: missing page metadata`);
+    const meta = JSON.parse(match[1]);
+    const route = relative(join(root, 'pages'), file).split('\\').join('/');
+    if (!/^book[1-9]\d*\/(?:ch[\w-]+\/)?[\w-]+\.html$/.test(route)) throw new Error(`Invalid route: ${route}`);
+    if (!meta || typeof meta !== 'object' || Array.isArray(meta) || !Object.hasOwn(mainClasses, meta.type) || typeof meta.title !== 'string') {
+      throw new Error(`${route}: invalid title or page type`);
+    }
+    if (Object.keys(meta).some(k => !['type', 'title'].includes(k))) throw new Error(`${route}: unknown page metadata`);
+    const pieces = raw.slice(match[0].length).split(/<!-- slot:(\w+) -->\n/);
+    if (pieces[0] || pieces.length !== 9) throw new Error(`${route}: expected four explicit slots`);
+    const slots = {};
+    slotNames.forEach((name, i) => {
+      if (pieces[i * 2 + 1] !== name) throw new Error(`${route}: expected ${name} slot`);
+      slots[name] = pieces[i * 2 + 2];
+    });
+    if (/<(?:html|head|body|main)\b|<[^>]*\bp2n-(?:top|context-nav)\b[^>]*>|deploy-commit-footer/i.test(Object.values(slots).join(''))) {
+      throw new Error(`${route}: page slots must not contain layout markup`);
+    }
+    return { route, ...meta, ...slots };
+  });
+}
+export function loadLayout(root = layoutDir) {
+  const template = readFileSync(join(root, 'book.html'), 'utf8');
+  const books = JSON.parse(readFileSync(join(root, 'books.json'), 'utf8'));
+  if (!books || typeof books !== 'object' || Array.isArray(books)) throw new Error('Expected book identities');
+  for (const [id, book] of Object.entries(books)) {
+    if (!/^book[1-9]\d*$/.test(id) || !book || typeof book.label !== 'string' || typeof book.icon !== 'string' ||
+        Object.keys(book).some(key => !['label', 'icon'].includes(key))) throw new Error(`Invalid book identity: ${id}`);
+  }
+  return { template, books };
+}
+export const defaultFooter = Object.freeze({ commit: 'local', subject: '' });
+export function renderPage(page, { template, books }, footer = defaultFooter) {
+  const book = page.route.split('/')[0];
+  const config = books[book];
+  if (!config) throw new Error(`${page.route}: unknown book`);
+  const root = '../'.repeat(page.route.split('/').length - 1);
+  const home = posix.relative(posix.dirname(page.route), `${book}/index.html`);
+  const navigation = `<a href="${root}index.html">All books</a>` + Object.entries(books).map(([id, b]) =>
+    `<a href="${root}${id}/index.html"${id === book ? ' aria-current="page"' : ''}>${escape(b.label)}</a>`).join('') + `<a href="${root}qb/index.html">Question bank</a>`;
+  // Replace only the template's slots: never interpret braces in lesson content.
+  const slots = Object.fromEntries(slotNames.map(name => [name, normalizeSlot(page[name])]));
+  const values = { ...slots, title: escape(page.title), root, home, book, label: escape(config.label), icon: escape(config.icon), navigation, mainClass: mainClasses[page.type], deployCommit: escape(footer.commit), deploySubject: footer.subject ? ` <span class="deploy-commit-subject">${footer.subject}</span>` : '' };
+  return template.replace(/\{\{(\w+)\}\}/g, (_, key) => {
+    if (!Object.hasOwn(values, key)) throw new Error(`Unknown layout slot: ${key}`);
+    return values[key];
+  }).trimEnd() + '\n';
+}
+// Deployment owns this footer, not lesson sources. Preserve it when rebuilding.
+export function footerFrom(html) {
+  const footer = html.match(/<footer\b[^>]*class="deploy-commit-footer"[^>]*>[\s\S]*?<\/footer>/)?.[0];
+  if (!footer) return defaultFooter;
+  return { commit: footer.match(/data-commit="([^"]*)"/)?.[1] ?? 'local', subject: footer.match(/<span class="deploy-commit-subject">([^<]*)<\/span>/)?.[1] ?? '' };
+}
+export function checkBooks({ output = notesDir, source = layoutDir, write = false } = {}) {
+  const pages = loadPages(source), layout = loadLayout(source), errors = [];
+  const expected = new Set(pages.map(p => p.route));
+  for (const route of publishedRoutes(output)) if (!expected.has(route)) errors.push(`${route}: published route has no layout source`);
+  for (const page of pages) {
+    const dest = join(output, page.route);
+    const current = existsSync(dest) ? readFileSync(dest, 'utf8') : '';
+    const rendered = renderPage(page, layout, footerFrom(current));
+    if (current !== rendered) {
+      if (write) { mkdirSync(dirname(dest), { recursive: true }); writeFileSync(dest, rendered); }
+      else errors.push(`${page.route}: stale generated page; run node paper2notes/scripts/build-books.mjs`);
+    }
+  }
+  return { count: pages.length, errors };
+}
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  if (process.argv.slice(2).some(a => a !== '--check')) throw new Error('Usage: build-books.mjs [--check]');
+  const result = checkBooks({ write: !process.argv.includes('--check') });
+  if (result.errors.length) { console.error(result.errors.join('\n')); process.exitCode = 1; }
+  else console.log(`Shared book layout: ${result.count} routes ${process.argv.includes('--check') ? 'checked' : 'built'}.`);
+}
