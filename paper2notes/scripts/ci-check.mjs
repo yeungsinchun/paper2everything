@@ -16,7 +16,9 @@
 // plus the DSE availability record: every published DSE section must be
 // recorded in notes/dse/availability.json with a reason, and every published
 // crop must be a question the papers really hold (see
-// scripts/dse-availability.mjs).
+// scripts/dse-availability.mjs),
+// plus source/output agreement for every generated book page and the shared
+// layout regression tests (see scripts/build-books.mjs and layout/README.md).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
 import { checkBooks } from "./build-books.mjs";

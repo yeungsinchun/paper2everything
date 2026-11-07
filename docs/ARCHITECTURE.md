@@ -243,7 +243,6 @@ The only root workflow is `.github/workflows/deploy-notes.yml`. It publishes
 The notes check, quiz audits, leak checks and paper2db scripts remain runnable
 by hand. The repository has no automated test workflows.
 
-
 ### 6. Cloud Run deploy
 
 `paper2notes/deploy/cloudrun/deploy.sh` compiles all book routes from `paper2notes/layout/` before injecting the current commit footer.

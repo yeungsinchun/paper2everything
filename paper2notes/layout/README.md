@@ -81,6 +81,19 @@ That means 34 representative routes, each captured before and after at 1280×800
 This visual sample does not prove complete visual or interaction coverage.
 The route-level tests cover all 195 published book routes.
 
+## Work this branch leaves out
+
+This branch changes the book layout only, so five pieces of related work stay out:
+
+- Audit-gap brief work. It produces audit artifacts, so it is not layout work.
+- Mock exams. They are separate content, not layout work.
+- Answer corrections. They change question data, not the page layout.
+- Question-bank harness changes. The question bank sits outside the book layout, so this branch leaves it alone.
+- Generated question crops. They are pipeline output that the layout does not read.
+
+That work lives on the separate open pull request https://github.com/yeungsinchun/paper2everything/pull/108.
+This branch does not import it and does not change that pull request.
+
 ## Existing validation exceptions
 
 The merged stack deleted the Book 6 and Book 9 copies of shared assets but left 13 pages pointing at them.

@@ -26,7 +26,7 @@ paper2everything/
 │   ├── layout/                  book template, books.json, pages/ (source for every book page)
 │   ├── notes/                   the site: landing, book1–book9/ (generated), qb/, dse/ snapshot
 │   │   └── _source/<book-ch>/   intake (ocr.md, outline.md, problems.md, images/, INDEX.md)
-│   ├── scripts/                 ci-check.mjs, leak-check.mjs, anchor-lint.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
+│   ├── scripts/                 build-books.mjs, ci-check.mjs, leak-check.mjs, anchor-lint.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
 │   ├── anchors/                 ids.lock.json, moves.json (anchor-id rules; see anchors/README.md)
 │   └── deploy/cloudrun/         Dockerfile, nginx.conf, deploy.sh, provision.sh
 ├── paper2db/
@@ -48,7 +48,7 @@ paper2everything/
 | Python 3 and `pip` | paper2db | use a venv |
 | tesseract (on `PATH`) | paper2db OCR stages | |
 | LibreOffice (headless `soffice`), `pdftoppm` | QB stages | QB DOCX to PDF only |
-| Node.js 20 | `ci-check.mjs`, footer injection, audit harness | |
+| Node.js 20 | `build-books.mjs`, `ci-check.mjs`, footer injection, audit harness | |
 | `python3 -m http.server` | notes preview | run `node paper2notes/scripts/build-books.mjs` first for book pages |
 | Docker, gcloud | Cloud Run deploy | maintainers only |
 | LLM API key (`LLM_API_KEY`, `OPENAI_API_KEY` or `TOGETHER_API_KEY`) | classifying years missing from tracked metadata | optional; tracked metadata is replayed first, keyword classifiers are the fallback |

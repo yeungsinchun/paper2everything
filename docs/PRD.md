@@ -187,7 +187,7 @@ Use these; do not invent colours per chapter. Source: the legacy-name `:root` bl
 - Physics colours are semantic and consistent across books (alpha is always red). Never reuse them for decoration.
 - Text and UI labels meet WCAG AA (4.5:1). Colour is never the only carrier of meaning: right and wrong also show a mark and a word.
 - Figure boxes are plain white, not cream or yellow.
-- Shared rules (stage centering, `.hud-label`, `.def`, tables) belong in the shared sheet `notes/css/notes.css`, not in a book sheet or per-chapter CSS. `paper2notes/README.md` (Shared assets) gives the link order, and `ci-check.mjs` fails a book that copies a shared file.
+- Shared rules (stage centering, `.hud-label`, `.def`, tables) belong in the shared sheet `notes/css/notes.css`, not in a book sheet or per-chapter CSS. `paper2notes/README.md` (Shared assets) gives the link order and the Book 6 and Book 9 exception, and `ci-check.mjs` fails any other book that copies a shared file.
 
 ### 6.3 Alignment and centering
 
@@ -504,7 +504,7 @@ The F.1 maths content formerly in `paper2mock/` was removed pending a decision a
 
 ## 12. Known gaps
 
-- **No automated layout check.** The alignment rules (stage centering, no stacked `.hud-label`, single `aria-current`, left-aligned `.def`, no `<br>` in prose, no fixed narrow prose widths) are written-down forms of existing CSS and the Book 2 fix series. A layout test or `ci-check.mjs` lint would enforce them.
+- **No automated layout check.** The alignment rules (stage centering, no stacked `.hud-label`, left-aligned `.def`, no `<br>` in prose, no fixed narrow prose widths) are written-down forms of existing CSS and the Book 2 fix series. The layout regression tests in `paper2notes/scripts/build-books.test.mjs` enforce one primary navigation and a single `aria-current` per page; the other rules still need a test or `ci-check.mjs` lint.
 - **Book 4 look.** Books 2, 4 and 5 link one shared sheet (`notes/css/notes.css`), shared scripts and one vendored KaTeX and three.js. Book 4 still keeps a "Book 4 look" section in `book4/css/book.css` that preserves where it differed from Books 2 and 5 (top bar, check headings, Show answer, deck buttons, section numbers). Removing those rules moves Book 4 onto the shared look and is a visual change to review. Book 2 and Book 4 scene scripts do not use `js/scene-kit.js` yet.
 - **Book 2 shape.** Book 2 is one long page per chapter; the quick-digest and anchor requirements (section 6.8) are the target and apply fully only to Book 4 and 5 style pages.
 - **Unchecked DSE contract.** Nothing verifies that notes references exist in the snapshot or agree with paper2db classification; the snapshot is synced by hand. `ci-check.mjs` skips `_local/` links.
@@ -518,7 +518,7 @@ The F.1 maths content formerly in `paper2mock/` was removed pending a decision a
 
 - **Source-material rights.** Past papers and QB documents are third-party. Publication scope (public versus local-only) needs an owner decision; the repo already keeps generated crops gitignored except the curated snapshot.
 - **Classification accuracy.** LLM and keyword classification can mis-tag; review gates and overrides mitigate it but the coverage of manual review is open.
-- **Syllabus scope.** Only Books 2, 4, 5 are covered; Books 1 and 3 and other subjects are undecided **(planned)**.
+- **Syllabus scope.** The notes publish Books 1–9 (route coverage in `paper2notes/layout/README.md`); other subjects are undecided **(planned)**.
 - **Learner state.** Progress and accounts are out of scope; self-checks are stateless.
 - **F.1 maths content:** removed from `paper2mock/` pending a decision about whether it belongs in this HKDSE Physics project or a separate offering.
 - **Lint:** add mechanical-rule lint to `ci-check.mjs` (every `data-hud` has a position rule, no `<br>` in prose, no fixed narrow prose widths)?
