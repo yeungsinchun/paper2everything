@@ -19,10 +19,13 @@
 // scripts/dse-availability.mjs).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
+import { checkBooks } from "./build-books.mjs";
+import { execFileSync } from "node:child_process";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { runLeakCheck } from "./leak-check.mjs";
+import { runLeakCheck, checkBlocks, loadFingerprints } from "./leak-check.mjs";
 import { lintAnchors } from "./anchor-lint.mjs";
+import { briefBlocks } from "./brief.mjs";
 import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource, referenceCounts, checkDocumentedReferenceCounts } from "./dse-availability.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -515,6 +518,32 @@ function checkLeaks() {
   for (const e of leaks) fail(`leak-check: ${e}`);
 }
 
+// A committed brief must be clean too: brief.mjs leak-checks what it writes, and
+// this catches a hand-edited or stale one. Same rules, same fingerprints, same
+// block splitting as the generator (scripts/brief.mjs).
+function checkBriefLeaks() {
+  const briefsDir = join(repoRoot, "briefs");
+  if (!existsSync(briefsDir)) return;
+  const files = [];
+  const walk = dir => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (entry.isFile() && /\.md$|\.json$/i.test(entry.name) && entry.name !== "README.md") files.push(full);
+    }
+  };
+  walk(briefsDir);
+  if (!files.length) return;
+  const fp = loadFingerprints();
+  for (const file of files) {
+    for (const finding of checkBlocks(briefBlocks(readFileSync(file, "utf8")), fp)) {
+      const message = `${finding.level} ${relative(repoRoot, file)}: item ${finding.item}: ${finding.detail}`;
+      if (finding.severity === "warn") console.warn(`brief leak-check warning: ${message}`);
+      else fail(`brief leak-check: ${message}`);
+    }
+  }
+}
+
 /* notes/dse/availability.json must match what notes/dse/ holds, what the
    source papers hold, and what each page shows or states, so a section with no
    published long question stays a recorded decision instead of drifting back
@@ -549,6 +578,12 @@ function checkDseAvailability() {
   }
 }
 
+errors.push(...checkBooks().errors);
+try {
+  execFileSync(process.execPath, ["--test", join(__dirname, "build-books.test.mjs")], { stdio: "pipe" });
+} catch (error) {
+  fail(`Shared book layout regression tests failed:\n${error.stdout?.toString() ?? error.message}`);
+}
 checkSiteRegionConsistency();
 checkLavishBoards();
 
@@ -565,6 +600,7 @@ checkRelativeLinks();
 checkSharedAssets();
 checkDeployFooter();
 checkLeaks();
+checkBriefLeaks();
 checkDseAvailability();
 errors.push(...lintAnchors({ repoRoot }).errors);
 

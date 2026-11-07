@@ -1,0 +1,200 @@
+<!-- page
+{
+  "type": "section",
+  "title": "Section 24.3 Alternating current and r.m.s."
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../../css/p2n-shell.css"><link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+<!-- slot:content -->
+<p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 8.3</p>
+    <h1>Alternating current and r.m.s.</h1>
+
+    <section class="idea" id="ac-wave">
+      <header>
+        <h2><span class="sec-num">A</span>d.c. vs a.c.</h2>
+      </header>
+      <figure class="fig" id="ac-wave-fig-1">
+        <div class="visual play stage" data-scene="ac-wave" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="d.c. vs a.c."></canvas>
+          <span class="hud-label" data-hud="a">d.c. vs a.c.</span>
+        </div>
+        <figcaption><b>Fig. 24.3</b> d.c. is steady; a.c. swings both ways.</figcaption>
+      </figure>
+      <div class="def" id="ac-wave-def-1">
+        <span class="tag">Key idea</span>
+        <p>Direct current: direction constant (magnitude may be steady or pulsing). Alternating current: direction reverses periodically (usually sinusoidal \(I = I_0\sin\omega t\)). Mains is ~220 V r.m.s. at 50 Hz.</p>
+      </div>
+      <table class="notes" id="ac-wave-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Graph</th><td>d.c. flat line; a.c. sine crossing zero.</td></tr>
+          <tr><th>Period</th><td>T=1/f ≈20 ms at 50 Hz.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="ac-wave-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Mains is 220 V r.m.s., 50 Hz sinusoidal. Peak voltage is about</p>
+        <div class="choices">
+          <button type="button" data-choice="A">220 V</button>
+          <button type="button" data-choice="B">311 V</button>
+          <button type="button" data-choice="C">110 V</button>
+          <button type="button" data-choice="D">440 V</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>V0=√2×Vrms≈311 V. Peak ≈1.414×rms.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="rms">
+      <header>
+        <h2><span class="sec-num">B</span>r.m.s. as heating equivalence</h2>
+      </header>
+      <figure class="fig" id="rms-fig-1">
+        <div class="visual play stage" data-scene="rms-heating" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="r.m.s. as heating equivalence"></canvas>
+          <span class="hud-label" data-hud="a">r.m.s. as he</span>
+        </div>
+        <figcaption><b>Fig. 24.3</b> Same heating: \(I_{\rm rms} = I_0/\sqrt{2}\).</figcaption>
+      </figure>
+      <div class="def" id="rms-def-1">
+        <span class="tag">Key idea</span>
+        <p>r.m.s. (root mean square) of a.c. is the steady d.c. that dissipates heat at the same rate in a pure resistor. For sinusoidal: \(I_{\rm rms}=I_0/\sqrt{2}\), \(V_{\rm rms}=V_0/\sqrt{2}\). Power \(P = I_{\rm rms}V_{\rm rms}\) for resistive load; peak power is double average.</p>
+      </div>
+      <table class="notes" id="rms-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Average power</th><td>Sine: \(\bar P = I_0 V_0/2 = I_{\rm rms} V_{\rm rms}\).</td></tr>
+          <tr><th>Non-sine</th><td>General rms requires integration; not √2 except sine.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="rms-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Which controls heating of a resistor?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Peak voltage</button>
+          <button type="button" data-choice="B">r.m.s. voltage</button>
+          <button type="button" data-choice="C">Frequency</button>
+          <button type="button" data-choice="D">Current direction</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Heating ∝ Vrms^2/R. Peak matters only via rms. Frequency and direction irrelevant for resistive heating.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-scan-export>
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">MC practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-31">
+          <h3>2012/31 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/31 MC — section 24</figcaption>
+            <img src="../_local/dse/mc/24/2012_q31.png" alt="HKDSE 2012/31 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2014-27">
+          <h3>2014/27 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2014/27 MC — section 24</figcaption>
+            <img src="../_local/dse/mc/24/2014_q27.png" alt="HKDSE 2014/27 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2014-9">
+          <h3>2014/9 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2014/9 LQ &mdash; section 24</figcaption>
+            <img src="../_local/dse/lq/24/2014-q9.png" alt="HKDSE 2014/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2015-8">
+          <h3>2015/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2015/8 LQ &mdash; section 24</figcaption>
+            <img src="../_local/dse/lq/24/2015-q8.png" alt="HKDSE 2015/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2015-9">
+          <h3>2015/9 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2015/9 LQ &mdash; section 24</figcaption>
+            <img src="../_local/dse/lq/24/2015-q9.png" alt="HKDSE 2015/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2018-9">
+          <h3>2018/9 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/9 LQ &mdash; section 24</figcaption>
+            <img src="../_local/dse/lq/24/2018-q9.png" alt="HKDSE 2018/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2021-7">
+          <h3>2021/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2021/7 LQ &mdash; section 24</figcaption>
+            <img src="../_local/dse/lq/24/2021-q7.png" alt="HKDSE 2021/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-pp-6">
+          <h3>pp/6 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>pp/6 LQ &mdash; section 24</figcaption>
+            <img src="../_local/dse/lq/24/pp-q6.png" alt="HKDSE pp/6 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-pp-7">
+          <h3>pp/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>pp/7 LQ &mdash; section 24</figcaption>
+            <img src="../_local/dse/lq/24/pp-q7.png" alt="HKDSE pp/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-pp-13">
+          <h3>pp/13 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>pp/13 LQ &mdash; section 24</figcaption>
+            <img src="../_local/dse/lq/24/pp-q13.png" alt="HKDSE pp/13 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="24-4.html">Next: Transformers and high-voltage transmission →</a></p>
+<!-- slot:scripts -->
+<script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../js/quiz-data.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../../vendor/three/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<!-- slot:trailing -->

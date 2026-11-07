@@ -43,7 +43,7 @@
 
   var reopened = [];
   window.addEventListener("beforeprint", function () {
-    Array.prototype.slice.call(document.querySelectorAll(".worked > details:not([open])")).forEach(function (d) {
+    Array.prototype.slice.call(document.querySelectorAll("details.worked:not([open])")).forEach(function (d) {
       d.open = true;
       reopened.push(d);
     });

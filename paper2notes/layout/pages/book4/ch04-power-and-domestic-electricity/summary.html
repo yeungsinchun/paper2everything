@@ -1,0 +1,76 @@
+<!-- page
+{
+  "type": "summary",
+  "title": "Power and Domestic Electricity · Summary"
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../../css/p2n-shell.css"><link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+<!-- slot:content -->
+<p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Ch.4 summary</p>
+    <h1>Domestic electricity recap</h1>
+
+    <section class="idea" id="formula-sheet">
+      <h2>Formula sheet</h2>
+      <div class="formula-sheet">
+      <p class="eq" id="power-ratings-eq">\(P = V I = I^2 R = \dfrac{V^2}{R}\)</p>
+      <p class="eq" id="energy-eq">\(E = P t,\ 1\ \mathrm{kW\,h}=3.6\ \mathrm{MJ}\)</p>
+      <p class="eq" id="operating-current-eq">\(I = \dfrac{P}{V_{\rm rated}}\) — operating current</p>
+      <p class="eq" id="fuse-rating-eq">Fuse: \(I_{\rm rating} > I_{\rm operating}\) but \(< I_{\rm cable\ max}\) on live</p>
+      </div>
+    </section>
+
+    <section class="idea" id="common-mistakes">
+      <h2>Common mistakes</h2>
+      <div class="trap-grid">
+      <div class="trap">
+        <h3>P rating confusion</h3>
+        <p>Operating at lower V gives lower P (∝ V²); rating is at rated V only.</p>
+      </div>
+      <div class="trap">
+        <h3>Fuse location</h3>
+        <p>Fuse must be on live, not neutral/earth; parallel not series for homes.</p>
+      </div>
+      </div>
+    </section>
+
+    <section class="idea" id="visual-comparison">
+      <h2>Visual comparison</h2>
+      <figure class="fig" id="visual-comparison-fig-1">
+        <div class="visual play stage" data-scene="summary-ch04-power-and-domestic-electricity" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Summary visual for Power and Domestic Electricity"></canvas>
+        </div>
+      </figure>
+      <table class="notes" id="visual-comparison-notes-1">
+        <thead><tr><th>Quantity</th><th>Expression</th><th>When it applies</th></tr></thead>
+        <tbody>
+          <tr><th>Definition</th><td>See formula sheet above</td><td>Always: definitions are not the special case.</td></tr>
+          <tr><th>Special case</th><td>Linear / uniform limit (Ohm, uniform E/B, ideal transformer)</td><td>Only when the conditions (constant T, large plates, long solenoid, ideal core) hold.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="check" id="recap-definition-vs-law-check" data-check="mc" data-answer="B">
+      <h3>Quick check</h3>
+      <p>Which statement best fits this chapter's theme?</p>
+      <div class="choices">
+        <button type="button" data-choice="A">All fields are uniform everywhere.</button>
+        <button type="button" data-choice="B">Quantitative relations have conditions; definitions are general.</button>
+        <button type="button" data-choice="C">Higher voltage always means more power regardless of load.</button>
+        <button type="button" data-choice="D">Lenz's law predicts magnitude, not direction.</button>
+      </div>
+      <p class="feedback"></p>
+      <div class="explain" hidden><p><b>B</b>. Definitions (R=V/I, E=F/q, Φ=BAcosθ) hold generally; laws like Ohm, uniform E=V/d, ideal transformer are conditional. A confuses uniform vs non-uniform; C ignores R load; D swaps Lenz (direction) with Faraday (magnitude).</p></div>
+    </div>
+<!-- slot:scripts -->
+<script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../../vendor/three/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<!-- slot:trailing -->
