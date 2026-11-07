@@ -1,0 +1,174 @@
+<!-- page
+{
+  "type": "section",
+  "title": "Section 20.2 Electric field and field lines"
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../../css/p2n-shell.css"><link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+<!-- slot:content -->
+<p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 1.2</p>
+    <h1>Electric field and field lines</h1>
+
+    <section class="idea" id="field-def">
+      <header>
+        <h2><span class="sec-num">A</span>Field as force per charge</h2>
+      </header>
+      <figure class="fig" id="field-def-fig-1">
+        <div class="visual play stage" data-scene="efield-point" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Field strength as force per unit charge"></canvas>
+          <span class="hud-label" data-hud="a">Field streng</span>
+        </div>
+        <figcaption><b>Fig. 20.2</b> Arrow = force on a positive test charge.</figcaption>
+      </figure>
+      <div class="def" id="field-def-def-1">
+        <span class="tag">Key idea</span>
+        <p>Electric field strength at a point is \(E = F/q\) (vector) for a small positive test charge \(q\) placed there. Around an isolated point charge \(Q\): \(E = \dfrac{Q}{4\pi\varepsilon_0 r^2}\) radially outward if \(Q>0\), inward if \(Q<0\). The field exists whether a test charge is there or not.</p>
+      </div>
+      <table class="notes" id="field-def-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Units</th><td>\([E]=\mathrm{N\,C^{-1}}=\mathrm{V\,m^{-1}}\).</td></tr>
+          <tr><th>Superposition</th><td>Fields add as vectors; on the bisector of two \(+Q\) the horizontal components cancel.</td></tr>
+          <tr><th>Test charge sign</th><td>Defined for \(+\). Electron feels \(F = qE\) opposite to \(E\).</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="field-def-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>Where can \(E=0\) for a fixed \(-4Q\) at \(x=0\) and \(+Q\) at \(x=L\) on the line beyond them?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Between them, closer to +Q</button>
+          <button type="button" data-choice="B">To the right of +Q, closer to +Q</button>
+          <button type="button" data-choice="C">To the left of -4Q</button>
+          <button type="button" data-choice="D">Nowhere</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Set \(4Q/r_1^2 = Q/r_2^2\). The weaker charge wins only when much closer. Zero lies outside, on the side of the smaller charge (+Q, right). Between, fields point the same way, cannot cancel.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="plates">
+      <header>
+        <h2><span class="sec-num">B</span>Uniform field between plates</h2>
+      </header>
+      <figure class="fig" id="plates-fig-1">
+        <div class="visual play stage" data-scene="efield-plates" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Uniform field between plates"></canvas>
+          <span class="hud-label" data-hud="a">Uniform fiel</span>
+        </div>
+        <figcaption><b>Fig. 20.2</b> Parallel, equally spaced lines: \(E = V/d\).</figcaption>
+      </figure>
+      <div class="def" id="plates-def-1">
+        <span class="tag">Key idea</span>
+        <p>Between large, close, parallel plates with p.d. \(V\) and separation \(d\): \(E = V/d\) uniform (same vector everywhere). A charge between them feels constant \(F = qE\). For an electron: accelerates toward the positive plate; kinematics with \(a = qE/m\) is constant, so projectile-like if entering sideways.</p>
+      </div>
+      <table class="notes" id="plates-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Uniform</th><td>Lines parallel, equally spaced. Charge projected perpendicular to \(E\) traces a parabola.</td></tr>
+          <tr><th>Potential</th><td>Stepping along \(E\) loses potential: \(V = E d\). Earthed plate \(=0\).</td></tr>
+          <tr><th>Units check</th><td>\(V/d = (\mathrm{J/C})/\mathrm{m}=\mathrm{N/C}\), consistent.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="plates-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>An electron enters a uniform \(E\) region (plates) horizontally with speed \(v\). Its path is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Straight - no force along motion</button>
+          <button type="button" data-choice="B">Parabola toward the + plate</button>
+          <button type="button" data-choice="C">Circle</button>
+          <button type="button" data-choice="D">Parabola toward the - plate</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Constant vertical force \(qE\) (opposite to E for negative). Horizontal velocity constant, vertical acceleration constant → parabola. Toward + plate because E points − to +, electron is −.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-scan-export>
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">MC practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-24">
+          <h3>2012/24 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/24 MC — section 20</figcaption>
+            <img src="../_local/dse/mc/20/2012_q24.png" alt="HKDSE 2012/24 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2014-21">
+          <h3>2014/21 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2014/21 MC — section 20</figcaption>
+            <img src="../_local/dse/mc/20/2014_q21.png" alt="HKDSE 2014/21 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2013-11">
+          <h3>Charged spheres on threads</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/11 LQ &mdash; section 20</figcaption>
+            <img src="../_local/dse/lq/20/2013-q11.png" alt="HKDSE 2013/11 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2020-9">
+          <h3>Spheres between parallel plates</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/9 LQ &mdash; section 20</figcaption>
+            <img src="../_local/dse/lq/20/2020-q9.png" alt="HKDSE 2020/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2024-9">
+          <h3>Electrostatic induction</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/9 LQ &mdash; section 20</figcaption>
+            <img src="../_local/dse/lq/20/2024-q9.png" alt="HKDSE 2024/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2026-7">
+          <h3>Electrostatic adhesive wallpaper</h3>
+          <figure class="dse-paper">
+            <figcaption>2026/7 LQ &mdash; section 20</figcaption>
+            <img src="../_local/dse/lq/20/2026-q7.png" alt="HKDSE 2026/7 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+<!-- slot:scripts -->
+<script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../js/quiz-data.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../../vendor/three/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<!-- slot:trailing -->

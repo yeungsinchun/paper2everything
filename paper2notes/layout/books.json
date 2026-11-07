@@ -1,0 +1,38 @@
+{
+  "book1": {
+    "label": "Book 1",
+    "icon": "thermometer"
+  },
+  "book2": {
+    "label": "Book 2",
+    "icon": "rocket"
+  },
+  "book3": {
+    "label": "Book 3",
+    "icon": "audio-waveform"
+  },
+  "book4": {
+    "label": "Book 4",
+    "icon": "zap"
+  },
+  "book5": {
+    "label": "Book 5",
+    "icon": "radiation"
+  },
+  "book6": {
+    "label": "Book 6 · Elective",
+    "icon": "telescope"
+  },
+  "book7": {
+    "label": "Book 7 · Elective",
+    "icon": "atom"
+  },
+  "book8": {
+    "label": "Book 8 · Elective",
+    "icon": "battery-charging"
+  },
+  "book9": {
+    "label": "Book 9 · Elective",
+    "icon": "target"
+  }
+}
