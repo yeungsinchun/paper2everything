@@ -17,12 +17,28 @@ The panel exposes its expanded state, region name, and loading status to assisti
 Print styles hide the interaction and restore the normal QB card layout.
 Existing question exports omit these panels.
 
-**This change does not provide explanations for every question.**
-The canonical store contains two reviewed question references and three passages.
-Every other supported question currently shows an explicit missing state.
-An existing anchor alone does not establish conceptual correspondence.
-The separate coverage task consumes this producer and owns broader enumeration and audit reports.
+The canonical store maps 984 of the 989 supported question identities:
+568 of 573 DSE multiple-choice records, all 170 DSE long-question records, and all 246 QB records.
+Those 984 records carry 998 passages, and every passage publishes as available.
+Five records deliberately remain unmapped and show the explicit missing state:
+`dse-mc-2019-18`, `dse-mc-2020-12`, `dse-mc-2020-16`, `dse-mc-2022-16` and `dse-mc-2023-22`.
+Each needs teaching prose the notes do not carry in sentence form:
+the string wave-speed factors and the particle-energy table are tabular,
+and atmospheric absorption has no matching passage.
+Mapping them needs new lesson text, which the separate coverage task owns.
+An existing anchor alone does not establish conceptual correspondence: every stored reference records the review behind it.
 This interface does not generate notes, infer mappings, or call a model.
+
+## How references were established
+
+Each question record carries a reviewed classification (`sections`, `sectionNames`, `reason`).
+Where the notes publish the question as a practice slide, that placement fixes the page.
+The stored passage is the notes' own teaching statement for the concept the classification names:
+a definition block, a principles statement, or a method tip that states the relation the question uses.
+The highlight covers the complete sentences of that statement.
+`tier: verified` therefore means reviewed concept-level correspondence, not a worked solution of the question.
+A reader still has to apply the relation to the numbers in the question.
+Eleven records cite two or three passages, because the question spans more than one statement, for example fission and fusion, or the three wave phenomena a ripple-tank question exercises.
 
 ## Sources and inventory
 
@@ -45,7 +61,9 @@ Local HTML footers retain older source metadata; they do not identify a new depl
 ## One canonical store and one producer
 
 Authored teaching references live only in `paper2db/metadata/pointers/notes.json`.
-Their schema is `paper2db/schemas/notes-pointer.v1.json`, identified as `paper2db.notes-pointer.v1`.
+Its `schema` field names the format `paper2db.notes-pointer.v1`.
+The producer's `validate_store` function is the single owner of that format: field names, identities, tiers, ranges and size limits.
+No separate schema document repeats those rules, so they cannot drift from the executable validator.
 The existing answer-pointer schema and its QB/DSE stores remain unchanged.
 Answer locations and suggested audit locations do not establish teaching references.
 
@@ -106,6 +124,8 @@ The browser mirrors these rules against an inert parsed document.
 The browser fetches the projection and current source with cache bypass and bounded requests.
 It checks paths, anchor uniqueness, current text, hashes, provenance, tier, and sentence ranges before rendering.
 It renders text nodes and `mark` elements, never source HTML.
+Passages are then typeset with the notes' own KaTeX auto-render settings, so `\(...\)` and `\[...\]` appear as they do on the notes page.
+Typesetting runs on the generated nodes; the checked text and hashes stay the published strings.
 An outdated request cannot reopen or replace a closed panel.
 
 Malformed HTML can produce different trees in Python and the browser.
@@ -149,11 +169,14 @@ Build from the monorepo root:
 docker build -f paper2notes/deploy/cloudrun/Dockerfile .
 ```
 
-## Reviewed references
+## Example reviews
 
-These are agent visual reviews of existing published question crops, not human sign-offs or full-question solutions.
-The canonical `source` fields record the exact crop SHA-256 values.
-The notes hashes independently detect changes to the referenced teaching passages.
+Two early references were checked against the published question crops in full detail.
+The other 982 references were matched from the reviewed classification and the notes' own teaching blocks,
+as described in "How references were established".
+None is a human sign-off or a full-question solution.
+Each canonical `source` field names the question data file and the notes block it was reviewed against.
+The notes hashes independently detect changes to every referenced teaching passage.
 
 ### QB PHY15033101
 
@@ -200,6 +223,8 @@ chrome-devtools-axi open http://127.0.0.1:8768/paper2notes/notes/book5/ch03-nucl
 chrome-devtools-axi eval 'async () => (await import("/paper2notes/scripts/question-notes-chapter.browser.mjs")).run()'
 ```
 
+`test_reviewed_references_resolve_against_real_notes` publishes the whole canonical store and requires every passage to be available,
+so a stale hash or a moved anchor in any mapped record fails the unit suite.
 The QB browser test uses the real serving projection for positive cases.
 It substitutes page-local fetch responses only for negative and injection tests.
 The chapter test checks grading, navigation, focus, export behavior, and print-rule parsing.

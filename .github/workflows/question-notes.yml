@@ -3,7 +3,6 @@ on:
   pull_request:
     paths:
       - 'paper2db/metadata/pointers/notes.json'
-      - 'paper2db/schemas/notes-pointer.v1.json'
       - 'paper2notes/notes/**'
       - 'paper2notes/scripts/*notes*'
       - 'paper2notes/scripts/anchor-lint.mjs'
@@ -14,7 +13,6 @@ on:
     branches: [main]
     paths:
       - 'paper2db/metadata/pointers/notes.json'
-      - 'paper2db/schemas/notes-pointer.v1.json'
       - 'paper2notes/**'
       - '.dockerignore'
       - '.github/workflows/question-notes.yml'

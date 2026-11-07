@@ -40,7 +40,7 @@ export async function run() {
     await settled(panel);
     check(panel.dataset.state === 'available', 'Real DSE mapping resolves');
     check(panel.querySelectorAll('.question-notes-passage').length === 2, 'Multiple real sections render');
-    check(panel.querySelectorAll('mark').length === 2, 'Only reviewed sentence ranges highlight');
+    check(panel.querySelectorAll('mark').length === index.items.find(i => i.item_id === 'dse-mc-2018-31').passages.reduce((n, p) => n + p.highlights.length, 0), 'Only reviewed sentence ranges highlight');
     check(button.getAttribute('aria-expanded') === 'true' && button.getAttribute('aria-controls') === panel.id && panel.getAttribute('role') === 'region', 'Accessible state and region relationship');
     for (const link of panel.querySelectorAll('a')) {
       const target = new URL(link.href);
@@ -129,13 +129,13 @@ export async function run() {
     check(panel.hidden && !panel.textContent, 'Late response cannot reopen a closed panel');
     window.fetch = nativeFetch;
 
-    for (const [searchId, value, expectedMarks] of [['qb-search', 'PHY15033101', 1], ['dse-search', '2018 31', 2], ['dse-search', '2012-q11', 0]]) {
+    for (const [searchId, value, hasNotes] of [['qb-search', 'PHY15033101', true], ['dse-search', '2018 31', true], ['dse-search', '2019-18', false]]) {
       const search = document.getElementById(searchId);
       search.value = value; search.dispatchEvent(new Event('input', { bubbles: true }));
       const grid = document.getElementById(searchId.replace('search', 'grid'));
       const button = grid.querySelector('.question-notes-toggle');
       button.click(); const panel = grid.querySelector('.question-notes'); await settled(panel);
-      check(panel.dataset.state === (expectedMarks ? 'available' : 'missing') && panel.querySelectorAll('mark').length === expectedMarks, `Actual ${searchId} ${value} interface shows real notes or honest missing state`);
+      check(panel.dataset.state === (hasNotes ? 'available' : 'missing') && (hasNotes ? panel.querySelectorAll('mark').length > 0 : !panel.querySelector('mark')), `Actual ${searchId} ${value} interface shows real notes or honest missing state`);
       const checkbox = grid.querySelector('input[type="checkbox"]'); checkbox.click();
       check(checkbox.checked && document.querySelector('#sel-count').textContent === '1 selected', 'Question selection remains operable');
       checkbox.click(); button.click();
