@@ -1,6 +1,9 @@
-# Monorepo Docker context: only the student-facing notes and nginx config go into the image.
+# Build context includes static notes, layout sources, the compiler, and nginx config.
+# The final image contains only static notes and nginx config.
 *
 !paper2notes/notes/
+!paper2notes/layout/
+!paper2notes/scripts/build-books.mjs
 !paper2notes/deploy/cloudrun/nginx.conf
 
 # Intake/OCR provenance and gitignored local material are never published.
