@@ -6,7 +6,7 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 
 ## Notes
 
-- No script may exceed 1000 lines; split it by responsibility instead.
+- No file under `scripts/` may exceed 1000 lines; split it by responsibility instead.
 
 HTML notes live under `notes/`. Open a chapter `index.html` in a browser (no build). Book entries are `notes/book2/index.html` (10 ch), `notes/book4/index.html` (8 ch, §§20-24) and `notes/book5/index.html` (3 ch, §§25-27); see chapter cards for coverage. Intake for each chapter is `notes/_source/<book-ch>/` (e.g. `book4-ch01`). Pedagogy: `.agents/skills/visual-html-notes/SKILL.md`. Local textbooks, banks, and syllabus PDFs (`active-physics/`, `dse-classified/`, `QB_501/`, `QB_502/`, `QB_503/`, `ch1.pdf`-`ch5.pdf`) are gitignored. Student pages must not show intake/OCR/QB provenance; keep that in `_source` or HTML comments.
 

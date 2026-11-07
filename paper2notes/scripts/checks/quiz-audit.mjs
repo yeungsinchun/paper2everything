@@ -36,7 +36,7 @@ const SKIP = new Set(["_local", "vendor", "lib", "crops", "css", "data", "js"]);
    unavailable instead of leaving a dead tile. */
 const UNAVAILABLE = new Set(
   Object.keys(
-    JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), "quiz-keys-unavailable.json"), "utf8")).papers || {},
+    JSON.parse(readFileSync(join(ROOT, "scripts", "checks", "quiz-keys-unavailable.json"), "utf8")).papers || {},
   ),
 );
 
