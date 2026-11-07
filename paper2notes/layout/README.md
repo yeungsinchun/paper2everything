@@ -90,7 +90,7 @@ Only the `head` and `scripts` slots change; lesson content is untouched.
 These 13 routes therefore differ from the merged stack output, and the migration contract records their new script hashes, links, and stylesheets.
 The merged stack also deleted the Book 6 and Book 9 design sheets whose figure and stage rules those pages used.
 The static SVG paint classes (`f-*`, `s-*`) and the shared `fig-svg` stroke classes (`obj`, `guide`) now live in the shared sheet.
-The Book 9 figure text, stage, simulation-control and worked-example rules live in its book sheet, and so do the Book 6 stage fallback, figure sizing and print rules.
+The Book 9 figure text, stage, simulation-control and worked-example rules live in its book sheet, and so do the Book 6 stage fallback, figure, navigation, worked-answer and print rules.
 Only stylesheets change for this repair; the generated routes stay byte-identical to this branch's previous commit.
 The site check reports one problem: the copied `js/checks.js` that Book 1 keeps and `notes/_source/book1-dse/build_snapshot.py` reads.
 The quiz audit reports no page problems and two disagreements between Book 1 quiz keys and the answer store.
