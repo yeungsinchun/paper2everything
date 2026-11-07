@@ -10,7 +10,7 @@ paper2everything turns Hong Kong secondary-school source material (HKDSE Physics
 
 | Subproject | What it is | Audience-facing output |
 |---|---|---|
-| `paper2notes/` | Visual, interactive HKDSE Physics notes (Book 2 Force and Motion, Book 4 Electricity and Magnetism, Book 5 Radioactivity and Nuclear Energy), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb` |
+| `paper2notes/` | Visual, interactive HKDSE Physics notes (Books 1–5 core, Books 6–9 electives), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb` |
 | `paper2db/` | Pipeline that splits HKDSE Paper 1A (MC) and 1B (LQ) PDFs into per-question crops, classifies each to a syllabus section, pairs answers and candidate-performance notes, and ingests the QB DOCX banks | Per-section MC and LQ banks, section PDFs, whole-paper reconstructions, QB item data |
 | `paper2mock/` | Reserved for possible future work; F.1 maths content was removed pending a HKDSE Physics decision | None |
 
@@ -24,7 +24,7 @@ Live site: https://paper2notes-152505675251.asia-east2.run.app/
 2. **Visual, self-checking physics notes.** Motion, fields and decay are shown as interactive or animated diagrams, with checks that give immediate feedback.
 3. **Notes tied to exam reality.** Each chapter links the concept to the real DSE and question-bank items that test it. Measurable form: every in-scope question should be solvable from what the notes teach (section 7.4).
 4. **Reproducible, auditable pipeline.** Generated artifacts rebuild from tracked source PDFs, hand-tuned overrides and recorded classification decisions.
-5. **Static, cheap, dependency-light delivery.** No build step and no backend for the student site; it runs locally with `python3 -m http.server` and in production behind nginx on Cloud Run.
+5. **Static, cheap, dependency-light delivery.** No runtime build and no backend for the student site. `paper2notes/scripts/build-books.mjs` compiles book pages to static HTML ahead of time, so the site runs locally with `python3 -m http.server` and in production behind nginx on Cloud Run.
 
 ### Non-goals
 
@@ -66,7 +66,7 @@ Versus a plain past-paper archive: questions are cut per item, labelled by secti
 
 ### 3.4 Current scope
 
-- Notes: Book 2 (10 chapters), Book 4 (8), Book 5 (3).
+- Notes: Books 1–9 publish 195 book routes; per-book page coverage is in `paper2notes/layout/README.md`.
 - DSE banks: 27 syllabus sections, MC and LQ; tracked published snapshot ships in the image; see [the publication contract](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
 - QB: 46 banks, 169 DOCX, 3,847 items (1,881 in scope), surfaced in `/qb` with topic filters and real crops.
 - The F.1 maths content formerly in `paper2mock/` was removed pending a decision about its place in an HKDSE Physics project.
@@ -78,7 +78,9 @@ paper2notes turns source material into static HTML that prioritises visual diagr
 ### 4.1 Hierarchy
 
 ```
-notes/index.html                      landing: Book 2 / 4 / 5 with inline SVG icons, no redirect
+layout/book.html, layout/books.json   shared document shell, navigation and book identities
+layout/pages/book<N>/**/*.html        one source file per route: title, page type, head/content/scripts/trailing slots
+notes/index.html                      landing: Books 1–9 with inline SVG icons, no redirect
 notes/book<N>/index.html              book map: chapter cards and coverage
 notes/book<N>/ch<NN>-<slug>/          one chapter
     index.html                        chapter map (Book 2: the whole chapter)
@@ -87,7 +89,7 @@ notes/book<N>/ch<NN>-<slug>/          one chapter
     css/notes.css, js/                chapter overrides (that chapter's figures only)
 notes/book<N>/css/book.css            thin book sheet: --tone / --tone-soft and book-only rules
 notes/book<N>/js/                     quiz-data.js (DSE keys) and the book's own scene scripts
-notes/css/notes.css                   shared sheet for every book (tokens, layout, blocks, checks, decks)
+notes/css/notes.css                   shared sheet for every book except Books 6 and 9 (tokens, layout, blocks, checks, decks)
 notes/js/                             shared checks.js, math.js, scene-kit.js
 notes/vendor/{katex,three}/           shared vendored KaTeX and three.js
 notes/qb/                             question-bank UI (index.html, crops/, data/)
@@ -101,7 +103,7 @@ notes/_source/<book-ch>/              intake; never shown to students, not shipp
 | 4 | Electricity and Magnetism (§§20 to 24) | 8 | Map, per-subsection pages (`20-1.html`...), `summary.html` |
 | 5 | Radioactivity and Nuclear Energy (§§25 to 27) | 3 | Same as Book 4 |
 
-The Book 4 and 5 shape is the target for all books (section 6.8). Book 4 and 5 deliberately omit the syllabus-map block; prior knowledge assumed is force and motion only.
+Books 1, 3 and 6–9 already use the Book 4 and 5 shape (map, per-subsection pages, summary). Section 6.8 sets that shape as the target for every book. Book 4 and 5 deliberately omit the syllabus-map block; prior knowledge assumed is force and motion only.
 
 ### 4.2 Intake
 
@@ -137,7 +139,7 @@ Each chapter is produced from `notes/_source/<book-ch>/` holding `ocr.md`, `outl
 - **Quick digest first.** A student opens a page to recall one idea, not read a chapter. Every subsection must be skimmable top to bottom in one pass: the picture or table says it, the prose only labels it.
 - **Visual first, prose last.** Order of preference for an idea: interactive or static figure, then table, then definition block, then short prose.
 - **Phone and laptop are both first-class.** Neither is a degraded view.
-- **No build, no network dependency.** Vendored KaTeX and local three.js; no runtime fetch that can leave a blank figure.
+- **No runtime build, no network dependency.** Book pages compile ahead of time into plain HTML; the browser loads vendored KaTeX and local three.js, with no runtime fetch that can leave a blank figure.
 
 ## 6. UI requirements
 
@@ -474,7 +476,7 @@ One repository, with paper2notes and paper2db mutually dependent (paper2notes re
 | `paper2db/metadata/*/llm_classifications.json`, `metadata/qb/{banks,source-manifest}.json` | `paper2db/output/`, `paper2db/classified/` (legacy), `.lavish/` boards |
 | `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `tests/reconstructed/lq/*/starts.json`, `tests/reconstructed/lq/*/ans_starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
-| `paper2notes/notes/` including the `dse/` snapshot and `_source/` | `.audit/` harness output |
+| `paper2notes/layout/`, `paper2notes/notes/` (generated book HTML included), the `dse/` snapshot and `_source/` | `.audit/` harness output |
 | `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
 
 ## 10. Checks and deploy
@@ -482,9 +484,7 @@ One repository, with paper2notes and paper2db mutually dependent (paper2notes re
 The repository has no automated check or test workflows. Notes checks, audits,
 and pipeline scripts remain available to run by hand. See [Architecture §5](ARCHITECTURE.md#5-automated-workflows).
 
-**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
-
-**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
+**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: compile the book layout with `scripts/build-books.mjs`, resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits `paper2notes/notes/`, `paper2notes/layout/`, `paper2notes/scripts/build-books.mjs` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; deploy mechanics are owned by `paper2notes/deploy/cloudrun/README.md` and Architecture §6.
 
 **UI PRs.** A PR that changes paper2notes HTML, CSS, JS, visuals, animations or stage loads `.agents/skills/paper2everything-ui-screenshot/SKILL.md` first and includes before/after screenshots at **both** 1280x800 and 390x844 (one pair per size, same URL, scroll and viewport, attached with `gh --attach` so they render inline; one size only is incomplete). A demo video, if any, is also recorded at both sizes unless provably invisible at one (`.agents/skills/paper2everything-pr-video/SKILL.md` §5.1 and §6).
 

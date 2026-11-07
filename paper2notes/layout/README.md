@@ -25,7 +25,7 @@ A page cannot supply its own header or secondary chapter row.
 No book has a switch for secondary navigation.
 
 Book 6 and Book 9 keep their own `notes.css` and `p2n.css` design sheets, which their `head` slots load.
-Every other book loads the shared `notes/css/notes.css` and its own `book.css`.
+Every other book loads the shared `notes/css/notes.css`; every one of them except Book 3 also loads its own `book.css`.
 The compiler preserves the existing deployment footer value when rebuilding a generated file.
 The shared template owns its markup and position outside the main page.
 
