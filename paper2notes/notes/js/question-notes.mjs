@@ -139,6 +139,16 @@ async function resolvePassage(p, documents) {
   }
 }
 
+const KATEX = {
+  delimiters: [
+    { left: '$$', right: '$$', display: true },
+    { left: '\\[', right: '\\]', display: true },
+    { left: '\\(', right: '\\)', display: false }
+  ],
+  throwOnError: false,
+  ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+};
+
 function element(tag, className, text) {
   const el = document.createElement(tag);
   if (className) el.className = className;
@@ -157,6 +167,7 @@ function renderPassage(p, number) {
     cursor = range.end;
   }
   paragraph.append(document.createTextNode(p.text.slice(cursor)));
+  if (window.renderMathInElement) window.renderMathInElement(paragraph, KATEX);
   const link = element('a', 'question-notes-original', 'Open original notes (new tab)');
   link.href = p.href;
   link.target = '_blank';
