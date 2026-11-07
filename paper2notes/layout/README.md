@@ -23,6 +23,8 @@ The remaining comments delimit four raw HTML slots:
 
 Each editable file starts with `<!-- source: <name>. Edit this file. The compiler does not generate this file. -->`.
 `book.html` arranges the document. Edit it to move a component or a page slot.
+The compiler requires exactly these six component files and rejects any other file in `components/`.
+The arrangement must start with `<!DOCTYPE html>`, and every editable file must end with a newline.
 Edit a component file to change that component's markup.
 Edit `pages/` to change one page's title, type, or slots.
 Edit `books.json` to change a book label or icon.
