@@ -256,14 +256,16 @@
         <figcaption><b>Fig. 25.30</b> Inside a GM tube: ion-pair, avalanche, pulse.</figcaption>
 <details class="fig-more"><summary>More</summary><p>The tube holds argon at low pressure. A high voltage keeps the central wire positive (the anode) and the metal case negative (the cathode); one end is a thin mica window. Radiation enters through the window and ionizes argon atoms into ion-pairs. The electrons accelerate to the wire and the positive ions drift to the case; each arriving electron frees more electrons on the way, so one ion-pair grows into a short avalanche and the tube gives one pulse of current. The scaler counts the pulses (total count); the ratemeter shows counts per second or per minute, the <b>count rate</b>.</p></details>
       </figure>
-      <div class="worked gm-steps" id="gm-worked-1">
-        <span class="tag">How a GM counter works</span>
-        <ol class="steps">
-          <li><b>Ion-pair.</b> Radiation ionizes an argon atom at the window.</li>
-          <li><b>Avalanche.</b> The electron accelerates to the wire, freeing more electrons.</li>
-          <li><b>Pulse.</b> The scaler counts one pulse; count rate is pulses per second.</li>
-        </ol>
-      </div>
+      <details class="worked" id="gm-worked-1">
+        <summary>Worked example <span>How a GM counter works</span></summary>
+        <div class="worked-body">
+          <ol class="steps">
+            <li><b>Ion-pair.</b> Radiation ionizes an argon atom at the window.</li>
+            <li><b>Avalanche.</b> The electron accelerates to the wire, freeing more electrons.</li>
+            <li><b>Pulse.</b> The scaler counts one pulse; count rate is pulses per second.</li>
+          </ol>
+        </div>
+      </details>
       <figure class="fig sim" id="gm-fig-2">
         <div class="row">
           <span class="tag">Simulated</span>
@@ -344,8 +346,10 @@
       </div>
       <p class="caption" id="abs-note"></p>
       <details class="worked" id="range-worked-1">
-        <summary>Show the diagnoses after you have tested the absorbers</summary>
-        <p><b>Case 1:</b> β + γ. <b>Case 2:</b> α + γ. <b>Case 3:</b> α + β + γ. In each case, compare one absorber result with the preceding result and subtract the background before deciding.</p>
+        <summary>Worked example <span>Show the diagnoses after you have tested the absorbers</span></summary>
+        <div class="worked-body">
+          <p><b>Case 1:</b> β + γ. <b>Case 2:</b> α + γ. <b>Case 3:</b> α + β + γ. In each case, compare one absorber result with the preceding result and subtract the background before deciding.</p>
+        </div>
       </details>
       <div class="def" id="range-def-1">
         <span class="tag">Definitions</span>
@@ -359,15 +363,17 @@
           <tr><td><b>γ</b></td><td>very long (about 100 m, falling off with distance rather than stopping)</td><td>never completely stopped: 25 mm of lead roughly <em>halves</em> the intensity, and each further 25 mm halves it again</td><td>strongest</td></tr>
         </tbody>
       </table>
-      <div class="worked" id="range-worked-2">
-        <span class="tag">Experiment: measuring the range of α in air</span>
-        <ol class="steps">
-          <li>With the source locked away, record the background count rate.</li>
-          <li>Remove the plastic grid from the GM tube and line up the α source with the window, a few millimetres away. Record the count rate.</li>
-          <li>Move the source away in small steps, recording the count rate each time, until the reading falls to the background value. Measure the separation with a metre rule: this is the range.</li>
-          <li>On a graph of count rate against distance the curve drops and then levels off; the level part is background and the distance at which it is reached is the range. To rule out gravity as the reason the α "stop", repeat with the apparatus turned through 90°: the result is the same.</li>
-        </ol>
-      </div>
+      <details class="worked" id="range-worked-2">
+        <summary>Worked example <span>Experiment: measuring the range of α in air</span></summary>
+        <div class="worked-body">
+          <ol class="steps">
+            <li>With the source locked away, record the background count rate.</li>
+            <li>Remove the plastic grid from the GM tube and line up the α source with the window, a few millimetres away. Record the count rate.</li>
+            <li>Move the source away in small steps, recording the count rate each time, until the reading falls to the background value. Measure the separation with a metre rule: this is the range.</li>
+            <li>On a graph of count rate against distance the curve drops and then levels off; the level part is background and the distance at which it is reached is the range. To rule out gravity as the reason the α "stop", repeat with the apparatus turned through 90°: the result is the same.</li>
+          </ol>
+        </div>
+      </details>
             <details class="worked" id="range-worked-3">
         <summary>Worked example <span>γ through thick lead</span></summary>
         <div class="worked-body">
@@ -489,16 +495,18 @@
         </div>
         <figcaption>Decision path for Example 25.6.</figcaption>
       </figure>
-      <div class="worked flow-answer" id="identify-worked-1">
-        <span class="tag">Observation → reasoning → conclusion</span>
-        <ol class="steps">
-          <li><b>Paper 700 → 700</b> · no drop → no α</li>
-          <li><b>5 mm Al 700 → 315</b> · large drop → β present</li>
-          <li><b>25 mm Pb 315 → 190</b> · still above background → γ present</li>
-          <li><b>Conclusion</b> · β and γ, no α</li>
-        </ol>
-        <details class="fig-more"><summary>More</summary><p><b>Full written answer.</b> Paper: no significant change (700 → 700). Paper stops α, so the source emits no α. 5 mm aluminium: large drop (700 → 315). Aluminium stops β (and would stop α), so the source emits β. 25 mm lead: further drop (315 → 190) but still well above background (61). Lead only partly absorbs γ, so the source emits γ. Conclusion: β and γ, no α.</p></details>
-      </div>
+      <details class="worked" id="identify-worked-1">
+        <summary>Worked example <span>Observation → reasoning → conclusion</span></summary>
+        <div class="worked-body">
+          <ol class="steps">
+            <li><b>Paper 700 → 700</b> · no drop → no α</li>
+            <li><b>5 mm Al 700 → 315</b> · large drop → β present</li>
+            <li><b>25 mm Pb 315 → 190</b> · still above background → γ present</li>
+            <li><b>Conclusion</b> · β and γ, no α</li>
+          </ol>
+          <details class="fig-more"><summary>More</summary><p><b>Full written answer.</b> Paper: no significant change (700 → 700). Paper stops α, so the source emits no α. 5 mm aluminium: large drop (700 → 315). Aluminium stops β (and would stop α), so the source emits β. 25 mm lead: further drop (315 → 190) but still well above background (61). Lead only partly absorbs γ, so the source emits γ. Conclusion: β and γ, no α.</p></details>
+        </div>
+      </details>
       <details class="tip fig-more" id="identify-tip-1">
         <summary>Hard cases</summary>
         <p><b>No paper step.</b> 5 mm Al stops <em>both</em> α and β, so a drop at aluminium without a paper reading means "α or β or both", not "β". <b>Lead only.</b> A drop from air to 5 mm Pb proves nothing about which of α or β is present; a <em>further</em> drop from 5 mm to 15 mm Pb proves γ, and the background must be below the final reading. <b>Background not given.</b> If the reading keeps roughly halving as the lead thickens (say 90 → 46 from 25 to 50 mm), it has not reached a flat floor, so γ is still being absorbed and is present. <b>Proving "X only".</b> You need <em>no</em> significant drop at the other steps <em>and</em> a final reading at background. <b>Repeated readings</b> in a table (e.g. 210, 227; 224, 215) differ by randomness; a change only counts if it is well outside that scatter.</p>
