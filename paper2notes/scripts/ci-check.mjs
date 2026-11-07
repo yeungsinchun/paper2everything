@@ -453,8 +453,8 @@ function checkDeployFooter() {
 }
 
 // Shared assets: every book links one copy in notes/css, notes/js and notes/vendor
-// (paper2notes/README.md "Shared assets"). A book keeps only its content, a thin
-// css/book.css, optional chapter sheets, js/quiz-data.js and its own scene scripts.
+// (paper2notes/README.md "Shared assets"). A book keeps only its content, optional
+// book and chapter sheets, js/quiz-data.js and its own scene scripts.
 const SHARED_ASSETS = {
   "notes.css": "css/notes.css",
   "checks.js": "js/checks.js",
@@ -465,6 +465,8 @@ const SHARED_ASSETS = {
   "three.min.js": "vendor/three/three.min.js",
 };
 const RETIRED_BOOK_SHEETS = new Set(["p2n.css", "p2n-tokens.css"]);
+// Book 6 and Book 9 keep their own design sheets; see paper2notes/layout/README.md.
+const BOOK_SHEET_EXCEPTIONS = new Set(["book6/css/notes.css", "book6/css/p2n.css", "book9/css/notes.css", "book9/css/p2n.css"]);
 
 function walkFiles(dir, out = []) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
@@ -486,7 +488,8 @@ function checkSharedAssets() {
       const rel = relative(bookDir, file);
       const name = rel.split("/").pop();
       const isChapterSheet = /^[^/]+\/css\/notes\.css$/.test(rel);
-      if ((SHARED_ASSETS[name] && !isChapterSheet) || RETIRED_BOOK_SHEETS.has(name) || rel.split("/").includes("vendor")) {
+      const isBookSheetException = BOOK_SHEET_EXCEPTIONS.has(relative(notesDir, file));
+      if (!isBookSheetException && ((SHARED_ASSETS[name] && !isChapterSheet) || RETIRED_BOOK_SHEETS.has(name) || rel.split("/").includes("vendor"))) {
         fail(`Book copy of a shared asset: ${relative(repoRoot, file)}; ${howTo}`);
       }
       if (!name.endsWith(".html")) continue;
@@ -504,6 +507,7 @@ function checkSharedAssets() {
         }
         if (!want) return;
         if (base === "notes.css" && target.startsWith(join(dirname(file), "css") + "/")) return; // chapter sheet
+        if (BOOK_SHEET_EXCEPTIONS.has(relative(notesDir, target))) return;
         if (target !== join(notesDir, want)) {
           fail(`${relative(repoRoot, file)} loads "${ref}", not the shared notes/${want}; ${howTo}`);
         }

@@ -349,7 +349,9 @@ shared copy each of `notes/css/notes.css`, `notes/js/checks.js`, `math.js`,
 `scene-kit.js`, `notes/vendor/katex/` and `notes/vendor/three/three.min.js`
 (previously 21 `three.min.js` copies, 11 `checks.js`, 3 KaTeX trees). A book
 keeps only `css/book.css`, `js/quiz-data.js` and its own scene scripts;
-`ci-check.mjs` flags a book that copies a shared file when run by hand. Figure renderers stay per
+`ci-check.mjs` flags a book that copies a shared file when run by hand. Book 6
+and Book 9 are the exception: they keep their own `notes.css` and `p2n.css`
+design sheets, recorded in `paper2notes/layout/README.md`. Figure renderers stay per
 book (Books 2 and 4) or per chapter (Book 5, on the shared scene kit).
 
 **A12. Dead or duplicated config left from the merge.** Nested

@@ -6170,8 +6170,8 @@
       "normalizedScriptsSha256": "ef650a0c85c673c3ff18af243a17d2d4ba90393fdb403c2190ce6af59d54c2e5",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -6218,8 +6218,8 @@
       "normalizedScriptsSha256": "fff045ac813c9a8af5a02a41f9b00d22ce2000f905a6b23ced0df8884b53923e",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch01-a-cosmic-journey/index.html": {
@@ -6238,8 +6238,8 @@
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch01-a-cosmic-journey/summary.html": {
@@ -6263,8 +6263,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch02-modelling-the-universe/2-1.html": {
@@ -6300,8 +6300,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch02-modelling-the-universe/2-2.html": {
@@ -6331,8 +6331,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch02-modelling-the-universe/2-3.html": {
@@ -6363,8 +6363,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch02-modelling-the-universe/index.html": {
@@ -6384,8 +6384,8 @@
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch02-modelling-the-universe/summary.html": {
@@ -6410,8 +6410,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch03-orbital-motions-under-gravity/3-1.html": {
@@ -6448,8 +6448,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch03-orbital-motions-under-gravity/3-2.html": {
@@ -6480,8 +6480,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch03-orbital-motions-under-gravity/3-3.html": {
@@ -6512,8 +6512,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch03-orbital-motions-under-gravity/3-4.html": {
@@ -6537,8 +6537,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch03-orbital-motions-under-gravity/index.html": {
@@ -6559,8 +6559,8 @@
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch03-orbital-motions-under-gravity/summary.html": {
@@ -6586,8 +6586,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch04-starlight-messengers-from-the-stars/4-1.html": {
@@ -6624,8 +6624,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch04-starlight-messengers-from-the-stars/4-2.html": {
@@ -6662,8 +6662,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch04-starlight-messengers-from-the-stars/4-3.html": {
@@ -6694,8 +6694,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch04-starlight-messengers-from-the-stars/index.html": {
@@ -6715,8 +6715,8 @@
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/ch04-starlight-messengers-from-the-stars/summary.html": {
@@ -6741,8 +6741,8 @@
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book6/index.html": {
@@ -8420,8 +8420,8 @@
       "normalizedScriptsSha256": "31875d8364f0f161483d3eb783aac368465c2acaace3bc53c4de575b0820ea28",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8493,8 +8493,8 @@
       "normalizedScriptsSha256": "31875d8364f0f161483d3eb783aac368465c2acaace3bc53c4de575b0820ea28",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8511,8 +8511,8 @@
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book9/ch01-vision-and-hearing/summary.html": {
@@ -8535,8 +8535,8 @@
       "normalizedScriptsSha256": "1ebe2f25d64cb5af3cef206e8d670494eee0573e60eb16ef5de38d1fc5939311",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8569,8 +8569,8 @@
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8617,8 +8617,8 @@
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8655,8 +8655,8 @@
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8677,8 +8677,8 @@
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book9/ch02-non-ionizing-medical-imaging/summary.html": {
@@ -8705,8 +8705,8 @@
       "normalizedScriptsSha256": "1ebe2f25d64cb5af3cef206e8d670494eee0573e60eb16ef5de38d1fc5939311",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8743,8 +8743,8 @@
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8777,8 +8777,8 @@
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8819,8 +8819,8 @@
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8858,8 +8858,8 @@
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8889,8 +8889,8 @@
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8913,8 +8913,8 @@
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css"
+        "../css/notes.css",
+        "../css/p2n.css"
       ]
     },
     "book9/ch03-ionizing-medical-imaging/summary.html": {
@@ -8941,8 +8941,8 @@
       "normalizedScriptsSha256": "1ebe2f25d64cb5af3cef206e8d670494eee0573e60eb16ef5de38d1fc5939311",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../../css/notes.css",
-        "../css/book.css",
+        "../css/notes.css",
+        "../css/p2n.css",
         "../../vendor/katex/katex.min.css"
       ]
     },
@@ -8960,8 +8960,8 @@
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../css/p2n-shell.css",
-        "../css/notes.css",
-        "css/book.css",
+        "css/notes.css",
+        "css/p2n.css",
         "../css/book-layout.css"
       ]
     }

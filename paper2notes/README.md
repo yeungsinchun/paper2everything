@@ -57,6 +57,7 @@ See `layout/README.md` for generation paths, validation coverage, and existing e
 ## Shared assets
 
 Every book links one copy of the shared styles, scripts and vendored libraries. A book holds only its own content and a thin book sheet. `scripts/ci-check.mjs` fails a book that keeps its own copy of any of these files, or links a page to anything other than the shared copy.
+Book 6 and Book 9 are the exception: their pages keep their own `notes.css` and `p2n.css` design sheets and do not load the shared sheet. `ci-check.mjs` allows those four files by exact path.
 
 | Shared file (under `notes/`) | What it holds |
 |---|---|
