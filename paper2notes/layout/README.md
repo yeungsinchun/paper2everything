@@ -42,10 +42,10 @@ The shared template owns its markup and position outside the main page.
 | `scripts/inject-commit-footer.mjs` | Deployment metadata | Keeps ownership of footer values after compilation |
 | `scripts/sync-dse.sh` | Mirrors question assets into local-only paths | Does not generate book HTML; unchanged |
 | `paper2db/pipeline` and staging scripts | Questions, crops, keys, and section data | Do not generate book HTML; unchanged |
-| `scripts/brief.mjs` and `scripts/audit/` | Read notes and generate separate audit artifacts | Continue reading generated routes; unchanged |
+| `scripts/audit/` | Reads notes and generates separate audit artifacts | Continues reading generated routes; unchanged |
 | `notes/_source/` | Ignored intake material | Not a source for the public document shell |
 | `notes/_source/book1-dse/build_snapshot.py` | Generates question crops, PDFs, and legacy Book 1 key data | Does not generate book HTML; unchanged and not run |
-| `notes/index.html`, `notes/qb/`, `notes/mock/`, `notes/dse/` | Non-book landing pages and question applications | Outside the book layout contract; unchanged |
+| `notes/index.html`, `notes/qb/`, `notes/dse/` | Non-book landing pages and question applications | Outside the book layout contract; unchanged |
 
 The tracked intake script produces question assets and legacy key data, not document shells.
 No tracked script generated the old book document shells.
