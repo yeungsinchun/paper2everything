@@ -5,6 +5,8 @@ description: Write visual-first HTML notes under notes/** as three.js diagrams, 
 
 # Visual HTML notes
 
+Paths in this skill are relative to `paper2notes/` (this skill lives at the repository root, so `notes/` means `paper2notes/notes/`).
+
 Open a chapter `index.html` in a browser (no build). Intake is `notes/_source/<book-ch>/`. Student pages must not show intake, OCR, QB numbers, "book cut", textbook-order ledes, or other meta chrome; keep provenance in `_source` or HTML comments.
 
 ## Worked page (25.1 knockout)
