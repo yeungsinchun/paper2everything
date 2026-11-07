@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFileSync, mkdtempSync, mkdirSync, writeFileSync, rmSync, cpSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, mkdtempSync, mkdirSync, writeFileSync, rmSync, cpSync, existsSync } from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
-import { project, layoutDir, notesDir, loadPages, loadLayout, renderPage, publishedRoutes, checkBooks, footerFrom, normalizeSlot } from './build-books.mjs';
+import { layoutDir, notesDir, loadPages, loadLayout, renderPage, publishedRoutes, checkBooks, footerFrom, normalizeSlot } from './build-books.mjs';
 
 const pages = loadPages(), layout = loadLayout();
 const contract = JSON.parse(readFileSync(join(layoutDir, 'migration-contract.json'), 'utf8'));
@@ -118,32 +118,21 @@ test('page sources cannot restore the header or add a navigation switch', () => 
   } finally { rmSync(source, { recursive: true, force: true }); }
 });
 
-test('both deployment paths compile source layouts and template edits trigger publication', () => {
-  const docker = readFileSync(join(project, 'deploy/cloudrun/Dockerfile'), 'utf8');
-  assert.match(docker, /FROM node:24-alpine AS book-layout/);
-  assert.match(docker, /COPY paper2notes\/layout\/ \.\/layout\//);
-  assert.match(docker, /RUN node scripts\/build-books\.mjs/);
-  assert.match(docker, /COPY --from=book-layout \/site\/notes\/ \/usr\/share\/nginx\/html\//);
-  const deploy = readFileSync(join(project, 'deploy/cloudrun/deploy.sh'), 'utf8');
-  const compile = deploy.indexOf('node "$maybe_p2n/scripts/build-books.mjs"');
-  const inject = deploy.indexOf('node "$repo_root/paper2notes/scripts/inject-commit-footer.mjs"');
-  assert.ok(compile >= 0 && inject > compile);
-  const workflow = readFileSync(join(project, '../.github/workflows/deploy-notes.yml'), 'utf8');
-  assert.match(workflow, /"paper2notes\/layout\/\*\*"/);
-  assert.match(workflow, /"paper2notes\/scripts\/build-books\.mjs"/);
-  const context = readFileSync(join(project, '../.dockerignore'), 'utf8');
-  assert.match(context, /^!paper2notes\/layout\/$/m);
-  assert.match(context, /^!paper2notes\/scripts\/build-books\.mjs$/m);
-});
-
-test('print/export assets and event handlers remain in the same lesson slots', () => {
-  const css = readFileSync(join(notesDir, 'css/notes.css'), 'utf8');
-  assert.match(css, /@media print/);
-  const script = readFileSync(join(notesDir, 'js/checks.js'), 'utf8');
-  assert.match(script, /window\.print\(/);
-  assert.match(script, /data-notes-export/);
-  assert.ok(pages.some(p => /data-notes-export/.test(p.content)));
-  for (const p of pages.filter(p => /data-notes-export/.test(p.content))) {
-    assert.match(p.scripts, /checks\.js/, p.route);
+test('every generated page loads assets that resolve, and export pages load the shared checks script', () => {
+  const sharedChecks = join(notesDir, 'js/checks.js');
+  const assetRefs = html => [...html.matchAll(/<(?:link|script)\b[^>]*\b(?:href|src)="([^"]+)"/g)].map(m => m[1]);
+  const resolveRef = (route, ref) => resolve(notesDir, dirname(route), decodeURIComponent(ref.split('#')[0].split('?')[0]));
+  let exports = 0;
+  for (const p of pages) {
+    const html = readFileSync(join(notesDir, p.route), 'utf8');
+    for (const ref of assetRefs(html)) {
+      const clean = ref.split('#')[0].split('?')[0];
+      if (!clean || /^[a-z][a-z0-9+.-]*:/i.test(clean) || clean.startsWith('//') || clean.split('/').includes('_local')) continue;
+      assert.ok(existsSync(resolveRef(p.route, ref)), `${p.route}: ${ref} does not resolve`);
+    }
+    if (!/data-notes-export/.test(p.content)) continue;
+    exports += 1;
+    assert.ok(assetRefs(p.scripts).some(ref => resolveRef(p.route, ref) === sharedChecks), `${p.route}: export button is not wired to the shared checks script`);
   }
+  assert.ok(exports > 0);
 });

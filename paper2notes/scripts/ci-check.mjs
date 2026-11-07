@@ -555,7 +555,7 @@ errors.push(...checkBooks().errors);
 try {
   execFileSync(process.execPath, ["--test", join(__dirname, "build-books.test.mjs")], { stdio: "pipe" });
 } catch (error) {
-  fail(`Shared book layout regression tests failed:\n${error.stdout?.toString() ?? error.message}`);
+  fail(`Shared book layout regression tests failed:\n${error.stdout?.toString() || error.stderr?.toString() || error.message}`);
 }
 checkSiteRegionConsistency();
 checkLavishBoards();

@@ -67,7 +67,8 @@ The nginx deployment still serves static files at unchanged addresses.
 | 9 | 1 | 0 | 3 | 10 | 3 | 17 |
 | **Total** | **9** | **10** | **36** | **104** | **36** | **195** |
 
-The regression tests enumerate actual routes rather than relying on this table.
+The regression tests resolve every stylesheet and script in the generated routes, so a page that points at a missing asset fails.
+They also check that every page with an export button loads the shared `js/checks.js`.
 They verify source/output parity and one template edit reaching every route.
 They compare lesson bytes, script bytes, anchor IDs, and lesson links against the migration contract.
 The byte comparisons ignore only empty-line whitespace and whitespace at slot boundaries.
@@ -81,12 +82,12 @@ The route-level tests cover all 195 published book routes.
 
 ## Existing validation exceptions
 
-The starting stack contains broken shared-asset paths on some Book 6 and Book 9 pages.
-Its Book 1 directory also retains an unused copied `js/checks.js`.
-The existing site check reports 69 problems from these issues.
-The quiz audit reports 38 existing asset findings on 13 pages.
-It also reports two disagreements between Book 1 quiz keys and the answer store.
-This layout migration preserves those sources rather than changing accepted question or asset changes.
+The merged stack deleted the Book 6 and Book 9 copies of shared assets but left 13 pages pointing at them.
+This migration repoints those pages at `../../js/checks.js`, `../../js/math.js`, and `../../vendor/katex/…`.
+Only the `head` and `scripts` slots change; lesson content is untouched.
+These 13 routes therefore differ from the merged stack output, and the migration contract records their new script hashes, links, and stylesheets.
+The site check reports one problem: the copied `js/checks.js` that Book 1 keeps and `notes/_source/book1-dse/build_snapshot.py` reads.
+The quiz audit reports no page problems and two disagreements between Book 1 quiz keys and the answer store.
 The pull request records the exact validation results and browser coverage separately.
 Browser comparison also finds existing mobile autoscaling on Book 5's first chapter summary.
 Its layout viewport becomes 442×957 CSS pixels on the 390×844 device viewport, before and after this change.

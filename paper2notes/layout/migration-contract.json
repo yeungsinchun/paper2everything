@@ -6356,11 +6356,11 @@
         "#evidence-from-telescopes",
         "2-2.html",
         "summary.html",
-        "../js/checks.js"
+        "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
       "normalizedContentSha256": "e85900177545429b6aad4b0b9e6b66e2ccac4e7ecca0c83d0ba45ea8b642291b",
-      "normalizedScriptsSha256": "5be17c071864f7a3d0389bfb27f569bacc80438d1337fcf123c2eff598678bdd",
+      "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
@@ -6441,11 +6441,11 @@
         "#period-and-orbit-size",
         "index.html",
         "3-2.html",
-        "../js/checks.js"
+        "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
       "normalizedContentSha256": "1c2e4e489946f4e12e0495f9c4a53e28dd87f7b2b933feaaccc3a18434f5da81",
-      "normalizedScriptsSha256": "5be17c071864f7a3d0389bfb27f569bacc80438d1337fcf123c2eff598678bdd",
+      "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
@@ -6473,11 +6473,11 @@
         "#orbital-period-and-central-mass",
         "3-1.html",
         "3-3.html",
-        "../js/checks.js"
+        "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
       "normalizedContentSha256": "f1b81040cb5af88033c41b010452f2c52a206f6aa1b03c14b75c1af1ddd7c279",
-      "normalizedScriptsSha256": "5be17c071864f7a3d0389bfb27f569bacc80438d1337fcf123c2eff598678bdd",
+      "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
@@ -6505,11 +6505,11 @@
         "#escape-speed",
         "3-2.html",
         "3-4.html",
-        "../js/checks.js"
+        "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
       "normalizedContentSha256": "0e887a882b4dc87a88d12aff9a70d6dda02f8705387ce594806bd41fa1975ed3",
-      "normalizedScriptsSha256": "5be17c071864f7a3d0389bfb27f569bacc80438d1337fcf123c2eff598678bdd",
+      "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
@@ -6617,11 +6617,11 @@
         "#magnitude-and-brightness",
         "index.html",
         "4-2.html",
-        "../js/checks.js"
+        "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
       "normalizedContentSha256": "03ddd65b226ce0a9390b58050375737bc8520f1b86a693567b6a0ff41971ad9d",
-      "normalizedScriptsSha256": "5be17c071864f7a3d0389bfb27f569bacc80438d1337fcf123c2eff598678bdd",
+      "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
@@ -6655,11 +6655,11 @@
         "#the-h-r-diagram",
         "4-1.html",
         "4-3.html",
-        "../js/checks.js"
+        "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
       "normalizedContentSha256": "a9cd0b06423d005c04c463a188174aa5609bbbbcca391f4ecfa5b65926e326f2",
-      "normalizedScriptsSha256": "5be17c071864f7a3d0389bfb27f569bacc80438d1337fcf123c2eff598678bdd",
+      "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
@@ -6687,11 +6687,11 @@
         "#wobble-dark-matter-and-expansion",
         "4-2.html",
         "summary.html",
-        "../js/checks.js"
+        "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
       "normalizedContentSha256": "1af2c27a9514b0fdfb7eb04a8bc69b44a53cad3dcb1c5603b2ecd5b435444e14",
-      "normalizedScriptsSha256": "5be17c071864f7a3d0389bfb27f569bacc80438d1337fcf123c2eff598678bdd",
+      "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
@@ -8525,19 +8525,19 @@
         "sight-corrections-table"
       ],
       "links": [
-        "../vendor/katex/katex.min.js",
-        "../vendor/katex/auto-render.min.js",
-        "../js/math.js",
+        "../../vendor/katex/katex.min.js",
+        "../../vendor/katex/auto-render.min.js",
+        "../../js/math.js",
         "../../js/checks.js"
       ],
       "scriptsSha256": "41156d6bf360a4b84c72e7b4708353522c23de63b1291c2660e47794b94cf3d2",
       "normalizedContentSha256": "59b42ea37408a5d56c37d906377d32d74eb193b32a6fe78b2341914e5a7abeef",
-      "normalizedScriptsSha256": "41156d6bf360a4b84c72e7b4708353522c23de63b1291c2660e47794b94cf3d2",
+      "normalizedScriptsSha256": "1ebe2f25d64cb5af3cef206e8d670494eee0573e60eb16ef5de38d1fc5939311",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
         "../css/book.css",
-        "../vendor/katex/katex.min.css"
+        "../../vendor/katex/katex.min.css"
       ]
     },
     "book9/ch02-non-ionizing-medical-imaging/2-1.html": {
@@ -8606,20 +8606,20 @@
         "#limits",
         "2-1.html",
         "2-3.html",
-        "../vendor/katex/katex.min.js",
-        "../vendor/katex/auto-render.min.js",
-        "../js/math.js",
-        "../js/checks.js",
+        "../../vendor/katex/katex.min.js",
+        "../../vendor/katex/auto-render.min.js",
+        "../../js/math.js",
+        "../../js/checks.js",
         "../js/stage.js"
       ],
       "scriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
       "normalizedContentSha256": "641c45a132c0906522f5df550d46d5ad02b3eed25eb91af10ff988c3aaf0eb4c",
-      "normalizedScriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
+      "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
         "../css/book.css",
-        "../vendor/katex/katex.min.css"
+        "../../vendor/katex/katex.min.css"
       ]
     },
     "book9/ch02-non-ionizing-medical-imaging/2-3.html": {
@@ -8644,20 +8644,20 @@
         "#fibre",
         "#endoscope",
         "2-2.html",
-        "../vendor/katex/katex.min.js",
-        "../vendor/katex/auto-render.min.js",
-        "../js/math.js",
-        "../js/checks.js",
+        "../../vendor/katex/katex.min.js",
+        "../../vendor/katex/auto-render.min.js",
+        "../../js/math.js",
+        "../../js/checks.js",
         "../js/stage.js"
       ],
       "scriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
       "normalizedContentSha256": "b4ae8751b3c5bed74ae01aa1434b84373293e59776a94a90e833d39ebd247bde",
-      "normalizedScriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
+      "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
         "../css/book.css",
-        "../vendor/katex/katex.min.css"
+        "../../vendor/katex/katex.min.css"
       ]
     },
     "book9/ch02-non-ionizing-medical-imaging/index.html": {
@@ -8695,19 +8695,19 @@
       ],
       "links": [
         "index.html",
-        "../vendor/katex/katex.min.js",
-        "../vendor/katex/auto-render.min.js",
-        "../js/math.js",
+        "../../vendor/katex/katex.min.js",
+        "../../vendor/katex/auto-render.min.js",
+        "../../js/math.js",
         "../../js/checks.js"
       ],
       "scriptsSha256": "41156d6bf360a4b84c72e7b4708353522c23de63b1291c2660e47794b94cf3d2",
       "normalizedContentSha256": "e9713150eb1197b6cbe7eab864230295674c42154abe1afe3c0b3b8d06555bc3",
-      "normalizedScriptsSha256": "41156d6bf360a4b84c72e7b4708353522c23de63b1291c2660e47794b94cf3d2",
+      "normalizedScriptsSha256": "1ebe2f25d64cb5af3cef206e8d670494eee0573e60eb16ef5de38d1fc5939311",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
         "../css/book.css",
-        "../vendor/katex/katex.min.css"
+        "../../vendor/katex/katex.min.css"
       ]
     },
     "book9/ch03-ionizing-medical-imaging/3-1.html": {
@@ -8732,20 +8732,20 @@
         "#attenuation",
         "#radiograph",
         "3-2.html",
-        "../vendor/katex/katex.min.js",
-        "../vendor/katex/auto-render.min.js",
-        "../js/math.js",
-        "../js/checks.js",
+        "../../vendor/katex/katex.min.js",
+        "../../vendor/katex/auto-render.min.js",
+        "../../js/math.js",
+        "../../js/checks.js",
         "../js/stage.js"
       ],
       "scriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
       "normalizedContentSha256": "73b0f18d6c50023c452a7336e874475fb7eb2d8c63c4671731c1c7b7c61c38a0",
-      "normalizedScriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
+      "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
         "../css/book.css",
-        "../vendor/katex/katex.min.css"
+        "../../vendor/katex/katex.min.css"
       ]
     },
     "book9/ch03-ionizing-medical-imaging/3-2.html": {
@@ -8931,19 +8931,19 @@
       ],
       "links": [
         "index.html",
-        "../vendor/katex/katex.min.js",
-        "../vendor/katex/auto-render.min.js",
-        "../js/math.js",
+        "../../vendor/katex/katex.min.js",
+        "../../vendor/katex/auto-render.min.js",
+        "../../js/math.js",
         "../../js/checks.js"
       ],
       "scriptsSha256": "41156d6bf360a4b84c72e7b4708353522c23de63b1291c2660e47794b94cf3d2",
       "normalizedContentSha256": "59922441cffb4ff354d048acdfb365893aa6fdaf16881bfd921ba9832b089642",
-      "normalizedScriptsSha256": "41156d6bf360a4b84c72e7b4708353522c23de63b1291c2660e47794b94cf3d2",
+      "normalizedScriptsSha256": "1ebe2f25d64cb5af3cef206e8d670494eee0573e60eb16ef5de38d1fc5939311",
       "stylesheets": [
         "../../css/p2n-shell.css",
         "../../css/notes.css",
         "../css/book.css",
-        "../vendor/katex/katex.min.css"
+        "../../vendor/katex/katex.min.css"
       ]
     },
     "book9/index.html": {
