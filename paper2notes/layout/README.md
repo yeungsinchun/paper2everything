@@ -92,6 +92,7 @@ This migration restores `notes/book6/css/{notes,p2n}.css` and `notes/book9/css/{
 Those pages load `p2n-shell.css`, the book `notes.css`, the book `p2n.css`, and the shared KaTeX where the page has maths.
 The four sheets are a deliberate exception to the shared-asset rule; `ci-check.mjs` allows them by exact path.
 The Book 6 and Book 9 `book.css` files are gone because those pages no longer load them.
+The two book `p2n.css` sheets also carry the shared `details.worked` summary and `worked-body` rules, because the migrated lesson markup uses that disclosure.
 The site check reports one problem: the copied `js/checks.js` that Book 1 keeps and `notes/_source/book1-dse/build_snapshot.py` reads.
 The quiz audit reports no page problems and two disagreements between Book 1 quiz keys and the answer store.
 The pull request records the exact validation results and browser coverage separately.
