@@ -17,34 +17,23 @@ The panel exposes its expanded state, region name, and loading status to assisti
 Print styles hide the interaction and restore the normal QB card layout.
 Existing question exports omit these panels.
 
-The canonical store maps 333 of the 989 supported question identities:
-226 DSE multiple-choice records, 106 DSE long-question records, and one QB record (`PHY15033101`).
-Those 333 records carry 338 passages, and every passage publishes as available.
-The other 656 records show the explicit missing state.
-That state means no verified passage is mapped; it is not a claim that the notes lack the concept.
-A missing state is preferred over a passage whose topic does not match the question.
+The mechanism ships with two verified references: QB `PHY15033101` and DSE MC 2018 Q31.
+Every other supported question shows the explicit missing state.
+A missing state means no verified reference is mapped; it is not a claim that the notes lack the concept.
+Corpus coverage belongs to the separate coverage task.
 This interface does not generate notes, infer mappings, or call a model.
 
-## How references were established
+## What a verified reference records
 
-Each DSE question carries a reviewed classification in `paper2db/metadata/{mc,lq}/llm_classifications.json`:
-its section list plus a reason written from the published question crop.
-The notes chapters teach the same sections, so the classification fixes the chapter a question belongs to.
-A reference is kept only when three things agree:
-
-- the reviewed classification places the question in a section whose notes chapter holds the anchor;
-- the notes publish the question as a practice slide in that chapter, or a crop review selected the block;
-- the stored block is that chapter's teaching statement for the concept the classification names:
-a definition, a principles statement, or a method tip that states the relation the question uses.
-
-The highlight covers the complete sentences of that statement.
-A bulk pass that mapped questions by chapter keyword alone was rejected and removed.
-It had used a stale fallback classification for some long questions, so those panels would have shown a passage from a different topic.
-Records where the anchor chapter and the reviewed classification disagree are dropped, not re-pointed.
-That rule is why coverage is partial: not every chapter publishes a practice deck, and a block on another topic is never substituted.
-`tier: verified` therefore means reviewed concept-level correspondence at chapter granularity, not a worked solution of the question.
-A reader still has to apply the relation to the numbers in the question.
-Four records cite two or three passages, because the question spans more than one statement: fission and fusion, Boyle's law and the ideal-gas model, or the reflection, refraction and diffraction statements.
+A reference is stored only after a direct review of the published question crop against the notes page:
+the crop's question was compared with the highlighted notes sentences, and the notes anchor was opened to confirm the text.
+The two stored references are the complete reviewed set.
+The `source` field records the crop SHA-256 and the review scope.
+A topic label, a chapter match, or a practice-slide placement is not enough on its own.
+A bulk pass built that way was rejected and removed, because some panels showed a passage from a different topic.
+`tier: verified` therefore means that direct crop-to-notes comparison, not a worked solution of the question.
+A reader still has to apply the definition to the numbers in the question.
+One record cites two passages, because the DSE question contrasts the fission definition with the chain reaction.
 
 ## Sources and inventory
 
@@ -177,11 +166,10 @@ docker build -f paper2notes/deploy/cloudrun/Dockerfile .
 
 ## Example reviews
 
-The two references below were reviewed against the published question crops in full detail, and they are the model for the store.
-Three long questions (DSE LQ 2024 Q9, PP Q4 and 2026 Q2) were also checked against their crops in this round and point at the block each crop supports.
-The remaining references were selected by the agreement rule in "How references were established" and inherit the reviewed classification's crop evidence.
-None is a human sign-off or a full-question solution.
-Each canonical `source` field names the classification sections, the practice-slide placement or the crop review, and the notes block.
+The two references below are the whole store.
+Each was reviewed against the published question crop in full detail, and each is the model for any later reference.
+Neither is a human sign-off or a full-question solution.
+Each canonical `source` field names the crop, its SHA-256, and the notes block.
 The notes hashes independently detect changes to every referenced teaching passage.
 
 ### QB PHY15033101
@@ -243,8 +231,8 @@ Attach captures to the pull request; do not commit them or link local paths in i
 
 The local Docker command could not connect to `unix:///Users/sinchunyeung/.docker/run/docker.sock`.
 The task did not start or change the shared Docker service.
-The dedicated `question-notes` workflow builds the actual image and checks its generated JSON and module MIME type.
-An added workflow is not evidence that its remote run passed.
+No repository workflow runs these checks in this change;
+run the commands above deliberately.
 
 Repository-wide checks preserve unrelated baseline failures from main commit `5e525c46`.
 `ci-check.mjs` reports 254 existing findings about shared assets and other content.
