@@ -1,0 +1,220 @@
+<!-- page
+{
+  "type": "section",
+  "title": "Section 23.3 Turning effect and the DC motor"
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../../css/p2n-shell.css"><link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+<!-- slot:content -->
+<p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 6.3</p>
+    <h1>Turning effect and motor</h1>
+
+    <section class="idea" id="coil-couple">
+      <header>
+        <h2><span class="sec-num">A</span>Coil as a couple</h2>
+      </header>
+      <figure class="fig" id="coil-couple-fig-1">
+        <div class="visual play stage" data-scene="coil-torque" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Coil as a couple"></canvas>
+          <span class="hud-label" data-hud="a">Coil as a co</span>
+        </div>
+        <figcaption><b>Fig. 23.3</b> Opposite sides, opposite \(F\): a couple.</figcaption>
+      </figure>
+      <div class="def" id="coil-couple-def-1">
+        <span class="tag">Key idea</span>
+        <p>Rectangular coil N turns area A in B: forces on two opposite sides form a couple torque \(\tau = N B I A \sin\phi\) (φ between normal and B; maximum when coil plane is parallel to B). Zero when plane perpendicular. The coil oscillates without commutation.</p>
+      </div>
+      <table class="notes" id="coil-couple-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Factors</th><td>Torque ∝ N, B, I, A.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="coil-couple-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A 10-turn 5×5 cm coil carries 2 A in 0.1 T. Maximum torque is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">0.005 N m</button>
+          <button type="button" data-choice="B">0.05 N m</button>
+          <button type="button" data-choice="C">0.025 N m</button>
+          <button type="button" data-choice="D">Zero</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>\(A = 0.05^2 = 0.0025\ \text{m}^2\), so \(\tau_{\max} = NBIA = 10 \times 0.1 \times 2 \times 0.0025 = 0.005\ \text{N m}\).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="motor">
+      <header>
+        <h2><span class="sec-num">B</span>DC motor: commutator</h2>
+      </header>
+      <figure class="fig" id="motor-fig-1">
+        <div class="visual play stage" data-scene="dc-motor" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="DC motor: commutator"></canvas>
+          <span class="hud-label" data-hud="a">DC motor: co</span>
+        </div>
+        <figcaption><b>Fig. 23.3</b> Split ring flips the current each half-turn.</figcaption>
+      </figure>
+      <div class="def" id="motor-def-1">
+        <span class="tag">Key idea</span>
+        <p>Motor: coil + split-ring commutator + brushes + magnet. Each half-turn, commutator swaps contacts so the side that was pushed up now gets reversed current and is still pushed up → continuous rotation. AC on same motor would reverse twice per cycle → vibrates not steady.</p>
+      </div>
+      <table class="notes" id="motor-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Brushes</th><td>Graphite, low friction; gap causes sparking.</td></tr>
+          <tr><th>Speed</th><td>Higher ε/I gives faster spin; more turns → more torque.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="motor-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>If a d.c. motor's battery is replaced by sinusoidal a.c. of same peak, what happens?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">Steady rotation faster</button>
+          <button type="button" data-choice="B">Vibrates/stalls, no steady rotation</button>
+          <button type="button" data-choice="C">Reverses direction each cycle but keeps steady speed</button>
+          <button type="button" data-choice="D">Same as before</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Commutator timed for d.c.; a.c. polarity reverses independently, net torque averages near zero → judder.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-scan-export>
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">MC practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-29">
+          <h3>2012/29 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/29 MC — section 23</figcaption>
+            <img src="../_local/dse/mc/23/2012_q29.png" alt="HKDSE 2012/29 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2018-27">
+          <h3>2018/27 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/27 MC — section 23</figcaption>
+            <img src="../_local/dse/mc/23/2018_q27.png" alt="HKDSE 2018/27 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2012-10">
+          <h3>2012/10 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/10 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2012-q10.png" alt="HKDSE 2012/10 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2013-4">
+          <h3>2013/4 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/4 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2013-q4.png" alt="HKDSE 2013/4 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2016-8">
+          <h3>2016/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2016/8 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2016-q8.png" alt="HKDSE 2016/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2017-9">
+          <h3>2017/9 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2017/9 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2017-q9.png" alt="HKDSE 2017/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2019-9">
+          <h3>2019/9 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2019/9 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2019-q9.png" alt="HKDSE 2019/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2020-3">
+          <h3>2020/3 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/3 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2020-q3.png" alt="HKDSE 2020/3 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2022-7">
+          <h3>2022/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2022/7 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2022-q7.png" alt="HKDSE 2022/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2022-9">
+          <h3>2022/9 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2022/9 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2022-q9.png" alt="HKDSE 2022/9 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2023-8">
+          <h3>2023/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2023/8 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2023-q8.png" alt="HKDSE 2023/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2024-12">
+          <h3>2024/12 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/12 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2024-q12.png" alt="HKDSE 2024/12 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2025-8">
+          <h3>2025/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2025/8 LQ &mdash; section 23</figcaption>
+            <img src="../_local/dse/lq/23/2025-q8.png" alt="HKDSE 2025/8 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+<!-- slot:scripts -->
+<script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../js/quiz-data.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../../vendor/three/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="js/notes.js"></script>
+<!-- slot:trailing -->

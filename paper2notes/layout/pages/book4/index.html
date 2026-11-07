@@ -1,0 +1,81 @@
+<!-- page
+{
+  "type": "overview",
+  "title": "Active Physics Book 4 · Electricity and Magnetism"
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../css/p2n-shell.css"><link rel="stylesheet" href="../css/notes.css">
+
+  <link rel="stylesheet" href="css/book.css">
+  <link rel="stylesheet" href="../css/book-layout.css">
+  <style>
+    /* Chapter glyphs already named in the design-system icon map.
+       zap and waves are mapped in ../css/p2n-shell.css. */
+    /* Root paths: book4/css/book.css applies mask: var(--src), so a relative
+       url() would resolve against that sheet, not this page. */
+    [data-ic="cable"] { --src: url(/assets/icons/cable.svg); }
+    [data-ic="split"] { --src: url(/assets/icons/split.svg); }
+    [data-ic="plug-zap"] { --src: url(/assets/icons/plug-zap.svg); }
+    [data-ic="magnet"] { --src: url(/assets/icons/magnet.svg); }
+    [data-ic="cog"] { --src: url(/assets/icons/cog.svg); }
+    [data-ic="waves"] { --src: url(/assets/icons/waves.svg); }
+    [data-ic="utility-pole"] { --src: url(/assets/icons/utility-pole.svg); }
+  </style>
+<!-- slot:content -->
+<p class="kicker">Book 4 · Electricity and Magnetism</p>
+    <h1>Electricity and Magnetism</h1>
+
+    <div class="p2n-cards">
+      <a class="p2n-cc" href="ch01-electrostatics/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="zap" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.1</span><b>Electrostatics</b><small>Charge and Coulomb's law · Electric field and field lines</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="ch02-circuit-fundamentals/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="cable" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.2</span><b>Circuit fundamentals</b><small>Current, p.d. and e.m.f. · Resistance, Ohm's law and resistivity</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="ch03-series-parallel-and-internal-resistance/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="split" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.3</span><b>Networks and internal resistance</b><small>Series and parallel combinations · Internal resistance and meters</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="ch04-power-and-domestic-electricity/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="plug-zap" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.4</span><b>Power and domestic electricity</b><small>Heating and electrical power · Domestic wiring and safety</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="ch05-magnetic-fields-and-electromagnets/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="magnet" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.5</span><b>Magnetic fields</b><small>Fields of magnets and currents</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="ch06-magnetic-force-and-dc-motor/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="cog" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.6</span><b>Force and the DC motor</b><small>Force on currents and charges · Turning effect and motor</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="ch07-electromagnetic-induction/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="waves" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.7</span><b>Electromagnetic induction</b><small>Flux, Lenz and Faraday · Generators and eddy currents</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+      <a class="p2n-cc" href="ch08-ac-transformers-and-transmission/index.html" style="--tone:var(--book4);--soft:var(--book4-soft)">
+        <span class="p2n-cc-ic"><span class="p2n-icon" style="--s:32px" data-ic="utility-pole" aria-hidden="true"></span></span>
+        <span class="p2n-cc-t"><span class="p2n-label">Ch.8</span><b>AC and transformers</b><small>Alternating current and r.m.s. · Transformers and high-voltage transmission</small></span>
+        <span class="p2n-icon p2n-cc-go" data-ic="chevron-right" aria-hidden="true"></span>
+      </a>
+    </div>
+    <p>
+      <a class="quiz-export" href="_local/dse/mc/20/combined.pdf" download="combined.pdf">Export Ch.1 PDF</a>
+      <a class="quiz-export" href="_local/dse/mc/21/combined.pdf" download="combined.pdf">Export Ch.2–3 PDF</a>
+      <a class="quiz-export" href="_local/dse/mc/22/combined.pdf" download="combined.pdf">Export Ch.4 PDF</a>
+      <a class="quiz-export" href="_local/dse/mc/23/combined.pdf" download="combined.pdf">Export Ch.5–6 PDF</a>
+      <a class="quiz-export" href="_local/dse/mc/24/combined.pdf" download="combined.pdf">Export Ch.7–8 PDF</a>
+    </p>
+<!-- slot:scripts -->
+
+<!-- slot:trailing -->
+<!-- Book4 Round1 validated 2026-09-28T18:09:11Z -->

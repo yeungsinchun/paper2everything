@@ -10,7 +10,7 @@ paper2everything turns Hong Kong secondary-school source material (HKDSE Physics
 
 | Subproject | What it is | Audience-facing output |
 |---|---|---|
-| `paper2notes/` | Visual, interactive HKDSE Physics notes (Book 2 Force and Motion, Book 4 Electricity and Magnetism, Book 5 Radioactivity and Nuclear Energy), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb` |
+| `paper2notes/` | Visual, interactive HKDSE Physics notes (Book 2 Force and Motion, Book 4 Electricity and Magnetism, Book 5 Radioactivity and Nuclear Energy), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb`, mock-exam builder at `/mock` |
 | `paper2db/` | Pipeline that splits HKDSE Paper 1A (MC) and 1B (LQ) PDFs into per-question crops, classifies each to a syllabus section, pairs answers and candidate-performance notes, and ingests the QB DOCX banks | Per-section MC and LQ banks, section PDFs, whole-paper reconstructions, QB item data |
 | `paper2mock/` | Reserved for possible future work; F.1 maths content was removed pending a HKDSE Physics decision | None |
 
@@ -69,7 +69,9 @@ Versus a plain past-paper archive: questions are cut per item, labelled by secti
 - Notes: Book 2 (10 chapters), Book 4 (8), Book 5 (3).
 - DSE banks: 27 syllabus sections, MC and LQ; tracked published snapshot ships in the image; see [the publication contract](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
 - QB: 46 banks, 169 DOCX, 3,847 items (1,881 in scope), surfaced in `/qb` with topic filters and real crops.
+- Mock exams: `/mock` builds a multiple-choice paper to the teacher's topic, question-count and target-score choices. Each question's difficulty is the recorded pass rate of the real exam question it rewrites.
 - The F.1 maths content formerly in `paper2mock/` was removed pending a decision about its place in an HKDSE Physics project.
+
 
 ## 4. Content model (paper2notes)
 
@@ -91,6 +93,7 @@ notes/css/notes.css                   shared sheet for every book (tokens, layou
 notes/js/                             shared checks.js, math.js, scene-kit.js
 notes/vendor/{katex,three}/           shared vendored KaTeX and three.js
 notes/qb/                             question-bank UI (index.html, crops/, data/)
+notes/mock/                           mock-exam builder (index.html, css/, js/; reads qb/data/)
 notes/dse/{mc,lq}/<section>/          published DSE snapshot (tracked, from paper2db)
 notes/_source/<book-ch>/              intake; never shown to students, not shipped in the image
 ```
@@ -483,6 +486,7 @@ One repository, with paper2notes and paper2db mutually dependent (paper2notes re
 
 The repository has no automated check or test workflows. Notes checks, audits,
 and pipeline scripts remain available to run by hand. See [Architecture §5](ARCHITECTURE.md#5-automated-workflows).
+
 
 **Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
 

@@ -1,0 +1,235 @@
+<!-- page
+{
+  "type": "section",
+  "title": "Section 21.1 Current, potential difference and e.m.f."
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../../css/p2n-shell.css"><link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+<!-- slot:content -->
+<p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 2.1</p>
+    <h1>Current, potential difference and e.m.f.</h1>
+
+    <section class="idea" id="current">
+      <header>
+        <h2><span class="sec-num">A</span>Current as rate of flow</h2>
+      </header>
+      <figure class="fig" id="current-fig-1">
+        <div class="visual play stage" data-scene="current-flow" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Current as rate of flow"></canvas>
+          <span class="hud-label" data-hud="a">Current as r</span>
+        </div>
+        <figcaption><b>Fig. 21.1</b> Conventional current: + → −. Electrons go the other way.</figcaption>
+      </figure>
+      <div class="def" id="current-def-1">
+        <span class="tag">Key idea</span>
+        <p>Current \(I = \Delta Q/\Delta t\) (C/s = ampere). One coulomb is \(\sim 6.2\times10^{18}\) electrons. Drift velocity is slow (mm/s), but energy transfer is near light speed because the field propagates. Number of electrons \(n = Q/e\).</p>
+      </div>
+      <table class="notes" id="current-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Convention</th><td>Current arrow is motion of + charge. In a metal wire electrons drift opposite to the arrow.</td></tr>
+          <tr><th>Charge</th><td>\(Q = I t\). Example: 2 A for 30 s → 60 C → \(3.7\times10^{20}\) electrons.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="current-check-1" data-check="mc" data-answer="C">
+        <h3>Quick check</h3>
+        <p>A 2 A current passes for 1 minute. How much charge passes a cross-section?</p>
+        <div class="choices">
+          <button type="button" data-choice="A">2 C</button>
+          <button type="button" data-choice="B">60 C</button>
+          <button type="button" data-choice="C">120 C</button>
+          <button type="button" data-choice="D">0.033 C</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Q=It=2×60=120 C. Option B forgets minutes→seconds.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="emf-pd">
+      <header>
+        <h2><span class="sec-num">B</span>e.m.f. vs p.d.</h2>
+      </header>
+      <figure class="fig" id="emf-pd-fig-1">
+        <div class="visual play stage" data-scene="emf-pd" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="e.m.f. vs p.d."></canvas>
+          <span class="hud-label" data-hud="a">e.m.f. vs p.</span>
+        </div>
+        <figcaption><b>Fig. 21.1</b> e.m.f. gives the energy; p.d. uses it.</figcaption>
+      </figure>
+      <div class="def" id="emf-pd-def-1">
+        <span class="tag">Key idea</span>
+        <p>e.m.f. \(\varepsilon = E/Q\) through the source (chemical/mechanical → electrical). p.d. \(V = E/Q\) outside the source (electrical → heat/light). In an ideal loop, sum of p.d.s around = e.m.f. For a cell with internal r: \(\varepsilon = V + I r\).</p>
+      </div>
+      <table class="notes" id="emf-pd-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Units</th><td>Both J/C = volt. e.m.f. is not a force, just a name.</td></tr>
+          <tr><th>Meter</th><td>Voltmeter across a component reads its p.d.; ideal draws no current.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="emf-pd-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A cell has e.m.f. 1.5 V and internal resistance 0.5 Ω. When delivering 1 A to a load, terminal voltage is</p>
+        <div class="choices">
+          <button type="button" data-choice="A">1.5 V</button>
+          <button type="button" data-choice="B">1.0 V</button>
+          <button type="button" data-choice="C">2.0 V</button>
+          <button type="button" data-choice="D">0.5 V</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>V=ε−Ir=1.5−0.5=1.0 V. The missing 0.5 V drops inside the cell.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-scan-export>
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">MC practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-26">
+          <h3>2012/26 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/26 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2012_q26.png" alt="HKDSE 2012/26 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2018-23">
+          <h3>2018/23 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/23 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2018_q23.png" alt="HKDSE 2018/23 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2013-10">
+          <h3>2013/10 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/10 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2013-q10.png" alt="HKDSE 2013/10 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2015-8">
+          <h3>2015/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2015/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2015-q8.png" alt="HKDSE 2015/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2016-7">
+          <h3>2016/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2016/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2016-q7.png" alt="HKDSE 2016/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2017-8">
+          <h3>2017/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2017/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2017-q8.png" alt="HKDSE 2017/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2019-7">
+          <h3>2019/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2019/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2019-q7.png" alt="HKDSE 2019/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2020-8">
+          <h3>2020/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2020-q8.png" alt="HKDSE 2020/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2021-8">
+          <h3>2021/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2021/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2021-q8.png" alt="HKDSE 2021/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2022-8">
+          <h3>2022/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2022/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2022-q8.png" alt="HKDSE 2022/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2023-7">
+          <h3>2023/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2023/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2023-q7.png" alt="HKDSE 2023/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2024-11">
+          <h3>2024/11 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/11 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2024-q11.png" alt="HKDSE 2024/11 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2025-7">
+          <h3>2025/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2025/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2025-q7.png" alt="HKDSE 2025/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2026-8">
+          <h3>2026/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2026/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2026-q8.png" alt="HKDSE 2026/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-pp-12">
+          <h3>pp/12 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>pp/12 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/pp-q12.png" alt="HKDSE pp/12 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="21-2.html">Next: Resistance, Ohm's law and resistivity →</a></p>
+<!-- slot:scripts -->
+<script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../js/quiz-data.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../../vendor/three/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<!-- slot:trailing -->
