@@ -72,7 +72,8 @@
 <script src="../vendor/katex/katex.min.js"></script>
 <script src="../vendor/katex/auto-render.min.js"></script>
 <script type="module">
-import { attachQuestionNotes } from '../js/question-notes.mjs';
+let attachQuestionNotes = () => {};
+try { ({ attachQuestionNotes } = await import('../js/question-notes.mjs')); } catch {}
 // Two separate stores, never merged: DSE past papers and QB.
 const STORES = { dse_mc: null, dse_lq: null, dse_sections: null, qb_items: null, qb_banks: null, qb_deployed: null };
 let selected = new Set(); // ids like "dse:2018-31" and "qb:PHY15031101"

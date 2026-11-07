@@ -129,7 +129,7 @@ export async function run() {
     check(panel.hidden && !panel.textContent, 'Late response cannot reopen a closed panel');
     window.fetch = nativeFetch;
 
-    for (const [searchId, value, hasNotes] of [['qb-search', 'PHY15033101', true], ['dse-search', '2018 31', true], ['dse-search', '2019-18', false]]) {
+    for (const [searchId, value, hasNotes] of [['qb-search', 'PHY15033101', true], ['dse-search', '2018 31', true], ['dse-search', '2020-16', false]]) {
       const search = document.getElementById(searchId);
       search.value = value; search.dispatchEvent(new Event('input', { bubbles: true }));
       const grid = document.getElementById(searchId.replace('search', 'grid'));
