@@ -41,6 +41,9 @@ else
 fi
 if [ ! -d "$repo_root/$notes_src/book5" ]; then echo "deploy: $notes_src/book5 missing under $repo_root" >&2; exit 1; fi
 
+# Compile authoritative book slots before footer injection and image creation.
+node "$maybe_p2n/scripts/build-books.mjs"
+
 sha="$(git -C "$repo_root" rev-parse HEAD 2>/dev/null | cut -c1-6 || echo local)"
 if [ -z "$sha" ]; then sha="local"; fi
 subject="$(git -C "$repo_root" log -1 --format=%s 2>/dev/null || true)"

@@ -73,7 +73,7 @@ Versus a plain past-paper archive: questions are cut per item, labelled by secti
 
 ## 4. Content model (paper2notes)
 
-paper2notes turns source material into static HTML that prioritises visual diagrams, keeps prose minimal and includes concept checks. It is a read-only consumer of `paper2db`. There is no build step.
+paper2notes turns source material into static HTML that prioritises visual diagrams, keeps prose minimal and includes concept checks. It is a read-only consumer of `paper2db`. `paper2notes/scripts/build-books.mjs` compiles the shared book layout into the published book pages. Preview still opens those generated pages directly.
 
 ### 4.1 Hierarchy
 
