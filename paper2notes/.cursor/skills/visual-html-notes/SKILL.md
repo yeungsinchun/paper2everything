@@ -5,7 +5,7 @@ description: Write visual-first HTML notes under notes/** as three.js diagrams, 
 
 # Visual HTML notes
 
-Open a chapter `index.html` in a browser (no build). Intake is `notes/_source/<book-ch>/`. Student pages must not show intake, OCR, QB numbers, "book cut", textbook-order ledes, or other meta chrome; keep provenance in `_source` or HTML comments.
+Book pages are generated: edit `paper2notes/layout/pages/`, then run `node paper2notes/scripts/build-books.mjs` and open the generated chapter `index.html` in a browser. Intake is `notes/_source/<book-ch>/`. Student pages must not show intake, OCR, QB numbers, "book cut", textbook-order ledes, or other meta chrome; keep provenance in `_source` or HTML comments.
 
 ## Worked page (25.1 knockout)
 

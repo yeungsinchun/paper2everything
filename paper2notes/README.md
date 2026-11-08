@@ -15,11 +15,49 @@ Convert HKDSE Physics source material into HTML notes that prioritize interactiv
 
 ## Notes
 
-HTML notes live under `notes/`. Follow textbook order; prefer visual animation over text.
+Published HTML notes live under `notes/`. Follow textbook order; prefer visual animation over text.
+
+## Shared book layout
+
+`layout/book.html` owns the document, primary navigation, book brand, page frame, and footer markup for every book route.
+`layout/books.json` supplies book labels and icons.
+`layout/pages/book*/**/*.html` supplies each page's title, page type, and four explicit HTML slots: `head`, `content`, `scripts`, and `trailing`.
+The `head` slot retains book accents and chapter styles through existing stylesheet links.
+The `content` slot retains chapter cards, lesson-local idea links, goals, figures, questions, and export controls.
+The `scripts` slot retains each page's scripts and their order.
+No page source contains a document shell or secondary header navigation.
+
+Edit these sources, then run:
+
+```sh
+node paper2notes/scripts/build-books.mjs
+node --test paper2notes/scripts/build-books.test.mjs
+node paper2notes/scripts/ci-check.mjs
+```
+
+Run these commands from the repository root.
+Commit the source and generated HTML together.
+`build-books.mjs --check` rejects stale outputs and published book routes without sources.
+Local previews still serve `notes/` directly without browser-side rendering or a framework dependency.
+Both `deploy.sh` and the Docker build compile the layout before deployment.
+The deploy workflow also responds to changes in layout sources and the compiler.
+Deployment still owns commit-footer values; rebuilding preserves those values.
+
+The migration covers 195 routes across Books 1–9.
+Book 2 keeps its overview and ten complete chapter pages.
+Other books keep their existing maps, section pages, summaries, and lesson-local subsections.
+`layout/migration-contract.json` records the starting routes, lesson hashes, script hashes, anchors, and lesson links from `36d17fac`.
+The preservation tests ignore empty-line whitespace and whitespace at slot boundaries.
+Update the corresponding contract entries when intentionally changing lesson content after this migration.
+The tests edit an isolated template copy, rebuild every route, and verify propagation without changing page sources.
+Representative screenshots do not establish complete route coverage.
+
+See `layout/README.md` for generation paths, validation coverage, and existing exceptions.
 
 ## Shared assets
 
 Every book links one copy of the shared styles, scripts and vendored libraries. A book holds only its own content and a thin book sheet. `scripts/ci-check.mjs` fails a book that keeps its own copy of any of these files, or links a page to anything other than the shared copy.
+Book 6 and Book 9 are the exception: their pages keep their own `notes.css` and `p2n.css` design sheets and do not load the shared sheet. `ci-check.mjs` allows those four files by exact path.
 
 | Shared file (under `notes/`) | What it holds |
 |---|---|

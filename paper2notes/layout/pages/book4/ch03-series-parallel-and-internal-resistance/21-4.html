@@ -1,0 +1,235 @@
+<!-- page
+{
+  "type": "section",
+  "title": "Section 21.4 Internal resistance and meters"
+}
+-->
+<!-- slot:head -->
+<link rel="stylesheet" href="../../css/p2n-shell.css"><link rel="stylesheet" href="../../css/notes.css">
+  <link rel="stylesheet" href="../css/book.css">
+  <link rel="stylesheet" href="../../vendor/katex/katex.min.css">
+<!-- slot:content -->
+<p class="page-tools"><button type="button" class="quiz-export" data-notes-export>Export notes as PDF</button></p>
+    <p class="kicker">Section 3.4</p>
+    <h1>Internal resistance and meters</h1>
+
+    <section class="idea" id="internal">
+      <header>
+        <h2><span class="sec-num">A</span>Terminal voltage</h2>
+      </header>
+      <figure class="fig" id="internal-fig-1">
+        <div class="visual play stage" data-scene="internal-r" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Terminal voltage \(V = \varepsilon - I r\)"></canvas>
+          <span class="hud-label" data-hud="a">Terminal vol</span>
+        </div>
+        <figcaption><b>Fig. 21.4</b> Terminal voltage falls as current rises.</figcaption>
+      </figure>
+      <div class="def" id="internal-def-1">
+        <span class="tag">Key idea</span>
+        <p>Real source: \(\varepsilon\) internal, \(r\) in series. Closed loop: \(\varepsilon = I(R+r)\), terminal \(V = I R = \varepsilon - I r\). Open circuit I=0 → V=ε. Short R→0 → I=ε/r. Measuring V vs I gives slope −r, intercept ε.</p>
+      </div>
+      <table class="notes" id="internal-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Graph</th><td>V vs I is straight line downwards; r = −slope.</td></tr>
+          <tr><th>Power</th><td>Max power to load when \(R = r\) (matching).</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="internal-check-1" data-check="mc" data-answer="A">
+        <h3>Quick check</h3>
+        <p>A 6 V cell with r=1 Ω feeds a 2 Ω load. Current and terminal voltage are</p>
+        <div class="choices">
+          <button type="button" data-choice="A">2 A, 4 V</button>
+          <button type="button" data-choice="B">3 A, 3 V</button>
+          <button type="button" data-choice="C">1.5 A, 6 V</button>
+          <button type="button" data-choice="D">2 A, 6 V</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>Total 3 Ω → I=2 A. V=IR=4 V (or ε−Ir=4).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idea" id="meters">
+      <header>
+        <h2><span class="sec-num">B</span>Meters and earthing</h2>
+      </header>
+      <figure class="fig" id="meters-fig-1">
+        <div class="visual play stage" data-scene="meter-effect" data-autoplay>
+          <canvas class="scene-canvas" width="960" height="360" aria-label="Meters and earthing"></canvas>
+          <span class="hud-label" data-hud="a">Meters and e</span>
+        </div>
+        <figcaption><b>Fig. 21.4</b> Ammeter in series; voltmeter in parallel.</figcaption>
+      </figure>
+      <div class="def" id="meters-def-1">
+        <span class="tag">Key idea</span>
+        <p>Ammeter in series should have ~0 resistance (otherwise lowers I). Voltmeter in parallel should have >>R (otherwise shunts current and reads low). Earthed point sets 0 V reference; any voltage is measured relative to earth.</p>
+      </div>
+      <table class="notes" id="meters-notes-1">
+        <thead><tr><th>Key idea</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>Loading</th><td>Voltmeter 1 kΩ across 10 kΩ divider reads noticeably low; 1 MΩ reads nearly true.</td></tr>
+          <tr><th>Earth</th><td>Chassis earthed for safety; touching live while earthed completes path.</td></tr>
+        </tbody>
+      </table>
+      <div class="check" id="meters-check-1" data-check="mc" data-answer="B">
+        <h3>Quick check</h3>
+        <p>A voltmeter of 1 kΩ across a 10 kΩ resistor in a 10 V divider (another 10 kΩ) reads</p>
+        <div class="choices">
+          <button type="button" data-choice="A">~5 V</button>
+          <button type="button" data-choice="B">~0.9 V</button>
+          <button type="button" data-choice="C">5 V always</button>
+          <button type="button" data-choice="D">10 V</button>
+        </div>
+        <p class="feedback"></p>
+        <div class="explain" hidden>
+          <p>~0.91 V. Equivalent 10k//1k≈0.91k, total ~10.91k, I≈0.92 mA, drop over lower ≈0.83 V? Actually ~0.9 V demonstrates loading. Ideal would be 5 V.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="mc-quiz" aria-labelledby="mc-quiz-heading" data-quiz="mc" data-quiz-scan-export>
+      <header>
+        <span class="sec-num">MC</span>
+        <h2 id="mc-quiz-heading">MC practice</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-mc-2012-26">
+          <h3>2012/26 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2012/26 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2012_q26.png" alt="HKDSE 2012/26 MC">
+          </figure>
+        </article>
+        <article class="quiz-slide " hidden id="dse-mc-2018-23">
+          <h3>2018/23 MC</h3>
+          <figure class="dse-paper">
+            <figcaption>2018/23 MC — section 21</figcaption>
+            <img src="../_local/dse/mc/21/2018_q23.png" alt="HKDSE 2018/23 MC">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <section class="section-dse lo-quiz" id="lq-quiz" aria-labelledby="lq-quiz-heading" data-quiz="lq">
+      <header>
+        <span class="sec-num">LQ</span>
+        <h2 id="lq-quiz-heading">Long questions</h2>
+      </header>
+      <div class="quiz-slides">
+        <article class="quiz-slide is-current" id="dse-lq-2013-10">
+          <h3>2013/10 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2013/10 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2013-q10.png" alt="HKDSE 2013/10 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2015-8">
+          <h3>2015/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2015/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2015-q8.png" alt="HKDSE 2015/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2016-7">
+          <h3>2016/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2016/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2016-q7.png" alt="HKDSE 2016/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2017-8">
+          <h3>2017/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2017/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2017-q8.png" alt="HKDSE 2017/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2019-7">
+          <h3>2019/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2019/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2019-q7.png" alt="HKDSE 2019/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2020-8">
+          <h3>2020/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2020/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2020-q8.png" alt="HKDSE 2020/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2021-8">
+          <h3>2021/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2021/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2021-q8.png" alt="HKDSE 2021/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2022-8">
+          <h3>2022/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2022/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2022-q8.png" alt="HKDSE 2022/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2023-7">
+          <h3>2023/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2023/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2023-q7.png" alt="HKDSE 2023/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2024-11">
+          <h3>2024/11 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2024/11 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2024-q11.png" alt="HKDSE 2024/11 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2025-7">
+          <h3>2025/7 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2025/7 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2025-q7.png" alt="HKDSE 2025/7 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-2026-8">
+          <h3>2026/8 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>2026/8 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/2026-q8.png" alt="HKDSE 2026/8 LQ">
+          </figure>
+        </article>
+        <article class="quiz-slide" hidden id="dse-lq-pp-12">
+          <h3>pp/12 LQ</h3>
+          <figure class="dse-paper">
+            <figcaption>pp/12 LQ &mdash; section 21</figcaption>
+            <img src="../_local/dse/lq/21/pp-q12.png" alt="HKDSE pp/12 LQ">
+          </figure>
+        </article>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" data-quiz-prev>Prev</button>
+        <p class="quiz-status" aria-live="polite"></p>
+        <button type="button" data-quiz-next>Next</button>
+      </div>
+    </section>
+
+    <p class="next"><a href="summary.html">Next: Chapter summary →</a></p>
+<!-- slot:scripts -->
+<script src="../../vendor/katex/katex.min.js"></script>
+  <script src="../../vendor/katex/auto-render.min.js"></script>
+  <script src="../../js/math.js"></script>
+  <script src="../js/quiz-data.js"></script>
+  <script src="../../js/checks.js"></script>
+  <script src="../../vendor/three/three.min.js"></script>
+  <script src="../js/diagrams3d.js"></script>
+  <script src="../js/notes.js"></script>
+<!-- slot:trailing -->
