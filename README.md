@@ -23,7 +23,7 @@ paper2everything/
 ├── AGENTS.md, CONTRIBUTING.md   agent map and contribution rules
 ├── docs/                        PRD.md, ARCHITECTURE.md, lavish-notes-boards.md
 ├── paper2notes/
-│   ├── layout/                  book template, books.json, pages/ (source for every book page)
+│   ├── layout/                  arrangement, components/, books.json, pages/ (source for every book page)
 │   ├── notes/                   the site: landing, book1–book9/ (generated), qb/, dse/ snapshot
 │   │   └── _source/<book-ch>/   intake (ocr.md, outline.md, problems.md, images/, INDEX.md)
 │   ├── scripts/                 build-books.mjs, build-books.test.mjs, checks/, build/ (sync-dse.sh, inject-commit-footer.mjs), audit/
@@ -106,7 +106,7 @@ node paper2notes/scripts/checks/ci-check.mjs
 - **Book 8 Energy and Use of Energy**: 4 chapters, `paper2notes/notes/book8/`
 - **Book 9 Medical Physics**: 3 chapters, `paper2notes/notes/book9/`
 
-Book pages are generated from `paper2notes/layout/pages/`; per-book page coverage is in [`paper2notes/layout/README.md`](paper2notes/layout/README.md).
+Book pages are generated from `paper2notes/layout/`; per-book page coverage is in [`paper2notes/layout/README.md`](paper2notes/layout/README.md).
 
 DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 banks and 3,847 items (1,881 in scope).
 
