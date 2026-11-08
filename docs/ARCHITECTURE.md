@@ -244,7 +244,7 @@ by hand. The repository has no automated test workflows.
 
 ### 6. Cloud Run deploy
 
-`paper2notes/deploy/cloudrun/deploy.sh` resolves the 6-char `HEAD` (or `local`), injects/updates a muted `deploy-commit-footer` (`deployed commit: <code>`) into every `paper2notes/notes/**/*.html` via `paper2notes/scripts/inject-commit-footer.mjs --commit <sha>` and passes `--build-arg GIT_COMMIT=<sha>` before building `paper2notes/deploy/cloudrun/Dockerfile` with the repo root as context (it detects the monorepo by looking for `paper2notes/notes/book5` at the git top level), pushes to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, runs `gcloud run deploy`, and curls `/`, `/book2/`, `/book4/`, `/book5/` plus one file from each shared folder (`/css/notes.css`, `/js/checks.js`, `/vendor/katex/katex.min.js`, `/vendor/three/three.min.js`). The root `.dockerignore` admits the notes, `nginx.conf`, the teaching-reference store and its producer, and excludes `_source/`, `**/_local/` and the generated `notes/question-notes/`; the exact list is owned by `paper2notes/deploy/cloudrun/README.md`. The `Dockerfile`'s first stage runs the producer to generate `question-notes/passages.json`. The `Dockerfile` re-injects/updates the same footer at image-build time via `ARG GIT_COMMIT` (fallback so standalone `docker build -f paper2notes/deploy/cloudrun/Dockerfile .` without `deploy.sh` still gets a footer) and then `RUN cp -r dse/* → _local/dse/` (and into each `book*/_local/dse/`) as `root` and `chown`s to `nginx`, so the shipped image serves `_local/dse/…` paths from the tracked snapshot without needing `_local` in context. nginx serves the notes as static files on port 8080 with `absolute_redirect off`. `provision.sh` creates the GCP project, registry, runtime and deployer service accounts, the Cloud Run service and a Workload Identity Federation provider scoped to one GitHub repository. Footer details are owned by `paper2notes/deploy/cloudrun/README.md` and the injector `paper2notes/scripts/inject-commit-footer.mjs`.
+`paper2notes/deploy/cloudrun/deploy.sh` resolves the 6-char `HEAD` (or `local`), injects/updates a muted `deploy-commit-footer` (`deployed commit: <code>`) into every `paper2notes/notes/**/*.html` via `paper2notes/scripts/inject-commit-footer.mjs --commit <sha>` and passes `--build-arg GIT_COMMIT=<sha>` before building `paper2notes/deploy/cloudrun/Dockerfile` with the repo root as context (it takes the repo root from its own path, three levels up, and fails unless `paper2notes/notes/book5` exists there; it has no standalone `paper2notes/` build), pushes to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, runs `gcloud run deploy`, and curls `/`, `/book2/`, `/book4/`, `/book5/` plus one file from each shared folder (`/css/notes.css`, `/js/checks.js`, `/vendor/katex/katex.min.js`, `/vendor/three/three.min.js`). The root `.dockerignore` admits the notes, `nginx.conf`, the teaching-reference store and its producer, and excludes `_source/`, `**/_local/` and the generated `notes/question-notes/`; the exact list is owned by `paper2notes/deploy/cloudrun/README.md`. The `Dockerfile`'s first stage runs the producer to generate `question-notes/passages.json`. The `Dockerfile` re-injects/updates the same footer at image-build time via `ARG GIT_COMMIT` (fallback so a direct `docker build -f paper2notes/deploy/cloudrun/Dockerfile .` without `deploy.sh` still gets a footer) and then `RUN cp -r dse/* → _local/dse/` (and into each `book*/_local/dse/`) as `root` and `chown`s to `nginx`, so the shipped image serves `_local/dse/…` paths from the tracked snapshot without needing `_local` in context. nginx serves the notes as static files on port 8080 with `absolute_redirect off`. `provision.sh` creates the GCP project, registry, runtime and deployer service accounts, the Cloud Run service and a Workload Identity Federation provider scoped to one GitHub repository. Footer details are owned by `paper2notes/deploy/cloudrun/README.md` and the injector `paper2notes/scripts/inject-commit-footer.mjs`.
 
 ## Design findings
 
@@ -335,9 +335,7 @@ book (Books 2 and 4) or per chapter (Book 5, on the shared scene kit).
 `.github/workflows/` in paper2notes are copies that GitHub does not run.
 `paper2notes/.dockerignore` is unused (the root one applies).
 `paper2db/.no-mistakes.yaml` is nested with no root equivalent. Three
-`.gitignore` files overlap. `deploy.sh` still carries a standalone `paper2notes/`
-branch, but the Dockerfile now requires the monorepo build context: it reads
-`paper2db/metadata/pointers/notes.json`, so that branch cannot build.
+`.gitignore` files overlap.
 
 **A13. No automated checks remain.** The repository has no automated check or
 test workflows. paper2db outputs can still be built by hand.
@@ -372,7 +370,8 @@ not show provenance. `paper2notes/README.md` now points to `../docs/ARCHITECTURE
    exists in the manifest (A3–A6).
 3. Move the `SECTIONS` taxonomy to one module (or JSON) that both paper2db
    and the notes check read (A7).
-4. Monorepo deploy now live at cutover `47b7788` via WIF to `asia-east2/paper2notes`; retire the standalone `paper2notes` deploy when ready (A2 resolved).
+4. Done: the monorepo deploy is live (A2) and `deploy.sh` no longer has a
+   standalone `paper2notes` branch.
 5. Review and remove unused nested workflow files and `.dockerignore` (A12).
 6. Decide QB ownership: either version the DOCX (LFS) with the converter as a
    pipeline stage, or move QB handling to paper2notes intake (A8).

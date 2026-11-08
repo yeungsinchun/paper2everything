@@ -13,7 +13,7 @@ Goals, users, UI rules and data contracts are in the [PRD](docs/PRD.md).
 | `paper2notes/` | Visual HKDSE Physics notes (Books 2, 4, 5), static site, `/qb` question-bank UI | HTML/CSS/JS, vendored three.js and KaTeX, no build | [`paper2notes/README.md`](paper2notes/README.md), [`paper2notes/AGENTS.md`](paper2notes/AGENTS.md) |
 | `paper2db/` | Past-paper (MC, LQ) and question-bank (QB) pipeline, classified by syllabus section | Python 3, PyMuPDF, Pillow, tesseract, optional LLM API | [`paper2db/README.md`](paper2db/README.md), [`paper2db/AGENTS.md`](paper2db/AGENTS.md) |
 | `paper2mock/` | Reserved for possible future work; F.1 maths content was removed pending a HKDSE Physics decision | — | [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) |
-| `docs/` | PRD, architecture map, board notes | Markdown | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
+| `docs/` | PRD, architecture map, question-to-notes interface, board notes | Markdown | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
 | `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML/CSS/JS | its own `readme.md` |
 
 ## Repository layout
@@ -21,11 +21,11 @@ Goals, users, UI rules and data contracts are in the [PRD](docs/PRD.md).
 ```
 paper2everything/
 ├── AGENTS.md, CONTRIBUTING.md   agent map and contribution rules
-├── docs/                        PRD.md, ARCHITECTURE.md, lavish-notes-boards.md
+├── docs/                        PRD.md, ARCHITECTURE.md, QUESTION_NOTES.md, lavish-notes-boards.md
 ├── paper2notes/
 │   ├── notes/                   the site: landing, book2/, book4/, book5/, qb/, dse/ snapshot
 │   │   └── _source/<book-ch>/   intake (ocr.md, outline.md, problems.md, images/, INDEX.md)
-│   ├── scripts/                 ci-check.mjs, leak-check.mjs, anchor-lint.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
+│   ├── scripts/                 ci-check.mjs, leak-check.mjs, anchor-lint.mjs, publish-notes-passages.py, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
 │   ├── anchors/                 ids.lock.json, moves.json (anchor-id rules; see anchors/README.md)
 │   └── deploy/cloudrun/         Dockerfile, nginx.conf, deploy.sh, provision.sh
 ├── paper2db/
@@ -144,6 +144,7 @@ Full rules: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 |---|---|
 | [`docs/PRD.md`](docs/PRD.md) | Goals, users, content model, UI requirements, pipeline, usability lessons |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Diagram, data flows, design findings |
+| [`docs/QUESTION_NOTES.md`](docs/QUESTION_NOTES.md) | Question-to-notes panel: reference store, evidence rule, serving projection and tests |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution rules |
 | [`AGENTS.md`](AGENTS.md) | Agent-facing map |
 | [`paper2notes/README.md`](paper2notes/README.md) | Audit harness, sources, hosting pointer |

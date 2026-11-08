@@ -454,7 +454,7 @@ Review gates (MC anchors, optional LQ crops, uncertain classifications) pause fo
 - Production: the tracked snapshot `paper2notes/notes/dse/{mc,lq}/<NN>/` is staged to `_local/dse/` (and each `book*/_local/dse/`) by the `Dockerfile`. HTML decks render in production without running the pipeline.
 - Local preview: `./paper2db/pipeline --force --yes`, then `./paper2notes/scripts/sync-dse.sh`, then `python3 -m http.server --directory paper2notes/notes`. Pages reference `../_local/dse/...`.
 
-**Automated tests.** The Python test modules and browser test scripts were removed. The `paper2db/tests/fixtures/` and `paper2db/tests/reconstructed/` directories remain pipeline data.
+**Automated tests.** The Python test modules and browser test scripts were removed, except the question-to-notes tests (`paper2notes/scripts/test_publish_notes_passages.py`, `paper2notes/scripts/question-notes*.test.mjs` and the two browser drivers), which `docs/QUESTION_NOTES.md` documents and no workflow runs. The `paper2db/tests/fixtures/` and `paper2db/tests/reconstructed/` directories remain pipeline data.
 
 ## 9. Repository structure and tracked versus generated
 
@@ -466,7 +466,7 @@ One repository, with paper2notes and paper2db mutually dependent (paper2notes re
 | `paper2notes/` | Student site (`notes/`), manual check scripts, deploy scripts, Cloud Run config | Static HTML/CSS/JS (vendored three.js, KaTeX); Node for checks; Docker and nginx for hosting |
 | `paper2mock/` | Reserved for possible future work; F.1 maths content removed pending an HKDSE Physics decision | — |
 | `.github/workflows/` | `deploy-notes` | GitHub Actions Cloud Run deployment |
-| `docs/` | `ARCHITECTURE.md`, this PRD, board notes | Markdown |
+| `docs/` | `ARCHITECTURE.md`, this PRD, `QUESTION_NOTES.md`, board notes | Markdown |
 | `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML, CSS, JS |
 
 | Tracked (edit and commit) | Generated or local (never `git add`) |
@@ -483,9 +483,7 @@ One repository, with paper2notes and paper2db mutually dependent (paper2notes re
 The repository has no automated check or test workflows. Notes checks, audits,
 and pipeline scripts remain available to run by hand. See [Architecture §5](ARCHITECTURE.md#5-automated-workflows).
 
-**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
-
-**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits only `paper2notes/notes/` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
+**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits the notes, the nginx config, the teaching-reference store and its producer; `paper2notes/deploy/cloudrun/README.md` owns the exact build-context list. nginx serves static files on port 8080. One-time setup is `provision.sh`; access model and rollback are in `paper2notes/deploy/cloudrun/README.md`.
 
 **UI PRs.** A PR that changes paper2notes HTML, CSS, JS, visuals, animations or stage loads `.agents/skills/paper2everything-ui-screenshot/SKILL.md` first and includes before/after screenshots at **both** 1280x800 and 390x844 (one pair per size, same URL, scroll and viewport, attached with `gh --attach` so they render inline; one size only is incomplete). A demo video, if any, is also recorded at both sizes unless provably invisible at one (`.agents/skills/paper2everything-pr-video/SKILL.md` §5.1 and §6).
 
@@ -513,7 +511,7 @@ The F.1 maths content formerly in `paper2mock/` was removed pending a decision a
 - **Dead config.** Nested `paper2notes/.github/workflows/` and `paper2notes/.dockerignore` are unused.
 - **Harness scope.** Bank ids and bank-to-chapter mapping live in `scripts/audit/books.json`; the model id is hard-coded in the scripts; the harness requires a paid LLM, `pi` and Chrome. DSE deck questions are audited only on the `--dse-section` path, and DSE LQ items have no marking scheme in the harness when no tracked answer crop exists. QB items carry no section classification beyond `bank` and `chapter`, and the harness mapping is not written back to `paper2db`.
 - **DSE staging coverage.** `dse-mc` stages 537 of 573 classified MC items (2012 to 2026 plus `pp`); only `sap` is not staged (mc-anchors cannot locate its question labels).
-- **`/qb` UI** is described by requirements here but has no tracked automated test.
+- **`/qb` UI** is described by requirements here; only the Explain with notes panel has tracked tests (`docs/QUESTION_NOTES.md`). The rest of the page has none.
 
 ## 13. Risks and open questions
 
