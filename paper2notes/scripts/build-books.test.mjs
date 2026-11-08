@@ -19,6 +19,10 @@ const contract = JSON.parse(readFileSync(join(layoutDir, 'migration-contract.jso
 const hash = s => createHash('sha256').update(s).digest('hex');
 const ids = s => [...s.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
 const links = s => [...s.matchAll(/\b(?:href|src)="([^"]+)"/g)].map(m => m[1]);
+const displayedSection = html => {
+  const kicker = html.match(/<p class="kicker">([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, ' ');
+  return /Section\s+(\d+\.\d+)/.exec(kicker)[1];
+};
 
 test('every published route has exactly one source, including all nine books', () => {
   assert.equal(pages.length, 195);
@@ -181,7 +185,7 @@ test('generated trails expose real ancestors, never sibling sections or invented
     assert.deepEqual([...new Set(destinations)].sort(), expected.sort(), p.route);
     const current = p.type === 'overview' ? `Book ${book.slice(4)}` :
       p.type === 'summary' ? 'Summary' :
-      p.type === 'section' ? p.route.split('/').at(-1).replace('.html', '').replace('-', '.') :
+      p.type === 'section' ? displayedSection(html) :
       `Ch.${Number(chapter.match(/^ch(\d+)/)[1])}`;
     assert.ok(trail.includes(`<strong aria-current="page">${current}</strong>`), p.route);
     const header = html.match(/<header[\s\S]*?<\/header>/)[0];
@@ -192,20 +196,20 @@ test('generated trails expose real ancestors, never sibling sections or invented
   }
 });
 
-test('Book 5 Chapter 1 exposes a symmetric section chain with textbook section numbers', () => {
-  const chapter = 'book5/ch01-radiation-and-radioactivity/';
-  const chain = ['index.html', '25-1.html', '25-2.html', '25-3.html', 'summary.html'];
-  for (let i = 1; i < chain.length; i++) {
-    const page = pages.find(p => p.route === chapter + chain[i]);
-    const html = renderPage(page, layout);
-    assert.match(html, new RegExp(`<a href="${chain[i - 1].replace('.', '\\.')}" rel="prev">`));
-    const previous = renderPage(pages.find(p => p.route === chapter + chain[i - 1]), layout);
-    assert.ok(previous.includes(`href="${chain[i]}"`), `${chain[i - 1]} links forward to ${chain[i]}`);
-    if (page.type === 'section') {
-      const number = chain[i].replace('.html', '').replace('-', '.');
-      assert.ok(html.includes(`<p class="kicker">Section ${number}</p>`));
-      assert.ok(html.includes(`<title>${number} `));
-    }
+test('every section trail leaf repeats the number its kicker and chapter-map card display', () => {
+  const byRoute = new Map(pages.map(p => [p.route, p]));
+  for (const p of pages.filter(p => p.type === 'section')) {
+    const html = renderPage(p, layout);
+    const trail = html.match(/<ol class="p2n-breadcrumb"[^>]*>([\s\S]*?)<\/ol>/)[1];
+    const leaf = trail.match(/<strong aria-current="page">([^<]+)<\/strong>/)[1];
+    assert.equal(leaf, displayedSection(html), `${p.route}: trail leaf disagrees with its kicker`);
+    const file = p.route.split('/').at(-1);
+    const map = byRoute.get(`${p.route.split('/').slice(0, -1).join('/')}/index.html`);
+    const cards = renderPage(map, layout).split(`<a href="${file}">`).slice(1)
+      .map(rest => rest.match(/^\s*<span class="num">([^<]+)<\/span>/)?.[1]?.trim())
+      .filter(Boolean);
+    assert.ok(cards.length, `${p.route}: chapter map has no card for this section`);
+    for (const card of cards) assert.equal(leaf, card, `${p.route}: trail leaf disagrees with the chapter-map card`);
   }
 });
 

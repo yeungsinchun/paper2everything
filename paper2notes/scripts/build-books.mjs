@@ -23,6 +23,13 @@ export const sourceMarker = name => `<!-- source: ${name}. Edit this file. The c
 // Ignore only whitespace on empty lines and at slot boundaries, not text or code.
 export const normalizeSlot = s => s.replace(/^[ \t]+$/gm, '').trim();
 const escape = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+// The leaf label comes from the section number the page itself displays, not the route filename.
+const sectionNumber = page => {
+  const kicker = /<p class="kicker">([\s\S]*?)<\/p>/.exec(page.content);
+  const number = kicker && /Section\s+(\d+\.\d+)/.exec(kicker[1].replace(/<[^>]+>/g, ' '));
+  if (!number) throw new Error(`${page.route}: section needs a displayed section number in its kicker`);
+  return number[1];
+};
 export function files(root, suffix = '.html') {
   if (!existsSync(root)) return [];
   return readdirSync(root, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name)).flatMap(e =>
@@ -136,11 +143,8 @@ export function renderPage(page, { template, books }, footer = defaultFooter) {
   const trail = [{ label: 'All books', href: `${root}index.html` }, { label: `Book ${book.slice(4)}`, href: `${root}${book}/index.html` }];
   const chapter = page.route.split('/')[1].match(/^ch(\d+)-/);
   if (chapter) trail.push({ label: `Ch.${Number(chapter[1])}`, href: 'index.html' });
-  if (page.type === 'section') {
-    const number = posix.basename(page.route, '.html').match(/^(\d+)-(\d+)$/);
-    if (!number) throw new Error(`${page.route}: section needs a numeric label`);
-    trail.push({ label: `${number[1]}.${number[2]}` });
-  } else if (page.type === 'summary') trail.push({ label: 'Summary' });
+  if (page.type === 'section') trail.push({ label: sectionNumber(page) });
+  else if (page.type === 'summary') trail.push({ label: 'Summary' });
   const link = item => `<a href="${item.href}">${escape(item.label)}</a>`;
   const middle = trail.slice(1, -1);
   const breadcrumb = trail.map((item, i) => `<li${i > 0 && i < trail.length - 1 ? ' class="p2n-crumb-middle"' : ''}>${i === trail.length - 1 ? `<strong aria-current="page">${escape(item.label)}</strong>` : link(item)}</li>`);

@@ -119,8 +119,6 @@ a{text-decoration:none}
   .p2n-breadcrumb>li+li::before{margin:0 2px}
 }
 
-.p2n-page-frame .next:has(>[rel="prev"]){display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
-
 /* Page */
 .p2n-page{max-width:var(--content-w);margin:0 auto;padding:var(--space-6) 16px var(--space-7);display:grid;gap:var(--space-5)}
 .p2n-page-head{display:grid;gap:var(--space-2)}

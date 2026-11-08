@@ -90,12 +90,9 @@ Question bank also has a direct link above 760px.
 At 560px and below, the trail shows its first and last segments.
 A native ellipsis disclosure keeps the hidden ancestors reachable without JavaScript.
 
-Book 5 Chapter 1 uses textbook section numbers 25.1–25.3 in titles, kickers, map cards, and chain links.
-Chapter labels remain book-local, so Ch.1 contains textbook sections 25.1–25.3.
-Routes stay unchanged.
-The chapter chain now links backward from each section and the summary.
-The first section links back to the chapter map.
-The migration contract updates only those five pages' normalized content and added links.
+Book 5 Chapter 1 keeps its book-local section numbers, 1.1–1.3, in kickers, map cards, and chain links.
+The trail leaf repeats the section number each page's kicker displays, so it matches the section card a reader clicked.
+Route filenames stay unchanged.
 
 Book 6 and Book 9 keep their own `notes.css` and `p2n.css` design sheets, which their `head` slots load.
 Every other book loads the shared `notes/css/notes.css`; every one of them except Book 3 also loads its own `book.css`.
