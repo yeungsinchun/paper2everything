@@ -1,5 +1,5 @@
 /* Book 5 sheet: loaded after ../../css/notes.css (the shared sheet for every book).
-   Sets the book's identity colour; every other rule is shared. */
+   Sets the book's identity colour and its deep-link scroll offset; every other rule is shared. */
 
 :root {
   --tone: var(--book5);

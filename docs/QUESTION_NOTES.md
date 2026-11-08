@@ -217,17 +217,9 @@ The chapter test checks grading, navigation, focus, export behavior, and print-r
 These tests are not a full-corpus correspondence audit or a screen-reader certification.
 They do not verify physical printer output.
 
-The task captured before/after evidence at 1280×800 and 390×844 through `chrome-devtools-axi`.
-The disposable review board and captures remain under `.lavish/question-notes/`.
-Attach captures to the pull request; do not commit them or link local paths in its body.
+These commands do not exercise the Docker build stage.
+The deploy workflow runs that stage; `paper2notes/deploy/cloudrun/README.md` owns the build.
+No repository workflow runs the tests above, so run them deliberately.
 
-The local Docker command could not connect to `unix:///Users/sinchunyeung/.docker/run/docker.sock`.
-The task did not start or change the shared Docker service.
-No repository workflow runs these checks in this change;
-run the commands above deliberately.
-
-Repository-wide checks preserve unrelated baseline failures from main commit `5e525c46`.
-`ci-check.mjs` reports 254 existing findings about shared assets and other content.
-`quiz-audit.mjs` reports two existing answer-key disagreements in Book 1.
-Both outputs match the corrected baseline snapshot byte for byte.
-The baseline snapshot uses main's original pointer files, not a link to this branch's teaching-reference store.
+`ci-check.mjs` and `quiz-audit.mjs` report pre-existing failures unrelated to this feature.
+Compare a run against the base commit before attributing a finding to the question-to-notes change.
