@@ -1,7 +1,8 @@
 ---
 description: Visual-first HTML notes. Follow the visual-html-notes skill.
-globs: notes/**
+globs: layout/**, notes/**
 alwaysApply: false
 ---
 
-Read and follow `.cursor/skills/visual-html-notes/SKILL.md` when editing `notes/**`.
+Read and follow `.cursor/skills/visual-html-notes/SKILL.md` when editing `layout/**` or `notes/**`.
+Book pages under `notes/book*/` are generated from `layout/`; edit the page source and run `node paper2notes/scripts/build-books.mjs`, never the generated HTML.
