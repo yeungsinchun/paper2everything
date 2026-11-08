@@ -4,7 +4,7 @@ Ordered to match the textbook flow. Sources: the textbook's own checkpoints, exa
 
 **Role:** `concept-check` = an in-flow check written fresh for the notes page (same idea, new wording and numbers); `worked-example` = a guided solution with new numbers; `skip` = not used.
 
-**Protected text:** student pages never reproduce textbook, QB or DSE stems or answers. Every check below is re-authored. The leak check (`scripts/leak-check.mjs`) runs in CI.
+**Protected text:** student pages never reproduce textbook, QB or DSE stems or answers. Every check below is re-authored. The leak check (`scripts/checks/leak-check.mjs`) runs in CI.
 
 **DSE section:** none for this chapter. `paper2db` classifies only Paper 1 (compulsory part). This elective is examined in Paper 2, which the repo does not hold, so there is no classified DSE item to show. The chapter exercise reprints some HKDSE Paper 2 items (PDF pp.42–43, 46: 2012, 2013, 2014); they are not classified or cropped by `paper2db` and are not shown.
 

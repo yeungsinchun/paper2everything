@@ -2,8 +2,8 @@
   "version": 1,
   "updated": "2026-10-08",
   "checkedBy": [
-    "node paper2notes/scripts/quiz-audit.mjs",
-    "node paper2notes/scripts/ci-check.mjs"
+    "node paper2notes/scripts/checks/quiz-audit.mjs",
+    "node paper2notes/scripts/checks/ci-check.mjs"
   ],
   "why": "One DSE paper numbers its multiple-choice part and its long-question part separately, so a bare '2012/24' does not say which kind of question it is. HKDSE 2012 Paper 1A Section A is questions 1 to 36 and every one of them is multiple choice; Paper 1B is questions 1 to 11 and every one of them is a long question. A number that reads like a long question can therefore be a Section A multiple-choice question. This file records, for every section the published snapshot carries, what actually ships and why, so an absent question reads as a decision instead of a bug. Book 1 sections 01–04 are textbook chapter groupings, not the paper2db category numbers. The audit checks that their question scans exist and match their slide labels, but it does not compare these Book 1 groupings with paper2db category numbers.",
   "states": {

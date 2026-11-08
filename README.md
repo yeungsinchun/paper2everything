@@ -14,7 +14,7 @@ Goals, users, UI rules and data contracts are in the [PRD](docs/PRD.md).
 | `paper2db/` | Past-paper (MC, LQ) and question-bank (QB) pipeline, classified by syllabus section | Python 3, PyMuPDF, Pillow, tesseract, optional LLM API | [`paper2db/README.md`](paper2db/README.md), [`paper2db/AGENTS.md`](paper2db/AGENTS.md) |
 | `paper2mock/` | Reserved for possible future work; F.1 maths content was removed pending a HKDSE Physics decision | — | [`paper2mock/AGENTS.md`](paper2mock/AGENTS.md) |
 | `docs/` | PRD, architecture map, board notes | Markdown | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
-| `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML/CSS/JS | its own `readme.md` |
+| `paper2notes/design-system/` | Design-system proposal: tokens, components, UI kits | HTML/CSS/JS | its own `readme.md` |
 
 ## Repository layout
 
@@ -26,7 +26,7 @@ paper2everything/
 │   ├── layout/                  arrangement, components/, books.json, pages/ (source for every book page)
 │   ├── notes/                   the site: landing, book1–book9/ (generated), qb/, dse/ snapshot
 │   │   └── _source/<book-ch>/   intake (ocr.md, outline.md, problems.md, images/, INDEX.md)
-│   ├── scripts/                 build-books.mjs, ci-check.mjs, leak-check.mjs, anchor-lint.mjs, leak/, sync-dse.sh, inject-commit-footer.mjs, audit/
+│   ├── scripts/                 build-books.mjs, build-books.test.mjs, checks/, build/ (sync-dse.sh, inject-commit-footer.mjs), audit/
 │   ├── anchors/                 ids.lock.json, moves.json (anchor-id rules; see anchors/README.md)
 │   └── deploy/cloudrun/         Dockerfile, nginx.conf, deploy.sh, provision.sh
 ├── paper2db/
@@ -78,7 +78,7 @@ Options (`--years`, `--from`, `--only`) are in [`paper2db/README.md`](paper2db/R
 **Preview DSE decks locally** (production uses the tracked snapshot `paper2notes/notes/dse/` and needs no sync). Run after the pipeline:
 
 ```bash
-./paper2notes/scripts/sync-dse.sh
+./paper2notes/scripts/build/sync-dse.sh
 ```
 
 **Convert the question bank** (needs local-only inputs: the QB DOCX tree in `paper2db/qb/`, which is gitignored):
@@ -91,7 +91,7 @@ Options (`--years`, `--from`, `--only`) are in [`paper2db/README.md`](paper2db/R
 **Run the notes check locally:**
 
 ```bash
-node paper2notes/scripts/ci-check.mjs
+node paper2notes/scripts/checks/ci-check.mjs
 ```
 
 ## Books covered
@@ -124,12 +124,12 @@ DSE banks cover 27 syllabus sections (MC and LQ). The question bank holds 46 ban
 | `paper2db/tests/reconstructed/lq/*/starts.json`, `paper2db/tests/reconstructed/lq/*/ans_starts.json` | `paper2notes/notes/**/_local/` |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `.audit/` harness output |
 | `paper2notes/notes/dse/{mc,lq}/<section>/` snapshot (see [publication rules](docs/ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync)) | |
-| `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
+| `paper2notes/scripts/checks/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
 
 ## Checks and deploy
 
 The repository has no automated check workflows. The notes check remains available as
-`node paper2notes/scripts/ci-check.mjs`; it is not run by GitHub Actions.
+`node paper2notes/scripts/checks/ci-check.mjs`; it is not run by GitHub Actions.
 
 The `deploy-notes` workflow publishes `paper2notes` to Cloud Run when its configured
 paths change on `main`. See [`deploy-notes.yml`](.github/workflows/deploy-notes.yml)
@@ -142,10 +142,10 @@ Access model and rollback: [`paper2notes/deploy/cloudrun/README.md`](paper2notes
 Full rules: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 1. Branch from `main` and open a PR; never push to `main`.
-2. Run the relevant check before pushing: `node paper2notes/scripts/ci-check.mjs` for notes.
+2. Run the relevant check before pushing: `node paper2notes/scripts/checks/ci-check.mjs` for notes.
 3. UI PRs (paper2notes HTML, CSS, JS, visuals, animations, stage): load `.agents/skills/paper2everything-ui-screenshot/SKILL.md` first. Before/after screenshots at both 1280×800 and 390×844 are required in the PR body, attached with `gh --attach`. Motion changes also need video at both sizes unless provably invisible at one (`.agents/skills/paper2everything-pr-video/SKILL.md`). The UI checklist is [PRD §6.9](docs/PRD.md#69-acceptance-checklist-per-ui-change).
 4. Keep generated files out of git: `_local/`, pipeline outputs, `.lavish/`, compiled PDFs.
-5. Do not hand-edit `deploy-commit-footer`; `scripts/inject-commit-footer.mjs` owns it.
+5. Do not hand-edit `deploy-commit-footer`; `paper2notes/scripts/build/inject-commit-footer.mjs` owns it.
 6. Questions: issues on `yeungsinchun/paper2everything`.
 
 ## Documentation index

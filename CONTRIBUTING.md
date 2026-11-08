@@ -25,6 +25,6 @@ See `AGENTS.md` for the `paper2notes` / `paper2db` / `paper2mock` map and `paper
 ## CI
 
 ```bash
-node paper2notes/scripts/ci-check.mjs
-node paper2notes/scripts/quiz-audit.mjs
+node paper2notes/scripts/checks/ci-check.mjs
+node paper2notes/scripts/checks/quiz-audit.mjs
 ```

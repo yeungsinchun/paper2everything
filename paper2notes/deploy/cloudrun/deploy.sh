@@ -50,9 +50,9 @@ subject="$(git -C "$repo_root" log -1 --format=%s 2>/dev/null || true)"
 # Inject deploy-commit footer into the notes tree before copying into the image.
 # The Dockerfile also has a fallback RUN that re-injects via build-arg, so
 # standalone `docker build -f Dockerfile .` without deploy.sh still gets a footer.
-if [ -f "$repo_root/paper2notes/scripts/inject-commit-footer.mjs" ]; then
+if [ -f "$repo_root/paper2notes/scripts/build/inject-commit-footer.mjs" ]; then
   echo "deploy: injecting commit footer $sha into $repo_root/$notes_src"
-  node "$repo_root/paper2notes/scripts/inject-commit-footer.mjs" --commit "$sha" --subject "$subject" --root "$repo_root/$notes_src" || echo "deploy: footer inject failed (continuing)"
+  node "$repo_root/paper2notes/scripts/build/inject-commit-footer.mjs" --commit "$sha" --subject "$subject" --root "$repo_root/$notes_src" || echo "deploy: footer inject failed (continuing)"
 fi
 registry="$REGION-docker.pkg.dev"
 image="$registry/$PROJECT_ID/$REPOSITORY/site"
