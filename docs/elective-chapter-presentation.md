@@ -286,4 +286,3 @@ Retain the other branch's real MC/LQ sections and shared quiz code.
 - `book9/ch03-ionizing-medical-imaging/index.html` (map; source: `layout/pages/book9/ch03-ionizing-medical-imaging/index.html`): h1: Ionizing Medical Imaging.
   Unheaded structure: `kicker`, `lede`, `chapter-cards`, `tip`.
 - `book9/ch03-ionizing-medical-imaging/summary.html` (summary; source: `layout/pages/book9/ch03-ionizing-medical-imaging/summary.html`): h1: Ionizing Medical Imaging → h2: AKey relationships → h2: BDefinitions.
-
