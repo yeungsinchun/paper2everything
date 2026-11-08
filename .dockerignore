@@ -1,4 +1,6 @@
-# Monorepo Docker context: only the student-facing notes and nginx config go into the image.
+# Monorepo Docker context: the student-facing notes and nginx config go into the final image.
+# The teaching-reference store and its producer feed the build stage that generates
+# question-notes/passages.json.
 *
 !paper2notes/notes/
 !paper2notes/deploy/cloudrun/nginx.conf
