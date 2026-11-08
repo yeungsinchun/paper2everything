@@ -1859,7 +1859,7 @@
         "../js/scenes-ch13.js"
       ],
       "scriptsSha256": "bef0dde5500f9bda74f127a530504d25152eb0f4d44e71ee05100df6ced890a6",
-      "normalizedContentSha256": "4324443c88fa85b89e5b3a854da057fb43bfacf10f135589eefc3031abd7c9ef",
+      "normalizedContentSha256": "edfc9c178b9a94ed2c52ae350ec90ce24f36ce55d54fd36084b852f412c35152",
       "normalizedScriptsSha256": "9de31c7901139b50e8c55dabc0675e2e2ae383c78723ea14d40d9dacb9cfe5a8",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -5420,7 +5420,7 @@
         "js/notes.js"
       ],
       "scriptsSha256": "2db068fec0f6ea3d9d8bbac1b73a2ab400930e92aadd8a1bad58e44b4bfd47d2",
-      "normalizedContentSha256": "233be82387ded00cbf2e66550101550d2e67e64f7432c850380ef70c671d054c",
+      "normalizedContentSha256": "2d69d31ad814ee02f4e029f52bc0de390f77d24c05b041bcc494cdc9ecd3fe73",
       "normalizedScriptsSha256": "429558db67a3fc9db53ef5c7f2b5fcad3995a724de0c3324ec1d0d7c0dfe7b16",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -5622,7 +5622,7 @@
         "js/notes.js"
       ],
       "scriptsSha256": "2db068fec0f6ea3d9d8bbac1b73a2ab400930e92aadd8a1bad58e44b4bfd47d2",
-      "normalizedContentSha256": "60aaa1c730eb6699c06120c7987f865c19956c3b5b5447e26de1e9d0e37ab068",
+      "normalizedContentSha256": "5aab6a4a1637425a1f949517b689b62b5de38fc3268cd54b3f38bfcdd7c574d9",
       "normalizedScriptsSha256": "429558db67a3fc9db53ef5c7f2b5fcad3995a724de0c3324ec1d0d7c0dfe7b16",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8773,7 +8773,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
-      "normalizedContentSha256": "a4b7169225b663c221892172e195d5f0c473fc87b9c3271147467daae7279b19",
+      "normalizedContentSha256": "653ca2156e82d1ed28f9791ce81bc47c9632216480e3527402353e168b27b399",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
