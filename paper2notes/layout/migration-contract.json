@@ -6185,7 +6185,7 @@
       "type": "map",
       "contentSha256": "b2403bea5034aa160cc662e4020a57f0727c3171e3e7002b10d875e0199b5573",
       "ids": [
-        "chapter-coverage"
+        "chapter-sections"
       ],
       "links": [
         "1-1.html",
@@ -6193,12 +6193,11 @@
         "summary.html"
       ],
       "scriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "normalizedContentSha256": "b2403bea5034aa160cc662e4020a57f0727c3171e3e7002b10d875e0199b5573",
+      "normalizedContentSha256": "2dc309acda29c6013d17394bd1e966ce714253bccf72001539ab045b38144add",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../css/notes.css",
-        "../css/p2n.css"
+        "../../css/notes.css"
       ]
     },
     "book6/ch01-a-cosmic-journey/summary.html": {
@@ -6330,7 +6329,7 @@
       "type": "map",
       "contentSha256": "1bb5ab28c21e37308f1fdd3a1ee029e2d396dd29bc4e67d445d86a60db09a530",
       "ids": [
-        "chapter-coverage"
+        "chapter-sections"
       ],
       "links": [
         "2-1.html",
@@ -6339,12 +6338,11 @@
         "summary.html"
       ],
       "scriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "normalizedContentSha256": "1bb5ab28c21e37308f1fdd3a1ee029e2d396dd29bc4e67d445d86a60db09a530",
+      "normalizedContentSha256": "5dcf757d3ec3cc10c2a9c6e93854bd7e755528cbe94e0633a2999f6e7eb00057",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../css/notes.css",
-        "../css/p2n.css"
+        "../../css/notes.css"
       ]
     },
     "book6/ch02-modelling-the-universe/summary.html": {
@@ -6504,7 +6502,7 @@
       "type": "map",
       "contentSha256": "35e2501182343718877e0363f7aed808549f89297ad7dbc4906b228aff84d067",
       "ids": [
-        "chapter-coverage"
+        "chapter-sections"
       ],
       "links": [
         "3-1.html",
@@ -6514,12 +6512,11 @@
         "summary.html"
       ],
       "scriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "normalizedContentSha256": "35e2501182343718877e0363f7aed808549f89297ad7dbc4906b228aff84d067",
+      "normalizedContentSha256": "e4fda062a5de7c10e2e4e15e85cda25a5cf04910b2d273d9ae1173e703d13a91",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../css/notes.css",
-        "../css/p2n.css"
+        "../../css/notes.css"
       ]
     },
     "book6/ch03-orbital-motions-under-gravity/summary.html": {
@@ -6661,7 +6658,7 @@
       "type": "map",
       "contentSha256": "ae78dfa3fe48779e58082e69579187425295ffa7d1a88e0fbdab6c047c814f64",
       "ids": [
-        "chapter-coverage"
+        "chapter-sections"
       ],
       "links": [
         "4-1.html",
@@ -6670,12 +6667,11 @@
         "summary.html"
       ],
       "scriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "normalizedContentSha256": "ae78dfa3fe48779e58082e69579187425295ffa7d1a88e0fbdab6c047c814f64",
+      "normalizedContentSha256": "ba1e0cf4d94ade05227ac2bda1f16542259dcc8216e70a01655f71255b652d78",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../css/notes.css",
-        "../css/p2n.css"
+        "../../css/notes.css"
       ]
     },
     "book6/ch04-starlight-messengers-from-the-stars/summary.html": {
@@ -6856,14 +6852,12 @@
       "type": "map",
       "contentSha256": "06ef65c408d650dee2553120727e1090a491d2b05b5d800897c69b762044da2e",
       "ids": [
-        "dse-status"
+        "chapter-sections"
       ],
       "links": [
         "1-1.html",
         "1-2.html",
         "summary.html",
-        "../index.html",
-        "1-1.html",
         "../../vendor/katex/katex.min.js",
         "../../vendor/katex/auto-render.min.js",
         "../../js/math.js",
@@ -6871,7 +6865,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a768f2cb669023df150bc037a9bd988848c6fa76e02e53317eda7c57798c1c33",
-      "normalizedContentSha256": "76271915807fc7778357f96fc59f4be579b5c24ee61174776e9ff6707add3cc0",
+      "normalizedContentSha256": "e7f364ed7774364733bd50ca6f1a2455fccb79bd1da93613961e027d97f99354",
       "normalizedScriptsSha256": "9aad3666e58ae5eb0f8d3b9461962276517b496514f6c287f4d43220853ef537",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7103,15 +7097,13 @@
       "type": "map",
       "contentSha256": "a4c9ff4fbbf1c5877cd70fccc5f545825c5e474e1f9875acb5396b28d740c987",
       "ids": [
-        "dse-status"
+        "chapter-sections"
       ],
       "links": [
         "2-1.html",
         "2-2.html",
         "2-3.html",
         "summary.html",
-        "../ch01-photoelectric-effect/summary.html",
-        "2-1.html",
         "../../vendor/katex/katex.min.js",
         "../../vendor/katex/auto-render.min.js",
         "../../js/math.js",
@@ -7119,7 +7111,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a768f2cb669023df150bc037a9bd988848c6fa76e02e53317eda7c57798c1c33",
-      "normalizedContentSha256": "797e82b7dcae9bd99544bab65a51ba6c1fa0ee0838d47c8033f9d29ac414bf70",
+      "normalizedContentSha256": "633f62f3e467175b395230397e1f6ae031e517bdc30c890952e41803fc26c3f0",
       "normalizedScriptsSha256": "9aad3666e58ae5eb0f8d3b9461962276517b496514f6c287f4d43220853ef537",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7189,8 +7181,7 @@
         "standing-wave-figure",
         "standing-wave-eq-2",
         "standing-wave-worked-3",
-        "standing-wave-check",
-        "dse-status"
+        "standing-wave-check"
       ],
       "links": [
         "#wavelength",
@@ -7205,7 +7196,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "3009e12760ae880c6f6fcf5122a9086718fe9fdf2f41283fd90b84b79c014a4d",
-      "normalizedContentSha256": "bc586c875dc758fe912a7d1af7e6d1e976cfadcd98faff48bf9c96263db14752",
+      "normalizedContentSha256": "81984fc563ee4ce3022d6b6be46efa3214a4a7cec35705fe1e0a09e9e78c3d74",
       "normalizedScriptsSha256": "95ac69debe8d3fbf2c62dd45293740cfbe9180fa3539536feeab6749b7548a94",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7231,8 +7222,7 @@
         "method",
         "method-figure",
         "method-worked-3",
-        "method-check",
-        "dse-status"
+        "method-check"
       ],
       "links": [
         "#resolution",
@@ -7247,7 +7237,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "3009e12760ae880c6f6fcf5122a9086718fe9fdf2f41283fd90b84b79c014a4d",
-      "normalizedContentSha256": "447de1b58212e2085eb6b92fdc1b00b5d61943c6216c76260ceee45ea5efbe01",
+      "normalizedContentSha256": "6803dfc805f31a8062ea482c7ed8cbcc5b93d4161a2a4b1b72b756054ef77fb8",
       "normalizedScriptsSha256": "95ac69debe8d3fbf2c62dd45293740cfbe9180fa3539536feeab6749b7548a94",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7274,8 +7264,7 @@
         "quantum-figure",
         "quantum-def-1",
         "quantum-worked-3",
-        "quantum-check",
-        "dse-status"
+        "quantum-check"
       ],
       "links": [
         "#structures",
@@ -7290,7 +7279,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "3009e12760ae880c6f6fcf5122a9086718fe9fdf2f41283fd90b84b79c014a4d",
-      "normalizedContentSha256": "5798662514aab3da95a523d79c027ee98e4ddcff5afc2281533919f1937c2c77",
+      "normalizedContentSha256": "4ace0816415543406a35639a49c013152ce479f142ed2372c440a5eb3fecd469",
       "normalizedScriptsSha256": "95ac69debe8d3fbf2c62dd45293740cfbe9180fa3539536feeab6749b7548a94",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7314,8 +7303,7 @@
         "applications-check",
         "risks",
         "risks-figure",
-        "risks-check",
-        "dse-status"
+        "risks-check"
       ],
       "links": [
         "#coatings",
@@ -7330,7 +7318,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "485cfe4390c530f8d3758e7b0ef242a8d2885355e62a48f038cad608c3a2ec41",
-      "normalizedContentSha256": "45003e1e37eb4f8b77ac0dbed0150b050b27c281400a414ebefd0c88eff489d9",
+      "normalizedContentSha256": "6823f990296d65651564a367c37a2a9bb0ef7eb7a773c2e66105078c261f44f1",
       "normalizedScriptsSha256": "485cfe4390c530f8d3758e7b0ef242a8d2885355e62a48f038cad608c3a2ec41",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7343,19 +7331,17 @@
       "type": "map",
       "contentSha256": "b5ad2413d83082ad10a58bb87e3331838c31aae0075753ad3270e3c49a5ace91",
       "ids": [
-        "dse-status"
+        "chapter-sections"
       ],
       "links": [
         "3-1.html",
         "3-2.html",
         "3-3.html",
         "3-4.html",
-        "summary.html",
-        "../ch02-atomic-models-and-spectra/summary.html",
-        "3-1.html"
+        "summary.html"
       ],
       "scriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "normalizedContentSha256": "b5ad2413d83082ad10a58bb87e3331838c31aae0075753ad3270e3c49a5ace91",
+      "normalizedContentSha256": "54308c5345e26adf6b1fd1306f863df1a73b791b192d727c11e9233b148c88c7",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7384,7 +7370,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "244827398f30241829b29c39764ad014c425ca16dfbb51e7316390f72a29492e",
-      "normalizedContentSha256": "84be70a3e3585174aab1a2e47ec546f6fe68cbf40c11d813a1a1b9f8e626b4ed",
+      "normalizedContentSha256": "320c8383c21f3154ae5901d7275833255cb9f86a742d095e630c29d1e4d25594",
       "normalizedScriptsSha256": "244827398f30241829b29c39764ad014c425ca16dfbb51e7316390f72a29492e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8450,18 +8436,20 @@
     "book9/ch01-vision-and-hearing/index.html": {
       "type": "map",
       "contentSha256": "903d0c56fd0251ef9e07d63999927cd9f2b87b4fc469310d46b0f30dedcfbe07",
-      "ids": [],
+      "ids": [
+        "chapter-sections"
+      ],
       "links": [
         "1-1.html",
-        "1-2.html"
+        "1-2.html",
+        "summary.html"
       ],
       "scriptsSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "normalizedContentSha256": "903d0c56fd0251ef9e07d63999927cd9f2b87b4fc469310d46b0f30dedcfbe07",
+      "normalizedContentSha256": "46221c60dcebc3d087adbff83b0dd5f9fff9f9de0167b0d505e7e5624555057d",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../css/notes.css",
-        "../css/p2n.css"
+        "../../css/notes.css"
       ]
     },
     "book9/ch01-vision-and-hearing/summary.html": {
@@ -8613,7 +8601,7 @@
       "type": "map",
       "contentSha256": "d86972af9ff9f00b8c1c4fb7b52c189cb7873c325b4fbf0997582d925e8c446a",
       "ids": [
-        "dse-availability"
+        "chapter-sections"
       ],
       "links": [
         "2-1.html",
@@ -8622,12 +8610,11 @@
         "summary.html"
       ],
       "scriptsSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "normalizedContentSha256": "d86972af9ff9f00b8c1c4fb7b52c189cb7873c325b4fbf0997582d925e8c446a",
+      "normalizedContentSha256": "a6a8b7fc9d5654ea31147130889fc9ea6eef4eb44df842d424cd0a000a594772",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../css/notes.css",
-        "../css/p2n.css"
+        "../../css/notes.css"
       ]
     },
     "book9/ch02-non-ionizing-medical-imaging/summary.html": {
@@ -8847,7 +8834,7 @@
       "type": "map",
       "contentSha256": "d6514628478fac6942d1d6ba61f6e6d7f3fa0e48151379c4433e2a9e532eef12",
       "ids": [
-        "dse-availability"
+        "chapter-sections"
       ],
       "links": [
         "3-1.html",
@@ -8858,12 +8845,11 @@
         "summary.html"
       ],
       "scriptsSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "normalizedContentSha256": "d6514628478fac6942d1d6ba61f6e6d7f3fa0e48151379c4433e2a9e532eef12",
+      "normalizedContentSha256": "bba1b83a60a260102547d5428e91946300f8ec37a2f7b11c61ff1b8566cc4289",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
-        "../css/notes.css",
-        "../css/p2n.css"
+        "../../css/notes.css"
       ]
     },
     "book9/ch03-ionizing-medical-imaging/summary.html": {
