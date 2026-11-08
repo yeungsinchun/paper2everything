@@ -5099,6 +5099,7 @@
         "../_local/dse/mc/25/2015_q31.png",
         "../_local/dse/lq/25/2017-q10.png",
         "../_local/dse/lq/25/2014-q10.png",
+        "index.html",
         "25-2.html",
         "../../vendor/katex/katex.min.js",
         "../../vendor/katex/auto-render.min.js",
@@ -5111,7 +5112,7 @@
         "js/notes.js"
       ],
       "scriptsSha256": "2db068fec0f6ea3d9d8bbac1b73a2ab400930e92aadd8a1bad58e44b4bfd47d2",
-      "normalizedContentSha256": "cd87e347a8bd51f9c2b81ab193a5b611713c9832ab6ae461f496ef93b7d38ed1",
+      "normalizedContentSha256": "affe2a65e23b21a8a7d9168aff5d2611a1b4dd343eb9f7b11f474dfdefe1c083",
       "normalizedScriptsSha256": "429558db67a3fc9db53ef5c7f2b5fcad3995a724de0c3324ec1d0d7c0dfe7b16",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -5234,6 +5235,7 @@
         "../_local/dse/lq/25/2017-q10.png",
         "../_local/dse/lq/25/2014-q10.png",
         "../_local/dse/lq/25/2024-q13.png",
+        "25-1.html",
         "25-3.html",
         "../../vendor/katex/katex.min.js",
         "../../vendor/katex/auto-render.min.js",
@@ -5246,7 +5248,7 @@
         "js/notes.js"
       ],
       "scriptsSha256": "2db068fec0f6ea3d9d8bbac1b73a2ab400930e92aadd8a1bad58e44b4bfd47d2",
-      "normalizedContentSha256": "99b50540c84f29d708ce3aa3f30518d601b5b28e2b59acef484aafdea3b16269",
+      "normalizedContentSha256": "2d42a155dedeed34490d81f59fba30dbdb6023fe40d66ef93b8f2a750ef85a8a",
       "normalizedScriptsSha256": "429558db67a3fc9db53ef5c7f2b5fcad3995a724de0c3324ec1d0d7c0dfe7b16",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -5367,6 +5369,7 @@
         "../_local/dse/mc/25/2017_q31.png",
         "../_local/dse/mc/25/pp_q35.png",
         "../_local/dse/lq/25/2014-q10.png",
+        "25-2.html",
         "summary.html",
         "../../vendor/katex/katex.min.js",
         "../../vendor/katex/auto-render.min.js",
@@ -5379,7 +5382,7 @@
         "js/notes.js"
       ],
       "scriptsSha256": "2db068fec0f6ea3d9d8bbac1b73a2ab400930e92aadd8a1bad58e44b4bfd47d2",
-      "normalizedContentSha256": "2d69d31ad814ee02f4e029f52bc0de390f77d24c05b041bcc494cdc9ecd3fe73",
+      "normalizedContentSha256": "fd983ff8747f72807dd635b8f184e0f182ee30b43197319870594a1c15f2a199",
       "normalizedScriptsSha256": "429558db67a3fc9db53ef5c7f2b5fcad3995a724de0c3324ec1d0d7c0dfe7b16",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -5401,7 +5404,7 @@
         "../_local/dse/mc/25/combined.pdf"
       ],
       "scriptsSha256": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070",
-      "normalizedContentSha256": "d8b5a257bfb33b91dcd2b294f51fb1a216bfed2d9e3a2b8b38f593f32fe92c5f",
+      "normalizedContentSha256": "5ae74e7cc5c601c2f074e4fdbd5454cc352635634086b4fce08d43a0b83c2c8e",
       "normalizedScriptsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -5438,6 +5441,7 @@
         "last-checks-check-3"
       ],
       "links": [
+        "25-3.html",
         "index.html",
         "../ch02-rate-of-decay-and-uses-of-radionuclides/index.html",
         "../../vendor/katex/katex.min.js",
@@ -5450,7 +5454,7 @@
         "js/notes.js"
       ],
       "scriptsSha256": "1d47f5d9edae77094dad02668ce2b9ebd5a5fe26863032722f3b105b0a42e543",
-      "normalizedContentSha256": "beb07814e32e8d9000143dbb86ccdbd22ff8f3a652a723ee0b95a7465a0f3b6c",
+      "normalizedContentSha256": "a2f1d40a8b48e7e7ffd2d78f079c42716d75314a9b0a0149a3165ba7f27e398a",
       "normalizedScriptsSha256": "8c395f603fa97b15c0d9a2f38fe95266c69d62f00feca4652c4423ddeee366d9",
       "stylesheets": [
         "../../css/p2n-shell.css",

@@ -69,7 +69,7 @@ It does not scan lesson text, so braces in a lesson stay literal.
 | `{{icon}}` | Escaped book icon name | `layout/books.json` |
 | `{{home}}` | Relative link to the book index | Computed from the route |
 | `{{root}}` | Relative prefix to the notes root | Computed from the route |
-| `{{navigation}}` | Link list for every book, plus All books and Question bank | Labels come from `books.json`. Markup comes from the navigation component |
+| `{{navigation}}` | Ancestor trail, Books menu, and Question bank access | Compiler derives ancestors from real routes. `books.json` supplies menu labels |
 | `{{mainClass}}` | Class for the page type | Page type in page metadata. Class strings live in `scripts/build-books.mjs` |
 | `{{deployCommit}}` | Preserved footer commit, or `local` | Deployment footer injection, not lesson sources |
 | `{{deploySubject}}` | Preserved footer subject markup, or empty | Deployment footer injection, not lesson sources |
@@ -79,6 +79,23 @@ The compiler calculates relative links from the output route.
 The compiler maps page types to the existing classes for overviews, complete chapters, maps, sections, and summaries.
 A page cannot supply its own header or secondary chapter row.
 No book has a switch for secondary navigation.
+
+The top bar shows an inline chevron trail in place of the flat book links.
+The current page is bold text, not a link.
+Ancestors link to the landing page, book index, and chapter index as applicable.
+Complete chapters, including Book 2 chapters, end at the chapter level.
+Sections and summaries are leaves.
+The Books menu keeps every book and Question bank reachable.
+Question bank also has a direct link above 760px.
+At 560px and below, the trail shows its first and last segments.
+A native ellipsis disclosure keeps the hidden ancestors reachable without JavaScript.
+
+Book 5 Chapter 1 uses textbook section numbers 25.1–25.3 in titles, kickers, map cards, and chain links.
+Chapter labels remain book-local, so Ch.1 contains textbook sections 25.1–25.3.
+Routes stay unchanged.
+The chapter chain now links backward from each section and the summary.
+The first section links back to the chapter map.
+The migration contract updates only those five pages' normalized content and added links.
 
 Book 6 and Book 9 keep their own `notes.css` and `p2n.css` design sheets, which their `head` slots load.
 Every other book loads the shared `notes/css/notes.css`; every one of them except Book 3 also loads its own `book.css`.

@@ -133,8 +133,19 @@ export function renderPage(page, { template, books }, footer = defaultFooter) {
   if (!config) throw new Error(`${page.route}: unknown book`);
   const root = '../'.repeat(page.route.split('/').length - 1);
   const home = posix.relative(posix.dirname(page.route), `${book}/index.html`);
-  const navigation = `<a href="${root}index.html">All books</a>` + Object.entries(books).map(([id, b]) =>
-    `<a href="${root}${id}/index.html"${id === book ? ' aria-current="page"' : ''}>${escape(b.label)}</a>`).join('') + `<a href="${root}qb/index.html">Question bank</a>`;
+  const trail = [{ label: 'All books', href: `${root}index.html` }, { label: `Book ${book.slice(4)}`, href: `${root}${book}/index.html` }];
+  const chapter = page.route.split('/')[1].match(/^ch(\d+)-/);
+  if (chapter) trail.push({ label: `Ch.${Number(chapter[1])}`, href: 'index.html' });
+  if (page.type === 'section') {
+    const number = posix.basename(page.route, '.html').match(/^(\d+)-(\d+)$/);
+    if (!number) throw new Error(`${page.route}: section needs a numeric label`);
+    trail.push({ label: `${number[1]}.${number[2]}` });
+  } else if (page.type === 'summary') trail.push({ label: 'Summary' });
+  const link = item => `<a href="${item.href}">${escape(item.label)}</a>`;
+  const middle = trail.slice(1, -1);
+  const breadcrumb = trail.map((item, i) => `<li${i > 0 && i < trail.length - 1 ? ' class="p2n-crumb-middle"' : ''}>${i === trail.length - 1 ? `<strong aria-current="page">${escape(item.label)}</strong>` : link(item)}</li>`);
+  if (middle.length) breadcrumb.splice(1, 0, `<li class="p2n-crumb-collapsed"><details class="p2n-nav-menu"><summary aria-label="Show parent pages">…</summary><div class="p2n-nav-popup">${middle.map(link).join('')}</div></details></li>`);
+  const navigation = `<ol class="p2n-breadcrumb" aria-label="Breadcrumb">${breadcrumb.join('')}</ol><details class="p2n-nav-menu p2n-books-menu"><summary>Books</summary><div class="p2n-nav-popup">${Object.entries(books).map(([id, b]) => link({ href: `${root}${id}/index.html`, label: b.label })).join('')}<a href="${root}qb/index.html">Question bank</a></div></details><a class="p2n-qb-link" href="${root}qb/index.html">Question bank</a>`;
   // Component placeholders are already resolved. Replace only these values.
   // Lesson text is a replacement value, so braces inside a lesson stay literal.
   const slots = Object.fromEntries(slotNames.map(name => [name, normalizeSlot(page[name])]));
