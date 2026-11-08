@@ -5,7 +5,6 @@
       "type": "section",
       "contentSha256": "12e4f8a1e797077cb0d40b12dfc5d7d54b2b2c72b9c847f9166a5f548b3b7d67",
       "ids": [
-        "thermometers-digest",
         "thermometers-goals",
         "hotness",
         "hotness-fig-ladder",
@@ -57,7 +56,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a61e779dd3667307bd171235eb1baaca520872f49c80c24c0d82eb34f45fb66f",
-      "normalizedContentSha256": "fa80b275674d5d04d84149ef32986a88903d9181fb85de3d2874eddbc0573640",
+      "normalizedContentSha256": "f44bba036529d172dcbf2432bf784b20285ff1c6f6cd08aa79c0dcf72901fe0c",
       "normalizedScriptsSha256": "0e039e7c4578e78e36727b10d686e35e29f1591e8270ed7e66b45053f50fce21",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -70,7 +69,6 @@
       "type": "section",
       "contentSha256": "09e555bcd2aa1f17e762dac08dcb042467a3b1703e86081ddab68babe414108c",
       "ids": [
-        "internal-energy-digest",
         "internal-energy-goals",
         "molecular-ke",
         "molecular-ke-fig-boxes",
@@ -123,7 +121,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a61e779dd3667307bd171235eb1baaca520872f49c80c24c0d82eb34f45fb66f",
-      "normalizedContentSha256": "e05236499b5bcb13ead61f1797b2c2a3fe0fd19a56bbdd6abb83cd9e9a1e85e9",
+      "normalizedContentSha256": "02054640649f83186c7101369a24fbf420824ace1f35fa3a7956a3b69283397f",
       "normalizedScriptsSha256": "0e039e7c4578e78e36727b10d686e35e29f1591e8270ed7e66b45053f50fce21",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -136,7 +134,6 @@
       "type": "section",
       "contentSha256": "aec6b5117c5890bb5bf2c44bda56531e5e4dc8ac11a4cd1bca1442b4d2ac4ce0",
       "ids": [
-        "transfer-digest",
         "transfer-goals",
         "convection",
         "convection-fig-tank",
@@ -193,7 +190,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a61e779dd3667307bd171235eb1baaca520872f49c80c24c0d82eb34f45fb66f",
-      "normalizedContentSha256": "3700c919f3708aff91e7f2b94131e02a0ff52420489b0e64983a9364a556ef2a",
+      "normalizedContentSha256": "37cf3a38fc97131fcef1b895543f32dd7e27568eeb5979fdf54fcdb57dabc43d",
       "normalizedScriptsSha256": "0e039e7c4578e78e36727b10d686e35e29f1591e8270ed7e66b45053f50fce21",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -206,7 +203,6 @@
       "type": "section",
       "contentSha256": "821f5b1569293435d18e3b4a0fe590c5a3bbeda856177faca0ac1775db460fba",
       "ids": [
-        "devices-digest",
         "devices-goals",
         "flask",
         "flask-fig-section",
@@ -257,7 +253,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a61e779dd3667307bd171235eb1baaca520872f49c80c24c0d82eb34f45fb66f",
-      "normalizedContentSha256": "d7c6fa2ab54670ddf4f3cbb0083395b57db33d59330df42971cddfe95ec63161",
+      "normalizedContentSha256": "4c5b9c88fc95368c8838c2d336ab7cb7558d5e543d1d2349a89285745648ac02",
       "normalizedScriptsSha256": "0e039e7c4578e78e36727b10d686e35e29f1591e8270ed7e66b45053f50fce21",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -313,7 +309,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "06ca075a2696d296ad238da97a2e47039ee326274a962aa2cb56a8f284361d1a",
-      "normalizedContentSha256": "3abf45d7b47f56d8184b0748721b25b6611686689746bb05786cc2d60118e42a",
+      "normalizedContentSha256": "78019b9f787c14cb1189f5668c59573df2ce3922c2589accf83f4f6c5216aebb",
       "normalizedScriptsSha256": "584db2a49c500f60cbb4db43b75c8e63ebded5c92ec1ceb10664b0ce5743338e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -326,7 +322,6 @@
       "type": "section",
       "contentSha256": "0c94c067438b865561c09a0e269b98fa55f6db9d76147ae9a9f6d80fcc3dd510",
       "ids": [
-        "power-digest",
         "power-goals",
         "power",
         "power-fig-graph",
@@ -367,7 +362,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a61e779dd3667307bd171235eb1baaca520872f49c80c24c0d82eb34f45fb66f",
-      "normalizedContentSha256": "404935a6631eaab43431f2232e1826b126b0866f4ec2849ba27382fee1dfab75",
+      "normalizedContentSha256": "2a43ec9020151cd3f4857a984adb9f1628d48ea6a134a5db8b03ae2aabc1acc6",
       "normalizedScriptsSha256": "0e039e7c4578e78e36727b10d686e35e29f1591e8270ed7e66b45053f50fce21",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -380,7 +375,6 @@
       "type": "section",
       "contentSha256": "436945e2111303d2822d18455efd5849d1e3143b3c26d2ed7c90c9b46b13d60b",
       "ids": [
-        "capacity-digest",
         "capacity-goals",
         "capacity",
         "capacity-fig-heating",
@@ -438,7 +432,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a61e779dd3667307bd171235eb1baaca520872f49c80c24c0d82eb34f45fb66f",
-      "normalizedContentSha256": "6deaee699e792ab34c91da490644936609d9a0784d9543e2bf10dcead2f420f9",
+      "normalizedContentSha256": "092b0aa6358d6bb1bfc28e2e5a75a3487b93f8786ea7d6c6e94f8fbc6b330983",
       "normalizedScriptsSha256": "0e039e7c4578e78e36727b10d686e35e29f1591e8270ed7e66b45053f50fce21",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -451,7 +445,6 @@
       "type": "section",
       "contentSha256": "c90046f601418cb4985c380acddcdf0cbcec142e64513665ef26cfb8aee18f88",
       "ids": [
-        "mixture-digest",
         "mixture-goals",
         "conservation",
         "conservation-fig-mixing",
@@ -509,7 +502,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a61e779dd3667307bd171235eb1baaca520872f49c80c24c0d82eb34f45fb66f",
-      "normalizedContentSha256": "f4a967f42831840a38d2c0bbebfe020407d0b817a46b4e4faddcd904e156fd33",
+      "normalizedContentSha256": "049fa9d3d2c0255b1f0d2f9e521b53ddc6a767f26664febed8286de19bdc8291",
       "normalizedScriptsSha256": "0e039e7c4578e78e36727b10d686e35e29f1591e8270ed7e66b45053f50fce21",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -522,7 +515,6 @@
       "type": "section",
       "contentSha256": "b295835606169427032b224da6ce4141800887312bffddaca490e7ed537f1286",
       "ids": [
-        "water-digest",
         "water-goals",
         "same-energy",
         "same-energy-fig-bars",
@@ -549,7 +541,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "3eafaf453c425276c70a6cc3dcd28a9cdf44156aee4f56b3d26321e9e60639d3",
-      "normalizedContentSha256": "28609db008a2699379ba420d87ea60432e506d9323a68c491130b07a70472da8",
+      "normalizedContentSha256": "480771f48b9d8ae06df394a0917146d5b1d2d35d22b2965079bcef3b353d85c8",
       "normalizedScriptsSha256": "38fefadfecc79bbd92db65ea53e286340c99c7f6a238fa9bd23a8030b5479c3d",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -608,7 +600,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "06ca075a2696d296ad238da97a2e47039ee326274a962aa2cb56a8f284361d1a",
-      "normalizedContentSha256": "f787258ae07db031411060bb406bdab55d4fb0b5f95c437e6d3c4e602b193c38",
+      "normalizedContentSha256": "d9d07581080170e4fa4e8de12eb6bb7362d3b0bb8b87b5d512ddf196099a720a",
       "normalizedScriptsSha256": "584db2a49c500f60cbb4db43b75c8e63ebded5c92ec1ceb10664b0ce5743338e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -621,7 +613,6 @@
       "type": "section",
       "contentSha256": "cd12f3289c5c7dc6d3a5d4d3d802af4635794e68c9b33cb646c244b0ef2d88d8",
       "ids": [
-        "change-digest",
         "evaporation",
         "evaporation-fig-particles",
         "arrow",
@@ -663,7 +654,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "c363a7448b88a477e211c6d99a23b0ce0f507b5d066f6c760961c44ea3c98576",
-      "normalizedContentSha256": "9773e72396a99b1e59412a57d601ab7153305a7b261dfefc907d85f2096f8e8b",
+      "normalizedContentSha256": "3dd2de8fe0aeae9d1d13be3260e0f70558670ba10e1a041104cf3bd75a37bdeb",
       "normalizedScriptsSha256": "e1863d2030bc5a4d04ff8fb39dceeb174eed3599a03ea9ddca6f194ef5ae521a",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -676,7 +667,6 @@
       "type": "section",
       "contentSha256": "f77d923a040574a4e34bcf3548e3f6d05327c908ab2612684a3a8e355b1567ad",
       "ids": [
-        "latent-digest",
         "latent",
         "latent-fig-path",
         "latent-def",
@@ -719,7 +709,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "c363a7448b88a477e211c6d99a23b0ce0f507b5d066f6c760961c44ea3c98576",
-      "normalizedContentSha256": "d55c66e19c2bd18f55fafa2a57cbecbe0c9703c80c8584cbc7a86ada7d946fc5",
+      "normalizedContentSha256": "fd3fe2b885ab388f89eb5de58f5e0702da5dc47102f3a0580c40302e826f0de3",
       "normalizedScriptsSha256": "e1863d2030bc5a4d04ff8fb39dceeb174eed3599a03ea9ddca6f194ef5ae521a",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -732,7 +722,6 @@
       "type": "section",
       "contentSha256": "3f4e1f9682a85fdd979c02f09674a746039e5e59c6e4ec814460acef2290828d",
       "ids": [
-        "specific-latent-digest",
         "definition",
         "specific-latent-def",
         "specific-latent-eq",
@@ -788,7 +777,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "c363a7448b88a477e211c6d99a23b0ce0f507b5d066f6c760961c44ea3c98576",
-      "normalizedContentSha256": "1c61d646fa9dc17ddccd62f8a7916766aadc06a653a913056eb1fc0846db8715",
+      "normalizedContentSha256": "b903137739243628edfa734d8527904f1aa93f204bead4f0d7dc5d01b9264414",
       "normalizedScriptsSha256": "e1863d2030bc5a4d04ff8fb39dceeb174eed3599a03ea9ddca6f194ef5ae521a",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -853,7 +842,6 @@
       "type": "section",
       "contentSha256": "af71c4d1add20afa520a511159038ef57526185f8828783d1ae90878cd43cf82",
       "ids": [
-        "pressure-digest",
         "pressure",
         "pressure-def",
         "pressure-eq",
@@ -882,7 +870,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "327f16d21b3756e697fe7c2476a433bc660f4f06fb5833b59a28436451714240",
-      "normalizedContentSha256": "ea620dd3ddc76e859317db2a48c4fe21e8373ec33c06761b94c3cfbdff9d93ee",
+      "normalizedContentSha256": "73cf0f4428ea6f0e24f12889a99c8dcf25690eb6e4e5162e257208c164b587d0",
       "normalizedScriptsSha256": "9aad3666e58ae5eb0f8d3b9461962276517b496514f6c287f4d43220853ef537",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -895,7 +883,6 @@
       "type": "section",
       "contentSha256": "7fef3fd71eff0390c1ded517a2c9ec072853d44c6ce5331c408f972abe4906a9",
       "ids": [
-        "laws-digest",
         "boyle",
         "boyle-fig",
         "boyle-def",
@@ -967,7 +954,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "c363a7448b88a477e211c6d99a23b0ce0f507b5d066f6c760961c44ea3c98576",
-      "normalizedContentSha256": "0579b418edb172a4b20292427f74f97e198cedb0f2f0f144aee905c211e2a5f0",
+      "normalizedContentSha256": "862276df0d450e9032c483596d3c80d4ef4a3cc52ba665f36c96c8ce38015249",
       "normalizedScriptsSha256": "e1863d2030bc5a4d04ff8fb39dceeb174eed3599a03ea9ddca6f194ef5ae521a",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -980,7 +967,6 @@
       "type": "section",
       "contentSha256": "08ac91f765c4ccbee8a6c8b46c0d0eb6e571449a9be78606e17faa80e9f54d70",
       "ids": [
-        "kinetic-digest",
         "model",
         "kinetic-fig",
         "kinetic-links",
@@ -1030,7 +1016,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "c363a7448b88a477e211c6d99a23b0ce0f507b5d066f6c760961c44ea3c98576",
-      "normalizedContentSha256": "4622d3ed98b039327a087728e134b7f007e6cba979c24033f388a6d9a258fc20",
+      "normalizedContentSha256": "0304ff9bbf92478cc6806a0dbd10cb7e25ca55b109ad3cc64e7c29461eb05fdd",
       "normalizedScriptsSha256": "e1863d2030bc5a4d04ff8fb39dceeb174eed3599a03ea9ddca6f194ef5ae521a",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -1117,7 +1103,6 @@
       "type": "chapter",
       "contentSha256": "02b5d4627a0db3cd6b3290922465036cdafcfe701575301ecaf9f313886c1f78",
       "ids": [
-        "ch--digest-1",
         "ch--lo-1",
         "distance-vs-displacement",
         "distance-vs-displacement--fig-1",
@@ -1161,7 +1146,7 @@
         "js/diagrams3d.js"
       ],
       "scriptsSha256": "2bbf8b88f30ec55fc78caf447d3e114fe86dbabe273de9e7c5f57ee1e62eb7fe",
-      "normalizedContentSha256": "a27d21f1b159ea7a8c9a8c2816a3813efb28d1c5955de5a319f3bab3d70b2063",
+      "normalizedContentSha256": "80206e2cff8dd58bbd3bbb5faa87f4b93f74adae1c4bc24f7c5ec0414c2e94e6",
       "normalizedScriptsSha256": "673eded6a1c5e79eb58333689d365910aea6c10706c78a66782c2433b6188bf3",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -1705,7 +1690,6 @@
       "type": "section",
       "contentSha256": "e6b0937a1e4592f6eba7ebf6e82b2d8fa8d72c956f11045bd78255396265c0cd",
       "ids": [
-        "digest",
         "goals",
         "oscillation",
         "oscillation-fig",
@@ -1746,7 +1730,7 @@
         "../js/scenes-ch13.js"
       ],
       "scriptsSha256": "bef0dde5500f9bda74f127a530504d25152eb0f4d44e71ee05100df6ced890a6",
-      "normalizedContentSha256": "245c44b69880b91120f5770c923fbf262ce88fe167b6818db0ab420f41a919a3",
+      "normalizedContentSha256": "46726c5bf02befb497ed2f698ee0f674f693308c3a9cc1529bedc5f431e922d6",
       "normalizedScriptsSha256": "9de31c7901139b50e8c55dabc0675e2e2ae383c78723ea14d40d9dacb9cfe5a8",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -1758,7 +1742,6 @@
       "type": "section",
       "contentSha256": "053bea4644d5886e562e77acdf91469205dcc9a701a8429514bd77788d7a5856",
       "ids": [
-        "digest",
         "goals",
         "transverse",
         "transverse-fig",
@@ -1800,7 +1783,7 @@
         "../js/scenes-ch13.js"
       ],
       "scriptsSha256": "bef0dde5500f9bda74f127a530504d25152eb0f4d44e71ee05100df6ced890a6",
-      "normalizedContentSha256": "da3dfd61c7da42a66b9894fc605ac071748e4c939504e3697ff7ce00affa93cb",
+      "normalizedContentSha256": "062dce03d33b50d21787e203e5cf121a801149008589b0db61faf5825bc756d8",
       "normalizedScriptsSha256": "9de31c7901139b50e8c55dabc0675e2e2ae383c78723ea14d40d9dacb9cfe5a8",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -1812,7 +1795,6 @@
       "type": "section",
       "contentSha256": "99f7c40727f350c84cde4c0ab3b2dcb788320252a511cde5ace6604bfc8089e6",
       "ids": [
-        "digest",
         "goals",
         "amplitude-wavelength",
         "amplitude-wavelength-table",
@@ -1859,7 +1841,7 @@
         "../js/scenes-ch13.js"
       ],
       "scriptsSha256": "bef0dde5500f9bda74f127a530504d25152eb0f4d44e71ee05100df6ced890a6",
-      "normalizedContentSha256": "edfc9c178b9a94ed2c52ae350ec90ce24f36ce55d54fd36084b852f412c35152",
+      "normalizedContentSha256": "4ab0e76d9d4058efa748c23b1231e09bd0ce2f3e1702ef14d87c7f795ee47149",
       "normalizedScriptsSha256": "9de31c7901139b50e8c55dabc0675e2e2ae383c78723ea14d40d9dacb9cfe5a8",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -1871,7 +1853,6 @@
       "type": "section",
       "contentSha256": "9edd086231535a02614a8448de9d476031537a946fb67b5726a023aa70067c0b",
       "ids": [
-        "digest",
         "goals",
         "particle-motion",
         "particle-motion-fig",
@@ -1949,7 +1930,7 @@
         "../js/scenes-ch13.js"
       ],
       "scriptsSha256": "bef0dde5500f9bda74f127a530504d25152eb0f4d44e71ee05100df6ced890a6",
-      "normalizedContentSha256": "4ef638be874ccb884b21e5b3a1ef2ed5ad5d73f7fbb9a2e198454881e1518cd4",
+      "normalizedContentSha256": "30f07bf188fcf8c950368e04f1c6d9734da0fec97e9832a61218fb25d3b00e71",
       "normalizedScriptsSha256": "9de31c7901139b50e8c55dabc0675e2e2ae383c78723ea14d40d9dacb9cfe5a8",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2008,7 +1989,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "06ca075a2696d296ad238da97a2e47039ee326274a962aa2cb56a8f284361d1a",
-      "normalizedContentSha256": "b2d00143911b64e4d1df2973860989aa17355a1f9a52d5a41c50dd512feb0083",
+      "normalizedContentSha256": "833f1a1ea6fd077df60dba632d1334ef391aae91149ec997f2475a126a0ad5b9",
       "normalizedScriptsSha256": "584db2a49c500f60cbb4db43b75c8e63ebded5c92ec1ceb10664b0ce5743338e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2020,7 +2001,6 @@
       "type": "section",
       "contentSha256": "80dd620e361fa6f05c6da3659d38d7ed3ebb892e26a010ebe534aa0e30f2c3c2",
       "ids": [
-        "digest",
         "model",
         "illustrating-waves-diagram",
         "wavefront-rays-title",
@@ -2044,7 +2024,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "25ef36fb3548e6946c76e564dcff7adde844a054155be286ba48190e7cfc1827",
-      "normalizedContentSha256": "80dd620e361fa6f05c6da3659d38d7ed3ebb892e26a010ebe534aa0e30f2c3c2",
+      "normalizedContentSha256": "995267faa40e1f3fc07a27be079476b169e74839b5a46635bdeda73c25ca29d8",
       "normalizedScriptsSha256": "244827398f30241829b29c39764ad014c425ca16dfbb51e7316390f72a29492e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2056,7 +2036,6 @@
       "type": "section",
       "contentSha256": "0e1ee4a05eeed653bff207f2f40bd2c6cf988fd9aa2dc6663ecd589659879ed4",
       "ids": [
-        "digest",
         "model",
         "reflection-diagram",
         "wave-reflection-title",
@@ -2096,7 +2075,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "0e1ee4a05eeed653bff207f2f40bd2c6cf988fd9aa2dc6663ecd589659879ed4",
+      "normalizedContentSha256": "ac457604947cf48715ba23ac7397a9963bf6d5613ad9f3e3833d0cc4a9504549",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2108,7 +2087,6 @@
       "type": "section",
       "contentSha256": "1b1637a0293f1a30fd3475f7a22954e68a4eed38b90a50765d1775639a528a8f",
       "ids": [
-        "digest",
         "model",
         "refraction-diagram",
         "wave-refraction-title",
@@ -2151,7 +2129,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "1b1637a0293f1a30fd3475f7a22954e68a4eed38b90a50765d1775639a528a8f",
+      "normalizedContentSha256": "846720d453dfbce4f7da87c997a33bfa3853daaf289a6c10a73f89008c53616a",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2163,7 +2141,6 @@
       "type": "section",
       "contentSha256": "2820defa4a4c55af93e8a589c0d6ead06b68867eca46f659056eafef341d3a96",
       "ids": [
-        "digest",
         "model",
         "diffraction-diagram",
         "diffraction-title",
@@ -2206,7 +2183,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "2820defa4a4c55af93e8a589c0d6ead06b68867eca46f659056eafef341d3a96",
+      "normalizedContentSha256": "06161285b97651988f56db437528f426e4c3ca5934a628bb82b5fce1a1a568d6",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2261,7 +2238,6 @@
       "type": "section",
       "contentSha256": "de5f216c28c74fee1275cc26d42fbb2ce7203929a27bf38ec00822a3142861c0",
       "ids": [
-        "digest",
         "model",
         "superposition-diagram",
         "superposition-svg-title",
@@ -2297,7 +2273,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "de5f216c28c74fee1275cc26d42fbb2ce7203929a27bf38ec00822a3142861c0",
+      "normalizedContentSha256": "b4e7e65378844a843b92229b22c60f21a50123dfdda426c857b88a8964ac29a0",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2309,7 +2285,6 @@
       "type": "section",
       "contentSha256": "50c33379fd1fa420ef89db147f2b7117d4ad4d912161089e1d451d81e2db9ad0",
       "ids": [
-        "digest",
         "model",
         "stationary-waves-diagram",
         "stationary-wave-title",
@@ -2371,7 +2346,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "50c33379fd1fa420ef89db147f2b7117d4ad4d912161089e1d451d81e2db9ad0",
+      "normalizedContentSha256": "0073bc994d0a56744267083d6825fb51c6cf1acee6b30c2ca505c6a50ff69d95",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2383,7 +2358,6 @@
       "type": "section",
       "contentSha256": "9fdb703ec6cf3b1e286a6d71f8a63ef50f1a9bfb1163fd68a3d1213c34b78917",
       "ids": [
-        "digest",
         "model",
         "interference-diagram",
         "interference-title",
@@ -2453,7 +2427,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "9fdb703ec6cf3b1e286a6d71f8a63ef50f1a9bfb1163fd68a3d1213c34b78917",
+      "normalizedContentSha256": "76024bdeee9cc27bef0a92651466d214c40336444ab4c5934be412702c02d87c",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2507,7 +2481,6 @@
       "type": "section",
       "contentSha256": "d5e651d27fcab5035adc7fd84a93bc5a9112870cb12d20c949c2f8ba261445d9",
       "ids": [
-        "digest",
         "model",
         "light-diagram",
         "light-svg-title",
@@ -2635,7 +2608,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "d5e651d27fcab5035adc7fd84a93bc5a9112870cb12d20c949c2f8ba261445d9",
+      "normalizedContentSha256": "dfef8ccb7b783d5072a209403a9ba0c384691307397dd7e38376f26c05967820",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2647,7 +2620,6 @@
       "type": "section",
       "contentSha256": "d3cda9f98b9cf5ab4da4606acbd67dccfb18d3580a6ecbcbcbc5737c7a6eee92",
       "ids": [
-        "digest",
         "model",
         "sound-diagram",
         "sound-wave-model-title",
@@ -2750,7 +2722,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "d3cda9f98b9cf5ab4da4606acbd67dccfb18d3580a6ecbcbcbc5737c7a6eee92",
+      "normalizedContentSha256": "580b6653d2d1e2e3eecaf12d687d4f1977ecd76029a7f9bc3fb34b561fb2e97d",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2762,7 +2734,6 @@
       "type": "section",
       "contentSha256": "600297a2d72c5fad82154f1e7deaeb26dede3d87b1397364022abc3f2f2e3cfc",
       "ids": [
-        "digest",
         "model",
         "comparing-light-and-sound-diagram",
         "comparing-light-and-sound-svg-title",
@@ -2799,7 +2770,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "600297a2d72c5fad82154f1e7deaeb26dede3d87b1397364022abc3f2f2e3cfc",
+      "normalizedContentSha256": "9d1dd6b3bc53100e4cecfa5d3ec922cfff857e0b86785347c3da9a733f9bdc31",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2853,7 +2824,6 @@
       "type": "section",
       "contentSha256": "1786ea52b161e830b3abac889f19ba605b93f8c3193316a9c67f17f6548cdf6b",
       "ids": [
-        "digest",
         "model",
         "light-and-vision-diagram",
         "reflection-ray-title",
@@ -2877,7 +2847,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "25ef36fb3548e6946c76e564dcff7adde844a054155be286ba48190e7cfc1827",
-      "normalizedContentSha256": "1786ea52b161e830b3abac889f19ba605b93f8c3193316a9c67f17f6548cdf6b",
+      "normalizedContentSha256": "5f7f7d4f48930e7a4bcf294a8dbef919136e8562e88e0186a7ccf00103e18571",
       "normalizedScriptsSha256": "244827398f30241829b29c39764ad014c425ca16dfbb51e7316390f72a29492e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2889,7 +2859,6 @@
       "type": "section",
       "contentSha256": "04e4ef8cdf04514e844d2f74afe88edc0feae15042a29eca24208e495cc3b3b0",
       "ids": [
-        "digest",
         "model",
         "reflection-diagram",
         "reflection-ray-title",
@@ -2914,7 +2883,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "25ef36fb3548e6946c76e564dcff7adde844a054155be286ba48190e7cfc1827",
-      "normalizedContentSha256": "04e4ef8cdf04514e844d2f74afe88edc0feae15042a29eca24208e495cc3b3b0",
+      "normalizedContentSha256": "f58803e816f7880918af82f145e7be92b2fd0086a9cda6970dc145ac0a1c51fb",
       "normalizedScriptsSha256": "244827398f30241829b29c39764ad014c425ca16dfbb51e7316390f72a29492e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2926,7 +2895,6 @@
       "type": "section",
       "contentSha256": "657c17ada66a1869784fcca275a4bd304b6aaf4def94e717575dadf4a8a0a35b",
       "ids": [
-        "digest",
         "model",
         "mirror-image-diagram",
         "reflection-ray-title",
@@ -2960,7 +2928,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "657c17ada66a1869784fcca275a4bd304b6aaf4def94e717575dadf4a8a0a35b",
+      "normalizedContentSha256": "206eb251178e8decca034c5030840dd2d99ab4f34745a57aeaa568f19378830d",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -2972,7 +2940,6 @@
       "type": "section",
       "contentSha256": "57bc5fc3db5f81264bc7cfe86f535e31f7909e327c4eb91fa76bc478063e57ae",
       "ids": [
-        "digest",
         "model",
         "more-about-reflection-diagram",
         "reflection-ray-title",
@@ -3006,7 +2973,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "57bc5fc3db5f81264bc7cfe86f535e31f7909e327c4eb91fa76bc478063e57ae",
+      "normalizedContentSha256": "85947359a28bf84a9786071e30af24094027af950cab1d446d9ab2606d75699d",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -3061,7 +3028,6 @@
       "type": "section",
       "contentSha256": "8b7b46eb38a020028eec6033f285916eb376adff8328fdb9a47f19de389a6ab5",
       "ids": [
-        "digest",
         "model",
         "refraction-diagram",
         "refraction-ray-title",
@@ -3101,7 +3067,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "8b7b46eb38a020028eec6033f285916eb376adff8328fdb9a47f19de389a6ab5",
+      "normalizedContentSha256": "a97ac07548a9aa2420b84377923c17095cc225d3757fbddc521f19b5bc01c96f",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -3113,7 +3079,6 @@
       "type": "section",
       "contentSha256": "cce05035ce355b813f48743ac8bf2c04b00a3eb7072f082087eabc3f4ac61d3b",
       "ids": [
-        "digest",
         "model",
         "laws-of-refraction-diagram",
         "refraction-ray-title",
@@ -3163,7 +3128,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "cce05035ce355b813f48743ac8bf2c04b00a3eb7072f082087eabc3f4ac61d3b",
+      "normalizedContentSha256": "be7425c5d2d8d67a51d26db82d3081f9b60e2d0b283ebf4982c82dd630c4eeba",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -3175,7 +3140,6 @@
       "type": "section",
       "contentSha256": "2398a4ead5dd2498b5dd5f140631762a9c5a625ab76bfed360b481baf298b85d",
       "ids": [
-        "digest",
         "model",
         "total-internal-reflection-diagram",
         "refraction-ray-title",
@@ -3231,7 +3195,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "2398a4ead5dd2498b5dd5f140631762a9c5a625ab76bfed360b481baf298b85d",
+      "normalizedContentSha256": "0a75ff3b3cde656e5fd4896359950434309afabe751d57990ff011db94013ead",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -3243,7 +3207,6 @@
       "type": "section",
       "contentSha256": "3d85a8b10521da74a44dd3a0e726334f727e32bc917efe9f7db2378e6fadec5b",
       "ids": [
-        "digest",
         "model",
         "more-phenomena-and-applications-diagram",
         "refraction-ray-title",
@@ -3283,7 +3246,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "25ef36fb3548e6946c76e564dcff7adde844a054155be286ba48190e7cfc1827",
-      "normalizedContentSha256": "3d85a8b10521da74a44dd3a0e726334f727e32bc917efe9f7db2378e6fadec5b",
+      "normalizedContentSha256": "59f5e99e4167681097af28a6daee3d6429bf47f5038ab76b177eb4f70ab3f674",
       "normalizedScriptsSha256": "244827398f30241829b29c39764ad014c425ca16dfbb51e7316390f72a29492e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -3338,7 +3301,6 @@
       "type": "section",
       "contentSha256": "6dbb4f0abd4dcff4562ce3eebdc28d7c236277b2a0e6a7f3e8c8102ce5839d25",
       "ids": [
-        "digest",
         "model",
         "basics-of-lenses-diagram",
         "lens-rays-title",
@@ -3390,7 +3352,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "6dbb4f0abd4dcff4562ce3eebdc28d7c236277b2a0e6a7f3e8c8102ce5839d25",
+      "normalizedContentSha256": "353dcee4a164ce8e2c12aac61560308626fe1eab59f7d83706ad06d7354857a1",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -3402,7 +3364,6 @@
       "type": "section",
       "contentSha256": "cbae50daabb22df42db987e71e89b0e3bdfa7093c3247a4dda49d07a857331ed",
       "ids": [
-        "digest",
         "model",
         "images-formed-by-lenses-diagram",
         "lens-rays-title",
@@ -3466,7 +3427,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "cbae50daabb22df42db987e71e89b0e3bdfa7093c3247a4dda49d07a857331ed",
+      "normalizedContentSha256": "6d71a97a2356a70dd32d98bce92102e6e90d099aa0fdd745f4839c420cf7f0cb",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -3478,7 +3439,6 @@
       "type": "section",
       "contentSha256": "cab8eb11ba2140255c19fa7b55ff349668feccbe838ca5d3e910af40eeb73111",
       "ids": [
-        "digest",
         "model",
         "graphical-methods-for-lenses-diagram",
         "lens-rays-title",
@@ -3530,7 +3490,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "cab8eb11ba2140255c19fa7b55ff349668feccbe838ca5d3e910af40eeb73111",
+      "normalizedContentSha256": "f8504dd121d6de98f28ef318bf705dc9e6738bc91c2eb913dbb4e3274ebfc471",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -3542,7 +3502,6 @@
       "type": "section",
       "contentSha256": "bb50e479f8bca97246629f77a881cfaf375d01a132b992fc38fdad25188bd0d3",
       "ids": [
-        "digest",
         "model",
         "lens-formula-diagram",
         "lens-rays-title",
@@ -3589,7 +3548,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "6faf315f2cb0c8f94506355d8e35de3bbe0c1280ee5158a69a56eb0bae606155",
-      "normalizedContentSha256": "bb50e479f8bca97246629f77a881cfaf375d01a132b992fc38fdad25188bd0d3",
+      "normalizedContentSha256": "6da499ea220232aca29b14d15ad32ad3d4050d8e9ea00e9bb3ded0133df5855a",
       "normalizedScriptsSha256": "26e2441c85be122ec6d549a84f9906960b892a8d82f58b212511bc00cc19d4e7",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -5622,7 +5581,7 @@
         "js/notes.js"
       ],
       "scriptsSha256": "2db068fec0f6ea3d9d8bbac1b73a2ab400930e92aadd8a1bad58e44b4bfd47d2",
-      "normalizedContentSha256": "5aab6a4a1637425a1f949517b689b62b5de38fc3268cd54b3f38bfcdd7c574d9",
+      "normalizedContentSha256": "f35bc24a08dbdd6dfad57d2da985182663d8758c6f0b8c893e1d5d9be78c6358",
       "normalizedScriptsSha256": "429558db67a3fc9db53ef5c7f2b5fcad3995a724de0c3324ec1d0d7c0dfe7b16",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6166,7 +6125,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "e64b81f8c63de1bb5503d9ca0125474213e785271047af0540398219414e3880",
-      "normalizedContentSha256": "00471decc983ff380415031b216ebf11d1e9d89b9bcadd859a0ab9b5cee5c4fa",
+      "normalizedContentSha256": "0c1db801ed7af989bde0c11748c7d3a5716bff0ec54cfe238d36f629c0c7ab83",
       "normalizedScriptsSha256": "ef650a0c85c673c3ff18af243a17d2d4ba90393fdb403c2190ce6af59d54c2e5",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6214,7 +6173,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "0aed853e48c5608a56ca2e52fca232d1bcf7d0c2d21a7851654b4c7f71e6ba8f",
-      "normalizedContentSha256": "aa22314e41be666df656efca05b8d3bbd1dc086d714e285c51f157bed668c2ae",
+      "normalizedContentSha256": "68cb8ff9e8e78251c48ec390d6bd97753ff09a7d9e16ec82a9fdbfd2a626a2c6",
       "normalizedScriptsSha256": "fff045ac813c9a8af5a02a41f9b00d22ce2000f905a6b23ced0df8884b53923e",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6296,7 +6255,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "64620226de347a8119e234a88a57ffecae9662cca28b2355b7adab180b7b0109",
-      "normalizedContentSha256": "5da2c20e88e9f32101c40b304a5c86c745a51aac164d958b83f6f80a2edc6bad",
+      "normalizedContentSha256": "eda6ecc70dcba15e8bd1b9a1e55cda5fd11a91664482b95ad0870c8a35122b64",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6327,7 +6286,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "64620226de347a8119e234a88a57ffecae9662cca28b2355b7adab180b7b0109",
-      "normalizedContentSha256": "f37d55cd678fafcfa464acdc030934794fbc0611d9cb0683507990d04f1c2b8b",
+      "normalizedContentSha256": "25cb2fc80e3b6327b5cfc60d6e197a531b5b23aef118490372699ebce1738a21",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6359,7 +6318,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
-      "normalizedContentSha256": "e85900177545429b6aad4b0b9e6b66e2ccac4e7ecca0c83d0ba45ea8b642291b",
+      "normalizedContentSha256": "74aa4d4058fd1a332d4f431e66e88623df67b92c10b36dde144e8a069868b969",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6444,7 +6403,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
-      "normalizedContentSha256": "1c2e4e489946f4e12e0495f9c4a53e28dd87f7b2b933feaaccc3a18434f5da81",
+      "normalizedContentSha256": "f93ad20aff723cd2bb88e4c4ccb72d9f892f5b513769bb1b6a7174183c45cc4c",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6476,7 +6435,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
-      "normalizedContentSha256": "f1b81040cb5af88033c41b010452f2c52a206f6aa1b03c14b75c1af1ddd7c279",
+      "normalizedContentSha256": "35db2de9664ca269366de7c3c33cabb2679d9b667c91dc26372709a64a3c666d",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6508,7 +6467,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
-      "normalizedContentSha256": "0e887a882b4dc87a88d12aff9a70d6dda02f8705387ce594806bd41fa1975ed3",
+      "normalizedContentSha256": "372e81918f14923802867ece4edf750b54c22a0a6a060ac388b9205d5cf2f6e4",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6533,7 +6492,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "64620226de347a8119e234a88a57ffecae9662cca28b2355b7adab180b7b0109",
-      "normalizedContentSha256": "08535e226c221e5ce31ab65814e248ccc3eb009ff7e743548e92c6fcbca6b09d",
+      "normalizedContentSha256": "b5091ae93183cdc0f848a51bf2bbb91e6898adfd16b7eb2d2b7bd075b21f22ab",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6620,7 +6579,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
-      "normalizedContentSha256": "03ddd65b226ce0a9390b58050375737bc8520f1b86a693567b6a0ff41971ad9d",
+      "normalizedContentSha256": "f688aff7208b350ea817c3b3ebb5a696e318bef4e2b43c04ac1bd04859edc253",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6658,7 +6617,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
-      "normalizedContentSha256": "a9cd0b06423d005c04c463a188174aa5609bbbbcca391f4ecfa5b65926e326f2",
+      "normalizedContentSha256": "d4718f77df814938d0f9abc21c2ddf9b89b51c625e71de1a96b34c3a9b50faa5",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6690,7 +6649,7 @@
         "../../js/checks.js"
       ],
       "scriptsSha256": "45aada206ac004b1e3dfc2e4cfbabb39684d6adadd6b58514dd499bbe806c1ba",
-      "normalizedContentSha256": "1af2c27a9514b0fdfb7eb04a8bc69b44a53cad3dcb1c5603b2ecd5b435444e14",
+      "normalizedContentSha256": "3fe814ff7cd1ce069ec84b212f1a91f39b81ae994402a6eb723c84b99a55a528",
       "normalizedScriptsSha256": "f77ce57c3d178bc9e0b4de1c1397169fb0698dd97019b6c72656f546e97af233",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6822,7 +6781,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "490654c47a77cc19e29e7ce22f2f68c18ca32ebe957b590b09e64bd63391e0c2",
-      "normalizedContentSha256": "fd5abdc1fa286be8b2825c1bae1a541aef3f4dbdffc32ae3a6fced939bd286cb",
+      "normalizedContentSha256": "b3522e3ac421b9dca2dcea3d076ce17f0e494359938a05f12f3a8053729ff82f",
       "normalizedScriptsSha256": "d21c615617001b083edc6629bf47aad05ab90731754cddcdfd105ea10205340b",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -6884,7 +6843,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a768f2cb669023df150bc037a9bd988848c6fa76e02e53317eda7c57798c1c33",
-      "normalizedContentSha256": "7ea56508e52be3a05789e6d403674b33a9e613e6ae54ed60fa557436988b2551",
+      "normalizedContentSha256": "cc0707869819d3ac65662352e668fb32f5d4353f870418afa19f05ef53a4fd77",
       "normalizedScriptsSha256": "9aad3666e58ae5eb0f8d3b9461962276517b496514f6c287f4d43220853ef537",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7010,7 +6969,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "490654c47a77cc19e29e7ce22f2f68c18ca32ebe957b590b09e64bd63391e0c2",
-      "normalizedContentSha256": "cb42ed80f2892689e3b5b37125a5d317a23c0a6c82c1121cb6c7a1aa900b6968",
+      "normalizedContentSha256": "ee2c288c19c2c11872cd50501425ac422d16173adc1d71b65befe38decd3a90e",
       "normalizedScriptsSha256": "d21c615617001b083edc6629bf47aad05ab90731754cddcdfd105ea10205340b",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7064,7 +7023,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "a768f2cb669023df150bc037a9bd988848c6fa76e02e53317eda7c57798c1c33",
-      "normalizedContentSha256": "94ca516f1715fc468199de8c7900b75309290e0ea5151fc0a95609d13fc24cec",
+      "normalizedContentSha256": "b14117b022bfb4f69b37250711a5b4277df939e4d90cf729fe95ef1aac013e13",
       "normalizedScriptsSha256": "9aad3666e58ae5eb0f8d3b9461962276517b496514f6c287f4d43220853ef537",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7131,7 +7090,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "490654c47a77cc19e29e7ce22f2f68c18ca32ebe957b590b09e64bd63391e0c2",
-      "normalizedContentSha256": "1d37c8f46c6f01708271a37c05d53bb542db4285bc1dd94e287fb6fa2d6d0c36",
+      "normalizedContentSha256": "fa117f8f90d7e575da8d7c2fbe46f793804b1c2464d067078b3c21b6dafb9099",
       "normalizedScriptsSha256": "d21c615617001b083edc6629bf47aad05ab90731754cddcdfd105ea10205340b",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7246,7 +7205,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "3009e12760ae880c6f6fcf5122a9086718fe9fdf2f41283fd90b84b79c014a4d",
-      "normalizedContentSha256": "e51143cecb4c130f763a7456ec0d4b3d6ee72ad6cecd568be751099f50c9b3e2",
+      "normalizedContentSha256": "bc586c875dc758fe912a7d1af7e6d1e976cfadcd98faff48bf9c96263db14752",
       "normalizedScriptsSha256": "95ac69debe8d3fbf2c62dd45293740cfbe9180fa3539536feeab6749b7548a94",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7288,7 +7247,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "3009e12760ae880c6f6fcf5122a9086718fe9fdf2f41283fd90b84b79c014a4d",
-      "normalizedContentSha256": "b9ac9950ec07d19bcf057a1e9f430c5a98f117a5219737b38b4c2335603ad30b",
+      "normalizedContentSha256": "447de1b58212e2085eb6b92fdc1b00b5d61943c6216c76260ceee45ea5efbe01",
       "normalizedScriptsSha256": "95ac69debe8d3fbf2c62dd45293740cfbe9180fa3539536feeab6749b7548a94",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7331,7 +7290,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "3009e12760ae880c6f6fcf5122a9086718fe9fdf2f41283fd90b84b79c014a4d",
-      "normalizedContentSha256": "02c59cccbe87861a4a4efa69fb7123b6099aacadde10d6931dc93e7612489ab2",
+      "normalizedContentSha256": "5798662514aab3da95a523d79c027ee98e4ddcff5afc2281533919f1937c2c77",
       "normalizedScriptsSha256": "95ac69debe8d3fbf2c62dd45293740cfbe9180fa3539536feeab6749b7548a94",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7371,7 +7330,7 @@
         "../js/notes.js"
       ],
       "scriptsSha256": "485cfe4390c530f8d3758e7b0ef242a8d2885355e62a48f038cad608c3a2ec41",
-      "normalizedContentSha256": "b017b3150235667c8c9133b71e01c4232e26f1e29cd5db0434a693b36eeb818e",
+      "normalizedContentSha256": "45003e1e37eb4f8b77ac0dbed0150b050b27c281400a414ebefd0c88eff489d9",
       "normalizedScriptsSha256": "485cfe4390c530f8d3758e7b0ef242a8d2885355e62a48f038cad608c3a2ec41",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7458,7 +7417,6 @@
       "type": "section",
       "contentSha256": "26e0e8d7c3728178f30d9f7353a36ce50473a906f4658057e0e2f5864e4d8548",
       "ids": [
-        "11-digest",
         "energy-at-home",
         "energy-at-home-fig-1",
         "energy-at-home-title",
@@ -7504,7 +7462,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "a04e93f6214b14c39a5f621e7efa9d97c19fae90bc596c5ad99b6cd8cb6233ef",
+      "normalizedContentSha256": "066ae127aea39908438134741afe0fa9a810755e5326a522d14c9c6a120c843b",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7517,7 +7475,6 @@
       "type": "section",
       "contentSha256": "bb055be0a7d7039ffe9638a3fb3b1ea7054f2e063b64c5cf5d0f40d092a21adc",
       "ids": [
-        "12-digest",
         "luminous-flux",
         "luminous-flux-fig-1",
         "eye-vis",
@@ -7583,7 +7540,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "21b81736251d3ba849d047cf7c24377d7cee49f62d86fe6c2d95a05288eab3fd",
+      "normalizedContentSha256": "3a4319fbd61cfc818774bffcc77e095c1717f1908b4afd4c6f5544b7f94352d9",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7596,7 +7553,6 @@
       "type": "section",
       "contentSha256": "edd0a5b2f6f46da593cc88fb00c6c45769531e669ce2bedb44539959cead84d3",
       "ids": [
-        "13-digest",
         "illuminance",
         "illuminance-fig-1",
         "lux-title",
@@ -7645,7 +7601,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "7cf9e4940c7553a6cef96fd62943cff93f5004c87fbd4088b88509383e1965f8",
+      "normalizedContentSha256": "0e788e29b69bdcdae6ea305088195b572a9b4a67209e16872074dc0a7b53bdae",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7724,7 +7680,6 @@
       "type": "section",
       "contentSha256": "858f66dc34cc184400dfb39d8534b916b160720cc690eab85c1582b29e02d5c8",
       "ids": [
-        "21-digest",
         "hotplate",
         "hotplate-fig-1",
         "hotplate-title",
@@ -7764,7 +7719,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "2be0e99ba6a750acb7d9a487890ff110450b085b7ae229a3ce9554acd999dbfd",
+      "normalizedContentSha256": "679a44c7dca8eccc3b47d694002eb8f4e4b11549a98f211bb445b044e4748af0",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7777,7 +7732,6 @@
       "type": "section",
       "contentSha256": "f2a9d8711aa1973955dab7d898db4dda665a95c0437ea4841a80fe9980cfb491",
       "ids": [
-        "22-digest",
         "heat-pump",
         "heat-pump-fig-1",
         "pump-vis",
@@ -7823,7 +7777,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "3499a667bd210c39f507fc38ab94622617ba4f1b1d14e499cfc1df804cdc34d5",
+      "normalizedContentSha256": "0d14174f33a88dcb27c1e713eada0a4e7524785508f308e61256f484e735931b",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7900,7 +7854,6 @@
       "type": "section",
       "contentSha256": "d1bbd5e588421ce4b907c52689cd34c0f061913056463a175f75ed292366b11d",
       "ids": [
-        "31-digest",
         "envelope",
         "envelope-fig-1",
         "envelope-title",
@@ -7951,7 +7904,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "22ba85e167c3ceb5ff809827729df8111fcd6f9bf82283b3be175d2b98aa0289",
+      "normalizedContentSha256": "13055861ce79dd59e1d6c0eaac43f2e2830c4b5a2b526f372555f26c0bb970a3",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -7964,7 +7917,6 @@
       "type": "section",
       "contentSha256": "ea74e91905d001b0c4bd6c85923650449e0a4cdb3e5d52f22bac35c8f64584d4",
       "ids": [
-        "32-digest",
         "ice-vs-ev",
         "ice-vs-ev-fig-1",
         "car-flow-title",
@@ -8008,7 +7960,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "d89bcaa3f8d546c821aff1f84c1245aca200f5a978cfb80ca2748f19bdd55659",
+      "normalizedContentSha256": "bcee4e61bb77902de4ccf50676b7727c9015c33a1c5f50cc3fe9dd4564d73d64",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8085,7 +8037,6 @@
       "type": "section",
       "contentSha256": "6ab09287f38cec52f6677422781b134ae820772b7c66704c364c5afef1d1041a",
       "ids": [
-        "41-digest",
         "generation",
         "generation-fig-1",
         "gen-title",
@@ -8110,7 +8061,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "bfc0117500c6bf9e54be7465c6a14b91030857aff1b1f0101f229d084ba9fc95",
+      "normalizedContentSha256": "3f1102a21a7179e637770d9391e768485cb2f7d8f43dad9738b7fd4107d2341b",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8123,7 +8074,6 @@
       "type": "section",
       "contentSha256": "bbf76a71e2a3d0b5264e6fd92f0cf042d101423903bb0b938ed0262f67fd642b",
       "ids": [
-        "42-digest",
         "fossil",
         "fossil-check-1",
         "fossil-tf-renewable",
@@ -8193,7 +8143,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "10e66ac0b802e1697df0ef91e63baa2b86a93facbfa7334bc87ef8aa979d1e3a",
+      "normalizedContentSha256": "42ee63f51a54963569cd43a3bbde99f1a7199d7e87de28d215c3584750867d92",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8206,7 +8156,6 @@
       "type": "section",
       "contentSha256": "8b46ff1deef9fee7572f605443b1ace2bd33b1af2fb7d45d534654561c73ebca",
       "ids": [
-        "43-digest",
         "pollution",
         "pollution-fig-1",
         "ghg-title",
@@ -8249,7 +8198,7 @@
         "js/figures.js"
       ],
       "scriptsSha256": "49ba7fd23f6ebc7d97d9a482aaef8ef1196c7df6f0843b41c27dd0f5acbc94f9",
-      "normalizedContentSha256": "b61d851011c616b4419c8a23bec1dff53ce40d5a3b3f7fe6c8710c24d1febfff",
+      "normalizedContentSha256": "8003e6210bc9c3e6257dfbeaff64bc1b22c5490b815311f5b204a5dd3c6f85f9",
       "normalizedScriptsSha256": "e8706559a13f1c43f00d87ec060a171155117b059f95f1e42efb5d76f9b6c291",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8416,7 +8365,7 @@
         "js/scenes.js"
       ],
       "scriptsSha256": "e5a49862f27e147495ba9f8823f6098cdb5ee8aed20ec8f12e60f2347dd6e344",
-      "normalizedContentSha256": "db61b8b3328d9bc9b20d641cb6dfd61671ce9cf6a195d9b5303dedc4b52a6a8f",
+      "normalizedContentSha256": "009c489bcaed3bb9007b1db2191e64db53ba279340575e2ed28f092b68d85035",
       "normalizedScriptsSha256": "31875d8364f0f161483d3eb783aac368465c2acaace3bc53c4de575b0820ea28",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8489,7 +8438,7 @@
         "js/scenes.js"
       ],
       "scriptsSha256": "e5a49862f27e147495ba9f8823f6098cdb5ee8aed20ec8f12e60f2347dd6e344",
-      "normalizedContentSha256": "5211bfa90eaaaf2e5e5e91e8590c466c00c130690a7d2eec9371637b5f0b4154",
+      "normalizedContentSha256": "a1b1e9ec6732530d9ea4d6196a9d530361199280daeb2196abb1516f50fc670e",
       "normalizedScriptsSha256": "31875d8364f0f161483d3eb783aac368465c2acaace3bc53c4de575b0820ea28",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8565,7 +8514,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
-      "normalizedContentSha256": "a4a3759cb942b08250fbb0429bfb950f814d3a5191dd763d62b041136a7e3a7b",
+      "normalizedContentSha256": "1a4ad7fccbf33cfb14dc57845c064aa3a63d2f4c70386eb476320b991198a293",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8613,7 +8562,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
-      "normalizedContentSha256": "641c45a132c0906522f5df550d46d5ad02b3eed25eb91af10ff988c3aaf0eb4c",
+      "normalizedContentSha256": "3fc3afa64188b81c500ae6743dfb0a67d7bfc9adf01fbb71ae2a05e354270dc5",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8651,7 +8600,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
-      "normalizedContentSha256": "b4ae8751b3c5bed74ae01aa1434b84373293e59776a94a90e833d39ebd247bde",
+      "normalizedContentSha256": "32e84a5b2ed512b962fd95664bd3dd887942d5bff8e72f6fa417e65d4bde2090",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8739,7 +8688,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "312889c81470a85be386b8c86e82af1d1929e355b1bc13f2367e1030c855e9cf",
-      "normalizedContentSha256": "73b0f18d6c50023c452a7336e874475fb7eb2d8c63c4671731c1c7b7c61c38a0",
+      "normalizedContentSha256": "2840cf46790527a7fd6bcf108f0de08fbf9b9c518a044fbc85e4b13ced5fc526",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8773,7 +8722,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
-      "normalizedContentSha256": "653ca2156e82d1ed28f9791ce81bc47c9632216480e3527402353e168b27b399",
+      "normalizedContentSha256": "414de555fca7b0b14e59c134ffea44fa56dedbcb5cc5e009daf8e2fc0518a104",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8815,7 +8764,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
-      "normalizedContentSha256": "276442ec96a6c5b700d94c8984fe6d706dc332a9544774aa43146b98ac653745",
+      "normalizedContentSha256": "0bcfde48a0c95e62d77890e983592a3d4ae35dc6df8082888d9a5c81a13d6dc8",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8854,7 +8803,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
-      "normalizedContentSha256": "5fb77d53903bf913d1cc12968edfaaee4183e131f87077226948a7b609c1f871",
+      "normalizedContentSha256": "ef486d3fa8cf3ff3e493228f9ee781ef9036392181aa86bb379acd6e1a7861fa",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",
@@ -8885,7 +8834,7 @@
         "../js/stage.js"
       ],
       "scriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
-      "normalizedContentSha256": "378b364d93422f9a385e94c543acb7edd9e1bdb0d2a7332062f8195f3563b87a",
+      "normalizedContentSha256": "4fb139aecc64f821253f3024b6981d9d4b50507ef0fe090cc6521930bd5858b5",
       "normalizedScriptsSha256": "04e389253b2638c0b0ce384d3654ff33c33f833e7fc17e7aced4bb0839446479",
       "stylesheets": [
         "../../css/p2n-shell.css",

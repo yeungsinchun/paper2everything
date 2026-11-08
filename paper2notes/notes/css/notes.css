@@ -1356,7 +1356,6 @@ details.lo-block {
   margin: 0;
   padding: 14px var(--space-4);
   color: var(--teal-700);
-  cursor: pointer;
   list-style: none;
 }
 .lo-block > summary::-webkit-details-marker { display: none; }
