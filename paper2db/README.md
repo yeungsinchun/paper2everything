@@ -131,7 +131,7 @@ All commands default to both corpora; `--corpus qb` or `--corpus dse` selects on
 
 ## Leak fingerprints
 
-`scripts/leak_fingerprints.py` writes the tracked `paper2notes/scripts/leak/fingerprints.v1.json.gz` (salted 8-grams and numsets for the protected QB/DSE corpus, read from `qb-web-ui-staging/` and `paper2notes/notes/qb/data/`); `paper2notes/scripts/leak-check.mjs` consumes it and runs from `ci-check.mjs`. `python3 scripts/leak_fingerprints.py --check` fails when the committed file is stale, and the normalisation mirrors `leak-check.mjs`.
+`scripts/leak_fingerprints.py` writes the tracked `paper2notes/scripts/checks/leak/fingerprints.v1.json.gz` (salted 8-grams and numsets for the protected QB/DSE corpus, read from `qb-web-ui-staging/` and `paper2notes/notes/qb/data/`); `paper2notes/scripts/checks/leak-check.mjs` consumes it and runs from `ci-check.mjs`. `python3 scripts/leak_fingerprints.py --check` fails when the committed file is stale, and the normalisation mirrors `leak-check.mjs`.
 
 ## Tests
 

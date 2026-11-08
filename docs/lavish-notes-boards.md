@@ -17,7 +17,7 @@ Every Lavish board that reviews a notes HTML change (chapter refactor, section r
    - Grids/flex use `minmax(0,1fr)` and `min-width:0` so they don't overflow, and wrap to full-width `1fr` on small viewports.
    - Long prose never lives in a `max-width:360px` or `width:320px` box at desktop, and never in a `repeat(3,1fr)` layout without a phone fallback.
 
-3. **Pass the CI checklist.** `node paper2notes/scripts/ci-check.mjs` fails the change if the board lacks the marker, the side-by-side grid, the 1280+390 iframes, the Before/After labels, the readable measures, the `minmax(0,1fr)` safeguard, or the responsive wrap. It also fails on narrow-box anti-patterns (`max-width <400px` on `.frame/.pane/.card`, `width:320px` prose boxes). The skill gives the exact regexes used in `checkLavishBoards()`.
+3. **Pass the CI checklist.** `node paper2notes/scripts/checks/ci-check.mjs` fails the change if the board lacks the marker, the side-by-side grid, the 1280+390 iframes, the Before/After labels, the readable measures, the `minmax(0,1fr)` safeguard, or the responsive wrap. It also fails on narrow-box anti-patterns (`max-width <400px` on `.frame/.pane/.card`, `width:320px` prose boxes). The skill gives the exact regexes used in `checkLavishBoards()`.
 
 ## Template
 
@@ -38,5 +38,5 @@ lavish-axi .lavish/<board>.html
 
 - `.agents/skills/paper2everything-lavish-board/SKILL.md` — the authoritative board contract.
 - `.agents/skills/paper2everything-ui-screenshot/SKILL.md` — the captures a request body must carry.
-- `paper2notes/.cursor/skills/visual-html-notes/SKILL.md` — the notes pages themselves.
+- `.agents/skills/visual-html-notes/SKILL.md` — the notes pages themselves.
 - `docs/ARCHITECTURE.md` — the monorepo data edge (notes → paper2db).

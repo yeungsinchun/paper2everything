@@ -1174,7 +1174,7 @@ button[data-reveal] { margin-top: 0.5rem; }
 /* Book 8 design-system styling retained from the former p2n.css layer. */
 
 /* Paper2Notes design system layer for Book 8 chapter pages (copied from the Book 5 layer).
-   Source of truth: "paper2notes/Paper2Notes Design System/" (tokens/*.css, components/components.css, readme.md).
+   Source of truth: "paper2notes/design-system/" (tokens/*.css, components/components.css, readme.md).
    Loaded after notes.css: it re-points the legacy custom properties at design-system tokens
    and restyles the existing chapter classes (no markup structure change). */
 

@@ -15,7 +15,7 @@
 //                       match answer-pointer.v1, or notes-pointer.v1 for notes.json.
 //                       The teaching-reference producer owns notes validation/extraction.
 //
-// `node scripts/anchor-lint.mjs --write-lock` adds every current id to the
+// `node scripts/checks/anchor-lint.mjs --write-lock` adds every current id to the
 // lock (it never drops ids; removals must go through moves.json).
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -24,7 +24,7 @@ import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const defaultRepoRoot = resolve(__dirname, "..");
+const defaultRepoRoot = resolve(__dirname, "../..");
 
 // An element needs an id when any selector matches. `classes` are all-of.
 export const REQUIRED_SELECTORS = [
@@ -270,7 +270,7 @@ function lintPointers(pointersDir, repoRootRel, errors, notesDir) {
     if (!doc) continue;
     if (name === "notes.json") {
       // One producer owns the canonical format; never duplicate its normalizer here.
-      const check = spawnSync("python3", [join(__dirname, "publish-notes-passages.py"),
+      const check = spawnSync("python3", [join(__dirname, "..", "publish-notes-passages.py"),
         "--store", join(pointersDir, name), "--notes-root", notesDir, "--check"],
       { encoding: "utf8", timeout: 30000, maxBuffer: 1024 * 1024 });
       if (check.error || check.status !== 0) errors.push(`${label}: ${check.error?.message || check.stderr.trim() || "notes-reference validation failed"}`);

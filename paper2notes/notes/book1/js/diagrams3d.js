@@ -34,7 +34,7 @@
     reduceMotion = global.matchMedia && global.matchMedia("(prefers-reduced-motion: reduce)").matches;
   } catch (err) { reduceMotion = false; }
 
-  /* Design-system figure palette (Paper2Notes Design System tokens). One colour, one meaning. */
+  /* Design-system figure palette (design-system tokens). One colour, one meaning. */
   var C = {
     ink: "#17212B",
     ink2: "#4A5562",

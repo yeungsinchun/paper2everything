@@ -4,7 +4,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync, existsSync } from 'node:
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
-import { lintAnchors } from './anchor-lint.mjs';
+import { lintAnchors } from './checks/anchor-lint.mjs';
 
 test('existing anchor validator consumes teaching references through the shared producer', () => {
   const root = mkdtempSync(join(tmpdir(), 'question-notes-lint-'));

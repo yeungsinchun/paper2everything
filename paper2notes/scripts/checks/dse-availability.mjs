@@ -14,8 +14,8 @@
  *   paper2db/metadata/{mc,lq}/llm_classifications.json   which question belongs to which section
  *   paper2db/tests/reconstructed/lq/<year>/starts.json   the long questions each year's paper holds
  *
- * Run: node paper2notes/scripts/dse-availability.mjs [--json] [--root <dir>]
- * scripts/quiz-audit.mjs and scripts/ci-check.mjs check both the snapshot
+ * Run: node paper2notes/scripts/checks/dse-availability.mjs [--json] [--root <dir>]
+ * scripts/checks/quiz-audit.mjs and scripts/checks/ci-check.mjs check both the snapshot
  * record and page contracts. ci-check.mjs also checks the reference counts
  * quoted in docs/ARCHITECTURE.md against the pages. */
 
@@ -567,7 +567,7 @@ function pages(dir, out = []) {
 
 function main() {
   const rootFlag = process.argv.indexOf("--root");
-  const repoRoot = rootFlag !== -1 && process.argv[rootFlag + 1] ? resolve(process.argv[rootFlag + 1]) : resolve(fileURLToPath(import.meta.url), "..", "..");
+  const repoRoot = rootFlag !== -1 && process.argv[rootFlag + 1] ? resolve(process.argv[rootFlag + 1]) : resolve(fileURLToPath(import.meta.url), "..", "..", "..");
   const availability = { ...loadAvailability(repoRoot), repoRoot };
   const snapshot = checkSnapshot({ repoRoot, availability });
   const source = loadSource(repoRoot);
