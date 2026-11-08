@@ -89,16 +89,16 @@ a{text-decoration:none}
 
 /* Book breadcrumbs stay inside the existing top bar. Native disclosures work without JavaScript. */
 .p2n-top:has(.p2n-path-nav){flex-wrap:nowrap}
-.p2n-path-nav{overflow:visible;max-width:none;align-items:center;gap:12px}
+.p2n-top-nav.p2n-path-nav{overflow:visible;max-width:none;align-items:center;gap:12px}
 .p2n-breadcrumb{display:flex;align-items:center;list-style:none;margin:0;padding:0;min-width:0;font:600 var(--text-sm)/1 var(--font-display)}
 .p2n-breadcrumb>li{display:flex;align-items:center;min-width:0}
 .p2n-breadcrumb>li+li::before{content:'›';color:var(--ink-3);margin:0 4px}
 .p2n-breadcrumb a,.p2n-breadcrumb strong{padding:0 6px;min-height:var(--hit);display:inline-flex;align-items:center;white-space:nowrap}
 .p2n-breadcrumb strong{font-weight:700;color:var(--ink)}
 .p2n-nav-menu{position:relative;font:600 var(--text-sm)/1 var(--font-display)}
-.p2n-nav-menu summary{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:var(--hit);padding:0 8px;cursor:pointer;border-radius:var(--radius-md);list-style:none}
+.p2n-nav-menu summary{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:var(--hit);padding:0 8px;cursor:pointer;border-radius:var(--radius-md);list-style:none;color:var(--ink-2)}
 .p2n-nav-menu summary::-webkit-details-marker{display:none}
-.p2n-books-menu>summary::after{content:'⌄';margin-left:4px}
+.p2n-nav-menu summary[aria-current="page"]{font-weight:700;color:var(--ink)}
 .p2n-nav-menu summary:hover{background:var(--teal-50)}
 .p2n-nav-menu summary:focus-visible{outline:3px solid var(--teal-300);outline-offset:2px}
 .p2n-nav-popup{position:absolute;right:0;top:100%;z-index:30;display:grid;min-width:180px;max-height:70vh;overflow-y:auto;padding:8px;background:var(--paper);border:2px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow-pop)}
@@ -106,8 +106,7 @@ a{text-decoration:none}
 .p2n-nav-menu:not([open])>.p2n-nav-popup{display:none}
 .p2n-breadcrumb>.p2n-crumb-collapsed{display:none}
 @media(max-width:760px){
-  .p2n-path-nav{gap:4px}
-  .p2n-path-nav>.p2n-qb-link{display:none}
+  .p2n-top-nav.p2n-path-nav{gap:4px}
   .p2n-top:has(.p2n-path-nav) .p2n-book-brand>span:last-child{display:none}
   .p2n-top:has(.p2n-path-nav) .p2n-book-brand{min-width:44px;min-height:44px;justify-content:center}
 }

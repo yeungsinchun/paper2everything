@@ -146,10 +146,18 @@ export function renderPage(page, { template, books }, footer = defaultFooter) {
   if (page.type === 'section') trail.push({ label: sectionNumber(page) });
   else if (page.type === 'summary') trail.push({ label: 'Summary' });
   const link = item => `<a href="${item.href}">${escape(item.label)}</a>`;
-  const middle = trail.slice(1, -1);
-  const breadcrumb = trail.map((item, i) => `<li${i > 0 && i < trail.length - 1 ? ' class="p2n-crumb-middle"' : ''}>${i === trail.length - 1 ? `<strong aria-current="page">${escape(item.label)}</strong>` : link(item)}</li>`);
-  if (middle.length) breadcrumb.splice(1, 0, `<li class="p2n-crumb-collapsed"><details class="p2n-nav-menu"><summary aria-label="Show parent pages">…</summary><div class="p2n-nav-popup">${middle.map(link).join('')}</div></details></li>`);
-  const navigation = `<ol class="p2n-breadcrumb" aria-label="Breadcrumb">${breadcrumb.join('')}</ol><details class="p2n-nav-menu p2n-books-menu"><summary>Books</summary><div class="p2n-nav-popup">${Object.entries(books).map(([id, b]) => link({ href: `${root}${id}/index.html`, label: b.label })).join('')}<a href="${root}qb/index.html">Question bank</a></div></details><a class="p2n-qb-link" href="${root}qb/index.html">Question bank</a>`;
+  const bookLinks = Object.entries(books).map(([id, b]) => ({ href: `${root}${id}/index.html`, label: b.label }));
+  const bookMenu = (item, current) => `<details class="p2n-nav-menu p2n-book-menu"><summary${current ? ' aria-current="page"' : ''}>${escape(item.label)}</summary><div class="p2n-nav-popup">${bookLinks.map(link).join('')}</div></details>`;
+  const hidden = trail.slice(1, -1);
+  const collapsedLinks = hidden.concat(bookLinks).filter((item, i, all) => all.findIndex(other => other.href === item.href) === i);
+  const breadcrumb = trail.map((item, i) => {
+    if (i === 0) return `<li>${link(item)}</li>`;
+    if (i === 1) return `<li${i === trail.length - 1 ? '' : ' class="p2n-crumb-middle"'}>${bookMenu(item, i === trail.length - 1)}</li>`;
+    if (i === trail.length - 1) return `<li><strong aria-current="page">${escape(item.label)}</strong></li>`;
+    return `<li class="p2n-crumb-middle">${link(item)}</li>`;
+  });
+  if (hidden.length) breadcrumb.splice(1, 0, `<li class="p2n-crumb-collapsed"><details class="p2n-nav-menu p2n-crumb-menu"><summary aria-label="Show hidden pages and every book">…</summary><div class="p2n-nav-popup">${collapsedLinks.map(link).join('')}</div></details></li>`);
+  const navigation = `<ol class="p2n-breadcrumb" aria-label="Breadcrumb">${breadcrumb.join('')}</ol>`;
   // Component placeholders are already resolved. Replace only these values.
   // Lesson text is a replacement value, so braces inside a lesson stay literal.
   const slots = Object.fromEntries(slotNames.map(name => [name, normalizeSlot(page[name])]));

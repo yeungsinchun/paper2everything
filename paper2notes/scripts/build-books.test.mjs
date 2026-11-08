@@ -61,7 +61,7 @@ test('all routes use one primary navigation and no secondary header chapter row'
     assert.equal((header.match(/<nav\b/g) ?? []).length, 1, p.route);
     assert.doesNotMatch(html, /p2n-context-nav/, p.route);
     assert.equal((header.match(/aria-current="page"/g) ?? []).length, 1, p.route);
-    assert.match(header, /<strong aria-current="page">[^<]+<\/strong>/, p.route);
+    assert.match(header, /<(?:strong|summary) aria-current="page">[^<]+<\/(?:strong|summary)>/, p.route);
     assert.doesNotMatch(header, /<a[^>]*aria-current="page"/, p.route);
     assert.match(header, /aria-label="Site navigation"/);
     assert.match(header, /aria-hidden="true"/);
@@ -71,6 +71,7 @@ test('all routes use one primary navigation and no secondary header chapter row'
     for (const [, href] of header.matchAll(/href="([^"]+)"/g)) {
       const dest = new URL(href, root).pathname.slice(1);
       assert.ok(routes.has(dest), `${p.route}: unknown ancestor ${dest}`);
+      assert.equal(dest.endsWith('qb/index.html'), false, `${p.route}: question bank stayed in the top bar`);
     }
   }
 });
@@ -172,27 +173,37 @@ test('Book 6 and Book 9 lesson pages rebuild with their own design sheets', () =
   } finally { rmSync(temp, { recursive: true, force: true }); }
 });
 
-test('generated trails expose real ancestors, never sibling sections or invented levels', () => {
+test('generated trails expose real ancestors and every book index, never sibling sections', () => {
+  const bookRoutes = Object.keys(layout.books).map(b => `${b}/index.html`).sort();
   for (const p of pages) {
     const html = renderPage(p, layout);
     const trail = html.match(/<ol class="p2n-breadcrumb"[^>]*>([\s\S]*?)<\/ol>/)[1];
     const base = new URL(p.route, 'https://notes.test/');
-    const expected = ['index.html'];
+    const toRoute = href => new URL(href, base).pathname.slice(1);
     const [book, chapter] = p.route.split('/');
-    if (p.type !== 'overview') expected.push(`${book}/index.html`);
+    const expected = ['index.html'];
     if (p.type === 'section' || p.type === 'summary') expected.push(`${book}/${chapter}/index.html`);
-    const destinations = [...trail.matchAll(/href="([^"]+)"/g)].map(m => new URL(m[1], base).pathname.slice(1));
-    assert.deepEqual([...new Set(destinations)].sort(), expected.sort(), p.route);
-    const current = p.type === 'overview' ? `Book ${book.slice(4)}` :
+    const ancestors = [...trail.replace(/<details[\s\S]*?<\/details>/g, '').matchAll(/href="([^"]+)"/g)].map(m => toRoute(m[1]));
+    assert.deepEqual(ancestors.sort(), expected.sort(), p.route);
+
+    const menu = trail.match(/<details class="p2n-nav-menu p2n-book-menu">[\s\S]*?<\/details>/)[0];
+    const currentBook = p.type === 'overview' ? ' aria-current="page"' : '';
+    assert.match(menu, new RegExp(`<summary${currentBook}>Book ${book.slice(4)}</summary>`), p.route);
+    assert.deepEqual([...menu.matchAll(/href="([^"]+)"/g)].map(m => toRoute(m[1])).sort(), bookRoutes, p.route);
+
+    const collapsed = trail.match(/<details class="p2n-nav-menu p2n-crumb-menu">[\s\S]*?<\/details>/)?.[0];
+    if (p.type === 'overview') assert.equal(collapsed, undefined, p.route);
+    else {
+      assert.ok(collapsed, `${p.route}: no ellipsis disclosure`);
+      const leaves = p.type === 'section' || p.type === 'summary' ? [`${book}/${chapter}/index.html`] : [];
+      assert.deepEqual([...collapsed.matchAll(/href="([^"]+)"/g)].map(m => toRoute(m[1])).sort(), [...bookRoutes, ...leaves].sort(), p.route);
+    }
+
+    const current = p.type === 'overview' ? null :
       p.type === 'summary' ? 'Summary' :
       p.type === 'section' ? displayedSection(html) :
       `Ch.${Number(chapter.match(/^ch(\d+)/)[1])}`;
-    assert.ok(trail.includes(`<strong aria-current="page">${current}</strong>`), p.route);
-    const header = html.match(/<header[\s\S]*?<\/header>/)[0];
-    const destinationsInHeader = new Set([...header.matchAll(/href="([^"]+)"/g)].map(m => new URL(m[1], base).pathname.slice(1)));
-    for (const route of ['index.html', 'qb/index.html', ...Object.keys(layout.books).map(b => `${b}/index.html`)]) {
-      assert.ok(destinationsInHeader.has(route), `${p.route}: lost ${route}`);
-    }
+    if (current) assert.ok(trail.includes(`<strong aria-current="page">${current}</strong>`), p.route);
   }
 });
 
@@ -265,7 +276,7 @@ test('the compiler resolves placeholders into emitted overview, section, and tra
     assert.match(overview, /href="index.html" aria-label="Book 2 home"/);
     assert.match(overview, /data-ic="rocket"/);
     assert.match(overview, /<small>Book 2<\/small>/);
-    assert.match(overview, /<strong aria-current="page">Book 2<\/strong>/);
+    assert.match(overview, /<summary aria-current="page">Book 2<\/summary>/);
     assert.match(overview, /<main class="p2n-page p2n-book-index">/);
     const main = overview.match(/<main class="p2n-page p2n-book-index">[\s\S]*?<\/main>/)[0];
     assert.match(main, /Force &amp; Motion/);
@@ -277,7 +288,7 @@ test('the compiler resolves placeholders into emitted overview, section, and tra
     assert.match(section, /href="\.\.\/index.html" aria-label="Book 5 home"/);
     assert.match(section, /data-ic="radiation"/);
     assert.match(section, /<a href="\.\.\/\.\.\/index.html">All books<\/a>/);
-    assert.match(section, /<a href="\.\.\/\.\.\/book5\/index.html">Book 5<\/a>/);
+    assert.match(section, /<summary>Book 5<\/summary>/);
     assert.ok(section.indexOf('</main>') < section.indexOf('<script src="../../vendor/katex/katex.min.js">'));
     assert.ok(section.indexOf('<script src="../../vendor/katex/katex.min.js">') < section.indexOf('deploy-commit-footer'));
     assert.match(trailing, /<\/html>\n<!-- Book4 Round1 validated 2026-09-28T18:09:11Z -->\n$/);
