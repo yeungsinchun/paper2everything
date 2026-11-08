@@ -1187,7 +1187,7 @@ button[data-reveal] { margin-top: 0.5rem; }
 .edge-label { font-size: 11px; fill: #5b6573; }
 
 @media (max-width: 760px) {
-  .flow, .pie { grid-template-columns: 1fr; }
+  .flow, .pie { grid-template-columns: minmax(0, 1fr); }
   .toc a, .chapter-cards a { grid-template-columns: 3.2rem 1fr; }
 }
 
@@ -1472,7 +1472,13 @@ figure.fig { margin: 0 0 var(--space-4); }
 .visual.svg-fig { padding: var(--space-3); }
 
 figure.fig > .visual.stage,
-.visual.stage { box-shadow: none; }
+.visual.stage {
+  box-shadow: none;
+  /* Labels extend beyond the drawing area. Keep room inside the border for
+     their pills and the replay control, rather than clipping at the canvas. */
+  padding: var(--space-6) 0 var(--space-7);
+  min-width: 0;
+}
 
 figure.fig figcaption {
   margin-top: var(--space-2);
@@ -1491,6 +1497,8 @@ figure.fig figcaption b {
 }
 
 .stage .hud-label {
+  left: 50%;
+  top: var(--space-3);
   font: 700 var(--text-xs)/1.2 var(--font-body);
   color: var(--ink);
   background: rgba(255, 255, 255, .92);
