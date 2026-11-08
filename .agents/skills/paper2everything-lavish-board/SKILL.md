@@ -5,7 +5,7 @@ description: Enforce before/after side-by-side Lavish boards for every notes HTM
 
 # Lavish notes review boards
 
-Every Lavish board that reviews a notes HTML change (chapter refactor, section rewrite, template migration, or visual comparison) **must** follow this contract. The contract is enforced by `node paper2notes/scripts/ci-check.mjs` and by the review checklist — a board that violates it fails CI.
+Every Lavish board that reviews a notes HTML change (chapter refactor, section rewrite, template migration, or visual comparison) **must** follow this contract. The contract is enforced by `node paper2notes/scripts/checks/ci-check.mjs` and by the review checklist — a board that violates it fails CI.
 
 Boards live in the gitignored `.lavish/` directory. Do not commit a board or any screenshot taken from one. See "Where a board lives" below.
 
@@ -91,7 +91,7 @@ Lavish boards are read on laptops and phones simultaneously. A narrow column tha
 
 ## 3. CI / review checklist (fails the PR if violated)
 
-`node paper2notes/scripts/ci-check.mjs` enforces this skill on any lavish board that carries the marker. It scans `.lavish/` at the repository root and at `paper2notes/.lavish/`, so a board left in either place is checked before merge.
+`node paper2notes/scripts/checks/ci-check.mjs` enforces this skill on any lavish board that carries the marker. It scans `.lavish/` at the repository root and at `paper2notes/.lavish/`, so a board left in either place is checked before merge.
 
 - **Fails if:** the file does not contain at least one `class="before-after-grid"` (or `class="compare-grid"`/`before-after`) **and** at least two `<iframe` elements whose `src` points into `paper2notes/notes/` (one labeled before, one after). The error message names the missing pane.
 - **Fails if:** the board has no `width="1280"` and `width="390"` (or `data-viewport` equivalents) — i.e. desktop and phone are not both shown. The check is case-insensitive and accepts `width='1280'` or CSS `width: 1280px` in a style block as an alternative.
@@ -122,7 +122,7 @@ lavish-axi share .lavish/<board>.html
 
 ## 5. Relation to other skills and docs
 
-- `paper2notes/.cursor/skills/visual-html-notes/SKILL.md` governs the notes pages themselves (three.js, checks, KaTeX). This skill governs the **review surface** that compares two versions of those pages.
+- `.agents/skills/visual-html-notes/SKILL.md` governs the notes pages themselves (three.js, checks, KaTeX). This skill governs the **review surface** that compares two versions of those pages.
 - `.agents/skills/paper2everything-ui-screenshot/SKILL.md` governs the before/after captures a pull request body must carry, including the Lavish capture variant (§5.2).
 - `docs/lavish-notes-boards.md` is a short index into this file, kept so the rule is discoverable from `docs/`.
 - `docs/ARCHITECTURE.md` maps the data edge; this board review does not change architecture.

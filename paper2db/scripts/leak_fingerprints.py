@@ -2,7 +2,7 @@
 """Generate salted leak fingerprints for the protected question/answer corpus.
 
 Reads canonical committed QB/DSE staging records and publication identities,
-and writes ``paper2notes/scripts/leak/fingerprints.v1.json.gz``. The file holds only
+and writes ``paper2notes/scripts/checks/leak/fingerprints.v1.json.gz``. The file holds only
 salted hashes, so it can be checked in and read by ``leak-check.mjs`` without
 carrying the protected text itself.
 
@@ -16,7 +16,7 @@ following statements is correct about ...") and are dropped so they cannot
 cause false positives.
 
 The text normalisation below MUST stay byte-for-byte equivalent to
-``normalize``/``tokens``/``numset`` in ``paper2notes/scripts/leak-check.mjs``.
+``normalize``/``tokens``/``numset`` in ``paper2notes/scripts/checks/leak-check.mjs``.
 
 Usage:
   python3 paper2db/scripts/leak_fingerprints.py            # (re)write
@@ -36,7 +36,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 STAGING = REPO / "paper2db" / "qb-web-ui-staging"
 DATA_DIR = REPO / "paper2notes" / "notes" / "qb" / "data"
-OUT = REPO / "paper2notes" / "scripts" / "leak" / "fingerprints.v1.json.gz"
+OUT = REPO / "paper2notes" / "scripts" / "checks" / "leak" / "fingerprints.v1.json.gz"
 
 SCHEMA = "paper2everything.leak-fingerprints.v1"
 # Public, fixed salt: it namespaces the hashes (and lets a rotation invalidate

@@ -4,11 +4,11 @@
 // footer or inserts before </body>.
 //
 // Usage:
-//   node paper2notes/scripts/inject-commit-footer.mjs --commit abc123
-//   node paper2notes/scripts/inject-commit-footer.mjs --commit 7d5562f --root paper2notes/notes
-//   GIT_COMMIT=abc123 node paper2notes/scripts/inject-commit-footer.mjs
-//   GITHUB_SHA=abc123 node paper2notes/scripts/inject-commit-footer.mjs
-//   node paper2notes/scripts/inject-commit-footer.mjs --commit abc123 --subject "fix: thing"
+//   node paper2notes/scripts/build/inject-commit-footer.mjs --commit abc123
+//   node paper2notes/scripts/build/inject-commit-footer.mjs --commit 7d5562f --root paper2notes/notes
+//   GIT_COMMIT=abc123 node paper2notes/scripts/build/inject-commit-footer.mjs
+//   GITHUB_SHA=abc123 node paper2notes/scripts/build/inject-commit-footer.mjs
+//   node paper2notes/scripts/build/inject-commit-footer.mjs --commit abc123 --subject "fix: thing"
 //
 // Resolves commit from (in order): --commit arg, $GIT_COMMIT, $DEPLOY_COMMIT, $GITHUB_SHA, `git rev-parse HEAD`.
 // Resolves subject from (in order): --subject arg, $GIT_SUBJECT, $DEPLOY_SUBJECT, `git log -1 --format=%s <commit>`
@@ -20,7 +20,7 @@ import { fileURLToPath } from "node:url";
 import { execSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const repoRoot = resolve(__dirname, "../..");
+const repoRoot = resolve(__dirname, "../../..");
 const defaultNotesDir = join(repoRoot, "paper2notes/notes");
 
 function parseArgs() {

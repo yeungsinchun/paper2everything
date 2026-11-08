@@ -14,7 +14,7 @@
 //   5. pointers       - paper2db/metadata/pointers/*.json (when present) must
 //                       match the paper2db.answer-pointer.v1 shape.
 //
-// `node scripts/anchor-lint.mjs --write-lock` adds every current id to the
+// `node scripts/checks/anchor-lint.mjs --write-lock` adds every current id to the
 // lock (it never drops ids; removals must go through moves.json).
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -22,7 +22,7 @@ import { join, dirname, resolve, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const defaultRepoRoot = resolve(__dirname, "..");
+const defaultRepoRoot = resolve(__dirname, "../..");
 
 // An element needs an id when any selector matches. `classes` are all-of.
 export const REQUIRED_SELECTORS = [

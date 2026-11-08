@@ -15,13 +15,13 @@ the board is a local review artifact and is never committed.
 
 Three subprojects share one git repository and two code-level dependencies
 connect them. **paper2notes reads paper2db's generated DSE crops**: in local
-development via `paper2notes/scripts/sync-dse.sh` into gitignored `_local/`
+development via `paper2notes/scripts/build/sync-dse.sh` into gitignored `_local/`
 folders, in production via the curated snapshot at `paper2notes/notes/dse/`
 (`mc`/`lq`) staged into the image by the `Dockerfile`; see §2 for the publication contract.
 The reverse edge is the leak guard: `paper2db/scripts/leak_fingerprints.py`
 reads paper2notes' committed publication mirrors (`paper2notes/notes/qb/data/`)
-and writes the tracked `paper2notes/scripts/leak/fingerprints.v1.json.gz` that
-`paper2notes/scripts/leak-check.mjs` consumes. The two edges run in opposite
+and writes the tracked `paper2notes/scripts/checks/leak/fingerprints.v1.json.gz` that
+`paper2notes/scripts/checks/leak-check.mjs` consumes. The two edges run in opposite
 directions, so paper2notes and paper2db are mutually dependent. The local crop
 sync still relies on an undeclared filesystem layout. `paper2mock/` remains as
 a project directory, but its F.1 maths content was removed pending a decision
@@ -38,12 +38,12 @@ The leak edge has a drift check (`python3 paper2db/scripts/leak_fingerprints.py 
 | `paper2notes/layout/` | Shared HTML template, book identities, and explicit page slots | `node paper2notes/scripts/build-books.mjs` | all 195 published book routes under `notes/book*/` |
 | `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | preview generated files directly in a browser | the student site (landing `/`, Books 1–9, `/qb/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` staged to `_local/dse/` by `Dockerfile` |
-| `paper2notes/scripts/quiz-audit.mjs` | Node | run by hand | pass/fail for quiz keys, DSE availability and crop paths, plus answer-store agreement |
-| `paper2notes/scripts/quiz-store-audit.mjs` | Node | imported by `quiz-audit.mjs`; runnable on its own | pass/fail for published DSE crops and MC keys backed by `paper2db/qb-web-ui-staging/dse-mc/index.json` |
-| `paper2notes/scripts/sync-dse.sh` | Bash (+ inline Python for placeholders) | run by hand from the repo root | `paper2notes/notes/_local/dse/` and `paper2notes/notes/book{2,4,5}/_local/dse/` (local dev) |
-| `paper2notes/scripts/ci-check.mjs` | Node | run by hand | pass/fail; check inventory in the script header, DSE publication contract in §2, anchor rules in `paper2notes/anchors/README.md` |
-| `paper2notes/scripts/leak-check.mjs` | Node | imported by `ci-check.mjs`; runnable on its own | L1–L4 protected-text findings, minus `scripts/leak/baseline.json` allowances; level definitions in the script header |
-| `paper2db/scripts/leak_fingerprints.py` | Python 3 | run by hand with `--check` | writes the tracked `paper2notes/scripts/leak/fingerprints.v1.json.gz` (salted 8-grams + numsets) from `qb-web-ui-staging/` and `paper2notes/notes/qb/data/` |
+| `paper2notes/scripts/checks/quiz-audit.mjs` | Node | run by hand | pass/fail for quiz keys, DSE availability and crop paths, plus answer-store agreement |
+| `paper2notes/scripts/checks/quiz-store-audit.mjs` | Node | imported by `quiz-audit.mjs`; runnable on its own | pass/fail for published DSE crops and MC keys backed by `paper2db/qb-web-ui-staging/dse-mc/index.json` |
+| `paper2notes/scripts/build/sync-dse.sh` | Bash (+ inline Python for placeholders) | run by hand from the repo root | `paper2notes/notes/_local/dse/` and `paper2notes/notes/book{2,4,5}/_local/dse/` (local dev) |
+| `paper2notes/scripts/checks/ci-check.mjs` | Node | run by hand | pass/fail; check inventory in the script header, DSE publication contract in §2, anchor rules in `paper2notes/anchors/README.md` |
+| `paper2notes/scripts/checks/leak-check.mjs` | Node | imported by `ci-check.mjs`; runnable on its own | L1–L4 protected-text findings, minus `scripts/checks/leak/baseline.json` allowances; level definitions in the script header |
+| `paper2db/scripts/leak_fingerprints.py` | Python 3 | run by hand with `--check` | writes the tracked `paper2notes/scripts/checks/leak/fingerprints.v1.json.gz` (salted 8-grams + numsets) from `qb-web-ui-staging/` and `paper2notes/notes/qb/data/` |
 | `paper2notes/deploy/cloudrun/` | Docker, nginx, gcloud | `deploy.sh` (inject `deploy-commit-footer` + build/push/roll out), `provision.sh` (one-time GCP setup), `Dockerfile` `ARG GIT_COMMIT` fallback | Cloud Run service `paper2notes` in `asia-east2` (every deployed HTML carries muted `deployed commit: <6-char>` footer; see `paper2notes/deploy/cloudrun/README.md`) |
 | `paper2mock/` | Reserved for possible future work; F.1 maths content removed pending an HKDSE Physics decision | — | — |
 
@@ -78,15 +78,15 @@ flowchart LR
     LOCALSRC["active-physics/ · ch1-5.pdf · dse-classified/<br/>textbooks, syllabus<br/><b>gitignored</b>"]
     SRC["notes/_source/&lt;book-ch&gt;/<br/>ocr.md · outline.md · problems.md<br/><b>tracked</b>"]
     PUB["notes/dse/{mc,lq}/&lt;NN&gt;/<br/>curated snapshot (see §2)<br/><b>tracked</b>"]
-    SYNC(["scripts/sync-dse.sh<br/>local dev only"])
+    SYNC(["scripts/build/sync-dse.sh<br/>local dev only"])
     LOCAL["notes/_local/dse/{mc,lq}/&lt;NN&gt;/<br/><b>gitignored</b>, local sync output"]
     BOOKLOCAL["notes/book{2,4,5}/_local/dse/<br/>3 mirrors, <b>gitignored</b>"]
     LAYOUT["layout/book.html · books.json · pages/<br/>shared shell + explicit slots<br/><b>tracked source</b>"]
     BUILD(["scripts/build-books.mjs"])
     HTML["notes/ index.html · book1–9<br/>generated book HTML, CSS, vendored JS<br/><b>tracked</b>"]
-    LEAK["scripts/leak/fingerprints.v1.json.gz · baseline.json<br/><b>tracked</b>"]
-    LCK(["scripts/leak-check.mjs"])
-    CICHECK(["scripts/ci-check.mjs"])
+    LEAK["scripts/checks/leak/fingerprints.v1.json.gz · baseline.json<br/><b>tracked</b>"]
+    LCK(["scripts/checks/leak-check.mjs"])
+    CICHECK(["scripts/checks/ci-check.mjs"])
   end
 
   subgraph DEPLOY["Cloud Run (paper2notes-site)"]
@@ -130,9 +130,9 @@ flowchart LR
 
 | From → To | Kind | Where |
 |---|---|---|
-| paper2notes → paper2db | **Build-time data** (filesystem read of generated crops) | `paper2notes/scripts/sync-dse.sh` (`P2DB="$ROOT/../paper2db"`) |
+| paper2notes → paper2db | **Build-time data** (filesystem read of generated crops) | `paper2notes/scripts/build/sync-dse.sh` (`P2DB="$ROOT/../paper2db"`) |
 | paper2notes → paper2db | Authoring provenance (docs only, agent-driven) | `paper2notes/notes/_source/*/problems.md` cite `paper2db/qb-pdf/` and `paper2db/classified/mc/` |
-| paper2db → paper2notes | **Build-time code** (reads published mirrors, writes tracked fingerprints) | `paper2db/scripts/leak_fingerprints.py` (`DATA_DIR = paper2notes/notes/qb/data`, `OUT = paper2notes/scripts/leak/fingerprints.v1.json.gz`); consumed by `paper2notes/scripts/leak-check.mjs` |
+| paper2db → paper2notes | **Build-time code** (reads published mirrors, writes tracked fingerprints) | `paper2db/scripts/leak_fingerprints.py` (`DATA_DIR = paper2notes/notes/qb/data`, `OUT = paper2notes/scripts/checks/leak/fingerprints.v1.json.gz`); consumed by `paper2notes/scripts/checks/leak-check.mjs` |
 | paper2db → paper2notes | Comment only (not code) | `paper2db/scripts/convert-qb-to-pdf.sh` header mentions the paper2notes intake contract |
 | Cloud Run → paper2notes | Deploy input | `paper2notes/deploy/cloudrun/Dockerfile` copies `paper2notes/notes/` |
 
@@ -154,7 +154,7 @@ The notes and audit scripts check the leak edge and published DSE availability; 
 | `paper2notes/layout/**` | tracked | Authoritative shared book template, identities, and page slots. |
 | `paper2notes/notes/**` (HTML, CSS, JS, vendored libs) | tracked | The site. Book HTML is generated from `layout/`; other pages remain directly authored. |
 | `paper2notes/notes/dse/**` (`mc`/`lq` and `availability.json`) | tracked | Curated DSE publication snapshot; staged to `_local/dse/` in `Dockerfile` (since 361de93). |
-| `paper2notes/scripts/leak/fingerprints.v1.json.gz`, `scripts/leak/baseline.json` | tracked | Leak-guard data: salted 8-grams and numsets generated by `paper2db/scripts/leak_fingerprints.py` (`--check` by hand), plus the hand-pinned baseline allowances read by `leak-check.mjs`. |
+| `paper2notes/scripts/checks/leak/fingerprints.v1.json.gz`, `scripts/checks/leak/baseline.json` | tracked | Leak-guard data: salted 8-grams and numsets generated by `paper2db/scripts/leak_fingerprints.py` (`--check` by hand), plus the hand-pinned baseline allowances read by `leak-check.mjs`. |
 | `paper2notes/notes/_source/**` (~24 MB) | tracked | OCR intake for authoring. Excluded from the image. |
 | `paper2notes/notes/_local/`, `notes/**/_local/` | gitignored | Local sync output; in the image populated at build time from `notes/dse/` via `RUN cp -r`. `**/_local/` still excluded from context. |
 | `paper2notes/.lavish/**` (~3.8 MB PNG + HTML), `b2_home.png`, `hello_test.png` | gitignored | Review boards and stray screen captures. Removed from git; boards are rebuilt locally under `.lavish/` (see `.agents/skills/paper2everything-lavish-board/SKILL.md`). |
@@ -188,7 +188,7 @@ Run `paper2db/scripts/check_lq_crop_orientation.py` before publishing LQ crops; 
 The record covers each published section and question kind (`mc` or `lq`), plus any declared source absences.
 Each entry states whether it holds real crops, placeholders, or no source questions, with a reason.
 Book 1 codes 01–04 group questions by textbook chapter, so `book1Sections` exempts those groups from global category comparisons while still checking question identity and paper range.
-`paper2notes/scripts/dse-availability.mjs` reads that record alongside tracked paper2db inputs.
+`paper2notes/scripts/checks/dse-availability.mjs` reads that record alongside tracked paper2db inputs.
 Both `ci-check.mjs` and `quiz-audit.mjs` check the snapshot, page references, and absence statements.
 A `data-lq-none` statement requires a `none-in-source` entry whose reason names source evidence.
 The guard also rejects a placeholder slide when its record says `none-in-source`.
@@ -198,7 +198,7 @@ There is no automated regression suite for this script.
 build time (`cp -r dse/* → _local/dse/` and `book*/_local/dse/`) so production
 serves `_local/dse/…` without running the pipeline.
 
-Local preview (`sync-dse.sh`, developer machine): `paper2notes/scripts/sync-dse.sh`:
+Local preview (`sync-dse.sh`, developer machine): `paper2notes/scripts/build/sync-dse.sh`:
 
 1. Resolves paper2db as `paper2notes/../paper2db`.
 2. For each source that exists, in order `tests/sections/{mc,lq}`, then legacy
@@ -220,7 +220,7 @@ their indexes use `_local/dse/...`; those paths resolve to each book's local
 mirror. 504 distinct `_local` references are used (Book 1: 108 = 78 PNG + 30
 PDFs, Book 2: 8 = 0 PNG + 8 PDFs, Book 3: 242 = 195 PNG + 47 PDFs, Book 4: 58 =
 53 PNG + 5 PDFs, Book 5: 88 = 71 PNG + 17 PDFs). The standalone run of
-`paper2notes/scripts/dse-availability.mjs` reports references the snapshot does
+`paper2notes/scripts/checks/dse-availability.mjs` reports references the snapshot does
 not hold as `dse-crop-not-published`.
 ### 3. QB banks: DOCX → PDF → notes intake
 
@@ -249,7 +249,7 @@ by hand. The repository has no automated test workflows.
 The shared template owns the document, primary navigation, page frame, and footer markup.
 Book identities and page slots supply titles, links, accents, notes, and scripts.
 Book 2 retains its complete chapter pages.
-`scripts/ci-check.mjs` checks source/output agreement and runs the layout regression tests.
+`paper2notes/scripts/checks/ci-check.mjs` checks source/output agreement and runs the layout regression tests.
 See `paper2notes/layout/README.md` for the generation inventory and route coverage.
 
 The deploy script builds the Dockerfile with the repository root as context.
@@ -264,7 +264,7 @@ It checks `/`, `/book2/`, `/book4/`, `/book5/`, and shared CSS, script, KaTeX, a
 The workflow also triggers on layout-source and compiler changes.
 nginx serves static files on port 8080 with `absolute_redirect off`.
 `provision.sh` still owns the cloud resources and authentication setup.
-`paper2notes/deploy/cloudrun/README.md` and `scripts/inject-commit-footer.mjs` own deployment-footer details.
+`paper2notes/deploy/cloudrun/README.md` and `paper2notes/scripts/build/inject-commit-footer.mjs` own deployment-footer details.
 
 ## Design findings
 

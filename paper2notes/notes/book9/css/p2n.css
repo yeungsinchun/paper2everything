@@ -1,6 +1,6 @@
 /* Paper2Notes design system layer for Book 9 chapter pages (copied from Book 5's layer;
    Book 9 uses the same tokens and components, plus the Book 9 block at the end).
-   Source of truth: "paper2notes/Paper2Notes Design System/" (tokens/*.css, components/components.css, readme.md).
+   Source of truth: "paper2notes/design-system/" (tokens/*.css, components/components.css, readme.md).
    Loaded after notes.css: it re-points the legacy custom properties at design-system tokens
    and restyles the existing chapter classes (no markup structure change). */
 
