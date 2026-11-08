@@ -28,8 +28,8 @@ This interface does not generate notes, infer mappings, or call a model.
 A reference is stored only after a direct review of the published question crop against the notes page:
 the crop's question was compared with the highlighted notes sentences, and the notes anchor was opened to confirm the text.
 The two stored references are the complete reviewed set.
-The `source` field records the crop SHA-256 and the review scope.
-A topic label, a chapter match, or a practice-slide placement is not enough on its own.
+Each `source` field names the crop file and its SHA-256, and points at the review below.
+No mapping comes from a classification label, a chapter match, or a practice-slide placement.
 A bulk pass built that way was rejected and removed, because some panels showed a passage from a different topic.
 `tier: verified` therefore means that direct crop-to-notes comparison, not a worked solution of the question.
 A reader still has to apply the definition to the numbers in the question.
@@ -169,7 +169,7 @@ docker build -f paper2notes/deploy/cloudrun/Dockerfile .
 The two references below are the whole store.
 Each was reviewed against the published question crop in full detail, and each is the model for any later reference.
 Neither is a human sign-off or a full-question solution.
-Each canonical `source` field names the crop, its SHA-256, and the notes block.
+Each canonical `source` field names the crop and its SHA-256; the passage record names the notes block.
 The notes hashes independently detect changes to every referenced teaching passage.
 
 ### QB PHY15033101
