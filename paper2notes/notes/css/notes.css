@@ -320,6 +320,11 @@ p { margin: 0.45rem 0; }
 
 .quiz-export:hover { text-decoration: underline; }
 
+/* The page-tools export button keeps the shared button shadow line under its label,
+   so it needs horizontal padding to hold that line clear of the glyphs.
+   The compact deck exports in .quiz-export-group stay flush. */
+.page-tools .quiz-export { padding: 0 var(--space-3); }
+
 .quiz-export-group {
   display: flex;
   align-items: baseline;

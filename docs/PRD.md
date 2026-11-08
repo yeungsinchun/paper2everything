@@ -79,7 +79,8 @@ paper2notes turns source material into static HTML that prioritises visual diagr
 ### 4.1 Hierarchy
 
 ```
-layout/book.html, layout/books.json   shared document shell, navigation and book identities
+layout/book.html, layout/components/  editable arrangement and shared document components
+layout/books.json                     book identities: label and icon
 layout/pages/book<N>/**/*.html        one source file per route: title, page type, head/content/scripts/trailing slots
 notes/index.html                      landing: Books 1–9 with inline SVG icons, no redirect
 notes/book<N>/index.html              book map: chapter cards and coverage
