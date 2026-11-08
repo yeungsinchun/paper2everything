@@ -74,6 +74,71 @@
       "page": "book4/ch08-ac-transformers-and-transmission/24-4.html",
       "from": "dse-lq-24-sample",
       "to": "dse-lq-2014-9"
+    },
+    {
+      "page": "book6/ch01-a-cosmic-journey/index.html",
+      "from": "chapter-coverage",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book6/ch02-modelling-the-universe/index.html",
+      "from": "chapter-coverage",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book6/ch03-orbital-motions-under-gravity/index.html",
+      "from": "chapter-coverage",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book6/ch04-starlight-messengers-from-the-stars/index.html",
+      "from": "chapter-coverage",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book7/ch01-photoelectric-effect/index.html",
+      "from": "dse-status",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book7/ch02-atomic-models-and-spectra/index.html",
+      "from": "dse-status",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book7/ch03-nanotechnology/index.html",
+      "from": "dse-status",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book9/ch02-non-ionizing-medical-imaging/index.html",
+      "from": "dse-availability",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book9/ch03-ionizing-medical-imaging/index.html",
+      "from": "dse-availability",
+      "to": "chapter-sections"
+    },
+    {
+      "page": "book7/ch03-nanotechnology/3-1.html",
+      "from": "dse-status",
+      "to": "standing-wave"
+    },
+    {
+      "page": "book7/ch03-nanotechnology/3-2.html",
+      "from": "dse-status",
+      "to": "method"
+    },
+    {
+      "page": "book7/ch03-nanotechnology/3-3.html",
+      "from": "dse-status",
+      "to": "quantum"
+    },
+    {
+      "page": "book7/ch03-nanotechnology/3-4.html",
+      "from": "dse-status",
+      "to": "risks"
     }
   ]
 }

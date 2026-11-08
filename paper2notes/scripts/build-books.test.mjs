@@ -157,7 +157,7 @@ test('Book 6 and Book 9 lesson pages rebuild with their own design sheets', () =
   try {
     mkdirSync(output);
     assert.deepEqual(checkBooks({ output, write: true }).errors, []);
-    for (const p of pages.filter(p => /^book[69]\//.test(p.route) && p.type !== 'overview')) {
+    for (const p of pages.filter(p => /^book[69]\//.test(p.route) && !['overview', 'map'].includes(p.type))) {
       const book = p.route.split('/')[0];
       const html = readFileSync(join(output, p.route), 'utf8');
       const sheets = [...html.matchAll(/<link\s+rel="stylesheet"\s+href="([^"]+)"/g)].map(([, href]) => href)

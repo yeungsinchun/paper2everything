@@ -33,6 +33,28 @@ export function publishedRoutes(root = notesDir) {
   return readdirSync(root).filter(n => /^book[1-9]\d*$/.test(n)).flatMap(n => files(join(root, n)))
     .map(p => relative(root, p).split('\\').join('/')).sort();
 }
+// Chapter maps share the existing core-book card structure. Reject bespoke
+// presentation at the source boundary rather than hiding it in generated HTML.
+export function validateChapterPresentation(page) {
+  if (/\b(?:Practice coverage|Exam practice|DSE coverage)<\/h2>/i.test(page.content)) {
+    throw new Error(`${page.route}: remove the practice status block; use real shared MC/LQ quizzes`);
+  }
+  if (page.type !== 'map') return;
+  const intro = '<p class="kicker">[^<]+<\\/p>\\s*<h1>[^<]+<\\/h1>(?:\\s*<p class="lede">[^<]+<\\/p>)?';
+  const card = '<a href="[^" ]+\\.html">\\s*<span class="num">[^<]+<\\/span>\\s*<strong>[^<]+<\\/strong>(?:\\s*<span>[^<]+<\\/span>)?\\s*<\\/a>';
+  const map = new RegExp(`^\\s*${intro}\\s*<div class="toc"(?: id="chapter-sections")?>\\s*(?:${card}\\s*)+<\\/div>([\\s\\S]*)$`);
+  const match = map.exec(page.content);
+  if (!match) throw new Error(`${page.route}: chapter maps require the shared title, introduction and toc cards`);
+  // Core maps already have optional PDF links, notes and book navigation.
+  // New maps need no extra block when no verified chapter PDF exists.
+  const tail = match[1].trim();
+  if (tail && !/^(?:<p(?: class="(?:note|pager)")?>[\s\S]*?<\/p>\s*)+$/.test(tail)) {
+    throw new Error(`${page.route}: chapter maps cannot add bespoke sections`);
+  }
+  if (!/href="summary\.html"/.test(page.content)) {
+    throw new Error(`${page.route}: chapter maps require a Summary card or link`);
+  }
+}
 export function loadPages(root = layoutDir) {
   return files(join(root, 'pages')).map(file => {
     const raw = readFileSync(file, 'utf8');
@@ -56,7 +78,9 @@ export function loadPages(root = layoutDir) {
     if (/<(?:html|head|body|main)\b|<[^>]*\bp2n-(?:top|context-nav)\b[^>]*>|deploy-commit-footer/i.test(Object.values(slots).join(''))) {
       throw new Error(`${route}: page slots must not contain layout markup`);
     }
-    return { route, ...meta, ...slots };
+    const page = { route, ...meta, ...slots };
+    validateChapterPresentation(page);
+    return page;
   });
 }
 function readEditableSource(file, name, { dropFinalNewline }) {
