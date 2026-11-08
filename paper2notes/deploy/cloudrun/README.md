@@ -16,7 +16,7 @@ Files:
   The final image contains neither layout sources nor the compiler.
   The root `.dockerignore` admits notes, layout sources, the compiler, nginx configuration, `paper2notes/scripts/publish-notes-passages.py` and `paper2db/metadata/pointers/notes.json`.
   It excludes `_source/`, `_local/`, and the generated `paper2notes/notes/question-notes/`.
-  Build from the repository root: `docker build -f paper2notes/deploy/cloudrun/Dockerfile .`.
+  Build from the repository root: `docker build -f paper2notes/deploy/cloudrun/Dockerfile .` (a standalone `paper2notes/` checkout lacks those build inputs, so it cannot build the image).
   A `python:3.12-alpine` stage runs the producer against the compiled notes and writes `question-notes/passages.json`; the final image copies it to `/usr/share/nginx/html/`.
   The image retains commit-footer injection and mirrors `notes/dse/` into local asset paths.
   nginx serves `.mjs` as `application/javascript`.

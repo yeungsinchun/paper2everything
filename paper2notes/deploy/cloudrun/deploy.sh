@@ -9,7 +9,7 @@
 #
 #   paper2notes/deploy/cloudrun/deploy.sh  # from monorepo root
 #
-# The image build requires the monorepo root: the Dockerfile reads the
+# The image builds from the monorepo root only: the Dockerfile reads the
 # teaching-reference store at paper2db/metadata/pointers/notes.json.
 set -euo pipefail
 
@@ -18,41 +18,24 @@ REGION="${GCP_REGION:-asia-east2}"
 SERVICE="${GCP_RUN_SERVICE:-paper2notes}"
 REPOSITORY="${GCP_AR_REPOSITORY:-paper2notes}"
 
-# repo_root is paper2everything/ in the monorepo or paper2notes/ in a standalone
-# checkout; only the monorepo root can build, because the Dockerfile reads
-# paper2db/metadata/pointers/notes.json.
-# Detect monorepo: if paper2notes/notes exists at the git top-level, use that.
+# repo_root is the monorepo root. There is no standalone paper2notes/ build:
+# the Dockerfile reads paper2db/metadata/pointers/notes.json.
 script_dir="$(cd "$(dirname "$0")" && pwd)"
-# paper2notes/deploy/cloudrun -> paper2notes
-maybe_p2n="$(cd "$script_dir/../.." && pwd)"
-# git top-level (monorepo root if present)
-if git -C "$maybe_p2n" rev-parse --show-toplevel >/dev/null 2>&1; then
-  git_root="$(git -C "$maybe_p2n" rev-parse --show-toplevel)"
-  if [ -d "$git_root/paper2notes/notes/book5" ]; then
-    repo_root="$git_root"
-    notes_src="paper2notes/notes"
-    dockerfile="paper2notes/deploy/cloudrun/Dockerfile"
-  else
-    repo_root="$maybe_p2n"
-    notes_src="notes"
-    dockerfile="deploy/cloudrun/Dockerfile"
-  fi
-else
-  repo_root="$maybe_p2n"
-  notes_src="notes"
-  dockerfile="deploy/cloudrun/Dockerfile"
-fi
-if [ ! -d "$repo_root/$notes_src/book5" ]; then echo "deploy: $notes_src/book5 missing under $repo_root" >&2; exit 1; fi
+# paper2notes/deploy/cloudrun -> paper2everything
+repo_root="$(cd "$script_dir/../../.." && pwd)"
+notes_src="paper2notes/notes"
+dockerfile="paper2notes/deploy/cloudrun/Dockerfile"
+if [ ! -d "$repo_root/$notes_src/book5" ]; then echo "deploy: $notes_src/book5 missing under $repo_root (build from the monorepo root)" >&2; exit 1; fi
 
 # Compile authoritative book slots before footer injection and image creation.
-node "$maybe_p2n/scripts/build-books.mjs"
+node "$repo_root/paper2notes/scripts/build-books.mjs"
 
 sha="$(git -C "$repo_root" rev-parse HEAD 2>/dev/null | cut -c1-6 || echo local)"
 if [ -z "$sha" ]; then sha="local"; fi
 subject="$(git -C "$repo_root" log -1 --format=%s 2>/dev/null || true)"
 # Inject deploy-commit footer into the notes tree before copying into the image.
 # The Dockerfile also has a fallback RUN that re-injects via build-arg, so
-# standalone `docker build -f Dockerfile .` without deploy.sh still gets a footer.
+# a direct `docker build -f Dockerfile .` without deploy.sh still gets a footer.
 if [ -f "$repo_root/paper2notes/scripts/inject-commit-footer.mjs" ]; then
   echo "deploy: injecting commit footer $sha into $repo_root/$notes_src"
   node "$repo_root/paper2notes/scripts/inject-commit-footer.mjs" --commit "$sha" --subject "$subject" --root "$repo_root/$notes_src" || echo "deploy: footer inject failed (continuing)"

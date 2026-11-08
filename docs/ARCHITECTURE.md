@@ -257,6 +257,7 @@ Book 2 retains its complete chapter pages.
 See `paper2notes/layout/README.md` for the generation inventory and route coverage.
 
 The deploy script builds the Dockerfile with the repository root as context.
+It takes that root from its own path, three levels up, and fails unless `paper2notes/notes/book5` exists there; it has no standalone `paper2notes/` build.
 The Dockerfile also compiles book sources in a Node stage, so direct image builds use the authoritative layout.
 The root `.dockerignore` admits static notes, layout sources, the compiler, nginx configuration, the teaching-reference store and its producer.
 It excludes `_source/`, `**/_local/`, and the generated `notes/question-notes/`.
@@ -362,10 +363,7 @@ book (Books 2 and 4) or per chapter (Book 5, on the shared scene kit).
 `.github/workflows/` in paper2notes are copies that GitHub does not run.
 `paper2notes/.dockerignore` is unused (the root one applies).
 `paper2db/.no-mistakes.yaml` is nested with no root equivalent. Three
-`.gitignore` files overlap. `deploy.sh` still carries a standalone `paper2notes/`
-build, but the Dockerfile requires the monorepo build context: it reads
-`paper2db/metadata/pointers/notes.json` and uses root-relative `COPY` paths, so
-that build cannot work.
+`.gitignore` files overlap.
 
 **A13. No automated checks remain.** The repository has no automated check or
 test workflows. paper2db outputs can still be built by hand.
@@ -400,7 +398,8 @@ not show provenance. `paper2notes/README.md` now points to `../docs/ARCHITECTURE
    exists in the manifest (A3–A6).
 3. Move the `SECTIONS` taxonomy to one module (or JSON) that both paper2db
    and the notes check read (A7).
-4. Monorepo deploy now live at cutover `47b7788` via WIF to `asia-east2/paper2notes`; retire the standalone `paper2notes` deploy when ready (A2 resolved).
+4. Done: the monorepo deploy is live (A2) and `deploy.sh` no longer has a
+   standalone `paper2notes` branch.
 5. Review and remove unused nested workflow files and `.dockerignore` (A12).
 6. Decide QB ownership: either version the DOCX (LFS) with the converter as a
    pipeline stage, or move QB handling to paper2notes intake (A8).

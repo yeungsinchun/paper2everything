@@ -50,7 +50,6 @@ The static chapter decks also consume the shared `notes/js/checks.js` runtime.
 
 The live check used `https://paper2notes-152505675251.asia-east2.run.app/qb/` through `chrome-devtools-axi`.
 Its deployed footer reported commit `5e525c`; it had no explanation buttons.
-The proposed branch serves locally and has not been deployed.
 Local HTML footers retain older source metadata; they do not identify a new deployment.
 
 ## One canonical store and one producer
@@ -112,7 +111,7 @@ No second normalizer or authored mapping store exists.
 
 Extraction inserts spaces around block elements and collapses ECMAScript whitespace.
 It excludes scripts, styles, templates, controls, canvases, SVG, navigation, summaries, and explicitly hidden content.
-It also excludes question decks, concept checks, visual labels, and definition tags.
+It also excludes question decks, concept checks, visual labels, and `.tag` chips such as "Definition".
 An anchor inside an excluded ancestor cannot supply a passage.
 The browser mirrors these rules against an inert parsed document.
 
