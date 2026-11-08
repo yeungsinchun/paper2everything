@@ -23,6 +23,13 @@ export const sourceMarker = name => `<!-- source: ${name}. Edit this file. The c
 // Ignore only whitespace on empty lines and at slot boundaries, not text or code.
 export const normalizeSlot = s => s.replace(/^[ \t]+$/gm, '').trim();
 const escape = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+// The leaf label comes from the section number the page itself displays, not the route filename.
+const sectionNumber = page => {
+  const kicker = /<p class="kicker">([\s\S]*?)<\/p>/.exec(page.content);
+  const number = kicker && /Section\s+(\d+\.\d+)/.exec(kicker[1].replace(/<[^>]+>/g, ' '));
+  if (!number) throw new Error(`${page.route}: section needs a displayed section number in its kicker`);
+  return number[1];
+};
 export function files(root, suffix = '.html') {
   if (!existsSync(root)) return [];
   return readdirSync(root, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name)).flatMap(e =>
@@ -133,8 +140,24 @@ export function renderPage(page, { template, books }, footer = defaultFooter) {
   if (!config) throw new Error(`${page.route}: unknown book`);
   const root = '../'.repeat(page.route.split('/').length - 1);
   const home = posix.relative(posix.dirname(page.route), `${book}/index.html`);
-  const navigation = `<a href="${root}index.html">All books</a>` + Object.entries(books).map(([id, b]) =>
-    `<a href="${root}${id}/index.html"${id === book ? ' aria-current="page"' : ''}>${escape(b.label)}</a>`).join('') + `<a href="${root}qb/index.html">Question bank</a>`;
+  const trail = [{ label: 'All books', href: `${root}index.html` }, { label: `Book ${book.slice(4)}`, href: `${root}${book}/index.html` }];
+  const chapter = page.route.split('/')[1].match(/^ch(\d+)-/);
+  if (chapter) trail.push({ label: `Ch.${Number(chapter[1])}`, href: 'index.html' });
+  if (page.type === 'section') trail.push({ label: sectionNumber(page) });
+  else if (page.type === 'summary') trail.push({ label: 'Summary' });
+  const link = item => `<a href="${item.href}">${escape(item.label)}</a>`;
+  const bookLinks = Object.entries(books).map(([id, b]) => ({ href: `${root}${id}/index.html`, label: b.label }));
+  const bookMenu = (item, current) => `<details class="p2n-nav-menu p2n-book-menu"><summary${current ? ' aria-current="page"' : ''}>${escape(item.label)}</summary><div class="p2n-nav-popup">${bookLinks.map(link).join('')}</div></details>`;
+  const hidden = trail.slice(1, -1);
+  const collapsedLinks = hidden.concat(bookLinks).filter((item, i, all) => all.findIndex(other => other.href === item.href) === i);
+  const breadcrumb = trail.map((item, i) => {
+    if (i === 0) return `<li>${link(item)}</li>`;
+    if (i === 1) return `<li${i === trail.length - 1 ? '' : ' class="p2n-crumb-middle"'}>${bookMenu(item, i === trail.length - 1)}</li>`;
+    if (i === trail.length - 1) return `<li><strong aria-current="page">${escape(item.label)}</strong></li>`;
+    return `<li class="p2n-crumb-middle">${link(item)}</li>`;
+  });
+  if (hidden.length) breadcrumb.splice(1, 0, `<li class="p2n-crumb-collapsed"><details class="p2n-nav-menu p2n-crumb-menu"><summary aria-label="Show hidden pages and every book">…</summary><div class="p2n-nav-popup">${collapsedLinks.map(link).join('')}</div></details></li>`);
+  const navigation = `<ol class="p2n-breadcrumb" aria-label="Breadcrumb">${breadcrumb.join('')}</ol>`;
   // Component placeholders are already resolved. Replace only these values.
   // Lesson text is a replacement value, so braces inside a lesson stay literal.
   const slots = Object.fromEntries(slotNames.map(name => [name, normalizeSlot(page[name])]));

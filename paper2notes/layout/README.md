@@ -69,7 +69,7 @@ It does not scan lesson text, so braces in a lesson stay literal.
 | `{{icon}}` | Escaped book icon name | `layout/books.json` |
 | `{{home}}` | Relative link to the book index | Computed from the route |
 | `{{root}}` | Relative prefix to the notes root | Computed from the route |
-| `{{navigation}}` | Link list for every book, plus All books and Question bank | Labels come from `books.json`. Markup comes from the navigation component |
+| `{{navigation}}` | Path trail and the book index menu | Compiler derives ancestors from real routes. `books.json` supplies menu labels |
 | `{{mainClass}}` | Class for the page type | Page type in page metadata. Class strings live in `scripts/build-books.mjs` |
 | `{{deployCommit}}` | Preserved footer commit, or `local` | Deployment footer injection, not lesson sources |
 | `{{deploySubject}}` | Preserved footer subject markup, or empty | Deployment footer injection, not lesson sources |
@@ -79,6 +79,25 @@ The compiler calculates relative links from the output route.
 The compiler maps page types to the existing classes for overviews, complete chapters, maps, sections, and summaries.
 A page cannot supply its own header or secondary chapter row.
 No book has a switch for secondary navigation.
+
+The top bar shows an inline chevron trail in place of the flat book links.
+The current page is bold text, not a link.
+The trail is path-only: it has no separate Books control and no Question bank control.
+Question bank stays reachable from the landing page card.
+All books links to the landing page, and chapter ancestors link to their chapter index.
+The Book segment is the menu trigger on every page type, including when it is the current page.
+Its label is Book N, with no extra word and no down arrow.
+The menu lists every real book index route from `books.json`, including the current book.
+Complete chapters, including Book 2 chapters, end at the chapter level.
+Sections and summaries are leaves, and no chapter or section sibling menu exists.
+At 560px and below, the trail shows its first and last segments.
+The ellipsis disclosure keeps every hidden ancestor route and every book index reachable without JavaScript.
+The path nav keeps overflow visible, so the Book 6 mobile head slot cannot clip the menus.
+
+Book 5 Chapter 1 keeps its book-local section numbers, 1.1–1.3, in kickers, map cards, and chain links.
+The trail leaf repeats the section number each page's kicker displays, so it matches the section card a reader clicked.
+The compiler rejects a section page whose kicker does not show `Section N.N`.
+Route filenames stay unchanged.
 
 Book 6 and Book 9 keep their own `notes.css` and `p2n.css` design sheets, which their `head` slots load.
 Every other book loads the shared `notes/css/notes.css`; every one of them except Book 3 also loads its own `book.css`.
