@@ -145,7 +145,7 @@ Each chapter is produced from `notes/_source/<book-ch>/` holding `ocr.md`, `outl
 
 ## 6. UI requirements
 
-Reference implementation: `paper2notes/notes/css/notes.css`, the shared sheet every book links (tokens, `.def`, `.stage`, `table.notes`, quiz, breakpoints) and `paper2notes/notes/qb/index.html` (900px breakpoint). The `paper2notes/Paper2Notes Design System/` folder is a separate design-system proposal (friendlier, phone-first revamp); where it differs from this section, treat this section as the contract for the current site and the design system as a direction to reconcile (section 13).
+Reference implementation: `paper2notes/notes/css/notes.css`, the shared sheet every book links (tokens, `.def`, `.stage`, `table.notes`, quiz, breakpoints) and `paper2notes/notes/qb/index.html` (900px breakpoint). The `paper2notes/design-system/` folder is a separate design-system proposal (friendlier, phone-first revamp); where it differs from this section, treat this section as the contract for the current site and the design system as a direction to reconcile (section 13).
 
 ### 6.1 Viewports and layout
 
@@ -340,7 +340,7 @@ Run at **1280x800** and **390x844**, top of page plus the affected section, wait
 - [ ] Reduced motion and no-WebGL render a readable static state.
 - [ ] Topbar highlights exactly the current chapter, no duplicate chapter link; prev/next links work.
 - [ ] Before/after screenshots at both sizes in the PR body; video for motion changes, both sizes unless provably invisible at one.
-- [ ] `node paper2notes/scripts/ci-check.mjs` passes, including `deploy-commit-footer` and anchor ids.
+- [ ] `node paper2notes/scripts/checks/ci-check.mjs` passes, including `deploy-commit-footer` and anchor ids.
 
 ## 7. Data products
 
@@ -455,7 +455,7 @@ Review gates (MC anchors, optional LQ crops, uncertain classifications) pause fo
 **DSE wiring.** `paper2notes` is a read-only consumer of `paper2db`.
 
 - Production: the tracked snapshot `paper2notes/notes/dse/{mc,lq}/<NN>/` is staged to `_local/dse/` (and each `book*/_local/dse/`) by the `Dockerfile`. HTML decks render in production without running the pipeline.
-- Local preview: `./paper2db/pipeline --force --yes`, then `./paper2notes/scripts/sync-dse.sh`, then `python3 -m http.server --directory paper2notes/notes`. Pages reference `../_local/dse/...`.
+- Local preview: `./paper2db/pipeline --force --yes`, then `./paper2notes/scripts/build/sync-dse.sh`, then `python3 -m http.server --directory paper2notes/notes`. Pages reference `../_local/dse/...`.
 
 **Automated tests.** The Python test modules and browser test scripts were removed. The `paper2db/tests/fixtures/` and `paper2db/tests/reconstructed/` directories remain pipeline data.
 
@@ -470,7 +470,7 @@ One repository, with paper2notes and paper2db mutually dependent (paper2notes re
 | `paper2mock/` | Reserved for possible future work; F.1 maths content removed pending an HKDSE Physics decision | — |
 | `.github/workflows/` | `deploy-notes` | GitHub Actions Cloud Run deployment |
 | `docs/` | `ARCHITECTURE.md`, this PRD, board notes | Markdown |
-| `paper2notes/Paper2Notes Design System/` | Design-system proposal: tokens, components, UI kits | HTML, CSS, JS |
+| `paper2notes/design-system/` | Design-system proposal: tokens, components, UI kits | HTML, CSS, JS |
 
 | Tracked (edit and commit) | Generated or local (never `git add`) |
 |---|---|
@@ -479,14 +479,14 @@ One repository, with paper2notes and paper2db mutually dependent (paper2notes re
 | `paper2db/scripts/overrides_*.json`, `answer_key_overrides.json`, `tests/reconstructed/lq/*/starts.json`, `tests/reconstructed/lq/*/ans_starts.json` | `paper2db/qb/`, `paper2db/qb-pdf/` (local inputs and outputs; the QB DOCX canonical location, but gitignored) |
 | `paper2db/qb-web-ui-staging/` (crops and metadata only) | `paper2notes/notes/**/_local/` |
 | `paper2notes/layout/`, `paper2notes/notes/` (generated book HTML included), the `dse/` snapshot and `_source/` | `.audit/` harness output |
-| `paper2notes/scripts/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
+| `paper2notes/scripts/checks/leak/` (`fingerprints.v1.json.gz` + `baseline.json`) | |
 
 ## 10. Checks and deploy
 
 The repository has no automated check or test workflows. Notes checks, audits,
 and pipeline scripts remain available to run by hand. See [Architecture §5](ARCHITECTURE.md#5-automated-workflows).
 
-**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: compile the book layout with `scripts/build-books.mjs`, resolve the 6-char `HEAD`, inject the footer via `scripts/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits `paper2notes/notes/`, `paper2notes/layout/`, `paper2notes/scripts/build-books.mjs` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; deploy mechanics are owned by `paper2notes/deploy/cloudrun/README.md` and Architecture §6.
+**Deploy.** `deploy-notes.yml` authenticates with Workload Identity Federation (secrets `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT`; identifiers only, no keys), serialised by the `deploy-cloudrun` concurrency group in the `production` environment, then runs `paper2notes/deploy/cloudrun/deploy.sh`: compile the book layout with `scripts/build-books.mjs`, resolve the 6-char `HEAD`, inject the footer via `scripts/build/inject-commit-footer.mjs --commit <sha>`, build the Dockerfile with the repo root as context, push to Artifact Registry `asia-east2-docker.pkg.dev/paper2notes-site/paper2notes/site`, `gcloud run deploy` service `paper2notes` in `asia-east2` (project `paper2notes-site`), then check that `/`, `/book2/`, `/book4/`, `/book5/` return 200. The root `.dockerignore` admits `paper2notes/notes/`, `paper2notes/layout/`, `paper2notes/scripts/build-books.mjs` and `nginx.conf`, minus `_source/` and `**/_local/`. nginx serves static files on port 8080. One-time setup is `provision.sh`; deploy mechanics are owned by `paper2notes/deploy/cloudrun/README.md` and Architecture §6.
 
 **UI PRs.** A PR that changes paper2notes HTML, CSS, JS, visuals, animations or stage loads `.agents/skills/paper2everything-ui-screenshot/SKILL.md` first and includes before/after screenshots at **both** 1280x800 and 390x844 (one pair per size, same URL, scroll and viewport, attached with `gh --attach` so they render inline; one size only is incomplete). A demo video, if any, is also recorded at both sizes unless provably invisible at one (`.agents/skills/paper2everything-pr-video/SKILL.md` §5.1 and §6).
 
@@ -526,4 +526,4 @@ The F.1 maths content formerly in `paper2mock/` was removed pending a decision a
 - **Lint:** add mechanical-rule lint to `ci-check.mjs` (every `data-hud` has a position rule, no `<br>` in prose, no fixed narrow prose widths)?
 - **Phone quiz navigation:** sticky bottom bar, or inline under the item?
 - **Dark mode:** out of scope, or a required token pass?
-- **Design system:** how far does the `paper2notes/Paper2Notes Design System/` revamp (friendlier, phone-first, gamified, wrong answers shown as nudges rather than red) replace the tokens and rules in section 6, and which of the two owns the contract?
+- **Design system:** how far does the `paper2notes/design-system/` revamp (friendlier, phone-first, gamified, wrong answers shown as nudges rather than red) replace the tokens and rules in section 6, and which of the two owns the contract?

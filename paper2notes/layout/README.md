@@ -35,12 +35,12 @@ The shared template owns its markup and position outside the main page.
 | --- | --- | --- |
 | `notes/book*/**/*.html` | Static student pages, previously authored with copied shells | Generated output for every published book route |
 | `scripts/build-books.mjs` | New authoritative compiler | Reads one layout and explicit page slots |
-| `scripts/ci-check.mjs` | Links, shared assets, anchors, protected text, publication checks | Adds output freshness and layout regression tests |
+| `scripts/checks/ci-check.mjs` | Links, shared assets, anchors, protected text, publication checks | Adds output freshness and layout regression tests |
 | `deploy/cloudrun/deploy.sh` | Footer injection, Docker build, Cloud Run publication | Compiles book sources before footer injection |
 | `deploy/cloudrun/Dockerfile` | Static nginx image with footer fallback and DSE aliases | Compiles sources in a Node stage, then copies static output |
 | `.github/workflows/deploy-notes.yml` | Main-branch publication | Also triggers for layout sources and compiler changes |
-| `scripts/inject-commit-footer.mjs` | Deployment metadata | Keeps ownership of footer values after compilation |
-| `scripts/sync-dse.sh` | Mirrors question assets into local-only paths | Does not generate book HTML; unchanged |
+| `scripts/build/inject-commit-footer.mjs` | Deployment metadata | Keeps ownership of footer values after compilation |
+| `scripts/build/sync-dse.sh` | Mirrors question assets into local-only paths | Does not generate book HTML; unchanged |
 | `paper2db/pipeline` and staging scripts | Questions, crops, keys, and section data | Do not generate book HTML; unchanged |
 | `scripts/audit/` | Reads notes and generates separate audit artifacts | Continues reading generated routes; unchanged |
 | `notes/_source/` | Ignored intake material | Not a source for the public document shell |

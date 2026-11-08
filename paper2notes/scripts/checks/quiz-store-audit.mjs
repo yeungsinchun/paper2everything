@@ -28,9 +28,9 @@
         js/checks.js (var QUIZ_KEYS = {...}).
 
    Wired into quiz-audit.mjs, so one command covers all of it:
-     node paper2notes/scripts/quiz-audit.mjs
+     node paper2notes/scripts/checks/quiz-audit.mjs
    Runnable on its own for just these two rules:
-     node paper2notes/scripts/quiz-store-audit.mjs [--json]
+     node paper2notes/scripts/checks/quiz-store-audit.mjs [--json]
    Exit code 1 when any page breaks either rule. */
 
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
@@ -38,7 +38,7 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-export const REPO_ROOT = resolve(HERE, "..", "..");
+export const REPO_ROOT = resolve(HERE, "..", "..", "..");
 export const NOTES_DIR = join(REPO_ROOT, "paper2notes", "notes");
 export const DSE_DIR = join(NOTES_DIR, "dse");
 export const MC_STORE = join(REPO_ROOT, "paper2db", "qb-web-ui-staging", "dse-mc", "index.json");

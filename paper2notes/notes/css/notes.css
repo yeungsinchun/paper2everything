@@ -5,7 +5,7 @@
      <link rel="stylesheet" href="css/notes.css">          optional chapter sheet: that chapter's figures only
      <link rel="stylesheet" href="<up to notes/>vendor/katex/katex.min.css">
    Layers, in cascade order:
-     1. tokens   design-system tokens (paper2notes/Paper2Notes Design System/tokens) and the
+     1. tokens   design-system tokens (paper2notes/design-system/tokens) and the
                  legacy names (--paper, --accent, --muted ...) chapter sheets still use
      2. document page frame, topbar, sections, figures and stages, HUD labels, prose blocks
                  (.def .tip .eq .worked), table.notes, concept checks, DSE quiz decks, print

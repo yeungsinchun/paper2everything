@@ -63,7 +63,7 @@ Capture in this order so `before` is not polluted by your changes:
 1. **Before** - check out or snapshot `origin/main` *before* your UI edits, start a local server, and screenshot.
    Alternative without switching branches: `git stash` your changes, serve, capture, then `git stash pop`.
    For Lavish boards, archive the main version under `.lavish/snapshots/main/` so the board's left pane can point at it.
-2. **After** - restore your branch (`git stash pop` or re-checkout), rebuild/sync if needed (`./paper2notes/scripts/sync-dse.sh` for `_local/dse`), restart the server, and screenshot the same viewport/URL.
+2. **After** - restore your branch (`git stash pop` or re-checkout), rebuild/sync if needed (`./paper2notes/scripts/build/sync-dse.sh` for `_local/dse`), restart the server, and screenshot the same viewport/URL.
 3. **Compare** - the two images must share identical viewport, URL fragment, and scroll position (top-of-page unless the change is below the fold - then capture both top and the affected section) - and this comparison must be done separately at 1280×800 and at 390×844.
 
 Never capture `before` after you have already modified the file - it defeats the check.
@@ -200,6 +200,6 @@ This skill stays isolated: it adds no dismissals, no CI mutations, and no code c
 ## 9. Discoverability and relation to other skills
 
 - This skill is discoverable via `.agents/skills/paper2everything-ui-screenshot/SKILL.md` and via the one-line pointer in `AGENTS.md` / `CONTRIBUTING.md`.
-- `paper2notes/.cursor/skills/visual-html-notes/SKILL.md` governs how to author visuals; this skill governs how to *prove* visual changes.
+- `.agents/skills/visual-html-notes/SKILL.md` governs how to author visuals; this skill governs how to *prove* visual changes.
 - `.agents/skills/paper2everything-lavish-board/SKILL.md` governs review-board layout; this skill reuses it for Lavish capture (§5.2).
 - `docs/ARCHITECTURE.md` maps the data edge; this skill does not change architecture.

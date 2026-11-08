@@ -6,7 +6,7 @@
 #   paper2db/output, paper2db/metadata
 # Generated crops stay gitignored; run ./paper2db/pipeline first to rebuild.
 set -euo pipefail
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 P2DB="$ROOT/../paper2db"
 LOCAL="$ROOT/notes/_local/dse"
 mkdir -p "$LOCAL/mc" "$LOCAL/lq"

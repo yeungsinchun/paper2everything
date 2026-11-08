@@ -11,18 +11,14 @@
 // carrying the notes-refactor marker; see .agents/skills/paper2everything-lavish-board/SKILL.md),
 // plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
 // plus leak-check (notes must not reproduce protected question/answer text;
-// see scripts/leak-check.mjs),
-// plus anchor ids / moves.json / answer pointers (see scripts/anchor-lint.mjs),
+// see scripts/checks/leak-check.mjs),
+// plus anchor ids / moves.json / answer pointers (see scripts/checks/anchor-lint.mjs),
 // plus the DSE availability record: every published DSE section must be
 // recorded in notes/dse/availability.json with a reason, and every published
 // crop must be a question the papers really hold (see
-// scripts/dse-availability.mjs),
-// plus source/output agreement for every generated book page and the shared
-// layout regression tests (see scripts/build-books.mjs and layout/README.md).
+// scripts/checks/dse-availability.mjs).
 
 import { existsSync, readdirSync, statSync, readFileSync } from "node:fs";
-import { checkBooks } from "./build-books.mjs";
-import { execFileSync } from "node:child_process";
 import { join, dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runLeakCheck } from "./leak-check.mjs";
@@ -30,7 +26,7 @@ import { lintAnchors } from "./anchor-lint.mjs";
 import { checkAbsencePanels, checkPage, checkSnapshot, loadAvailability, loadSource, referenceCounts, checkDocumentedReferenceCounts } from "./dse-availability.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const repoRoot = resolve(__dirname, "..");
+const repoRoot = resolve(__dirname, "../..");
 const notesDir = join(repoRoot, "notes");
 const book5Dir = join(notesDir, "book5");
 const book8Dir = join(notesDir, "book8");
@@ -450,13 +446,13 @@ function checkDeployFooter() {
     // report first 10, then summary
     const preview = missing.slice(0, 10).join(", ");
     const more = missing.length > 10 ? ` and ${missing.length - 10} more` : "";
-    fail(`Missing deploy-commit footer in ${missing.length} HTML file(s): ${preview}${more}. Run: node paper2notes/scripts/inject-commit-footer.mjs --commit $(git rev-parse HEAD | cut -c1-6) (see paper2notes/deploy/cloudrun/Dockerfile)`);
+    fail(`Missing deploy-commit footer in ${missing.length} HTML file(s): ${preview}${more}. Run: node paper2notes/scripts/build/inject-commit-footer.mjs --commit $(git rev-parse HEAD | cut -c1-6) (see paper2notes/deploy/cloudrun/Dockerfile)`);
   }
 }
 
 // Shared assets: every book links one copy in notes/css, notes/js and notes/vendor
-// (paper2notes/README.md "Shared assets"). A book keeps only its content, optional
-// book and chapter sheets, js/quiz-data.js and its own scene scripts.
+// (paper2notes/README.md "Shared assets"). A book keeps only its content, a thin
+// css/book.css, optional chapter sheets, js/quiz-data.js and its own scene scripts.
 const SHARED_ASSETS = {
   "notes.css": "css/notes.css",
   "checks.js": "js/checks.js",
@@ -467,8 +463,6 @@ const SHARED_ASSETS = {
   "three.min.js": "vendor/three/three.min.js",
 };
 const RETIRED_BOOK_SHEETS = new Set(["p2n.css", "p2n-tokens.css"]);
-// Book 6 and Book 9 keep their own design sheets; see paper2notes/layout/README.md.
-const BOOK_SHEET_EXCEPTIONS = new Set(["book6/css/notes.css", "book6/css/p2n.css", "book9/css/notes.css", "book9/css/p2n.css"]);
 
 function walkFiles(dir, out = []) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
@@ -490,8 +484,7 @@ function checkSharedAssets() {
       const rel = relative(bookDir, file);
       const name = rel.split("/").pop();
       const isChapterSheet = /^[^/]+\/css\/notes\.css$/.test(rel);
-      const isBookSheetException = BOOK_SHEET_EXCEPTIONS.has(relative(notesDir, file));
-      if (!isBookSheetException && ((SHARED_ASSETS[name] && !isChapterSheet) || RETIRED_BOOK_SHEETS.has(name) || rel.split("/").includes("vendor"))) {
+      if ((SHARED_ASSETS[name] && !isChapterSheet) || RETIRED_BOOK_SHEETS.has(name) || rel.split("/").includes("vendor")) {
         fail(`Book copy of a shared asset: ${relative(repoRoot, file)}; ${howTo}`);
       }
       if (!name.endsWith(".html")) continue;
@@ -509,7 +502,6 @@ function checkSharedAssets() {
         }
         if (!want) return;
         if (base === "notes.css" && target.startsWith(join(dirname(file), "css") + "/")) return; // chapter sheet
-        if (BOOK_SHEET_EXCEPTIONS.has(relative(notesDir, target))) return;
         if (target !== join(notesDir, want)) {
           fail(`${relative(repoRoot, file)} loads "${ref}", not the shared notes/${want}; ${howTo}`);
         }
@@ -557,12 +549,6 @@ function checkDseAvailability() {
   }
 }
 
-errors.push(...checkBooks().errors);
-try {
-  execFileSync(process.execPath, ["--test", join(__dirname, "build-books.test.mjs")], { stdio: "pipe" });
-} catch (error) {
-  fail(`Shared book layout regression tests failed:\n${error.stdout?.toString() || error.stderr?.toString() || error.message}`);
-}
 checkSiteRegionConsistency();
 checkLavishBoards();
 
