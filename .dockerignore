@@ -1,4 +1,6 @@
 # Build context includes static notes, layout sources, the compiler, and nginx config.
+# The teaching-reference store and its producer feed the build stage that generates
+# question-notes/passages.json.
 # The final image contains only static notes and nginx config.
 *
 !paper2notes/notes/

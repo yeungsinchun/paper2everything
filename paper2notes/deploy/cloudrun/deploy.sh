@@ -2,14 +2,15 @@
 # Build the paper2notes image, push it to Artifact Registry, roll it out to the
 # Cloud Run service, and check the site answers.
 #
-# Used by .github/workflows/deploy-notes.yml (monorepo root) and
-# .github/workflows/deploy.yml (standalone paper2notes); runnable locally
+# Used by .github/workflows/deploy-notes.yml (monorepo root); runnable locally
 # by anyone whose gcloud identity can push to the registry and deploy the
 # service (or, to exercise the CI identity exactly, with
 # CLOUDSDK_AUTH_IMPERSONATE_SERVICE_ACCOUNT=<deployer email>):
 #
 #   paper2notes/deploy/cloudrun/deploy.sh  # from monorepo root
-#   deploy/cloudrun/deploy.sh               # from standalone checkout
+#
+# The image build requires the monorepo root: the Dockerfile reads the
+# teaching-reference store at paper2db/metadata/pointers/notes.json.
 set -euo pipefail
 
 PROJECT_ID="${GCP_PROJECT_ID:-paper2notes-site}"
@@ -17,7 +18,9 @@ REGION="${GCP_REGION:-asia-east2}"
 SERVICE="${GCP_RUN_SERVICE:-paper2notes}"
 REPOSITORY="${GCP_AR_REPOSITORY:-paper2notes}"
 
-# repo_root is paper2notes/ in standalone, or paper2everything/ in the monorepo.
+# repo_root is paper2everything/ in the monorepo or paper2notes/ in a standalone
+# checkout; only the monorepo root can build, because the Dockerfile reads
+# paper2db/metadata/pointers/notes.json.
 # Detect monorepo: if paper2notes/notes exists at the git top-level, use that.
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 # paper2notes/deploy/cloudrun -> paper2notes

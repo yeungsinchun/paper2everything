@@ -56,13 +56,15 @@ See `layout/README.md` for generation paths, validation coverage, and existing e
 
 ## Shared assets
 
-Every book links one copy of the shared styles, scripts and vendored libraries. A book holds only its own content and a thin book sheet. `scripts/ci-check.mjs` fails a book that keeps its own copy of any of these files, or links a page to anything other than the shared copy.
+Every book links one copy of the shared styles, scripts and vendored libraries. A book holds only its own content and a thin book sheet. `scripts/ci-check.mjs` fails a book that keeps its own copy of any of these files, or links a page to anything other than the shared copy. The question-to-notes files load on demand instead of being linked: `js/checks.js` imports `js/question-notes.mjs` for chapter decks, the `/qb` page imports it directly, and the module loads `css/question-notes.css`.
 Book 6 and Book 9 are the exception: their pages keep their own `notes.css` and `p2n.css` design sheets and do not load the shared sheet. `ci-check.mjs` allows those four files by exact path.
 
 | Shared file (under `notes/`) | What it holds |
 |---|---|
 | `css/notes.css` | Design-system tokens, page frame, top bar and nav, sections, figures and stages, HUD labels, `.def` `.tip` `.eq` `.worked`, `table.notes`, concept checks, DSE quiz decks, chapter cards, traps, formula sheet, learning primitives (`.p2n-defs`, `.p2n-formula`, `.p2n-compare`, readouts, `.fig-frame`, `.scene-toolbar`), print and reduced-motion rules |
-| `js/checks.js` | MC, true/false and Show answer checks; DSE decks (Prev/Next, A to D grading, PDF links); Export notes as PDF |
+| `js/checks.js` | MC, true/false and Show answer checks; DSE decks (Prev/Next, A to D grading, PDF links); Export notes as PDF; attaches the question-to-notes button to each DSE slide |
+| `js/question-notes.mjs` | `attachQuestionNotes`: the question-to-notes button and panel for QB/DSE cards and DSE slides, validation of the generated passages projection, and the on-demand load of `css/question-notes.css` |
+| `css/question-notes.css` | Question-to-notes panel, card-expansion and print-exclusion styles |
 | `js/math.js` | KaTeX auto-render with `\(...\)`, `\[...\]` and `$$...$$` (a single `$` is not maths) |
 | `js/scene-kit.js` | `window.P2NScene` three.js helpers: `stage`, `placeHud`, `projectXY`, `wavyArrow`, `ball`, `box`, `axes`, `curveLine` |
 | `vendor/katex/`, `vendor/three/three.min.js` | Vendored KaTeX and three.js |

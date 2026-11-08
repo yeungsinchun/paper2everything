@@ -154,15 +154,8 @@ The publisher also accepts `--store`, `--notes-root`, and `--out`.
 Use those options for isolated fixtures instead of modifying the canonical store.
 Chapter previews also require the existing local DSE crop setup described in project guidance.
 
-The Cloud Run Dockerfile runs the producer in a Python build stage.
-The restricted root Docker context admits only the canonical store and producer alongside the existing site inputs.
-The final nginx image receives the generated JSON, not the canonical store or Python tooling.
-It serves `.mjs` files with an explicit JavaScript MIME type.
-Build from the monorepo root:
-
-```sh
-docker build -f paper2notes/deploy/cloudrun/Dockerfile .
-```
+The Cloud Run image generates the projection in a Python build stage, and the final image carries the generated JSON rather than the canonical store or Python tooling.
+`paper2notes/deploy/cloudrun/README.md` owns the build context, the `.mjs` MIME type, the deploy workflow triggers and the build command.
 
 ## Example reviews
 

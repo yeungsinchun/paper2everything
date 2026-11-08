@@ -280,6 +280,7 @@ Interactions teach a dependency, not decorate. Test: can the student answer some
 - Item cards show the real crop at full column width, topic tags, and year or paper as secondary metadata. Crops are never unreadable thumbnails on phone; tap opens full size.
 - Lists page or lazy-load: a 3,000-item bank must not produce a 3,000-node initial DOM.
 - At 900px and below the filter panel collapses above the list and the list is one column.
+- Every card carries an **Explain with notes** button that opens the mapped notes passages in place, with the relevant sentences highlighted. The panel behavior, the evidence rule for a mapping and the current two-question coverage are owned by `docs/QUESTION_NOTES.md`.
 
 ### 6.6 Desktop versus mobile summary
 
