@@ -10,7 +10,7 @@ paper2everything turns Hong Kong secondary-school source material (HKDSE Physics
 
 | Subproject | What it is | Audience-facing output |
 |---|---|---|
-| `paper2notes/` | Visual, interactive HKDSE Physics notes (Books 1–5 core, Books 6–9 electives), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb` |
+| `paper2notes/` | Visual, interactive HKDSE Physics notes (Books 1–5 core, Books 6–9 electives), static HTML with three.js diagrams, KaTeX maths and self-check questions | Public site on Cloud Run: landing `/`, book indexes, chapter notes, DSE question decks, question-bank UI at `/qb`, mock-exam builder at `/mock` |
 | `paper2db/` | Pipeline that splits HKDSE Paper 1A (MC) and 1B (LQ) PDFs into per-question crops, classifies each to a syllabus section, pairs answers and candidate-performance notes, and ingests the QB DOCX banks | Per-section MC and LQ banks, section PDFs, whole-paper reconstructions, QB item data |
 | `paper2mock/` | Reserved for possible future work; F.1 maths content was removed pending a HKDSE Physics decision | None |
 
@@ -69,6 +69,7 @@ Versus a plain past-paper archive: questions are cut per item, labelled by secti
 - Notes: Books 1–9 publish 195 book routes; per-book page coverage is in `paper2notes/layout/README.md`.
 - DSE banks: 27 syllabus sections, MC and LQ; tracked published snapshot ships in the image; see [the publication contract](ARCHITECTURE.md#2-dse-crops-paper2db--paper2notes-published-snapshot--local-sync).
 - QB: 46 banks, 169 DOCX, 3,847 items (1,881 in scope), surfaced in `/qb` with topic filters and real crops.
+- Mock exams: `/mock` builds a multiple-choice paper to the teacher's topic, question-count and target-score choices. Each question's difficulty uses its recorded exam pass rate.
 - The F.1 maths content formerly in `paper2mock/` was removed pending a decision about its place in an HKDSE Physics project.
 
 ## 4. Content model (paper2notes)
@@ -94,6 +95,7 @@ notes/css/notes.css                   shared sheet for every book except Books 6
 notes/js/                             shared checks.js, math.js, scene-kit.js
 notes/vendor/{katex,three}/           shared vendored KaTeX and three.js
 notes/qb/                             question-bank UI (index.html, crops/, data/)
+notes/mock/                           mock-exam builder (index.html, css/, js/; reads qb/data/)
 notes/dse/{mc,lq}/<section>/          published DSE snapshot (tracked, from paper2db)
 notes/_source/<book-ch>/              intake; never shown to students, not shipped in the image
 ```
