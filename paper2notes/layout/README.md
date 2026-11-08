@@ -83,6 +83,7 @@ No book has a switch for secondary navigation.
 The top bar shows an inline chevron trail in place of the flat book links.
 The current page is bold text, not a link.
 The trail is path-only: it has no separate Books control and no Question bank control.
+Question bank stays reachable from the landing page card.
 All books links to the landing page, and chapter ancestors link to their chapter index.
 The Book segment is the menu trigger on every page type, including when it is the current page.
 Its label is Book N, with no extra word and no down arrow.
@@ -95,6 +96,7 @@ The path nav keeps overflow visible, so the Book 6 mobile head slot cannot clip 
 
 Book 5 Chapter 1 keeps its book-local section numbers, 1.1–1.3, in kickers, map cards, and chain links.
 The trail leaf repeats the section number each page's kicker displays, so it matches the section card a reader clicked.
+The compiler rejects a section page whose kicker does not show `Section N.N`.
 Route filenames stay unchanged.
 
 Book 6 and Book 9 keep their own `notes.css` and `p2n.css` design sheets, which their `head` slots load.
