@@ -73,9 +73,10 @@ If you did, reset to `main` for that file and re-capture.
 
 ### 5.1 chrome-devtools-axi (primary)
 
-Serve the notes locally (no build):
+Serve the notes locally (build book pages first when `paper2notes/layout/` changed):
 
 ```bash
+node paper2notes/scripts/build-books.mjs
 python3 -m http.server --directory paper2notes/notes 8000
 # visit http://localhost:8000/book2/ch01-position-and-displacement/
 ```

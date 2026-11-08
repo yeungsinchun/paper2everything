@@ -1,13 +1,13 @@
 ---
 name: visual-html-notes
-description: Write visual-first HTML notes under notes/** as three.js diagrams, comparison tables, and example-driven decision flows. Use when creating or editing notes HTML/CSS/JS, chapter pages, concept checks, or figures in notes/.
+description: Write visual-first HTML notes under notes/** as three.js diagrams, comparison tables, and example-driven decision flows. Use when creating or editing notes HTML/CSS/JS, layout page sources, chapter pages, concept checks, or figures in notes/.
 ---
 
 # Visual HTML notes
 
 Paths in this skill are relative to `paper2notes/` (this skill lives at the repository root, so `notes/` means `paper2notes/notes/`).
 
-Open a chapter `index.html` in a browser (no build). Intake is `notes/_source/<book-ch>/`. Student pages must not show intake, OCR, QB numbers, "book cut", textbook-order ledes, or other meta chrome; keep provenance in `_source` or HTML comments.
+Book pages are generated. Edit `layout/pages/` or `layout/book.html`, then run `node paper2notes/scripts/build-books.mjs`. Open the generated chapter `index.html` in a browser. Do not edit generated HTML under `notes/book*/`. Intake is `notes/_source/<book-ch>/`. Student pages must not show intake, OCR, QB numbers, "book cut", textbook-order ledes, or other meta chrome; keep provenance in `_source` or HTML comments.
 
 ## Worked page (25.1 knockout)
 

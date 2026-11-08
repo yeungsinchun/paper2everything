@@ -12,13 +12,21 @@ The notes are served as static files by nginx in a container on Cloud Run.
 
 Files:
 
-- `Dockerfile` + `nginx.conf` - the image; the monorepo-root `.dockerignore` keeps everything except `paper2notes/notes/` (minus `_source/` and `_local/`) and `paper2notes/deploy/cloudrun/nginx.conf` out of the build context. Build from the monorepo root: `docker build -f paper2notes/deploy/cloudrun/Dockerfile .` (the image copies `paper2notes/notes/` to `/usr/share/nginx/html/`, then injects/updates a muted `deploy-commit-footer` showing the first 6 chars of `GIT_COMMIT` (and, when `deploy.sh`/the injector set it, the commit subject) via `ARG GIT_COMMIT` fallback and stages `notes/dse/` to `_local/dse/`).
+- `Dockerfile` compiles the shared book layout in a Node stage, then copies static output into nginx.
+  The final image contains neither layout sources nor the compiler.
+  The root `.dockerignore` admits notes, layout sources, the compiler, and nginx configuration.
+  It excludes `_source/` and `_local/`.
+  Build from the repository root: `docker build -f paper2notes/deploy/cloudrun/Dockerfile .`.
+  The image retains commit-footer injection and mirrors `notes/dse/` into local asset paths.
 - `provision.sh` - idempotent, creates everything above (run once by a human with billing access). It also creates the Cloud Run service with a placeholder image and sets the public-invoker binding, which the deployer is not allowed to do.
-- `deploy.sh` - what CI runs: resolves the 6-char `HEAD` (or `local`), injects/updates the footer (commit ID + `git log -1 --format=%s` subject, HTML-escaped) into every `paper2notes/notes/**/*.html` via `paper2notes/scripts/build/inject-commit-footer.mjs --commit <sha>` and passes `--build-arg GIT_COMMIT=<sha>` before `docker build --platform linux/amd64`, pushes to Artifact Registry, `gcloud run deploy --image`, then checks `<service url>/`, `/book2/`, `/book4/`, `/book5/` return 200.
+- `deploy.sh` compiles book sources with `scripts/build-books.mjs`, then injects the current commit footer through `scripts/build/inject-commit-footer.mjs`.
+  It builds for `linux/amd64`, pushes the image, updates Cloud Run, and checks the existing public addresses.
+  `paper2notes/layout/README.md` lists the generation paths and route coverage.
 
 Every deployed HTML page (all `paper2notes/notes/**/*.html` except `_source`/`_local`) ends with that muted footer (`<footer class="deploy-commit-footer" data-commit="<6-char>">deployed commit: <code>…</code> <span class="deploy-commit-subject">commit subject</span></footer>`) so a deploy in flight can be identified in the browser; `node paper2notes/scripts/checks/ci-check.mjs` fails if any deployed HTML lacks it or has a malformed `data-commit`. Local `python -m http.server --directory paper2notes/notes` previews show the last committed footer until you refresh with `node paper2notes/scripts/build/inject-commit-footer.mjs --commit $(git rev-parse HEAD | cut -c1-6)` (subject is read from git; override with `--subject`).
 
-`.github/workflows/deploy-notes.yml` (at the monorepo root) runs `paper2notes/deploy/cloudrun/deploy.sh` on every push to `main` that touches `paper2notes/notes/`, `paper2notes/deploy/cloudrun/`, `.dockerignore`, or the workflow (or manually via *Run workflow*). It authenticates with Workload Identity Federation, so no cloud key is stored anywhere; the two GitHub secrets `GCP_WORKLOAD_IDENTITY_PROVIDER` and `GCP_DEPLOYER_SERVICE_ACCOUNT` are resource names printed by `provision.sh`.
+`.github/workflows/deploy-notes.yml` runs `deploy.sh` when configured paths change on `main`, or through a manual request.
+Those paths include notes, layout sources, the compiler, deployment files, `.dockerignore`, and the workflow. It authenticates with Workload Identity Federation, so no cloud key is stored anywhere; the two GitHub secrets `GCP_WORKLOAD_IDENTITY_PROVIDER` and `GCP_DEPLOYER_SERVICE_ACCOUNT` are resource names printed by `provision.sh`.
 
 Access model:
 
