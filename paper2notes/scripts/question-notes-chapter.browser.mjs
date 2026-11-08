@@ -24,6 +24,11 @@ export async function run() {
   const indexBefore = deck.querySelector('.quiz-status').textContent;
   deck.querySelector('[data-quiz-next]').click();
   check(deck.querySelector('.quiz-status').textContent !== indexBefore, 'Next question still works');
+  location.hash = '#fission-def-1';
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  const anchored = document.getElementById('fission-def-1');
+  const headerBottom = document.querySelector('header.p2n-top').getBoundingClientRect().bottom;
+  check(anchored.getBoundingClientRect().top >= headerBottom, 'Deep link lands the anchored notes below the sticky header');
   check(document.documentElement.scrollWidth <= innerWidth, 'Chapter has no horizontal overflow');
   return { passed: passed.length, checks: passed };
 }
