@@ -70,6 +70,7 @@ It does not scan lesson text, so braces in a lesson stay literal.
 | `{{home}}` | Relative link to the book index | Computed from the route |
 | `{{root}}` | Relative prefix to the notes root | Computed from the route |
 | `{{navigation}}` | Path trail and the book index menu | Compiler derives ancestors from real routes. `books.json` supplies menu labels |
+| `{{pathPicker}}` | Path-picker script tag (shared `js/path-picker.js`, generated `js/path-manifest.json`, current route) | Compiler derives the inventory from real routes. `books.json` supplies book labels |
 | `{{mainClass}}` | Class for the page type | Page type in page metadata. Class strings live in `scripts/build-books.mjs` |
 | `{{deployCommit}}` | Preserved footer commit, or `local` | Deployment footer injection, not lesson sources |
 | `{{deploySubject}}` | Preserved footer subject markup, or empty | Deployment footer injection, not lesson sources |
@@ -93,6 +94,11 @@ Sections and summaries are leaves, and no chapter or section sibling menu exists
 At 560px and below, the trail shows its first and last segments.
 The ellipsis disclosure keeps every hidden ancestor route and every book index reachable without JavaScript.
 The path nav keeps overflow visible, so the Book 6 mobile head slot cannot clip the menus.
+
+A fzf-like path picker opens from the mobile ellipsis or with Cmd+/ on macOS and Ctrl+/ on Windows.
+It starts inside the current chapter, lets a reader choose an ancestor to widen the scope or a child to narrow it, and searches within the chosen scope.
+The picker reads the generated `notes/js/path-manifest.json` inventory, so it can only offer routes the compiler derived from real published pages.
+It never renumbers sections or adds a page level; the existing path-only trail remains the no-JavaScript fallback.
 
 Book 5 Chapter 1 keeps its book-local section numbers, 1.1–1.3, in kickers, map cards, and chain links.
 The trail leaf repeats the section number each page's kicker displays, so it matches the section card a reader clicked.

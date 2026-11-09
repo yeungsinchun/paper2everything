@@ -90,6 +90,53 @@ export function loadPages(root = layoutDir) {
     return page;
   });
 }
+// Full navigation inventory for the path picker: one node per real published
+// route (books, chapters, sections, summaries) plus a synthetic root.
+// The picker derives its scope tree from these nodes, so it can never invent
+// a destination that is not in the inventory. Routes are relative to notes/.
+export function buildNavigationManifest(pages, books) {
+  const nodes = [{ id: 'root', kind: 'library', label: 'All books', title: 'All books', route: 'index.html', parent: null }];
+  const chapterPagesByBook = new Map();
+  const sectionPagesByChapter = new Map();
+  const summaryByChapter = new Map();
+  for (const p of pages) {
+    const [book, dir] = p.route.split('/');
+    if (p.type === 'map' || p.type === 'chapter') {
+      if (!chapterPagesByBook.has(book)) chapterPagesByBook.set(book, []);
+      chapterPagesByBook.get(book).push(p);
+    } else if (p.type === 'section') {
+      const chapter = `${book}/${dir}`;
+      if (!sectionPagesByChapter.has(chapter)) sectionPagesByChapter.set(chapter, []);
+      sectionPagesByChapter.get(chapter).push(p);
+    } else if (p.type === 'summary') {
+      summaryByChapter.set(`${book}/${dir}`, p);
+    }
+  }
+  const chapterNum = p => Number(p.route.split('/')[1].match(/^ch(\d+)-/)[1]);
+  const sectionNum = p => {
+    const [major, minor] = sectionNumber(p).split('.').map(Number);
+    return major * 1000 + minor;
+  };
+  const chapterTitle = p => p.title.replace(/^Book \d+ Ch\.\d+ · /, '');
+  const bookTitle = overview => (overview ? overview.title.replace(/^Active Physics Book \d+ · /, '') : '');
+  for (const [bookId, book] of Object.entries(books)) {
+    const overview = pages.find(p => p.route === `${bookId}/index.html`);
+    nodes.push({ id: bookId, kind: 'book', label: book.label, title: bookTitle(overview) || book.label, route: `${bookId}/index.html`, parent: 'root' });
+    const chapters = (chapterPagesByBook.get(bookId) || []).sort((a, b) => chapterNum(a) - chapterNum(b));
+    for (const cp of chapters) {
+      const chapterId = cp.route.split('/').slice(0, 2).join('/');
+      const title = chapterTitle(cp);
+      nodes.push({ id: chapterId, kind: 'chapter', label: `Ch.${chapterNum(cp)}`, title, route: `${chapterId}/index.html`, parent: bookId });
+      const sections = (sectionPagesByChapter.get(chapterId) || []).sort((a, b) => sectionNum(a) - sectionNum(b));
+      for (const sp of sections) {
+        nodes.push({ id: sp.route.replace(/\.html$/, ''), kind: 'section', label: sectionNumber(sp), title: sp.title.replace(/^\d+\.\d+\s+/, ''), route: sp.route, parent: chapterId });
+      }
+      const summary = summaryByChapter.get(chapterId);
+      if (summary) nodes.push({ id: `${chapterId}/summary`, kind: 'summary', label: 'Summary', title, route: summary.route, parent: chapterId });
+    }
+  }
+  return nodes;
+}
 function readEditableSource(file, name, { dropFinalNewline }) {
   const raw = readFileSync(file, 'utf8');
   if (raw.includes(generatedMark)) throw new Error(`${file}: editable source must not carry the generated-file notice`);
@@ -161,7 +208,8 @@ export function renderPage(page, { template, books }, footer = defaultFooter) {
   // Component placeholders are already resolved. Replace only these values.
   // Lesson text is a replacement value, so braces inside a lesson stay literal.
   const slots = Object.fromEntries(slotNames.map(name => [name, normalizeSlot(page[name])]));
-  const values = { ...slots, title: escape(page.title), root, home, book, label: escape(config.label), icon: escape(config.icon), navigation, mainClass: mainClasses[page.type], deployCommit: escape(footer.commit), deploySubject: footer.subject ? ` <span class="deploy-commit-subject">${footer.subject}</span>` : '' };
+  const pathPicker = `<script src="${escape(root)}js/path-picker.js" data-manifest="${escape(root)}js/path-manifest.json" data-current="${escape(page.route)}" defer></script>`;
+  const values = { ...slots, title: escape(page.title), root, home, book, label: escape(config.label), icon: escape(config.icon), navigation, mainClass: mainClasses[page.type], deployCommit: escape(footer.commit), deploySubject: footer.subject ? ` <span class="deploy-commit-subject">${footer.subject}</span>` : '', pathPicker };
   return template.replace(/\{\{(\w+)\}\}/g, (_, key) => {
     if (!Object.hasOwn(values, key)) throw new Error(`Unknown layout slot: ${key}`);
     return values[key];
@@ -185,6 +233,13 @@ export function checkBooks({ output = notesDir, source = layoutDir, write = fals
       if (write) { mkdirSync(dirname(dest), { recursive: true }); writeFileSync(dest, rendered); }
       else errors.push(`${page.route}: stale generated page; run node paper2notes/scripts/build-books.mjs`);
     }
+  }
+  const manifest = buildNavigationManifest(pages, layout.books);
+  const manifestDest = join(output, 'js', 'path-manifest.json');
+  const manifestJson = `${JSON.stringify(manifest)}\n`;
+  if (!existsSync(manifestDest) || readFileSync(manifestDest, 'utf8') !== manifestJson) {
+    if (write) { mkdirSync(dirname(manifestDest), { recursive: true }); writeFileSync(manifestDest, manifestJson); }
+    else errors.push('js/path-manifest.json: stale navigation manifest; run node paper2notes/scripts/build-books.mjs');
   }
   return { count: pages.length, errors };
 }
