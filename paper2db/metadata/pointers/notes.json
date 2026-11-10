@@ -1,0 +1,41 @@
+{
+  "schema": "paper2db.notes-pointer.v1",
+  "items": [
+    {
+      "corpus": "qb",
+      "item_id": "PHY15033101",
+      "passages": [
+        {
+          "page": "book5/ch03-nuclear-energy/27-1.html",
+          "anchor": "fission-def-1",
+          "text_sha256": "26af3717e7f8675751e241fe46e3f4adcb2eacc11a9f8f137622f02548b9e227",
+          "highlights": [{"start": 0, "end": 72, "quote": "Nuclear fission is the splitting of a heavy nucleus into lighter nuclei."}],
+          "source": "Agent visual review of notes/qb/crops/qb/PHY15033101.webp (SHA-256 1015506329aa0bbf94a76d2d04c1e3b3c8accbf89d01d353d121efb39efa2c83); correspondence and scope: docs/QUESTION_NOTES.md#example-reviews.",
+          "tier": "verified"
+        }
+      ]
+    },
+    {
+      "corpus": "dse",
+      "item_id": "dse-mc-2018-31",
+      "passages": [
+        {
+          "page": "book5/ch03-nuclear-energy/27-1.html",
+          "anchor": "fission-def-1",
+          "text_sha256": "26af3717e7f8675751e241fe46e3f4adcb2eacc11a9f8f137622f02548b9e227",
+          "highlights": [{"start": 0, "end": 72, "quote": "Nuclear fission is the splitting of a heavy nucleus into lighter nuclei."}],
+          "source": "Agent visual review of notes/qb/crops/dse-mc/2018_q31.webp (SHA-256 87c179ddabbac237febd2a0483cd7fc99b1bb6b19fd9f12eb3c0aa0ac2f5725c); correspondence and scope: docs/QUESTION_NOTES.md#example-reviews.",
+          "tier": "verified"
+        },
+        {
+          "page": "book5/ch03-nuclear-energy/27-1.html",
+          "anchor": "chain-def-1",
+          "text_sha256": "bcaa05ec021952d9926d81dac8bbfbbc7570f432d6cf37700ac21507ef04b410",
+          "highlights": [{"start": 0, "end": 144, "quote": "A chain reaction occurs when the neutrons emitted in one fission go on to trigger fission in nearby nuclei, creating a self-sustaining sequence."}],
+          "source": "Agent visual review of notes/qb/crops/dse-mc/2018_q31.webp (SHA-256 87c179ddabbac237febd2a0483cd7fc99b1bb6b19fd9f12eb3c0aa0ac2f5725c); correspondence and scope: docs/QUESTION_NOTES.md#example-reviews.",
+          "tier": "verified"
+        }
+      ]
+    }
+  ]
+}

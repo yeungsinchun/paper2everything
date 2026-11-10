@@ -9,12 +9,22 @@ COPY paper2notes/layout/ ./layout/
 COPY paper2notes/scripts/build-books.mjs ./scripts/build-books.mjs
 RUN node scripts/build-books.mjs
 
+# The canonical teaching-reference store requires the monorepo build context.
+# Publish from the compiled pages so the served source text matches the hashes.
+FROM python:3.12-alpine AS passages
+WORKDIR /build
+COPY paper2notes/scripts/publish-notes-passages.py /build/paper2notes/scripts/
+COPY paper2db/metadata/pointers/notes.json /build/paper2db/metadata/pointers/notes.json
+COPY --from=book-layout /site/notes/ /build/paper2notes/notes/
+RUN python3 paper2notes/scripts/publish-notes-passages.py --out /build/passages.json
+
 FROM nginxinc/nginx-unprivileged:stable-alpine
 
 COPY paper2notes/deploy/cloudrun/nginx.conf /etc/nginx/conf.d/default.conf
 # .dockerignore (at repo root) keeps paper2notes/notes/_source and _local out of the image.
 COPY --from=book-layout /site/notes/ /usr/share/nginx/html/
-# Inject / update the deploy-commit footer at image-build time for standalone
+COPY --from=passages /build/passages.json /usr/share/nginx/html/question-notes/passages.json
+# Inject / update the deploy-commit footer at image-build time for a direct
 # `docker build -f Dockerfile .` without deploy.sh. deploy.sh already injects
 # before build and passes --build-arg GIT_COMMIT; this is the fallback. A footer whose
 # data-commit already matches is left alone (it carries the commit subject); a stale

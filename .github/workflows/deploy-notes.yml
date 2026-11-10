@@ -18,6 +18,8 @@ on:
       - "paper2notes/layout/**"
       - "paper2notes/scripts/build-books.mjs"
       - "paper2notes/deploy/cloudrun/**"
+      - "paper2db/metadata/pointers/notes.json"
+      - "paper2notes/scripts/publish-notes-passages.py"
       - ".dockerignore"
       - ".github/workflows/deploy-notes.yml"
   workflow_dispatch:

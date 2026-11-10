@@ -1,7 +1,13 @@
 /* Book 5 sheet: loaded after ../../css/notes.css (the shared sheet for every book).
-   Sets the book's identity colour; every other rule is shared. */
+   Sets the book's identity colour and its deep-link scroll offset; every other rule is shared. */
 
 :root {
   --tone: var(--book5);
   --tone-soft: var(--book5-soft);
+}
+
+/* A deep link must land its anchored block below the sticky top bar, which wraps to two rows
+   (109px tall at every width). Books 6-9 set this offset in their own sheets; book 5 needs it here. */
+.p2n-page-frame [id] {
+  scroll-margin-top: 120px;
 }
