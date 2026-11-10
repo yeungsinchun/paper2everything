@@ -117,19 +117,26 @@ export function buildNavigationManifest(pages, books) {
     const [major, minor] = sectionNumber(p).split('.').map(Number);
     return major * 1000 + minor;
   };
-  const chapterTitle = p => p.title.replace(/^Book \d+ Ch\.\d+ · /, '');
-  const bookTitle = overview => (overview ? overview.title.replace(/^Active Physics Book \d+ · /, '') : '');
+  const cleanTitle = title => title
+    .replace(/^Active Physics Book \d+ · /, '')
+    .replace(/^Book \d+ Chapter \d+: /, '')
+    .replace(/^Book \d+ Ch\.\d+ · /, '')
+    .replace(/^Section \d+\.\d+\s+/, '')
+    .replace(/^Book \d+ · /, '')
+    .replace(/^\d+\.\d+\s+/, '')
+    .replace(/ · Book \d+$/, '');
+  const bookTitle = overview => (overview ? cleanTitle(overview.title) : '');
   for (const [bookId, book] of Object.entries(books)) {
     const overview = pages.find(p => p.route === `${bookId}/index.html`);
     nodes.push({ id: bookId, kind: 'book', label: book.label, title: bookTitle(overview) || book.label, route: `${bookId}/index.html`, parent: 'root' });
     const chapters = (chapterPagesByBook.get(bookId) || []).sort((a, b) => chapterNum(a) - chapterNum(b));
     for (const cp of chapters) {
       const chapterId = cp.route.split('/').slice(0, 2).join('/');
-      const title = chapterTitle(cp);
+      const title = cleanTitle(cp.title);
       nodes.push({ id: chapterId, kind: 'chapter', label: `Ch.${chapterNum(cp)}`, title, route: `${chapterId}/index.html`, parent: bookId });
       const sections = (sectionPagesByChapter.get(chapterId) || []).sort((a, b) => sectionNum(a) - sectionNum(b));
       for (const sp of sections) {
-        nodes.push({ id: sp.route.replace(/\.html$/, ''), kind: 'section', label: sectionNumber(sp), title: sp.title.replace(/^\d+\.\d+\s+/, ''), route: sp.route, parent: chapterId });
+        nodes.push({ id: sp.route.replace(/\.html$/, ''), kind: 'section', label: sectionNumber(sp), title: cleanTitle(sp.title), route: sp.route, parent: chapterId });
       }
       const summary = summaryByChapter.get(chapterId);
       if (summary) nodes.push({ id: `${chapterId}/summary`, kind: 'summary', label: 'Summary', title, route: summary.route, parent: chapterId });

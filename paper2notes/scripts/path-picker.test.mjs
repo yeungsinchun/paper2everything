@@ -64,6 +64,24 @@ test('book and chapter titles are stripped of their route prefixes', () => {
   assert.equal(section.title, 'Properties and detection of nuclear radiation');
 });
 
+test('structural prefixes and suffixes are stripped from every real title form', () => {
+  // Book N Chapter M: form (book3 chapters).
+  const book3Chapter = byId.get('book3/ch02-reflection-refraction-and-diffraction');
+  assert.equal(book3Chapter.label, 'Ch.2');
+  assert.equal(book3Chapter.title, 'Reflection, Refraction and Diffraction');
+  // Section N.M form (book4 sections) keeps the local kicker label.
+  const book4Section = byId.get('book4/ch01-electrostatics/20-1');
+  assert.equal(book4Section.label, '1.1');
+  assert.equal(book4Section.title, 'Two kinds of charge and Coulomb\'s law');
+  assert.equal(byId.get('book4/ch01-electrostatics/20-2').title, 'Electric field and field lines');
+  // Bare Book N · prefix form (book7 and book9 overviews).
+  assert.equal(byId.get('book7').title, 'Atomic World');
+  assert.equal(byId.get('book9').title, 'Medical Physics');
+  // Trailing · Book N suffix form (book7 sections and book9 chapters).
+  assert.equal(byId.get('book7/ch03-nanotechnology/3-1').title, 'Matter waves');
+  assert.equal(byId.get('book9/ch01-vision-and-hearing').title, 'Vision and Hearing');
+});
+
 test('Book 2 complete chapters are leaves; other chapters have child pages', () => {
   for (const n of manifest.filter(n => n.kind === 'chapter' && n.id.startsWith('book2/'))) {
     assert.equal(index.childrenOf(n.id).length, 0, n.id);
