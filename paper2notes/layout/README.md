@@ -4,7 +4,7 @@
 
 The compiler uses Node.js built-ins only.
 It reads `book.html`, `components/*.html`, `books.json`, and `pages/book*/**/*.html`.
-It writes the same routes under `../notes/`.
+It writes the same routes under `../notes/`, plus the `notes/js/path-manifest.json` picker inventory.
 It does not write `book.html`, component files, or page sources.
 The output contains complete HTML and works without JavaScript for navigation and notes.
 The compiler never inserts or hides navigation at browser runtime.
@@ -32,7 +32,7 @@ Do not edit generated pages under `notes/book*/`.
 
 | Component | File | What a contributor edits |
 | --- | --- | --- |
-| Arrangement | `layout/book.html` | Document order: head, header, main, scripts slot, footer, trailing slot |
+| Arrangement | `layout/book.html` | Document order: head, header, main, scripts slot, footer, path-picker script, trailing slot |
 | Head | `layout/components/head.html` | Charset, viewport, title element, and the page `head` slot position |
 | Header | `layout/components/header.html` | Header landmark and the order of brand and navigation |
 | Brand | `layout/components/brand.html` | Book home link, icon, and label markup |
@@ -115,6 +115,7 @@ The arrangement and component files own shared markup outside the main page.
 | Path | Existing role | Integration |
 | --- | --- | --- |
 | `notes/book*/**/*.html` | Static student pages, previously authored with copied shells | Generated output for every published book route |
+| `notes/js/path-manifest.json` | Generated path-picker inventory (one node per book, chapter, section, and summary) | Compiler derives it from real routes; the picker reads it at runtime |
 | `scripts/build-books.mjs` | New authoritative compiler | Reads the arrangement, shared components, and explicit page slots |
 | `scripts/checks/ci-check.mjs` | Links, shared assets, anchors, protected text, publication checks | Adds output freshness and layout regression tests |
 | `deploy/cloudrun/deploy.sh` | Footer injection, Docker build, Cloud Run publication | Compiles book sources before footer injection |

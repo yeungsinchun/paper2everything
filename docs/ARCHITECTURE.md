@@ -35,7 +35,7 @@ The leak edge has a drift check (`python3 paper2db/scripts/leak_fingerprints.py 
 |---|---|---|---|
 | `paper2db/` | Python 3 (PyMuPDF, Pillow, OCR, optional LLM API) | `./paper2db/pipeline` (12 stages, `--list-stages`) | MC/LQ crops per year and per syllabus section, section PDFs, answer keys, `dse-item.v1` records, audit JSON, review HTML |
 | `paper2db/scripts/convert-qb-to-pdf.sh` | Bash + LibreOffice | run by hand | `paper2db/qb-pdf/` PDFs from `paper2db/qb/` DOCX |
-| `paper2notes/layout/` | Editable book arrangement, shared components, book identities, and page slots | `node paper2notes/scripts/build-books.mjs` | all 195 published book routes under `notes/book*/` |
+| `paper2notes/layout/` | Editable book arrangement, shared components, book identities, and page slots | `node paper2notes/scripts/build-books.mjs` | all 195 published book routes under `notes/book*/` plus the `notes/js/path-manifest.json` picker inventory |
 | `paper2notes/notes/` | Static HTML/CSS/JS (vendored three.js, KaTeX) | preview generated files directly in a browser | the student site (landing `/`, Books 1–9, `/qb/`) |
 | `paper2notes/notes/dse/` | Static file tree (PNG + PDF) | committed snapshot (since 361de93) | `paper2notes/notes/dse/{mc,lq}/<NN>/` staged to `_local/dse/` by `Dockerfile` |
 | `paper2notes/scripts/checks/quiz-audit.mjs` | Node | run by hand | pass/fail for quiz keys, DSE availability and crop paths, plus answer-store agreement |
