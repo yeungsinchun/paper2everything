@@ -4,7 +4,7 @@
 
 The compiler uses Node.js built-ins only.
 It reads `book.html`, `components/*.html`, `books.json`, and `pages/book*/**/*.html`.
-It writes the same routes under `../notes/`.
+It writes the same routes under `../notes/`, plus the `notes/js/path-manifest.json` picker inventory.
 It does not write `book.html`, component files, or page sources.
 The output contains complete HTML and works without JavaScript for navigation and notes.
 The compiler never inserts or hides navigation at browser runtime.
@@ -32,7 +32,7 @@ Do not edit generated pages under `notes/book*/`.
 
 | Component | File | What a contributor edits |
 | --- | --- | --- |
-| Arrangement | `layout/book.html` | Document order: head, header, main, scripts slot, footer, trailing slot |
+| Arrangement | `layout/book.html` | Document order: head, header, main, scripts slot, footer, path-picker script, trailing slot |
 | Head | `layout/components/head.html` | Charset, viewport, title element, and the page `head` slot position |
 | Header | `layout/components/header.html` | Header landmark and the order of brand and navigation |
 | Brand | `layout/components/brand.html` | Book home link, icon, and label markup |
@@ -70,6 +70,7 @@ It does not scan lesson text, so braces in a lesson stay literal.
 | `{{home}}` | Relative link to the book index | Computed from the route |
 | `{{root}}` | Relative prefix to the notes root | Computed from the route |
 | `{{navigation}}` | Path trail and the book index menu | Compiler derives ancestors from real routes. `books.json` supplies menu labels |
+| `{{pathPicker}}` | Path-picker script tag (shared `js/path-picker.js`, generated `js/path-manifest.json`, current route) | Compiler derives the inventory from real routes. `books.json` supplies book labels |
 | `{{mainClass}}` | Class for the page type | Page type in page metadata. Class strings live in `scripts/build-books.mjs` |
 | `{{deployCommit}}` | Preserved footer commit, or `local` | Deployment footer injection, not lesson sources |
 | `{{deploySubject}}` | Preserved footer subject markup, or empty | Deployment footer injection, not lesson sources |
@@ -94,6 +95,11 @@ At 560px and below, the trail shows its first and last segments.
 The ellipsis disclosure keeps every hidden ancestor route and every book index reachable without JavaScript.
 The path nav keeps overflow visible, so the Book 6 mobile head slot cannot clip the menus.
 
+A fzf-like path picker opens from the mobile ellipsis or with Cmd+/ on macOS and Ctrl+/ on Windows.
+It starts inside the current chapter, lets a reader choose an ancestor to widen the scope or a child to narrow it, and searches within the chosen scope.
+The picker reads the generated `notes/js/path-manifest.json` inventory, so it can only offer routes the compiler derived from real published pages.
+It never renumbers sections or adds a page level; the existing path-only trail remains the no-JavaScript fallback.
+
 Book 5 Chapter 1 keeps its book-local section numbers, 1.1–1.3, in kickers, map cards, and chain links.
 The trail leaf repeats the section number each page's kicker displays, so it matches the section card a reader clicked.
 The compiler rejects a section page whose kicker does not show `Section N.N`.
@@ -109,6 +115,7 @@ The arrangement and component files own shared markup outside the main page.
 | Path | Existing role | Integration |
 | --- | --- | --- |
 | `notes/book*/**/*.html` | Static student pages, previously authored with copied shells | Generated output for every published book route |
+| `notes/js/path-manifest.json` | Generated path-picker inventory (one node per book, chapter, section, and summary) | Compiler derives it from real routes; the picker reads it at runtime |
 | `scripts/build-books.mjs` | New authoritative compiler | Reads the arrangement, shared components, and explicit page slots |
 | `scripts/checks/ci-check.mjs` | Links, shared assets, anchors, protected text, publication checks | Adds output freshness and layout regression tests |
 | `deploy/cloudrun/deploy.sh` | Footer injection, Docker build, Cloud Run publication | Compiles book sources before footer injection |

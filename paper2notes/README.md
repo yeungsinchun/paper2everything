@@ -27,7 +27,7 @@ The `head` slot retains book accents and chapter styles through existing stylesh
 The `content` slot retains chapter cards, lesson-local idea links, goals, figures, questions, and export controls.
 The `scripts` slot retains each page's scripts and their order.
 No page source contains a document shell or secondary header navigation.
-The compiler writes `notes/book*/**/*.html` only. It inserts the generated-file notice only into those pages.
+The compiler writes the generated book pages plus the `notes/js/path-manifest.json` picker inventory. It inserts the generated-file notice only into the book pages.
 
 Edit these sources, then run:
 
@@ -67,6 +67,7 @@ Book 6 and Book 9 are the exception: their pages keep their own `notes.css` and 
 | `js/checks.js` | MC, true/false and Show answer checks; DSE decks (Prev/Next, A to D grading, PDF links); Export notes as PDF |
 | `js/math.js` | KaTeX auto-render with `\(...\)`, `\[...\]` and `$$...$$` (a single `$` is not maths) |
 | `js/scene-kit.js` | `window.P2NScene` three.js helpers: `stage`, `placeHud`, `projectXY`, `wavyArrow`, `ball`, `box`, `axes`, `curveLine` |
+| `js/path-picker.js` | fzf-like path picker (scope chooser) opened from the mobile ellipsis or with Cmd+/ on macOS and Ctrl+/ on Windows; reads the generated `js/path-manifest.json` inventory |
 | `vendor/katex/`, `vendor/three/three.min.js` | Vendored KaTeX and three.js |
 
 A book `book<N>/` adds only:

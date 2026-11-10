@@ -91,7 +91,7 @@ notes/book<N>/ch<NN>-<slug>/          one chapter
 notes/book<N>/css/book.css            thin book sheet: --tone / --tone-soft and book-only rules
 notes/book<N>/js/                     quiz-data.js (DSE keys) and the book's own scene scripts
 notes/css/notes.css                   shared sheet for every book except Books 6 and 9 (tokens, layout, blocks, checks, decks)
-notes/js/                             shared checks.js, math.js, scene-kit.js
+notes/js/                             shared checks.js, math.js, scene-kit.js, path-picker.js (plus generated path-manifest.json)
 notes/vendor/{katex,three}/           shared vendored KaTeX and three.js
 notes/qb/                             question-bank UI (index.html, crops/, data/)
 notes/dse/{mc,lq}/<section>/          published DSE snapshot (tracked, from paper2db)
