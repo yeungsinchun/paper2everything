@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, mkdtempSync, mkdirSync, writeFileSync, rmSync, cpSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
-import { project, layoutDir, notesDir, loadPages, loadLayout, renderPage, publishedRoutes, checkBooks, footerFrom, normalizeSlot, generatedNotice, componentNames, sourceMarker } from './build-books.mjs';
+import { project, layoutDir, notesDir, loadPages, loadLayout, renderPage, publishedRoutes, checkBooks, footerFrom, normalizeSlot, generatedNotice, componentNames, sourceMarker, expandWorkedExamples } from './build-books.mjs';
 
 function withLayoutCopy(run) {
   const source = mkdtempSync(join(tmpdir(), 'book-layout-source-'));
@@ -340,4 +340,144 @@ test('the compiler rejects broken component arrangement before writing pages', (
     writeFileSync(book, readFileSync(book, 'utf8').replace('<!DOCTYPE html>\n', ''));
     assert.throws(() => loadLayout(source), /must start with <!DOCTYPE html>/);
   });
+});
+
+function parseDetails(html) {
+  const roots = [];
+  const stack = [];
+  const tagRe = /<\/?details\b[^>]*>/gi;
+  for (const match of html.matchAll(tagRe)) {
+    const tag = match[0];
+    if (tag.startsWith('</')) {
+      const node = stack.pop();
+      if (!node) throw new Error('unbalanced details close');
+      node.inner = html.slice(node.innerStart, match.index);
+      if (stack.length) stack.at(-1).nested.push(node);
+      else roots.push(node);
+      continue;
+    }
+    const attrs = tag.slice(tag.indexOf('details') + 'details'.length, -1);
+    const classMatch = /\bclass\s*=\s*(?:"([^"]*)"|'([^']*)')/i.exec(attrs);
+    const idMatch = /\bid\s*=\s*(?:"([^"]*)"|'([^']*)')/i.exec(attrs);
+    stack.push({
+      open: /(?:^|\s)open(?:\s|=|$)/i.test(attrs),
+      classes: classMatch ? (classMatch[1] ?? classMatch[2]).split(/\s+/).filter(Boolean) : [],
+      id: idMatch ? (idMatch[1] ?? idMatch[2]) : '',
+      summary: '',
+      innerStart: match.index + tag.length,
+      inner: '',
+      nested: [],
+      openCount: attrs.match(/(?:^|\s)open(?:\s|=|$)/gi)?.length ?? 0,
+    });
+  }
+  if (stack.length) throw new Error('unbalanced details open');
+  const fill = node => {
+    node.summary = node.inner.match(/<summary>([\s\S]*?)<\/summary>/)?.[1] ?? '';
+    node.nested.forEach(fill);
+  };
+  roots.forEach(fill);
+  return roots;
+}
+function walkDetails(nodes, out = []) {
+  for (const node of nodes) {
+    out.push(node);
+    walkDetails(node.nested, out);
+  }
+  return out;
+}
+const closedDisclosure = new Set(['fig-more', 'lq-answer', 'learn-more', 'p2n-nav-menu', 'p2n-book-menu', 'p2n-crumb-menu']);
+
+test('rendered worked examples start open, keep nested controls, and survive regeneration', () => {
+  const output = mkdtempSync(join(tmpdir(), 'worked-examples-open-'));
+  try {
+    assert.deepEqual(checkBooks({ output, write: true }).errors, []);
+    assert.deepEqual(checkBooks({ output }).errors, []);
+    const books = new Set();
+    let worked = 0;
+    let nestedInsideWorked = 0;
+    for (const page of pages) {
+      const html = readFileSync(join(output, page.route), 'utf8');
+      const details = walkDetails(parseDetails(html));
+      const sourceDetails = walkDetails(parseDetails(page.content));
+      const sourceById = new Map(sourceDetails.filter(node => node.id).map(node => [node.id, node]));
+      for (const node of details) {
+        if (node.classes.includes('worked') || node.classes.includes('worked-more')) {
+          assert.equal(node.open, true, `${page.route}#${node.id || node.summary.slice(0, 40)}`);
+          assert.equal(node.openCount, 1, `${page.route}: open is not repeated`);
+          assert.match(node.summary, /Worked (?:example|setup)|Show worked examples/, page.route);
+          assert.match(node.inner, /class="worked(?:-body)?"/, page.route);
+          if (node.id && sourceById.has(node.id)) {
+            assert.equal(node.summary, sourceById.get(node.id).summary, `${page.route}#${node.id}: label changed`);
+          }
+          worked += 1;
+          books.add(page.route.split('/')[0]);
+          for (const child of node.nested) {
+            nestedInsideWorked += 1;
+            assert.equal(child.classes.includes('worked'), false, page.route);
+            assert.equal(child.open, false, `${page.route}#${child.id}: nested disclosure opened`);
+          }
+        } else if (node.classes.some(token => closedDisclosure.has(token))) {
+          assert.equal(node.open, false, `${page.route}#${node.id || node.classes.join(' ')}`);
+        }
+      }
+    }
+    assert.equal(worked, 118);
+    assert.equal(nestedInsideWorked, 1);
+    assert.deepEqual([...books].sort(), ['book1', 'book3', 'book5', 'book6', 'book7', 'book8', 'book9']);
+    const sample = readFileSync(join(output, 'book5/ch01-radiation-and-radioactivity/25-3.html'), 'utf8');
+    const nested = walkDetails(parseDetails(sample)).find(node => node.id === 'identify-worked-1');
+    assert.equal(nested.open, true);
+    assert.equal(nested.nested.length, 1);
+    assert.equal(nested.nested[0].classes.join(' '), 'fig-more');
+    assert.equal(nested.nested[0].open, false);
+    assert.match(nested.inner, /<details class="fig-more"><summary>More<\/summary>/);
+    const stale = sample.replace('<details class="worked" id="identify-worked-1" open>', '<details class="worked" id="identify-worked-1">');
+    writeFileSync(join(output, 'book5/ch01-radiation-and-radioactivity/25-3.html'), stale);
+    assert.ok(checkBooks({ output }).errors.some(error => error.startsWith('book5/ch01-radiation-and-radioactivity/25-3.html')));
+    assert.deepEqual(checkBooks({ output, write: true }).errors, []);
+    assert.deepEqual(checkBooks({ output }).errors, []);
+    const restored = walkDetails(parseDetails(readFileSync(join(output, 'book5/ch01-radiation-and-radioactivity/25-3.html'), 'utf8')))
+      .find(node => node.id === 'identify-worked-1');
+    assert.equal(restored.open, true);
+    assert.equal(restored.nested[0].open, false);
+  } finally { rmSync(output, { recursive: true, force: true }); }
+});
+
+test('legacy and reordered worked wrappers start open without opening other disclosures', () => {
+  const output = mkdtempSync(join(tmpdir(), 'worked-examples-legacy-'));
+  try {
+    withLayoutCopy(source => {
+      const file = join(source, 'pages/book3/ch04-light-and-sound/16-1.html');
+      const fixture = [
+        '<details class="worked-more" id="legacy-worked-more"><summary>Show worked examples</summary><div class="worked" id="legacy-worked-card"><p>Legacy card stays in the flow.</p></div></details>',
+        '<details id="legacy-attr-order" class="worked extra"><summary>Worked example <span>Attribute order</span></summary><div class="worked-body"><p>Open me.</p><details class="fig-more" id="legacy-nested-more"><summary>More</summary><p>Still closed.</p></details></div></details>',
+        '<details class="worked" open id="legacy-already-open"><summary>Worked example <span>Already open</span></summary><div class="worked-body"><p>Once.</p></div></details>',
+        '<details class="fig-more" id="legacy-keep-closed"><summary>More</summary><p>Not a worked example.</p></details>',
+        '<details class="lq-answer" id="legacy-scheme"><summary>Show marking scheme</summary><p>Closed.</p></details>',
+      ].join('');
+      writeFileSync(file, readFileSync(file, 'utf8').replace('<!-- slot:scripts -->', `${fixture}\n<!-- slot:scripts -->`));
+      assert.deepEqual(checkBooks({ source, output, write: true }).errors, []);
+      assert.deepEqual(checkBooks({ source, output }).errors, []);
+      const html = readFileSync(join(output, 'book3/ch04-light-and-sound/16-1.html'), 'utf8');
+      const details = walkDetails(parseDetails(html));
+      const byId = new Map(details.filter(node => node.id).map(node => [node.id, node]));
+      assert.equal(byId.get('light-example').open, true);
+      assert.equal(byId.get('light-example').summary, 'Worked example');
+      assert.equal(byId.get('legacy-worked-more').open, true);
+      assert.match(byId.get('legacy-worked-more').inner, /<div class="worked" id="legacy-worked-card">/);
+      assert.equal(html.includes('<details class="worked" id="legacy-worked-card"'), false);
+      assert.equal(byId.get('legacy-attr-order').open, true);
+      assert.equal(byId.get('legacy-attr-order').openCount, 1);
+      assert.equal(byId.get('legacy-attr-order').summary, 'Worked example <span>Attribute order</span>');
+      assert.equal(byId.get('legacy-nested-more').open, false);
+      assert.equal(byId.get('legacy-nested-more').classes.join(' '), 'fig-more');
+      assert.equal(byId.get('legacy-already-open').open, true);
+      assert.equal(byId.get('legacy-already-open').openCount, 1);
+      assert.match(html, /<details class="worked" open id="legacy-already-open">/);
+      assert.equal(byId.get('legacy-keep-closed').open, false);
+      assert.equal(byId.get('legacy-scheme').open, false);
+      assert.equal(expandWorkedExamples(html), html);
+      assert.equal(readFileSync(join(layoutDir, 'pages/book3/ch04-light-and-sound/16-1.html'), 'utf8').includes('legacy-worked-more'), false);
+    });
+  } finally { rmSync(output, { recursive: true, force: true }); }
 });
