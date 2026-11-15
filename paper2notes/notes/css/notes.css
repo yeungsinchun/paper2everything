@@ -2126,7 +2126,7 @@ h1 .katex, h2 .katex, h3 .katex { font-size: 1em; }
   .p2n-formula .p2n-formula-key > dd { margin-bottom: var(--space-2); }
 }
 
-/* Book 1 worked-example disclosure: one collapsed card with a chevron. */
+/* Worked-example disclosure: starts open. The chevron still collapses and reopens the card. */
 details.worked { padding: 0; }
 details.worked > summary {
   display: flex;
