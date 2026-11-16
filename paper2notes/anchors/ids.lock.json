@@ -31,7 +31,6 @@
       "lq-quiz-heading",
       "mc-quiz",
       "mc-quiz-heading",
-      "thermometers-digest",
       "thermometers-goals"
     ],
     "book1/ch01-temperature-and-heat-transfer/1-2.html": [
@@ -49,7 +48,6 @@
       "internal-energy",
       "internal-energy-check-factors",
       "internal-energy-def-internal",
-      "internal-energy-digest",
       "internal-energy-eq-sum",
       "internal-energy-fig-split",
       "internal-energy-goals",
@@ -104,12 +102,10 @@
       "radiation-tf-vacuum",
       "radiation-tip-pairs",
       "radiation-vis",
-      "transfer-digest",
       "transfer-goals"
     ],
     "book1/ch01-temperature-and-heat-transfer/1-4.html": [
       "air-arrow",
-      "devices-digest",
       "devices-goals",
       "dse-lq-2022-1",
       "dse-mc-2014-1",
@@ -166,7 +162,6 @@
       "power",
       "power-check-units",
       "power-def-power",
-      "power-digest",
       "power-eq-definition",
       "power-fig-graph",
       "power-goals",
@@ -179,7 +174,6 @@
       "capacity-check-same-energy",
       "capacity-def-heat-capacity",
       "capacity-def-specific",
-      "capacity-digest",
       "capacity-eq-main",
       "capacity-fig-heating",
       "capacity-goals",
@@ -237,7 +231,6 @@
       "mc-quiz-heading",
       "mixing-m",
       "mixing-vis",
-      "mixture-digest",
       "mixture-goals",
       "mixtures-method",
       "mixtures-method-check-loss",
@@ -257,7 +250,6 @@
       "uses-check-coolant",
       "uses-fig-climate",
       "uses-notes-examples",
-      "water-digest",
       "water-goals"
     ],
     "book1/ch02-heat-capacity/summary.html": [
@@ -280,7 +272,6 @@
       "boiling-check-location",
       "boiling-def",
       "boiling-fig-compare",
-      "change-digest",
       "dse-lq-2012-1",
       "dse-mc-2012-2",
       "dse-mc-2013-1",
@@ -313,7 +304,6 @@
       "latent",
       "latent-check-ke",
       "latent-def",
-      "latent-digest",
       "latent-energy-table",
       "latent-fig-curve",
       "latent-fig-path",
@@ -345,7 +335,6 @@
       "specific-check-mass",
       "specific-fig-measure",
       "specific-latent-def",
-      "specific-latent-digest",
       "specific-latent-eq",
       "specific-latent-worked",
       "stages",
@@ -374,7 +363,6 @@
       "pressure",
       "pressure-check-area",
       "pressure-def",
-      "pressure-digest",
       "pressure-eq",
       "pressure-worked"
     ],
@@ -409,7 +397,6 @@
       "ideal",
       "ideal-check",
       "ideal-gas-eq",
-      "laws-digest",
       "lq-quiz",
       "lq-quiz-heading",
       "mc-quiz",
@@ -437,7 +424,6 @@
       "ideal-check-limits",
       "ideal-def",
       "kinetic-check-temperature",
-      "kinetic-digest",
       "kinetic-fig",
       "kinetic-links",
       "kt-check",
@@ -457,7 +443,6 @@
       "gas-summary-traps"
     ],
     "book2/ch01-position-and-displacement/index.html": [
-      "ch--digest-1",
       "ch--lo-1",
       "distance-vs-displacement",
       "distance-vs-displacement--check-1",
@@ -2415,7 +2400,6 @@
       "recall-table"
     ],
     "book8/ch01-lighting/1-1.html": [
-      "11-digest",
       "bulb-sankey-title",
       "chain-vis",
       "end-use-efficiency",
@@ -2446,7 +2430,6 @@
       "saving-devices-tf-thermostat"
     ],
     "book8/ch01-lighting/1-2.html": [
-      "12-digest",
       "choosing-lamps",
       "choosing-lamps-check-1",
       "choosing-lamps-fig-1",
@@ -2495,7 +2478,6 @@
       "spectra-title"
     ],
     "book8/ch01-lighting/1-3.html": [
-      "13-digest",
       "cosine-law",
       "cosine-law-check-1",
       "cosine-law-def-1",
@@ -2541,7 +2523,6 @@
       "lo-heading"
     ],
     "book8/ch02-cooking-and-air-conditioning/2-1.html": [
-      "21-digest",
       "compare-cookers",
       "compare-cookers-check-1",
       "compare-cookers-eq-1",
@@ -2567,7 +2548,6 @@
       "microwave-vis"
     ],
     "book8/ch02-cooking-and-air-conditioning/2-2.html": [
-      "22-digest",
       "ac-labels",
       "ac-labels-check-1",
       "ac-labels-eq-1",
@@ -2609,7 +2589,6 @@
       "lo-heading"
     ],
     "book8/ch03-buildings-and-transportation/3-1.html": [
-      "31-digest",
       "conduction",
       "conduction-check-1",
       "conduction-def-1",
@@ -2645,7 +2624,6 @@
       "u-value-worked-wall"
     ],
     "book8/ch03-buildings-and-transportation/3-2.html": [
-      "32-digest",
       "car-flow-title",
       "drag-vis",
       "driving-power",
@@ -2685,7 +2663,6 @@
       "lo-heading"
     ],
     "book8/ch04-different-sources-of-energy/4-1.html": [
-      "41-digest",
       "gen-title",
       "generation",
       "generation-check-1",
@@ -2698,7 +2675,6 @@
       "renewable-notes-1"
     ],
     "book8/ch04-different-sources-of-energy/4-2.html": [
-      "42-digest",
       "binding",
       "binding-check-1",
       "binding-def-1",
@@ -2751,7 +2727,6 @@
       "wind-worked-turbine"
     ],
     "book8/ch04-different-sources-of-energy/4-3.html": [
-      "43-digest",
       "ghg-title",
       "greenhouse",
       "greenhouse-check-1",

@@ -19,13 +19,15 @@ Published HTML notes live under `notes/`. Follow textbook order; prefer visual a
 
 ## Shared book layout
 
-`layout/book.html` owns the document, primary navigation, book brand, page frame, and footer markup for every book route.
+`layout/book.html` is editable source. It arranges the shared page. The compiler does not generate it.
+`layout/components/` holds the editable shared components: `head`, `brand`, `navigation`, `header`, `main`, and `footer`.
 `layout/books.json` supplies book labels and icons.
 `layout/pages/book*/**/*.html` supplies each page's title, page type, and four explicit HTML slots: `head`, `content`, `scripts`, and `trailing`.
 The `head` slot retains book accents and chapter styles through existing stylesheet links.
 The `content` slot retains chapter cards, lesson-local idea links, goals, figures, questions, and export controls.
 The `scripts` slot retains each page's scripts and their order.
 No page source contains a document shell or secondary header navigation.
+The compiler writes the generated book pages plus the `notes/js/path-manifest.json` picker inventory. It inserts the generated-file notice only into the book pages.
 
 Edit these sources, then run:
 
@@ -49,7 +51,7 @@ Other books keep their existing maps, section pages, summaries, and lesson-local
 `layout/migration-contract.json` records the starting routes, lesson hashes, script hashes, anchors, and lesson links from `36d17fac`.
 The preservation tests ignore empty-line whitespace and whitespace at slot boundaries.
 Update the corresponding contract entries when intentionally changing lesson content after this migration.
-The tests edit an isolated template copy, rebuild every route, and verify propagation without changing page sources.
+The tests edit an isolated component copy, rebuild every route, and verify propagation without changing page sources.
 Representative screenshots do not establish complete route coverage.
 
 See `layout/README.md` for generation paths, validation coverage, and existing exceptions.
@@ -67,6 +69,7 @@ Book 6 and Book 9 are the exception: their pages keep their own `notes.css` and 
 | `css/question-notes.css` | Question-to-notes panel, card-expansion and print-exclusion styles |
 | `js/math.js` | KaTeX auto-render with `\(...\)`, `\[...\]` and `$$...$$` (a single `$` is not maths) |
 | `js/scene-kit.js` | `window.P2NScene` three.js helpers: `stage`, `placeHud`, `projectXY`, `wavyArrow`, `ball`, `box`, `axes`, `curveLine` |
+| `js/path-picker.js` | fzf-like path picker (scope chooser) opened from the mobile ellipsis or with Cmd+/ on macOS and Ctrl+/ on Windows; reads the generated `js/path-manifest.json` inventory |
 | `vendor/katex/`, `vendor/three/three.min.js` | Vendored KaTeX and three.js |
 
 A book `book<N>/` adds only:

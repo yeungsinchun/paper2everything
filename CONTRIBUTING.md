@@ -12,7 +12,7 @@ Representative PNG screenshots (before/after grid or sample where a crop changed
 
 ## Dev preview
 
-Book pages are generated from `paper2notes/layout/pages/`; rebuild after editing them (`paper2notes/layout/README.md` owns the generation contract).
+Book pages are generated from `paper2notes/layout/`; rebuild after editing its sources (`paper2notes/layout/README.md` owns the generation contract).
 
 ```bash
 node paper2notes/scripts/build-books.mjs

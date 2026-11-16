@@ -3,10 +3,12 @@
 ## Source and output
 
 The compiler uses Node.js built-ins only.
-It reads `book.html`, `books.json`, and `pages/book*/**/*.html`.
-It writes the same routes under `../notes/`.
+It reads `book.html`, `components/*.html`, `books.json`, and `pages/book*/**/*.html`.
+It writes the same routes under `../notes/`, plus the `notes/js/path-manifest.json` picker inventory.
+It does not write `book.html`, component files, or page sources.
 The output contains complete HTML and works without JavaScript for navigation and notes.
 The compiler never inserts or hides navigation at browser runtime.
+The compiler inserts the generated-file notice only into generated pages.
 
 Each page starts with JSON metadata inside a `page` comment.
 The metadata names its title and page type.
@@ -17,24 +19,104 @@ The remaining comments delimit four raw HTML slots:
 - `scripts`: scripts after the main page, in their original order.
 - `trailing`: existing comments after the document.
 
-The shared template supplies the document structure and primary navigation.
+## Editable components
+
+Each editable file starts with `<!-- source: <name>. Edit this file. The compiler does not generate this file. -->`.
+`book.html` arranges the document. Edit it to move a component or a page slot.
+The compiler requires exactly these six component files and rejects any other file in `components/`.
+The arrangement must start with `<!DOCTYPE html>`, and every editable file must end with a newline.
+Edit a component file to change that component's markup.
+Edit `pages/` to change one page's title, type, or slots.
+Edit `books.json` to change a book label or icon.
+Do not edit generated pages under `notes/book*/`.
+
+| Component | File | What a contributor edits |
+| --- | --- | --- |
+| Arrangement | `layout/book.html` | Document order: head, header, main, scripts slot, footer, path-picker script, trailing slot |
+| Head | `layout/components/head.html` | Charset, viewport, title element, and the page `head` slot position |
+| Header | `layout/components/header.html` | Header landmark and the order of brand and navigation |
+| Brand | `layout/components/brand.html` | Book home link, icon, and label markup |
+| Navigation | `layout/components/navigation.html` | Primary navigation element. The link list is a resolved value |
+| Main | `layout/components/main.html` | Main landmark and the page `content` slot position |
+| Footer | `layout/components/footer.html` | Deployment footer markup and its position in the body |
+
+Page files identify themselves with the opening `<!-- page` metadata block.
+That block is source metadata, not a generated-file notice.
+
+## Placeholder resolution
+
+The compiler resolves component placeholders before value placeholders.
+It walks `{{component:name}}` from left to right, then into each component.
+A missing name, a cycle, or a placeholder that is not a lowercase component name is an error.
+It then replaces `{{name}}` values in the composed page.
+It does not scan lesson text, so braces in a lesson stay literal.
+
+| Placeholder | Resolved value | Edit location |
+| --- | --- | --- |
+| `{{component:head}}` | `components/head.html` | That component file |
+| `{{component:header}}` | `components/header.html` | That component file |
+| `{{component:brand}}` | `components/brand.html` | That component file |
+| `{{component:navigation}}` | `components/navigation.html` | That component file |
+| `{{component:main}}` | `components/main.html` | That component file |
+| `{{component:footer}}` | `components/footer.html` | That component file |
+| `{{title}}` | Escaped page title | Page metadata in `layout/pages/` |
+| `{{head}}` | Page head slot | The same page file. This is not the head component |
+| `{{content}}` | Page content slot | The same page file |
+| `{{scripts}}` | Page scripts slot | The same page file |
+| `{{trailing}}` | Page trailing slot | The same page file |
+| `{{book}}` | Book id from the route | The route path |
+| `{{label}}` | Escaped book label | `layout/books.json` |
+| `{{icon}}` | Escaped book icon name | `layout/books.json` |
+| `{{home}}` | Relative link to the book index | Computed from the route |
+| `{{root}}` | Relative prefix to the notes root | Computed from the route |
+| `{{navigation}}` | Path trail and the book index menu | Compiler derives ancestors from real routes. `books.json` supplies menu labels |
+| `{{pathPicker}}` | Path-picker script tag (shared `js/path-picker.js`, generated `js/path-manifest.json`, current route) | Compiler derives the inventory from real routes. `books.json` supplies book labels |
+| `{{mainClass}}` | Class for the page type | Page type in page metadata. Class strings live in `scripts/build-books.mjs` |
+| `{{deployCommit}}` | Preserved footer commit, or `local` | Deployment footer injection, not lesson sources |
+| `{{deploySubject}}` | Preserved footer subject markup, or empty | Deployment footer injection, not lesson sources |
+
 `books.json` supplies book labels and icons.
 The compiler calculates relative links from the output route.
 The compiler maps page types to the existing classes for overviews, complete chapters, maps, sections, and summaries.
 A page cannot supply its own header or secondary chapter row.
 No book has a switch for secondary navigation.
 
+The top bar shows an inline chevron trail in place of the flat book links.
+The current page is bold text, not a link.
+The trail is path-only: it has no separate Books control and no Question bank control.
+Question bank stays reachable from the landing page card.
+All books links to the landing page, and chapter ancestors link to their chapter index.
+The Book segment is the menu trigger on every page type, including when it is the current page.
+Its label is Book N, with no extra word and no down arrow.
+The menu lists every real book index route from `books.json`, including the current book.
+Complete chapters, including Book 2 chapters, end at the chapter level.
+Sections and summaries are leaves, and no chapter or section sibling menu exists.
+At 560px and below, the trail shows its first and last segments.
+The ellipsis disclosure keeps every hidden ancestor route and every book index reachable without JavaScript.
+The path nav keeps overflow visible, so the Book 6 mobile head slot cannot clip the menus.
+
+A fzf-like path picker opens from the mobile ellipsis or with Cmd+/ on macOS and Ctrl+/ on Windows.
+It starts inside the current chapter, lets a reader choose an ancestor to widen the scope or a child to narrow it, and searches within the chosen scope.
+The picker reads the generated `notes/js/path-manifest.json` inventory, so it can only offer routes the compiler derived from real published pages.
+It never renumbers sections or adds a page level; the existing path-only trail remains the no-JavaScript fallback.
+
+Book 5 Chapter 1 keeps its book-local section numbers, 1.1–1.3, in kickers, map cards, and chain links.
+The trail leaf repeats the section number each page's kicker displays, so it matches the section card a reader clicked.
+The compiler rejects a section page whose kicker does not show `Section N.N`.
+Route filenames stay unchanged.
+
 Book 6 and Book 9 keep their own `notes.css` and `p2n.css` design sheets, which their `head` slots load.
 Every other book loads the shared `notes/css/notes.css`; every one of them except Book 3 also loads its own `book.css`.
 The compiler preserves the existing deployment footer value when rebuilding a generated file.
-The shared template owns its markup and position outside the main page.
+The arrangement and component files own shared markup outside the main page.
 
 ## Inventory of generation and publication paths
 
 | Path | Existing role | Integration |
 | --- | --- | --- |
 | `notes/book*/**/*.html` | Static student pages, previously authored with copied shells | Generated output for every published book route |
-| `scripts/build-books.mjs` | New authoritative compiler | Reads one layout and explicit page slots |
+| `notes/js/path-manifest.json` | Generated path-picker inventory (one node per book, chapter, section, and summary) | Compiler derives it from real routes; the picker reads it at runtime |
+| `scripts/build-books.mjs` | New authoritative compiler | Reads the arrangement, shared components, and explicit page slots |
 | `scripts/checks/ci-check.mjs` | Links, shared assets, anchors, protected text, publication checks | Adds output freshness and layout regression tests |
 | `deploy/cloudrun/deploy.sh` | Footer injection, Docker build, Cloud Run publication | Compiles book sources before footer injection |
 | `deploy/cloudrun/Dockerfile` | Static nginx image with footer fallback and DSE aliases | Compiles sources in a Node stage, then copies static output |
@@ -70,7 +152,8 @@ The nginx deployment still serves static files at unchanged addresses.
 The regression tests resolve every stylesheet and script in the generated routes, so a page that points at a missing asset fails.
 They also check that every page with an export button loads the shared `js/checks.js`.
 They rebuild Book 6 and Book 9 lesson pages with their own design sheets and check every stylesheet resolves.
-They verify source/output parity and one template edit reaching every route.
+They enumerate actual routes rather than relying on this table.
+They verify source/output parity and one component edit reaching every route.
 They compare lesson bytes, script bytes, anchor IDs, and lesson links against the migration contract.
 The byte comparisons ignore only empty-line whitespace and whitespace at slot boundaries.
 Book 2 keeps its existing complete chapter structure.

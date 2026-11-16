@@ -457,6 +457,7 @@ const SHARED_ASSETS = {
   "notes.css": "css/notes.css",
   "checks.js": "js/checks.js",
   "math.js": "js/math.js",
+  "path-picker.js": "js/path-picker.js",
   "katex.min.css": "vendor/katex/katex.min.css",
   "katex.min.js": "vendor/katex/katex.min.js",
   "auto-render.min.js": "vendor/katex/auto-render.min.js",
