@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
 <link rel="stylesheet" href="../css/p2n-shell.css">
+<link rel="stylesheet" href="../vendor/katex/katex.min.css">
 <link rel="stylesheet" href="css/qb.css">
 </head>
 <body>
@@ -68,7 +69,13 @@
   </section>
 </main>
 
-<script>
+<script src="../vendor/katex/katex.min.js"></script>
+<script src="../vendor/katex/auto-render.min.js"></script>
+<script type="module">
+let attachQuestionNotes = () => {};
+import('../js/question-notes.mjs')
+  .then(module => { attachQuestionNotes = module.attachQuestionNotes; }, () => {})
+  .then(init);
 // Two separate stores, never merged: DSE past papers and QB.
 const STORES = { dse_mc: null, dse_lq: null, dse_sections: null, qb_items: null, qb_banks: null, qb_deployed: null };
 let selected = new Set(); // ids like "dse:2018-31" and "qb:PHY15031101"
@@ -211,6 +218,7 @@ function renderDSE(items) {
         <span class="qb-topic" title="${esc(topic)}">${esc(topic)}</span>
         ${pick(id, selected.has(id))}
       </div>`;
+    attachQuestionNotes(card, { corpus: 'dse', itemId: it.id, kind: it.type });
     frag.appendChild(card);
   });
   if (items.length>400) {
@@ -300,6 +308,7 @@ function renderQB(items){
         <span class="qb-topic">Ch.${esc(it.chapter)} ${esc(bankName(it.bank))}</span>
         ${pick(id, selected.has(id))}
       </div>`;
+    attachQuestionNotes(card, { corpus: 'qb', itemId: it.id });
     frag.appendChild(card);
   });
   if (items.length>300) {
@@ -333,7 +342,6 @@ $("export-selection").addEventListener("click", ()=>{
   navigator.clipboard.writeText(txt).then(()=>{ const b=$("export-selection"); b.textContent="Copied"; setTimeout(()=>{ b.textContent="Copy IDs"; }, 1600); }, ()=> prompt("Copy:",txt));
 });
 
-init();
 </script>
 <footer class="deploy-commit-footer" style="text-align:center;font-size:0.68rem;color:#9aa0a8;padding:10px 1rem 12px;border-top:1px solid #e9e3d6;margin-top:2rem;font-family:ui-monospace,Menlo,Consolas,monospace" data-commit="bb3835">deployed commit: <code style="font:inherit;color:inherit;background:none;border:0;padding:0">bb3835</code> <span class="deploy-commit-subject">fix(skills): clarify gh --attach as preferred, drag-drop as fallback for video and crop (#66)</span></footer>
 </body>

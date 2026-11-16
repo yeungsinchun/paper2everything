@@ -70,6 +70,7 @@ Generated crops, section PDFs and `.lavish/` HTML are **not committed** (see `.g
 | `schemas/qb-item.v2.json` | `paper2db.qb-item.v2` item contract (corpus-agnostic, with `scope` and `source_manifest`) |
 | `schemas/answer-pointer.v1.json` | `paper2db.answer-pointer.v1` store contract for answer pointers |
 | `metadata/pointers/{qb,dse}.json` | Tracked answer-pointer records (reviewed pointers; the staged answer crops are derived automatically) |
+| `metadata/pointers/notes.json` | Tracked teaching-reference store: question → notes passage references behind the question-bank "Explain with notes" panel; `paper2notes/scripts/publish-notes-passages.py` owns its format and serving projection (`docs/QUESTION_NOTES.md`) |
 | `metadata/mc/llm_classifications.json` | Tracked MC classification decisions (LLM or keyword backend) |
 | `metadata/lq/llm_classifications.json` | Tracked LQ classification decisions |
 | `metadata/qb/banks.json` | Tracked QB census per bank (46 banks, 169 DOCX → 3847 items, 1881 in-scope) — source of truth for counts |
@@ -114,6 +115,8 @@ The QB stages skip when no QB DOCX source tree is found. They use `$P2DB_QB_ROOT
 `metadata/pointers/{qb,dse}.json` (`schemas/answer-pointer.v1.json`) say where each item's worked answer or marking scheme lives. An item may have several pointers; `scripts/pointers.py` merges them to one by tier (`verified` > `derived` > `inferred`), and two different targets at the same top tier are a conflict. Items are joined by `item_id` against the staged indexes in `qb-web-ui-staging/` (qb ids as-is, `dse-mc-<year>-<q>`, `dse-lq-<year>-q<n>`). Target paths are relative to `paper2db/`.
 
 Pointers that need no judgement are derived from the tracked staging tree: every staged question crop with an answer crop beside it (`qb/crops/<id>.ans.png`, `dse-lq/crops/<id>-ans.png`) resolves to that answer file at the `derived` tier. A tracked record for the same item wins, so the stores stay the place for reviewed pointers (a `verified` record can point at a marking-scheme PDF page instead). MC past-paper items have no staged answer crop - their answer is the correct option in the generated `answer_keys.json` - so they resolve to nothing until a pointer names the marking-scheme page.
+
+`metadata/pointers/notes.json` is not an answer-pointer store. It maps a question to the notes passages the question-bank panel shows, and `paper2notes/scripts/publish-notes-passages.py` validates it and generates the serving projection; `docs/QUESTION_NOTES.md` describes the store and the evidence rule for keeping a mapping.
 
 ```bash
 python3 scripts/pointers.py coverage             # in-scope items with a pointer, by type and tier

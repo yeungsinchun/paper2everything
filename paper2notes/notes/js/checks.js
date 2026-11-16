@@ -10,6 +10,8 @@
      [data-quiz-prev] / [data-quiz-next]. Optional deck attributes:
        data-quiz-pdf / data-quiz-section-pdf  link the whole-chapter and this-section PDFs;
        data-quiz-scan-export                  adds "Export PDF", printing the deck's scans.
+   - Each .quiz-slide also receives a .question-notes-control (.question-notes-toggle +
+     .question-notes panel) from js/question-notes.mjs; see docs/QUESTION_NOTES.md.
    After the student answers correctly, the short `.explain` line (when present) is shown so
    every check teaches the reasoning; a wrong pick is an amber nudge and the rest of the
    options stay live until one is right.
@@ -22,6 +24,7 @@
 
   var QUIZ_DATA = window.P2N_QUIZ || {};
   var PAPER_LOS = QUIZ_DATA.paperLos || {};
+  var questionNotesModule = new URL("question-notes.mjs", document.currentScript.src).href;
   var QUIZ_KEYS = QUIZ_DATA.quizKeys || {};
 
   function $(sel, root) {
@@ -481,6 +484,14 @@
     initReveals();
     initQuizDecks();
     initNotesExport();
+    // Keep the shared deck controls independent from the optional explanation module.
+    import(questionNotesModule).then(function (notes) {
+      $all(".quiz-slide").forEach(function (slide) {
+        notes.attachQuestionNotes(slide, { corpus: "dse", itemId: slide.id });
+      });
+    }).catch(function (error) {
+      console.error("Notes explanations could not load.", error);
+    });
   }
 
   window.NotesQuiz = { sectionPapersHtml: sectionPapersHtml };

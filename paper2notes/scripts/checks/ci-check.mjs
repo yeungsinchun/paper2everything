@@ -12,7 +12,7 @@
 // plus the deploy-commit footer (muted `deployed commit: <6-char> <subject>` per HTML),
 // plus leak-check (notes must not reproduce protected question/answer text;
 // see scripts/checks/leak-check.mjs),
-// plus anchor ids / moves.json / answer pointers (see scripts/checks/anchor-lint.mjs),
+// plus anchor ids / moves.json / pointer stores (see scripts/checks/anchor-lint.mjs),
 // plus the DSE availability record: every published DSE section must be
 // recorded in notes/dse/availability.json with a reason, and every published
 // crop must be a question the papers really hold (see

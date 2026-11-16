@@ -12,7 +12,8 @@
 //                       anchors/moves.json ({page, from, to}) with `to` still
 //                       present on the page (chains are followed).
 //   5. pointers       - paper2db/metadata/pointers/*.json (when present) must
-//                       match the paper2db.answer-pointer.v1 shape.
+//                       match answer-pointer.v1, or notes-pointer.v1 for notes.json.
+//                       The teaching-reference producer owns notes validation/extraction.
 //
 // `node scripts/checks/anchor-lint.mjs --write-lock` adds every current id to the
 // lock (it never drops ids; removals must go through moves.json).
@@ -20,6 +21,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, dirname, resolve, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const defaultRepoRoot = resolve(__dirname, "../..");
@@ -259,14 +261,22 @@ function lintPointerFile(doc, label) {
   return errors;
 }
 
-function lintPointers(pointersDir, repoRootRel, errors) {
+function lintPointers(pointersDir, repoRootRel, errors, notesDir) {
   if (!existsSync(pointersDir)) return;
   const names = readdirSync(pointersDir).filter((n) => n.endsWith(".json")).sort();
   for (const name of names) {
     const label = join(repoRootRel, name).split(sep).join("/");
     const doc = readJson(join(pointersDir, name), errors, label);
     if (!doc) continue;
-    errors.push(...lintPointerFile(doc, label));
+    if (name === "notes.json") {
+      // One producer owns the canonical format; never duplicate its normalizer here.
+      const check = spawnSync("python3", [join(__dirname, "..", "publish-notes-passages.py"),
+        "--store", join(pointersDir, name), "--notes-root", notesDir, "--check"],
+      { encoding: "utf8", timeout: 30000, maxBuffer: 1024 * 1024 });
+      if (check.error || check.status !== 0) errors.push(`${label}: ${check.error?.message || check.stderr.trim() || "notes-reference validation failed"}`);
+    } else {
+      errors.push(...lintPointerFile(doc, label));
+    }
   }
 }
 
@@ -327,7 +337,7 @@ export function lintAnchors({ repoRoot = defaultRepoRoot, writeLock = false } = 
     }
   }
 
-  lintPointers(join(repoRoot, "..", "paper2db", "metadata", "pointers"), "paper2db/metadata/pointers", errors);
+  lintPointers(join(repoRoot, "..", "paper2db", "metadata", "pointers"), "paper2db/metadata/pointers", errors, notesDir);
   return { errors, lock: nextLock };
 }
 

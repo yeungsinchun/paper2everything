@@ -1,0 +1,28 @@
+/* Scoped to the question-to-notes interaction; never restyle question or answer controls. */
+.question-notes-control{margin:12px;min-width:0;font:400 1rem/1.6 var(--font-body,system-ui,sans-serif)}
+.question-notes-toggle,.question-notes-close{min-height:44px;padding:8px 14px;border:2px solid #28746c;border-radius:10px;background:#edf8f5;color:#154d47;font:700 .95rem/1.4 var(--font-body,system-ui,sans-serif);cursor:pointer;max-width:100%;white-space:normal;text-align:left}
+.question-notes-toggle:hover,.question-notes-close:hover{background:#d9f1eb}
+.question-notes-control :is(button,a):focus-visible{outline:3px solid #126aab;outline-offset:3px}
+.question-notes[hidden]{display:none!important}
+.question-notes{margin-top:10px;padding:16px;background:#fffef9;border:2px solid #aacbc4;border-radius:12px;color:#203b37;overflow-wrap:anywhere;text-align:left}
+.question-notes h3{margin:0 0 8px;font:700 1.15rem/1.4 var(--font-body,system-ui,sans-serif)}
+.question-notes h4{margin:0 0 8px;font:700 1rem/1.5 var(--font-body,system-ui,sans-serif)}
+.question-notes p{font-size:1rem;line-height:1.65}
+.question-notes-status{margin:0 0 12px}
+.question-notes-passage{margin:16px 0;padding-top:12px;border-top:1px solid #c7dcd6}
+.question-notes-text{margin:0 0 12px;white-space:normal}
+.question-notes mark{color:#392d04;background:#fff0a3;border-bottom:2px solid #9d7714;padding:1px 0}
+.question-notes-original{display:inline-block;min-height:44px;padding:8px 0;color:#175e80;text-decoration:underline;text-underline-offset:3px}
+.question-notes-warning{padding:10px;border-left:3px solid #a76722;background:#fff4e5;color:#633b0f}
+.question-notes-close{margin-top:8px}
+@media(max-width:480px){.question-notes{padding:12px}.question-notes-control{margin:10px}}
+/* Give an open explanation readable space without leaving its question card. */
+.qb-card:has(> .question-notes-control > .question-notes:not([hidden])){grid-column:1/-1}
+@media(min-width:900px){
+  .qb-card:has(> .question-notes-control > .question-notes:not([hidden])){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto 1fr;align-items:start}
+  .qb-card:has(> .question-notes-control > .question-notes:not([hidden])) > :is(.qb-card-head,.qb-fig,.qb-card-foot){grid-column:1}
+  .qb-card:has(> .question-notes-control > .question-notes:not([hidden])) > .qb-card-foot{margin-top:0}
+  .qb-card:has(> .question-notes-control > .question-notes:not([hidden])) > .question-notes-control{grid-column:2;grid-row:1/4}
+}
+/* A notes export must not include a question's open explanation panel. */
+@media print{.question-notes-control{display:none!important}.qb-card:has(> .question-notes-control > .question-notes:not([hidden])){display:flex;grid-column:auto}}
